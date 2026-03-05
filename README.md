@@ -19,8 +19,8 @@ For the full list of implemented formation, growth, and interpretation models, s
 
 ## Workflow
 **Phase 1 (CURRENT STAGE): Start with a small dataset** 
-- Extract raw data (~10 objects) into `data/raw/extractions.csv`
-- Standardize into `data/processed/catalogue.csv` (units, log conventions, derived `M_BH/M_*`, consistent method tags)
+- Extract raw data (~10 objects) into `data/raw/v1_raw.csv`
+- Standardize into `data/processed/v1_processed_.csv` (units, log conventions, derived `M_BH/M_*`, consistent method tags)
 
 **Phase 2: Implement core pipeline**
 - Redshift → cosmic time conversion
