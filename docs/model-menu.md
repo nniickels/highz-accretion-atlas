@@ -26,7 +26,7 @@
 - Warm DM / fuzzy DM
 - Primordial non-Gaussianity / modified power spectrum
 
-## Interpretation Models:
+## Interpretation Models
 **A. MBH inference interpretations**
 - Single-epoch virial systematics
 - Non-virial broadening
@@ -39,7 +39,7 @@
 - Obscuration / reprocessing
 - Variability
 
-**C. Host galaxy interpretations (M*, SFR, ages)**
+**C. Host galaxy interpretations (M\*, SFR, ages)**
 - AGN contamination of SED
 - Nebular line contamination in broadband photometry
 - LRD “fake Balmer break”
