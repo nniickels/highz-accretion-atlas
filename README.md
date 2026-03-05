@@ -46,4 +46,3 @@ For the full list of implemented formation, growth, and interpretation models, s
 - Add metallicity and ISM diagnostics for the subset with suitable lines and clearly documented calibrations
 - Extend scoring to include environment/rarity priors (e.g., DCBH-like special conditions) where relevant
 
-## Results and Metrics
