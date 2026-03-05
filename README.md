@@ -31,6 +31,8 @@ For the full list of implemented formation, growth, and interpretation models, s
 **Phase 3: Results**
 - Generate outputs: requirement tables, model score tables, and core plots (e.g., `M_BH/M_*` vs z, required average `f_Edd` vs z, feasibility heatmap)
 
+Call everything up until this point `v1`. 
+
 **Phase 4: Increase dataset (same object class) and repeat**
 - Scale by adding additional sources (more papers, same object class) and reconcile duplicates via coordinates + redshift
 - Track cross-paper differences explicitly (multiple measurements per object) and propagate them through the same pipeline

@@ -1,7 +1,7 @@
 # Model Menu
 (THIS IS A DRAFT. NOTHING IS IMPLEMENTED YET)
 
-## Formation and growth models
+## Formation and Growth Models
 **A. Seeds**
 - Light seeds (Pop III remnants); `M_seed ~ 10–100 Msun`
 - Intermediate seeds (dense cluster runaway/nuclear star cluster); `M_seed ~ 1e3–1e4 Msun`
