@@ -20,16 +20,18 @@ For the full list of implemented formation, growth, and interpretation models, s
 ## Workflow
 **Phase 1 (CURRENT STAGE): Start with a small dataset** 
 - Extract raw data (~10 objects) into `data/raw/v1_raw.csv`
-- Standardize into `data/processed/v1_processed_.csv` (units, log conventions, derived `M_BH/M_*`, consistent method tags)
+- Write data standardizing pipeline into `src/standardize_data.ipynb`
+- Standardize into `data/processed/v1_processed_.csv` (units, log conventions, derived `M_BH/M_*`, consistent method tags) 
 
 **Phase 2: Implement core pipeline**
-- Redshift → cosmic time conversion
-- Interpretation variants (MBH systematics, host `M_*` contamination; `L_bol` scaling if used)
-- Seed + growth feasibility solver (required seed mass or required average accretion intensity)
-- Scoring + robustness summaries
+- In `src/models.ipynb`, write
+ - Redshift → cosmic time conversion
+ - Interpretation variants (MBH systematics, host `M_*` contamination; `L_bol` scaling if used)
+ - Seed + growth feasibility solver (required seed mass or required average accretion intensity)
+- Build scoring system in `src/scoring.ipynb` 
 
 **Phase 3: Results**
-- Generate outputs: requirement tables, model score tables, and core plots (e.g., `M_BH/M_*` vs z, required average `f_Edd` vs z, feasibility heatmap)
+- Run and generate core plots, saving to `results`: requirement tables, model score tables, and core plots (e.g., `M_BH/M_*` vs z, required average `f_Edd` vs z, feasibility heatmap)
 
 ***Call everything up until this point `v1`.***
 
