@@ -25,7 +25,6 @@ For the full list of implemented formation, growth, and interpretation models, s
 
 **Phase 2: Implement core pipeline**
 - In `src/models.ipynb`, write
- - Redshift → cosmic time conversion
  - Interpretation variants (MBH systematics, host `M_*` contamination; `L_bol` scaling if used)
  - Seed + growth feasibility solver (required seed mass or required average accretion intensity)
 - Build scoring system in `src/scoring.ipynb` 
