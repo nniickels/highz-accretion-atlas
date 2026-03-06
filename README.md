@@ -19,7 +19,7 @@ For the full list of implemented formation, growth, and interpretation models, s
 
 ## Workflow
 **Phase 1 (CURRENT STAGE): Start with a small dataset** 
-- Extract raw data (~10 objects) into `data/raw/v1_raw.csv`
+- Extract raw data (only from 1 paper) into `data/raw/v1_raw.csv`
 - Write data standardizing pipeline into `src/standardize_data.ipynb`
 - Standardize into `data/processed/v1_processed.csv` (units, log conventions, derived `M_BH/M_*`, consistent method tags) 
 

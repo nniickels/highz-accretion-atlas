@@ -1,13 +1,11 @@
 # v1 Source Registry
 
-Use one block per paper/source and keep `source_key` aligned with `data/raw/v1_raw.csv` and `data/processed/v1_processed.csv`.
-
-## [source_key: example24]
-- **Citation:** Example et al. (2024), Journal, DOI/arXiv
-- **ADS/arXiv:** https://arxiv.org/abs/xxxx.xxxxx
-- **Survey/Field:** JADES / GOODS-N
-- **Object selection used here:** Broad-line AGN candidates at z >= 4
-- **Values extracted:** z, MBH, M*, Lbol
-- **Extraction location:** Table 2 (z, MBH), Table 3 (M*), Figure 5 (Lbol)
-- **Method notes:** MBH from single-epoch virial calibration; M* from AGN+stellar SED fits.
-- **Ingestion notes:** Source values entered directly into raw; uncertainties kept asymmetric where available.
+## [source_key: juodzbalis25_jades_blagn]
+- **Citation:** Juodžbalis et al. (2025), *JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST*, MNRAS, arXiv:2504.03551
+- **ADS/arXiv:** https://arxiv.org/abs/2504.03551
+- **Survey/Field:** JADES / GOODS-N + GOODS-S
+- **Object selection used here:** Type 1 (broad-line) AGN from JADES spectroscopy
+- **Values extracted:** z, MBH, Lbol, lambda_Edd, Mstar
+- **Extraction location:** Table 2 (AGN properties: coordinates, z, MBH, Lbol, lambda_Edd), Table 4 (host properties: Mstar)
+- **Method notes:** MBH from single-epoch virial estimators (Balmer-line based); host Mstar from spectral decomposition (BEAGLE/CIGALE in paper; BEAGLE used in the sample rows above).
+- **Ingestion notes:** Numeric values copied directly; asymmetric uncertainties split into *_err_plus and *_err_minus; `source_key` reused across all rows from this paper.
