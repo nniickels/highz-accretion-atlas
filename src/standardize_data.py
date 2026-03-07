@@ -23,7 +23,7 @@ CANONICAL_RAW_FIELDS = [
 # Default 1:1 mapping for raw files that already use canonical names.
 DEFAULT_COLUMN_MAP = {name: name for name in CANONICAL_RAW_FIELDS}
 
-# Processed data CSV columns 
+# Processed data CSV columns
 STANDARDIZED_OUTPUT_COLUMNS = [
     "measurement_id", "object_id", "ra_deg", "dec_deg", "redshift", "cosmic_time_gyr",
     "survey", "object_class",
@@ -98,8 +98,17 @@ def standardize_dataframe(
     project_version: str = "v1",
     mbh_tag: str = "single-epoch-virial",
     lbol_tag: str = "balmer-line-bolometric-correction",
+    min_redshift: float = 4.0,
 ) -> pd.DataFrame:
-    """Convert canonical raw dataframe to standardized v1 dataframe."""
+    """Convert canonical raw dataframe to standardized v1 dataframe.
+
+    Args:
+        canonical_df: dataframe using canonical raw semantic field names.
+        project_version: version label written to output rows.
+        mbh_tag: default MBH interpretation tag for v1.
+        lbol_tag: default Lbol interpretation tag for v1.
+        min_redshift: keep only rows with redshift >= this value; set to None to disable.
+    """
     validate_canonical_raw_schema(canonical_df)
 
     std = canonical_df.copy()
@@ -114,6 +123,9 @@ def standardize_dataframe(
     ]
     for col in numeric_cols:
         std[col] = pd.to_numeric(std[col], errors="coerce")
+    
+    if min_redshift is not None:
+        std = std[std["redshift"] >= float(min_redshift)].copy()
 
     std["cosmic_time_gyr"] = cosmic_time_gyr(std["redshift"])
 
@@ -169,15 +181,20 @@ def standardize_raw_csv(
     *,
     column_map: Optional[Dict[str, str]] = None,
     dtype_overrides: Optional[Dict[str, str]] = None,
-    project_version: str = "v1",                              
+    project_version: str = "v1",
+    min_redshift: float = 4.0,                        
 ) -> pd.DataFrame:
     """
     Steps:
     1) reads raw CSV
     2) remaps source columns to canonical names
     3) standardizes to output schema (given project version input)
-    4) return dataframe 
+    4) return dataframe
     """
     raw_df = read_raw_csv(path, dtype_overrides=dtype_overrides)
     canonical_df = remap_to_canonical(raw_df, column_map=column_map)
-    return standardize_dataframe(canonical_df, project_version=project_version)
+    return standardize_dataframe(
+        canonical_df,
+        project_version=project_version,
+        min_redshift=min_redshift,
+    )
