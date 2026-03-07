@@ -1,4 +1,4 @@
-## This code uses functions defined in src/standardize_data.py to generate a standardized catalogue.
+## This code uses functions defined in src/standardize_data.py to generate a standardized CSV file.
 ## It rewrites the processed CSV from the current raw CSV each run so newly appended raw rows
 ## from additional papers are always propagated into the processed file.
 
