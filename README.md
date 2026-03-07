@@ -41,7 +41,6 @@ For the full list of implemented formation, growth, and interpretation models, s
 
 ***Call everything up until this point `v2`.***
 
-
 **Phase 5: Increase dataset (all object classes) and repeat**
 - Scale to more accretion candidates and inferred properties. Add additional object classes: narrow-line AGN, LRDs/compact red AGN candidates, X-ray selected candidates (where available)
 - Add discrete interpretation branches where needed (e.g., LRD stellar-break vs non-stellar break affecting `M_*`)
