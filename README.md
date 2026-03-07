@@ -20,17 +20,17 @@ For the full list of implemented formation, growth, and interpretation models, s
 ## Workflow
 **Phase 1 (CURRENT STAGE): Start with a small dataset** 
 - Extract raw data (only from 1 paper) into `data/raw/v1_raw.csv`
-- Write data standardizing pipeline into `src/standardize_data.ipynb`
-- Standardize into `data/processed/v1_processed.csv` (units, log conventions, derived `M_BH/M_*`, consistent method tags) 
+- Write standardization pipeline into `src/standardize_data.py`
+- Write and run `scripts/generate_catalogue.py` to standardize into `data/processed/v1_processed.csv` 
 
-**Phase 2: Implement core pipeline**
-- In `src/models.ipynb`, write
+**Phase 2: Build core pipeline**
+- In `src/models.py`, write
   - Interpretation variants (MBH systematics, host `M_*` contamination; `L_bol` scaling if used)
   - Seed + growth feasibility solver (required seed mass or required average accretion intensity)
-- Build scoring system in `src/scoring.ipynb` 
+- Build scoring system in `src/scoring.py` 
 
 **Phase 3: Results**
-- Run and generate core plots, saving to `results`: requirement tables, model score tables, and core plots (e.g., `M_BH/M_*` vs z, required average `f_Edd` vs z, feasibility heatmap)
+- Write and run `scripts/v1_evaluate.ipynb`, saving important outputs to `results`: requirement tables, model score tables, and core plots (e.g., `M_BH/M_*` vs z, required average `f_Edd` vs z, feasibility heatmap)
 
 ***Call everything up until this point `v1`.***
 
@@ -39,9 +39,14 @@ For the full list of implemented formation, growth, and interpretation models, s
 - Track cross-paper differences explicitly (multiple measurements per object) and propagate them through the same pipeline
 - Update outputs to include cross-survey comparisons and “most assumption-sensitive” vs “robust outlier” rankings
 
+***Call everything up until this point `v2`.***
+
+
 **Phase 5: Increase dataset (all object classes) and repeat**
 - Scale to more accretion candidates and inferred properties. Add additional object classes: narrow-line AGN, LRDs/compact red AGN candidates, X-ray selected candidates (where available)
 - Add discrete interpretation branches where needed (e.g., LRD stellar-break vs non-stellar break affecting `M_*`)
 - Add metallicity and ISM diagnostics for the subset with suitable lines and clearly documented calibrations
 - Extend scoring to include environment/rarity priors (e.g., DCBH-like special conditions) where relevant
+
+***Call everything up until this point `v3`.***
 
