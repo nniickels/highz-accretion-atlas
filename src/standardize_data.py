@@ -33,7 +33,7 @@ STANDARDIZED_OUTPUT_COLUMNS = [
     "log_mbh_mstar_ratio", "log_mbh_mstar_ratio_err",
     "edd_ratio_std", "edd_ratio_err_std",
     "mbh_interpretation_tag", "mstar_interpretation_tag", "lbol_interpretation_tag",
-    "quality_flag", "provenance_version", "source_key", "notes",
+    "quality_flag", "project_version", "source_key", "notes",
 ]
 
 # ------------------------------ Functions -----------------------------------------------------
@@ -95,7 +95,7 @@ def validate_canonical_raw_schema(canonical_df: pd.DataFrame) -> None:
 def standardize_dataframe(
     canonical_df: pd.DataFrame,
     *,
-    provenance_version: str = "v1",
+    project_version: str = "v1",
     mbh_tag: str = "single-epoch-virial",
     lbol_tag: str = "balmer-line-bolometric-correction",
 ) -> pd.DataFrame:
@@ -150,7 +150,7 @@ def standardize_dataframe(
         "robust",
         "tentative",
     )
-    std["provenance_version"] = provenance_version
+    std["project_version"] = project_version
 
     standardized = std[STANDARDIZED_OUTPUT_COLUMNS].copy()
 
@@ -169,16 +169,15 @@ def standardize_raw_csv(
     *,
     column_map: Optional[Dict[str, str]] = None,
     dtype_overrides: Optional[Dict[str, str]] = None,
-    provenance_version: str = "v1",
+    project_version: str = "v1",                              
 ) -> pd.DataFrame:
-    """High-level convenience wrapper used by scripts.
-
+    """
     Steps:
-    1) read raw CSV,
-    2) remap source columns to canonical names,
-    3) standardize to v1 output schema,
-    4) return dataframe (no file I/O side effects).
+    1) reads raw CSV
+    2) remaps source columns to canonical names
+    3) standardizes to output schema (given project version input)
+    4) return dataframe 
     """
     raw_df = read_raw_csv(path, dtype_overrides=dtype_overrides)
     canonical_df = remap_to_canonical(raw_df, column_map=column_map)
-    return standardize_dataframe(canonical_df, provenance_version=provenance_version)
+    return standardize_dataframe(canonical_df, project_version=project_version)
