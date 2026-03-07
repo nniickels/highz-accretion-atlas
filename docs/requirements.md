@@ -4,4 +4,4 @@
 - `typing`
 - `numpy`
 - `pandas`
-- `sys`
+- `dataclasses`

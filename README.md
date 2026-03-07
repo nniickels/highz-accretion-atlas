@@ -18,12 +18,12 @@ Testing multiple seed + growth scenarios matters because different origins imply
 For the full list of implemented formation, growth, and interpretation models, see `docs/model-menu.md`.
 
 ## Workflow
-**Phase 1 (CURRENT STAGE): Start with a small dataset** 
+**Phase 1: Start with a small dataset** 
 - Extract raw data (only from 1 paper) into `data/raw/v1_raw.csv`
 - Write standardization pipeline into `src/standardize_data.py`
 - Write and run `scripts/generate_catalogue.py` to standardize into `data/processed/v1_processed.csv` 
 
-**Phase 2: Build core pipeline**
+**Phase 2 (CURRENT STAGE): Build core pipeline**
 - In `src/models.py`, write
   - Interpretation variants (MBH systematics, host `M_*` contamination; `L_bol` scaling if used)
   - Seed + growth feasibility solver (required seed mass or required average accretion intensity)
