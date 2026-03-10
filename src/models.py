@@ -1,10 +1,13 @@
 ## This code defines functions for testing objects against different seed+growth models 
 
+# ---------------------------------- Imports -----------------------------------------------------
 
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Mapping
 import numpy as np
+
+# ---------------------------------- Variables ---------------------------------------------------
 
 LN_10 = np.log(10.0)
 
@@ -25,6 +28,7 @@ SEED_MODELS: dict[str, SeedModel] = {
     "pbh": SeedModel("pbh", 2.0, 6.0),
 }
 
+# ------------------------------ Functions -----------------------------------------------------
 
 def apply_mbh_interpretation(log_mbh_msun: float | np.ndarray, delta_dex: float = 0.0) -> np.ndarray:
     """Shift inferred log BH mass by an interpretation systematic in dex."""

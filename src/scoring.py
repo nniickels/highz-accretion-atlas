@@ -1,10 +1,13 @@
 ## This code defines functions for scoring feasbility of objects under different seed+growth models
 
+# ---------------------------------- Imports -----------------------------------------------------
+
 from __future__ import annotations
 from typing import Iterable
 import numpy as np
 import pandas as pd
 
+# ------------------------------ Functions -----------------------------------------------------
 
 def _clip01(x: float | np.ndarray) -> np.ndarray:
     return np.clip(np.asarray(x, dtype=float), 0.0, 1.0)
