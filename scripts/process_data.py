@@ -27,5 +27,5 @@ def main() -> None:
     standardized_df.to_csv(PROCESSED_PATH, mode="w", index=False)
     print(f"Wrote {len(standardized_df)} standardized rows: {PROCESSED_PATH}")
 
-if __name__ == "__main__":               # enter "python -m scripts.generate_catalogue" in terminal
+if __name__ == "__main__":               # enter "python -m scripts.process_data" in terminal
     main()
