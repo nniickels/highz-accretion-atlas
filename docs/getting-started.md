@@ -1,3 +1,4 @@
+## Getting Started
 # Requirements
 - Python (at least 3.10)
 - `__future__`
@@ -8,3 +9,6 @@
 - `dataclasses`
 - `matplotlib.pyplot`
 - `sys`
+
+# Installation Instructions 
+1. This is a placeholder
