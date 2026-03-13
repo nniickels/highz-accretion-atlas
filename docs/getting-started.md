@@ -1,5 +1,5 @@
-## Getting Started
-# Requirements
+# Getting Started
+## Requirements
 - Python (at least 3.10)
 - `__future__`
 - `pathlib`
@@ -10,5 +10,5 @@
 - `matplotlib.pyplot`
 - `sys`
 
-# Installation Instructions 
+##  Instructions 
 1. This is a placeholder
