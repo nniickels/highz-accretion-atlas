@@ -23,13 +23,13 @@ For the full list of implemented formation, growth, and interpretation models, s
 - Write standardization pipeline into `src/standardize_data.py`
 - Write and run `scripts/process_data.py` to standardize into `data/processed/v1_processed.csv` 
 
-**Phase 2 (CURRENT STAGE): Build core pipeline**
+**Phase 2: Build core pipeline**
 - In `src/models.py`, write
   - Interpretation variants (MBH systematics, host `M_*` contamination; `L_bol` scaling if used)
   - Seed + growth feasibility solver (required seed mass or required average accretion intensity)
 - Build scoring system in `src/scoring.py` 
 
-**Phase 3: Results**
+**Phase 3 (CURRENT STAGE): Results**
 - Write and run `scripts/v1_evaluate.ipynb`, saving important outputs to `results`: requirement tables, model score tables, and core plots (e.g., `M_BH/M_*` vs z, required average `f_Edd` vs z, feasibility heatmap)
 
 ***Call everything up until this point `v1`.***
