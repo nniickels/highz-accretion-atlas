@@ -18,6 +18,8 @@ Testing multiple seed + growth scenarios matters because different origins imply
 For the full list of implemented formation, growth, and interpretation models, see `docs/model-menu.md`.
 
 ## Workflow
+There are 3 versions currently planned for this project: `v1`, `v2`, and `v3`. `v1` will be a rough "practice round" that works on a small dataset of the same object class to implement and refine core features. Each newer version will scale up in data and in complexity, but the general pipeline and goal of each is the same. 
+
 **Phase 1: Start with a small dataset** 
 - Extract raw data (only from 1 paper) into `data/raw/v1_raw.csv`
 - Write standardization pipeline into `src/standardize_data.py`
@@ -31,17 +33,18 @@ For the full list of implemented formation, growth, and interpretation models, s
 
 **Phase 3 (CURRENT STAGE): Results**
 - Write and run `scripts/v1_evaluate.ipynb`, saving important outputs to `results`: requirement tables, model score tables, and core plots (e.g., `M_BH/M_*` vs z, required average `f_Edd` vs z, feasibility heatmap)
+- Perfect and streamline everything before moving onto the next phase 
 
 ***Call everything up until this point `v1`.***
 
-**Phase 4: Increase dataset (same object class) and repeat**
+**Phase 4: Increase dataset (same object class) and repeat phases 1-3**
 - Scale by adding additional sources (more papers, same object class) and reconcile duplicates via coordinates + redshift
 - Track cross-paper differences explicitly (multiple measurements per object) and propagate them through the same pipeline
 - Update outputs to include cross-survey comparisons and “most assumption-sensitive” vs “robust outlier” rankings
 
 ***Call everything up until this point `v2`.***
 
-**Phase 5: Increase dataset (all object classes) and repeat**
+**Phase 5: Increase dataset (all object classes) and repeat phases 1-3**
 - Scale to more accretion candidates and inferred properties. Add additional object classes: narrow-line AGN, LRDs/compact red AGN candidates, X-ray selected candidates (where available)
 - Add discrete interpretation branches where needed (e.g., LRD stellar-break vs non-stellar break affecting `M_*`)
 - Add metallicity and ISM diagnostics for the subset with suitable lines and clearly documented calibrations
