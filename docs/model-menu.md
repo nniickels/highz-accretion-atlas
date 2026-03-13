@@ -1,5 +1,5 @@
 # Model Menu
-(THIS IS A DRAFT. NOTHING IS IMPLEMENTED YET)
+(THIS IS A DRAFT)
 
 ## Formation and Growth Models
 **A. Seeds**
