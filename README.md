@@ -27,7 +27,7 @@ There are 3 versions currently planned for this project: `v1`, `v2`, and `v3`. `
 
 **Phase 2: Build core pipeline**
 - In `src/models.py`, write
-  - Interpretation variants (MBH systematics, host `M_*` contamination; `L_bol` scaling if used)
+  - Interpretation variants (`M_BH` systematics, host `M_*` contamination; `L_bol` scaling if used)
   - Seed + growth feasibility solver (required seed mass or required average accretion intensity)
 - Build scoring system in `src/scoring.py` 
 
