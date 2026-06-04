@@ -53,6 +53,20 @@ After regenerating the processed catalogue, open or run:
 jupyter notebook scripts/v1_evaluate.ipynb
 ```
 
-The notebook currently contains the v1 feasibility-scoring workflow and plotting
-prototype. The catalogue standardization command above should be run first so
-the notebook uses the latest processed CSV.
+Run all cells in the notebook. The catalogue standardization command above
+should be run first so the notebook uses the latest processed CSV.
+
+The notebook writes these v1 CSV outputs:
+
+- `results/v1_evaluation_table.csv`
+- `results/v1_required_fedd_by_seed_mass.csv`
+- `results/v1_required_mseed_by_growth_assumption.csv`
+- `results/v1_sample_summary.csv`
+
+It also writes these PNG figure outputs:
+
+- `results/v1_mbh_vs_redshift_growth_tracks.png`
+- `results/v1_sample_feasibility_summary.png`
+- one per-object PNG map per processed object in `results/v1_parameter_maps/`
+
+The v1 workflow intentionally writes PNG figures only.
