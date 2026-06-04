@@ -66,7 +66,7 @@ The notebook writes these v1 CSV outputs:
 It also writes these PNG figure outputs:
 
 - `results/v1_mbh_vs_redshift_growth_tracks.png`
-- `results/v1_sample_feasibility_summary.png`
+- `results/v1_sample_compatibility_summary.png`
 - one per-object PNG map per processed object in `results/v1_parameter_maps/`
 
 The v1 workflow intentionally writes PNG figures only.
