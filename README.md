@@ -30,10 +30,10 @@ For each object, the pipeline computes the cosmic time available between $z_{see
 
 The main figures are 2D parameter maps with:
 
-- x-axis: `log10(M_seed / Msun)`
-- y-axis: `f_Edd`
-- colour: predicted `log10(M_BH / Msun)`
-- contours or markers: observed `M_BH` for catalogue objects
+- x-axis: $\log_{10}(M_{seed} / M_\odot)$
+- y-axis: $f_{Edd}$
+- colour: predicted $\log_{10}(M_{BH} / M_\odot)$
+- contours or markers: observed $M_{BH}$ for catalogue objects
 
 The project also makes [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html) Fig. 1-style growth-track plots using the compiled catalogue.
 
