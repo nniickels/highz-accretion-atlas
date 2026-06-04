@@ -49,13 +49,13 @@ Use one clean object class from one paper.
 5. Make one-object parameter maps first.
 6. Scale to all v1 objects.
 7. Produce:
-   - `M_BH` vs redshift growth-track plot
-   - per-object `f_Edd` vs `M_seed` maps
+   - $M_{BH}$ vs $z$ growth-track plot
+   - per-object $f_{Edd}$ vs $M_{seed}$ maps
    - sample-level map summaries
-   - table of required `f_Edd` for chosen seed masses
-   - table of required `M_seed` for chosen accretion assumptions
+   - table of required $f_{Edd}$ for chosen seed masses
+   - table of required $M_{seed}$ for chosen accretion assumptions
 
-No feasibility scores are used. Interpretability comes from physical thresholds such as `f_Edd <= 1`, `M_seed = 100 Msun`, `10^4 Msun`, `10^5 Msun`, and uncertainty bands.
+Interpretability comes from physical thresholds such as $f_{Edd} \leq 1$, $M_{seed} = 100 M_\odot$, $10^4 M_\odot$, $10^5 M_\odot$, and uncertainty bands.
 
 ### v2: Same Object Class, More Papers
 
