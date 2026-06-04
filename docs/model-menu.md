@@ -1,6 +1,24 @@
 # Model Menu
 (THIS IS A DRAFT)
 
+## v1 Implemented Growth Equation
+The v1 science module uses the Dayal-style exponential growth equation:
+
+`M_BH(t_obs) = M_seed * exp[f_Edd * ((1 - epsilon) / epsilon) * Delta_t / t_Edd]`
+
+where `t_Edd = c sigma_T / (4 pi G m_p) ~= 0.45 Gyr`. The pipeline works in
+`log10(M/Msun)` for masses, Gyr for cosmic time, dimensionless redshift,
+dimensionless average `f_Edd`, and radiative efficiency `0 < epsilon < 1`.
+
+The available growth time is `Delta_t = t(z_obs) - t(z_seed)`, with `z_seed`
+required to be greater than `z_obs`. v1 uses the flat Lambda-CDM closed form in
+the README with `H0 = 70 km/s/Mpc`, `Omega_m = 0.3`, and
+`Omega_Lambda = 0.7`.
+
+NaN catalogue values are allowed to propagate through science tables. Finite
+unphysical inputs, such as negative redshift, negative `f_Edd`, invalid
+`epsilon`, or `z_seed <= z_obs`, are validation errors.
+
 ## Formation and Growth Models
 **A. Seeds**
 - Light seeds (Pop III remnants); `M_seed ~ 10–100 Msun`

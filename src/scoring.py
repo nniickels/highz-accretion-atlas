@@ -1,4 +1,4 @@
-## This code defines functions for scoring feasbility of objects under different seed+growth models
+## This code defines functions for scoring feasibility of objects under different seed+growth models
 
 # ---------------------------------- Imports -----------------------------------------------------
 
@@ -24,6 +24,10 @@ def score_required_seed_mass(
     lo = float(model_log_mseed_min)
     hi = float(model_log_mseed_max)
 
+    if np.isnan(req) or np.isnan(lo) or np.isnan(hi):
+        return np.nan
+    if soft_margin_dex <= 0:
+        raise ValueError("soft_margin_dex must be > 0")
     if lo > hi:
         raise ValueError("model_log_mseed_min cannot exceed model_log_mseed_max")
 
@@ -47,6 +51,8 @@ def score_required_fedd(
         raise ValueError("Need 0 < plausible_max < hard_max")
 
     req = float(required_fedd)
+    if np.isnan(req):
+        return np.nan
     if req <= plausible_max:
         return 1.0
     if req >= hard_max:
