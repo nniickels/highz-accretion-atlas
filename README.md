@@ -15,7 +15,11 @@ Testing multiple seed + growth scenarios matters because different origins imply
 
 The growth model follows Eq. 1 of [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html):
 
-`M_BH(t) = M_seed(t_seed) exp[(4 pi G m_p f_Edd / c sigma_T) ((1 - epsilon) / epsilon) (t - t_seed)]`
+$M_{BH}(t) = M_{seed}(t_{seed})e^{\frac{4\pi Gm \rho f_{Edd}}{c\sigma T}\frac{1-\epsilon}{\epsilon}(t-t_{seed})}$
+
+Cosmic time in Gyr, derived from the FLRW form with flat $\Lambda$ CDM: 
+
+$t(z) = \frac{2}{3H_0\sqrt{\Omega_{\Lambda}}}\operatorname{asinh}(\frac{\sqrt{\Omega_{\Lambda}/{\Omega_m}}}{(1+z)^{3/2}})$
 
 For each object, the pipeline computes the cosmic time available between `z_seed` and the observed redshift. It then explores a grid of:
 
