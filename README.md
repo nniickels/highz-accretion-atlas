@@ -19,14 +19,14 @@ $M_{BH}(t) = M_{seed}(t_{seed})e^{\frac{4\pi Gm \rho f_{Edd}}{c\sigma T}\frac{1-
 
 Cosmic time in Gyr, derived from the FLRW form with flat $\Lambda$ CDM: 
 
-$t(z) = \frac{2}{3H_0\sqrt{\Omega_{\Lambda}}}\operatorname{asinh}(\frac{\sqrt{\Omega_{\Lambda}/{\Omega_m}}}{(1+z)^{3/2}})$
+$t(z) = \frac{2}{3H_0\sqrt{\Omega_{\Lambda}}}{\sinh^{-1}}(\frac{\sqrt{\Omega_{\Lambda}/{\Omega_m}}}{(1+z)^{3/2}})$
 
-For each object, the pipeline computes the cosmic time available between `z_seed` and the observed redshift. It then explores a grid of:
+For each object, the pipeline computes the cosmic time available between $z_{seed}$ and the observed redshift. It then explores a grid of:
 
-- `M_seed`
-- `f_Edd`
-- `z_seed`
-- radiative efficiency `epsilon`
+- ${M_{seed}}$
+- $f_{Edd}$
+- $z_{seed}$
+- radiative efficiency $\epsilon$
 
 The main figures are 2D parameter maps with:
 
