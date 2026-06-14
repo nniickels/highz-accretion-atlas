@@ -70,3 +70,21 @@ It also writes these PNG figure outputs:
 - one per-object PNG map per processed object in `results/v1_parameter_maps/`
 
 The v1 workflow intentionally writes PNG figures only.
+
+## Optional Seed-Redshift Diagnostic Figures
+
+To generate the additional seed-timing plots:
+
+```powershell
+python scripts/generate_seed_redshift_figures.py
+```
+
+This writes:
+
+- per-object `M_seed` versus `z_seed` required-`f_Edd` maps in
+  `results/v1_seed_redshift_maps/`
+- one exploratory 3D required-`f_Edd` surface in
+  `results/v1_seed_redshift_3d_tests/`
+
+These figures use the same processed v1 catalogue and restrict the seed
+redshift scan to `z_seed <= 30`.
