@@ -17,9 +17,28 @@ The growth model follows Eq. 1 of [Dayal (2024)](https://www.aanda.org/articles/
 
 $M_{BH}(t) = M_{seed}(t_{seed})e^{\frac{4\pi Gm \rho f_{Edd}}{c\sigma T}\frac{1-\epsilon}{\epsilon}(t-t_{seed})}$
 
+The optional merger-assisted case multiplies this smooth-accretion result by
+$B_{\rm merge}$. Thus $B_{\rm merge}=2$ adds a fixed
+$\log_{10}(2)=0.301$ dex to the predicted mass; it does not double
+$f_{\rm Edd}$ or the exponential growth rate. For ideal Kerr thin disks, the
+spin cases $a=-1,0,+1$ correspond to $\epsilon=0.038,0.057,0.423$
+(rounded), respectively.
+
+The spin-separated parameter maps additionally show an illustrative slim-disk
+coupling above Eddington. They retain the spin-dependent thin-disk efficiency
+for $f_{Edd}\leq1$ and use
+$\epsilon_{\rm eff}=\epsilon_{\rm spin}f_{Edd}/e^{f_{Edd}-1}$ for
+$f_{Edd}>1$, representing the decline in effective radiative efficiency from
+photon trapping. The growth-track figure continues to show constant-efficiency
+reference curves.
+
 Cosmic time in Gyr, derived from the FLRW form with flat $\Lambda$ CDM: 
 
 $t(z) = \frac{2}{3H_0\sqrt{\Omega_{\Lambda}}}{\sinh^{-1}}(\frac{\sqrt{\Omega_{\Lambda}/{\Omega_m}}}{(1+z)^{3/2}})$
+
+All catalogue ages, growth intervals, tables, and figures use a flat Planck
+2018-style cosmology with $H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$,
+$\Omega_m=0.315$, and $\Omega_\Lambda=0.685$.
 
 For each object, the pipeline computes the cosmic time available between $z_{seed}$ and the observed redshift. It then explores a grid of:
 
@@ -55,7 +74,7 @@ Use one clean object class from one paper.
    - table of required $f_{Edd}$ for chosen seed masses
    - table of required $M_{seed}$ for chosen accretion assumptions
 
-Interpretability comes from physical thresholds such as $f_{Edd} \leq 1$, $M_{seed} = 100 M_\odot$, $10^4 M_\odot$, $10^5 M_\odot$, and uncertainty bands.
+Interpretability comes from physical thresholds such as $f_{Edd} \leq 1$ and the upper bounds of the light, intermediate, and heavy seed ranges: $M_{seed} = 100 M_\odot$, $10^4 M_\odot$, and $10^6 M_\odot$, plus uncertainty bands.
 
 ### v2: Same Object Class, More Papers
 

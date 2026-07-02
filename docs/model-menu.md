@@ -11,9 +11,9 @@ where `t_Edd = c sigma_T / (4 pi G m_p) ~= 0.45 Gyr`. The pipeline works in
 dimensionless average `f_Edd`, and radiative efficiency `0 < epsilon < 1`.
 
 The available growth time is `Delta_t = t(z_obs) - t(z_seed)`, with `z_seed`
-required to be greater than `z_obs`. v1 uses the flat Lambda-CDM closed form in
-the README with `H0 = 70 km/s/Mpc`, `Omega_m = 0.3`, and
-`Omega_Lambda = 0.7`.
+required to be greater than `z_obs`. v1 uses the flat Planck 2018-style
+Lambda-CDM closed form in the README with `H0 = 67.3 km/s/Mpc`,
+`Omega_m = 0.315`, and `Omega_Lambda = 0.685`.
 
 NaN catalogue values are allowed to propagate through science tables. Finite
 unphysical inputs, such as negative redshift, negative `f_Edd`, invalid

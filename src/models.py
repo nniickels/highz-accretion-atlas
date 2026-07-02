@@ -12,8 +12,9 @@ cosmic time in Gyr, masses in log10(Msun), redshifts as dimensionless values,
 ``f_Edd`` as an average Eddington fraction, and radiative efficiency
 ``epsilon`` as a fraction in ``0 < epsilon < 1``.
 
-The default cosmology is the flat Lambda-CDM closed form used in the README:
-``H0 = 70 km/s/Mpc``, ``Omega_m = 0.3``, and ``Omega_Lambda = 0.7``.
+The default cosmology is a flat Planck 2018-style Lambda-CDM cosmology:
+``H0 = 67.3 km/s/Mpc``, ``Omega_m = 0.315``, and
+``Omega_Lambda = 0.685``.
 
 NaN policy: NaN inputs propagate to NaN outputs so missing catalogue values can
 be carried through tables. Finite unphysical inputs, such as negative redshift,
@@ -34,9 +35,9 @@ import numpy as np
 
 LN_10 = np.log(10.0)
 EDDINGTON_TIME_GYR = 0.45
-DEFAULT_H0_KM_S_MPC = 70.0
-DEFAULT_OMEGA_M = 0.3
-DEFAULT_OMEGA_LAMBDA = 0.7
+DEFAULT_H0_KM_S_MPC = 67.3
+DEFAULT_OMEGA_M = 0.315
+DEFAULT_OMEGA_LAMBDA = 0.685
 
 
 @dataclass(frozen=True)
@@ -217,6 +218,77 @@ def salpeter_efold_time_gyr(epsilon: float | np.ndarray = 0.1, f_edd: float | np
     _validate_epsilon(eps)
     _validate_positive(fedd, "f_edd")
     return EDDINGTON_TIME_GYR * (eps / (1.0 - eps)) / fedd
+
+
+def thin_disk_radiative_efficiency(spin: float | np.ndarray) -> np.ndarray:
+    """Return the ideal thin-disk radiative efficiency for Kerr spin ``a``.
+
+    The calculation uses the specific binding energy at the innermost stable
+    circular orbit (ISCO), ``epsilon = 1 - E_ISCO``. Finite spins must lie in
+    ``-1 <= a <= 1``; negative values describe retrograde disks and positive
+    values prograde disks. The ideal endpoint efficiencies are approximately
+    0.038, 0.057, and 0.423 for ``a = -1, 0, +1``, respectively.
+    """
+    a = _as_float_array(spin, "spin")
+    finite = _finite_mask(a)
+    if np.any(finite & ((a < -1.0) | (a > 1.0))):
+        raise ValueError("spin must satisfy -1 <= a <= 1 where finite")
+
+    z1 = 1.0 + np.cbrt(1.0 - a**2) * (np.cbrt(1.0 + a) + np.cbrt(1.0 - a))
+    z2 = np.sqrt(3.0 * a**2 + z1**2)
+    r_isco = 3.0 + z2 - np.sign(a) * np.sqrt((3.0 - z1) * (3.0 + z1 + 2.0 * z2))
+    e_isco = np.sqrt(1.0 - 2.0 / (3.0 * r_isco))
+    return 1.0 - e_isco
+
+
+def slim_disk_effective_efficiency(
+    spin: float | np.ndarray,
+    f_edd: float | np.ndarray,
+) -> np.ndarray:
+    """Return a photon-trapping effective efficiency above Eddington.
+
+    ``thin_disk_radiative_efficiency(spin)`` is retained for ``f_Edd <= 1``.
+    Above Eddington, this uses the phenomenological slim-disk luminosity
+    relation ``f_Edd = 1 + ln(mdot)``. Since luminosity also scales as
+    ``epsilon_eff * mdot``, the resulting efficiency is
+    ``epsilon_eff = epsilon_spin * f_Edd / exp(f_Edd - 1)``.
+
+    This is an illustrative coupling for parameter scans, not a full
+    relativistic slim-disk or spin-evolution calculation.
+    """
+    a, fedd = np.broadcast_arrays(
+        _as_float_array(spin, "spin"),
+        _as_float_array(f_edd, "f_edd"),
+    )
+    _validate_nonnegative(fedd, "f_edd")
+    epsilon_spin = thin_disk_radiative_efficiency(a)
+    super_eddington_factor = fedd / np.exp(fedd - 1.0)
+    return np.where(fedd <= 1.0, epsilon_spin, epsilon_spin * super_eddington_factor)
+
+
+def slim_disk_effective_efficiency(
+    spin: float | np.ndarray,
+    f_edd: float | np.ndarray,
+) -> np.ndarray:
+    """Return a photon-trapping effective efficiency above Eddington.
+
+    ``thin_disk_radiative_efficiency(spin)`` is retained for ``f_Edd <= 1``.
+    Above Eddington, this uses the phenomenological slim-disk luminosity
+    relation ``f_Edd = 1 + ln(mdot)``. Since luminosity also scales as
+    ``epsilon_eff * mdot``, the resulting efficiency is
+    ``epsilon_eff = epsilon_spin * f_Edd / exp(f_Edd - 1)``.
+
+    This is an illustrative coupling for parameter scans, not a full
+    relativistic slim-disk or spin-evolution calculation.
+    """
+    a, fedd = np.broadcast_arrays(
+        _as_float_array(spin, "spin"),
+        _as_float_array(f_edd, "f_edd"),
+    )
+    _validate_nonnegative(fedd, "f_edd")
+    epsilon_spin = thin_disk_radiative_efficiency(a)
+    super_eddington_factor = fedd / np.exp(fedd - 1.0)
+    return np.where(fedd <= 1.0, epsilon_spin, epsilon_spin * super_eddington_factor)
 
 
 def growth_log10_factor(
@@ -460,6 +532,27 @@ def run_growth_sanity_checks() -> dict[str, float]:
     if not np.isclose(no_growth, log_seed):
         raise AssertionError("zero f_Edd should leave seed mass unchanged")
 
+    merger_only = float(predicted_log_mbh(log_seed, 0.0, epsilon, z_seed, z_obs, merger_boost=2.0))
+    if not np.isclose(merger_only, log_seed + np.log10(2.0)):
+        raise AssertionError("merger boost should add log10(boost) dex")
+
+    spin_efficiencies = thin_disk_radiative_efficiency(np.array([-1.0, 0.0, 1.0]))
+    expected_spin_efficiencies = np.array([0.03774955, 0.05719096, 0.42264973])
+    if not np.allclose(spin_efficiencies, expected_spin_efficiencies, atol=1e-7):
+        raise AssertionError("thin-disk spin efficiencies failed reference check")
+
+    slim_efficiencies = slim_disk_effective_efficiency(0.0, np.array([1.0, 2.0, 3.0]))
+    if not np.isclose(slim_efficiencies[0], spin_efficiencies[1]):
+        raise AssertionError("slim-disk efficiency should match thin-disk efficiency at f_Edd=1")
+    if not np.all(np.diff(slim_efficiencies) < 0.0):
+        raise AssertionError("slim-disk effective efficiency should fall above Eddington")
+
+    slim_efficiencies = slim_disk_effective_efficiency(0.0, np.array([1.0, 2.0, 3.0]))
+    if not np.isclose(slim_efficiencies[0], spin_efficiencies[1]):
+        raise AssertionError("slim-disk efficiency should match thin-disk efficiency at f_Edd=1")
+    if not np.all(np.diff(slim_efficiencies) < 0.0):
+        raise AssertionError("slim-disk effective efficiency should fall above Eddington")
+
     predicted = float(predicted_log_mbh(log_seed, 1.0, epsilon, z_seed, z_obs))
     recovered_fedd = float(required_fedd_for_seed(log_seed, predicted, epsilon, z_seed, z_obs))
     recovered_seed = float(required_seed_mass_for_growth(predicted, 1.0, epsilon, z_seed, z_obs))
@@ -473,8 +566,19 @@ def run_growth_sanity_checks() -> dict[str, float]:
         raise AssertionError("growth_parameter_grid returned an unexpected shape")
 
     return {
+        "h0_km_s_mpc": DEFAULT_H0_KM_S_MPC,
+        "omega_m": DEFAULT_OMEGA_M,
+        "omega_lambda": DEFAULT_OMEGA_LAMBDA,
         "delta_t_z30_to_z6_gyr": delta_t,
         "no_growth_log_mbh": no_growth,
+        "merger_boost_x2_dex": merger_only - log_seed,
+        "epsilon_spin_minus1": float(spin_efficiencies[0]),
+        "epsilon_spin_0": float(spin_efficiencies[1]),
+        "epsilon_spin_plus1": float(spin_efficiencies[2]),
+        "epsilon_spin0_fedd2_slim": float(slim_efficiencies[1]),
+        "epsilon_spin0_fedd3_slim": float(slim_efficiencies[2]),
+        "epsilon_spin0_fedd2_slim": float(slim_efficiencies[1]),
+        "epsilon_spin0_fedd3_slim": float(slim_efficiencies[2]),
         "roundtrip_required_fedd": recovered_fedd,
         "roundtrip_required_log_mseed": recovered_seed,
     }

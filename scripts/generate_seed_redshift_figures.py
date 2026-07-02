@@ -161,7 +161,7 @@ def plot_seed_redshift_map(obj: pd.Series, png_path: Path) -> None:
     caption = (
         "Colour gives the average Eddington fraction required to reach the observed black-hole mass.\n"
         "White contours mark required $f_{\\rm Edd}=0.3$, 1, and 2; vertical lines mark seed-mass thresholds.\n"
-        "The scan is restricted to late-to-early astrophysical seed timing with $z_{\\rm seed}\\leq30$."
+        "The scan is restricted to late-to-early astrophysical seed timing with $z_{\\rm seed}\\leq30$; ages use Planck cosmology."
     )
     add_figure_caption(fig, caption)
     save_figure(fig, png_path)
@@ -203,7 +203,7 @@ def plot_seed_redshift_3d_test(obj: pd.Series, png_path: Path) -> None:
     cbar.set_label(r"Required average $f_{\rm Edd}$ (clipped at 3)", labelpad=7)
     caption = (
         "Exploratory 3D rendering of the same seed-redshift surface used in the 2D maps.\n"
-        "The vertical scale is clipped at $f_{\\rm Edd}=3$ so extreme late-seed cases do not dominate the perspective."
+        "The vertical scale is clipped at $f_{\\rm Edd}=3$ so extreme late-seed cases do not dominate the perspective; ages use Planck cosmology."
     )
     add_figure_caption(fig, caption, y=0.035)
     save_figure(fig, png_path)

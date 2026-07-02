@@ -70,15 +70,17 @@ STANDARDIZED_OUTPUT_COLUMNS = [
 
 def cosmic_time_gyr(
     redshift: Iterable[float] | np.ndarray,
-    h0_km_s_mpc: float = 70.0,
-    omega_m: float = 0.3,
-    omega_lambda: float = 0.7,
+    h0_km_s_mpc: float = 67.3,
+    omega_m: float = 0.315,
+    omega_lambda: float = 0.685,
 ) -> np.ndarray:
     """Return cosmic age in Gyr for each redshift using a flat-ΛCDM closed form.
 
     Notes:
     - Valid for flat cosmology (Ω_k = 0) with matter + dark energy only.
-    - Good for reproducible comparisons in v1; detailed cosmology sweeps belong in models.
+    - Defaults to the Planck 2018-style values H0=67.3 km/s/Mpc,
+      Omega_m=0.315, and Omega_Lambda=0.685.
+    - Detailed cosmology sweeps belong in models.
     """
     z = np.asarray(redshift, dtype=float)
     h0_s = h0_km_s_mpc * 1000.0 / 3.0856775814913673e22
