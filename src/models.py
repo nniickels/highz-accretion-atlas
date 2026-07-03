@@ -266,31 +266,6 @@ def slim_disk_effective_efficiency(
     return np.where(fedd <= 1.0, epsilon_spin, epsilon_spin * super_eddington_factor)
 
 
-def slim_disk_effective_efficiency(
-    spin: float | np.ndarray,
-    f_edd: float | np.ndarray,
-) -> np.ndarray:
-    """Return a photon-trapping effective efficiency above Eddington.
-
-    ``thin_disk_radiative_efficiency(spin)`` is retained for ``f_Edd <= 1``.
-    Above Eddington, this uses the phenomenological slim-disk luminosity
-    relation ``f_Edd = 1 + ln(mdot)``. Since luminosity also scales as
-    ``epsilon_eff * mdot``, the resulting efficiency is
-    ``epsilon_eff = epsilon_spin * f_Edd / exp(f_Edd - 1)``.
-
-    This is an illustrative coupling for parameter scans, not a full
-    relativistic slim-disk or spin-evolution calculation.
-    """
-    a, fedd = np.broadcast_arrays(
-        _as_float_array(spin, "spin"),
-        _as_float_array(f_edd, "f_edd"),
-    )
-    _validate_nonnegative(fedd, "f_edd")
-    epsilon_spin = thin_disk_radiative_efficiency(a)
-    super_eddington_factor = fedd / np.exp(fedd - 1.0)
-    return np.where(fedd <= 1.0, epsilon_spin, epsilon_spin * super_eddington_factor)
-
-
 def growth_log10_factor(
     f_edd: float | np.ndarray,
     epsilon: float | np.ndarray,
@@ -547,12 +522,6 @@ def run_growth_sanity_checks() -> dict[str, float]:
     if not np.all(np.diff(slim_efficiencies) < 0.0):
         raise AssertionError("slim-disk effective efficiency should fall above Eddington")
 
-    slim_efficiencies = slim_disk_effective_efficiency(0.0, np.array([1.0, 2.0, 3.0]))
-    if not np.isclose(slim_efficiencies[0], spin_efficiencies[1]):
-        raise AssertionError("slim-disk efficiency should match thin-disk efficiency at f_Edd=1")
-    if not np.all(np.diff(slim_efficiencies) < 0.0):
-        raise AssertionError("slim-disk effective efficiency should fall above Eddington")
-
     predicted = float(predicted_log_mbh(log_seed, 1.0, epsilon, z_seed, z_obs))
     recovered_fedd = float(required_fedd_for_seed(log_seed, predicted, epsilon, z_seed, z_obs))
     recovered_seed = float(required_seed_mass_for_growth(predicted, 1.0, epsilon, z_seed, z_obs))
@@ -575,8 +544,6 @@ def run_growth_sanity_checks() -> dict[str, float]:
         "epsilon_spin_minus1": float(spin_efficiencies[0]),
         "epsilon_spin_0": float(spin_efficiencies[1]),
         "epsilon_spin_plus1": float(spin_efficiencies[2]),
-        "epsilon_spin0_fedd2_slim": float(slim_efficiencies[1]),
-        "epsilon_spin0_fedd3_slim": float(slim_efficiencies[2]),
         "epsilon_spin0_fedd2_slim": float(slim_efficiencies[1]),
         "epsilon_spin0_fedd3_slim": float(slim_efficiencies[2]),
         "roundtrip_required_fedd": recovered_fedd,
