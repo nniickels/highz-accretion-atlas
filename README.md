@@ -2,9 +2,9 @@
 
 This project builds a standardized, source-tracked catalogue of JWST-identified black holes at z ≥ 4 and uses it to test what combinations of seed mass, average Eddington fractions, seed redshifts, and radiative efficiencies can produce it given an observed black hole mass at redshift z. 
 
-The project produces parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html). The main output is a set of transparent figures showing where each observed object lies relative to physically interpretable seed and growth scenarios.
-
 This is helpful because current high-z AGN/BH literature mixes methods and conventions. A reproducible dataset with explicit assumptions and robustness checks makes it clearer which objects are genuinely challenging for standard formation models versus artifacts of inference choices, and helps prioritize the best candidates for follow-up and deeper theory work.
+
+The project produces parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
 
 ## Background
 JWST pushes sensitive spectroscopy and imaging into the first few billion years of cosmic history, where there is not much time for black holes and galaxies to assemble. That makes many z ≥ 4 discoveries natural stress tests. Small shifts in inferred `M_BH`, `M_*`, or `L_bol` can imply very different growth histories, especially since many calibrations were developed at low redshift.
@@ -55,6 +55,36 @@ The main figures are 2D parameter maps with:
 - contours or markers: observed $M_{BH}$ for catalogue objects
 
 The project also makes [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html) Fig. 1-style growth-track plots using the compiled catalogue.
+
+## Intended Paper Products
+
+Main-text products:
+
+- catalogue overview in redshift-mass space
+- object ranking by growth pressure
+- required $f_{Edd}$ summaries for fixed seed masses
+- required seed-mass summaries for fixed accretion histories
+- compatibility heatmap across seed/growth assumptions
+- uncertainty and systematics robustness plots
+- selected object-level parameter maps
+- follow-up priority table or matrix
+
+Appendix or supplement products:
+
+- full catalogue schema
+- full source registry
+- full processed catalogue tables
+- full result tables
+- full per-object parameter-map gallery
+- full seed-redshift map gallery
+- validation checks
+- sensitivity tests
+- source-by-source caveats
+
+The main text should showcase the atlas logic and strongest rankings, while
+the appendix preserves the comprehensive technical and visual record. This
+keeps the project centered on observational triage rather than on claiming that
+any single seed or accretion channel is proven.
 
 ## Workflow
 ### v1: Start Easy
