@@ -661,6 +661,31 @@ Codex prompt:
 
 ## Figure Inventory and Intended Use
 
+## Intended Paper Products
+
+### Main-text products
+- Catalogue overview in redshift-mass space.
+- Object ranking by growth pressure.
+- Required `f_Edd` summaries for fixed seed masses.
+- Required seed-mass summaries for fixed accretion histories.
+- Compatibility heatmap across seed/growth assumptions.
+- Uncertainty and systematics robustness plots.
+- Selected object-level parameter maps.
+- Follow-up priority table or matrix.
+
+### Appendix / supplement products
+- Full catalogue schema.
+- Full source registry.
+- Full processed catalogue tables.
+- Full result tables.
+- Full per-object parameter-map gallery.
+- Full seed-redshift map gallery.
+- Validation checks.
+- Sensitivity tests.
+- Source-by-source caveats.
+
+Use this section to decide what belongs in the final paper versus what should stay in the appendix. The main text should showcase the atlas logic and strongest rankings; the appendix should preserve the comprehensive technical and visual record.
+
 ### Current figures likely useful in main text after polishing
 - `v1_sample_compatibility_summary.png`
   - Use: sample-level scenario compatibility.
