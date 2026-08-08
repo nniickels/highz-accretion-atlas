@@ -87,48 +87,93 @@ keeps the project centered on observational triage rather than on claiming that
 any single seed or accretion channel is proven.
 
 ## Workflow
-### v1: Start Easy
+### v1: Pilot Broad-Line AGN Atlas
 
-Use one clean object class from one paper.
+Start with one clean object class from one source paper.
 
-1. Ingest one source catalogue into `data/raw/v1_raw.csv`.
+1. Ingest the JADES broad-line AGN catalogue into `data/raw/v1_raw.csv`.
 2. Standardize it into `data/processed/v1_processed.csv`.
-3. Validate the catalogue schema, missing values, methods, and provenance.
-4. Implement the Dayal growth equation in a dedicated growth module.
-5. Make one-object parameter maps first.
-6. Scale to all v1 objects.
-7. Produce:
-   - $M_{BH}$ vs $z$ growth-track plot
-   - per-object $f_{Edd}$ vs $M_{seed}$ maps
-   - sample-level map summaries
-   - table of required $f_{Edd}$ for chosen seed masses
-   - table of required $M_{seed}$ for chosen accretion assumptions
+3. Validate schema, required values, missing fields, methods, and provenance.
+4. Compute cosmic ages and growth intervals.
+5. Implement baseline growth diagnostics:
+   - predicted black-hole mass
+   - required average $f_{Edd}$
+   - required seed mass
+   - seed-redshift dependence
+6. Produce first v1 outputs:
+   - $M_{BH}$ vs redshift growth tracks
+   - per-object seed/accretion maps
+   - required $f_{Edd}$ tables
+   - required seed-mass tables
+   - sample compatibility summaries
 
-Interpretability comes from physical thresholds such as $f_{Edd} \leq 1$ and the upper bounds of the light, intermediate, and heavy seed ranges: $M_{seed} = 100 M_\odot$, $10^4 M_\odot$, and $10^6 M_\odot$, plus uncertainty bands.
+### v2: Ranking, Uncertainty, and Figure Prototypes
 
-### v2: Same Object Class, More Papers
+Turn the pilot catalogue into an observational triage tool.
 
-Add more broad-line AGN catalogues.
+1. Define ranking metrics:
+   - required $f_{Edd}$ for fixed seed masses
+   - required seed mass for fixed accretion histories
+   - $M_{BH}/M_*$ tension
+   - robustness to black-hole mass shifts
+   - object quality and method caveats
+   - follow-up priority
+2. Generate ranked object tables.
+3. Add uncertainty propagation using reported errors.
+4. Add systematic mass-shift tests, such as $M_{BH}\pm0.3$ dex.
+5. Report percentile ranges and threshold probabilities instead of only point estimates.
+6. Create final-style figure prototypes and maintain a living final-paper draft.
 
-1. Add new raw source files or source-specific ingestion scripts.
-2. Track duplicate objects across papers using coordinates, aliases, and redshift.
-3. Preserve multiple measurements for the same physical object.
-4. Compare how different papers move objects in parameter space.
-5. Add uncertainty propagation using Monte Carlo sampling of reported errors.
+### v3: Expanded Broad-Line AGN Atlas
 
-### v3: More Object Classes
+Add more broad-line AGN catalogues while keeping the object class relatively consistent.
 
-Add other early accretion candidate classes.
+1. Add source-specific raw files or ingestion scripts.
+2. Preserve source-paper measurements rather than overwriting them.
+3. Track duplicate objects using coordinates, aliases, and redshift.
+4. Compare how different papers move objects through growth-parameter space.
+5. Recompute rankings and uncertainty-aware diagnostics.
+6. Update final-style figures and tables.
 
-Possible additions:
+### v4: Measurement Versioning
+
+Separate physical objects from literature measurements.
+
+1. Add stable physical object IDs.
+2. Keep `measurement_id` as the row-level source-paper measurement ID.
+3. Add aliases and cross-match metadata.
+4. Build measurement-level and object-level ranking tables.
+5. Flag objects whose interpretation depends strongly on measurement choice.
+
+### v5: Multi-Class High-z Accreting BH Atlas
+
+Expand beyond broad-line AGN.
+
+Possible classes:
 
 - LRDs / compact red AGN candidates
-- X-ray-selected high-z black holes
-- high-ionization-line candidates
+- X-ray-selected high-z black-hole candidates
 - lensed candidates
+- high-ionization-line candidates
 - narrow-line AGN candidates
+- luminous high-redshift quasars as comparison anchors
 
-Each class should have required metadata fields and clearly documented caveats.
+For each class:
+
+1. Define required metadata fields.
+2. Track mass method and selection caveats.
+3. Keep object classes visually and statistically distinct.
+4. Recompute atlas rankings with class-aware caveats.
+
+### v6: Accretion-History Diagnostics
+
+Move beyond constant-average growth tracks.
+
+1. Compare reported current $f_{Edd}$ with required lifetime-average $f_{Edd}$.
+2. Add duty-cycle models.
+3. Add bursty-accretion scenarios.
+4. Compute required duty cycle for fixed seed and burst assumptions.
+5. Identify objects that require unusually early, sustained, or efficient growth.
 
 ## Getting Started 
 Requirements and instructions documented in `docs/getting-started.md`
