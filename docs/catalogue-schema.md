@@ -4,6 +4,11 @@
 running `python -m scripts.process_data` from the repository root. v1 keeps one
 clean source class from one source paper, filtered to `redshift >= 4`.
 
+Current v1 regression anchors: the processed catalogue has 23 measurement rows,
+redshifts from approximately 4.133 to 8.913, and quality flags of 18 `robust`
+and 5 `tentative`. These values describe the current pilot extraction and are
+checked by the test suite; they are not general schema constraints.
+
 ## Validation Rules
 
 - Raw input must contain every canonical v1 raw column used by

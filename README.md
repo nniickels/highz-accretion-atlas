@@ -2,16 +2,16 @@
 
 This project builds a standardized, source-tracked catalogue of JWST-identified black holes at z ≥ 4 and uses it to test what combinations of seed mass, average Eddington fractions, seed redshifts, and radiative efficiencies can produce it given an observed black hole mass at redshift z. 
 
-This is helpful because current high-z AGN/BH literature mixes methods and conventions. A reproducible dataset with explicit assumptions and robustness checks makes it clearer which objects are genuinely challenging for standard formation models versus artifacts of inference choices, and helps prioritize the best candidates for follow-up and deeper theory work.
+This is helpful because current high-z AGN/BH literature mixes methods and conventions. A reproducible dataset with explicit assumptions and robustness checks makes it clearer which objects are high-leverage under stated assumptions versus sensitive to inference choices, and helps prioritize candidates for follow-up and deeper theory work.
 
 The project produces parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
 
 ## Background
 JWST pushes sensitive spectroscopy and imaging into the first few billion years of cosmic history, where there is not much time for black holes and galaxies to assemble. That makes many z ≥ 4 discoveries natural stress tests. Small shifts in inferred `M_BH`, `M_*`, or `L_bol` can imply very different growth histories, especially since many calibrations were developed at low redshift.
 
-However, key quantities are often inferred with different methods and assumptions across papers, which can move objects in or out of the “peculiar” regime. This project’s motivation is to create a standardized assumption-tracked catalogue so it’s clearer which objects remain genuinely challenging under reasonable alternative interpretations, and therefore best motivate additional formation/growth channels and follow-up observations. 
+However, key quantities are often inferred with different methods and assumptions across papers, which can move objects in or out of the “peculiar” regime. This project’s motivation is to create a standardized assumption-tracked catalogue so it’s clearer which objects remain high-leverage under reasonable alternative interpretations, and therefore best motivate follow-up observations and broader growth-scenario modeling. 
 
-Testing multiple seed + growth scenarios matters because different origins imply different requirements to reach the observed state by a given redshift. Light seeds may demand extreme accretion histories while heavy seeds reduce that burden but can require special environments. More theoretical ideas like PBH seeding represent a fundamentally earlier “head start.” Studying these earliest accreting systems helps pin down how the first structures formed and grew, refining our picture of cosmic history and testing the physics that underpins modern cosmology.
+Testing multiple seed + growth scenarios matters because different assumptions imply different requirements to reach the observed state by a given redshift. Light-seed assumptions can imply high lifetime-average accretion requirements, while heavy-seed assumptions reduce that burden but invoke rarer or more specialized environments. Speculative ideas such as PBH seeding are treated as comparison scenarios only. Studying these earliest accreting systems helps refine models of how the first structures formed and grew; the atlas is not, by itself, a claim for non-standard cosmology.
 
 The growth model follows Eq. 1 of [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html):
 
@@ -169,14 +169,45 @@ For each class:
 
 Move beyond constant-average growth tracks.
 
-1. Compare reported current $f_{Edd}$ with required lifetime-average $f_{Edd}$.
+1. Compare reported current $f_{Edd}$ with required lifetime-average $f_{Edd}$ without treating them as the same quantity.
 2. Add duty-cycle models.
 3. Add bursty-accretion scenarios.
 4. Compute required duty cycle for fixed seed and burst assumptions.
 5. Identify objects that require unusually early, sustained, or efficient growth.
 
 ## Getting Started 
-Requirements and instructions documented in `docs/getting-started.md`
+
+Requirements and full run instructions are documented in
+`docs/getting-started.md`.
+
+Minimal v1 reproduction path from the repository root:
+
+```powershell
+python -m scripts.process_data
+jupyter notebook scripts/v1_evaluate.ipynb
+python scripts/generate_v1_rankings.py
+python scripts/generate_v1_uncertainty_rankings.py --n-samples 10000 --seed 20260808
+python scripts/generate_v1_final_figures.py
+$env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
+```
+
+Expected v1 products include:
+
+- `data/processed/v1_processed.csv`
+- `results/v1_required_fedd_by_seed_mass.csv`
+- `results/v1_required_mseed_by_growth_assumption.csv`
+- `results/v1_object_ranking_table.csv`
+- `results/v1_uncertainty_required_fedd_summary.csv`
+- `results/v1_uncertainty_required_mseed_summary.csv`
+- `results/v1_uncertainty_aware_ranking_table.csv`
+- final-style prototype PNGs in `results/v1_main_text_figures/`
+
+The v1 ranking and uncertainty products use the documented baseline
+`z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a column name or
+scenario suffix says otherwise. Outputs are observational triage products under
+stated assumptions; they do not prove a single seed or accretion channel.
+Exploratory figures in `results/` are preserved separately from final-style
+prototype figures.
 
 ## References 
 Sources of data documented in `data/sources.md`

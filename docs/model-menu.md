@@ -20,11 +20,15 @@ unphysical inputs, such as negative redshift, negative `f_Edd`, invalid
 `epsilon`, or `z_seed <= z_obs`, are validation errors.
 
 ## Formation and Growth Models
+These are scenario families for comparison and future expansion. Listing a
+scenario here does not mean the current v1 catalogue requires it or uniquely
+selects it.
+
 **A. Seeds**
 - Light seeds (Pop III remnants); `M_seed ~ 10–100 Msun`
 - Intermediate seeds (dense cluster runaway/nuclear star cluster); `M_seed ~ 1e3–1e4 Msun`
 - Heavy seeds (DCBH-like / SMS-like); `M_seed ~ 1e4–1e6 Msun` 
-- PBH seeds; `1e2–1e6 Msun`
+- PBH seeds as speculative comparison scenarios; `1e2–1e6 Msun`
 
 **B. Growth models**
 - Thin-disk Eddington-limited; `f_Edd ≤ 1`, `ε ≈ 0.1`
@@ -39,10 +43,13 @@ unphysical inputs, such as negative redshift, negative `f_Edd`, invalid
 - PBH halo-seeding gate
 
 **D. Cosmology / structure-formation alternatives (population-level module)**
-- ΛCDM baseline
+- Lambda-CDM baseline
 - PBH-boosted small-scale fluctuations
 - Warm DM / fuzzy DM
 - Primordial non-Gaussianity / modified power spectrum
+
+These alternatives are future population-level sensitivity tests, not claims
+for non-standard cosmology from any single v1 object.
 
 ## Interpretation Models
 **A. MBH inference interpretations**
