@@ -1,18 +1,15 @@
 # highz-accretion-atlas
+A standardized, assumption-tracked catalogue of JWST-identified high-redshift (z $\ge$ 4) accreting objects and their possible formation and growth scenarios. 
 
-This project builds a standardized, source-tracked catalogue of JWST-identified black holes at z ≥ 4 and uses it to test what combinations of seed mass, average Eddington fractions, seed redshifts, and radiative efficiencies can produce it given an observed black hole mass at redshift z. 
-
-This is helpful because current high-z AGN/BH literature mixes methods and conventions. A reproducible dataset with explicit assumptions and robustness checks makes it clearer which objects are high-leverage under stated assumptions versus sensitive to inference choices, and helps prioritize candidates for follow-up and deeper theory work.
-
-The project produces parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
 
 ## Background
-JWST pushes sensitive spectroscopy and imaging into the first few billion years of cosmic history, where there is not much time for black holes and galaxies to assemble. That makes many z ≥ 4 discoveries natural stress tests. Small shifts in inferred `M_BH`, `M_*`, or `L_bol` can imply very different growth histories, especially since many calibrations were developed at low redshift.
+The James Webb Space Telescope pushes observational cosmology into the first few billion years of cosmic history, and it has revealed massive accretig objects that are hard to explain due to the limited time for them to grow. It follows that one of the biggest questions cosmologists are asking right now is: “How did these objects get so big, so fast?” My research project aims to contribute to this question by creating a standardized cross-paper catalogue of these objects and then testing what scenarios could have theoretically formed each one. Either they started from a sufficiently massive seed, accreted continuously for a long enough time, formed very early, or some combination of these conditions. This is explored and visualized with parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
 
-However, key quantities are often inferred with different methods and assumptions across papers, which can move objects in or out of the “peculiar” regime. This project’s motivation is to create a standardized assumption-tracked catalogue so it’s clearer which objects remain high-leverage under reasonable alternative interpretations, and therefore best motivate follow-up observations and broader growth-scenario modeling. 
+Across the literature, key quantities are often inferred with different methods and assumptions, even though small shifts in inferred quantities like `M_BH`, `M_*`, or `L_bol` can imply very different growth histories. A standardized, assumption-tracked catalogue would calrify which objects are genuinely challenging for standard formation models rather than artifacts of inference choices. 
 
-Testing multiple seed + growth scenarios matters because different assumptions imply different requirements to reach the observed state by a given redshift. Light-seed assumptions can imply high lifetime-average accretion requirements, while heavy-seed assumptions reduce that burden but invoke rarer or more specialized environments. Speculative ideas such as PBH seeding are treated as comparison scenarios only. Studying these earliest accreting systems helps refine models of how the first structures formed and grew; the atlas is not, by itself, a claim for non-standard cosmology.
+Overall, this project aims to help determine what objects are the best candidates for follow-up and deeper theory work.
 
+## Theory 
 The growth model follows Eq. 1 of [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html):
 
 $M_{BH}(t) = M_{seed}(t_{seed})e^{\frac{4\pi Gm \rho f_{Edd}}{c\sigma T}\frac{1-\epsilon}{\epsilon}(t-t_{seed})}$
@@ -47,14 +44,7 @@ For each object, the pipeline computes the cosmic time available between $z_{see
 - $z_{seed}$
 - radiative efficiency $\epsilon$
 
-The main figures are 2D parameter maps with:
 
-- x-axis: $\log_{10}(M_{seed} / M_\odot)$
-- y-axis: $f_{Edd}$
-- colour: predicted $\log_{10}(M_{BH} / M_\odot)$
-- contours or markers: observed $M_{BH}$ for catalogue objects
-
-The project also makes [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html) Fig. 1-style growth-track plots using the compiled catalogue.
 
 ## Intended Paper Products
 
