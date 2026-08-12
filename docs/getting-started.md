@@ -118,7 +118,8 @@ metrics rather than compatibility scores for the main physical-pressure rank.
 
 ## v1 Uncertainty-Aware Rankings
 
-After generating the v1 ranking table, run:
+After generating the v1 point-estimate and uncertainty-aware ranking products,
+run:
 
 ```powershell
 python scripts/generate_v1_uncertainty_rankings.py
@@ -163,6 +164,7 @@ Expected prototype filenames:
 - `v1_main_text_ranked_required_fedd.png`
 - `v1_main_text_ranked_required_seed_mass.png`
 - `v1_main_text_pressure_vs_confidence.png`
+- `v1_main_text_uncertainty_forest.png`
 - `v1_main_text_spotlight_seed_redshift_maps.png`
 
 The exploratory figures and full map galleries in `results/` are not deleted or

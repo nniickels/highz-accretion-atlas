@@ -1,8 +1,8 @@
 """Create final-style v1 figure prototypes for the observational atlas.
 
-The figures are main-text candidates driven by the v1 ranking table. They are
-saved into a separate directory and do not delete or replace exploratory
-outputs.
+The figures are main-text candidates driven by the v1 ranking and uncertainty
+products. They are saved into a separate directory and do not delete or replace
+exploratory outputs.
 """
 
 from __future__ import annotations
@@ -33,6 +33,9 @@ from src.models import cosmic_time_gyr, predicted_log_mbh
 RESULTS_DIR = REPO_ROOT / "results"
 FIGURE_DIR = RESULTS_DIR / "v1_main_text_figures"
 RANKING_PATH = RESULTS_DIR / "v1_object_ranking_table.csv"
+UNCERTAINTY_RANKING_PATH = RESULTS_DIR / "v1_uncertainty_aware_ranking_table.csv"
+UNCERTAINTY_FEDD_PATH = RESULTS_DIR / "v1_uncertainty_required_fedd_summary.csv"
+UNCERTAINTY_MSEED_PATH = RESULTS_DIR / "v1_uncertainty_required_mseed_summary.csv"
 
 SPOTLIGHT_MAPS = {
     "GN-38509": RESULTS_DIR / "v1_seed_redshift_maps" / "v1_seed_redshift_map_gn38509-juodzbalis25.png",
@@ -48,6 +51,7 @@ FIGURE_PATHS = {
     "ranked_fedd": FIGURE_DIR / "v1_main_text_ranked_required_fedd.png",
     "ranked_seed": FIGURE_DIR / "v1_main_text_ranked_required_seed_mass.png",
     "pressure_confidence": FIGURE_DIR / "v1_main_text_pressure_vs_confidence.png",
+    "uncertainty_forest": FIGURE_DIR / "v1_main_text_uncertainty_forest.png",
     "spotlight_maps": FIGURE_DIR / "v1_main_text_spotlight_seed_redshift_maps.png",
 }
 
@@ -118,6 +122,62 @@ def read_ranking() -> pd.DataFrame:
     if missing:
         raise ValueError(f"Ranking table is missing required columns: {sorted(missing)}")
     return ranking
+
+
+def read_uncertainty_products() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Read and validate the uncertainty products used by the forest plot."""
+    paths = [UNCERTAINTY_RANKING_PATH, UNCERTAINTY_FEDD_PATH, UNCERTAINTY_MSEED_PATH]
+    missing_paths = [str(path) for path in paths if not path.exists()]
+    if missing_paths:
+        raise FileNotFoundError(
+            "Uncertainty products are missing: "
+            f"{missing_paths}. Run scripts/generate_v1_uncertainty_rankings.py first."
+        )
+
+    uncertainty_ranking = pd.read_csv(UNCERTAINTY_RANKING_PATH)
+    fedd_summary = pd.read_csv(UNCERTAINTY_FEDD_PATH)
+    mseed_summary = pd.read_csv(UNCERTAINTY_MSEED_PATH)
+
+    ranking_required = {
+        "measurement_id",
+        "object_id",
+        "quality_flag",
+        "rank_uncertainty_pressure",
+        "req_fedd_seed1e2_z30_eps0p1_b1",
+        "req_log_mseed_fedd0p3_z30_eps0p1_b1",
+    }
+    fedd_required = {
+        "measurement_id",
+        "scenario",
+        "seed_mass_short",
+        "required_fedd_p5",
+        "required_fedd_p16",
+        "required_fedd_p50",
+        "required_fedd_p84",
+        "required_fedd_p95",
+        "prob_required_fedd_gt_1",
+    }
+    mseed_required = {
+        "measurement_id",
+        "scenario",
+        "growth_history",
+        "required_log_mseed_p5",
+        "required_log_mseed_p16",
+        "required_log_mseed_p50",
+        "required_log_mseed_p84",
+        "required_log_mseed_p95",
+        "prob_required_mseed_gt_1e6",
+    }
+    for path, table, required in [
+        (UNCERTAINTY_RANKING_PATH, uncertainty_ranking, ranking_required),
+        (UNCERTAINTY_FEDD_PATH, fedd_summary, fedd_required),
+        (UNCERTAINTY_MSEED_PATH, mseed_summary, mseed_required),
+    ]:
+        missing = required - set(table.columns)
+        if missing:
+            raise ValueError(f"{path.name} is missing required columns: {sorted(missing)}")
+
+    return uncertainty_ranking, fedd_summary, mseed_summary
 
 
 def add_caption(fig: plt.Figure, text: str, y: float = 0.02) -> None:
@@ -432,6 +492,226 @@ def plot_pressure_vs_confidence(ranking: pd.DataFrame) -> Path:
     return path
 
 
+def _ordered_uncertainty_values(
+    summary: pd.DataFrame,
+    measurement_ids: pd.Series,
+    scenario: str,
+    value_column: str,
+) -> np.ndarray:
+    """Return one uncertainty-summary value per ordered measurement ID."""
+    subset = summary[summary["scenario"].eq(scenario)]
+    if subset["measurement_id"].duplicated().any():
+        duplicates = subset.loc[subset["measurement_id"].duplicated(), "measurement_id"].tolist()
+        raise ValueError(f"Duplicate uncertainty rows for scenario {scenario}: {duplicates[:5]}")
+    values = subset.set_index("measurement_id")[value_column].reindex(measurement_ids)
+    if values.isna().any():
+        missing_ids = measurement_ids[values.isna().to_numpy()].tolist()
+        raise ValueError(f"Missing {value_column} values for scenario {scenario}: {missing_ids[:5]}")
+    return values.to_numpy(float)
+
+
+def plot_uncertainty_forest(
+    uncertainty_ranking: pd.DataFrame,
+    fedd_summary: pd.DataFrame,
+    mseed_summary: pd.DataFrame,
+) -> Path:
+    """Plot baseline Monte Carlo intervals and separate MBH systematic shifts."""
+    plot_df = uncertainty_ranking.sort_values("rank_uncertainty_pressure").reset_index(drop=True)
+    measurement_ids = plot_df["measurement_id"]
+    y = np.arange(len(plot_df))
+
+    fedd_light = fedd_summary[fedd_summary["seed_mass_short"].eq("seed1e2")].copy()
+    mseed_gentle = mseed_summary[mseed_summary["growth_history"].eq("fedd0p3")].copy()
+    expected_rows = len(plot_df) * 3
+    if len(fedd_light) != expected_rows or len(mseed_gentle) != expected_rows:
+        raise ValueError(
+            "Uncertainty forest inputs must contain one baseline and two systematic rows "
+            f"per object; found {len(fedd_light)} required-fEdd and {len(mseed_gentle)} "
+            f"required-seed rows for {len(plot_df)} objects."
+        )
+
+    panels = [
+        {
+            "summary": fedd_light,
+            "prefix": "required_fedd",
+            "point_column": "req_fedd_seed1e2_z30_eps0p1_b1",
+            "probability_column": "prob_required_fedd_gt_1",
+            "threshold": 1.0,
+            "xlabel": r"Required lifetime-average $f_{\rm Edd}$ ($M_{\rm seed}=100\,M_\odot$)",
+            "title": "Light-seed accretion requirement",
+            "probability_header": r"$P(>1)$",
+        },
+        {
+            "summary": mseed_gentle,
+            "prefix": "required_log_mseed",
+            "point_column": "req_log_mseed_fedd0p3_z30_eps0p1_b1",
+            "probability_column": "prob_required_mseed_gt_1e6",
+            "threshold": 6.0,
+            "xlabel": r"Required $\log_{10}(M_{\rm seed}/M_\odot)$ ($f_{\rm Edd}=0.3$)",
+            "title": "Gentle-growth seed requirement",
+            "probability_header": r"$P(>10^6)$",
+        },
+    ]
+
+    fig, axes = plt.subplots(1, 2, figsize=(10.8, 7.3), sharey=True)
+    fig.subplots_adjust(left=0.16, right=0.94, bottom=0.19, top=0.88, wspace=0.34)
+
+    for ax, spec in zip(axes, panels, strict=True):
+        summary = spec["summary"]
+        prefix = spec["prefix"]
+        p5 = _ordered_uncertainty_values(summary, measurement_ids, "baseline", f"{prefix}_p5")
+        p16 = _ordered_uncertainty_values(summary, measurement_ids, "baseline", f"{prefix}_p16")
+        p50 = _ordered_uncertainty_values(summary, measurement_ids, "baseline", f"{prefix}_p50")
+        p84 = _ordered_uncertainty_values(summary, measurement_ids, "baseline", f"{prefix}_p84")
+        p95 = _ordered_uncertainty_values(summary, measurement_ids, "baseline", f"{prefix}_p95")
+        minus_median = _ordered_uncertainty_values(
+            summary, measurement_ids, "mbh_minus_0p3dex", f"{prefix}_p50"
+        )
+        plus_median = _ordered_uncertainty_values(
+            summary, measurement_ids, "mbh_plus_0p3dex", f"{prefix}_p50"
+        )
+        probabilities = _ordered_uncertainty_values(
+            summary, measurement_ids, "baseline", spec["probability_column"]
+        )
+
+        ax.hlines(y, p5, p95, color="#7A8790", lw=0.85, zorder=1)
+        ax.hlines(y, p16, p84, color="#324A5F", lw=4.0, zorder=2)
+        ax.hlines(y, minus_median, plus_median, color="#B98218", lw=1.0, alpha=0.9, zorder=1)
+        ax.scatter(minus_median, y, marker="<", s=22, color="#B98218", zorder=3)
+        ax.scatter(plus_median, y, marker=">", s=22, color="#B98218", zorder=3)
+        ax.scatter(
+            plot_df[spec["point_column"]],
+            y,
+            marker="D",
+            s=17,
+            facecolors="white",
+            edgecolors="#202020",
+            linewidths=0.75,
+            zorder=4,
+        )
+
+        robust = plot_df["quality_flag"].str.lower().eq("robust").to_numpy()
+        ax.scatter(
+            p50[robust],
+            y[robust],
+            marker="o",
+            s=38,
+            color=COLOR_ROBUST,
+            edgecolors="white",
+            linewidths=0.55,
+            zorder=5,
+        )
+        ax.scatter(
+            p50[~robust],
+            y[~robust],
+            marker="s",
+            s=39,
+            facecolors="white",
+            edgecolors=COLOR_TENTATIVE,
+            linewidths=1.35,
+            zorder=5,
+        )
+
+        ax.axvline(spec["threshold"], color=COLOR_HIGH, lw=1.0, ls="--", alpha=0.9, zorder=0)
+        ax.text(
+            spec["threshold"],
+            0.992,
+            "threshold",
+            transform=ax.get_xaxis_transform(),
+            ha="center",
+            va="top",
+            fontsize=7.7,
+            color=COLOR_HIGH,
+        )
+        for yi, probability in zip(y, probabilities, strict=True):
+            ax.text(
+                1.015,
+                yi,
+                f"{100.0 * probability:.0f}%",
+                transform=ax.get_yaxis_transform(),
+                ha="left",
+                va="center",
+                fontsize=7.5,
+                color=COLOR_HIGH if probability >= 0.5 else COLOR_MUTED,
+                clip_on=False,
+            )
+        ax.text(
+            1.015,
+            1.012,
+            spec["probability_header"],
+            transform=ax.transAxes,
+            ha="left",
+            va="bottom",
+            fontsize=7.7,
+            color="#202020",
+            clip_on=False,
+        )
+
+        all_values = np.concatenate([p5, p95, minus_median, plus_median, [spec["threshold"]]])
+        padding = 0.07 * (all_values.max() - all_values.min())
+        ax.set_xlim(all_values.min() - padding, all_values.max() + padding)
+        ax.set_xlabel(spec["xlabel"])
+        ax.set_title(spec["title"])
+        ax.grid(True, axis="x", zorder=0)
+        ax.tick_params(axis="y", length=0)
+
+    axes[0].set_yticks(y)
+    axes[0].set_yticklabels(y_labels(plot_df["object_id"]))
+    axes[0].invert_yaxis()
+    fig.suptitle("Uncertainty-aware growth-pressure ranking", y=0.975, fontsize=13)
+
+    legend_handles = [
+        Line2D([0], [0], color="#7A8790", lw=0.85, label="5th–95th percentile"),
+        Line2D([0], [0], color="#324A5F", lw=4.0, label="16th–84th percentile"),
+        Line2D([0], [0], marker="o", color="none", markerfacecolor=COLOR_ROBUST, label="Robust MC median"),
+        Line2D(
+            [0],
+            [0],
+            marker="s",
+            color="none",
+            markerfacecolor="white",
+            markeredgecolor=COLOR_TENTATIVE,
+            label="Tentative MC median",
+        ),
+        Line2D(
+            [0],
+            [0],
+            marker="D",
+            color="none",
+            markerfacecolor="white",
+            markeredgecolor="#202020",
+            label="Point estimate",
+        ),
+        Line2D(
+            [0],
+            [0],
+            marker="<",
+            color="#B98218",
+            markerfacecolor="#B98218",
+            markeredgecolor="#B98218",
+            label=r"Median at $M_{\rm BH}\pm0.3$ dex",
+        ),
+    ]
+    fig.legend(
+        handles=legend_handles,
+        loc="lower center",
+        bbox_to_anchor=(0.5, 0.075),
+        frameon=False,
+        ncol=3,
+        columnspacing=1.4,
+        handlelength=2.2,
+    )
+    caption = (
+        r"Baseline Monte Carlo intervals propagate reported asymmetric $M_{\rm BH}$ errors; percentages give baseline threshold probabilities."
+        "\n"
+        r"Orange endpoints are separate $M_{\rm BH}-0.3$ and $+0.3$ dex systematic medians; all panels assume $z_{\rm seed}=30$, $\epsilon=0.1$, and no merger boost."
+    )
+    add_caption(fig, caption, y=0.015)
+    path = save_figure(fig, FIGURE_PATHS["uncertainty_forest"])
+    plt.close(fig)
+    return path
+
+
 def plot_spotlight_maps(ranking: pd.DataFrame) -> Path:
     missing = [str(path) for path in SPOTLIGHT_MAPS.values() if not path.exists()]
     if missing:
@@ -466,6 +746,7 @@ def plot_spotlight_maps(ranking: pd.DataFrame) -> Path:
 def main() -> None:
     configure_style()
     ranking = read_ranking()
+    uncertainty_ranking, fedd_summary, mseed_summary = read_uncertainty_products()
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
     paths = [
@@ -473,10 +754,15 @@ def main() -> None:
         plot_ranked_required_fedd(ranking),
         plot_ranked_required_seed(ranking),
         plot_pressure_vs_confidence(ranking),
+        plot_uncertainty_forest(uncertainty_ranking, fedd_summary, mseed_summary),
         plot_spotlight_maps(ranking),
     ]
 
     print(f"Read ranking table: {RANKING_PATH.relative_to(REPO_ROOT)} ({len(ranking)} rows)")
+    print(
+        "Read uncertainty-aware ranking table: "
+        f"{UNCERTAINTY_RANKING_PATH.relative_to(REPO_ROOT)} ({len(uncertainty_ranking)} rows)"
+    )
     print(f"Saved {len(paths)} final-style v1 figure prototypes:")
     for path in paths:
         print(f"  {path.relative_to(REPO_ROOT)}")

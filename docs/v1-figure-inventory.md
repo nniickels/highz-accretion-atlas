@@ -23,6 +23,7 @@ so they remain distinct from exploratory outputs in `results/`.
 | Ranked required-f_Edd plot | `results/v1_main_text_figures/v1_main_text_ranked_required_fedd.png` | Main ranking figure for fixed seed-mass growth pressure. |
 | Ranked required seed-mass plot | `results/v1_main_text_figures/v1_main_text_ranked_required_seed_mass.png` | Companion ranking figure for fixed growth histories. |
 | Physical pressure vs confidence | `results/v1_main_text_figures/v1_main_text_pressure_vs_confidence.png` | Triage figure separating growth pressure from measurement robustness/caveats. |
+| Uncertainty-aware forest plot | `results/v1_main_text_figures/v1_main_text_uncertainty_forest.png` | Baseline Monte Carlo intervals, threshold probabilities, and separate `MBH +/- 0.3 dex` systematic medians for the two primary growth-pressure diagnostics. |
 | Spotlight seed-redshift maps | `results/v1_main_text_figures/v1_main_text_spotlight_seed_redshift_maps.png` | Two-panel spotlight for GN-38509 and GS-20057765 using existing map products. |
 
 These are prototypes driven by the current ranking products. They should be
