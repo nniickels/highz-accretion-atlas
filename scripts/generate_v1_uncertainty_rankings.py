@@ -166,6 +166,8 @@ def fedd_summary_rows(
                         "quality_flag": obj["quality_flag"],
                         "detection_evidence": obj["detection_evidence"],
                         "mbh_method": obj["mbh_method"],
+                        "edd_ratio_consistency_flag": obj["edd_ratio_consistency_flag"],
+                        "edd_ratio_log_residual_dex": obj["edd_ratio_log_residual_dex"],
                         "scenario": scenario.name,
                         "scenario_label": scenario.label,
                         "mbh_delta_dex": scenario.mbh_delta_dex,
@@ -228,6 +230,8 @@ def mseed_summary_rows(
                         "quality_flag": obj["quality_flag"],
                         "detection_evidence": obj["detection_evidence"],
                         "mbh_method": obj["mbh_method"],
+                        "edd_ratio_consistency_flag": obj["edd_ratio_consistency_flag"],
+                        "edd_ratio_log_residual_dex": obj["edd_ratio_log_residual_dex"],
                         "scenario": scenario.name,
                         "scenario_label": scenario.label,
                         "mbh_delta_dex": scenario.mbh_delta_dex,
@@ -289,12 +293,22 @@ def uncertainty_followup_category(row: pd.Series) -> str:
         return "C_uncertain_high_pressure"
     if row["mbh_mstar_tension_label"] == "extreme":
         return "D_host_ratio_tension"
+    if row["followup_priority_category"] == "D_source_consistency":
+        return "D_source_consistency"
     if row["followup_priority_category"] in {"D_systematics_leverage", "E_comparison_anchor"}:
         return "E_comparison_or_systematics_anchor"
     return "F_context"
 
 
 def uncertainty_followup_reason(row: pd.Series) -> str:
+    if row["uncertainty_followup_category"] == "D_source_consistency":
+        return (
+            f"{row['object_id']} is {row['quality_flag']} with source-consistency priority "
+            f"under baseline assumptions (z_seed=30, epsilon=0.1, no merger): its reported "
+            f"Eddington ratio differs from the MBH/Lbol-implied value by "
+            f"{row['edd_ratio_log_residual_dex']:.2f} dex; measurement tier="
+            f"{row['measurement_confidence_tier']}; requires source clarification."
+        )
     return (
         f"{row['object_id']} is {row['quality_flag']} with "
         f"{row['uncertainty_growth_pressure_tier']} under baseline assumptions "
@@ -421,12 +435,19 @@ def verify_outputs(
     n_objects = len(point_ranking)
     expected_fedd_rows = n_objects * len(MASS_SHIFT_SCENARIOS) * len(FIXED_SEED_MASSES)
     expected_mseed_rows = n_objects * len(MASS_SHIFT_SCENARIOS) * len(FIXED_GROWTH_HISTORIES)
+    source_consistency = uncertainty_ranking["followup_priority_category"].eq("D_source_consistency")
 
     checks = {
         "fedd_row_count": len(fedd_summary) == expected_fedd_rows,
         "mseed_row_count": len(mseed_summary) == expected_mseed_rows,
         "ranking_row_count": len(uncertainty_ranking) == n_objects,
         "ranking_measurement_id_unique": uncertainty_ranking["measurement_id"].is_unique,
+        "source_consistency_followup_preserved": bool(
+            source_consistency.any()
+            and uncertainty_ranking.loc[
+                source_consistency, "uncertainty_followup_category"
+            ].eq("D_source_consistency").all()
+        ),
         "valid_fedd_percentiles": (
             fedd_summary["required_fedd_p5"].le(fedd_summary["required_fedd_p16"]).all()
             and fedd_summary["required_fedd_p16"].le(fedd_summary["required_fedd_p50"]).all()

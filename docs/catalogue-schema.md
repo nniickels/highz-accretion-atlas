@@ -20,6 +20,8 @@ checked by the test suite; they are not general schema constraints.
   are `individual_robust`, `individual_tentative`, and
   `stack_supported_tentative_hbeta`.
 - Numeric columns must parse as numbers when nonblank.
+- Reported uncertainties must be non-negative, and a reported Eddington ratio
+  must be positive.
 - Rows with `redshift < 4` are excluded from the processed catalogue.
 - `measurement_id` must be unique.
 - `cosmic_time_gyr` must be positive after filtering.
@@ -59,6 +61,9 @@ checked by the test suite; they are not general schema constraints.
 | `log_mbh_mstar_ratio_err` | dex | Quadrature uncertainty using averaged MBH and Mstar uncertainties. | Generated optional | Blank when required uncertainty inputs are missing. |
 | `edd_ratio_std` | none | Reported or standardized Eddington ratio. | Optional | Blank allowed and flagged by `missing_edd_ratio_flag`. |
 | `edd_ratio_err_std` | none | Mean of positive and negative Eddington-ratio uncertainties. | Optional | Blank allowed when uncertainty inputs are missing. |
+| `edd_ratio_from_mbh_lbol` | none | Independent value computed as `Lbol / (1.26e38 * MBH/Msun)` from the tabulated mass and luminosity. | Generated optional | Blank when any required input is unavailable. |
+| `edd_ratio_log_residual_dex` | dex | `log10(edd_ratio_std / edd_ratio_from_mbh_lbol)`. | Generated optional | Blank when the cross-check is not evaluable. |
+| `edd_ratio_consistency_flag` | none | `consistent`, `inconsistent`, or `not_evaluable`; the inconsistency threshold is an absolute residual above 0.3 dex. | Generated | Always present. This is a source-table cross-check, not a replacement measurement. |
 | `agn_contam_flag` | 0/1 | Source-level flag for possible AGN contamination in host quantities. | Optional | Blank allowed; must be numeric when present. |
 | `lensing_mu` | magnification factor | Lensing magnification if reported. | Optional | Blank allowed and flagged by `missing_lensing_flag`. |
 | `lensing_mu_err` | magnification factor | Uncertainty on `lensing_mu`. | Optional | Blank allowed and included in the lensing optional group. |
@@ -75,3 +80,13 @@ checked by the test suite; they are not general schema constraints.
 | `source_key` | none | Stable source registry key in `data/sources.md`. | Required | Must be present. |
 | `source_table` | none | Source-paper table(s) used for extraction. | Required | Must be present. |
 | `notes` | none | Human-readable extraction caveats or sample notes. | Optional | Blank allowed. |
+
+## Source-specific v1 consistency decisions
+
+- The source-adopted CIGALE host masses are used for `GS-200679`
+  (`8.53 +/- 0.13`), `GS-20030333` (`8.61 +/- 0.20`), and `GS-164055`
+  (`7.99 +/- 0.23`). The first and third are significantly extended hosts;
+  the second lacks a BEAGLE mass.
+- `GN-11836` retains the published `log_mbh=6.06`, `log_lbol=44.11`, and
+  `edd_ratio=0.11`. The first two imply an Eddington ratio of approximately
+  `0.89`, so the row is flagged `inconsistent` pending source clarification.

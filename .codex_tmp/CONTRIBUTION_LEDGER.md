@@ -6,11 +6,29 @@ Purpose: maintain an append-only chronological record of Codex contributions to 
 
 For every future Codex contribution that changes repository files:
 
-1. Append a dated entry to this ledger; do not replace prior history except to correct a factual error.
-2. Record the objective, files changed, scientific or technical effect, validation performed, and current status.
-3. Update `.codex_tmp/highz_accretion_atlas_status.tex` when the contribution changes an overall method, major capability, result, limitation, figure, or roadmap stage.
-4. Recompile and visually verify `.codex_tmp/highz_accretion_atlas_status.pdf` whenever the LaTeX paper changes.
-5. Minor mechanical changes may be recorded in the ledger without receiving detailed paper coverage; the paper should summarize major steps and durable results rather than every edit.
+1. Append a dated entry to this ledger in the same contribution, before handoff. Include the ledger itself in the entry's file list when it is changed. Read-only reviews that do not change repository files do not require an entry.
+2. Use every field in the template below: objective, files changed, contribution, scientific/technical effect, validation, and status. If validation was not run, write `Not run` and give the reason rather than omitting the field.
+3. Under **Files changed**, list every affected repository-relative path on its own bullet and label it `(added)`, `(modified)`, `(deleted)`, or `(renamed from `old/path`)`. Reconcile the list with `git diff --name-status` for uncommitted work or Git history for committed work.
+4. State whether the work is committed or uncommitted in **Status**. For committed work, include the abbreviated commit hash and subject.
+5. Preserve the chronological record. Existing entries may be edited only to correct factual errors, omissions, or formatting needed to meet this audit standard.
+6. Update `.codex_tmp/highz_accretion_atlas_status.tex` when the contribution changes an overall method, major capability, result, limitation, figure, or roadmap stage.
+7. Recompile and visually verify `.codex_tmp/highz_accretion_atlas_status.pdf` whenever the LaTeX paper changes.
+8. Minor mechanical changes may be recorded in the ledger without receiving detailed paper coverage; the paper should summarize major steps and durable results rather than every edit.
+
+## Entry template
+
+```markdown
+### YYYY-MM-DD - Short title
+
+- **Objective:** What the contribution was intended to accomplish.
+- **Files changed:**
+  - `path/to/file` (added)
+  - `path/to/other-file` (modified)
+- **Contribution:** What was implemented or changed.
+- **Scientific/technical effect:** Effect on the science, data, software, workflow, or documentation; explicitly state when there was no scientific effect.
+- **Validation:** Checks performed and their outcomes, or `Not run` with a reason.
+- **Status:** Complete or in progress; committed in `abcdef0` (`commit subject`) or verified locally and uncommitted.
+```
 
 ## Chronological entries
 
@@ -18,48 +36,105 @@ For every future Codex contribution that changes repository files:
 
 - **Objective:** Turn the Monte Carlo uncertainty products into a compact, publication-style visualization.
 - **Files changed:**
-  - `scripts/generate_v1_final_figures.py`
-  - `results/v1_main_text_figures/v1_main_text_uncertainty_forest.png`
-  - `docs/getting-started.md`
-  - `docs/v1-figure-inventory.md`
+  - `scripts/generate_v1_final_figures.py` (modified)
+  - `results/v1_main_text_figures/v1_main_text_uncertainty_forest.png` (added)
+  - `docs/getting-started.md` (modified)
+  - `docs/v1-figure-inventory.md` (modified)
 - **Contribution:** Added a two-panel uncertainty forest plot ordered by the uncertainty-aware pressure rank. The plot shows baseline 5th--95th and 16th--84th percentile intervals, Monte Carlo medians, original point estimates, separate `MBH +/- 0.3 dex` systematic medians, robust/tentative measurement status, physical thresholds, and per-object threshold probabilities. Integrated the output into the existing final-figure generator and documented the new product.
+- **Scientific/technical effect:** Made Monte Carlo threshold probabilities and interval/systematic comparisons available as a main-text visual; no source catalogue or numerical result tables changed.
 - **Validation:** Generated and visually inspected the PNG; confirmed all 23 objects and both probability columns were legible; ran the full 23-test regression suite successfully; checked the patch with `git diff --check`.
 - **Status:** Complete and present in repository commit `15a1b3f` (`Document monte carlo sample results`).
 
 ### 2026-08-13 - Project-status paper and contribution ledger
 
 - **Objective:** Document the completed project, current scientific interpretation, repository workflow, limitations, and future research goals in a concise paper with figures.
-- **Files added:**
-  - `.codex_tmp/highz_accretion_atlas_status.tex`
-  - `.codex_tmp/highz_accretion_atlas_status.pdf`
-  - `.codex_tmp/CONTRIBUTION_LEDGER.md`
+- **Files changed:**
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (added)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (added)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (added)
 - **Contribution:** Added a LaTeX project-status manuscript organized chronologically from data provenance through standardization, physical modeling, scenario evaluation, ranking, Monte Carlo uncertainty propagation, current findings, validation, limitations, and the staged research roadmap. Embedded the mass--redshift overview, uncertainty forest plot, pressure-versus-confidence plot, and seed-redshift spotlight maps. Established this ledger as the ongoing record for future Codex work.
+- **Scientific/technical effect:** Created durable project-state documentation and an audit trail; no analysis inputs or outputs changed.
 - **Validation:** LaTeX compilation and PDF rendering/visual inspection completed; final page count, embedded figures, text extraction, and layout were checked. No source or result tables were altered by the documentation build.
-- **Status:** Complete as of the latest successful PDF quality check recorded in this session.
+- **Status:** Complete and present in repository commit `33b9337` (`documentation`).
 
 ### 2026-08-15 - Correct tentative broad-Hbeta evidence and virial-mass metadata
 
 - **Objective:** Correct the first must-address scientific metadata issue by distinguishing the four high-redshift tentative broad-Hbeta candidates from the robust broad-Halpha sample and carrying that distinction through the analysis products.
 - **Files changed:**
-  - `data/raw/v1_raw.csv`
-  - `data/processed/v1_processed.csv`
-  - `data/sources.md`
-  - `src/standardize_data.py`
-  - `scripts/generate_v1_rankings.py`
-  - `scripts/generate_v1_uncertainty_rankings.py`
-  - `scripts/v1_evaluate.ipynb`
-  - `results/v1_object_ranking_table.csv`
-  - `results/v1_uncertainty_aware_ranking_table.csv`
-  - `results/v1_uncertainty_required_fedd_summary.csv`
-  - `results/v1_uncertainty_required_mseed_summary.csv`
-  - `tests/test_v1_pipeline.py`
-  - `docs/catalogue-schema.md`
-  - `docs/v1-ranking-metrics.md`
-  - `docs/v1-uncertainty-propagation.md`
-  - `.codex_tmp/highz_accretion_atlas_status.tex`
-  - `.codex_tmp/highz_accretion_atlas_status.pdf`
-  - `.codex_tmp/CONTRIBUTION_LEDGER.md`
+  - `data/raw/v1_raw.csv` (modified)
+  - `data/processed/v1_processed.csv` (modified)
+  - `data/sources.md` (modified)
+  - `src/standardize_data.py` (modified)
+  - `scripts/generate_v1_rankings.py` (modified)
+  - `scripts/generate_v1_uncertainty_rankings.py` (modified)
+  - `scripts/v1_evaluate.ipynb` (modified)
+  - `results/v1_object_ranking_table.csv` (modified)
+  - `results/v1_uncertainty_aware_ranking_table.csv` (modified)
+  - `results/v1_uncertainty_required_fedd_summary.csv` (modified)
+  - `results/v1_uncertainty_required_mseed_summary.csv` (modified)
+  - `tests/test_v1_pipeline.py` (modified)
+  - `docs/catalogue-schema.md` (modified)
+  - `docs/v1-ranking-metrics.md` (modified)
+  - `docs/v1-uncertainty-propagation.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (modified)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
 - **Contribution:** Corrected GS-20057765, GS-20030333, GS-164055, and GN-4685 from single-epoch broad-Halpha to broad-Hbeta virial-mass metadata. Added a controlled `detection_evidence` field, mapped it deterministically to `quality_flag`, and propagated the evidence and mass method through point and uncertainty products. The four candidates are now consistently represented as stack-supported tentative broad-Hbeta measurements with low confidence and explicit caveats that their individual broad-component detections are not formally significant. No getting-started or reproduction-guide material was changed.
-- **Scientific effect:** The physical-pressure and uncertainty-pressure rank order is unchanged, but the evidential status and follow-up interpretation of the four tentative high-redshift candidates are now explicit and source-consistent.
+- **Scientific/technical effect:** The physical-pressure and uncertainty-pressure rank order is unchanged, but the evidential status and follow-up interpretation of the four tentative high-redshift candidates are now explicit and source-consistent.
 - **Validation:** Re-ran the complete processing, point-ranking, and 10,000-sample uncertainty pipeline with seed `20260808`; all pipeline sanity checks passed and regenerated hashes were unchanged. All 24 regression tests passed. Exact-four-object invariants, evidence-to-quality mapping, confidence tiers, caveat tags, and unchanged rank mappings were checked directly. `git diff --check` passed. The status PDF was recompiled, rendered, and visually inspected after this entry was added.
+- **Status:** Complete and present in repository commit `11b6d93` (`fix data source tag`).
+
+### 2026-08-15 - Standardize contribution-ledger requirements
+
+- **Objective:** Make the contribution ledger consistently identify every changed file and provide enough status and validation detail for future auditing.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+- **Contribution:** Added a mandatory entry format and reusable template, including per-file change types, validation reporting, and commit state. Reconciled the existing entries with Git history and normalized them to the same format.
+- **Scientific/technical effect:** No scientific methods, source data, analysis code, or results changed; this improves auditability and future ledger compliance.
+- **Validation:** Checked all three committed historical entries and their file lists against Git history for commits `15a1b3f`, `33b9337`, and `11b6d93`; reviewed the current worktree file list for this uncommitted entry; and ran `git diff --check`.
+- **Status:** Complete and verified locally; changes are not yet committed.
+
+### 2026-08-15 - Restore adopted host masses and flag an inconsistent Eddington ratio
+
+- **Objective:** Resolve the two remaining must-address scientific catalogue issues: omitted source-adopted host stellar masses for three objects and the internally inconsistent published Eddington-ratio triplet for GN-11836.
+- **Files changed:**
+  - `data/raw/v1_raw.csv` (modified)
+  - `data/processed/v1_processed.csv` (modified)
+  - `data/sources.md` (modified)
+  - `src/standardize_data.py` (modified)
+  - `scripts/generate_v1_rankings.py` (modified)
+  - `scripts/generate_v1_uncertainty_rankings.py` (modified)
+  - `scripts/v1_evaluate.ipynb` (modified)
+  - `results/v1_evaluation_table.csv` (modified)
+  - `results/v1_required_fedd_by_seed_mass.csv` (modified)
+  - `results/v1_required_mseed_by_growth_assumption.csv` (modified)
+  - `results/v1_object_ranking_table.csv` (modified)
+  - `results/v1_uncertainty_required_fedd_summary.csv` (modified)
+  - `results/v1_uncertainty_required_mseed_summary.csv` (modified)
+  - `results/v1_uncertainty_aware_ranking_table.csv` (modified)
+  - `results/v1_main_text_figures/v1_main_text_pressure_vs_confidence.png` (modified)
+  - `tests/test_v1_pipeline.py` (modified)
+  - `docs/catalogue-schema.md` (modified)
+  - `docs/v1-ranking-metrics.md` (modified)
+  - `docs/v1-uncertainty-propagation.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (modified)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+- **Contribution:** Restored the paper's adopted CIGALE host-mass measurements for GS-200679 (`8.53 +/- 0.13`), GS-20030333 (`8.61 +/- 0.20`), and GS-164055 (`7.99 +/- 0.23`). Added deterministic Eddington-ratio cross-check fields derived from reported black-hole mass and bolometric luminosity, a `0.3 dex` consistency tolerance, validation of ratio/uncertainty domains, and downstream consistency caveats. Preserved the published GN-11836 values verbatim while flagging their inconsistency, lowering the object's ranking confidence to medium, and assigning source clarification as its follow-up category. Regenerated all affected point-estimate, uncertainty, figure, and status-paper products. No getting-started or reproduction-guide material was changed.
+- **Scientific/technical effect:** The number of active processed objects lacking a host mass fell from four to one. The restored black-hole-to-host mass ratios are `-2.34` for GS-200679, `-1.19` for GS-20030333, and `-0.36` for GS-164055. For GN-11836, the reported `log(M_BH/M_sun)=6.06` and `log(L_bol/[erg s^-1])=44.11` imply `lambda_Edd=0.890491`, rather than the reported `0.11`, a residual of `-0.908237 dex`; the catalogue now exposes this discrepancy without substituting an undocumented value. Point and uncertainty pressure ranks remain unchanged.
+- **Validation:** Checked the source values and host-mass selection against Tables 2 and 5 of the published catalogue paper. Re-ran standardization, the 8,832-row evaluation grid, both 2,208-row derived scenario tables, point rankings, and the full 10,000-sample uncertainty pipeline with seed `20260808`; all built-in sanity checks passed. All 25 regression tests passed. Confirmed exactly one remaining active missing host mass and exactly one Eddington-ratio inconsistency. Rebuilt and inspected the affected main-text figure. Recompiled the 10-page status PDF and visually inspected every page. `git diff --check` passed.
+- **Status:** Complete and verified locally; changes are not yet committed.
+
+### 2026-08-15 - Preserve source-consistency priority in uncertainty ranking
+
+- **Objective:** Prevent a point-ranking source-consistency priority from falling through to generic context in the uncertainty-aware follow-up classification.
+- **Files changed:**
+  - `scripts/generate_v1_uncertainty_rankings.py` (modified)
+  - `tests/test_v1_pipeline.py` (modified)
+  - `docs/v1-uncertainty-propagation.md` (modified)
+  - `results/v1_uncertainty_aware_ranking_table.csv` (modified)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+- **Contribution:** Added explicit `D_source_consistency` handling to the uncertainty follow-up categorizer and a source-specific reason that retains the standard quality, baseline-assumption, and measurement-tier context. Added a production sanity invariant and regression assertions for GN-11836. Regenerated the uncertainty-aware ranking and documented the behavior.
+- **Scientific/technical effect:** GN-11836 now remains `D_source_consistency` in both `followup_priority_category` and `uncertainty_followup_category`, rather than being relabeled `F_context`. Its uncertainty follow-up reason carries the `-0.91 dex` Eddington-ratio residual and source-clarification requirement. Numerical uncertainty products, pressure tiers, scores, probabilities, and rank order are unchanged.
+- **Validation:** All 25 regression tests passed. Re-ran the full 10,000-sample uncertainty pipeline with seed `20260808`; all nine built-in sanity checks passed, including the new `source_consistency_followup_preserved` invariant. Confirmed the GN-11836 row has matching source-consistency categories and the specific clarification reason. Confirmed uncertainty rank mappings are unchanged and ran `git diff --check`.
 - **Status:** Complete and verified locally; changes are not yet committed.

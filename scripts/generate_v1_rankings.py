@@ -77,6 +77,9 @@ def read_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
             "log_mstar_err_minus_std",
             "mstar_method",
             "edd_ratio_std",
+            "edd_ratio_from_mbh_lbol",
+            "edd_ratio_log_residual_dex",
+            "edd_ratio_consistency_flag",
             "log_mbh_mstar_ratio",
             "missing_mstar_flag",
             "missing_lbol_flag",
@@ -302,6 +305,8 @@ def measurement_confidence_tier(row: pd.Series) -> str:
     quality = str(row["quality_flag"]).lower()
     if row["detection_evidence"] == "stack_supported_tentative_hbeta":
         return "low"
+    if row["edd_ratio_consistency_flag"] == "inconsistent":
+        return "medium" if quality == "robust" else "low"
     missing_core = bool_value(row["missing_lbol_flag"]) or bool_value(row["missing_edd_ratio_flag"])
     if quality == "robust" and not missing_core:
         return "high"
@@ -333,12 +338,16 @@ def caveat_tags(row: pd.Series) -> str:
         tags.append("missing_lensing")
     if bool_value(row.get("agn_contam_flag")):
         tags.append("agn_contam_mstar")
+    if row["edd_ratio_consistency_flag"] == "inconsistent":
+        tags.append("published_edd_ratio_inconsistent_with_mbh_lbol")
     return ";".join(tags)
 
 
 def primary_caveat(row: pd.Series) -> str:
     if row["detection_evidence"] == "stack_supported_tentative_hbeta":
         return "tentative broad-Hbeta; individual detection not formally significant"
+    if row["edd_ratio_consistency_flag"] == "inconsistent":
+        return "published MBH/Lbol/Eddington-ratio values are internally inconsistent"
     if str(row["quality_flag"]).lower() != "robust":
         return "tentative source-paper classification"
     if bool_value(row["missing_mstar_flag"]):
@@ -353,6 +362,8 @@ def primary_caveat(row: pd.Series) -> str:
 def most_needed_followup(row: pd.Series) -> str:
     if row["detection_evidence"] == "stack_supported_tentative_hbeta":
         return "confirm individual broad-Hbeta detection and refine virial mass"
+    if row["edd_ratio_consistency_flag"] == "inconsistent":
+        return "verify the published MBH/Lbol/Eddington-ratio triplet with the source authors"
     if str(row["quality_flag"]).lower() != "robust":
         return "confirm broad-line/BH interpretation and refine virial mass"
     if bool_value(row["missing_mstar_flag"]):
@@ -371,6 +382,8 @@ def followup_priority_category(row: pd.Series) -> str:
         return "B_tentative_high_pressure"
     if row["mbh_mstar_tension_label"] == "extreme":
         return "C_host_ratio_tension"
+    if row["edd_ratio_consistency_flag"] == "inconsistent":
+        return "D_source_consistency"
     if row["growth_pressure_robustness_label"] in {"baseline_high_only", "systematics_sensitive"}:
         return "D_systematics_leverage"
     if row["physical_growth_pressure_tier"] == "medium" and str(row["quality_flag"]).lower() == "robust":
@@ -402,6 +415,11 @@ def followup_priority_reason(row: pd.Series) -> str:
             f"{object_id} has extreme M_BH/Mstar tension "
             f"(log ratio={row['log_mbh_mstar_ratio']:.2f}) and merits host-mass follow-up."
         )
+    if row["followup_priority_category"] == "D_source_consistency":
+        return (
+            f"{object_id} retains the published values, but its reported Eddington ratio differs "
+            f"from the MBH/Lbol-implied value by {row['edd_ratio_log_residual_dex']:.2f} dex."
+        )
     if row["followup_priority_category"] == "D_systematics_leverage":
         return f"{object_id} changes ranking tier under +/-0.3 dex BH-mass systematics."
     if row["followup_priority_category"] == "E_comparison_anchor":
@@ -414,6 +432,7 @@ def followup_value_score(row: pd.Series) -> float:
         "A_robust_high_pressure": 100.0,
         "B_tentative_high_pressure": 92.0,
         "C_host_ratio_tension": 78.0,
+        "D_source_consistency": 74.0,
         "D_systematics_leverage": 70.0,
         "E_comparison_anchor": 58.0,
         "F_context": 30.0,
@@ -511,6 +530,9 @@ def build_ranking_table(catalogue: pd.DataFrame, required_fedd: pd.DataFrame, re
         "log_mstar_err_minus",
         "mstar_method",
         "edd_ratio_reported",
+        "edd_ratio_from_mbh_lbol",
+        "edd_ratio_log_residual_dex",
+        "edd_ratio_consistency_flag",
         "log_mbh_mstar_ratio",
         "mbh_mstar_ratio",
         "mbh_mstar_tension_label",
@@ -597,8 +619,16 @@ def verify_ranking(ranking: pd.DataFrame, catalogue: pd.DataFrame) -> None:
                 & (ranking["physical_growth_pressure_tier"] == "high")
             ).any()
         ),
-        "missing_host_objects_retained": bool(
-            ranking.loc[ranking["object_id"].isin(["GS-20030333", "GS-164055"]), "missing_mstar_flag"].all()
+        "source_adopted_cigale_hosts_restored": bool(
+            (~ranking.loc[
+                ranking["object_id"].isin(["GS-200679", "GS-20030333", "GS-164055"]),
+                "missing_mstar_flag",
+            ]).all()
+        ),
+        "gn11836_source_inconsistency_flagged": bool(
+            ranking.loc[
+                ranking["object_id"].eq("GN-11836"), "edd_ratio_consistency_flag"
+            ].eq("inconsistent").all()
         ),
         "no_missing_baseline_required_fedd": not ranking["req_fedd_seed1e2_z30_eps0p1_b1"].isna().any(),
         "no_missing_baseline_required_mseed": not ranking["req_log_mseed_fedd0p3_z30_eps0p1_b1"].isna().any(),

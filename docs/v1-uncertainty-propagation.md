@@ -45,6 +45,8 @@ The output tables explicitly record the MBH uncertainty handling with:
 
 - `detection_evidence`
 - `mbh_method`
+- `edd_ratio_consistency_flag`
+- `edd_ratio_log_residual_dex`
 - `log_mbh_err_plus_reported`
 - `log_mbh_err_minus_reported`
 - `log_mbh_sigma_plus_used`
@@ -141,13 +143,19 @@ Interpretation:
 
 - `GN-38509` remains the strongest robust v1 growth-pressure object.
 - `GS-20057765` remains the strongest tentative high-redshift follow-up target.
-- `GS-20030333` and `GS-164055` stay high leverage but are caveated by missing
-  host stellar masses and tentative status.
+- `GS-20030333` and `GS-164055` stay high leverage and now carry their
+  source-adopted CIGALE host masses; their principal caveat remains the
+  tentative, stack-supported H-beta evidence.
 - `GN-4685` stays in the likely high-pressure group probabilistically, but its
   point-estimate pressure is close to the threshold and remains
   systematics-sensitive.
 - `GN-954` is better described as a robust comparison/systematics object than as
   a likely high-pressure object under the baseline uncertainty model.
+- Point-ranking source-consistency priorities are preserved in
+  `uncertainty_followup_category`. In particular, `GN-11836` remains
+  `D_source_consistency` rather than falling through to generic context, and its
+  uncertainty follow-up reason retains the published Eddington-ratio residual
+  and source-clarification requirement.
 
 These rankings remain triage products. High threshold probability means an
 object is worth follow-up or modeling attention under stated assumptions; it

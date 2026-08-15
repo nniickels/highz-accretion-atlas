@@ -36,6 +36,9 @@ DETECTION_EVIDENCE_TO_QUALITY = {
     "stack_supported_tentative_hbeta": "tentative",
 }
 
+LOG10_EDDINGTON_LUMINOSITY_PER_MSUN = np.log10(1.26e38)
+EDD_RATIO_CONSISTENCY_TOLERANCE_DEX = 0.3
+
 NUMERIC_RAW_FIELDS = [
     "ra_deg", "dec_deg", "redshift",
     "log_mbh_msun", "log_mbh_err_plus", "log_mbh_err_minus",
@@ -64,7 +67,8 @@ STANDARDIZED_OUTPUT_COLUMNS = [
     "log_lbol_erg_s_std", "log_lbol_err_plus_std", "log_lbol_err_minus_std",
     "lbol_method",
     "log_mbh_mstar_ratio", "log_mbh_mstar_ratio_err",
-    "edd_ratio_std", "edd_ratio_err_std",
+    "edd_ratio_std", "edd_ratio_err_std", "edd_ratio_from_mbh_lbol",
+    "edd_ratio_log_residual_dex", "edd_ratio_consistency_flag",
     "agn_contam_flag", "lensing_mu", "lensing_mu_err",
     "missing_mstar_flag", "missing_lbol_flag", "missing_edd_ratio_flag",
     "missing_lensing_flag", "missing_optional_fields",
@@ -194,6 +198,26 @@ def validate_optional_missingness(canonical_df: pd.DataFrame) -> None:
         ids = _format_row_ids(canonical_df, lbol_present & lbol_method_missing)
         raise ValueError(f"Lbol values require lbol_method for rows: {ids}")
 
+
+def validate_numeric_domains(canonical_df: pd.DataFrame) -> None:
+    """Reject finite values that cannot represent the reported measurements."""
+    uncertainty_fields = [
+        "log_mbh_err_plus", "log_mbh_err_minus",
+        "log_mstar_err_plus", "log_mstar_err_minus",
+        "log_lbol_err_plus", "log_lbol_err_minus",
+        "edd_ratio_err_plus", "edd_ratio_err_minus",
+    ]
+    for col in uncertainty_fields:
+        invalid = canonical_df[col].notna() & canonical_df[col].lt(0.0)
+        if invalid.any():
+            ids = _format_row_ids(canonical_df, invalid)
+            raise ValueError(f"Column {col!r} must be non-negative for rows: {ids}")
+
+    invalid_edd_ratio = canonical_df["edd_ratio_reported"].notna() & canonical_df["edd_ratio_reported"].le(0.0)
+    if invalid_edd_ratio.any():
+        ids = _format_row_ids(canonical_df, invalid_edd_ratio)
+        raise ValueError(f"edd_ratio_reported must be positive for rows: {ids}")
+
 def standardize_dataframe(
     canonical_df: pd.DataFrame,
     *,
@@ -216,6 +240,7 @@ def standardize_dataframe(
     std = _coerce_numeric_columns(canonical_df, NUMERIC_RAW_FIELDS)
     validate_required_values(std)
     validate_optional_missingness(std)
+    validate_numeric_domains(std)
     
     if min_redshift is not None:
         if (std["redshift"] < float(min_redshift)).all():
@@ -238,6 +263,35 @@ def standardize_dataframe(
 
     std["edd_ratio_std"] = std["edd_ratio_reported"]
     std["edd_ratio_err_std"] = std[["edd_ratio_err_plus", "edd_ratio_err_minus"]].mean(axis=1, skipna=True)
+
+    consistency_inputs_present = (
+        std["log_mbh_msun_std"].notna()
+        & std["log_lbol_erg_s_std"].notna()
+        & std["edd_ratio_std"].notna()
+    )
+    std["edd_ratio_from_mbh_lbol"] = np.nan
+    std.loc[consistency_inputs_present, "edd_ratio_from_mbh_lbol"] = np.power(
+        10.0,
+        std.loc[consistency_inputs_present, "log_lbol_erg_s_std"]
+        - std.loc[consistency_inputs_present, "log_mbh_msun_std"]
+        - LOG10_EDDINGTON_LUMINOSITY_PER_MSUN,
+    )
+    std["edd_ratio_log_residual_dex"] = np.nan
+    std.loc[consistency_inputs_present, "edd_ratio_log_residual_dex"] = np.log10(
+        std.loc[consistency_inputs_present, "edd_ratio_std"]
+        / std.loc[consistency_inputs_present, "edd_ratio_from_mbh_lbol"]
+    )
+    std["edd_ratio_consistency_flag"] = "not_evaluable"
+    std.loc[
+        consistency_inputs_present
+        & std["edd_ratio_log_residual_dex"].abs().le(EDD_RATIO_CONSISTENCY_TOLERANCE_DEX),
+        "edd_ratio_consistency_flag",
+    ] = "consistent"
+    std.loc[
+        consistency_inputs_present
+        & std["edd_ratio_log_residual_dex"].abs().gt(EDD_RATIO_CONSISTENCY_TOLERANCE_DEX),
+        "edd_ratio_consistency_flag",
+    ] = "inconsistent"
 
     std["log_mbh_mstar_ratio"] = std["log_mbh_msun_std"] - std["log_mstar_msun_std"]
     mbh_sigma = std[["log_mbh_err_plus_std", "log_mbh_err_minus_std"]].mean(axis=1, skipna=True)

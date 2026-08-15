@@ -61,9 +61,9 @@ The working thesis is that a standardized, provenance-aware atlas can identify a
 
 \subsection{Stage 1: a controlled observational sample}
 
-The project begins with one relatively homogeneous class from one source paper: the JADES broad-line AGN catalogue of Juod\v{z}balis et al.\ (2025)~\cite{juodzbalis2025}. The source registry records the paper, tables used, selection, survey, and inference methods. The raw table contains 34 measurements; the reproducible standardization pass applies the $z\geq4$ selection and produces 23 measurement rows spanning $z=4.133$--$8.913$. The current quality classification contains 18 robust and 5 tentative measurements. Four high-redshift candidates---GS-20057765, GS-20030333, GS-164055, and GN-4685---use single-epoch broad-H$\beta$ virial masses and are explicitly classified as stack-supported tentative detections because their individual broad-component detections are not formally significant.
+The project begins with one relatively homogeneous class from one source paper: the JADES broad-line AGN catalogue of Juod\v{z}balis et al.\ (2026)~\cite{juodzbalis2026}. The source registry records the paper, tables used, selection, survey, and inference methods. The raw table contains 34 measurements; the reproducible standardization pass applies the $z\geq4$ selection and produces 23 measurement rows spanning $z=4.133$--$8.913$. The current quality classification contains 18 robust and 5 tentative measurements. Four high-redshift candidates---GS-20057765, GS-20030333, GS-164055, and GN-4685---use single-epoch broad-H$\beta$ virial masses and are explicitly classified as stack-supported tentative detections because their individual broad-component detections are not formally significant. Source-adopted CIGALE host masses are retained when BEAGLE is unavailable or the host is significantly extended; this supplies host masses for GS-200679, GS-20030333, and GS-164055 that were previously omitted.
 
-The processed catalogue preserves coordinates, redshift provenance, black-hole mass and asymmetric uncertainty, host stellar mass, bolometric luminosity, reported Eddington ratio, inference methods, source-table provenance, notes, interpretation tags, a controlled detection-evidence category, derived quality flags, and explicit optional-field missingness. Missing host or lensing information is retained and flagged rather than silently imputed.
+The processed catalogue preserves coordinates, redshift provenance, black-hole mass and asymmetric uncertainty, host stellar mass, bolometric luminosity, reported Eddington ratio, inference methods, source-table provenance, notes, interpretation tags, a controlled detection-evidence category, derived quality flags, and explicit optional-field missingness. It also compares each reported Eddington ratio with the value implied by the tabulated black-hole mass and bolometric luminosity. Missing host or lensing information is retained and flagged rather than silently imputed.
 
 \begin{table}[ht]
 \centering
@@ -152,8 +152,8 @@ Object & Quality & $P(f_{\rm Edd,req}^{100}>1)$ & $P(M_{\rm seed,req}^{0.3}>10^6
 \midrule
 GN-38509 & robust & 0.85 & 0.97 & strongest robust pressure case \\
 GS-20057765 & tentative & 0.98 & 0.59 & strongest tentative follow-up target \\
-GS-20030333 & tentative & 0.91 & 0.48 & high leverage; host mass missing \\
-GS-164055 & tentative & 0.70 & 0.52 & high leverage; host mass missing \\
+GS-20030333 & tentative & 0.91 & 0.48 & high leverage; elevated BH/host ratio \\
+GS-164055 & tentative & 0.70 & 0.52 & high leverage; extreme BH/host ratio \\
 GN-4685 & tentative & 0.58 & 0.31 & threshold and systematics sensitive \\
 GN-954 & robust & 0.13 & 0.36 & comparison/systematics object \\
 \bottomrule
@@ -162,7 +162,7 @@ GN-954 & robust & 0.13 & 0.36 & comparison/systematics object \\
 
 GN-38509 is currently the clearest robust result: it remains demanding in both light-seed and gentle-growth diagnostics after propagating the reported mass uncertainty. GS-20057765 is more extreme in the light-seed calculation but is tentative and has a broader required-seed distribution. It is therefore a high-priority follow-up target rather than an equally secure theoretical constraint. GN-954 illustrates why probability statements matter: its point estimate is near a pressure boundary, but its baseline probability of requiring super-Eddington lifetime-average growth from a $100\,M_\odot$ seed is only 0.13.
 
-The current reported Eddington ratios are instantaneous observational estimates, whereas the model-derived $\fedd$ values are lifetime averages. Their difference is scientifically important but should not be interpreted as a contradiction until duty cycles and burst histories are modeled.
+The current reported Eddington ratios are instantaneous observational estimates, whereas the model-derived $\fedd$ values are lifetime averages. Their difference is scientifically important but should not be interpreted as a contradiction until duty cycles and burst histories are modeled. A separate source-table cross-check identifies GN-11836 as internally inconsistent: its published $\log M_{\rm BH}=6.06$ and $\log L_{\rm bol}=44.11$ imply $\lambda_{\rm Edd}\simeq0.89$, while the table reports 0.11. All published values are retained pending clarification, and the measurement is downgraded to medium confidence for Eddington-ratio comparisons.
 
 \begin{figure}[p]
 \centering
@@ -187,18 +187,19 @@ The repository follows the analysis chronologically:
   \item \repo{tests/test\_v1\_pipeline.py}: model, schema, scoring, ranking, uncertainty, and numerical regression checks.\par
 \end{enumerate}
 
-The present test suite contains 24 passing checks. These protect implementation behavior and current numerical anchors; they do not establish that the astrophysical assumptions are uniquely correct.
+The present test suite contains 25 passing checks. These protect implementation behavior and current numerical anchors; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 
-The present atlas is a pilot, and its conclusions should be read within six boundaries:
+The present atlas is a pilot, and its conclusions should be read within seven boundaries:
 
 \begin{itemize}
   \item v1 contains one source paper and one broad-line AGN class, so it does not yet measure cross-survey or cross-method population behavior;\par
   \item the main growth diagnostics assume constant lifetime-average accretion rather than explicit duty cycles or bursts;\par
   \item the split-normal mass model approximates reported asymmetric uncertainties but is not a reconstruction of each source's full posterior;\par
   \item the $\pm0.3$ dex cases are transparent sensitivity tests, not a complete virial-mass systematic model;\par
-  \item the four stack-supported tentative broad-H$\beta$ candidates require individual spectroscopic confirmation before they can serve as secure theoretical constraints; and\par
+  \item the four stack-supported tentative broad-H$\beta$ candidates require individual spectroscopic confirmation before they can serve as secure theoretical constraints;\par
+  \item the GN-11836 source-table Eddington-ratio inconsistency must be clarified before that ratio is used quantitatively; and\par
   \item measurement rows are not yet separated from stable physical-object identities across papers.\par
 \end{itemize}
 
@@ -242,8 +243,8 @@ The completed v1 work demonstrates the full atlas concept: provenance-aware inge
 \bibitem{dayal2024}
 Dayal, P. 2024, \emph{A\&A}, 690, A182.
 
-\bibitem{juodzbalis2025}
-Juod\v{z}balis, I. et al. 2025, ``JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST,'' \emph{MNRAS}, arXiv:2504.03551.
+\bibitem{juodzbalis2026}
+Juod\v{z}balis, I. et al. 2026, ``JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST,'' \emph{MNRAS}, 546, stag086, arXiv:2504.03551.
 \end{thebibliography}
 
 \end{document}

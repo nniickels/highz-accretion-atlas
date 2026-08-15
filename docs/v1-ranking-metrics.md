@@ -152,7 +152,8 @@ measurement-systematic changes. They should not overwrite the baseline values.
 | `quality_flag` | none | Existing catalogue flag, e.g. `robust` or `tentative`. |
 | `detection_evidence` | none | Structured evidence class; `stack_supported_tentative_hbeta` distinguishes the four high-redshift candidates whose individual broad-H-beta detections are not formally significant. |
 | `measurement_confidence_tier` | none | Derived tier: `high`, `medium`, or `low`. |
-| `caveat_tags` | none | Semicolon-separated tags such as `tentative`, `missing_mstar`, `agn_contam_mstar`, `missing_lensing`, `single_source_measurement`. |
+| `edd_ratio_consistency_flag` | none | Cross-check of the reported ratio against the value implied by tabulated MBH and Lbol. |
+| `caveat_tags` | none | Semicolon-separated tags such as `tentative`, `missing_mstar`, `agn_contam_mstar`, `published_edd_ratio_inconsistent_with_mbh_lbol`, `missing_lensing`, `single_source_measurement`. |
 | `primary_caveat` | none | Short human-readable caveat for table display. |
 | `most_needed_followup` | none | The observation or analysis most likely to change the ranking. |
 
@@ -166,6 +167,10 @@ Suggested `measurement_confidence_tier`:
 The `stack_supported_tentative_hbeta` evidence class always maps to `low`
 measurement confidence, even when host mass, bolometric luminosity, and an
 Eddington ratio are available.
+
+A robust row with `edd_ratio_consistency_flag=inconsistent` maps to `medium`
+confidence. Its published values remain unchanged, but comparisons involving
+the reported Eddington ratio require source verification.
 
 For v1, all rows have missing lensing information because no lensing correction
 is reported. This should be carried as a caveat tag but not treated as a severe
@@ -197,6 +202,8 @@ Implemented `followup_priority_category`:
   caveated. These are high-value follow-up targets, not high-confidence claims.
 - `C_host_ratio_tension`: extreme `M_BH/Mstar` tension, regardless of whether
   the growth-pressure tier is high.
+- `D_source_consistency`: a published measurement triplet fails an internal
+  consistency cross-check and requires source clarification.
 - `D_systematics_leverage`: interpretation changes strongly under `MBH +/- 0.3`
   dex or host-contamination variants.
 - `E_comparison_anchor`: robust objects with moderate pressure that contextualize
@@ -257,6 +264,9 @@ The proposed output file is `results/v1_object_ranking_table.csv`.
 | `log_mstar_err_minus` | dex | From processed catalogue. |
 | `mstar_method` | none | From processed catalogue. |
 | `edd_ratio_reported` | dimensionless | From processed catalogue. |
+| `edd_ratio_from_mbh_lbol` | dimensionless | Cross-check derived from tabulated MBH and Lbol. |
+| `edd_ratio_log_residual_dex` | dex | Reported-to-derived Eddington-ratio residual. |
+| `edd_ratio_consistency_flag` | none | `consistent`, `inconsistent`, or `not_evaluable`. |
 | `log_mbh_mstar_ratio` | dex | From processed catalogue. |
 | `mbh_mstar_ratio` | dimensionless | Derived. |
 | `mbh_mstar_tension_label` | none | Derived. |
@@ -325,8 +335,8 @@ baseline `z_seed=30`, `epsilon=0.1`, no-merger reference.
 | --- | --- | --- | --- |
 | `GS-20057765` | tentative | Highest-redshift v1 object (`z=8.913`), strongest light-seed pressure (`req_fedd_seed1e2=1.355`), high `1e4 Msun` seed pressure (`0.847`), and extreme host ratio (`log_mbh_mstar_ratio=-0.07`). Gentle growth requires `req_log_mseed_fedd0p3=6.150`. | Tentative; host and BH inference need confirmation. |
 | `GN-38509` | robust | Strongest robust growth-pressure object: massive BH (`log_mbh=8.57`) at `z=6.678`, light-seed requirement `1.065`, and gentle-growth seed requirement `6.719`. It remains high-pressure after `MBH - 0.3 dex` (`req_fedd_seed1e2=1.016`, `req_log_mseed_fedd0p3=6.419`). | Host ratio is extreme but less so than GS-20057765 (`log_mbh_mstar_ratio=-0.62`); the reported current `f_Edd=0.015` is not a lifetime average, so the contrast motivates accretion-history follow-up rather than a direct inconsistency claim. |
-| `GS-20030333` | tentative | High-redshift pressure object (`z=7.891`) with `req_fedd_seed1e2=1.133` and `req_log_mseed_fedd0p3=5.985`; remains light-seed super-Eddington after `MBH - 0.3 dex` (`1.070`). | Missing host stellar mass; tentative status. |
-| `GS-164055` | tentative | High-redshift pressure object (`z=7.397`) with `req_fedd_seed1e2=1.065` and `req_log_mseed_fedd0p3=6.044`; barely remains light-seed super-Eddington after `MBH - 0.3 dex` (`1.008`). | Missing host stellar mass; tentative status. |
+| `GS-20030333` | tentative | High-redshift pressure object (`z=7.891`) with `req_fedd_seed1e2=1.133` and `req_log_mseed_fedd0p3=5.985`; remains light-seed super-Eddington after `MBH - 0.3 dex` (`1.070`). | Tentative H-beta status; the restored CIGALE host mass gives an elevated host ratio (`log_mbh_mstar_ratio=-1.19`). |
+| `GS-164055` | tentative | High-redshift pressure object (`z=7.397`) with `req_fedd_seed1e2=1.065` and `req_log_mseed_fedd0p3=6.044`; barely remains light-seed super-Eddington after `MBH - 0.3 dex` (`1.008`). | Tentative H-beta status; the restored CIGALE host mass gives an extreme host ratio (`log_mbh_mstar_ratio=-0.36`). |
 | `GN-4685` | tentative | High-redshift comparison object (`z=7.415`) with baseline light-seed pressure just above Eddington (`1.017`) and heavy-seed-scale gentle-growth requirement (`5.779`). | Tentative; pressure is sensitive to a downward BH-mass shift (`req_fedd_seed1e2_mbh_minus0p3=0.960`); host ratio is not extreme (`-2.55`). |
 | `GN-954` | robust | Robust high-redshift comparison object (`z=6.759`) with substantial but sub-Eddington light-seed pressure (`0.940`) and heavy-seed-scale gentle-growth requirement (`5.881`). | Not a super-Eddington light-seed case at baseline; host ratio is low/typical for this triage scheme (`-3.23`). |
 

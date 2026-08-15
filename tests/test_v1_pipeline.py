@@ -239,6 +239,28 @@ class StandardizeDataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "detection_evidence must be one of"):
             standardize_dataframe(invalid)
 
+    def test_eddington_ratio_consistency_crosscheck_and_domains(self) -> None:
+        standardized = standardize_dataframe(minimal_raw_rows()).set_index("measurement_id")
+        full = standardized.loc["obj_highz_full"]
+        expected = 10.0 ** (44.3 - 7.0) / 1.26e38
+        self.assertAlmostEqual(full["edd_ratio_from_mbh_lbol"], expected, places=12)
+        self.assertEqual(full["edd_ratio_consistency_flag"], "consistent")
+
+        inconsistent = minimal_raw_rows()
+        inconsistent.loc[1, "edd_ratio_reported"] = 0.01
+        flagged = standardize_dataframe(inconsistent).set_index("measurement_id").loc["obj_highz_full"]
+        self.assertEqual(flagged["edd_ratio_consistency_flag"], "inconsistent")
+
+        invalid_ratio = minimal_raw_rows()
+        invalid_ratio.loc[1, "edd_ratio_reported"] = 0.0
+        with self.assertRaisesRegex(ValueError, "edd_ratio_reported must be positive"):
+            standardize_dataframe(invalid_ratio)
+
+        invalid_error = minimal_raw_rows()
+        invalid_error.loc[1, "log_mbh_err_plus"] = -0.1
+        with self.assertRaisesRegex(ValueError, "must be non-negative"):
+            standardize_dataframe(invalid_error)
+
 
 class ScoringTests(unittest.TestCase):
     def test_seed_score_flags_both_undergrowth_and_overgrowth_mismatch(self) -> None:
@@ -286,6 +308,8 @@ class RankingGeneratorTests(unittest.TestCase):
             "redshift",
             "quality_flag",
             "detection_evidence",
+            "edd_ratio_consistency_flag",
+            "edd_ratio_log_residual_dex",
             "req_fedd_seed1e2_z30_eps0p1_b1",
             "req_fedd_seed1e4_z30_eps0p1_b1",
             "req_fedd_seed1e5_z30_eps0p1_b1",
@@ -321,8 +345,21 @@ class RankingGeneratorTests(unittest.TestCase):
         self.assertEqual(gs20057765["measurement_confidence_tier"], "low")
         self.assertIn("individual_detection_not_formally_significant", gs20057765["caveat_tags"])
 
-        missing_host = ranking[ranking["object_id"].isin(["GS-20030333", "GS-164055"])]
-        self.assertTrue(missing_host["missing_mstar_flag"].all())
+        restored_hosts = ranking.set_index("object_id").loc[
+            ["GS-200679", "GS-20030333", "GS-164055"]
+        ]
+        self.assertFalse(restored_hosts["missing_mstar_flag"].any())
+        np.testing.assert_allclose(restored_hosts["log_mstar_msun"], [8.53, 8.61, 7.99])
+        self.assertEqual(restored_hosts.loc["GS-20030333", "mbh_mstar_tension_label"], "elevated")
+        self.assertEqual(restored_hosts.loc["GS-164055", "mbh_mstar_tension_label"], "extreme")
+
+        gn11836 = ranking.loc[ranking["object_id"].eq("GN-11836")].iloc[0]
+        self.assertEqual(gn11836["edd_ratio_consistency_flag"], "inconsistent")
+        self.assertAlmostEqual(gn11836["edd_ratio_from_mbh_lbol"], 0.890491, places=6)
+        self.assertAlmostEqual(gn11836["edd_ratio_log_residual_dex"], -0.908237, places=6)
+        self.assertEqual(gn11836["measurement_confidence_tier"], "medium")
+        self.assertEqual(gn11836["followup_priority_category"], "D_source_consistency")
+        self.assertIn("published_edd_ratio_inconsistent_with_mbh_lbol", gn11836["caveat_tags"])
 
     def test_ranking_metrics_match_baseline_source_result_rows(self) -> None:
         catalogue, required_fedd, required_mseed = read_inputs()
@@ -392,6 +429,9 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
         self.assertAlmostEqual(catalogue["redshift"].min(), 4.133, places=3)
         self.assertAlmostEqual(catalogue["redshift"].max(), 8.913, places=3)
         self.assertEqual(catalogue["quality_flag"].value_counts().to_dict(), {"robust": 18, "tentative": 5})
+        self.assertEqual(int(catalogue["missing_mstar_flag"].sum()), 1)
+        inconsistent = catalogue[catalogue["edd_ratio_consistency_flag"].eq("inconsistent")]
+        self.assertEqual(inconsistent["object_id"].tolist(), ["GN-11836"])
 
     def test_baseline_light_seed_required_fedd_top_objects(self) -> None:
         required_fedd = pd.read_csv(REPO_ROOT / "results" / "v1_required_fedd_by_seed_mass.csv")
@@ -510,8 +550,14 @@ class UncertaintyPropagationTests(unittest.TestCase):
         self.assertTrue(ranking["measurement_id"].is_unique)
 
         self.assertEqual(set(fedd["scenario"]), {"baseline", "mbh_minus_0p3dex", "mbh_plus_0p3dex"})
-        self.assertTrue({"detection_evidence", "mbh_method"}.issubset(fedd.columns))
-        self.assertTrue({"detection_evidence", "mbh_method"}.issubset(mseed.columns))
+        provenance_fields = {
+            "detection_evidence",
+            "mbh_method",
+            "edd_ratio_consistency_flag",
+            "edd_ratio_log_residual_dex",
+        }
+        self.assertTrue(provenance_fields.issubset(fedd.columns))
+        self.assertTrue(provenance_fields.issubset(mseed.columns))
         self.assertEqual(set(fedd["seed_mass_short"]), {"seed1e2", "seed1e4", "seed1e5"})
         self.assertEqual(set(mseed["scenario"]), {"baseline", "mbh_minus_0p3dex", "mbh_plus_0p3dex"})
         self.assertEqual(set(mseed["growth_history"]), {"fedd0p3", "fedd1"})
@@ -536,6 +582,11 @@ class UncertaintyPropagationTests(unittest.TestCase):
         self.assertTrue(np.allclose(mseed["p_required_mseed_gt1e5"], mseed["prob_required_mseed_gt_1e5"]))
         self.assertTrue(np.allclose(mseed["p_required_mseed_gt1e6"], mseed["prob_required_mseed_gt_1e6"]))
         self.assertTrue((mseed["p_required_mseed_gt1e6"] <= mseed["p_required_mseed_gt1e5"]).all())
+
+        gn11836 = ranking.loc[ranking["object_id"].eq("GN-11836")].iloc[0]
+        self.assertEqual(gn11836["followup_priority_category"], "D_source_consistency")
+        self.assertEqual(gn11836["uncertainty_followup_category"], "D_source_consistency")
+        self.assertIn("requires source clarification", gn11836["uncertainty_followup_reason"])
 
         required_ranking_columns = {
             "rank_uncertainty_pressure",
