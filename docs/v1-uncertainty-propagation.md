@@ -43,6 +43,8 @@ the 16th/84th percentile distances need not be symmetric.
 
 The output tables explicitly record the MBH uncertainty handling with:
 
+- `detection_evidence`
+- `mbh_method`
 - `log_mbh_err_plus_reported`
 - `log_mbh_err_minus_reported`
 - `log_mbh_sigma_plus_used`

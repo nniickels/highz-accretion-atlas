@@ -14,8 +14,11 @@ checked by the test suite; they are not general schema constraints.
 - Raw input must contain every canonical v1 raw column used by
   `src.standardize_data`.
 - Required values cannot be blank: `measurement_id`, `object_id`, `redshift`,
-  `log_mbh_msun`, `mbh_method`, `source_key`, `source_table`, and
-  `redshift_kind`.
+  `log_mbh_msun`, `mbh_method`, `detection_evidence`, `source_key`,
+  `source_table`, and `redshift_kind`.
+- `detection_evidence` is controlled rather than free text. Allowed v1 values
+  are `individual_robust`, `individual_tentative`, and
+  `stack_supported_tentative_hbeta`.
 - Numeric columns must parse as numbers when nonblank.
 - Rows with `redshift < 4` are excluded from the processed catalogue.
 - `measurement_id` must be unique.
@@ -43,6 +46,7 @@ checked by the test suite; they are not general schema constraints.
 | `log_mbh_err_plus_std` | dex | Positive uncertainty on `log_mbh_msun_std`. | Optional | Blank allowed; must be numeric when present. |
 | `log_mbh_err_minus_std` | dex | Negative uncertainty on `log_mbh_msun_std`. | Optional | Blank allowed; must be numeric when present. |
 | `mbh_method` | none | Source-paper black-hole mass inference method. | Required | Must be present. |
+| `detection_evidence` | none | Structured source-evidence class for the broad-line/BH interpretation. | Required | Must be one of the controlled v1 values. The four high-redshift tentative H-beta candidates are recorded as `stack_supported_tentative_hbeta`. |
 | `log_mstar_msun_std` | log10(Msun) | Standardized host stellar mass. | Optional | Blank allowed and flagged by `missing_mstar_flag`. |
 | `log_mstar_err_plus_std` | dex | Positive uncertainty on `log_mstar_msun_std`. | Optional | Blank allowed; included in the same optional group. |
 | `log_mstar_err_minus_std` | dex | Negative uncertainty on `log_mstar_msun_std`. | Optional | Blank allowed; included in the same optional group. |
@@ -66,7 +70,7 @@ checked by the test suite; they are not general schema constraints.
 | `mbh_interpretation_tag` | none | Project interpretation tag applied to MBH. | Generated | Always present. |
 | `mstar_interpretation_tag` | none | Project interpretation tag applied to host stellar mass. | Generated | Always present; records missing Mstar where relevant. |
 | `lbol_interpretation_tag` | none | Project interpretation tag applied to bolometric luminosity. | Generated | Always present. |
-| `quality_flag` | none | v1 row quality category inferred from source notes, e.g. `robust` or `tentative`. | Generated | Always present. |
+| `quality_flag` | none | v1 row quality category mapped from `detection_evidence`, e.g. `robust` or `tentative`. | Generated | Always present. |
 | `project_version` | none | Catalogue processing version, currently `v1`. | Generated | Always present. |
 | `source_key` | none | Stable source registry key in `data/sources.md`. | Required | Must be present. |
 | `source_table` | none | Source-paper table(s) used for extraction. | Required | Must be present. |

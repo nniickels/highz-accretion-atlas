@@ -36,7 +36,7 @@
 \title{\textbf{The High-Redshift Accretion Atlas}\\
 \large Current Methods, Results, and Research Roadmap}
 \author{Project status manuscript}
-\date{13 August 2026}
+\date{15 August 2026}
 
 \begin{document}
 \maketitle
@@ -61,9 +61,9 @@ The working thesis is that a standardized, provenance-aware atlas can identify a
 
 \subsection{Stage 1: a controlled observational sample}
 
-The project begins with one relatively homogeneous class from one source paper: the JADES broad-line AGN catalogue of Juod\v{z}balis et al.\ (2025)~\cite{juodzbalis2025}. The source registry records the paper, tables used, selection, survey, and inference methods. The raw table contains 34 measurements; the reproducible standardization pass applies the $z\geq4$ selection and produces 23 measurement rows spanning $z=4.133$--$8.913$. The current quality classification contains 18 robust and 5 tentative measurements.
+The project begins with one relatively homogeneous class from one source paper: the JADES broad-line AGN catalogue of Juod\v{z}balis et al.\ (2025)~\cite{juodzbalis2025}. The source registry records the paper, tables used, selection, survey, and inference methods. The raw table contains 34 measurements; the reproducible standardization pass applies the $z\geq4$ selection and produces 23 measurement rows spanning $z=4.133$--$8.913$. The current quality classification contains 18 robust and 5 tentative measurements. Four high-redshift candidates---GS-20057765, GS-20030333, GS-164055, and GN-4685---use single-epoch broad-H$\beta$ virial masses and are explicitly classified as stack-supported tentative detections because their individual broad-component detections are not formally significant.
 
-The processed catalogue preserves coordinates, redshift provenance, black-hole mass and asymmetric uncertainty, host stellar mass, bolometric luminosity, reported Eddington ratio, inference methods, source-table provenance, notes, interpretation tags, quality flags, and explicit optional-field missingness. Missing host or lensing information is retained and flagged rather than silently imputed.
+The processed catalogue preserves coordinates, redshift provenance, black-hole mass and asymmetric uncertainty, host stellar mass, bolometric luminosity, reported Eddington ratio, inference methods, source-table provenance, notes, interpretation tags, a controlled detection-evidence category, derived quality flags, and explicit optional-field missingness. Missing host or lensing information is retained and flagged rather than silently imputed.
 
 \begin{table}[ht]
 \centering
@@ -176,29 +176,30 @@ The current reported Eddington ratios are instantaneous observational estimates,
 The repository follows the analysis chronologically:
 
 \begin{enumerate}
-  \item \repo{data/sources.md} and \repo{data/raw/v1\_raw.csv}: source provenance and extracted measurements.
-  \item \repo{docs/catalogue-schema.md}: canonical fields, validation rules, and missing-value policy.
-  \item \repo{src/standardize\_data.py} and \repo{scripts/process\_data.py}: raw-to-processed catalogue construction.
-  \item \repo{src/models.py}: cosmology and black-hole growth calculations.
-  \item \repo{src/scoring.py} and \repo{scripts/v1\_evaluate.ipynb}: scenario evaluation and exploratory compatibility products.
-  \item \repo{scripts/generate\_v1\_rankings.py}: point-estimate physical-pressure and follow-up rankings.
-  \item \repo{scripts/}\repo{generate\_v1\_uncertainty\_rankings.py}: deterministic Monte Carlo summaries and probability-based rankings.
-  \item \repo{scripts/}\repo{generate\_v1\_final\_figures.py}: publication-style figures driven by the result tables.
-  \item \repo{tests/test\_v1\_pipeline.py}: model, schema, scoring, ranking, uncertainty, and numerical regression checks.
+  \item \repo{data/sources.md} and \repo{data/raw/v1\_raw.csv}: source provenance and extracted measurements.\par
+  \item \repo{docs/catalogue-schema.md}: canonical fields, validation rules, and missing-value policy.\par
+  \item \repo{src/standardize\_data.py} and \repo{scripts/process\_data.py}: raw-to-processed catalogue construction.\par
+  \item \repo{src/models.py}: cosmology and black-hole growth calculations.\par
+  \item \repo{src/scoring.py} and \repo{scripts/v1\_evaluate.ipynb}: scenario evaluation and exploratory compatibility products.\par
+  \item \repo{scripts/generate\_v1\_rankings.py}: point-estimate physical-pressure and follow-up rankings.\par
+  \item \repo{scripts/}\repo{generate\_v1\_uncertainty\_rankings.py}: deterministic Monte Carlo summaries and probability-based rankings.\par
+  \item \repo{scripts/}\repo{generate\_v1\_final\_figures.py}: publication-style figures driven by the result tables.\par
+  \item \repo{tests/test\_v1\_pipeline.py}: model, schema, scoring, ranking, uncertainty, and numerical regression checks.\par
 \end{enumerate}
 
-The present test suite contains 23 passing checks. These protect implementation behavior and current numerical anchors; they do not establish that the astrophysical assumptions are uniquely correct.
+The present test suite contains 24 passing checks. These protect implementation behavior and current numerical anchors; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 
-The present atlas is a pilot, and its conclusions should be read within five boundaries:
+The present atlas is a pilot, and its conclusions should be read within six boundaries:
 
 \begin{itemize}
-  \item v1 contains one source paper and one broad-line AGN class, so it does not yet measure cross-survey or cross-method population behavior;
-  \item the main growth diagnostics assume constant lifetime-average accretion rather than explicit duty cycles or bursts;
-  \item the split-normal mass model approximates reported asymmetric uncertainties but is not a reconstruction of each source's full posterior;
-  \item the $\pm0.3$ dex cases are transparent sensitivity tests, not a complete virial-mass systematic model; and
-  \item measurement rows are not yet separated from stable physical-object identities across papers.
+  \item v1 contains one source paper and one broad-line AGN class, so it does not yet measure cross-survey or cross-method population behavior;\par
+  \item the main growth diagnostics assume constant lifetime-average accretion rather than explicit duty cycles or bursts;\par
+  \item the split-normal mass model approximates reported asymmetric uncertainties but is not a reconstruction of each source's full posterior;\par
+  \item the $\pm0.3$ dex cases are transparent sensitivity tests, not a complete virial-mass systematic model;\par
+  \item the four stack-supported tentative broad-H$\beta$ candidates require individual spectroscopic confirmation before they can serve as secure theoretical constraints; and\par
+  \item measurement rows are not yet separated from stable physical-object identities across papers.\par
 \end{itemize}
 
 These limitations motivate the next development stages rather than invalidating the current v1 comparison framework.

@@ -65,6 +65,7 @@ def read_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
             "survey",
             "object_class",
             "quality_flag",
+            "detection_evidence",
             "source_key",
             "source_table",
             "log_mbh_msun_std",
@@ -299,6 +300,8 @@ def growth_pressure_robustness_label(row: pd.Series) -> str:
 
 def measurement_confidence_tier(row: pd.Series) -> str:
     quality = str(row["quality_flag"]).lower()
+    if row["detection_evidence"] == "stack_supported_tentative_hbeta":
+        return "low"
     missing_core = bool_value(row["missing_lbol_flag"]) or bool_value(row["missing_edd_ratio_flag"])
     if quality == "robust" and not missing_core:
         return "high"
@@ -318,6 +321,8 @@ def caveat_tags(row: pd.Series) -> str:
     quality = str(row["quality_flag"]).lower()
     if quality and quality != "robust":
         tags.append(quality)
+    if row["detection_evidence"] == "stack_supported_tentative_hbeta":
+        tags.extend(["tentative_hbeta", "individual_detection_not_formally_significant", "stack_supported"])
     if bool_value(row["missing_mstar_flag"]):
         tags.append("missing_mstar")
     if bool_value(row["missing_lbol_flag"]):
@@ -332,6 +337,8 @@ def caveat_tags(row: pd.Series) -> str:
 
 
 def primary_caveat(row: pd.Series) -> str:
+    if row["detection_evidence"] == "stack_supported_tentative_hbeta":
+        return "tentative broad-Hbeta; individual detection not formally significant"
     if str(row["quality_flag"]).lower() != "robust":
         return "tentative source-paper classification"
     if bool_value(row["missing_mstar_flag"]):
@@ -344,6 +351,8 @@ def primary_caveat(row: pd.Series) -> str:
 
 
 def most_needed_followup(row: pd.Series) -> str:
+    if row["detection_evidence"] == "stack_supported_tentative_hbeta":
+        return "confirm individual broad-Hbeta detection and refine virial mass"
     if str(row["quality_flag"]).lower() != "robust":
         return "confirm broad-line/BH interpretation and refine virial mass"
     if bool_value(row["missing_mstar_flag"]):
@@ -490,6 +499,7 @@ def build_ranking_table(catalogue: pd.DataFrame, required_fedd: pd.DataFrame, re
         "survey",
         "object_class",
         "quality_flag",
+        "detection_evidence",
         "source_key",
         "source_table",
         "log_mbh_msun",

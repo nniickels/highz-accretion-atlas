@@ -14,7 +14,7 @@ import pandas as pd
 CANONICAL_RAW_FIELDS = [
     "measurement_id", "object_id", "ra_deg", "dec_deg", "redshift", "redshift_kind",
     "survey", "object_class",
-    "log_mbh_msun", "log_mbh_err_plus", "log_mbh_err_minus", "mbh_method",
+    "log_mbh_msun", "log_mbh_err_plus", "log_mbh_err_minus", "mbh_method", "detection_evidence",
     "log_mstar_msun", "log_mstar_err_plus", "log_mstar_err_minus", "mstar_method",
     "log_lbol_erg_s", "log_lbol_err_plus", "log_lbol_err_minus", "lbol_method",
     "edd_ratio_reported", "edd_ratio_err_plus", "edd_ratio_err_minus",
@@ -27,8 +27,14 @@ DEFAULT_COLUMN_MAP = {name: name for name in CANONICAL_RAW_FIELDS}
 
 REQUIRED_VALUE_FIELDS = [
     "measurement_id", "object_id", "redshift", "log_mbh_msun", "mbh_method",
-    "source_key", "source_table", "redshift_kind",
+    "detection_evidence", "source_key", "source_table", "redshift_kind",
 ]
+
+DETECTION_EVIDENCE_TO_QUALITY = {
+    "individual_robust": "robust",
+    "individual_tentative": "tentative",
+    "stack_supported_tentative_hbeta": "tentative",
+}
 
 NUMERIC_RAW_FIELDS = [
     "ra_deg", "dec_deg", "redshift",
@@ -52,7 +58,7 @@ STANDARDIZED_OUTPUT_COLUMNS = [
     "cosmic_time_gyr",
     "survey", "object_class",
     "log_mbh_msun_std", "log_mbh_err_plus_std", "log_mbh_err_minus_std",
-    "mbh_method",
+    "mbh_method", "detection_evidence",
     "log_mstar_msun_std", "log_mstar_err_plus_std", "log_mstar_err_minus_std",
     "mstar_method",
     "log_lbol_erg_s_std", "log_lbol_err_plus_std", "log_lbol_err_minus_std",
@@ -166,6 +172,14 @@ def validate_required_values(canonical_df: pd.DataFrame) -> None:
         ids = _format_row_ids(canonical_df, duplicated)
         raise ValueError(f"measurement_id must be unique; duplicates found for rows: {ids}")
 
+    invalid_evidence = ~canonical_df["detection_evidence"].isin(DETECTION_EVIDENCE_TO_QUALITY)
+    if invalid_evidence.any():
+        ids = _format_row_ids(canonical_df, invalid_evidence)
+        allowed = sorted(DETECTION_EVIDENCE_TO_QUALITY)
+        raise ValueError(
+            f"detection_evidence must be one of {allowed}; invalid values for rows: {ids}"
+        )
+
 def validate_optional_missingness(canonical_df: pd.DataFrame) -> None:
     """Validate optional groups are either present with methods or explicitly allowed missing."""
     mstar_present = canonical_df["log_mstar_msun"].notna()
@@ -250,11 +264,7 @@ def standardize_dataframe(
     )
     std["lbol_interpretation_tag"] = lbol_tag
 
-    std["quality_flag"] = np.where(
-        std["notes"].fillna("").str.startswith("Robust sample"),
-        "robust",
-        "tentative",
-    )
+    std["quality_flag"] = std["detection_evidence"].map(DETECTION_EVIDENCE_TO_QUALITY)
     std["project_version"] = project_version
 
     standardized = std[STANDARDIZED_OUTPUT_COLUMNS].copy()

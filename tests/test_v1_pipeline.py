@@ -44,6 +44,7 @@ def minimal_raw_rows() -> pd.DataFrame:
             "log_mbh_err_plus": 0.2,
             "log_mbh_err_minus": 0.2,
             "mbh_method": "test-method",
+            "detection_evidence": "individual_robust",
             "log_mstar_msun": 8.0,
             "log_mstar_err_plus": 0.3,
             "log_mstar_err_minus": 0.3,
@@ -75,6 +76,7 @@ def minimal_raw_rows() -> pd.DataFrame:
             "log_mbh_err_plus": 0.2,
             "log_mbh_err_minus": 0.2,
             "mbh_method": "test-method",
+            "detection_evidence": "individual_robust",
             "log_mstar_msun": 9.0,
             "log_mstar_err_plus": 0.3,
             "log_mstar_err_minus": 0.4,
@@ -106,6 +108,7 @@ def minimal_raw_rows() -> pd.DataFrame:
             "log_mbh_err_plus": 0.2,
             "log_mbh_err_minus": 0.2,
             "mbh_method": "test-method",
+            "detection_evidence": "individual_tentative",
             "log_mstar_msun": np.nan,
             "log_mstar_err_plus": np.nan,
             "log_mstar_err_minus": np.nan,
@@ -220,6 +223,22 @@ class StandardizeDataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Column 'redshift' has non-numeric values"):
             standardize_dataframe(raw)
 
+    def test_detection_evidence_is_structured_and_drives_quality(self) -> None:
+        raw = minimal_raw_rows()
+        raw.loc[1, "detection_evidence"] = "stack_supported_tentative_hbeta"
+        standardized = standardize_dataframe(raw).set_index("measurement_id")
+
+        self.assertEqual(standardized.loc["obj_highz_full", "quality_flag"], "tentative")
+        self.assertEqual(
+            standardized.loc["obj_highz_full", "detection_evidence"],
+            "stack_supported_tentative_hbeta",
+        )
+
+        invalid = minimal_raw_rows()
+        invalid.loc[1, "detection_evidence"] = "free-text-status"
+        with self.assertRaisesRegex(ValueError, "detection_evidence must be one of"):
+            standardize_dataframe(invalid)
+
 
 class ScoringTests(unittest.TestCase):
     def test_seed_score_flags_both_undergrowth_and_overgrowth_mismatch(self) -> None:
@@ -266,6 +285,7 @@ class RankingGeneratorTests(unittest.TestCase):
             "object_id",
             "redshift",
             "quality_flag",
+            "detection_evidence",
             "req_fedd_seed1e2_z30_eps0p1_b1",
             "req_fedd_seed1e4_z30_eps0p1_b1",
             "req_fedd_seed1e5_z30_eps0p1_b1",
@@ -296,6 +316,10 @@ class RankingGeneratorTests(unittest.TestCase):
         gs20057765 = ranking.loc[ranking["object_id"] == "GS-20057765"].iloc[0]
         self.assertEqual(gn38509["followup_priority_category"], "A_robust_high_pressure")
         self.assertEqual(gs20057765["followup_priority_category"], "B_tentative_high_pressure")
+        self.assertEqual(gs20057765["mbh_method"], "single-epoch-virial-hbeta")
+        self.assertEqual(gs20057765["detection_evidence"], "stack_supported_tentative_hbeta")
+        self.assertEqual(gs20057765["measurement_confidence_tier"], "low")
+        self.assertIn("individual_detection_not_formally_significant", gs20057765["caveat_tags"])
 
         missing_host = ranking[ranking["object_id"].isin(["GS-20030333", "GS-164055"])]
         self.assertTrue(missing_host["missing_mstar_flag"].all())
@@ -486,6 +510,8 @@ class UncertaintyPropagationTests(unittest.TestCase):
         self.assertTrue(ranking["measurement_id"].is_unique)
 
         self.assertEqual(set(fedd["scenario"]), {"baseline", "mbh_minus_0p3dex", "mbh_plus_0p3dex"})
+        self.assertTrue({"detection_evidence", "mbh_method"}.issubset(fedd.columns))
+        self.assertTrue({"detection_evidence", "mbh_method"}.issubset(mseed.columns))
         self.assertEqual(set(fedd["seed_mass_short"]), {"seed1e2", "seed1e4", "seed1e5"})
         self.assertEqual(set(mseed["scenario"]), {"baseline", "mbh_minus_0p3dex", "mbh_plus_0p3dex"})
         self.assertEqual(set(mseed["growth_history"]), {"fedd0p3", "fedd1"})

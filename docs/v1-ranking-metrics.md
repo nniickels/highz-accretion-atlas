@@ -150,6 +150,7 @@ measurement-systematic changes. They should not overwrite the baseline values.
 | `gentle_growth_above_heavy_robust_mbh_minus0p3` | boolean | True if `req_log_mseed_fedd0p3_mbh_minus0p3 > 6`. |
 | `growth_pressure_robustness_label` | none | `robust_high`, `baseline_high_only`, `systematics_sensitive`, or `low`. |
 | `quality_flag` | none | Existing catalogue flag, e.g. `robust` or `tentative`. |
+| `detection_evidence` | none | Structured evidence class; `stack_supported_tentative_hbeta` distinguishes the four high-redshift candidates whose individual broad-H-beta detections are not formally significant. |
 | `measurement_confidence_tier` | none | Derived tier: `high`, `medium`, or `low`. |
 | `caveat_tags` | none | Semicolon-separated tags such as `tentative`, `missing_mstar`, `agn_contam_mstar`, `missing_lensing`, `single_source_measurement`. |
 | `primary_caveat` | none | Short human-readable caveat for table display. |
@@ -161,6 +162,10 @@ Suggested `measurement_confidence_tier`:
 - `medium`: robust but missing a key secondary field, or tentative with strong
   source-paper support
 - `low`: tentative/candidate status plus major missingness or method caveats
+
+The `stack_supported_tentative_hbeta` evidence class always maps to `low`
+measurement confidence, even when host mass, bolometric luminosity, and an
+Eddington ratio are available.
 
 For v1, all rows have missing lensing information because no lensing correction
 is reported. This should be carried as a caveat tag but not treated as a severe
@@ -241,6 +246,7 @@ The proposed output file is `results/v1_object_ranking_table.csv`.
 | `survey` | none | From processed catalogue. |
 | `object_class` | none | From processed catalogue. |
 | `quality_flag` | none | From processed catalogue. |
+| `detection_evidence` | none | Controlled source-evidence class from the processed catalogue. |
 | `source_key` | none | From processed catalogue. |
 | `log_mbh_msun` | log10(Msun) | Baseline `log_mbh_msun_std`. |
 | `log_mbh_err_plus` | dex | From processed catalogue. |
