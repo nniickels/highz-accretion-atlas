@@ -5,6 +5,7 @@ Thread intent:
 - Draft the final paper continuously throughout the project.
 - Do not make a separate v1 report unless the user later asks for one.
 - Keep the main claim careful: this project identifies robust and assumption-dependent high-redshift accreting black-hole candidates; it does not claim a single formation channel is proven.
+- Use `.codex_tmp/catalogue-expansion-guide.md` for the literature-reviewed source order, object taxonomy, growth-eligibility rules, and corrections to the older v2 candidate-source memo (reviewed 2026-08-17).
 
 Working thesis:
 > A reproducible, source-tracked, uncertainty-aware atlas of high-redshift accreting black-hole candidates can separate robust growth-challenging objects from interpretation-dependent ones, providing a ranked target list for follow-up and seed/accretion modeling.
@@ -66,11 +67,11 @@ Primary project path from here:
    - Report percentiles and probabilities rather than only point estimates.
 
 5. Expand broad-line AGN first.
-   - Add Harikane faint BLAGN.
-   - Add Kocevski CEERS objects.
-   - Add Larson CEERS 1019.
-   - Add Taylor/RUBIES BLAGN.
-   - Add other JADES/RUBIES updates where useful.
+   - Add the z >= 4 subset of the current 62-object Taylor CEERS/RUBIES BLAGN catalogue first.
+   - Add Matthee EIGER/FRESCO and Lin ASPIRE as complementary NIRCam WFSS selections.
+   - Add Harikane and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
+   - Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
+   - Defer large overlapping compilations such as Baccus and Xu until physical-object IDs work.
    - Recompute rankings and test whether v1 high-leverage objects remain special.
 
 6. Add cross-matching and measurement versioning.
@@ -81,10 +82,10 @@ Primary project path from here:
 
 7. Expand to additional high-z accreting-BH candidate classes.
    - Lensed high-z AGN candidates.
-   - X-ray-selected candidates such as UHZ1.
-   - LRD / broad-Halpha samples.
+   - X-ray-selected candidates, with UHZ1 retained as disputed rather than confirmed under the current literature assessment.
+   - Photometric LRD candidates, while treating LRD as a phenotype rather than an accretion class.
    - High-ionization-line candidates.
-   - Classical luminous quasars as comparison anchors.
+   - XQR-30/classical luminous quasars as a separate comparison stratum.
    - Keep object classes and mass methods visually/statistically distinct.
 
 8. Add duty-cycle and accretion-history diagnostics.

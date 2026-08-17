@@ -4,6 +4,7 @@ Purpose of this file:
 - Preserve the full project roadmap for future Codex threads.
 - Make it easy to remember what has been completed, what comes next, and what prompts to give Codex.
 - Treat this project as a living final-paper / atlas project, not as a sequence of disposable reports.
+- Use `.codex_tmp/catalogue-expansion-guide.md` as the current literature-reviewed companion for source priority, taxonomy, growth eligibility, and disputed-object handling (reviewed 2026-08-17).
 
 Chosen project direction:
 - Path B: observational atlas / follow-up triage.
@@ -450,11 +451,15 @@ Goal:
 - Build a larger, methodologically comparable BLAGN base before adding more ambiguous classes.
 
 Candidate sources:
-- Harikane et al. faint BLAGN.
-- Kocevski CEERS hidden/little monsters.
-- Larson CEERS 1019.
-- Taylor/RUBIES BLAGN.
-- Additional JADES/RUBIES broad-line updates.
+- Taylor CEERS/RUBIES BLAGN: current paper reports 62 objects at `3.5 < z < 6.8`; ingest the `z >= 4` subset first.
+- Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples as complementary NIRCam WFSS selections.
+- Harikane faint BLAGN and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
+- THRILS deep-spectroscopy BLAGN and evidence-graded ALPINE-CRISTAL candidates.
+- Jones et al. as a host-mass/remeasurement layer after stable physical-object IDs exist.
+- Baccus and Xu as a large archival audit only after duplicate resolution works.
+
+Authoritative source-order notes and literature links:
+- See `.codex_tmp/catalogue-expansion-guide.md`.
 
 Intermediate steps per source:
 1. Read the paper.
@@ -505,10 +510,10 @@ Goal:
 
 Suggested order:
 1. Lensed high-z AGN candidates.
-2. X-ray-selected candidates such as UHZ1.
-3. LRD / broad-Halpha samples.
+2. X-ray-selected candidates, with UHZ1 marked disputed under the 2026 reanalysis rather than treated as confirmed.
+3. Photometric LRD candidates; broad-Halpha LRDs belong in the BLAGN layer, with `lrd` stored as an independent phenotype.
 4. High-ionization-line candidates.
-5. Classical luminous quasars as comparison anchors.
+5. XQR-30 and classical luminous quasars as a separate comparison stratum.
 
 Intermediate steps:
 1. Define object class taxonomy.
@@ -629,35 +634,37 @@ Codex prompt:
 ### Highest-priority BLAGN sources
 - Juodzbalis et al. JADES broad-line AGN:
   - status: v1 baseline ingested.
-- Harikane et al. faint BLAGN:
+- Taylor et al. CEERS/RUBIES BLAGN:
+  - status: planned first expansion; current paper reports 62 objects, with the `z >= 4` subset eligible for this atlas.
+- Matthee et al. EIGER/FRESCO and Lin et al. ASPIRE:
+  - status: planned complementary NIRCam WFSS expansions.
+- Harikane et al. faint BLAGN and earlier CEERS/JADES discovery papers:
   - status: planned.
-- Kocevski et al. CEERS hidden/little monsters:
-  - status: planned.
-- Larson et al. CEERS 1019:
-  - status: planned.
-- Taylor/RUBIES BLAGN:
-  - status: planned.
+  - treat overlapping sources as measurement versions after physical-object cross-matching.
+- THRILS and ALPINE-CRISTAL-JWST:
+  - status: planned selection-bias/evidence-graded extensions.
+- Jones et al. and Baccus and Xu:
+  - status: deferred until stable physical-object IDs and duplicate resolution exist.
 
 ### High-priority non-BLAGN / mixed candidates
 - UHZ1:
-  - X-ray selected / model-dependent mass.
-  - Requires careful caveat tagging.
+  - status: disputed after the 2026 full-exposure Chandra reanalysis.
+  - retain in the evidence catalogue but exclude from confirmed-object growth rankings unless stronger evidence appears.
 - GN-z11:
   - very high redshift.
   - mass/accretion interpretation needs caution.
 - A2744-QSO1:
   - lensed candidate.
-  - lensing and direct/dynamical mass constraints may be important.
-- LRD / broad-Halpha samples:
-  - high interest.
-  - highly method-dependent.
-  - must preserve scattering/virial/SED interpretation variants.
+  - attach direct/dynamical and virial results as measurements of one physical object.
+- Photometric LRD candidates:
+  - store `lrd` as a phenotype, not as proof of accretion.
+  - exclude from the primary growth ranking without credible AGN evidence and a defensible black-hole mass posterior.
 
 ### Quasar anchors
-- z > 6.5 luminous quasars:
+- XQR-30 and other z > 6 luminous quasars:
   - useful comparison sample.
   - not directly comparable to faint JWST BLAGN/LRDs.
-  - should be plotted as anchors or separate class.
+  - should be plotted as anchors or a separate analysis stratum.
 
 ## Figure Inventory and Intended Use
 
