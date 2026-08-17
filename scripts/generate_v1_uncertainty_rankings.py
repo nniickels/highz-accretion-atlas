@@ -285,6 +285,11 @@ def uncertainty_pressure_score(row: pd.Series) -> float:
 
 
 def uncertainty_followup_category(row: pd.Series) -> str:
+    # Source inconsistencies must remain quarantined regardless of the derived
+    # pressure or host-ratio tiers; those quantities may depend on the values
+    # that require clarification.
+    if row["followup_priority_category"] == "D_source_consistency":
+        return "D_source_consistency"
     if row["uncertainty_growth_pressure_tier"] == "likely_high_pressure" and row["quality_flag"] == "robust":
         return "A_likely_robust_high_pressure"
     if row["uncertainty_growth_pressure_tier"] == "likely_high_pressure":
@@ -293,8 +298,6 @@ def uncertainty_followup_category(row: pd.Series) -> str:
         return "C_uncertain_high_pressure"
     if row["mbh_mstar_tension_label"] == "extreme":
         return "D_host_ratio_tension"
-    if row["followup_priority_category"] == "D_source_consistency":
-        return "D_source_consistency"
     if row["followup_priority_category"] in {"D_systematics_leverage", "E_comparison_anchor"}:
         return "E_comparison_or_systematics_anchor"
     return "F_context"
@@ -443,8 +446,7 @@ def verify_outputs(
         "ranking_row_count": len(uncertainty_ranking) == n_objects,
         "ranking_measurement_id_unique": uncertainty_ranking["measurement_id"].is_unique,
         "source_consistency_followup_preserved": bool(
-            source_consistency.any()
-            and uncertainty_ranking.loc[
+            uncertainty_ranking.loc[
                 source_consistency, "uncertainty_followup_category"
             ].eq("D_source_consistency").all()
         ),

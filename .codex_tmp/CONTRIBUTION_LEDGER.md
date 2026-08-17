@@ -138,3 +138,15 @@ For every future Codex contribution that changes repository files:
 - **Scientific/technical effect:** GN-11836 now remains `D_source_consistency` in both `followup_priority_category` and `uncertainty_followup_category`, rather than being relabeled `F_context`. Its uncertainty follow-up reason carries the `-0.91 dex` Eddington-ratio residual and source-clarification requirement. Numerical uncertainty products, pressure tiers, scores, probabilities, and rank order are unchanged.
 - **Validation:** All 25 regression tests passed. Re-ran the full 10,000-sample uncertainty pipeline with seed `20260808`; all nine built-in sanity checks passed, including the new `source_consistency_followup_preserved` invariant. Confirmed the GN-11836 row has matching source-consistency categories and the specific clarification reason. Confirmed uncertainty rank mappings are unchanged and ran `git diff --check`.
 - **Status:** Complete and verified locally; changes are not yet committed.
+
+### 2026-08-17 - Harden source-consistency ranking and validation
+
+- **Objective:** Fix the two dormant uncertainty-ranking defects identified during the repository-wide review: source-consistency priorities could be overwritten by derived pressure or host-ratio categories, and the production verifier incorrectly required at least one source inconsistency to exist.
+- **Files changed:**
+  - `scripts/generate_v1_uncertainty_rankings.py` (modified)
+  - `tests/test_v1_pipeline.py` (modified)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+- **Contribution:** Moved `D_source_consistency` to the first branch of the uncertainty follow-up categorizer so values awaiting source clarification remain quarantined regardless of their derived growth-pressure or host-ratio tiers. Changed the verification invariant to treat a catalogue with no source inconsistencies as valid while still requiring every inconsistency that does exist to preserve its category. Added regression cases that combine source inconsistency with likely high pressure and an extreme host ratio, and that verify a synthetic clean catalogue containing no source inconsistencies.
+- **Scientific/technical effect:** Future source-inconsistent rows cannot be promoted to a physical-pressure or host-tension category before their inputs are clarified, and valid clean catalogues no longer fail production verification. Current v1 uncertainty probabilities, scores, categories, ranks, and result tables are unchanged.
+- **Validation:** Re-ran the deterministic 10,000-sample uncertainty pipeline with seed `20260808`; all nine production sanity checks passed and Git showed no changes to the three regenerated uncertainty result tables. All 27 regression tests passed, including both new synthetic edge cases. `git diff --check` passed.
+- **Status:** Complete and verified locally; changes are not yet committed.

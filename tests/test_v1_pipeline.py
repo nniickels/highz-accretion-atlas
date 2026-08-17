@@ -17,6 +17,8 @@ from scripts.generate_v1_uncertainty_rankings import (
     asymmetric_normal_samples,
     build_outputs as build_uncertainty_outputs,
     resolve_mbh_uncertainty,
+    uncertainty_followup_category,
+    verify_outputs as verify_uncertainty_outputs,
 )
 from src import models
 from src.scoring import (
@@ -479,6 +481,30 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
 
 
 class UncertaintyPropagationTests(unittest.TestCase):
+    def test_source_consistency_precedes_pressure_and_host_categories(self) -> None:
+        row = pd.Series(
+            {
+                "followup_priority_category": "D_source_consistency",
+                "uncertainty_growth_pressure_tier": "likely_high_pressure",
+                "quality_flag": "robust",
+                "mbh_mstar_tension_label": "extreme",
+            }
+        )
+
+        self.assertEqual(uncertainty_followup_category(row), "D_source_consistency")
+
+    def test_uncertainty_verifier_accepts_catalogue_without_source_inconsistencies(self) -> None:
+        fedd, mseed, ranking = build_uncertainty_outputs(n_samples=64, random_seed=24680)
+        clean_ranking = ranking.copy()
+        source_rows = clean_ranking["followup_priority_category"].eq("D_source_consistency")
+        clean_ranking.loc[source_rows, "followup_priority_category"] = "E_comparison_anchor"
+        clean_ranking.loc[source_rows, "uncertainty_followup_category"] = (
+            "E_comparison_or_systematics_anchor"
+        )
+        point_ranking = clean_ranking.drop(columns=["rank_uncertainty_pressure"])
+
+        verify_uncertainty_outputs(point_ranking, fedd, mseed, clean_ranking)
+
     def test_asymmetric_mbh_sampling_and_missing_error_modes(self) -> None:
         rng = np.random.default_rng(123)
         samples = asymmetric_normal_samples(7.0, 0.6, 0.3, n_samples=200000, rng=rng)
