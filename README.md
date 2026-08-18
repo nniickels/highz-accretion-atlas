@@ -118,18 +118,27 @@ Turn the pilot catalogue into an observational triage tool.
 
 Add more broad-line AGN catalogues while keeping the object class relatively consistent.
 
-1. Add source-specific raw files or ingestion scripts.
-2. Preserve source-paper measurements rather than overwriting them.
-3. Track duplicate objects using coordinates, aliases, and redshift.
+1. Add source-specific raw files or ingestion scripts. The first expansion is
+   Taylor CEERS/RUBIES in `data/raw/taylor24_ceers_rubies_blagn_table1.csv`.
+2. Preserve source-paper measurements rather than overwriting them. Expanded
+   products are separate from all v1 raw, processed, result, and figure files.
+3. Track duplicate objects using coordinates, aliases, and redshift. The
+   expanded release already uses stable physical-object IDs and retains both
+   CEERS-2782 and RUBIES-EGS-50052 measurements.
 4. Compare how different papers move objects through growth-parameter space.
-5. Recompute rankings and uncertainty-aware diagnostics.
-6. Update final-style figures and tables.
+5. Recompute rankings and uncertainty-aware diagnostics. Measurement- and
+   physical-object-level expanded products now live under
+   `results/expanded_blagn_*.csv` and are documented in
+   `docs/expanded-blagn-science-workflow.md`.
+6. Update final-style figures and tables. Expanded figures remain intentionally
+   pending; the current change generates tables only.
 
 ### v4: Measurement Versioning
 
-Separate physical objects from literature measurements.
+Generalize the physical-object/literature-measurement split introduced by the
+Taylor expansion.
 
-1. Add stable physical object IDs.
+1. Extend stable physical object IDs across further overlapping sources.
 2. Keep `measurement_id` as the row-level source-paper measurement ID.
 3. Add aliases and cross-match metadata.
 4. Build measurement-level and object-level ranking tables.

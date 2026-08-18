@@ -450,8 +450,14 @@ Codex prompt:
 Goal:
 - Build a larger, methodologically comparable BLAGN base before adding more ambiguous classes.
 
+Status (2026-08-17): Taylor CEERS/RUBIES ingestion and the expanded JADES +
+Taylor science workflow are complete. The release contains 60 `z >= 4`
+measurements representing 59 physical objects. Later BLAGN sources remain
+planned.
+
 Candidate sources:
-- Taylor CEERS/RUBIES BLAGN: current paper reports 62 objects at `3.5 < z < 6.8`; ingest the `z >= 4` subset first.
+- Taylor CEERS/RUBIES BLAGN: completed for the current 62-object source; the
+  retained `z >= 4` layer has 37 measurements / 36 physical objects.
 - Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples as complementary NIRCam WFSS selections.
 - Harikane faint BLAGN and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
 - THRILS deep-spectroscopy BLAGN and evidence-graded ALPINE-CRISTAL candidates.
@@ -486,6 +492,11 @@ Codex prompt:
 ### Phase 6: Add cross-matching and measurement versioning
 Goal:
 - Preserve multiple measurements while linking them to the same physical object.
+
+Status (2026-08-17): complete for the current JADES + Taylor release, including
+stable physical-object IDs, a separate link table, documented preferred
+measurements, and measurement/object ranking products. General coordinate and
+redshift matching helpers for future sources remain planned.
 
 Intermediate steps:
 1. Add a stable `physical_object_id` concept.
@@ -555,6 +566,11 @@ Codex prompt:
 ### Phase 9: Build final atlas/ranking products
 Goal:
 - Produce the core table and figures that define the observational atlas.
+
+Status (2026-08-17): measurement- and physical-object-level point rankings,
+uncertainty rankings, and source/survey/field/LRD-stratified summaries are
+complete for JADES + Taylor. Robust-only/tentative-only derivative tables and
+expanded figures remain planned.
 
 Intermediate steps:
 1. Create measurement-level ranking table.
@@ -635,7 +651,8 @@ Codex prompt:
 - Juodzbalis et al. JADES broad-line AGN:
   - status: v1 baseline ingested.
 - Taylor et al. CEERS/RUBIES BLAGN:
-  - status: planned first expansion; current paper reports 62 objects, with the `z >= 4` subset eligible for this atlas.
+  - status: ingested and evaluated; 37 `z >= 4` measurements represent 36
+    physical objects, producing a 60-measurement / 59-object combined release.
 - Matthee et al. EIGER/FRESCO and Lin et al. ASPIRE:
   - status: planned complementary NIRCam WFSS expansions.
 - Harikane et al. faint BLAGN and earlier CEERS/JADES discovery papers:

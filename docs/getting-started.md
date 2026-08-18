@@ -9,6 +9,40 @@
 
 The v1 standardization pass itself only needs Python plus `numpy` and `pandas`.
 
+## CEERS/RUBIES Expanded BLAGN Release
+
+Build the separate expanded catalogue without changing v1:
+
+```powershell
+python -m scripts.process_expanded_blagn
+```
+
+This validates all 63 Taylor Table 1 measurements, applies `z >= 4` only in the
+processing layer, combines the resulting 37 measurements with the 23-row v1
+catalogue, and writes:
+
+- `data/processed/expanded_blagn_measurements.csv` (60 measurement rows)
+- `data/processed/expanded_blagn_objects.csv` (59 physical-object rows)
+
+The object view links CEERS-2782 and RUBIES-EGS-50052 but retains both in the
+measurement view. The command does not run rankings or regenerate figures.
+Schema and source details are in `docs/expanded-blagn-catalogue-schema.md` and
+`docs/taylor24-ceers-rubies-extraction-notes.md`.
+
+Generate the expanded evaluation, point rankings, uncertainty rankings, and
+stratified summaries with:
+
+```powershell
+python -m scripts.generate_expanded_blagn_science --n-samples 10000 --seed 20260808
+```
+
+This writes only `results/expanded_blagn_*.csv` products. It produces separate
+measurement- and physical-object-level rankings, keeps statistical MBH sampling
+separate from the global `+/-0.3 dex` and Taylor-only `+/-0.5 dex` sensitivity
+scenarios, and does not regenerate figures. See
+`docs/expanded-blagn-science-workflow.md` for the full inventory and ranking
+interpretation.
+
 ## End-to-End v1 Reproduction
 
 Run commands from the repository root. The evaluation notebook is the one
@@ -181,8 +215,9 @@ $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
 These checks cover growth-model sanity behavior, catalogue standardization
-validation, scoring semantics, the v1 ranking-table contract, and current v1
-numeric regression anchors. The numeric anchors lock down the present 23-row v1
+validation, scoring semantics, the v1 ranking-table contract, current v1
+numeric regression anchors, and the Taylor source/identity contracts. The
+numeric anchors lock down the present 23-row v1
 catalogue and baseline science-output ranks so future changes do not silently
 alter the interpretation; they are regression checks, not universal physical
 constants. If the catalogue membership, source extraction, or baseline

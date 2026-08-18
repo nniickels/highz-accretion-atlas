@@ -67,7 +67,7 @@ Primary project path from here:
    - Report percentiles and probabilities rather than only point estimates.
 
 5. Expand broad-line AGN first.
-   - Add the z >= 4 subset of the current 62-object Taylor CEERS/RUBIES BLAGN catalogue first.
+   - Add the z >= 4 subset of the current 62-object Taylor CEERS/RUBIES BLAGN catalogue first. **Completed 2026-08-17.**
    - Add Matthee EIGER/FRESCO and Lin ASPIRE as complementary NIRCam WFSS selections.
    - Add Harikane and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
    - Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
@@ -75,10 +75,11 @@ Primary project path from here:
    - Recompute rankings and test whether v1 high-leverage objects remain special.
 
 6. Add cross-matching and measurement versioning.
-   - Stable physical object IDs.
-   - One row per paper measurement.
+   - Stable physical object IDs. **Completed for JADES + Taylor.**
+   - One row per paper measurement. **Completed for JADES + Taylor.**
    - Aliases, coordinates, field, and redshift matching.
-   - Preserve method-dependent measurements rather than overwriting.
+   - Preserve method-dependent measurements rather than overwriting. **Completed for the explicit CEERS-2782/RUBIES-EGS-50052 duplicate.**
+   - Measurement- and physical-object-level point and uncertainty rankings. **Completed 2026-08-17.**
 
 7. Expand to additional high-z accreting-BH candidate classes.
    - Lensed high-z AGN candidates.

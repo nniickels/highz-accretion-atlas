@@ -1,0 +1,87 @@
+measurement_id,physical_object_id,preferred_measurement_flag,preferred_measurement_reason,match_method,match_reference
+GS30148179_juodzbalis25,HZA-GS-30148179,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS10013704_juodzbalis25,HZA-GS-10013704,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS210600_juodzbalis25,HZA-GS-210600,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS204851_juodzbalis25,HZA-GS-204851,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS172975_juodzbalis25,HZA-GS-172975,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS159717_juodzbalis25,HZA-GS-159717,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN77652_juodzbalis25,HZA-GN-77652,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN73488_juodzbalis25,HZA-GN-73488,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN62309_juodzbalis25,HZA-GN-62309,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN61888_juodzbalis25,HZA-GN-61888,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN53757_juodzbalis25,HZA-GN-53757,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS38562_juodzbalis25,HZA-GS-38562,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN38509_juodzbalis25,HZA-GN-38509,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN20621_juodzbalis25,HZA-GN-20621,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN11836_juodzbalis25,HZA-GN-11836,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS8083_juodzbalis25,HZA-GS-8083,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN1093_juodzbalis25,HZA-GN-1093,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN954_juodzbalis25,HZA-GN-954,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS200679_juodzbalis25,HZA-GS-200679,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS20057765_juodzbalis25,HZA-GS-20057765,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS20030333_juodzbalis25,HZA-GS-20030333,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GS164055_juodzbalis25,HZA-GS-164055,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+GN4685_juodzbalis25,HZA-GN-4685,1,only catalogue measurement in this release,singleton assignment,v1 catalogue
+RUBIESUDS44043_taylor24,HZA-RUBIES-UDS-44043,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS50812_taylor24,HZA-RUBIES-EGS-50812,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS21944_taylor24,HZA-RUBIES-UDS-21944,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS46566_taylor24,HZA-RUBIES-UDS-46566,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS154183_taylor24,HZA-RUBIES-UDS-154183,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS153207_taylor24,HZA-RUBIES-UDS-153207,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS50522_taylor24,HZA-RUBIES-EGS-50522,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS920_taylor24,HZA-RUBIES-EGS-920,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS150323_taylor24,HZA-RUBIES-UDS-150323,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS58237_taylor24,HZA-RUBIES-EGS-58237,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS61627_taylor24,HZA-RUBIES-UDS-61627,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS5496_taylor24,HZA-RUBIES-UDS-5496,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS15825_taylor24,HZA-RUBIES-EGS-15825,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS18302_taylor24,HZA-RUBIES-UDS-18302,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS46885_taylor24,HZA-RUBIES-UDS-46885,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS146995_taylor24,HZA-RUBIES-UDS-146995,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS34978_taylor24,HZA-RUBIES-EGS-34978,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS19174_taylor24,HZA-RUBIES-EGS-19174,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS10036_taylor24,HZA-RUBIES-UDS-10036,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS37032_taylor24,HZA-RUBIES-EGS-37032,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+CEERS11728_taylor24,HZA-CEERS-11728,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS22304_taylor24,HZA-RUBIES-UDS-22304,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS16053_taylor24,HZA-RUBIES-UDS-16053,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS147411_taylor24,HZA-RUBIES-UDS-147411,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS11721_taylor24,HZA-RUBIES-UDS-11721,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS8895_taylor24,HZA-RUBIES-UDS-8895,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS30969_taylor24,HZA-RUBIES-UDS-30969,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS155916_taylor24,HZA-RUBIES-UDS-155916,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS31747_taylor24,HZA-RUBIES-UDS-31747,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS119957_taylor24,HZA-RUBIES-UDS-119957,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS28812_taylor24,HZA-RUBIES-EGS-28812,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS143683_taylor24,HZA-RUBIES-UDS-143683,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS35974_taylor24,HZA-RUBIES-UDS-35974,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS63139_taylor24,HZA-RUBIES-UDS-63139,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS48507_taylor24,HZA-RUBIES-UDS-48507,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+CEERS1244_taylor24,HZA-CEERS-1244,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS29489_taylor24,HZA-RUBIES-EGS-29489,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS19484_taylor24,HZA-RUBIES-UDS-19484,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS182791_taylor24,HZA-RUBIES-UDS-182791,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS45599_taylor24,HZA-RUBIES-EGS-45599,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS6411_taylor24,HZA-RUBIES-EGS-6411,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS42232_taylor24,HZA-RUBIES-EGS-42232,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS46985_taylor24,HZA-RUBIES-EGS-46985,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS17146_taylor24,HZA-RUBIES-EGS-17146,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS50052_taylor24,HZA-CEERS-2782,1,preferred duplicate: higher-S/N RUBIES spectrum adopted by Taylor et al.,explicit literature duplicate,"Taylor et al. (2025), Section 3.3 / Table 1 notes"
+CEERS2782_taylor24,HZA-CEERS-2782,0,nonpreferred duplicate: severe spatial slit loss; Taylor et al. adopt RUBIES-EGS-50052,explicit literature duplicate,"Taylor et al. (2025), Section 3.3 / Table 1 notes"
+RUBIESEGS13872_taylor24,HZA-RUBIES-EGS-13872,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS42046_taylor24,HZA-RUBIES-EGS-42046,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS970351_taylor24,HZA-RUBIES-UDS-970351,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS926125_taylor24,HZA-RUBIES-EGS-926125,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS60935_taylor24,HZA-RUBIES-EGS-60935,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS29813_taylor24,HZA-RUBIES-UDS-29813,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS172350_taylor24,HZA-RUBIES-UDS-172350,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+CEERS746_taylor24,HZA-CEERS-746,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+CEERS672_taylor24,HZA-CEERS-672,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS19521_taylor24,HZA-RUBIES-UDS-19521,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS47509_taylor24,HZA-RUBIES-UDS-47509,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS37124_taylor24,HZA-RUBIES-EGS-37124,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS139709_taylor24,HZA-RUBIES-UDS-139709,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+CEERS397_taylor24,HZA-CEERS-397,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS174752_taylor24,HZA-RUBIES-UDS-174752,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESEGS49140_taylor24,HZA-RUBIES-EGS-49140,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"
+RUBIESUDS807469_taylor24,HZA-RUBIES-UDS-807469,1,only catalogue measurement in this release,singleton assignment,"Taylor et al. (2025), Table 1"

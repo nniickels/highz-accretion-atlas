@@ -310,7 +310,10 @@ Complete these before large multi-paper ingestion:
 
 1. Freeze the v1 ranking and uncertainty definitions.
 2. Design and validate physical-object matching and measurement versioning.
+   **Completed for the JADES + Taylor release (2026-08-17).**
 3. Ingest the `z >= 4` Taylor CEERS/RUBIES subset.
+   **Completed (2026-08-17): 37 measurements / 36 physical objects; expanded
+   science products contain 60 measurements / 59 physical objects.**
 4. Ingest Matthee EIGER/FRESCO and Lin ASPIRE as complementary survey selections.
 5. Attach Harikane and earlier discovery-paper measurements to matched physical
    objects.
