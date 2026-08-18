@@ -406,7 +406,7 @@ Goal:
 - Convert current plots from exploratory to paper-readable.
 
 Intermediate steps:
-1. Audit all current v1 figures.
+1. Audit all v1 exploratory figures and v2 final-style prototypes.
 2. Decide which figures become main figures.
 3. Decide which become appendix figures.
 4. Reduce clutter in `MBH` vs redshift plot.
@@ -450,8 +450,8 @@ Codex prompt:
 Goal:
 - Build a larger, methodologically comparable BLAGN base before adding more ambiguous classes.
 
-Status (2026-08-17): Taylor CEERS/RUBIES ingestion and the expanded JADES +
-Taylor science workflow are complete. The release contains 60 `z >= 4`
+Status (2026-08-17): Taylor CEERS/RUBIES ingestion and the v3 JADES +
+Taylor science workflow are complete. The v3 release contains 60 `z >= 4`
 measurements representing 59 physical objects. Later BLAGN sources remain
 planned.
 
@@ -570,7 +570,7 @@ Goal:
 Status (2026-08-17): measurement- and physical-object-level point rankings,
 uncertainty rankings, and source/survey/field/LRD-stratified summaries are
 complete for JADES + Taylor. Robust-only/tentative-only derivative tables and
-expanded figures remain planned.
+v3 figures remain planned.
 
 Intermediate steps:
 1. Create measurement-level ranking table.
@@ -770,26 +770,29 @@ Good order of prompts to give Codex:
 
 1. "Read `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md`, then inspect the repo and summarize the exact next coding task for Phase 1."
 2. "Design the final ranking metrics and output columns, but do not implement yet."
-3. "Implement the v1 ranking table from existing result CSVs and write a short verification summary."
-4. "Create final-style v1 figure prototypes for the ranking table and simplified growth overview."
+3. "Implement the v2 ranking table from the v1 result CSVs and write a short verification summary."
+4. "Create final-style v2 figure prototypes for the v1-catalogue ranking table and simplified growth overview."
 5. "Design the uncertainty propagation module and output schema."
 6. "Implement uncertainty propagation for v1 only."
 7. "Update the manuscript skeleton with current methods/results placeholders."
 8. "Choose the next broad-line AGN source to ingest and produce an ingestion plan."
 9. "Ingest the next BLAGN source with provenance and validation."
 10. "Design cross-matching / physical object IDs before adding more overlapping sources."
-11. "Recompute the atlas rankings and compare v1-only vs expanded BLAGN rankings."
+11. "Recompute the atlas rankings and compare the v2 v1-catalogue analysis with the v3 expanded BLAGN rankings."
 12. "Plan the first non-BLAGN object class expansion with caveat tags."
 
 ## Immediate Next Best Task
 
-The next best concrete task is Phase 1:
-- Define final ranking metrics.
-- Generate a v1 ranking table from existing outputs.
-- Use that table to drive the next figure set and manuscript structure.
+The next best concrete task after the v3 table release is to create v3 figure
+prototypes and update the manuscript around the measurement/object distinction:
 
-Why:
-- It makes the project's core contribution explicit.
-- It turns existing plots into a scientific answer.
-- It creates a stable target before adding more data.
-- It makes future source expansion easier to interpret.
+- Compare v2 (v1-catalogue) and v3 mass-redshift coverage without pooling
+  unlike selection functions.
+- Plot measurement- and physical-object-level v3 rankings separately.
+- Show the Taylor-specific `+/-0.5 dex` virial sensitivity independently from
+  reported statistical errors and the common `+/-0.3 dex` comparison.
+- Keep the v2 figure artifacts frozen as the reproducible pre-expansion record.
+
+This turns the completed v3 tables into paper-ready comparisons while preserving
+the chronology and avoids starting another ingestion before the expanded
+release has been interpreted visually.

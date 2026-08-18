@@ -1,18 +1,18 @@
 # highz-accretion-atlas
-A standardized, assumption-tracked catalogue of JWST-identified high-redshift (z $\ge$ 4) accreting objects and their possible formation and growth scenarios. 
+A standardized, assumption-tracked catalogue of JWST-identified high-redshift (z $\ge$ 4) accreting objects and their possible formation and growth scenarios.
 
 
 ## Background
-The James Webb Space Telescope pushes observational cosmology into the first few billion years of cosmic history, and it has revealed massive accretig objects that are hard to explain due to the limited time for them to grow. It follows that one of the biggest questions cosmologists are asking right now is: “How did these objects get so big, so fast?” My research project aims to contribute to this question by creating a standardized cross-paper catalogue of these objects and then testing what scenarios could have theoretically formed each one. Either they started from a sufficiently massive seed, accreted continuously for a long enough time, formed very early, or some combination of these conditions. This is explored and visualized with parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
+The James Webb Space Telescope pushes observational cosmology into the first few billion years of cosmic history, and it has revealed massive accreting objects that are hard to explain due to the limited time for them to grow. It follows that one of the biggest questions cosmologists are asking right now is: “How did these objects get so big, so fast?” My research project aims to contribute to this question by creating a standardized cross-paper catalogue of these objects and then testing what scenarios could have theoretically formed each one. Either they started from a sufficiently massive seed, accreted continuously for a long enough time, formed very early, or some combination of these conditions. This is explored and visualized with parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
 
-Across the literature, key quantities are often inferred with different methods and assumptions, even though small shifts in inferred quantities like `M_BH`, `M_*`, or `L_bol` can imply very different growth histories. A standardized, assumption-tracked catalogue would calrify which objects are genuinely challenging for standard formation models rather than artifacts of inference choices. 
+Across the literature, key quantities are often inferred with different methods and assumptions, even though small shifts in inferred quantities like `M_BH`, `M_*`, or `L_bol` can imply very different growth histories. A standardized, assumption-tracked catalogue would clarify which objects are genuinely challenging for standard formation models rather than artifacts of inference choices.
 
 Overall, this project aims to help determine what objects are the best candidates for follow-up and deeper theory work.
 
 ## Theory 
 The growth model follows Eq. 1 of [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html):
 
-$M_{BH}(t) = M_{seed}(t_{seed})e^{\frac{4\pi Gm \rho f_{Edd}}{c\sigma T}\frac{1-\epsilon}{\epsilon}(t-t_{seed})}$
+$M_{BH}(t) = M_{seed}(t_{seed})e^{\frac{4\pi Gm_p f_{Edd}}{c\sigma_T}\frac{1-\epsilon}{\epsilon}(t-t_{seed})}$
 
 The optional merger-assisted case multiplies this smooth-accretion result by
 $B_{\rm merge}$. Thus $B_{\rm merge}=2$ adds a fixed
@@ -77,6 +77,19 @@ keeps the project centered on observational triage rather than on claiming that
 any single seed or accretion channel is proven.
 
 ## Workflow
+
+Project release numbers describe reproducible catalogue/science milestones, not
+paper versions. The current release is **v3**:
+
+| Release | Meaning | Canonical products |
+| --- | --- | --- |
+| v1 | Original 23-row JADES BLAGN catalogue and baseline evaluation | `v1_raw.csv`, `v1_processed.csv`, `v1_evaluation_*` |
+| v2 | Ranking, uncertainty propagation, and figure prototypes evaluated on the frozen v1 catalogue | `v2_object_ranking_table.csv`, `v2_uncertainty_*`, `v2_main_text_*` |
+| v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue and measurement/object science workflow | `v3_blagn_*` |
+
+Source-specific raw files retain descriptive names because they are immutable
+paper extractions, while `source_paper_version` records the publication/arXiv
+version independently. See `docs/release-versioning.md` for the full mapping.
 ### v1: Pilot Broad-Line AGN Atlas
 
 Start with one clean object class from one source paper.
@@ -123,13 +136,13 @@ Add more broad-line AGN catalogues while keeping the object class relatively con
 2. Preserve source-paper measurements rather than overwriting them. Expanded
    products are separate from all v1 raw, processed, result, and figure files.
 3. Track duplicate objects using coordinates, aliases, and redshift. The
-   expanded release already uses stable physical-object IDs and retains both
+   v3 release already uses stable physical-object IDs and retains both
    CEERS-2782 and RUBIES-EGS-50052 measurements.
 4. Compare how different papers move objects through growth-parameter space.
 5. Recompute rankings and uncertainty-aware diagnostics. Measurement- and
    physical-object-level expanded products now live under
-   `results/expanded_blagn_*.csv` and are documented in
-   `docs/expanded-blagn-science-workflow.md`.
+   `results/v3_blagn_*.csv` and are documented in
+   `docs/v3-blagn-science-workflow.md`.
 6. Update final-style figures and tables. Expanded figures remain intentionally
    pending; the current change generates tables only.
 
@@ -179,29 +192,29 @@ Move beyond constant-average growth tracks.
 Requirements and full run instructions are documented in
 `docs/getting-started.md`.
 
-Minimal v1 reproduction path from the repository root:
+Minimal v1 + v2 reproduction path from the repository root:
 
 ```powershell
 python -m scripts.process_data
 jupyter notebook scripts/v1_evaluate.ipynb
-python scripts/generate_v1_rankings.py
-python scripts/generate_v1_uncertainty_rankings.py --n-samples 10000 --seed 20260808
-python scripts/generate_v1_final_figures.py
+python scripts/generate_v2_rankings.py
+python scripts/generate_v2_uncertainty_rankings.py --n-samples 10000 --seed 20260808
+python scripts/generate_v2_final_figures.py
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
-Expected v1 products include:
+Expected v1 and v2 products include:
 
 - `data/processed/v1_processed.csv`
 - `results/v1_required_fedd_by_seed_mass.csv`
 - `results/v1_required_mseed_by_growth_assumption.csv`
-- `results/v1_object_ranking_table.csv`
-- `results/v1_uncertainty_required_fedd_summary.csv`
-- `results/v1_uncertainty_required_mseed_summary.csv`
-- `results/v1_uncertainty_aware_ranking_table.csv`
-- final-style prototype PNGs in `results/v1_main_text_figures/`
+- `results/v2_object_ranking_table.csv`
+- `results/v2_uncertainty_required_fedd_summary.csv`
+- `results/v2_uncertainty_required_mseed_summary.csv`
+- `results/v2_uncertainty_aware_ranking_table.csv`
+- final-style prototype PNGs in `results/v2_main_text_figures/`
 
-The v1 ranking and uncertainty products use the documented baseline
+The v2 ranking and uncertainty products, evaluated on the v1 catalogue, use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a column name or
 scenario suffix says otherwise. Outputs are observational triage products under
 stated assumptions; they do not prove a single seed or accretion channel.

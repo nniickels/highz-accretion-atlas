@@ -9,41 +9,44 @@
 
 The v1 standardization pass itself only needs Python plus `numpy` and `pandas`.
 
-## CEERS/RUBIES Expanded BLAGN Release
+The project release chronology and filename rules are documented in
+`docs/release-versioning.md`.
 
-Build the separate expanded catalogue without changing v1:
+## v3 Expanded BLAGN Release
+
+Build the separate v3 catalogue without changing v1 or v2:
 
 ```powershell
-python -m scripts.process_expanded_blagn
+python -m scripts.process_v3_blagn
 ```
 
 This validates all 63 Taylor Table 1 measurements, applies `z >= 4` only in the
 processing layer, combines the resulting 37 measurements with the 23-row v1
 catalogue, and writes:
 
-- `data/processed/expanded_blagn_measurements.csv` (60 measurement rows)
-- `data/processed/expanded_blagn_objects.csv` (59 physical-object rows)
+- `data/processed/v3_blagn_measurements.csv` (60 measurement rows)
+- `data/processed/v3_blagn_objects.csv` (59 physical-object rows)
 
 The object view links CEERS-2782 and RUBIES-EGS-50052 but retains both in the
 measurement view. The command does not run rankings or regenerate figures.
-Schema and source details are in `docs/expanded-blagn-catalogue-schema.md` and
+Schema and source details are in `docs/v3-blagn-catalogue-schema.md` and
 `docs/taylor24-ceers-rubies-extraction-notes.md`.
 
-Generate the expanded evaluation, point rankings, uncertainty rankings, and
+Generate the v3 evaluation, point rankings, uncertainty rankings, and
 stratified summaries with:
 
 ```powershell
-python -m scripts.generate_expanded_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v3_blagn_science --n-samples 10000 --seed 20260808
 ```
 
-This writes only `results/expanded_blagn_*.csv` products. It produces separate
+This writes only `results/v3_blagn_*.csv` products. It produces separate
 measurement- and physical-object-level rankings, keeps statistical MBH sampling
 separate from the global `+/-0.3 dex` and Taylor-only `+/-0.5 dex` sensitivity
 scenarios, and does not regenerate figures. See
-`docs/expanded-blagn-science-workflow.md` for the full inventory and ranking
+`docs/v3-blagn-science-workflow.md` for the full inventory and ranking
 interpretation.
 
-## End-to-End v1 Reproduction
+## End-to-End v1 + v2 Reproduction
 
 Run commands from the repository root. The evaluation notebook is the one
 interactive step; run all cells before generating ranking products.
@@ -51,13 +54,13 @@ interactive step; run all cells before generating ranking products.
 ```powershell
 python -m scripts.process_data
 jupyter notebook scripts/v1_evaluate.ipynb
-python scripts/generate_v1_rankings.py
-python scripts/generate_v1_uncertainty_rankings.py --n-samples 10000 --seed 20260808
-python scripts/generate_v1_final_figures.py
+python scripts/generate_v2_rankings.py
+python scripts/generate_v2_uncertainty_rankings.py --n-samples 10000 --seed 20260808
+python scripts/generate_v2_final_figures.py
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
-Current v1 regression anchors are 23 processed measurements, redshift range
+Current v1 catalogue regression anchors are 23 processed measurements, redshift range
 about 4.133 to 8.913, and quality flags of 18 robust plus 5 tentative. These
 anchors describe the present v1 extraction; update them only with an
 intentional catalogue or assumption change.
@@ -130,17 +133,17 @@ These notebook figures are exploratory/reference outputs. They are useful for
 appendix material and diagnostics, but they are not overwritten by the
 final-style prototype figure script below.
 
-## v1 Ranking Table
+## v2 Ranking Table (v1 Catalogue)
 
 After regenerating the processed catalogue and v1 evaluation CSVs, run:
 
 ```powershell
-python scripts/generate_v1_rankings.py
+python scripts/generate_v2_rankings.py
 ```
 
 This writes:
 
-- `results/v1_object_ranking_table.csv`
+- `results/v2_object_ranking_table.csv`
 
 The script prints a verification summary with the row count, `measurement_id`
 uniqueness check, top-ranked physical-pressure objects, and sanity checks for
@@ -150,72 +153,72 @@ Ranking columns are point-estimate triage metrics. They separate physical
 growth pressure from measurement robustness/caveats and use required-parameter
 metrics rather than compatibility scores for the main physical-pressure rank.
 
-## v1 Uncertainty-Aware Rankings
+## v2 Uncertainty-Aware Rankings (v1 Catalogue)
 
-After generating the v1 point-estimate and uncertainty-aware ranking products,
+After generating the v2 point-estimate ranking from the v1 catalogue,
 run:
 
 ```powershell
-python scripts/generate_v1_uncertainty_rankings.py
+python scripts/generate_v2_uncertainty_rankings.py
 ```
 
 Optional controls:
 
 ```powershell
-python scripts/generate_v1_uncertainty_rankings.py --n-samples 10000 --seed 20260808
+python scripts/generate_v2_uncertainty_rankings.py --n-samples 10000 --seed 20260808
 ```
 
 This samples the reported asymmetric black-hole mass errors and evaluates
 baseline, `MBH -0.3 dex`, and `MBH +0.3 dex` systematic scenarios. It writes:
 
-- `results/v1_uncertainty_required_fedd_summary.csv`
-- `results/v1_uncertainty_required_mseed_summary.csv`
-- `results/v1_uncertainty_aware_ranking_table.csv`
+- `results/v2_uncertainty_required_fedd_summary.csv`
+- `results/v2_uncertainty_required_mseed_summary.csv`
+- `results/v2_uncertainty_aware_ranking_table.csv`
 
-The uncertainty propagation design and current v1 ranking summary are
-documented in `docs/v1-uncertainty-propagation.md`.
+The uncertainty propagation design and current v2 ranking summary are
+documented in `docs/v2-uncertainty-propagation.md`.
 
 Scenario suffixes keep statistical MBH sampling separate from systematic
 mass-shift cases. Preferred probability columns use names such as
 `prob_required_fedd_seed1e2_gt_1_baseline` and
 `prob_required_mseed_fedd0p3_gt_1e6_baseline`.
 
-## v1 Main-Text Figure Prototypes
+## v2 Main-Text Figure Prototypes (v1 Catalogue)
 
-After generating the v1 ranking table, run:
+After generating the v2 ranking table, run:
 
 ```powershell
-python scripts/generate_v1_final_figures.py
+python scripts/generate_v2_final_figures.py
 ```
 
 This writes final-style prototype figures to:
 
-- `results/v1_main_text_figures/`
+- `results/v2_main_text_figures/`
 
 Expected prototype filenames:
 
-- `v1_main_text_mbh_redshift_growth_overview.png`
-- `v1_main_text_ranked_required_fedd.png`
-- `v1_main_text_ranked_required_seed_mass.png`
-- `v1_main_text_pressure_vs_confidence.png`
-- `v1_main_text_uncertainty_forest.png`
-- `v1_main_text_spotlight_seed_redshift_maps.png`
+- `v2_main_text_mbh_redshift_growth_overview.png`
+- `v2_main_text_ranked_required_fedd.png`
+- `v2_main_text_ranked_required_seed_mass.png`
+- `v2_main_text_pressure_vs_confidence.png`
+- `v2_main_text_uncertainty_forest.png`
+- `v2_main_text_spotlight_seed_redshift_maps.png`
 
 The exploratory figures and full map galleries in `results/` are not deleted or
-replaced. The figure inventory is documented in `docs/v1-figure-inventory.md`.
-Prototype filenames begin with `v1_main_text_` to distinguish them from
+replaced. The figure inventory is documented in `docs/v2-figure-inventory.md`.
+Prototype filenames begin with `v2_main_text_` to distinguish them from
 exploratory v1 outputs.
 
 ## Verification Checks
 
-Run the lightweight v1 verification suite from the repository root:
+Run the lightweight v1-v3 verification suite from the repository root:
 
 ```powershell
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
-These checks cover growth-model sanity behavior, catalogue standardization
-validation, scoring semantics, the v1 ranking-table contract, current v1
+These checks cover growth-model sanity behavior, catalogue standardization,
+scoring semantics, the v2 ranking-table contract, current v1
 numeric regression anchors, and the Taylor source/identity contracts. The
 numeric anchors lock down the present 23-row v1
 catalogue and baseline science-output ranks so future changes do not silently

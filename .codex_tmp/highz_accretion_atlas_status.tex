@@ -34,15 +34,15 @@
 \newcommand{\repo}[1]{{\footnotesize\texttt{#1}}}
 
 \title{\textbf{The High-Redshift Accretion Atlas}\\
-\large Current Methods, Results, and Research Roadmap}
+\large Project Status Through v3}
 \author{Project status manuscript}
-\date{15 August 2026}
+\date{17 August 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-JWST has identified accreting black-hole candidates at epochs where the available growth time is short and the inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that asks which high-redshift objects exert the strongest pressure on seed and accretion scenarios, which conclusions depend on measurement assumptions, and which objects are the highest-value follow-up targets. The completed v1 pilot standardizes 23 JADES broad-line AGN measurements at $z\geq4$, evaluates a Dayal-style exponential growth model over transparent seed, accretion, radiative-efficiency, spin, merger, and seed-redshift assumptions, and produces point-estimate and Monte Carlo rankings. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, GN-38509 is the strongest robust growth-pressure object, while GS-20057765 is the strongest tentative high-redshift follow-up target. The framework is explicitly diagnostic: it ranks observational leverage under stated assumptions rather than claiming that any single seed or accretion channel is proven. The next phase will expand the catalogue across independent broad-line AGN samples, preserve multiple literature measurements per physical object, incorporate additional object classes, and introduce duty-cycle and bursty-accretion diagnostics.
+JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; and v3 adds 37 Taylor et al.\ CEERS/RUBIES measurements to produce 60 measurements representing 59 physical objects. The v3 workflow preserves measurement-level results while using a documented preferred observation for object-level rankings, so CEERS-2782 and RUBIES-EGS-50052 are not counted as two black holes. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, GN-38509 and GS-20057765 remain the two strongest physical-object growth-pressure cases, while RUBIES-EGS-49140 enters third with an explicit interpretive caveat. The framework is diagnostic: it does not prove a unique seed or accretion channel. Next steps are v3 figures, additional broad-line surveys, method-aware object classes, and duty-cycle diagnostics.
 \end{abstract}
 
 \section{Scientific objective}
@@ -57,7 +57,7 @@ The motivating question is simple: \emph{how can the reported black holes become
 
 The working thesis is that a standardized, provenance-aware atlas can identify a robust set of high-leverage objects for follow-up and detailed seed/accretion modeling. Formation scenarios are therefore treated as diagnostic coordinate systems, not as proof of a unique formation pathway.
 
-\section{Chronological development of the v1 atlas}
+\section{Chronological development through v3}
 
 \subsection{Stage 1: a controlled observational sample}
 
@@ -67,7 +67,7 @@ The processed catalogue preserves coordinates, redshift provenance, black-hole m
 
 \begin{table}[ht]
 \centering
-\caption{Current v1 catalogue and output scale.}
+\caption{Catalogue chronology and current output scale.}
 \begin{tabular}{@{}lr@{}}
 \toprule
 Product & Current size \\
@@ -75,6 +75,9 @@ Product & Current size \\
 Raw source measurements & 34 \\
 Processed measurements at $z\geq4$ & 23 \\
 Robust / tentative measurements & 18 / 5 \\
+Taylor Table 1 measurements (all redshifts) & 63 \\
+Taylor measurements / objects at $z\geq4$ & 37 / 36 \\
+v3 measurements / physical objects at $z\geq4$ & 60 / 59 \\
 Complete scenario-evaluation rows & 8,832 \\
 Required-$\fedd$ rows & 2,208 \\
 Required-seed rows & 2,208 \\
@@ -100,12 +103,12 @@ The model is used in three directions: predicting a final mass, solving for the 
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.91\textwidth]{../results/v1_main_text_figures/v1_main_text_mbh_redshift_growth_overview.png}
+\includegraphics[width=0.91\textwidth]{../results/v2_main_text_figures/v2_main_text_mbh_redshift_growth_overview.png}
 \caption{The v1 JADES broad-line AGN sample in black-hole-mass--redshift space. The curves are selected reference growth histories, not fits to the observations. This overview establishes the timing problem before the model is inverted into required-$\fedd$ and required-seed diagnostics.}
 \label{fig:overview}
 \end{figure}
 
-\subsection{Stage 3: from scenario grids to observational triage}
+\subsection{Stage 3 (v2): from scenario grids to observational triage}
 
 The first evaluation stage generated growth tracks, fixed-scenario compatibility summaries, and per-object maps. These products show where each measurement lies across seed mass, accretion, efficiency, merger, and formation-redshift space. They also revealed an important interpretive distinction: a fixed scenario can miss an object through \emph{undergrowth} or \emph{overgrowth}. Only the former directly signals insufficient growth; the latter can be resolved by less accretion, a smaller seed, or later formation.
 
@@ -130,16 +133,24 @@ Three systematic mass scenarios are evaluated separately:
 \end{equation}
 The statistical mass sampling is never blended across these systematic scenarios. This separation makes it possible to distinguish reported statistical uncertainty from an assumed method-scale shift.
 
+\subsection{Stage 5 (v3): source expansion and physical-object identity}
+
+The v3 release adds the complete 63-row Table~1 extraction from Taylor et al.\ (2025)~\cite{taylor2025} as a source-specific raw table, then applies $z\geq4$ in the processing layer. The retained Taylor subset has 37 measurements of 36 physical objects, including 17 sources marked as little red dots (LRDs). LRD is stored as a phenotype; the object class remains broad-line AGN. The combined release therefore contains 60 measurements of 59 physical objects.
+
+Every Taylor row preserves coordinates, redshift, total/narrow/broad H$\alpha$ fluxes and uncertainties, broad-line FWHM, formal virial-mass uncertainty, LRD and absorption-fit markers, field/program, and source caveats. The Reines et al.\ (2013) H$\alpha$ single-epoch calibration is tagged precisely, and its approximate $\pm0.5$ dex virial systematic is evaluated separately from formal errors and the common $\pm0.3$ dex comparison. Host mass, bolometric luminosity, and Eddington ratio remain unavailable rather than inferred from absent Table~1 values.
+
+The measurement view retains both CEERS-2782 and RUBIES-EGS-50052. A separate crossmatch maps them to one stable physical-object ID; the higher-S/N RUBIES observation is the documented default for object-level ranking. No measurement is deleted or averaged. Summary tables are stratified by source, survey/field, LRD phenotype, and catalogue view, and mixed-selection rows are marked descriptive rather than demographic.
+
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.99\textwidth]{../results/v1_main_text_figures/v1_main_text_uncertainty_forest.png}
+\includegraphics[width=0.99\textwidth]{../results/v2_main_text_figures/v2_main_text_uncertainty_forest.png}
 \caption{Uncertainty-aware growth-pressure ranking. Thin and thick intervals show the baseline 5th--95th and 16th--84th percentiles. Circles and open squares denote robust and tentative Monte Carlo medians; diamonds are the original point estimates. Orange endpoints show the separate $\mbh\pm0.3$ dex systematic medians. Red dashed lines mark $\fedd=1$ for a $100\,M_\odot$ seed (left) and $\mseed=10^6\,M_\odot$ for $\fedd=0.3$ (right). Percentages give baseline probabilities of crossing the corresponding threshold.}
 \label{fig:uncertainty}
 \end{figure}
 
 \section{Current scientific findings}
 
-The v1 pilot identifies a stable high-leverage group, but the uncertainty analysis changes how strongly individual objects should be described. Table~\ref{tab:objects} summarizes the leading cases under the baseline assumptions.
+The v2 v1-catalogue analysis identifies a stable high-leverage group, but the uncertainty analysis changes how strongly individual objects should be described. The v3 object-level ranking retains GN-38509 and GS-20057765 in the first two positions and adds RUBIES-EGS-49140 in third; the Taylor object is flagged for possible outflow contribution or an alternative non-AGN broad-line interpretation. Table~\ref{tab:objects} retains the detailed v1 probabilities that underlie the first comparison.
 
 \begin{table}[ht]
 \centering
@@ -166,14 +177,14 @@ The current reported Eddington ratios are instantaneous observational estimates,
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.82\textwidth]{../results/v1_main_text_figures/v1_main_text_pressure_vs_confidence.png}
+\includegraphics[width=0.82\textwidth]{../results/v2_main_text_figures/v2_main_text_pressure_vs_confidence.png}
 \caption{Physical pressure and measurement confidence are intentionally separated. A tentative measurement may have high follow-up value because resolving it would strongly affect the interpretation, while a robust moderate-pressure measurement remains useful as a comparison anchor.}
 \label{fig:triage}
 \end{figure}
 
-\section{Repository structure and reproducibility}
+\section{Release map and reproducibility}
 
-The repository follows the analysis chronologically:
+The project versions are chronological milestones: v1 is the pilot JADES catalogue and baseline evaluation, v2 is ranking/uncertainty/figure analysis on that frozen catalogue, and v3 is the combined JADES + Taylor catalogue and science workflow. Source-paper versions, including arXiv suffixes, are independent provenance metadata. The canonical dependency map is:
 
 \begin{enumerate}
   \item \repo{data/sources.md} and \repo{data/raw/v1\_raw.csv}: source provenance and extracted measurements.\par
@@ -181,39 +192,42 @@ The repository follows the analysis chronologically:
   \item \repo{src/standardize\_data.py} and \repo{scripts/process\_data.py}: raw-to-processed catalogue construction.\par
   \item \repo{src/models.py}: cosmology and black-hole growth calculations.\par
   \item \repo{src/scoring.py} and \repo{scripts/v1\_evaluate.ipynb}: scenario evaluation and exploratory compatibility products.\par
-  \item \repo{scripts/generate\_v1\_rankings.py}: point-estimate physical-pressure and follow-up rankings.\par
-  \item \repo{scripts/}\repo{generate\_v1\_uncertainty\_rankings.py}: deterministic Monte Carlo summaries and probability-based rankings.\par
-  \item \repo{scripts/}\repo{generate\_v1\_final\_figures.py}: publication-style figures driven by the result tables.\par
-  \item \repo{tests/test\_v1\_pipeline.py}: model, schema, scoring, ranking, uncertainty, and numerical regression checks.\par
+  \item \repo{scripts/generate\_v2\_rankings.py}: v2 point-estimate physical-pressure and follow-up rankings from v1.\par
+  \item \repo{scripts/generate\_v2\_uncertainty\_rankings.py}: v2 deterministic Monte Carlo summaries and probability-based rankings.\par
+  \item \repo{scripts/generate\_v2\_final\_figures.py}: v2 publication-style figures driven by the v1-catalogue result tables.\par
+  \item \repo{scripts/process\_v3\_blagn.py} and \repo{src/v3\_catalogue.py}: v3 source combination, crossmatch, and object view.\par
+  \item \repo{scripts/generate\_v3\_blagn\_science.py} and \repo{src/v3\_science.py}: v3 measurement/object evaluation, rankings, uncertainty, and summaries.\par
+  \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
 \end{enumerate}
 
-The present test suite contains 25 passing checks. These protect implementation behavior and current numerical anchors; they do not establish that the astrophysical assumptions are uniquely correct.
+The present test suite contains 53 passing checks. These protect implementation behavior, frozen v1 byte anchors, release metadata, v3 source counts and identity links, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 
-The present atlas is a pilot, and its conclusions should be read within seven boundaries:
+The present atlas remains a selected-sample triage framework, and its conclusions should be read within these boundaries:
 
 \begin{itemize}
-  \item v1 contains one source paper and one broad-line AGN class, so it does not yet measure cross-survey or cross-method population behavior;\par
+  \item v3 contains two broad-line AGN source selections, not a single complete population sample, so pooled rows cannot support demographic inference;\par
   \item the main growth diagnostics assume constant lifetime-average accretion rather than explicit duty cycles or bursts;\par
   \item the split-normal mass model approximates reported asymmetric uncertainties but is not a reconstruction of each source's full posterior;\par
-  \item the $\pm0.3$ dex cases are transparent sensitivity tests, not a complete virial-mass systematic model;\par
+  \item the $\pm0.3$ dex cases are transparent comparison tests and the Taylor $\pm0.5$ dex cases are calibration sensitivities, not reconstructed systematic posteriors;\par
   \item the four stack-supported tentative broad-H$\beta$ candidates require individual spectroscopic confirmation before they can serve as secure theoretical constraints;\par
-  \item the GN-11836 source-table Eddington-ratio inconsistency must be clarified before that ratio is used quantitatively; and\par
-  \item measurement rows are not yet separated from stable physical-object identities across papers.\par
+  \item the GN-11836 source-table Eddington-ratio inconsistency must be clarified before that ratio is used quantitatively;\par
+  \item Taylor Table~1 does not publish host mass, bolometric luminosity, or Eddington ratio, so those diagnostics are unavailable rather than negative evidence; and\par
+  \item physical-object linkage is explicit for the current release but requires broader coordinate/alias tooling before more overlapping catalogues are added.\par
 \end{itemize}
 
-These limitations motivate the next development stages rather than invalidating the current v1 comparison framework.
+These limitations motivate the next development stages rather than invalidating the v2/v3 comparison framework.
 
 \section{Research roadmap}
 
 The next work should proceed in the following order.
 
-\subsection*{1. Expand the homogeneous broad-line sample}
-Add independent broad-line catalogues, beginning with high-value JWST samples such as Harikane, Kocevski, Larson/CEERS 1019, Taylor/RUBIES, and related JADES updates. The first scientific test is whether the v1 high-leverage group remains exceptional after sample expansion.
+\subsection*{1. Create v3 figures and manuscript comparisons}
+Build measurement- and physical-object-level v3 figures, compare v2 and v3 mass--redshift coverage, and visualize the Taylor $\pm0.5$ dex sensitivity without overwriting the frozen v2 prototypes.
 
-\subsection*{2. Introduce physical-object and measurement versioning}
-Create stable physical-object identifiers while retaining one row per literature measurement. Coordinates, aliases, redshift, source, and method will support cross-matching. Conflicting measurements will be preserved rather than overwritten or prematurely averaged.
+\subsection*{2. Expand the broad-line sample and crossmatch tooling}
+Add complementary selections such as Matthee EIGER/FRESCO and Lin ASPIRE, then attach earlier discovery-paper measurements as version layers. Generalize coordinate, alias, field, and redshift matching while retaining every literature measurement.
 
 \subsection*{3. Add object classes without erasing method differences}
 Extend the atlas to little red dots, X-ray candidates, lensed candidates, high-ionization-line candidates, and classical luminous quasars. Each class will retain distinct selection and mass-method metadata so that heterogeneous measurements are not treated as interchangeable.
@@ -229,7 +243,7 @@ Produce a follow-up matrix specifying whether each object's interpretation is mo
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.98\textwidth]{../results/v1_main_text_figures/v1_main_text_spotlight_seed_redshift_maps.png}
+\includegraphics[width=0.98\textwidth]{../results/v2_main_text_figures/v2_main_text_spotlight_seed_redshift_maps.png}
 \caption{Seed-redshift spotlight maps for GN-38509 and GS-20057765. These maps show how the required lifetime-average accretion rate changes with seed mass and formation time. The full object gallery is retained for supplementary use; selected panels connect the sample ranking to object-level physical interpretation.}
 \label{fig:spotlight}
 \end{figure}
@@ -237,7 +251,7 @@ Produce a follow-up matrix specifying whether each object's interpretation is mo
 \clearpage
 \section{Conclusion}
 
-The completed v1 work demonstrates the full atlas concept: provenance-aware ingestion, validated standardization, transparent physical modeling, scenario evaluation, object ranking, deterministic Monte Carlo uncertainty propagation, publication-style visualization, and automated regression checks. Its strongest present conclusion is not that one formation pathway is required, but that a small set of measurements---led by robust GN-38509 and tentative GS-20057765---carries disproportionate leverage for early black-hole growth. The next phase will test whether that hierarchy survives independent catalogues, alternative measurements, additional object classes, and more realistic accretion histories.
+The completed v1--v3 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, publication-style v2 visualization, and automated regression checks. The first independent expansion preserves GN-38509 and GS-20057765 as the two leading object-level pressure cases and adds the caveated RUBIES-EGS-49140 measurement at high leverage. This is not evidence that one formation pathway is required. The next phase should visualize the v3 comparison, expand complementary broad-line selections, and then add method-aware object classes and more realistic accretion histories.
 
 \begin{thebibliography}{9}
 \bibitem{dayal2024}
@@ -245,6 +259,9 @@ Dayal, P. 2024, \emph{A\&A}, 690, A182.
 
 \bibitem{juodzbalis2026}
 Juod\v{z}balis, I. et al. 2026, ``JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST,'' \emph{MNRAS}, 546, stag086, arXiv:2504.03551.
+
+\bibitem{taylor2025}
+Taylor, A. J. et al. 2025, ``Broad-Line AGN at $3.5<z<6$: The Black Hole Mass Function and a Connection with Little Red Dots,'' \emph{ApJ}, 986, 165, doi:10.3847/1538-4357/add15b.
 \end{thebibliography}
 
 \end{document}

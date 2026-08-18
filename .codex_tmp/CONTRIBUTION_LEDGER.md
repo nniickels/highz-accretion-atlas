@@ -150,3 +150,62 @@ For every future Codex contribution that changes repository files:
 - **Scientific/technical effect:** Future source-inconsistent rows cannot be promoted to a physical-pressure or host-tension category before their inputs are clarified, and valid clean catalogues no longer fail production verification. Current v1 uncertainty probabilities, scores, categories, ranks, and result tables are unchanged.
 - **Validation:** Re-ran the deterministic 10,000-sample uncertainty pipeline with seed `20260808`; all nine production sanity checks passed and Git showed no changes to the three regenerated uncertainty result tables. All 27 regression tests passed, including both new synthetic edge cases. `git diff --check` passed.
 - **Status:** Complete and verified locally; changes are not yet committed.
+
+### 2026-08-17 - Normalize v1/v2/v3 release naming
+
+- **Objective:** Make repository filenames and embedded metadata follow the actual project chronology: v1 pilot catalogue/evaluation, v2 analysis on the frozen v1 catalogue, and v3 JADES + Taylor CEERS/RUBIES expansion.
+- **Files changed:**
+  - `README.md` (modified)
+  - `docs/getting-started.md` (modified)
+  - `docs/release-versioning.md` (added)
+  - `.codex_tmp/catalogue-expansion-guide.md` (modified)
+  - `.codex_tmp/observational-atlas-roadmap.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (modified)
+  - `data/crossmatch/measurement_object_links.csv` -> `data/crossmatch/v3_measurement_object_links.csv` (renamed)
+  - `data/processed/expanded_blagn_measurements.csv` -> `data/processed/v3_blagn_measurements.csv` (renamed and release metadata updated)
+  - `data/processed/expanded_blagn_objects.csv` -> `data/processed/v3_blagn_objects.csv` (renamed and release metadata updated)
+  - `docs/expanded-blagn-catalogue-schema.md` -> `docs/v3-blagn-catalogue-schema.md` (renamed and modified)
+  - `docs/expanded-blagn-science-workflow.md` -> `docs/v3-blagn-science-workflow.md` (renamed and modified)
+  - `docs/v1-figure-inventory.md` -> `docs/v2-figure-inventory.md` (renamed and modified)
+  - `docs/v1-ranking-metrics.md` -> `docs/v2-ranking-metrics.md` (renamed and modified)
+  - `docs/v1-uncertainty-propagation.md` -> `docs/v2-uncertainty-propagation.md` (renamed and modified)
+  - `docs/v2-candidate-black-hole-papers.md` -> `docs/catalogue-expansion-candidates-legacy.md` (renamed and marked as a legacy planning memo)
+  - `scripts/generate_v1_rankings.py` -> `scripts/generate_v2_rankings.py` (renamed and modified)
+  - `scripts/generate_v1_uncertainty_rankings.py` -> `scripts/generate_v2_uncertainty_rankings.py` (renamed and modified)
+  - `scripts/generate_v1_final_figures.py` -> `scripts/generate_v2_final_figures.py` (renamed and modified)
+  - `scripts/process_expanded_blagn.py` -> `scripts/process_v3_blagn.py` (renamed and modified)
+  - `scripts/generate_expanded_blagn_science.py` -> `scripts/generate_v3_blagn_science.py` (renamed and modified)
+  - `src/expanded_catalogue.py` -> `src/v3_catalogue.py` (renamed and modified)
+  - `src/expanded_science.py` -> `src/v3_science.py` (renamed and modified)
+  - `tests/test_v1_pipeline.py` -> `tests/test_v1_v2_pipeline.py` (renamed and modified)
+  - `tests/test_expanded_blagn_pipeline.py` -> `tests/test_v3_blagn_pipeline.py` (renamed and modified)
+  - `tests/test_expanded_blagn_science.py` -> `tests/test_v3_blagn_science.py` (renamed and modified)
+  - `results/v1_object_ranking_table.csv` -> `results/v2_object_ranking_table.csv` (renamed and release metadata updated)
+  - `results/v1_uncertainty_aware_ranking_table.csv` -> `results/v2_uncertainty_aware_ranking_table.csv` (renamed and release metadata updated)
+  - `results/v1_uncertainty_required_fedd_summary.csv` -> `results/v2_uncertainty_required_fedd_summary.csv` (renamed and release metadata updated)
+  - `results/v1_uncertainty_required_mseed_summary.csv` -> `results/v2_uncertainty_required_mseed_summary.csv` (renamed and release metadata updated)
+  - `results/v1_main_text_figures/v1_main_text_mbh_redshift_growth_overview.png` -> `results/v2_main_text_figures/v2_main_text_mbh_redshift_growth_overview.png` (renamed)
+  - `results/v1_main_text_figures/v1_main_text_pressure_vs_confidence.png` -> `results/v2_main_text_figures/v2_main_text_pressure_vs_confidence.png` (renamed)
+  - `results/v1_main_text_figures/v1_main_text_ranked_required_fedd.png` -> `results/v2_main_text_figures/v2_main_text_ranked_required_fedd.png` (renamed)
+  - `results/v1_main_text_figures/v1_main_text_ranked_required_seed_mass.png` -> `results/v2_main_text_figures/v2_main_text_ranked_required_seed_mass.png` (renamed)
+  - `results/v1_main_text_figures/v1_main_text_spotlight_seed_redshift_maps.png` -> `results/v2_main_text_figures/v2_main_text_spotlight_seed_redshift_maps.png` (renamed)
+  - `results/v1_main_text_figures/v1_main_text_uncertainty_forest.png` -> `results/v2_main_text_figures/v2_main_text_uncertainty_forest.png` (renamed)
+  - `results/expanded_blagn_catalogue_summary.csv` -> `results/v3_blagn_catalogue_summary.csv` (renamed)
+  - `results/expanded_blagn_growth_summary.csv` -> `results/v3_blagn_growth_summary.csv` (renamed)
+  - `results/expanded_blagn_measurement_evaluation.csv` -> `results/v3_blagn_measurement_evaluation.csv` (renamed)
+  - `results/expanded_blagn_measurement_point_ranking.csv` -> `results/v3_blagn_measurement_point_ranking.csv` (renamed)
+  - `results/expanded_blagn_measurement_uncertainty_fedd.csv` -> `results/v3_blagn_measurement_uncertainty_fedd.csv` (renamed)
+  - `results/expanded_blagn_measurement_uncertainty_mseed.csv` -> `results/v3_blagn_measurement_uncertainty_mseed.csv` (renamed)
+  - `results/expanded_blagn_measurement_uncertainty_ranking.csv` -> `results/v3_blagn_measurement_uncertainty_ranking.csv` (renamed)
+  - `results/expanded_blagn_physical_object_evaluation.csv` -> `results/v3_blagn_physical_object_evaluation.csv` (renamed)
+  - `results/expanded_blagn_physical_object_point_ranking.csv` -> `results/v3_blagn_physical_object_point_ranking.csv` (renamed)
+  - `results/expanded_blagn_physical_object_uncertainty_fedd.csv` -> `results/v3_blagn_physical_object_uncertainty_fedd.csv` (renamed)
+  - `results/expanded_blagn_physical_object_uncertainty_mseed.csv` -> `results/v3_blagn_physical_object_uncertainty_mseed.csv` (renamed)
+  - `results/expanded_blagn_physical_object_uncertainty_ranking.csv` -> `results/v3_blagn_physical_object_uncertainty_ranking.csv` (renamed)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+- **Contribution:** Added a canonical release-version map and renamed release-specific code, tests, documentation, processed catalogues, rankings, summaries, and v2 figure prototypes. Added `analysis_release=v2` and `input_catalogue_release=v1` to v2 tables, standardized Taylor rows as `project_version=v3`, retained `catalogue_release=v3-blagn`, and updated every live reference. Source-specific raw extractions remain descriptively named because their paper/arXiv versions are separate provenance dimensions. Updated the roadmaps and status paper to the completed v3 state.
+- **Scientific/technical effect:** No v1 source or processed data changed, no object was added or removed, and no growth assumptions or rank calculations changed. The current release is now unambiguously v3: 60 measurements representing 59 physical objects at `z>=4`; v2 remains the reproducible pre-expansion analysis of the 23-row v1 catalogue.
+- **Validation:** Rebuilt the v3 processed catalogue (63 Taylor source rows; 37 Taylor measurements / 36 Taylor objects at `z>=4`; 60 combined measurements / 59 physical objects), regenerated all v2 and v3 CSV products with 10,000 samples and seed `20260808`, and passed all 53 regression tests. Confirmed the v1 raw and processed SHA-256 anchors remain byte-identical, checked live references for retired names, rebuilt the 10-page status PDF, rendered every page, and visually verified layout and legibility. `git diff --check` passed.
+- **Status:** Complete and verified locally; changes are not yet committed.

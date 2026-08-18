@@ -308,11 +308,11 @@ Complete these before large multi-paper ingestion:
 
 ## Suggested Execution Sequence
 
-1. Freeze the v1 ranking and uncertainty definitions.
+1. Freeze the v2 ranking and uncertainty definitions evaluated on the v1 catalogue.
 2. Design and validate physical-object matching and measurement versioning.
    **Completed for the JADES + Taylor release (2026-08-17).**
 3. Ingest the `z >= 4` Taylor CEERS/RUBIES subset.
-   **Completed (2026-08-17): 37 measurements / 36 physical objects; expanded
+   **Completed in v3 (2026-08-17): 37 measurements / 36 physical objects; v3
    science products contain 60 measurements / 59 physical objects.**
 4. Ingest Matthee EIGER/FRESCO and Lin ASPIRE as complementary survey selections.
 5. Attach Harikane and earlier discovery-paper measurements to matched physical
@@ -328,7 +328,7 @@ Complete these before large multi-paper ingestion:
 
 ## Source-Memo Corrections to Remember
 
-The older `docs/v2-candidate-black-hole-papers.md` remains useful as a historical
+The older `docs/catalogue-expansion-candidates-legacy.md` remains useful as a historical
 working list, but future tasks should account for these changes:
 
 - Taylor et al. now reports 62 objects rather than the older 50-object count.

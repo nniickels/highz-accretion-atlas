@@ -25,9 +25,15 @@ Completed so far:
 - v1 evaluation tables, required-f_Edd tables, required-seed tables, and sample summaries generated.
 - Growth-track plots, sample compatibility heatmap, per-object parameter maps, seed-redshift maps, and one 3D seed-redshift test generated.
 - Initial high-leverage objects identified: GN-38509, GS-20057765, GS-20030333, GS-164055, GN-4685, GN-954.
+- v2 point rankings, asymmetric-error propagation, and final-style figure
+  prototypes completed on the frozen v1 catalogue.
+- v3 JADES + Taylor CEERS/RUBIES catalogue completed with 60 measurements and
+  59 physical objects at `z >= 4`.
+- v3 measurement- and physical-object-level evaluations, rankings, uncertainty
+  products, and stratified summaries completed.
 
 Primary project path from here:
-1. Define final ranking metrics.
+1. Maintain and extend the v2/v3 ranking metrics.
    - Required f_Edd for fixed seed masses.
    - Required seed mass for fixed accretion histories.
    - Probability of requiring super-Eddington average growth.
@@ -51,7 +57,8 @@ Primary project path from here:
    - Future work.
    - Appendix: full catalogue, scenario tables, map gallery, validation checks.
 
-3. Polish v1 figures into final-style prototypes.
+3. Preserve the completed v2 figure prototypes derived from the v1 catalogue,
+   and create separate v3 comparison figures.
    - Clean MBH vs redshift figure with fewer tracks.
    - Sample compatibility heatmap.
    - Required f_Edd by seed mass.
