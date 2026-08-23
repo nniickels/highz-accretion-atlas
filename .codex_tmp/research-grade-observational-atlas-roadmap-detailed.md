@@ -26,6 +26,17 @@ Careful claim posture:
 
 ## Completed Work
 
+### Current release snapshot
+
+- v4 is the current catalogue and science release: 96 measurements represent
+  94 physical objects at `z >= 4`.
+- v3 remains frozen as the JADES + Taylor comparison release and supplies the
+  latest release-specific main-text figure set.
+- The immediate next task is v4 manuscript/figure consolidation plus explicit
+  alternate-measurement sensitivity for the two multiply measured objects.
+- The phase descriptions and prompt sequence below preserve project history;
+  they are not all outstanding tasks.
+
 ### Project setup and framing
 - Repository exists as `highz-accretion-atlas`.
 - Project motivation is documented in the README.
@@ -452,13 +463,17 @@ Goal:
 
 Status (2026-08-17): Taylor CEERS/RUBIES ingestion and the v3 JADES +
 Taylor science workflow are complete. The v3 release contains 60 `z >= 4`
-measurements representing 59 physical objects. Later BLAGN sources remain
-planned.
+measurements representing 59 physical objects.
+
+Status update (2026-08-22): Matthee EIGER/FRESCO and Lin ASPIRE are complete in
+v4. The combined release contains 96 measurements representing 94 physical
+objects. One new cross-paper identity, GOODS-S-13971 = GS-204851, is explicit.
 
 Candidate sources:
 - Taylor CEERS/RUBIES BLAGN: completed for the current 62-object source; the
   retained `z >= 4` layer has 37 measurements / 36 physical objects.
-- Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples as complementary NIRCam WFSS selections.
+- Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples as complementary
+  NIRCam WFSS selections. **Completed in v4.**
 - Harikane faint BLAGN and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
 - THRILS deep-spectroscopy BLAGN and evidence-graded ALPINE-CRISTAL candidates.
 - Jones et al. as a host-mass/remeasurement layer after stable physical-object IDs exist.
@@ -497,6 +512,10 @@ Status (2026-08-17): complete for the current JADES + Taylor release, including
 stable physical-object IDs, a separate link table, documented preferred
 measurements, and measurement/object ranking products. General coordinate and
 redshift matching helpers for future sources remain planned.
+
+Status update (2026-08-22): the reusable coordinate/redshift candidate helper,
+alias table, reviewed-candidate table, ambiguity rejection, and preference
+continuity rule are complete for v4. Probabilistic matching remains future work.
 
 Intermediate steps:
 1. Add a stable `physical_object_id` concept.
@@ -569,8 +588,8 @@ Goal:
 
 Status (2026-08-17): measurement- and physical-object-level point rankings,
 uncertainty rankings, and source/survey/field/LRD-stratified summaries are
-complete for JADES + Taylor. Robust-only/tentative-only derivative tables and
-v3 figures remain planned.
+complete for JADES + Taylor and generalized in v4. Robust-only/tentative-only
+derivative tables remain planned; v3 figures are complete.
 
 Intermediate steps:
 1. Create measurement-level ranking table.
@@ -654,7 +673,9 @@ Codex prompt:
   - status: ingested and evaluated; 37 `z >= 4` measurements represent 36
     physical objects, producing a 60-measurement / 59-object combined release.
 - Matthee et al. EIGER/FRESCO and Lin et al. ASPIRE:
-  - status: planned complementary NIRCam WFSS expansions.
+  - status: completed in v4 as complementary NIRCam WFSS expansions; 36
+    measurements contribute 35 additional physical objects after linking
+    GOODS-S-13971 to JADES GS-204851.
 - Harikane et al. faint BLAGN and earlier CEERS/JADES discovery papers:
   - status: planned.
   - treat overlapping sources as measurement versions after physical-object cross-matching.
@@ -764,9 +785,10 @@ Use this section to decide what belongs in the final paper versus what should st
 - It is fine to show them together in atlas plots if visually distinguished.
 - It is risky to draw population-level conclusions without method-aware caveats.
 
-## Practical Next Prompt Sequence
+## Historical Prompt Sequence
 
-Good order of prompts to give Codex:
+This is an audit trail of the sequence that produced v1--v4, not the current
+task queue. Use the immediate-next-task section below for new work.
 
 1. "Read `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md`, then inspect the repo and summarize the exact next coding task for Phase 1."
 2. "Design the final ranking metrics and output columns, but do not implement yet."
@@ -781,10 +803,13 @@ Good order of prompts to give Codex:
 11. "Recompute the atlas rankings and compare the v2 v1-catalogue analysis with the v3 expanded BLAGN rankings."
 12. "Plan the first non-BLAGN object class expansion with caveat tags."
 
-## Immediate Next Best Task
+## Immediate Next Best Task after v4
 
-The next best concrete task after the v3 table release is to create v3 figure
-prototypes and update the manuscript around the measurement/object distinction:
+The v3 figure task below is complete. The next best concrete task is to
+consolidate the manuscript around the verified v4 comparison and add explicit
+measurement-choice sensitivity for multiply measured objects.
+
+Historical v3 figure brief:
 
 - Compare v2 (v1-catalogue) and v3 mass-redshift coverage without pooling
   unlike selection functions.
@@ -793,6 +818,6 @@ prototypes and update the manuscript around the measurement/object distinction:
   reported statistical errors and the common `+/-0.3 dex` comparison.
 - Keep the v2 figure artifacts frozen as the reproducible pre-expansion record.
 
-This turns the completed v3 tables into paper-ready comparisons while preserving
-the chronology and avoids starting another ingestion before the expanded
-release has been interpreted visually.
+The next task should turn the current v4 tables into paper-ready comparisons,
+while preserving the completed v2 and v3 artifacts and avoiding another source
+ingestion before v4 has been interpreted visually.

@@ -1,7 +1,7 @@
 # v3 Expanded BLAGN Science Workflow
 
 This workflow evaluates the combined JADES and Taylor CEERS/RUBIES broad-line
-catalogue without modifying the frozen v1 inputs, results, rankings, or figures.
+catalogue without modifying frozen v1 inputs/baselines or v2 rankings/figures.
 The products are observational-triage and growth-pressure summaries under
 explicit assumptions. They do not prove a black-hole seed channel.
 
@@ -45,7 +45,7 @@ from another program, as for CEERS-2782/RUBIES-EGS-50052.
 ## Measurement and object views
 
 The measurement view retains all 60 measurements at `z >= 4`. The object view
-contains 59 physical black holes and selects exactly one preferred measurement
+contains 59 physical objects and selects exactly one preferred measurement
 per object using `data/crossmatch/v3_measurement_object_links.csv`.
 
 CEERS-2782 and RUBIES-EGS-50052 remain separate literature measurements but map

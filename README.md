@@ -79,13 +79,15 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current release is **v3**:
+paper versions. The current catalogue and science release is **v4**; v3 remains
+the frozen JADES + Taylor comparison release and figure set:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
 | v1 | Original 23-row JADES BLAGN catalogue and baseline evaluation | `v1_raw.csv`, `v1_processed.csv`, `v1_evaluation_*` |
 | v2 | Ranking, uncertainty propagation, and figure prototypes evaluated on the frozen v1 catalogue | `v2_object_ranking_table.csv`, `v2_uncertainty_*`, `v2_main_text_*` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue and measurement/object science workflow | `v3_blagn_*` |
+| v4 | Generalized measurement identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN | `v4_blagn_*` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
@@ -134,7 +136,7 @@ Add more broad-line AGN catalogues while keeping the object class relatively con
 1. Add source-specific raw files or ingestion scripts. The first expansion is
    Taylor CEERS/RUBIES in `data/raw/taylor24_ceers_rubies_blagn_table1.csv`.
 2. Preserve source-paper measurements rather than overwriting them. Expanded
-   products are separate from all v1 raw, processed, result, and figure files.
+   products are separate from all v1 and v2 raw, processed, result, and figure files.
 3. Track duplicate objects using coordinates, aliases, and redshift. The
    v3 release already uses stable physical-object IDs and retains both
    CEERS-2782 and RUBIES-EGS-50052 measurements.
@@ -143,19 +145,23 @@ Add more broad-line AGN catalogues while keeping the object class relatively con
    physical-object-level expanded products now live under
    `results/v3_blagn_*.csv` and are documented in
    `docs/v3-blagn-science-workflow.md`.
-6. Update final-style figures and tables. Expanded figures remain intentionally
-   pending; the current change generates tables only.
+6. Update final-style figures and tables. The frozen v3 catalogue now has its own
+   final-style overview and ranking figures under `results/v3_main_text_figures/`.
 
-### v4: Measurement Versioning
+### v4: Measurement Versioning and Same-Class Expansion
 
-Generalize the physical-object/literature-measurement split introduced by the
-Taylor expansion.
+This completed release generalizes the physical-object/literature-measurement
+split introduced by the Taylor expansion. It contains 96 measurements and 94
+physical objects.
 
 1. Extend stable physical object IDs across further overlapping sources.
 2. Keep `measurement_id` as the row-level source-paper measurement ID.
 3. Add aliases and cross-match metadata.
 4. Build measurement-level and object-level ranking tables.
-5. Flag objects whose interpretation depends strongly on measurement choice.
+5. Preserve explicit default-measurement rules. Alternate-measurement rank
+   sensitivity remains the next analysis step.
+6. Add the Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples without
+   changing v1--v3 artifacts or pooling their unlike selection functions.
 
 ### v5: Multi-Class High-z Accreting BH Atlas
 
@@ -187,41 +193,35 @@ Move beyond constant-average growth tracks.
 4. Compute required duty cycle for fixed seed and burst assumptions.
 5. Identify objects that require unusually early, sustained, or efficient growth.
 
-## Getting Started 
+## Getting Started
 
 Requirements and full run instructions are documented in
 `docs/getting-started.md`.
 
-Minimal v1 + v2 reproduction path from the repository root:
+Minimal current-v4 reproduction path from the repository root, using the frozen
+v3 measurement catalogue as input:
 
 ```powershell
-python -m scripts.process_data
-jupyter notebook scripts/v1_evaluate.ipynb
-python scripts/generate_v2_rankings.py
-python scripts/generate_v2_uncertainty_rankings.py --n-samples 10000 --seed 20260808
-python scripts/generate_v2_final_figures.py
+python -m scripts.process_v4_blagn
+python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
-Expected v1 and v2 products include:
+Expected current products include:
 
-- `data/processed/v1_processed.csv`
-- `results/v1_required_fedd_by_seed_mass.csv`
-- `results/v1_required_mseed_by_growth_assumption.csv`
-- `results/v2_object_ranking_table.csv`
-- `results/v2_uncertainty_required_fedd_summary.csv`
-- `results/v2_uncertainty_required_mseed_summary.csv`
-- `results/v2_uncertainty_aware_ranking_table.csv`
-- final-style prototype PNGs in `results/v2_main_text_figures/`
+- `data/processed/v4_blagn_measurements.csv` (96 measurements)
+- `data/processed/v4_blagn_objects.csv` (94 physical objects)
+- `data/crossmatch/v4_measurement_object_links.csv`
+- measurement- and object-level `results/v4_blagn_*.csv` products
 
-The v2 ranking and uncertainty products, evaluated on the v1 catalogue, use the documented baseline
-`z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a column name or
-scenario suffix says otherwise. Outputs are observational triage products under
-stated assumptions; they do not prove a single seed or accretion channel.
-Exploratory figures in `results/` are preserved separately from final-style
-prototype figures.
+The v4 ranking and uncertainty products use the documented baseline
+`z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column
+says otherwise. Outputs are observational triage products under stated
+assumptions; they do not prove a single seed or accretion channel. Full
+from-raw reproduction instructions for v1--v4 and the frozen earlier figure
+sets are in `docs/getting-started.md`.
 
-## References 
+## References
 Sources of data documented in `data/sources.md`
 
 (Draft/rough list:)

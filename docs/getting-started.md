@@ -12,6 +12,44 @@ The v1 standardization pass itself only needs Python plus `numpy` and `pandas`.
 The project release chronology and filename rules are documented in
 `docs/release-versioning.md`.
 
+## Current v4 BLAGN Release
+
+The shortest reproduction path for the current release uses the checked-in,
+frozen v3 measurement catalogue as its input:
+
+```powershell
+python -m scripts.process_v4_blagn
+python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
+```
+
+To rebuild the catalogue chain from source-specific raw tables instead, run:
+
+```powershell
+python -m scripts.process_data
+python -m scripts.process_v3_blagn
+python -m scripts.process_v4_blagn
+python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
+```
+
+The v4 processing command writes 96 measurement rows, 94 physical-object rows,
+96 measurement/object links, 96 aliases, and one reviewed cross-paper match
+candidate. The science command writes 12 `results/v4_blagn_*.csv` products at
+measurement and physical-object level. Expected source additions are 20 Matthee
+EIGER/FRESCO rows and 16 Lin ASPIRE rows. The newly reviewed identity is
+`GOODS-S-13971 = GS-204851`; the existing
+`CEERS-2782 = RUBIES-EGS-50052` identity is inherited from v3.
+
+See `docs/v4-blagn-catalogue-schema.md` for catalogue/identity details and
+`docs/v4-blagn-science-workflow.md` for the output and scenario inventory.
+Neither command overwrites a v1--v3 artifact.
+
+The current release does not yet have a v4-specific final-figure set. Generate
+the frozen-v3 comparison figures separately when needed:
+
+```powershell
+python -m scripts.generate_v3_final_figures
+```
+
 ## v3 Expanded BLAGN Release
 
 Build the separate v3 catalogue without changing v1 or v2:
@@ -211,16 +249,16 @@ exploratory v1 outputs.
 
 ## Verification Checks
 
-Run the lightweight v1-v3 verification suite from the repository root:
+Run the lightweight v1--v4 verification suite from the repository root:
 
 ```powershell
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
 These checks cover growth-model sanity behavior, catalogue standardization,
-scoring semantics, the v2 ranking-table contract, current v1
-numeric regression anchors, and the Taylor source/identity contracts. The
-numeric anchors lock down the present 23-row v1
+scoring semantics, the v2 ranking-table contract, current v1 numeric regression
+anchors, Taylor/Matthee/ASPIRE source contracts, v3/v4 identity handling, and
+expanded science-output invariants. The numeric anchors lock down the present 23-row v1
 catalogue and baseline science-output ranks so future changes do not silently
 alter the interpretation; they are regression checks, not universal physical
 constants. If the catalogue membership, source extraction, or baseline

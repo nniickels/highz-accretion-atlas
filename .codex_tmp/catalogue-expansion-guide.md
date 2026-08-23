@@ -1,8 +1,8 @@
 # High-z Accretion Atlas: Catalogue Expansion Guide
 
-Status: working research guide for future Codex threads  
-Literature review date: 2026-08-17  
-Repository scope at review: v1 JADES/Juodzbalis broad-line AGN catalogue
+Status: working research guide; first same-class additions completed through v4
+Literature review date: 2026-08-17; implementation audit: 2026-08-22
+Repository scope at audit: v4 JADES + Taylor + Matthee + Lin broad-line AGN catalogue
 
 ## Purpose
 
@@ -42,21 +42,24 @@ selection function.
 
 ## Recommended Source Order
 
-### Tier 1: immediate same-class expansion
+### Tier 1: same-class foundation and next measurement layer
 
-These are the best next datasets because they contain broad Balmer lines and
-object-level quantities that are close to the current v1 schema.
+These sources define the lowest-risk same-class expansion because they contain
+broad Balmer lines and object-level quantities close to the v1 schema. Taylor,
+Matthee, and Lin are complete; Harikane is the next overlapping measurement
+layer.
 
 | Priority | Source | Current reported sample | Recommended atlas role | Main cautions |
 | --- | --- | --- | --- | --- |
-| 1 | [Taylor et al., CEERS/RUBIES](https://arxiv.org/abs/2409.06772) | 62 Halpha BLAGN at `3.5 < z < 6.8`; 21 have an LRD phenotype | First large expansion; ingest the `z >= 4` subset and preserve the LRD flag as a phenotype | Current paper supersedes the 50-object number in the older source memo; approximately 0.5 dex virial-mass systematics are not represented by the small statistical errors; overlaps earlier CEERS work |
-| 2 | [Matthee et al., EIGER/FRESCO](https://arxiv.org/abs/2306.05448) | 20 broad-Halpha sources at `z ~ 4.2-5.5` | Independent NIRCam WFSS selection and useful faint-AGN/LRD demographics | Slitless-survey selection and compact/red-source selection differ from targeted NIRSpec samples |
-| 2 | [Lin et al., ASPIRE](https://arxiv.org/abs/2407.17570) | 16 broad-Halpha sources at `z ~ 4-5` in 25 fields | Independent-field check with `MBH`, `Lbol`, and Eddington-ratio estimates | Red/compact preselection, dust corrections, limited host masses, and virial systematics |
-| 3 | [Harikane et al.](https://arxiv.org/abs/2303.11946) | 10 Type 1 AGN at `z = 4.015-6.936` | Foundational JWST comparison with host information | Known overlap with later CEERS/JWST compilations; preserve as measurements, not automatically ten new physical objects |
+| 1 | [Taylor et al., CEERS/RUBIES](https://arxiv.org/abs/2409.06772) | 62 Halpha BLAGN at `3.5 < z < 6.8`; 21 have an LRD phenotype | Completed in v3; the `z >= 4` subset retains the row-level LRD marker | Current paper supersedes the 50-object number in the older source memo; approximately 0.5 dex virial-mass systematics are not represented by the small statistical errors; overlaps earlier CEERS work |
+| 2 | [Matthee et al., EIGER/FRESCO](https://arxiv.org/abs/2306.05448) | 20 broad-Halpha sources at `z ~ 4.2-5.5` | Completed in v4; independent, line-selected NIRCam WFSS sample | Blind slitless broad-Halpha selection differs from targeted NIRSpec samples; compact/red properties were characterized after selection; the LRD designation is paper-level rather than a row marker; nominal masses and Lbol are not dust-corrected |
+| 2 | [Lin et al., ASPIRE](https://arxiv.org/abs/2407.17570) | 16 broad-Halpha sources at `z ~ 4-5` in 25 fields | Completed in v4; independent-field check with tabulated `MBH` and `Lbol` | Compact/red preselection; no tabulated source-reported Eddington ratio or host mass in the extracted tables; nominal masses and Lbol are not dust-corrected; approximately 0.5 dex virial systematic |
+| 3 | [Harikane et al.](https://arxiv.org/abs/2303.11946) | 10 Type 1 AGN at `z = 4.015-6.936` | Next same-class measurement layer, with host information | Known overlap with later CEERS/JWST compilations; preserve as measurements, not automatically ten new physical objects |
 
-Taylor et al. is the best single next source. Matthee and ASPIRE are especially
-valuable after it because their observing and selection modes provide more new
-information than another compilation drawn from the same NIRSpec pointings.
+The completed Taylor, Matthee, and ASPIRE sequence establishes the current v4
+same-class foundation. Harikane and earlier discovery papers should now be
+attached as measurements of matched objects before another large compilation
+is ingested.
 
 ### Tier 2: selection-bias and lower-confidence extensions
 
@@ -315,6 +318,8 @@ Complete these before large multi-paper ingestion:
    **Completed in v3 (2026-08-17): 37 measurements / 36 physical objects; v3
    science products contain 60 measurements / 59 physical objects.**
 4. Ingest Matthee EIGER/FRESCO and Lin ASPIRE as complementary survey selections.
+   **Completed in v4 (2026-08-22): 36 measurements; one Matthee/JADES crossmatch;
+   96 measurements / 94 physical objects in the combined release.**
 5. Attach Harikane and earlier discovery-paper measurements to matched physical
    objects.
 6. Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
@@ -331,8 +336,13 @@ Complete these before large multi-paper ingestion:
 The older `docs/catalogue-expansion-candidates-legacy.md` remains useful as a historical
 working list, but future tasks should account for these changes:
 
+- Matthee EIGER/FRESCO and Lin ASPIRE are completed in v4 from their
+  authoritative arXiv source archives.
+- The generalized identity layer is active. GOODS-S-13971 and GS-204851 are
+  one physical object; all source measurements remain available.
+
 - Taylor et al. now reports 62 objects rather than the older 50-object count.
-- ASPIRE, THRILS, ALPINE-CRISTAL-JWST, Baccus and Xu, Jones et al., CAPERS-LRD-z9,
+- THRILS, ALPINE-CRISTAL-JWST, Baccus and Xu, Jones et al., CAPERS-LRD-z9,
   and XQR-30 should be evaluated explicitly.
 - UHZ1 should be marked disputed and excluded from a confirmed-object growth
   ranking unless stronger evidence appears.

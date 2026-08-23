@@ -31,9 +31,15 @@ Completed so far:
   59 physical objects at `z >= 4`.
 - v3 measurement- and physical-object-level evaluations, rankings, uncertainty
   products, and stratified summaries completed.
+- v3 final-style comparison figures completed under
+  `results/v3_main_text_figures/`.
+- v4 generalized measurement identity and same-class expansion completed with
+  Matthee EIGER/FRESCO and Lin ASPIRE: 96 measurements / 94 physical objects.
+- One new cross-paper identity is verified: GOODS-S-13971 = GS-204851. Prior
+  release preferences remain stable while every measurement is preserved.
 
 Primary project path from here:
-1. Maintain and extend the v2/v3 ranking metrics.
+1. Maintain and extend the v2/v3/v4 ranking metrics.
    - Required f_Edd for fixed seed masses.
    - Required seed mass for fixed accretion histories.
    - Probability of requiring super-Eddington average growth.
@@ -43,7 +49,7 @@ Primary project path from here:
    - Measurement quality and method caveats.
    - Follow-up priority.
 
-2. Start and maintain final manuscript skeleton.
+2. Maintain the living status paper and consolidate it into the final manuscript skeleton.
    - Abstract draft.
    - Introduction.
    - Data and source selection.
@@ -58,7 +64,7 @@ Primary project path from here:
    - Appendix: full catalogue, scenario tables, map gallery, validation checks.
 
 3. Preserve the completed v2 figure prototypes derived from the v1 catalogue,
-   and create separate v3 comparison figures.
+   and maintain separate release-specific figures. **v3 figures completed.**
    - Clean MBH vs redshift figure with fewer tracks.
    - Sample compatibility heatmap.
    - Required f_Edd by seed mass.
@@ -75,18 +81,18 @@ Primary project path from here:
 
 5. Expand broad-line AGN first.
    - Add the z >= 4 subset of the current 62-object Taylor CEERS/RUBIES BLAGN catalogue first. **Completed 2026-08-17.**
-   - Add Matthee EIGER/FRESCO and Lin ASPIRE as complementary NIRCam WFSS selections.
+   - Add Matthee EIGER/FRESCO and Lin ASPIRE as complementary NIRCam WFSS selections. **Completed in v4 on 2026-08-22.**
    - Add Harikane and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
    - Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
    - Defer large overlapping compilations such as Baccus and Xu until physical-object IDs work.
    - Recompute rankings and test whether v1 high-leverage objects remain special.
 
 6. Add cross-matching and measurement versioning.
-   - Stable physical object IDs. **Completed for JADES + Taylor.**
-   - One row per paper measurement. **Completed for JADES + Taylor.**
+   - Stable physical object IDs. **Generalized through v4.**
+   - One row per paper measurement. **Generalized through v4.**
    - Aliases, coordinates, field, and redshift matching.
-   - Preserve method-dependent measurements rather than overwriting. **Completed for the explicit CEERS-2782/RUBIES-EGS-50052 duplicate.**
-   - Measurement- and physical-object-level point and uncertainty rankings. **Completed 2026-08-17.**
+   - Preserve method-dependent measurements rather than overwriting. **Completed for the CEERS-2782/RUBIES-EGS-50052 and GS-204851/GOODS-S-13971 pairs.**
+   - Measurement- and physical-object-level point and uncertainty rankings. **Generalized in v4 on 2026-08-22.**
 
 7. Expand to additional high-z accreting-BH candidate classes.
    - Lensed high-z AGN candidates.

@@ -209,3 +209,153 @@ For every future Codex contribution that changes repository files:
 - **Scientific/technical effect:** No v1 source or processed data changed, no object was added or removed, and no growth assumptions or rank calculations changed. The current release is now unambiguously v3: 60 measurements representing 59 physical objects at `z>=4`; v2 remains the reproducible pre-expansion analysis of the 23-row v1 catalogue.
 - **Validation:** Rebuilt the v3 processed catalogue (63 Taylor source rows; 37 Taylor measurements / 36 Taylor objects at `z>=4`; 60 combined measurements / 59 physical objects), regenerated all v2 and v3 CSV products with 10,000 samples and seed `20260808`, and passed all 53 regression tests. Confirmed the v1 raw and processed SHA-256 anchors remain byte-identical, checked live references for retired names, rebuilt the 10-page status PDF, rendered every page, and visually verified layout and legibility. `git diff --check` passed.
 - **Status:** Complete and verified locally; changes are not yet committed.
+
+### 2026-08-22 - Complete v3 figures and add the v4 same-class BLAGN expansion
+
+- **Objective:** Apply roadmap changes 1--4: repository release hygiene, the
+  frozen-v3 main-text figure set and living status paper, generalized
+  measurement/physical-object identity handling, and authoritative Matthee
+  EIGER/FRESCO plus Lin ASPIRE broad-Halpha ingestion and science products.
+- **Files changed:**
+  - `.gitignore` (added)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/catalogue-expansion-guide.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (modified)
+  - `.codex_tmp/observational-atlas-roadmap.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `.codex_tmp/matplotlib/fontlist-v3.11.0.json` (deleted generated cache)
+  - `README.md` (modified)
+  - `data/sources.md` (modified)
+  - `data/raw/matthee23_eiger_fresco_blagn_tables1_3.csv` (added)
+  - `data/raw/lin24_aspire_blagn_tables1_3.csv` (added)
+  - `data/processed/v4_blagn_measurements.csv` (added)
+  - `data/processed/v4_blagn_objects.csv` (added)
+  - `data/crossmatch/v4_measurement_object_links.csv` (added)
+  - `data/crossmatch/v4_object_aliases.csv` (added)
+  - `data/crossmatch/v4_reviewed_match_candidates.csv` (added)
+  - `docs/getting-started.md` (modified)
+  - `docs/release-versioning.md` (modified)
+  - `docs/v3-blagn-catalogue-schema.md` (modified)
+  - `docs/v3-blagn-science-workflow.md` (modified)
+  - `docs/matthee23-eiger-fresco-extraction-notes.md` (added)
+  - `docs/lin24-aspire-extraction-notes.md` (added)
+  - `docs/v4-blagn-catalogue-schema.md` (added)
+  - `docs/v4-blagn-science-workflow.md` (added)
+  - `scripts/generate_v3_final_figures.py` (added)
+  - `scripts/process_v4_blagn.py` (added)
+  - `scripts/generate_v4_blagn_science.py` (added)
+  - `src/identity.py` (added)
+  - `src/v4_catalogue.py` (added)
+  - `src/v4_science.py` (added)
+  - `tests/test_v4_blagn_pipeline.py` (added)
+  - `tests/test_v4_blagn_science.py` (added)
+  - `results/v3_main_text_figures/v3_main_text_mbh_redshift_growth_overview.png` (added)
+  - `results/v3_main_text_figures/v3_main_text_ranked_required_fedd.png` (added)
+  - `results/v3_main_text_figures/v3_main_text_uncertainty_forest.png` (added)
+  - `results/v3_main_text_figures/v3_main_text_source_stratified_coverage.png` (added)
+  - `results/v4_blagn_catalogue_summary.csv` (added)
+  - `results/v4_blagn_growth_summary.csv` (added)
+  - `results/v4_blagn_measurement_evaluation.csv` (added)
+  - `results/v4_blagn_measurement_point_ranking.csv` (added)
+  - `results/v4_blagn_measurement_uncertainty_fedd.csv` (added)
+  - `results/v4_blagn_measurement_uncertainty_mseed.csv` (added)
+  - `results/v4_blagn_measurement_uncertainty_ranking.csv` (added)
+  - `results/v4_blagn_physical_object_evaluation.csv` (added)
+  - `results/v4_blagn_physical_object_point_ranking.csv` (added)
+  - `results/v4_blagn_physical_object_uncertainty_fedd.csv` (added)
+  - `results/v4_blagn_physical_object_uncertainty_mseed.csv` (added)
+  - `results/v4_blagn_physical_object_uncertainty_ranking.csv` (added)
+  - `scripts/.ipynb_checkpoints/v1_evaluate-checkpoint.ipynb` (deleted generated checkpoint)
+  - `scripts/__pycache__/generate_catalogue.cpython-312.pyc` (deleted generated cache)
+  - `scripts/__pycache__/generate_v1_rankings.cpython-312.pyc` (deleted generated cache)
+  - `scripts/__pycache__/generate_v1_uncertainty_rankings.cpython-312.pyc` (deleted generated cache)
+  - `scripts/__pycache__/process_data.cpython-312.pyc` (deleted generated cache)
+  - `src/__pycache__/__init__.cpython-312.pyc` (deleted generated cache)
+  - `src/__pycache__/models.cpython-312.pyc` (deleted generated cache)
+  - `src/__pycache__/scoring.cpython-312.pyc` (deleted generated cache)
+  - `src/__pycache__/standardize_data.cpython-312.pyc` (deleted generated cache)
+  - `tests/__pycache__/test_v1_pipeline.cpython-312.pyc` (deleted generated cache)
+- **Contribution:** Transcribed all 20 Matthee Tables 1--3 rows and all 16 Lin
+  Tables 1--3 rows from authoritative arXiv source archives, with coordinates,
+  redshifts, line measurements, formal asymmetric errors, source-native
+  luminosities, Reines et al. (2013) mass-method metadata, separate 0.5 dex
+  calibration systematics, LRD provenance, absorption-fit flags, and row
+  caveats. Added reusable coordinate/redshift candidate matching, stable
+  physical-object IDs, aliases, explicit ambiguity rejection, and a
+  prior-release preference-continuity rule. Added v4 measurement/object
+  evaluation, point-ranking, Monte Carlo ranking, and stratified-summary
+  products while leaving v1--v3 artifacts separate. Added four frozen-v3
+  main-text figures and updated the status paper, release map, run guide,
+  schemas, source registry, and roadmaps. Removed tracked generated caches and
+  added ignore rules preventing recurrence.
+- **Scientific/technical effect:** v4 contains 96 measurements representing 94
+  physical objects at `z >= 4` and is now the current catalogue and science
+  release. The 36 new literature rows add 35 physical
+  objects because Matthee GOODS-S-13971 is linked to JADES GS-204851; both
+  measurements remain present and the prior JADES default is retained. The
+  earlier CEERS-2782/RUBIES-EGS-50052 pair remains one physical object. Baseline
+  assumptions remain `z_seed=30`, `epsilon=0.1`, `merger_boost=1`, with reported
+  asymmetric statistical errors, global +/-0.3 dex comparisons, and separately
+  labelled Taylor/Matthee/ASPIRE +/-0.5 dex calibration sensitivities. The mass
+  and redshift extrema are unchanged from v3, but coverage is denser at
+  `z approximately 4.2--5.5`; Matthee GOODS-N-9771 enters the object-level
+  uncertainty-pressure ranking at rank 4. Overall source/LRD summaries remain
+  descriptive because the surveys have unlike selection functions.
+- **Validation:** Verified the source archives as Matthee arXiv `2306.05448v3`
+  (SHA-256 `b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190`)
+  and Lin arXiv `2407.17570v1` (SHA-256
+  `fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd`).
+  Compared the new CSVs against the authoritative TeX tables, imported both
+  into a spreadsheet QA workbook, scanned for formula errors, rendered sample
+  ranges, and visually inspected them. Regenerated 96 measurement and 94
+  physical-object rows, all v4 science products with 10,000 Monte Carlo draws
+  and seed `20260808`, and restored v2's canonical 10,000-draw products after
+  the test fixture. All 70 regression tests passed. Frozen v3 catalogue hashes
+  remain `7df69c0a...1b76` (measurements) and `5c67d8a8...2126` (objects).
+  Recompiled the 12-page status PDF and visually inspected every rendered page.
+  `git diff --check` passed.
+- **Status:** Complete and verified locally; changes are not yet committed.
+
+### 2026-08-22 - Reconcile current v4 documentation
+
+- **Objective:** Correct the remaining documentation inconsistencies identified
+  in the post-v4 review without changing code, catalogue rows, rankings, or
+  generated science products.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/catalogue-expansion-guide.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `README.md` (modified)
+  - `data/sources.md` (modified)
+  - `docs/getting-started.md` (modified)
+  - `docs/release-versioning.md` (modified)
+  - `docs/v4-blagn-catalogue-schema.md` (modified)
+  - `docs/v4-blagn-science-workflow.md` (modified)
+- **Contribution:** Made v4 the primary onboarding and minimal-reproduction
+  path; updated the verification-suite description from v1--v3 to v1--v4;
+  corrected the pre-implementation Matthee and ASPIRE source descriptions;
+  distinguished completed, historical, and immediate-next roadmap material;
+  and documented that v4 science tables are current while the latest
+  release-specific figures remain frozen v3 products. Expanded the v4 schema
+  with exact raw/processed/crossmatch inventories, identity/default rules,
+  matching thresholds, field groups, missingness policy, LRD evidence
+  provenance, quality semantics, and validation anchors. Expanded the v4
+  science guide with catalogue-view rules, scenario scopes, exact output row
+  counts, missing-diagnostic interpretation, and verification commands.
+- **Scientific/technical effect:** Documentation now matches the implemented
+  source selections and data semantics. In particular, Matthee is described as
+  line-selected rather than compact/red preselected; ASPIRE no longer claims a
+  tabulated source-reported Eddington ratio or dust correction; Matthee's LRD
+  status is explicitly paper-level; and `robust` is identified as broad-line
+  detection confidence rather than a guarantee that absorption, contamination,
+  or virial-mass caveats are absent. No scientific value, identity assignment,
+  rank, or release artifact changed.
+- **Validation:** Confirmed every exact repository path referenced by the core
+  documentation exists. Compared all documented v4 row counts against the
+  current CSVs: 96 measurements, 94 objects, 96 links, 96 aliases, one reviewed
+  candidate, 12 science products, and the documented per-product row counts all
+  match. Searched for the stale source/release phrases corrected here and found
+  no live occurrences. `git diff --check` passed. Regression tests were not
+  rerun because this contribution changes documentation only.
+- **Status:** Complete and verified locally; changes are not yet committed.

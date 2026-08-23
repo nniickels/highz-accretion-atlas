@@ -27,3 +27,30 @@
 - **Verified anchors:** 63 measurements / 62 physical objects in Table 1; 37 / 36 at `z >= 4`; 21 LRD rows full / 17 filtered; 4 absorption-fit rows full / 3 filtered.
 - **Extraction archive:** https://arxiv.org/e-print/2409.06772v2; SHA-256 `50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0`; extracted 2026-08-17
 - **Limitations:** The paper mentions 11 contaminated spectra without identifying the full set in Table 1, so no per-row contamination flags were inferred. See `docs/taylor24-ceers-rubies-extraction-notes.md` for object caveats.
+
+## v4 Same-Class Broad-Line Additions
+
+- **[source_key: matthee23_eiger_fresco_blagn] Matthee et al. (2024),
+  EIGER/FRESCO:** 20 broad-Halpha emitters at
+  `4.163 <= z <= 5.538`, extracted from Tables 1--3 of arXiv `2306.05448v3` /
+  ApJ 963:129. Raw values: `data/raw/matthee23_eiger_fresco_blagn_tables1_3.csv`.
+  Selection requires broad-Halpha S/N > 5, luminosity > 2e42 erg/s, and FWHM
+  > 1000 km/s, followed by visual rejection of spatial broadening.
+  The 0.5 dex Reines-calibration uncertainty is separate from formal errors.
+  The source archive SHA-256 is
+  `b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190`.
+  GOODS-S-13971 is crossmatched to the existing JADES GS-204851 object. The
+  LRD flag is a paper-level sample label, not a row marker in Tables 1--3.
+- **[source_key: lin24_aspire_blagn] Lin et al. (2024), ASPIRE:** 16 compact
+  broad-Halpha emitters at
+  `4.0639 <= z <= 5.0369`, extracted from Tables 1--3 of arXiv `2407.17570v1` /
+  ApJ 974:147. Raw values: `data/raw/lin24_aspire_blagn_tables1_3.csv`.
+  Selection uses compact-red preselection, then integrated line S/N > 5 and
+  broad FWHM > 1000 km/s. The source archive SHA-256 is
+  `fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd`.
+  All 16 are explicitly called LRDs in Table 1; LRD remains a phenotype, not
+  the object class.
+
+Detailed extraction and caveat notes are in
+`docs/matthee23-eiger-fresco-extraction-notes.md` and
+`docs/lin24-aspire-extraction-notes.md`.
