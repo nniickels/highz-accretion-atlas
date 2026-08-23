@@ -492,3 +492,73 @@ For every future Codex contribution that changes repository files:
   rendered every page, and visually verified the complete document.
 - **Status:** Complete in the v4.0.1 maintenance commit and annotated tag
   `v4.0.1`; the `v4-blagn` science tag remains unchanged.
+
+### 2026-08-23 - Add Harikane measurement versions and v5 taxonomy foundation
+
+- **Objective:** Complete the next same-class measurement layer after v4,
+  preserve every prior release, audit current manuscript claims, and establish
+  class-aware metadata before any heterogeneous-candidate ingestion.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/catalogue-expansion-guide.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (rebuilt)
+  - `.codex_tmp/observational-atlas-roadmap.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `README.md` (modified)
+  - `data/raw/harikane23_nirspec_blagn_tables1_3.csv` (added)
+  - `data/processed/v5_blagn_measurements.csv` (added)
+  - `data/processed/v5_blagn_objects.csv` (added)
+  - `data/crossmatch/v5_measurement_object_links.csv` (added)
+  - `data/crossmatch/v5_object_aliases.csv` (added)
+  - `data/crossmatch/v5_reviewed_identity_overrides.csv` (added)
+  - `data/crossmatch/v5_reviewed_match_candidates.csv` (added)
+  - `data/mass_method_registry.csv` (modified)
+  - `data/sources.md` (modified)
+  - `docs/getting-started.md` (modified)
+  - `docs/release-versioning.md` (modified)
+  - `docs/v2-figure-inventory.md` (modified)
+  - `docs/harikane23-nirspec-extraction-notes.md` (added)
+  - `docs/object-taxonomy.md` (added)
+  - `docs/v5-blagn-catalogue-schema.md` (added)
+  - `docs/v5-blagn-science-workflow.md` (added)
+  - `docs/v5-manuscript-claim-audit.md` (added)
+  - `scripts/process_v5_blagn.py` (added)
+  - `scripts/generate_v5_blagn_science.py` (added)
+  - `src/object_taxonomy.py` (added)
+  - `src/v5_catalogue.py` (added)
+  - `src/v5_science.py` (added)
+  - `tests/test_v5_blagn_pipeline.py` (added)
+  - `tests/test_v5_blagn_science.py` (added)
+  - 13 `results/v5_blagn_*.csv` science products (added)
+- **Contribution:** Extracted all ten final-sample rows from the authoritative
+  Harikane et al. (2023) ApJ/arXiv v3 Tables 1--3 source archive, preserving
+  coordinates, selection diagnostics, broad-Halpha quantities, Greene & Ho
+  (2005) masses, bolometric luminosities, Eddington ratios, host measurements
+  and upper limits, phenotype descriptions, caveats, and provenance. Reviewed
+  six coordinate/redshift candidates and linked five Harikane measurements to
+  five existing CEERS physical objects; five new stable objects were allocated.
+  Added orthogonal evidence/type/selection/phenotype/lensing/ranking axes and a
+  non-breaking v5 science workflow. Harikane rows receive reported asymmetric
+  statistical propagation and the common +/-0.3 dex comparison only; no
+  numeric source-specific systematic or LRD marker was invented. Updated the
+  roadmaps, release map, source registry, reproduction instructions, claim
+  audit, and living manuscript. No release tag was created.
+- **Scientific/technical effect:** v5 contains 106 measurements representing 99
+  physical objects. CEERS-2782/RUBIES-EGS-50052/Harikane CEERS-02782 are three
+  measurements of one physical object, with the prior RUBIES default retained.
+  Five Harikane physical objects are new. The prior v4 point-ranking top three
+  remain unchanged; Harikane CEERS-00717 enters point rank 4 and uncertainty
+  rank 5. Overall mixed-selection summaries remain descriptive and explicitly
+  prohibit demographic inference. Every v1--v4 artifact remains unchanged.
+- **Validation:** Rebuilt five v5 catalogue/identity products and all 13 v5
+  science tables with 10,000 Monte Carlo draws and seed `20260808`. Verified
+  exact counts (464/439 evaluation, 1,392/1,317 required-fEdd, 928/878
+  required-seed, and seven alternate-measurement rows), unique ranks, scenario
+  separation, missingness behavior, identity linkage, and source provenance.
+  All 93 regression tests passed. The v4.0.1 verifier reproduced all frozen v4
+  products in memory and confirmed all 18 hashes. `git diff --check` passed.
+  Rebuilt the 15-page status PDF without TeX warnings, rendered all pages, and
+  visually inspected the full document.
+- **Status:** Complete and verified locally; changes are not yet committed or
+  pushed.

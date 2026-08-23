@@ -1,0 +1,8 @@
+measurement_id,candidate_measurement_id,decision,physical_object_id,review_basis,review_reference,review_date,match_origin
+CEERS01244_harikane23,CEERS1244_taylor24,accepted,HZA-CEERS-1244,"coordinate, redshift, and normalized CEERS identifier","Harikane et al. 2023 Tables 1-3; Taylor et al. 2025 Table 1",2026-08-23,threshold_candidate
+CEERS00746_harikane23,CEERS746_taylor24,accepted,HZA-CEERS-746,"coordinate, redshift, and normalized CEERS identifier","Harikane et al. 2023 Tables 1-3; Taylor et al. 2025 Table 1",2026-08-23,threshold_candidate
+CEERS00672_harikane23,CEERS672_taylor24,accepted,HZA-CEERS-672,"coordinate, redshift, and normalized CEERS identifier","Harikane et al. 2023 Tables 1-3; Taylor et al. 2025 Table 1",2026-08-23,threshold_candidate
+CEERS02782_harikane23,CEERS2782_taylor24,accepted,HZA-CEERS-2782,"coordinate, redshift, and published CEERS alias","Harikane et al. 2023 Tables 1-3; Taylor et al. 2025 Table 1",2026-08-23,threshold_candidate
+CEERS02782_harikane23,RUBIESEGS50052_taylor24,accepted,HZA-CEERS-2782,"coordinate, redshift, and reviewed CEERS/RUBIES identity","Harikane et al. 2023 Tables 1-3; Taylor et al. 2025 Table 1",2026-08-23,threshold_candidate
+CEERS00397_harikane23,CEERS397_taylor24,accepted,HZA-CEERS-397,"coordinate, redshift, and normalized CEERS identifier","Harikane et al. 2023 Tables 1-3; Taylor et al. 2025 Table 1",2026-08-23,threshold_candidate
+

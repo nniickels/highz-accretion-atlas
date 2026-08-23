@@ -79,10 +79,10 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue and science release is **v4**. Maintenance
-tag **v4.0.1** adds pinned dependencies, CI, release hashes, safer identity
-allocation, and method-systematic metadata without changing v4 science values.
-v3 remains the frozen JADES + Taylor comparison release and figure set:
+paper versions. The current catalogue and science release is **v5**. It adds
+Harikane et al. (2023) as a same-class measurement-version layer and introduces
+orthogonal taxonomy fields without pooling heterogeneous object classes. v4
+remains the frozen Matthee/ASPIRE comparison and figure release:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
@@ -90,6 +90,7 @@ v3 remains the frozen JADES + Taylor comparison release and figure set:
 | v2 | Ranking, uncertainty propagation, and figure prototypes evaluated on the frozen v1 catalogue | `v2_object_ranking_table.csv`, `v2_uncertainty_*`, `v2_main_text_*` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue and measurement/object science workflow | `v3_blagn_*` |
 | v4 | Generalized identity, Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | `v4_blagn_*`, `v4_main_text_*` |
+| v5 | Harikane NIRSpec BLAGN measurement layer plus class-aware taxonomy scaffolding | `v5_blagn_*` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
@@ -168,7 +169,15 @@ physical objects.
 6. Add the Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples without
    changing v1--v3 artifacts or pooling their unlike selection functions.
 
-### v5: Multi-Class High-z Accreting BH Atlas
+### v5: Harikane Measurement Version and Taxonomy Foundation
+
+This completed release adds all ten Harikane et al. broad-Halpha measurements,
+links five to existing physical objects, creates five new physical objects, and
+retains every prior default measurement. The result is 106 measurements / 99
+physical objects. It also separates evidence status, spectroscopic type,
+selection channel, phenotype, lensing status, and growth-ranking eligibility.
+
+### v6: Multi-Class High-z Accreting BH Atlas
 
 Expand beyond broad-line AGN.
 
@@ -188,7 +197,7 @@ For each class:
 3. Keep object classes visually and statistically distinct.
 4. Recompute atlas rankings with class-aware caveats.
 
-### v6: Accretion-History Diagnostics
+### v7: Accretion-History Diagnostics
 
 Move beyond constant-average growth tracks.
 
@@ -203,27 +212,27 @@ Move beyond constant-average growth tracks.
 Requirements and full run instructions are documented in
 `docs/getting-started.md`.
 
-Minimal current-v4 reproduction path from the repository root, using the frozen
-v3 measurement catalogue as input:
+Minimal current-v5 reproduction path from the repository root, using the frozen
+v4 measurement catalogue as input:
 
 ```powershell
-python -m scripts.process_v4_blagn
-python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.process_v5_blagn
+python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
 Expected current products include:
 
-- `data/processed/v4_blagn_measurements.csv` (96 measurements)
-- `data/processed/v4_blagn_objects.csv` (94 physical objects)
-- `data/crossmatch/v4_measurement_object_links.csv`
-- measurement- and object-level `results/v4_blagn_*.csv` products
+- `data/processed/v5_blagn_measurements.csv` (106 measurements)
+- `data/processed/v5_blagn_objects.csv` (99 physical objects)
+- `data/crossmatch/v5_measurement_object_links.csv`
+- measurement- and object-level `results/v5_blagn_*.csv` products
 
-The v4 ranking and uncertainty products use the documented baseline
+The v5 ranking and uncertainty products use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column
 says otherwise. Outputs are observational triage products under stated
 assumptions; they do not prove a single seed or accretion channel. Full
-from-raw reproduction instructions for v1--v4 and the frozen earlier figure
+from-raw reproduction instructions for v1--v5 and the frozen earlier figure
 sets are in `docs/getting-started.md`.
 
 ## References

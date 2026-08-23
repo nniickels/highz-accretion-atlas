@@ -34,7 +34,7 @@
 \newcommand{\repo}[1]{{\footnotesize\texttt{#1}}}
 
 \title{\textbf{The High-Redshift Accretion Atlas}\\
-\large Project Status Through v4.0.1}
+\large Project Status Through v5}
 \author{Project status manuscript}
 \date{23 August 2026}
 
@@ -42,7 +42,7 @@
 \maketitle
 
 \begin{abstract}
-JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; and v4 adds 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements. The corrected v4 release has 96 measurements representing 94 physical objects, explicit reviewed identity decisions, separate detection-confidence and mass-reliability semantics, and one-at-a-time sensitivity tests for both multiply measured objects. Maintenance release v4.0.1 pins the software environment, adds continuous integration and a hash manifest, hardens future identity allocation, and records source-specific virial calibrations without changing a mass, rank, or scientific scenario. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. Next steps are final-manuscript consolidation, method-aware object classes, and duty-cycle diagnostics.
+JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; v4 added 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements; and v5 adds all ten Harikane et al.\ NIRSpec measurements. The current release has 106 measurements representing 99 physical objects, including five verified Harikane overlaps and five new objects. It preserves reported asymmetric statistical errors, leaves the unstated Harikane virial systematic unavailable, and adds orthogonal evidence, type, selection, phenotype, lensing, and ranking-eligibility fields without pooling heterogeneous classes. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. The prior top three remain unchanged; Harikane CEERS-00717 enters point rank 4 and uncertainty rank 5. Next steps are final-manuscript consolidation, class-specific eligibility rules, and duty-cycle diagnostics.
 \end{abstract}
 
 \section{Scientific objective}
@@ -57,7 +57,7 @@ The motivating question is simple: \emph{how can the reported black holes become
 
 The working thesis is that a standardized, provenance-aware atlas can identify a robust set of high-leverage objects for follow-up and detailed seed/accretion modeling. Formation scenarios are therefore treated as diagnostic coordinate systems, not as proof of a unique formation pathway.
 
-\section{Chronological development through v4}
+\section{Chronological development through v5}
 
 \subsection{Stage 1: a controlled observational sample}
 
@@ -72,17 +72,17 @@ The processed catalogue preserves coordinates, redshift provenance, black-hole m
 \toprule
 Product & Current size \\
 \midrule
-Raw source measurements & 34 \\
-Processed measurements at $z\geq4$ & 23 \\
-Robust / tentative measurements & 18 / 5 \\
+v1 raw source measurements & 34 \\
+v1 processed measurements at $z\geq4$ & 23 \\
+v1 robust / tentative measurements & 18 / 5 \\
 Taylor Table 1 measurements (all redshifts) & 63 \\
 Taylor measurements / objects at $z\geq4$ & 37 / 36 \\
 v3 measurements / physical objects at $z\geq4$ & 60 / 59 \\
 Matthee / ASPIRE source measurements & 20 / 16 \\
-v4 measurements / physical objects at $z\geq4$ & 96 / 94 \\
-Complete scenario-evaluation rows & 8,832 \\
-Required-$\fedd$ rows & 2,208 \\
-Required-seed rows & 2,208 \\
+v5 measurements / physical objects at $z\geq4$ & 106 / 99 \\
+v5 evaluation rows (measurement / object) & 464 / 439 \\
+v5 required-$\fedd$ rows (measurement / object) & 1,392 / 1,317 \\
+v5 required-seed rows (measurement / object) & 928 / 878 \\
 Per-object spin/merger parameter maps & 138 \\
 Per-object seed-redshift maps & 23 \\
 \bottomrule
@@ -153,6 +153,12 @@ The v4 science workflow preserves the baseline assumptions and reported asymmetr
 
 The v4.0.1 method registry also resolves a previously implicit JADES distinction. The 19 H$\alpha$ measurements use the Reines \& Volonteri (2015) relation and the source paper states a 0.3 dex calibration uncertainty. The four tentative H$\beta$ measurements use Vestergaard \& Peterson (2006); because the JADES paper does not assign that estimator a numeric systematic, the registry leaves it unavailable and retains the paper's $A_V=0$ underestimation caveat. These metadata are not folded into the reported statistical errors and do not retroactively alter the frozen v4 scenarios.
 
+\subsection{Stage 7 (v5): Harikane measurement version and taxonomy foundation}
+
+v5 ingests all ten final-sample Type 1 broad-H$\alpha$ measurements from Harikane et al.\ (2023)~\cite{harikane2023}. Five rows match existing CEERS physical objects and five create new stable objects, producing 106 measurements and 99 physical objects. CEERS-02782 becomes a third retained measurement of the CEERS-2782/RUBIES-EGS-50052 object; the established RUBIES default remains unchanged. Four published host-mass upper limits remain limits rather than canonical measurements, and the absent row-level LRD designation remains missing rather than being inferred from red or compact phenotypes.
+
+Harikane masses use the Greene \& Ho (2005) H$\alpha$ single-epoch relation applied to extinction-corrected broad-H$\alpha$ luminosity. The paper supplies asymmetric statistical errors but no numeric virial-calibration systematic, so v5 propagates the reported errors and applies only the common $\pm0.3$ dex comparison scenarios to these rows. The source-specific Taylor, Matthee, and ASPIRE $\pm0.5$ dex sensitivities remain separate. Orthogonal taxonomy fields now distinguish evidence strength, spectroscopic type, selection channel, phenotype, lensing status, and growth-ranking eligibility while every current row remains a broad-line AGN.
+
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v2_main_text_figures/v2_main_text_uncertainty_forest.png}
@@ -194,7 +200,7 @@ GN-38509 is currently the clearest robust result: it remains demanding in both l
 
 The current reported Eddington ratios are instantaneous observational estimates, whereas the model-derived $\fedd$ values are lifetime averages. Their difference is scientifically important but should not be interpreted as a contradiction until duty cycles and burst histories are modeled. A separate source-table cross-check identifies GN-11836 as internally inconsistent: its published $\log M_{\rm BH}=6.06$ and $\log L_{\rm bol}=44.11$ imply $\lambda_{\rm Edd}\simeq0.89$, while the table reports 0.11. All published values are retained pending clarification, and the measurement is downgraded to medium confidence for Eddington-ratio comparisons.
 
-The corrected v4 point ranking keeps GN-38509 first and GS-20057765 second. RUBIES-EGS-49140 and GOODS-N-9771 rank third and fourth in physical growth pressure, but both are explicitly caveated for mass/line-model interpretation while retaining high detection confidence. Substituting CEERS-2782 for the default RUBIES-EGS-50052 measurement lowers the adopted mass by 0.42 dex and moves that physical object from growth-pressure rank 28 to 46; substituting Matthee GOODS-S-13971 for JADES GS-204851 lowers the mass by 0.19 dex and moves the object from rank 17 to 22. These are sensitivity results, not changes to release defaults.
+The corrected v4 point ranking kept GN-38509 first, GS-20057765 second, and RUBIES-EGS-49140 third. Those three remain the v5 leaders. Harikane CEERS-00717 enters point-estimate growth-pressure rank 4 and uncertainty-aware rank 5, while GOODS-N-9771 shifts from v4 point rank 4 to v5 rank 5. Seven nondefault measurements are now tested one at a time, including the three-measurement CEERS-2782 object. These are sensitivity results, not changes to release defaults.
 
 \begin{figure}[p]
 \centering
@@ -212,7 +218,7 @@ The corrected v4 point ranking keeps GN-38509 first and GS-20057765 second. RUBI
 
 \section{Release map and reproducibility}
 
-The project versions are chronological milestones: v1 is the pilot JADES catalogue and baseline evaluation, v2 is ranking/uncertainty/figure analysis on that frozen catalogue, v3 is the combined JADES + Taylor catalogue, and v4 generalizes identity while adding Matthee and ASPIRE. Source-paper versions, including arXiv suffixes, are independent provenance metadata. The canonical dependency map is:
+The project versions are chronological milestones: v1 is the pilot JADES catalogue and baseline evaluation, v2 is ranking/uncertainty/figure analysis on that frozen catalogue, v3 is the combined JADES + Taylor catalogue, v4 generalizes identity while adding Matthee and ASPIRE, and v5 adds Harikane measurement versions plus taxonomy scaffolding. Source-paper versions, including arXiv suffixes, are independent provenance metadata. The canonical dependency map is:
 
 \begin{enumerate}
   \item \repo{data/sources.md} and \repo{data/raw/v1\_raw.csv}: source provenance and extracted measurements.\par
@@ -231,7 +237,9 @@ The project versions are chronological milestones: v1 is the pilot JADES catalog
   \item \repo{requirements-lock.txt}, \repo{releases/v4.0.1-manifest.json}, and \repo{scripts/verify\_v4\_release.py}: exact dependencies, frozen hashes, and write-free in-memory reproduction.\par
   \item \repo{data/mass\_method\_registry.csv}: reviewed source/method calibrations and explicitly unavailable numeric systematics.\par
   \item \repo{scripts/generate\_v4\_final\_figures.py}: the five corrected-v4 figures.\par
-  \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
+  \item \repo{scripts/process\_v5\_blagn.py}, \repo{src/v5\_catalogue.py}, and \repo{src/object\_taxonomy.py}: Harikane ingestion, reviewed identity linkage, and orthogonal taxonomy.\par
+  \item \repo{scripts/generate\_v5\_blagn\_science.py} and \repo{src/v5\_science.py}: current measurement/object evaluation, rankings, uncertainty, summaries, and alternate-measurement sensitivity.\par
+  \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*}/\repo{test\_v5\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
 \end{enumerate}
 
 Continuous integration installs the pinned Python 3.12 environment, runs the complete regression suite, verifies every manifest hash, rebuilds all 18 frozen v4 catalogue/science CSVs in memory at 10,000 draws with seed 20260808, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
@@ -241,7 +249,7 @@ Continuous integration installs the pinned Python 3.12 environment, runs the com
 The present atlas remains a selected-sample triage framework, and its conclusions should be read within these boundaries:
 
 \begin{itemize}
-  \item v4 contains JADES, CEERS/RUBIES, EIGER/FRESCO, and ASPIRE selections, not a single complete population sample, so pooled rows cannot support demographic inference;\par
+  \item v5 contains JADES, CEERS/RUBIES, EIGER/FRESCO, ASPIRE, and Harikane NIRSpec selections, not a single complete population sample, so pooled rows cannot support demographic inference;\par
   \item the main growth diagnostics assume constant lifetime-average accretion rather than explicit duty cycles or bursts;\par
   \item the split-normal mass model approximates reported asymmetric uncertainties but is not a reconstruction of each source's full posterior;\par
   \item the $\pm0.3$ dex cases are transparent comparison tests and the Taylor/Matthee/ASPIRE $\pm0.5$ dex cases are calibration sensitivities, not reconstructed systematic posteriors;\par
@@ -258,10 +266,10 @@ These limitations motivate the next development stages rather than invalidating 
 The next work should proceed in the following order.
 
 \subsection*{1. Consolidate and audit the final manuscript}
-Integrate the completed corrected-v4 figures and tables, verify every numeric claim and citation, and decide which source-stratified products belong in the main text or appendix.
+Integrate the frozen v4 figures with current v5 tables, complete the citation-by-citation audit, and decide which source-stratified products belong in the main text or appendix. The current numeric claim audit is recorded in \repo{docs/v5-manuscript-claim-audit.md}.
 
-\subsection*{2. Add the next measurement-version layers}
-Attach Harikane and earlier discovery-paper measurements to stable v4 objects, improving alias coverage while retaining every literature row and rejecting ambiguous automatic matches.
+\subsection*{2. Specify class-specific eligibility before v6 ingestion}
+Define evidence and mass-method requirements for narrow-line, X-ray, photometric LRD, lensed, and quasar strata before adding the first heterogeneous source. Earlier discovery-paper remeasurements should continue to attach to stable physical objects.
 
 \subsection*{3. Add object classes without erasing method differences}
 Extend the atlas to little red dots, X-ray candidates, lensed candidates, high-ionization-line candidates, and classical luminous quasars. Each class will retain distinct selection and mass-method metadata so that heterogeneous measurements are not treated as interchangeable.
@@ -285,7 +293,7 @@ Produce a follow-up matrix specifying whether each object's interpretation is mo
 \clearpage
 \section{Conclusion}
 
-The completed v1--v4 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, release-specific visualization, and automated regression checks. v4 broadens the lower-redshift end of the same-class BLAGN comparison while preserving every literature row and preventing double-counting. This is not evidence that one formation pathway is required. The next phase should finish the manuscript audit, then add carefully matched measurement-version layers, method-aware object classes, and more realistic accretion histories.
+The completed v1--v5 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, class-aware scaffolding, release-specific visualization, and automated regression checks. v5 adds five new objects and five independent measurements of existing CEERS objects while preserving every literature row and preventing double-counting. This is not evidence that one formation pathway is required. The next phase should finish manuscript consolidation, establish class-specific eligibility rules, and then add more realistic accretion histories.
 
 \begin{thebibliography}{9}
 \bibitem{dayal2024}
@@ -302,6 +310,9 @@ Matthee, J. et al. 2024, ``Little Red Dots: an abundant population of faint AGN 
 
 \bibitem{lin2024}
 Lin, X. et al. 2024, ``ASPIRE: Broad-line AGN at $z=4$--5 revealed by JWST/NIRCam WFSS,'' \emph{ApJ}, 974, 147, doi:10.3847/1538-4357/ad6565.
+
+\bibitem{harikane2023}
+Harikane, Y. et al. 2023, ``A JWST/NIRSpec First Census of Broad-Line AGNs at $z=4$--7: Detection of 10 Faint AGNs with $M_{\rm BH}\sim10^6$--$10^8\,M_\odot$ and Their Host Galaxy Properties,'' \emph{ApJ}, 959, 39, doi:10.3847/1538-4357/ad029e.
 \end{thebibliography}
 
 \end{document}

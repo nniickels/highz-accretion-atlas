@@ -27,10 +27,27 @@ python -m scripts.verify_v4_release --reproduce
 CI additionally runs this command with `--require-clean`, after the complete
 regression suite, to prove that verification leaves a clean checkout unchanged.
 
-## Current v4 BLAGN Release
+## Current v5 BLAGN Release
 
-The shortest reproduction path for the current release uses the checked-in,
-frozen v3 measurement catalogue as its input:
+The current release extends frozen v4 with the ten-row Harikane NIRSpec
+broad-Halpha sample:
+
+```powershell
+python -m scripts.process_v5_blagn
+python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
+```
+
+This writes 106 measurements, 99 physical objects, 106 links and aliases, six
+reviewed candidates, and 13 v5 science tables. Five Harikane measurements link
+to existing objects and five create new objects. See
+`docs/v5-blagn-catalogue-schema.md`,
+`docs/harikane23-nirspec-extraction-notes.md`, and
+`docs/v5-blagn-science-workflow.md`.
+
+## Frozen v4 BLAGN Release
+
+The shortest reproduction path for frozen v4 uses the checked-in v3
+measurement catalogue as its input:
 
 ```powershell
 python -m scripts.process_v4_blagn
@@ -267,7 +284,7 @@ exploratory v1 outputs.
 
 ## Verification Checks
 
-Run the lightweight v1--v4 verification suite from the repository root:
+Run the v1--v5 verification suite from the repository root:
 
 ```powershell
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests

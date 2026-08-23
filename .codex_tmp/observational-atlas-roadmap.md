@@ -35,6 +35,10 @@ Completed so far:
   `results/v3_main_text_figures/`.
 - v4 generalized measurement identity and same-class expansion completed with
   Matthee EIGER/FRESCO and Lin ASPIRE: 96 measurements / 94 physical objects.
+- v5 adds the ten-row Harikane NIRSpec BLAGN measurement layer: five verified
+  overlaps and five new objects produce 106 measurements / 99 physical objects.
+- v5 taxonomy scaffolding separates evidence, spectroscopic type, selection
+  channel, phenotype, lensing status, and growth-ranking eligibility.
 - One new cross-paper identity is verified: GOODS-S-13971 = GS-204851. Prior
   release preferences remain stable while every measurement is preserved.
 - v4 confidence semantics separate broad-line detection from mass/line-model
@@ -89,14 +93,14 @@ Primary project path from here:
 5. Expand broad-line AGN first.
    - Add the z >= 4 subset of the current 62-object Taylor CEERS/RUBIES BLAGN catalogue first. **Completed 2026-08-17.**
    - Add Matthee EIGER/FRESCO and Lin ASPIRE as complementary NIRCam WFSS selections. **Completed in v4 on 2026-08-22.**
-   - Add Harikane and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
+   - Add Harikane and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching. **Harikane completed in v5 on 2026-08-23.**
    - Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
    - Defer large overlapping compilations such as Baccus and Xu until physical-object IDs work.
    - Recompute rankings and test whether v1 high-leverage objects remain special.
 
 6. Add cross-matching and measurement versioning.
-   - Stable physical object IDs. **Generalized through v4.**
-   - One row per paper measurement. **Generalized through v4.**
+   - Stable physical object IDs. **Generalized through v5.**
+   - One row per paper measurement. **Generalized through v5.**
    - Aliases, coordinates, field, and redshift matching.
    - Preserve method-dependent measurements rather than overwriting. **Completed for the CEERS-2782/RUBIES-EGS-50052 and GS-204851/GOODS-S-13971 pairs.**
    - Measurement- and physical-object-level point and uncertainty rankings. **Generalized in v4 on 2026-08-22.**

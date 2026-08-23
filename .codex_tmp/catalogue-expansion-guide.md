@@ -1,8 +1,8 @@
 # High-z Accretion Atlas: Catalogue Expansion Guide
 
-Status: working research guide; first same-class additions completed through v4
-Literature review date: 2026-08-17; implementation audit: 2026-08-22
-Repository scope at audit: v4 JADES + Taylor + Matthee + Lin broad-line AGN catalogue
+Status: working research guide; same-class additions completed through v5
+Literature review date: 2026-08-17; implementation audit: 2026-08-23
+Repository scope at audit: v5 JADES + Taylor + Matthee + Lin + Harikane broad-line AGN catalogue
 
 ## Purpose
 
@@ -46,20 +46,18 @@ selection function.
 
 These sources define the lowest-risk same-class expansion because they contain
 broad Balmer lines and object-level quantities close to the v1 schema. Taylor,
-Matthee, and Lin are complete; Harikane is the next overlapping measurement
-layer.
+Matthee, Lin, and Harikane are complete.
 
 | Priority | Source | Current reported sample | Recommended atlas role | Main cautions |
 | --- | --- | --- | --- | --- |
 | 1 | [Taylor et al., CEERS/RUBIES](https://arxiv.org/abs/2409.06772) | 62 Halpha BLAGN at `3.5 < z < 6.8`; 21 have an LRD phenotype | Completed in v3; the `z >= 4` subset retains the row-level LRD marker | Current paper supersedes the 50-object number in the older source memo; approximately 0.5 dex virial-mass systematics are not represented by the small statistical errors; overlaps earlier CEERS work |
 | 2 | [Matthee et al., EIGER/FRESCO](https://arxiv.org/abs/2306.05448) | 20 broad-Halpha sources at `z ~ 4.2-5.5` | Completed in v4; independent, line-selected NIRCam WFSS sample | Blind slitless broad-Halpha selection differs from targeted NIRSpec samples; compact/red properties were characterized after selection; the LRD designation is paper-level rather than a row marker; nominal masses and Lbol are not dust-corrected |
 | 2 | [Lin et al., ASPIRE](https://arxiv.org/abs/2407.17570) | 16 broad-Halpha sources at `z ~ 4-5` in 25 fields | Completed in v4; independent-field check with tabulated `MBH` and `Lbol` | Compact/red preselection; no tabulated source-reported Eddington ratio or host mass in the extracted tables; nominal masses and Lbol are not dust-corrected; approximately 0.5 dex virial systematic |
-| 3 | [Harikane et al.](https://arxiv.org/abs/2303.11946) | 10 Type 1 AGN at `z = 4.015-6.936` | Next same-class measurement layer, with host information | Known overlap with later CEERS/JWST compilations; preserve as measurements, not automatically ten new physical objects |
+| 3 | [Harikane et al.](https://arxiv.org/abs/2303.11946) | 10 Type 1 AGN at `z = 4.015-6.936` | Completed in v5 as a same-class measurement layer with host information | Five verified overlaps and five new physical objects; no numeric virial systematic or row-level LRD marker was inferred |
 
-The completed Taylor, Matthee, and ASPIRE sequence establishes the current v4
-same-class foundation. Harikane and earlier discovery papers should now be
-attached as measurements of matched objects before another large compilation
-is ingested.
+The completed Taylor, Matthee, ASPIRE, and Harikane sequence establishes the
+current v5 same-class foundation. Earlier discovery papers should be attached
+as measurements of matched objects before another large compilation is ingested.
 
 ### Tier 2: selection-bias and lower-confidence extensions
 

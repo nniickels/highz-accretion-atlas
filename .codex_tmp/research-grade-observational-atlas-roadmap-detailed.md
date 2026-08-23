@@ -28,8 +28,8 @@ Careful claim posture:
 
 ### Current release snapshot
 
-- v4 is the current catalogue and science release: 96 measurements represent
-  94 physical objects at `z >= 4`.
+- v5 is the current catalogue and science release: 106 measurements represent
+  99 physical objects at `z >= 4`.
 - v3 remains frozen as the JADES + Taylor comparison release.
 - v4 now has five release-specific figures, separate detection-confidence and
   mass-reliability semantics, explicit identity decisions, and sensitivity for
@@ -37,8 +37,10 @@ Careful claim posture:
 - v4.0.1 completes the maintenance gate with pinned dependencies, CI, release
   hashes, write-free reproduction, collision-safe ID allocation, reviewed
   manual identity assertions, and source-specific virial-method metadata.
-- The immediate next task is final-manuscript consolidation and claim/citation
-  audit; the next catalogue ingestion should begin only after v4.0.1 is frozen.
+- The Harikane measurement-version ingestion and first class-aware taxonomy
+  scaffolding are complete. The claim audit is recorded in
+  `docs/v5-manuscript-claim-audit.md`; next consolidate the manuscript and then
+  specify class-specific eligibility rules before the first heterogeneous v6 source.
 - The phase descriptions and prompt sequence below preserve project history;
   they are not all outstanding tasks.
 

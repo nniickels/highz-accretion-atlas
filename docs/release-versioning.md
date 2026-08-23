@@ -2,9 +2,8 @@
 
 Project release numbers identify reproducible catalogue or science milestones.
 They do not identify the version of a source paper. The current catalogue and
-science release is **v4**; the non-science maintenance tag **v4.0.1** adds
-reproducibility and metadata hardening without changing v4 masses, counts,
-rankings, or figures. v3 remains frozen as the JADES + Taylor comparison release.
+science release is **v5**. v4.0.1 remains the frozen reproducibility anchor for
+the preceding Matthee/ASPIRE release; v3 remains the JADES + Taylor comparison.
 
 | Release | Scope | Inputs | Canonical outputs |
 | --- | --- | --- | --- |
@@ -12,6 +11,7 @@ rankings, or figures. v3 remains frozen as the JADES + Taylor comparison release
 | v2 | Ranking, asymmetric-error propagation, and final-style prototypes for the frozen v1 catalogue | v1 processed and evaluation products | `results/v2_object_ranking_table.csv`, `results/v2_uncertainty_*.csv`, `results/v2_main_text_figures/` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue, with separate measurement and physical-object views | frozen v1 catalogue plus the Taylor source extraction and crossmatch | `data/processed/v3_blagn_*.csv`, `results/v3_blagn_*.csv` |
 | v4 | Generalized identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | frozen v3 catalogue plus two source-native extractions | `data/processed/v4_blagn_*.csv`, `results/v4_blagn_*.csv`, `results/v4_main_text_figures/` |
+| v5 | Harikane NIRSpec BLAGN measurement-version layer and orthogonal taxonomy scaffolding | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5_blagn_*.csv`, `results/v5_blagn_*.csv` |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -29,7 +29,7 @@ and expected counts.
 - Keep immutable source-specific raw extractions descriptive, for example
   `taylor24_ceers_rubies_blagn_table1.csv`. Their provenance columns record the
   paper version, DOI, archive URL, extraction date, and checksum.
-- Use `project_version` for the standardization release (`v1`, `v3`, or `v4`)
+- Use `project_version` for the standardization release (`v1`, `v3`, `v4`, or `v5`)
   and `catalogue_release` for the named combined catalogue.
 - Use `analysis_release` and `input_catalogue_release` on v2 result tables so a
   filename cannot be mistaken for the catalogue version it evaluates.
@@ -56,6 +56,10 @@ Taylor raw + crossmatch ----------+-> v3 measurement catalogue
 Matthee + ASPIRE raw + identity metadata ---------+-> v4 measurement catalogue
                                                        -> v4 physical-object catalogue
                                                        -> v4 evaluation / rankings / summaries / figures
+                                                                  |
+Harikane raw + reviewed identity decisions -----------------------+-> v5 measurement catalogue
+                                                                      -> v5 physical-object catalogue
+                                                                      -> v5 evaluation / rankings / summaries
 ```
 
 The v3 measurement view retains all 60 `z >= 4` literature measurements. The
@@ -69,8 +73,8 @@ cross-paper link: Matthee `GOODS-S-13971` is JADES `GS-204851`. The prior-releas
 JADES measurement remains the default for continuity, while both measurements
 remain independently rankable in the measurement view.
 
-The current science tables and latest release-specific main-text figures are v4
-products. The v3 figures remain frozen under `results/v3_main_text_figures/`.
+The current science tables are v5 products. The latest release-specific
+main-text figures remain the frozen v4 set; v5 does not silently relabel them.
 
 ## Rename Map
 

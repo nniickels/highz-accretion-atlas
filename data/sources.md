@@ -54,3 +54,20 @@
 Detailed extraction and caveat notes are in
 `docs/matthee23-eiger-fresco-extraction-notes.md` and
 `docs/lin24-aspire-extraction-notes.md`.
+
+## v5 Harikane Measurement Layer
+
+- **[source_key: harikane23_nirspec_blagn] Harikane et al. (2023), ApJ
+  959:39:** ten Type 1 broad-Halpha AGN at `z=4.015--6.936`, extracted from
+  Tables 1--3 of arXiv `2303.11946v3`; DOI
+  `10.3847/1538-4357/ad029e`. The source archive SHA-256 is
+  `02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4`.
+  Selection requires broad-Halpha FWHM greater than 1000 km/s and S/N greater
+  than 5, narrow forbidden lines, and rejection of outflow-only explanations;
+  all final rows have Delta AIC greater than 20. MBH uses the Greene & Ho
+  (2005) Halpha estimator and extinction-corrected broad-Halpha luminosity.
+  The source gives no numeric virial systematic, so none is inferred. Six host
+  masses and four upper limits are preserved distinctly. No row-level LRD
+  marker is published; red/compact descriptions remain separate phenotypes.
+  Five measurements crossmatch existing CEERS physical objects and five are
+  new. See `docs/harikane23-nirspec-extraction-notes.md`.

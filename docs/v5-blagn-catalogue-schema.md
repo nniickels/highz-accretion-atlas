@@ -1,0 +1,43 @@
+# v5 BLAGN catalogue and taxonomy schema
+
+v5 adds the ten-row Harikane et al. (2023) measurement layer to frozen v4. It
+contains 106 literature measurements representing 99 physical objects at
+`z>=4`. No v1--v4 artifact is overwritten.
+
+| Product | Rows | Purpose |
+| --- | ---: | --- |
+| `data/raw/harikane23_nirspec_blagn_tables1_3.csv` | 10 | Immutable source-table extraction |
+| `data/processed/v5_blagn_measurements.csv` | 106 | Every literature measurement |
+| `data/processed/v5_blagn_objects.csv` | 99 | One reproducible default measurement per object |
+| `data/crossmatch/v5_measurement_object_links.csv` | 106 | Measurement/object links and default rules |
+| `data/crossmatch/v5_object_aliases.csv` | 106 | Source aliases and coordinates |
+| `data/crossmatch/v5_reviewed_match_candidates.csv` | 6 | Reviewed threshold candidates |
+| `data/crossmatch/v5_reviewed_identity_overrides.csv` | 6 | Explicit accepted identity decisions |
+
+Five Harikane measurements match five existing physical objects; five are new.
+The six candidate rows arise because CEERS-02782 is independently close to two
+already linked Taylor measurements. Every physical object has exactly one
+preferred measurement. Prior-release preferences are retained, while all
+alternates remain rankable and enter the alternate-measurement sensitivity
+product.
+
+## Orthogonal taxonomy
+
+v5 adds fields that prepare the atlas for later heterogeneous evidence without
+pooling unlike classes:
+
+- `evidence_status`: strength of the accreting massive-black-hole evidence;
+- `spectroscopic_type`: Type 1 broad-line, Type 2 narrow-line, ambiguous, or unknown;
+- `selection_channels`: the observation that selected the measurement;
+- `phenotype_tags`: independent descriptors such as `lrd`, `red_agn`, or `compact_source`;
+- `lensing_status`: whether lensing metadata are present;
+- `growth_ranking_eligible_flag`: whether a sufficiently supported MBH exists for growth diagnostics.
+
+All v5 rows remain `object_class=broad-line-agn`,
+`spectroscopic_type=type1_broad_line`, and growth-ranking eligible. LRD is never
+used as the object class. Blank LRD state means the source did not provide a
+row-level designation; it does not mean non-LRD.
+
+The taxonomy is scaffolding, not permission to pool future X-ray, narrow-line,
+photometric, lensed, or disputed candidates. Those additions require
+class-specific evidence and mass-method rules and should begin in v6.
