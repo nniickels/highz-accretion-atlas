@@ -10,7 +10,7 @@ release and figure set.
 | v1 | Pilot JADES broad-line AGN catalogue and baseline growth evaluation | `data/raw/v1_raw.csv` | `data/processed/v1_processed.csv`, `results/v1_evaluation_table.csv`, other `results/v1_*` exploratory products |
 | v2 | Ranking, asymmetric-error propagation, and final-style prototypes for the frozen v1 catalogue | v1 processed and evaluation products | `results/v2_object_ranking_table.csv`, `results/v2_uncertainty_*.csv`, `results/v2_main_text_figures/` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue, with separate measurement and physical-object views | frozen v1 catalogue plus the Taylor source extraction and crossmatch | `data/processed/v3_blagn_*.csv`, `results/v3_blagn_*.csv` |
-| v4 | Generalized identity layer plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN | frozen v3 catalogue plus two source-native extractions | `data/processed/v4_blagn_*.csv`, `results/v4_blagn_*.csv` |
+| v4 | Generalized identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | frozen v3 catalogue plus two source-native extractions | `data/processed/v4_blagn_*.csv`, `results/v4_blagn_*.csv`, `results/v4_main_text_figures/` |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -46,7 +46,7 @@ Taylor raw + crossmatch ----------+-> v3 measurement catalogue
                                                    |
 Matthee + ASPIRE raw + identity metadata ---------+-> v4 measurement catalogue
                                                        -> v4 physical-object catalogue
-                                                       -> v4 evaluation / rankings / summaries
+                                                       -> v4 evaluation / rankings / summaries / figures
 ```
 
 The v3 measurement view retains all 60 `z >= 4` literature measurements. The
@@ -60,10 +60,8 @@ cross-paper link: Matthee `GOODS-S-13971` is JADES `GS-204851`. The prior-releas
 JADES measurement remains the default for continuity, while both measurements
 remain independently rankable in the measurement view.
 
-The current science tables are v4 products. The latest release-specific
-main-text figures remain the frozen v3 set in `results/v3_main_text_figures/`;
-there is not yet a v4 figure directory. This is an explicit roadmap gap, not a
-filename mismatch.
+The current science tables and latest release-specific main-text figures are v4
+products. The v3 figures remain frozen under `results/v3_main_text_figures/`.
 
 ## Rename Map
 

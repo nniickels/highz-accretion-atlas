@@ -42,7 +42,7 @@
 \maketitle
 
 \begin{abstract}
-JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; and v4 adds 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements. The current release has 96 measurements representing 94 physical objects. A generalized identity layer retains every literature measurement while preventing CEERS-2782/RUBIES-EGS-50052 and GS-204851/GOODS-S-13971 from being counted twice at object level. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, the framework remains diagnostic: rankings express observational growth pressure and do not prove a unique seed or accretion channel. Next steps are manuscript consolidation, measurement-choice sensitivity, method-aware object classes, and duty-cycle diagnostics.
+JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; and v4 adds 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements. The corrected v4 release has 96 measurements representing 94 physical objects, explicit reviewed identity decisions, separate detection-confidence and mass-reliability semantics, and one-at-a-time sensitivity tests for both multiply measured objects. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. Next steps are final-manuscript consolidation, method-aware object classes, and duty-cycle diagnostics.
 \end{abstract}
 
 \section{Scientific objective}
@@ -118,7 +118,7 @@ The project therefore moved from generic compatibility scores to required-parame
 
 \begin{enumerate}
   \item \textbf{Physical pressure:} required $\fedd$ for fixed seeds and required seed mass for fixed accretion histories.
-  \item \textbf{Measurement confidence:} robust/tentative status, missing fields, method caveats, and interpretation sensitivity.
+  \item \textbf{Measurement evidence:} detection confidence is recorded separately from line-model and mass-measurement reliability; missing diagnostics are availability metadata rather than automatic penalties.
   \item \textbf{Follow-up value:} the potential for a better measurement to change the physical ranking.
 \end{enumerate}
 
@@ -147,9 +147,9 @@ The measurement view retains both CEERS-2782 and RUBIES-EGS-50052. A separate cr
 
 The v4 release adds all 20 Matthee et al.\ EIGER/FRESCO broad-H$\alpha$ emitters~\cite{matthee2024} and all 16 Lin et al.\ ASPIRE emitters~\cite{lin2024} from authoritative arXiv source archives. Both papers use the Reines et al.\ (2013) H$\alpha$ single-epoch estimator and state a 0.5 dex calibration or intrinsic uncertainty. Native line luminosities, widths, photometry, continuum slopes, formal errors, LRD labels, absorption-fit flags, and row caveats are retained. Source-reported host mass and Eddington ratio remain missing; H$\alpha$-derived bolometric luminosities are retained where published.
 
-The identity layer performs a deterministic coordinate/redshift candidate search and refuses ambiguous matches. Review confirms one new cross-paper identity: Matthee GOODS-S-13971 is JADES GS-204851 at 0.02 arcsec separation and $\Delta z=0.001$. The prior-release JADES measurement remains the default for longitudinal reproducibility, while the Matthee row remains independently rankable. Together with the Taylor pair, v4 contains 96 measurements but 94 physical objects.
+The identity layer performs deterministic coordinate/redshift candidate searches against both the prior release and other newly added sources, refuses ambiguous matches, and requires an explicit accepted/rejected decision in a reviewed override registry. Review confirms one new cross-paper identity: Matthee GOODS-S-13971 is JADES GS-204851 at 0.02 arcsec separation and $\Delta z=0.001$. The prior-release JADES measurement remains the default for longitudinal reproducibility, while the Matthee row remains independently rankable. Together with the Taylor pair, v4 contains 96 measurements but 94 physical objects.
 
-The v4 science workflow preserves the baseline assumptions and reported asymmetric errors, keeps the common $\pm0.3$ dex comparisons, and adds separately named $\pm0.5$ dex Reines-calibration scenarios for Taylor, Matthee, and ASPIRE. Overall summaries explicitly mix unlike selection functions and are descriptive only.
+The v4 science workflow preserves the baseline assumptions and reported asymmetric errors, keeps the common $\pm0.3$ dex comparisons, and adds separately named $\pm0.5$ dex Reines-calibration scenarios for Taylor, Matthee, and ASPIRE. Detection confidence is now distinct from mass/line-model reliability, so robust broad-line detections with absorption or contamination caveats receive caveated follow-up categories without being relabelled as tentative detections. Object-level LRD unions retain supporting measurement and source provenance. Overall summaries explicitly mix unlike selection functions and are descriptive only.
 
 \begin{figure}[p]
 \centering
@@ -160,9 +160,9 @@ The v4 science workflow preserves the baseline assumptions and reported asymmetr
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.94\textwidth]{../results/v3_main_text_figures/v3_main_text_mbh_redshift_growth_overview.png}
-\caption{Frozen v3 physical-object mass--redshift coverage, stratified into JADES and Taylor CEERS/RUBIES selections. Reference tracks use the repository baseline and are diagnostic rather than fitted histories.}
-\label{fig:v3overview}
+\includegraphics[width=0.94\textwidth]{../results/v4_main_text_figures/v4_main_text_mbh_redshift_growth_overview.png}
+\caption{v4 physical-object mass--redshift coverage, stratified across the four source selections. Reference tracks use the repository baseline and are diagnostic rather than fitted histories.}
+\label{fig:v4overview}
 \end{figure}
 
 \section{Current scientific findings}
@@ -192,10 +192,19 @@ GN-38509 is currently the clearest robust result: it remains demanding in both l
 
 The current reported Eddington ratios are instantaneous observational estimates, whereas the model-derived $\fedd$ values are lifetime averages. Their difference is scientifically important but should not be interpreted as a contradiction until duty cycles and burst histories are modeled. A separate source-table cross-check identifies GN-11836 as internally inconsistent: its published $\log M_{\rm BH}=6.06$ and $\log L_{\rm bol}=44.11$ imply $\lambda_{\rm Edd}\simeq0.89$, while the table reports 0.11. All published values are retained pending clarification, and the measurement is downgraded to medium confidence for Eddington-ratio comparisons.
 
+The corrected v4 point ranking keeps GN-38509 first and GS-20057765 second. RUBIES-EGS-49140 and GOODS-N-9771 rank third and fourth in physical growth pressure, but both are explicitly caveated for mass/line-model interpretation while retaining high detection confidence. Substituting CEERS-2782 for the default RUBIES-EGS-50052 measurement lowers the adopted mass by 0.42 dex and moves that physical object from growth-pressure rank 28 to 46; substituting Matthee GOODS-S-13971 for JADES GS-204851 lowers the mass by 0.19 dex and moves the object from rank 17 to 22. These are sensitivity results, not changes to release defaults.
+
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.82\textwidth]{../results/v2_main_text_figures/v2_main_text_pressure_vs_confidence.png}
-\caption{Physical pressure and measurement confidence are intentionally separated. A tentative measurement may have high follow-up value because resolving it would strongly affect the interpretation, while a robust moderate-pressure measurement remains useful as a comparison anchor.}
+\includegraphics[width=0.94\textwidth]{../results/v4_main_text_figures/v4_main_text_measurement_choice_sensitivity.png}
+\caption{One-at-a-time sensitivity to the nondefault literature measurement for each multiply measured physical object. The exercise recomputes the full 94-object ranking while preserving all published rows and the documented release defaults.}
+\label{fig:v4measurementchoice}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.88\textwidth]{../results/v4_main_text_figures/v4_main_text_ranked_required_fedd.png}
+\caption{Corrected-v4 physical-object growth-pressure ranking. Bar colour records the preferred-measurement source, while hatching flags mass/line-model caveats independently of broad-line detection confidence. Each physical object appears once.}
 \label{fig:triage}
 \end{figure}
 
@@ -215,12 +224,13 @@ The project versions are chronological milestones: v1 is the pilot JADES catalog
   \item \repo{scripts/process\_v3\_blagn.py} and \repo{src/v3\_catalogue.py}: v3 source combination, crossmatch, and object view.\par
   \item \repo{scripts/generate\_v3\_blagn\_science.py} and \repo{src/v3\_science.py}: v3 measurement/object evaluation, rankings, uncertainty, and summaries.\par
   \item \repo{scripts/generate\_v3\_final\_figures.py}: frozen-v3 comparison figures.\par
-  \item \repo{scripts/process\_v4\_blagn.py}, \repo{src/identity.py}, and \repo{src/v4\_catalogue.py}: v4 ingestion, reviewed matching, aliases, and measurement/object views.\par
-  \item \repo{scripts/generate\_v4\_blagn\_science.py} and \repo{src/v4\_science.py}: v4 point and uncertainty products with source-specific systematics.\par
+  \item \repo{scripts/process\_v4\_blagn.py}, \repo{src/identity.py}, and \repo{src/v4\_catalogue.py}: v4 ingestion, pairwise candidate generation, explicit reviewed decisions, aliases, and measurement/object views.\par
+  \item \repo{scripts/generate\_v4\_blagn\_science.py} and \repo{src/v4\_science.py}: v4 point and uncertainty products, confidence/reliability separation, phenotype attribution, and duplicate-measurement sensitivity.\par
+  \item \repo{generate\_v4\_final\_figures.py}: corrected-v4 mass--redshift, ranking, uncertainty, source-coverage, and measurement-choice figures.\par
   \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
 \end{enumerate}
 
-The present test suite contains 70 passing checks. These protect implementation behavior, frozen release byte anchors, source counts and identity links, systematic separation, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
+The present test suite contains 74 passing checks. These protect implementation behavior, frozen release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 
@@ -243,8 +253,8 @@ These limitations motivate the next development stages rather than invalidating 
 
 The next work should proceed in the following order.
 
-\subsection*{1. Consolidate the manuscript and measurement-choice analysis}
-Integrate the completed v3 figures and verified v4 catalogue, then quantify how alternate literature measurements change rankings for the two multiply measured objects.
+\subsection*{1. Consolidate and audit the final manuscript}
+Integrate the completed corrected-v4 figures and tables, verify every numeric claim and citation, and decide which source-stratified products belong in the main text or appendix.
 
 \subsection*{2. Add the next measurement-version layers}
 Attach Harikane and earlier discovery-paper measurements to stable v4 objects, improving alias coverage while retaining every literature row and rejecting ambiguous automatic matches.
@@ -271,7 +281,7 @@ Produce a follow-up matrix specifying whether each object's interpretation is mo
 \clearpage
 \section{Conclusion}
 
-The completed v1--v4 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, release-specific visualization, and automated regression checks. v4 broadens the lower-redshift end of the same-class BLAGN comparison and demonstrates that a coordinate-level duplicate can be preserved without double-counting the physical object. This is not evidence that one formation pathway is required. The next phase should consolidate the manuscript, quantify measurement-choice sensitivity, and then add method-aware object classes and more realistic accretion histories.
+The completed v1--v4 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, release-specific visualization, and automated regression checks. v4 broadens the lower-redshift end of the same-class BLAGN comparison while preserving every literature row and preventing double-counting. This is not evidence that one formation pathway is required. The next phase should finish the manuscript audit, then add carefully matched measurement-version layers, method-aware object classes, and more realistic accretion histories.
 
 \begin{thebibliography}{9}
 \bibitem{dayal2024}

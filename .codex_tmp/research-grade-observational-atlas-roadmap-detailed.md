@@ -30,10 +30,12 @@ Careful claim posture:
 
 - v4 is the current catalogue and science release: 96 measurements represent
   94 physical objects at `z >= 4`.
-- v3 remains frozen as the JADES + Taylor comparison release and supplies the
-  latest release-specific main-text figure set.
-- The immediate next task is v4 manuscript/figure consolidation plus explicit
-  alternate-measurement sensitivity for the two multiply measured objects.
+- v3 remains frozen as the JADES + Taylor comparison release.
+- v4 now has five release-specific figures, separate detection-confidence and
+  mass-reliability semantics, explicit identity decisions, and sensitivity for
+  both multiply measured objects.
+- The immediate next task is final-manuscript consolidation and claim/citation
+  audit; the next catalogue ingestion should begin only after corrected v4 is frozen.
 - The phase descriptions and prompt sequence below preserve project history;
   they are not all outstanding tasks.
 
@@ -516,6 +518,10 @@ redshift matching helpers for future sources remain planned.
 Status update (2026-08-22): the reusable coordinate/redshift candidate helper,
 alias table, reviewed-candidate table, ambiguity rejection, and preference
 continuity rule are complete for v4. Probabilistic matching remains future work.
+
+Corrected-v4 update: pairwise candidate generation among newly added sources,
+an explicit reviewed override registry, and one-at-a-time alternate-measurement
+ranking sensitivity are complete. Probabilistic matching remains future work.
 
 Intermediate steps:
 1. Add a stable `physical_object_id` concept.

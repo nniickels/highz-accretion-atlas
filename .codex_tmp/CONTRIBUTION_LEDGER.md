@@ -359,3 +359,76 @@ For every future Codex contribution that changes repository files:
   no live occurrences. `git diff --check` passed. Regression tests were not
   rerun because this contribution changes documentation only.
 - **Status:** Complete and verified locally; changes are not yet committed.
+
+### 2026-08-22 - Correct and freeze the v4 BLAGN release
+
+- **Objective:** Apply the post-review fixes in order: separate detection
+  confidence from mass/line-model reliability, require explicit reviewed
+  identity decisions with pairwise new-source matching, preserve phenotype
+  source attribution, quantify both duplicate-measurement choices, complete
+  v4 figures/manuscript documentation, and freeze the corrected release.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (modified)
+  - `.codex_tmp/observational-atlas-roadmap.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `README.md` (modified)
+  - `data/crossmatch/v4_reviewed_identity_overrides.csv` (added)
+  - `data/crossmatch/v4_reviewed_match_candidates.csv` (modified)
+  - `data/processed/v4_blagn_objects.csv` (modified)
+  - `docs/getting-started.md` (modified)
+  - `docs/release-versioning.md` (modified)
+  - `docs/v2-figure-inventory.md` (modified)
+  - `docs/v4-blagn-catalogue-schema.md` (modified)
+  - `docs/v4-blagn-science-workflow.md` (modified)
+  - `results/v4_blagn_alternate_measurement_sensitivity.csv` (added)
+  - `results/v4_blagn_catalogue_summary.csv` (modified)
+  - `results/v4_blagn_measurement_point_ranking.csv` (modified)
+  - `results/v4_blagn_measurement_uncertainty_ranking.csv` (modified)
+  - `results/v4_blagn_physical_object_point_ranking.csv` (modified)
+  - `results/v4_blagn_physical_object_uncertainty_ranking.csv` (modified)
+  - `results/v4_main_text_figures/v4_main_text_mbh_redshift_growth_overview.png` (added)
+  - `results/v4_main_text_figures/v4_main_text_ranked_required_fedd.png` (added)
+  - `results/v4_main_text_figures/v4_main_text_uncertainty_forest.png` (added)
+  - `results/v4_main_text_figures/v4_main_text_source_stratified_coverage.png` (added)
+  - `results/v4_main_text_figures/v4_main_text_measurement_choice_sensitivity.png` (added)
+  - `scripts/generate_v4_blagn_science.py` (modified)
+  - `scripts/generate_v4_final_figures.py` (added)
+  - `scripts/process_v4_blagn.py` (modified)
+  - `src/identity.py` (modified)
+  - `src/v4_catalogue.py` (modified)
+  - `src/v4_science.py` (modified)
+  - `tests/test_v4_blagn_pipeline.py` (modified)
+  - `tests/test_v4_blagn_science.py` (modified)
+- **Contribution:** Added independent `detection_confidence_*` and
+  `mass_measurement_reliability_*` fields and recalculated v4-only follow-up
+  categories/ranks so absorption, alternative-interpretation, and contamination
+  caveats no longer fall through as uniformly high-reliability measurements.
+  Added prior-release and same-release cross-source candidate generation plus a
+  mandatory accepted/rejected override registry; the sole current candidate
+  remains GOODS-S-13971 = GS-204851. Added preferred-measurement LRD state and
+  measurement/source evidence fields so source summaries do not silently
+  attribute another paper's phenotype. Added a two-row, one-object-at-a-time
+  sensitivity product for both multiply measured objects. Added five v4
+  publication-style figures and consolidated the living status manuscript and
+  release documentation. No Harikane rows were ingested into this freeze.
+- **Scientific/technical effect:** The catalogue remains 96 measurements / 94
+  physical objects, with unchanged default measurements and source counts.
+  GN-38509 and GS-20057765 remain growth-pressure ranks 1 and 2. RUBIES-EGS-49140
+  and GOODS-N-9771 remain ranks 3 and 4 but now carry explicit interpretive or
+  line-model reliability caveats while retaining high detection confidence.
+  Replacing the default RUBIES-EGS-50052 with CEERS-2782 changes the object's
+  mass by -0.42 dex and growth-pressure rank 28 to 46; replacing JADES GS-204851
+  with Matthee GOODS-S-13971 changes the mass by -0.19 dex and rank 17 to 22.
+  These substitutions are sensitivities only and do not change the release
+  defaults. Mixed-selection summaries remain descriptive, not demographic.
+- **Validation:** Rebuilt v4 catalogue products, all 13 v4 science tables with
+  10,000 Monte Carlo draws and seed `20260808`, and all five v4 figures. All 74
+  regression tests passed. Confirmed the frozen-v3 SHA-256 anchors remain
+  `7df69c0a...1b76` and `5c67d8a8...2126`, restored the canonical v2 10,000-draw
+  outputs after test fixtures, and ran `git diff --check`. Recompiled the
+  14-page status PDF without TeX warnings, rendered every page, and visually
+  inspected the complete document and all five standalone v4 figures.
+- **Status:** Complete and verified locally; release will be frozen by the
+  annotated tag `v4-blagn` after commit.

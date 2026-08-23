@@ -11,9 +11,10 @@ The measurement view preserves and ranks all 96 literature measurements. The
 physical-object view ranks 94 defaults chosen by the explicit link-table rules
 documented in `docs/v4-blagn-catalogue-schema.md`. It never counts
 CEERS-2782/RUBIES-EGS-50052 or GS-204851/GOODS-S-13971 as two physical black
-holes. Alternative measurements remain available in the measurement view;
-alternate-default sensitivity is a planned analysis rather than a hidden part
-of the v4 rank.
+holes. Alternative measurements remain available in the measurement view. The
+separate alternate-measurement sensitivity product substitutes each of the two
+nondefault measurements one at a time, recomputes the full object ranking, and
+leaves release defaults unchanged.
 
 ## Uncertainty and systematic scenarios
 
@@ -44,7 +45,8 @@ The default run uses 10,000 draws per measurement and seed `20260808`.
 | Uncertainty ranking | `v4_blagn_measurement_uncertainty_ranking.csv` (96) | `v4_blagn_physical_object_uncertainty_ranking.csv` (94) |
 
 The remaining products are `v4_blagn_catalogue_summary.csv` and
-`v4_blagn_growth_summary.csv`, each with 107 rows. Evaluation and uncertainty
+`v4_blagn_growth_summary.csv`, each with 107 rows, plus the two-row
+`v4_blagn_alternate_measurement_sensitivity.csv`. Evaluation and uncertainty
 tables are long-form scenario products, so their row counts are larger than the
 catalogue and differ by view/source scope.
 
@@ -58,9 +60,12 @@ not a ranking penalty.
 
 `edd_ratio_from_mbh_lbol` is a comparison derived from two published
 quantities. It does not populate the source-reported Eddington-ratio field.
-Similarly, `quality_flag=robust` describes broad-line detection confidence;
-absorption, contamination, and mass-calibration caveats remain separately
-visible and should not be mistaken for having been removed by the ranking.
+Similarly, `quality_flag=robust` describes broad-line detection confidence.
+The ranking exposes that as `detection_confidence_tier` and independently
+records `mass_measurement_reliability_tier`. Absorption, line-model, and
+contamination caveats affect the latter and follow-up category; the universal
+tracked virial systematic remains a separate scenario rather than a confidence
+penalty.
 
 ## Reproduction and verification
 
@@ -69,6 +74,7 @@ Run:
 ```powershell
 python -m scripts.process_v4_blagn
 python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v4_final_figures
 ```
 
 The output names begin `v4_blagn_` and leave all v1--v3 artifacts unchanged.
@@ -80,6 +86,7 @@ success. Run the full v1--v4 regression suite separately with:
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
-No v4-specific final-figure set exists yet. The four files under
-`results/v3_main_text_figures/` are intentionally frozen-v3 comparisons, not
-v4 figures.
+The five v4 figures under `results/v4_main_text_figures/` include mass-redshift,
+ranked-growth, uncertainty, source-coverage, and duplicate-measurement
+sensitivity views. The four files under `results/v3_main_text_figures/` remain
+intentional frozen-v3 comparisons.

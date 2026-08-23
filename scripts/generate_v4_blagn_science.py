@@ -8,7 +8,8 @@ from pathlib import Path
 import pandas as pd
 
 from src.v4_science import (
-    DEFAULT_N_SAMPLES, DEFAULT_RANDOM_SEED, build_catalogue_summary, build_growth_summary,
+    DEFAULT_N_SAMPLES, DEFAULT_RANDOM_SEED, build_alternate_measurement_sensitivity,
+    build_catalogue_summary, build_growth_summary,
     build_point_ranking, build_uncertainty_ranking, build_uncertainty_summaries,
     evaluate_catalogue, prepare_catalogue_view, verify_v4_outputs,
 )
@@ -31,6 +32,7 @@ OUTPUT_PATHS = {
     "object_uncertainty_ranking": RESULTS_DIR / "v4_blagn_physical_object_uncertainty_ranking.csv",
     "catalogue_summary": RESULTS_DIR / "v4_blagn_catalogue_summary.csv",
     "growth_summary": RESULTS_DIR / "v4_blagn_growth_summary.csv",
+    "alternate_measurement_sensitivity": RESULTS_DIR / "v4_blagn_alternate_measurement_sensitivity.csv",
 }
 
 
@@ -53,6 +55,9 @@ def build_outputs(*, n_samples: int, random_seed: int) -> dict[str, pd.DataFrame
         "measurement_uncertainty_ranking": measurement_uncertainty, "object_uncertainty_ranking": object_uncertainty,
         "catalogue_summary": build_catalogue_summary(measurements, objects),
         "growth_summary": build_growth_summary(measurement_point, object_point),
+        "alternate_measurement_sensitivity": build_alternate_measurement_sensitivity(
+            measurements, objects, n_samples=n_samples, random_seed=random_seed,
+        ),
     }
 
 

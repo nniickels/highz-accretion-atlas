@@ -37,6 +37,10 @@ Completed so far:
   Matthee EIGER/FRESCO and Lin ASPIRE: 96 measurements / 94 physical objects.
 - One new cross-paper identity is verified: GOODS-S-13971 = GS-204851. Prior
   release preferences remain stable while every measurement is preserved.
+- v4 confidence semantics separate broad-line detection from mass/line-model
+  reliability; reviewed identity overrides and pairwise new-source matching are explicit.
+- Both multiply measured objects have one-at-a-time alternate-measurement
+  sensitivity results, and five v4 final-style figures are complete.
 
 Primary project path from here:
 1. Maintain and extend the v2/v3/v4 ranking metrics.
@@ -64,7 +68,7 @@ Primary project path from here:
    - Appendix: full catalogue, scenario tables, map gallery, validation checks.
 
 3. Preserve the completed v2 figure prototypes derived from the v1 catalogue,
-   and maintain separate release-specific figures. **v3 figures completed.**
+   and maintain separate release-specific figures. **v3 and v4 figures completed.**
    - Clean MBH vs redshift figure with fewer tracks.
    - Sample compatibility heatmap.
    - Required f_Edd by seed mass.
@@ -93,6 +97,8 @@ Primary project path from here:
    - Aliases, coordinates, field, and redshift matching.
    - Preserve method-dependent measurements rather than overwriting. **Completed for the CEERS-2782/RUBIES-EGS-50052 and GS-204851/GOODS-S-13971 pairs.**
    - Measurement- and physical-object-level point and uncertainty rankings. **Generalized in v4 on 2026-08-22.**
+   - Explicit reviewed-decision registry and pairwise matching among new sources. **Completed in corrected v4.**
+   - One-at-a-time alternate-measurement sensitivity. **Completed for both v4 duplicate objects.**
 
 7. Expand to additional high-z accreting-BH candidate classes.
    - Lensed high-z AGN candidates.

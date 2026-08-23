@@ -87,7 +87,7 @@ the frozen JADES + Taylor comparison release and figure set:
 | v1 | Original 23-row JADES BLAGN catalogue and baseline evaluation | `v1_raw.csv`, `v1_processed.csv`, `v1_evaluation_*` |
 | v2 | Ranking, uncertainty propagation, and figure prototypes evaluated on the frozen v1 catalogue | `v2_object_ranking_table.csv`, `v2_uncertainty_*`, `v2_main_text_*` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue and measurement/object science workflow | `v3_blagn_*` |
-| v4 | Generalized measurement identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN | `v4_blagn_*` |
+| v4 | Generalized identity, Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | `v4_blagn_*`, `v4_main_text_*` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv

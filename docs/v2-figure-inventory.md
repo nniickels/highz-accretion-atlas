@@ -26,8 +26,9 @@ so they remain distinct from exploratory outputs in `results/`.
 | Uncertainty-aware forest plot | `results/v2_main_text_figures/v2_main_text_uncertainty_forest.png` | Baseline Monte Carlo intervals, threshold probabilities, and separate `MBH +/- 0.3 dex` systematic medians for the two primary growth-pressure diagnostics. |
 | Spotlight seed-redshift maps | `results/v2_main_text_figures/v2_main_text_spotlight_seed_redshift_maps.png` | Two-panel spotlight for GN-38509 and GS-20057765 using existing map products. |
 
-These are v2 prototypes driven by the v1-catalogue ranking products. The v3
-catalogue does not yet have an equivalent figure release.
+These are v2 prototypes driven by the v1-catalogue ranking products. Separate
+frozen-v3 and current-v4 figure sets now exist under
+`results/v3_main_text_figures/` and `results/v4_main_text_figures/`.
 
 ## Existing Figures Best Suited to Main Text After Polishing
 

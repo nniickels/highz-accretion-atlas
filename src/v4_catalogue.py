@@ -7,7 +7,10 @@ from collections.abc import Iterable
 import numpy as np
 import pandas as pd
 
-from src.identity import candidate_matches, require_unambiguous_candidates, stable_object_id
+from src.identity import (
+    apply_reviewed_identity_overrides, candidate_matches, cross_source_candidate_matches,
+    require_unambiguous_candidates, stable_object_id,
+)
 from src.standardize_data import CANONICAL_RAW_FIELDS, LOG10_EDDINGTON_LUMINOSITY_PER_MSUN, standardize_dataframe
 
 
@@ -165,6 +168,7 @@ def build_v4_catalogues(
     v3_measurements: pd.DataFrame,
     matthee_raw: pd.DataFrame,
     aspire_raw: pd.DataFrame,
+    identity_overrides: pd.DataFrame,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Return v4 measurements, objects, links, aliases, and match candidates."""
     _require_columns(v3_measurements, ["measurement_id", "physical_object_id", "preferred_measurement_flag"], "v3 measurements")
@@ -172,20 +176,23 @@ def build_v4_catalogues(
     aspire = standardize_source(aspire_raw, ASPIRE_SOURCE_KEY)
     new = pd.concat([matthee, aspire], ignore_index=True, sort=False)
 
-    candidates = candidate_matches(new, v3_measurements)
-    require_unambiguous_candidates(candidates, new["measurement_id"])
+    prior_candidates = candidate_matches(new, v3_measurements)
+    same_release_candidates = cross_source_candidate_matches(new)
+    candidate_frames = [frame for frame in [prior_candidates, same_release_candidates] if not frame.empty]
+    candidates = pd.concat(candidate_frames, ignore_index=True) if candidate_frames else prior_candidates.copy()
+    require_unambiguous_candidates(prior_candidates, new["measurement_id"])
+    candidates, accepted_map = apply_reviewed_identity_overrides(candidates, identity_overrides)
     expected = candidates[candidates["measurement_id"].eq("GOODSS13971_matthee23")]
-    if len(candidates) != 1 or len(expected) != 1 or expected.iloc[0]["candidate_physical_object_id"] != "HZA-GS-204851":
+    if len(candidates) != 1 or len(expected) != 1 or accepted_map.get("GOODSS13971_matthee23") != "HZA-GS-204851":
         raise ValueError("The sole verified new cross-paper match must be GOODS-S-13971 = GS-204851")
 
     inherited_link_columns = ["measurement_id", "physical_object_id", "preferred_measurement_flag", "preferred_measurement_reason", "match_method", "match_reference"]
     inherited = v3_measurements[inherited_link_columns].copy()
-    candidate_map = candidates.set_index("measurement_id")["candidate_physical_object_id"].to_dict()
     link_rows: list[dict[str, object]] = []
     for _, row in new.iterrows():
         measurement_id = str(row["measurement_id"])
-        if measurement_id in candidate_map:
-            physical_id = candidate_map[measurement_id]
+        if measurement_id in accepted_map:
+            physical_id = accepted_map[measurement_id]
             preferred = False
             reason = "prior-release preferred measurement retained for longitudinal reproducibility"
             method = "coordinate-redshift match; manually reviewed"
@@ -231,8 +238,15 @@ def build_v4_catalogues(
         .groupby("physical_object_id")["measurement_id"]
         .agg(lambda values: ";".join(values.astype(str)))
     )
+    lrd_source_evidence = (
+        measurements[measurements["lrd_flag"].fillna(False).astype(bool)]
+        .groupby("physical_object_id")["source_key"]
+        .agg(lambda values: ";".join(dict.fromkeys(values.astype(str))))
+    )
     aggregates["lrd_evidence_measurement_ids"] = aggregates["physical_object_id"].map(lrd_evidence)
+    aggregates["lrd_evidence_source_keys"] = aggregates["physical_object_id"].map(lrd_source_evidence)
     objects = measurements[measurements["preferred_measurement_flag"]].copy()
+    objects["preferred_measurement_lrd_flag"] = objects["lrd_flag"]
     objects = objects.merge(aggregates, on="physical_object_id", validate="one_to_one")
     objects["lrd_flag"] = objects["lrd_reported_by_any_measurement"]
 

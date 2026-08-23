@@ -26,6 +26,7 @@ class V4ScienceTests(unittest.TestCase):
             "object_fedd": "v4_blagn_physical_object_uncertainty_fedd.csv", "object_mseed": "v4_blagn_physical_object_uncertainty_mseed.csv",
             "measurement_uncertainty": "v4_blagn_measurement_uncertainty_ranking.csv", "object_uncertainty": "v4_blagn_physical_object_uncertainty_ranking.csv",
             "catalogue_summary": "v4_blagn_catalogue_summary.csv", "growth_summary": "v4_blagn_growth_summary.csv",
+            "alternate_sensitivity": "v4_blagn_alternate_measurement_sensitivity.csv",
         }
         cls.frames = {name: pd.read_csv(ROOT / "results" / file) for name, file in names.items()}
 
@@ -69,6 +70,17 @@ class V4ScienceTests(unittest.TestCase):
         self.assertTrue(new["edd_ratio_diagnostic_status"].str.startswith("unavailable").all())
         self.assertTrue(new["lbol_diagnostic_status"].eq("available").all())
 
+    def test_detection_and_mass_reliability_are_separate(self) -> None:
+        point = self.frames["measurement_point"].set_index("object_id")
+        absorption = point.loc["GOODS-N-9771"]
+        self.assertEqual(absorption["detection_confidence_tier"], "high")
+        self.assertEqual(absorption["mass_measurement_reliability_tier"], "robust_with_measurement_caveat")
+        self.assertEqual(absorption["followup_priority_category"], "B_caveated_high_pressure")
+        contaminated = point.loc["GOODS-S-13971"]
+        self.assertEqual(contaminated["mass_measurement_reliability_tier"], "robust_with_measurement_caveat")
+        alternative = point.loc["RUBIES-EGS-49140"]
+        self.assertEqual(alternative["mass_measurement_reliability_tier"], "robust_with_interpretive_caveat")
+
     def test_object_view_deduplicates_both_known_pairs(self) -> None:
         measurement = self.frames["measurement_point"]
         objects = self.frames["object_point"]
@@ -90,6 +102,21 @@ class V4ScienceTests(unittest.TestCase):
         self.assertFalse(bool(overall["demographic_inference_allowed"]))
         self.assertIn("EIGER/FRESCO", overall["selection_function_note"])
         self.assertTrue({"source", "survey", "field", "lrd_phenotype"}.issubset(set(summary["stratum_type"])))
+        jades_objects = summary[
+            summary["catalogue_view"].eq("physical_object")
+            & summary["stratum_type"].eq("source")
+            & summary["stratum_value"].eq("juodzbalis25_jades_blagn")
+        ].iloc[0]
+        self.assertEqual(int(jades_objects["n_lrd"]), 0)
+        self.assertEqual(int(jades_objects["n_lrd_any_measurement"]), 1)
+        self.assertEqual(int(jades_objects["n_lrd_cross_source_only"]), 1)
+
+    def test_both_duplicate_objects_have_alternate_measurement_sensitivity(self) -> None:
+        sensitivity = self.frames["alternate_sensitivity"]
+        self.assertEqual(len(sensitivity), 2)
+        self.assertEqual(set(sensitivity["physical_object_id"]), {"HZA-CEERS-2782", "HZA-GS-204851"})
+        self.assertTrue(sensitivity["n_samples"].eq(10000).all())
+        self.assertEqual(set(sensitivity["comparison_scope"]), {"one_object_substitution"})
 
 
 if __name__ == "__main__":

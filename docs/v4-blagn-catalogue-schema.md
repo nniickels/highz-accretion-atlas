@@ -15,6 +15,7 @@ z >= 4. No v1--v3 file is overwritten.
 | `data/crossmatch/v4_measurement_object_links.csv` | 96 | Measurement-to-object links and default rules |
 | `data/crossmatch/v4_object_aliases.csv` | 96 | Source aliases and coordinates by physical object |
 | `data/crossmatch/v4_reviewed_match_candidates.csv` | 1 | Reviewed new coordinate/redshift match |
+| `data/crossmatch/v4_reviewed_identity_overrides.csv` | 1 | Explicit accepted/rejected identity decisions |
 
 ## Identity and default measurements
 
@@ -35,13 +36,15 @@ The two multiply measured physical objects are:
 
 Every other object has one measurement in v4. Default selection is a
 reproducible view rule, not a claim that the alternative measurement is
-scientifically invalid. Alternate-measurement rank sensitivity is not yet a
-v4 product.
+scientifically invalid. Both alternatives are exercised by the separate
+`results/v4_blagn_alternate_measurement_sensitivity.csv` product without
+changing either release default.
 
-The reviewed candidate search uses a 0.5 arcsec coordinate threshold and
-`delta-z <= 0.01`, rejects ambiguous multi-candidate choices, and requires
-review before linking. It is deterministic candidate generation, not a
-probabilistic cross-match model.
+The candidate search uses a 0.5 arcsec coordinate threshold and
+`delta-z <= 0.01`, checks each new source against both the prior release and
+other new sources, rejects ambiguous multi-candidate choices, and requires an
+explicit accepted/rejected registry row before linking. It is deterministic
+candidate generation followed by review, not a probabilistic cross-match model.
 
 ## Canonical and source-native fields
 
@@ -91,15 +94,18 @@ errors.
   exception remains in the row caveats.
 
 The object view takes the logical union of phenotype evidence across retained
-measurements and records the supporting measurement IDs. Consequently, LRD
-counts must retain their evidence provenance and must not be read as a uniform
-photometric selection across sources.
+measurements and records both supporting measurement IDs and source keys. It
+also retains `preferred_measurement_lrd_flag`. Source-stratified summaries use
+that preferred-measurement attribution while separately reporting the
+any-measurement union, preventing an LRD label supplied by one paper from being
+silently credited to another source.
 
 For the two new sources, `quality_flag=robust` and
 `detection_evidence=individual_robust` describe the published broad-line
 detection. They do not erase absorption-model, contamination, dust, or virial
-mass caveats. Those remain separate fields and should be considered when
-interpreting mass reliability or follow-up priority.
+mass caveats. v4 rankings therefore record `detection_confidence_*` separately
+from `mass_measurement_reliability_*`; absorption or contamination can lower
+the latter without disputing a robust broad-line detection.
 
 ## Validation anchors
 

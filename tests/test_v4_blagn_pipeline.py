@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.process_v4_blagn import build_outputs
-from src.identity import candidate_matches
+from src.identity import apply_reviewed_identity_overrides, candidate_matches, cross_source_candidate_matches
 from src.v4_catalogue import ASPIRE_SOURCE_KEY, MASS_METHOD, MATTHEE_SOURCE_KEY, validate_source_raw
 
 
@@ -73,6 +73,8 @@ class V4CatalogueTests(unittest.TestCase):
         candidate = self.outputs["candidates"].iloc[0]
         self.assertLess(candidate["separation_arcsec"], 0.03)
         self.assertLess(candidate["redshift_delta"], 0.002)
+        self.assertEqual(candidate["decision"], "accepted")
+        self.assertEqual(candidate["match_scope"], "prior_release")
 
     def test_existing_taylor_duplicate_and_ids_remain_stable(self) -> None:
         rows = self.measurements[self.measurements["physical_object_id"].eq("HZA-CEERS-2782")]
@@ -86,6 +88,8 @@ class V4CatalogueTests(unittest.TestCase):
         duplicate = self.objects.set_index("physical_object_id").loc["HZA-GS-204851"]
         self.assertTrue(bool(duplicate["lrd_flag"]))
         self.assertIn("GOODSS13971_matthee23", duplicate["lrd_evidence_measurement_ids"])
+        self.assertEqual(duplicate["lrd_evidence_source_keys"], MATTHEE_SOURCE_KEY)
+        self.assertTrue(pd.isna(duplicate["preferred_measurement_lrd_flag"]))
 
     def test_optional_fields_and_mass_systematics(self) -> None:
         new = self.measurements[self.measurements["source_key"].isin([MATTHEE_SOURCE_KEY, ASPIRE_SOURCE_KEY])]
@@ -117,6 +121,26 @@ class V4CatalogueTests(unittest.TestCase):
             {"measurement_id": "b", "object_id": "b", "physical_object_id": "HZA-B", "ra_deg": 10.00001, "dec_deg": 10.0, "redshift": 5.0},
         ])
         self.assertEqual(len(candidate_matches(new, refs)), 2)
+
+    def test_same_release_sources_are_pairwise_checked(self) -> None:
+        rows = pd.DataFrame([
+            {"measurement_id": "left", "object_id": "L", "source_key": "one", "ra_deg": 10.0, "dec_deg": 10.0, "redshift": 5.0},
+            {"measurement_id": "right", "object_id": "R", "source_key": "two", "ra_deg": 10.00001, "dec_deg": 10.0, "redshift": 5.001},
+        ])
+        candidates = cross_source_candidate_matches(rows)
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual(candidates.iloc[0]["match_scope"], "same_release_cross_source")
+
+    def test_candidate_requires_explicit_review_decision(self) -> None:
+        candidates = self.outputs["candidates"].drop(columns=[
+            "decision", "physical_object_id", "review_basis", "review_reference", "review_date",
+        ])
+        empty_registry = pd.DataFrame(columns=[
+            "measurement_id", "candidate_measurement_id", "decision", "physical_object_id",
+            "review_basis", "review_reference", "review_date",
+        ])
+        with self.assertRaisesRegex(ValueError, "Unreviewed identity candidates"):
+            apply_reviewed_identity_overrides(candidates, empty_registry)
 
 
 if __name__ == "__main__":

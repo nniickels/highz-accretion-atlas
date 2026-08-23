@@ -13,6 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 V3_MEASUREMENTS = PROJECT_ROOT / "data" / "processed" / "v3_blagn_measurements.csv"
 MATTHEE_RAW = PROJECT_ROOT / "data" / "raw" / "matthee23_eiger_fresco_blagn_tables1_3.csv"
 ASPIRE_RAW = PROJECT_ROOT / "data" / "raw" / "lin24_aspire_blagn_tables1_3.csv"
+IDENTITY_OVERRIDES = PROJECT_ROOT / "data" / "crossmatch" / "v4_reviewed_identity_overrides.csv"
 
 OUTPUTS = {
     "measurements": PROJECT_ROOT / "data" / "processed" / "v4_blagn_measurements.csv",
@@ -28,6 +29,7 @@ def build_outputs() -> dict[str, pd.DataFrame]:
         pd.read_csv(V3_MEASUREMENTS),
         pd.read_csv(MATTHEE_RAW),
         pd.read_csv(ASPIRE_RAW),
+        pd.read_csv(IDENTITY_OVERRIDES),
     )
     return dict(zip(OUTPUTS, values, strict=True))
 

@@ -16,6 +16,11 @@ import pandas as pd
 
 DEFAULT_MAX_SEPARATION_ARCSEC = 0.5
 DEFAULT_MAX_REDSHIFT_DELTA = 0.01
+CANDIDATE_COLUMNS = [
+    "measurement_id", "candidate_measurement_id", "candidate_object_id",
+    "candidate_physical_object_id", "separation_arcsec", "redshift_delta",
+    "match_scope", "candidate_source_key",
+]
 
 
 def angular_separation_arcsec(
@@ -76,9 +81,90 @@ def candidate_matches(
                     "candidate_physical_object_id": ref["physical_object_id"],
                     "separation_arcsec": float(separations[idx]),
                     "redshift_delta": float(dz[idx]),
+                    "match_scope": "prior_release",
+                    "candidate_source_key": ref.get("source_key", np.nan),
                 }
             )
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows, columns=CANDIDATE_COLUMNS)
+
+
+def cross_source_candidate_matches(
+    new_rows: pd.DataFrame,
+    *,
+    max_separation_arcsec: float = DEFAULT_MAX_SEPARATION_ARCSEC,
+    max_redshift_delta: float = DEFAULT_MAX_REDSHIFT_DELTA,
+) -> pd.DataFrame:
+    """Return within-release candidates between different literature sources."""
+    required = {"measurement_id", "object_id", "source_key", "ra_deg", "dec_deg", "redshift"}
+    if missing := required - set(new_rows.columns):
+        raise ValueError(f"New measurements missing cross-source identity fields: {sorted(missing)}")
+    rows: list[dict[str, object]] = []
+    ordered = new_rows.reset_index(drop=True)
+    for left_index in range(len(ordered)):
+        left = ordered.iloc[left_index]
+        for right_index in range(left_index + 1, len(ordered)):
+            right = ordered.iloc[right_index]
+            if left["source_key"] == right["source_key"]:
+                continue
+            separation = float(angular_separation_arcsec(
+                float(left["ra_deg"]), float(left["dec_deg"]),
+                float(right["ra_deg"]), float(right["dec_deg"]),
+            ))
+            dz = abs(float(left["redshift"]) - float(right["redshift"]))
+            if separation <= max_separation_arcsec and dz <= max_redshift_delta:
+                rows.append({
+                    "measurement_id": left["measurement_id"],
+                    "candidate_measurement_id": right["measurement_id"],
+                    "candidate_object_id": right["object_id"],
+                    "candidate_physical_object_id": np.nan,
+                    "separation_arcsec": separation,
+                    "redshift_delta": dz,
+                    "match_scope": "same_release_cross_source",
+                    "candidate_source_key": right["source_key"],
+                })
+    return pd.DataFrame(rows, columns=CANDIDATE_COLUMNS)
+
+
+def apply_reviewed_identity_overrides(
+    candidates: pd.DataFrame,
+    overrides: pd.DataFrame,
+) -> tuple[pd.DataFrame, dict[str, str]]:
+    """Require an explicit decision for every candidate and return accepted links."""
+    required = {
+        "measurement_id", "candidate_measurement_id", "decision", "physical_object_id",
+        "review_basis", "review_reference", "review_date",
+    }
+    if missing := required - set(overrides.columns):
+        raise ValueError(f"Identity override registry missing fields: {sorted(missing)}")
+    keys = ["measurement_id", "candidate_measurement_id"]
+    if overrides.duplicated(keys).any():
+        raise ValueError("Identity override registry contains duplicate candidate decisions")
+    candidate_keys = set(map(tuple, candidates[keys].astype(str).to_numpy()))
+    override_keys = set(map(tuple, overrides[keys].astype(str).to_numpy()))
+    if unexpected := override_keys - candidate_keys:
+        raise ValueError(f"Identity registry contains non-candidate pairs: {sorted(unexpected)}")
+    reviewed = candidates.merge(overrides, on=keys, how="left", validate="one_to_one")
+    if reviewed["decision"].isna().any():
+        missing_pairs = reviewed.loc[reviewed["decision"].isna(), keys].to_dict("records")
+        raise ValueError(f"Unreviewed identity candidates: {missing_pairs}")
+    allowed = {"accepted", "rejected"}
+    if invalid := set(reviewed["decision"]) - allowed:
+        raise ValueError(f"Invalid identity decisions: {sorted(invalid)}")
+    accepted = reviewed[reviewed["decision"].eq("accepted")]
+    if accepted["physical_object_id"].isna().any():
+        raise ValueError("Accepted identity candidates require physical_object_id")
+    prior = accepted[accepted["candidate_physical_object_id"].notna()]
+    if not prior.empty and not prior["physical_object_id"].eq(prior["candidate_physical_object_id"]).all():
+        raise ValueError("Accepted prior-release identity conflicts with its stable physical-object ID")
+    accepted_pairs: dict[str, str] = {}
+    for _, row in accepted.iterrows():
+        physical_id = str(row["physical_object_id"])
+        for measurement_id in [row["measurement_id"], row["candidate_measurement_id"]]:
+            prior = accepted_pairs.get(str(measurement_id))
+            if prior is not None and prior != physical_id:
+                raise ValueError(f"Conflicting accepted identities for {measurement_id}")
+            accepted_pairs[str(measurement_id)] = physical_id
+    return reviewed, accepted_pairs
 
 
 def require_unambiguous_candidates(candidates: pd.DataFrame, measurement_ids: Iterable[str]) -> None:

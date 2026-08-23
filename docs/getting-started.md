@@ -20,6 +20,7 @@ frozen v3 measurement catalogue as its input:
 ```powershell
 python -m scripts.process_v4_blagn
 python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v4_final_figures
 ```
 
 To rebuild the catalogue chain from source-specific raw tables instead, run:
@@ -29,11 +30,12 @@ python -m scripts.process_data
 python -m scripts.process_v3_blagn
 python -m scripts.process_v4_blagn
 python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v4_final_figures
 ```
 
 The v4 processing command writes 96 measurement rows, 94 physical-object rows,
 96 measurement/object links, 96 aliases, and one reviewed cross-paper match
-candidate. The science command writes 12 `results/v4_blagn_*.csv` products at
+candidate plus its explicit review decision. The science command writes 13 `results/v4_blagn_*.csv` products at
 measurement and physical-object level. Expected source additions are 20 Matthee
 EIGER/FRESCO rows and 16 Lin ASPIRE rows. The newly reviewed identity is
 `GOODS-S-13971 = GS-204851`; the existing
@@ -41,10 +43,11 @@ EIGER/FRESCO rows and 16 Lin ASPIRE rows. The newly reviewed identity is
 
 See `docs/v4-blagn-catalogue-schema.md` for catalogue/identity details and
 `docs/v4-blagn-science-workflow.md` for the output and scenario inventory.
-Neither command overwrites a v1--v3 artifact.
+No command overwrites a v1--v3 artifact.
 
-The current release does not yet have a v4-specific final-figure set. Generate
-the frozen-v3 comparison figures separately when needed:
+The figure command writes five v4-specific final figures to
+`results/v4_main_text_figures/`. Generate the frozen-v3 comparison figures
+separately when needed:
 
 ```powershell
 python -m scripts.generate_v3_final_figures
