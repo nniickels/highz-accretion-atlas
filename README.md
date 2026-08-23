@@ -79,8 +79,10 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue and science release is **v4**; v3 remains
-the frozen JADES + Taylor comparison release and figure set:
+paper versions. The current catalogue and science release is **v4**. Maintenance
+tag **v4.0.1** adds pinned dependencies, CI, release hashes, safer identity
+allocation, and method-systematic metadata without changing v4 science values.
+v3 remains the frozen JADES + Taylor comparison release and figure set:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
@@ -92,6 +94,9 @@ the frozen JADES + Taylor comparison release and figure set:
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
+The exact v4.0.1 environment is in `requirements-lock.txt`; verify every frozen
+v4 CSV without writing outputs with
+`python -m scripts.verify_v4_release --reproduce`.
 ### v1: Pilot Broad-Line AGN Atlas
 
 Start with one clean object class from one source paper.

@@ -181,7 +181,13 @@ def build_v4_catalogues(
     candidate_frames = [frame for frame in [prior_candidates, same_release_candidates] if not frame.empty]
     candidates = pd.concat(candidate_frames, ignore_index=True) if candidate_frames else prior_candidates.copy()
     require_unambiguous_candidates(prior_candidates, new["measurement_id"])
-    candidates, accepted_map = apply_reviewed_identity_overrides(candidates, identity_overrides)
+    candidates, accepted_map = apply_reviewed_identity_overrides(
+        candidates,
+        identity_overrides,
+        known_measurement_ids=pd.concat(
+            [v3_measurements["measurement_id"], new["measurement_id"]], ignore_index=True,
+        ),
+    )
     expected = candidates[candidates["measurement_id"].eq("GOODSS13971_matthee23")]
     if len(candidates) != 1 or len(expected) != 1 or accepted_map.get("GOODSS13971_matthee23") != "HZA-GS-204851":
         raise ValueError("The sole verified new cross-paper match must be GOODS-S-13971 = GS-204851")
@@ -189,6 +195,7 @@ def build_v4_catalogues(
     inherited_link_columns = ["measurement_id", "physical_object_id", "preferred_measurement_flag", "preferred_measurement_reason", "match_method", "match_reference"]
     inherited = v3_measurements[inherited_link_columns].copy()
     link_rows: list[dict[str, object]] = []
+    reserved_physical_ids = set(inherited["physical_object_id"].astype(str))
     for _, row in new.iterrows():
         measurement_id = str(row["measurement_id"])
         if measurement_id in accepted_map:
@@ -198,7 +205,12 @@ def build_v4_catalogues(
             method = "coordinate-redshift match; manually reviewed"
             reference = "0.5 arcsec and delta-z 0.01 candidate thresholds"
         else:
-            physical_id = stable_object_id(str(row["object_id"]))
+            physical_id = stable_object_id(
+                str(row["object_id"]),
+                source_key=str(row["source_key"]),
+                reserved_ids=reserved_physical_ids,
+            )
+            reserved_physical_ids.add(physical_id)
             preferred = True
             reason = "only catalogue measurement in this release"
             method = "singleton assignment after coordinate-redshift search"

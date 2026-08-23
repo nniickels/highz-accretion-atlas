@@ -92,7 +92,7 @@ For every future Codex contribution that changes repository files:
 - **Contribution:** Added a mandatory entry format and reusable template, including per-file change types, validation reporting, and commit state. Reconciled the existing entries with Git history and normalized them to the same format.
 - **Scientific/technical effect:** No scientific methods, source data, analysis code, or results changed; this improves auditability and future ledger compliance.
 - **Validation:** Checked all three committed historical entries and their file lists against Git history for commits `15a1b3f`, `33b9337`, and `11b6d93`; reviewed the current worktree file list for this uncommitted entry; and ran `git diff --check`.
-- **Status:** Complete and verified locally; changes are not yet committed.
+- **Status:** Complete and present in repository commit `35aeab7` (`data flag update`).
 
 ### 2026-08-15 - Restore adopted host masses and flag an inconsistent Eddington ratio
 
@@ -123,7 +123,7 @@ For every future Codex contribution that changes repository files:
 - **Contribution:** Restored the paper's adopted CIGALE host-mass measurements for GS-200679 (`8.53 +/- 0.13`), GS-20030333 (`8.61 +/- 0.20`), and GS-164055 (`7.99 +/- 0.23`). Added deterministic Eddington-ratio cross-check fields derived from reported black-hole mass and bolometric luminosity, a `0.3 dex` consistency tolerance, validation of ratio/uncertainty domains, and downstream consistency caveats. Preserved the published GN-11836 values verbatim while flagging their inconsistency, lowering the object's ranking confidence to medium, and assigning source clarification as its follow-up category. Regenerated all affected point-estimate, uncertainty, figure, and status-paper products. No getting-started or reproduction-guide material was changed.
 - **Scientific/technical effect:** The number of active processed objects lacking a host mass fell from four to one. The restored black-hole-to-host mass ratios are `-2.34` for GS-200679, `-1.19` for GS-20030333, and `-0.36` for GS-164055. For GN-11836, the reported `log(M_BH/M_sun)=6.06` and `log(L_bol/[erg s^-1])=44.11` imply `lambda_Edd=0.890491`, rather than the reported `0.11`, a residual of `-0.908237 dex`; the catalogue now exposes this discrepancy without substituting an undocumented value. Point and uncertainty pressure ranks remain unchanged.
 - **Validation:** Checked the source values and host-mass selection against Tables 2 and 5 of the published catalogue paper. Re-ran standardization, the 8,832-row evaluation grid, both 2,208-row derived scenario tables, point rankings, and the full 10,000-sample uncertainty pipeline with seed `20260808`; all built-in sanity checks passed. All 25 regression tests passed. Confirmed exactly one remaining active missing host mass and exactly one Eddington-ratio inconsistency. Rebuilt and inspected the affected main-text figure. Recompiled the 10-page status PDF and visually inspected every page. `git diff --check` passed.
-- **Status:** Complete and verified locally; changes are not yet committed.
+- **Status:** Complete and present in repository commit `35aeab7` (`data flag update`).
 
 ### 2026-08-15 - Preserve source-consistency priority in uncertainty ranking
 
@@ -137,7 +137,7 @@ For every future Codex contribution that changes repository files:
 - **Contribution:** Added explicit `D_source_consistency` handling to the uncertainty follow-up categorizer and a source-specific reason that retains the standard quality, baseline-assumption, and measurement-tier context. Added a production sanity invariant and regression assertions for GN-11836. Regenerated the uncertainty-aware ranking and documented the behavior.
 - **Scientific/technical effect:** GN-11836 now remains `D_source_consistency` in both `followup_priority_category` and `uncertainty_followup_category`, rather than being relabeled `F_context`. Its uncertainty follow-up reason carries the `-0.91 dex` Eddington-ratio residual and source-clarification requirement. Numerical uncertainty products, pressure tiers, scores, probabilities, and rank order are unchanged.
 - **Validation:** All 25 regression tests passed. Re-ran the full 10,000-sample uncertainty pipeline with seed `20260808`; all nine built-in sanity checks passed, including the new `source_consistency_followup_preserved` invariant. Confirmed the GN-11836 row has matching source-consistency categories and the specific clarification reason. Confirmed uncertainty rank mappings are unchanged and ran `git diff --check`.
-- **Status:** Complete and verified locally; changes are not yet committed.
+- **Status:** Complete and present in repository commit `35aeab7` (`data flag update`).
 
 ### 2026-08-17 - Harden source-consistency ranking and validation
 
@@ -149,7 +149,7 @@ For every future Codex contribution that changes repository files:
 - **Contribution:** Moved `D_source_consistency` to the first branch of the uncertainty follow-up categorizer so values awaiting source clarification remain quarantined regardless of their derived growth-pressure or host-ratio tiers. Changed the verification invariant to treat a catalogue with no source inconsistencies as valid while still requiring every inconsistency that does exist to preserve its category. Added regression cases that combine source inconsistency with likely high pressure and an extreme host ratio, and that verify a synthetic clean catalogue containing no source inconsistencies.
 - **Scientific/technical effect:** Future source-inconsistent rows cannot be promoted to a physical-pressure or host-tension category before their inputs are clarified, and valid clean catalogues no longer fail production verification. Current v1 uncertainty probabilities, scores, categories, ranks, and result tables are unchanged.
 - **Validation:** Re-ran the deterministic 10,000-sample uncertainty pipeline with seed `20260808`; all nine production sanity checks passed and Git showed no changes to the three regenerated uncertainty result tables. All 27 regression tests passed, including both new synthetic edge cases. `git diff --check` passed.
-- **Status:** Complete and verified locally; changes are not yet committed.
+- **Status:** Complete and present in repository commit `15aea4a` (`fix consistencies`).
 
 ### 2026-08-17 - Normalize v1/v2/v3 release naming
 
@@ -208,7 +208,7 @@ For every future Codex contribution that changes repository files:
 - **Contribution:** Added a canonical release-version map and renamed release-specific code, tests, documentation, processed catalogues, rankings, summaries, and v2 figure prototypes. Added `analysis_release=v2` and `input_catalogue_release=v1` to v2 tables, standardized Taylor rows as `project_version=v3`, retained `catalogue_release=v3-blagn`, and updated every live reference. Source-specific raw extractions remain descriptively named because their paper/arXiv versions are separate provenance dimensions. Updated the roadmaps and status paper to the completed v3 state.
 - **Scientific/technical effect:** No v1 source or processed data changed, no object was added or removed, and no growth assumptions or rank calculations changed. The current release is now unambiguously v3: 60 measurements representing 59 physical objects at `z>=4`; v2 remains the reproducible pre-expansion analysis of the 23-row v1 catalogue.
 - **Validation:** Rebuilt the v3 processed catalogue (63 Taylor source rows; 37 Taylor measurements / 36 Taylor objects at `z>=4`; 60 combined measurements / 59 physical objects), regenerated all v2 and v3 CSV products with 10,000 samples and seed `20260808`, and passed all 53 regression tests. Confirmed the v1 raw and processed SHA-256 anchors remain byte-identical, checked live references for retired names, rebuilt the 10-page status PDF, rendered every page, and visually verified layout and legibility. `git diff --check` passed.
-- **Status:** Complete and verified locally; changes are not yet committed.
+- **Status:** Complete and present in repository commit `2c438d1` (`update consistencies`).
 
 ### 2026-08-22 - Complete v3 figures and add the v4 same-class BLAGN expansion
 
@@ -315,7 +315,7 @@ For every future Codex contribution that changes repository files:
   remain `7df69c0a...1b76` (measurements) and `5c67d8a8...2126` (objects).
   Recompiled the 12-page status PDF and visually inspected every rendered page.
   `git diff --check` passed.
-- **Status:** Complete and verified locally; changes are not yet committed.
+- **Status:** Complete and present in repository commit `da28d37` (`documentation consistency`).
 
 ### 2026-08-22 - Reconcile current v4 documentation
 
@@ -354,11 +354,12 @@ For every future Codex contribution that changes repository files:
 - **Validation:** Confirmed every exact repository path referenced by the core
   documentation exists. Compared all documented v4 row counts against the
   current CSVs: 96 measurements, 94 objects, 96 links, 96 aliases, one reviewed
-  candidate, 12 science products, and the documented per-product row counts all
-  match. Searched for the stale source/release phrases corrected here and found
+  candidate and the 12 products that existed at that contribution all matched;
+  the corrected v4 freeze subsequently added a thirteenth sensitivity product.
+  Searched for the stale source/release phrases corrected here and found
   no live occurrences. `git diff --check` passed. Regression tests were not
   rerun because this contribution changes documentation only.
-- **Status:** Complete and verified locally; changes are not yet committed.
+- **Status:** Complete and present in repository commit `da28d37` (`documentation consistency`).
 
 ### 2026-08-22 - Correct and freeze the v4 BLAGN release
 
@@ -430,5 +431,64 @@ For every future Codex contribution that changes repository files:
   outputs after test fixtures, and ran `git diff --check`. Recompiled the
   14-page status PDF without TeX warnings, rendered every page, and visually
   inspected the complete document and all five standalone v4 figures.
-- **Status:** Complete and verified locally; release will be frozen by the
-  annotated tag `v4-blagn` after commit.
+- **Status:** Complete in repository commit `371c08f` (`Correct and freeze v4
+  BLAGN release`) and frozen by annotated tag `v4-blagn`.
+
+### 2026-08-23 - Harden and reproduce the v4.0.1 maintenance release
+
+- **Objective:** Resolve the five remaining post-freeze maintenance issues and
+  complete the recommended reproducibility gate without changing v4 science.
+- **Files changed:**
+  - `.github/workflows/ci.yml` (added)
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (rebuilt)
+  - `.codex_tmp/observational-atlas-roadmap.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `README.md` (modified)
+  - `pyproject.toml` (added)
+  - `requirements-lock.txt` (added)
+  - `releases/v4.0.1-manifest.json` (added)
+  - `data/crossmatch/v4_reviewed_identity_overrides.csv` (modified)
+  - `data/crossmatch/v4_reviewed_match_candidates.csv` (metadata column added)
+  - `data/mass_method_registry.csv` (added)
+  - `data/sources.md` (modified)
+  - `docs/getting-started.md` (modified)
+  - `docs/model-menu.md` (modified)
+  - `docs/release-versioning.md` (modified)
+  - `docs/v4-blagn-catalogue-schema.md` (modified)
+  - `docs/v4-blagn-science-workflow.md` (modified)
+  - `scripts/generate_v2_uncertainty_rankings.py` (modified)
+  - `scripts/verify_v4_release.py` (added)
+  - `src/identity.py` (modified)
+  - `src/mass_systematics.py` (added)
+  - `src/v4_catalogue.py` (modified)
+  - `tests/test_maintenance_release.py` (added)
+  - `tests/test_v4_blagn_pipeline.py` (modified)
+- **Contribution:** Pinned the Python 3.12 runtime dependencies; added CI, a
+  SHA-256 release manifest, and a write-free full v4 in-memory reproduction
+  command. Hardened future physical-ID allocation against normalized-token
+  collisions and added documented manual identity assertions outside numerical
+  candidate thresholds while retaining mandatory review metadata. Added a
+  source/method virial registry covering every v4 pair. Primary JADES Section 4
+  supports Reines & Volonteri (2015) Halpha with a 0.3 dex calibration
+  uncertainty and Vestergaard & Peterson (2006) Hbeta without a source-stated
+  numeric systematic; the latter remains blank. Corrected historical ledger
+  commit statuses, superseded 12-product wording, current model-menu status,
+  maintenance/science release mapping, and the v2 verifier's misleading
+  in-memory `Wrote` messages.
+- **Scientific/technical effect:** Existing v1--v4 measurements, physical IDs,
+  preferred measurements, science values, Monte Carlo settings, ranks, and
+  figures are unchanged. The sole reviewed candidate gains
+  `match_origin=threshold_candidate`; method metadata are descriptive and are
+  not silently combined with statistical errors or used to create new
+  scenarios. `v4-blagn` remains the science tag and `v4.0.1` is a maintenance
+  tag.
+- **Validation:** All 79 regression tests passed. Verified all 18 manifest
+  hashes and reproduced the five catalogue/identity plus 13 science CSVs in
+  memory at 10,000 draws and seed `20260808`, without writing them. Confirmed
+  96 measurements, 94 physical objects, unchanged frozen science hashes, and a
+  clean `git diff --check`. Rebuilt the 14-page status PDF without TeX warnings,
+  rendered every page, and visually verified the complete document.
+- **Status:** Complete in the v4.0.1 maintenance commit and annotated tag
+  `v4.0.1`; the `v4-blagn` science tag remains unchanged.

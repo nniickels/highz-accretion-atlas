@@ -77,6 +77,13 @@ python -m scripts.generate_v4_blagn_science --n-samples 10000 --seed 20260808
 python -m scripts.generate_v4_final_figures
 ```
 
+For write-free verification of every frozen catalogue/science CSV against the
+v4.0.1 hash manifest, including a complete 10,000-draw in-memory rebuild:
+
+```powershell
+python -m scripts.verify_v4_release --reproduce
+```
+
 The output names begin `v4_blagn_` and leave all v1--v3 artifacts unchanged.
 The generator verifies catalogue/evaluation row counts, unique ranking IDs,
 release metadata, and the requested Monte Carlo sample count before reporting

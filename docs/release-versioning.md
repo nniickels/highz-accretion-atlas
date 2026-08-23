@@ -2,8 +2,9 @@
 
 Project release numbers identify reproducible catalogue or science milestones.
 They do not identify the version of a source paper. The current catalogue and
-science release is **v4**; v3 remains frozen as the JADES + Taylor comparison
-release and figure set.
+science release is **v4**; the non-science maintenance tag **v4.0.1** adds
+reproducibility and metadata hardening without changing v4 masses, counts,
+rankings, or figures. v3 remains frozen as the JADES + Taylor comparison release.
 
 | Release | Scope | Inputs | Canonical outputs |
 | --- | --- | --- | --- |
@@ -15,6 +16,11 @@ release and figure set.
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
 invalidate v1, v2, or v3 artifacts.
+
+Patch tags such as `v4.0.1` do not advance the catalogue chronology. The
+`v4-blagn` tag remains the frozen science anchor; `releases/v4.0.1-manifest.json`
+records hashes for its catalogue and science CSVs, exact Monte Carlo controls,
+and expected counts.
 
 ## Naming Rules
 
@@ -32,6 +38,9 @@ invalidate v1, v2, or v3 artifacts.
 - Do not rename a frozen artifact in place in a later scientific release.
   Generate a new release-prefixed product and retain regression coverage of the
   earlier artifact.
+- Use a patch tag for infrastructure or documentation maintenance that leaves
+  the scientific release invariant. Confirm that invariance with a checked-in
+  hash manifest and in-memory reproduction.
 
 ## Current Dependency Map
 

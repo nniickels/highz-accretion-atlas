@@ -1,0 +1,52 @@
+"""Regression tests for v4.0.1 reproducibility and metadata infrastructure."""
+
+from __future__ import annotations
+
+import contextlib
+import io
+import json
+import sys
+import unittest
+from pathlib import Path
+
+import pandas as pd
+
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from scripts.generate_v2_uncertainty_rankings import verify_outputs
+from scripts.verify_v4_release import MANIFEST_PATH, verify_manifest_hashes
+from src.mass_systematics import load_mass_method_registry, validate_catalogue_method_coverage
+
+
+class MaintenanceReleaseTests(unittest.TestCase):
+    def test_manifest_hashes_match_committed_release_artifacts(self) -> None:
+        verify_manifest_hashes(json.loads(MANIFEST_PATH.read_text()))
+
+    def test_every_v4_source_method_pair_is_registered(self) -> None:
+        catalogue = pd.read_csv(ROOT / "data/processed/v4_blagn_measurements.csv")
+        registry = load_mass_method_registry(ROOT / "data/mass_method_registry.csv")
+        validate_catalogue_method_coverage(catalogue, registry)
+        jades_halpha = registry.set_index(["source_key", "mbh_method"]).loc[
+            ("juodzbalis25_jades_blagn", "single-epoch-virial-halpha")
+        ]
+        self.assertEqual(jades_halpha["calibration_tag"], "reines-volonteri2015-halpha")
+        self.assertAlmostEqual(jades_halpha["reported_systematic_dex"], 0.3)
+        jades_hbeta = registry.set_index(["source_key", "mbh_method"]).loc[
+            ("juodzbalis25_jades_blagn", "single-epoch-virial-hbeta")
+        ]
+        self.assertTrue(pd.isna(jades_hbeta["reported_systematic_dex"]))
+
+    def test_in_memory_v2_verifier_does_not_claim_to_write_files(self) -> None:
+        # Existing pipeline tests exercise the detailed verifier.  This test
+        # guards only its user-facing verb: verification is not file output.
+        source = Path(ROOT / "scripts/generate_v2_uncertainty_rankings.py").read_text()
+        verifier = source[source.index("def verify_outputs"):source.index("def build_outputs", source.index("def verify_outputs"))]
+        self.assertNotIn("Wrote uncertainty", verifier)
+        self.assertIn("Verified uncertainty products in memory", verifier)
+
+
+if __name__ == "__main__":
+    unittest.main()
+

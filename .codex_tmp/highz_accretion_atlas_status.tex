@@ -34,15 +34,15 @@
 \newcommand{\repo}[1]{{\footnotesize\texttt{#1}}}
 
 \title{\textbf{The High-Redshift Accretion Atlas}\\
-\large Project Status Through v4}
+\large Project Status Through v4.0.1}
 \author{Project status manuscript}
-\date{22 August 2026}
+\date{23 August 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; and v4 adds 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements. The corrected v4 release has 96 measurements representing 94 physical objects, explicit reviewed identity decisions, separate detection-confidence and mass-reliability semantics, and one-at-a-time sensitivity tests for both multiply measured objects. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. Next steps are final-manuscript consolidation, method-aware object classes, and duty-cycle diagnostics.
+JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; and v4 adds 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements. The corrected v4 release has 96 measurements representing 94 physical objects, explicit reviewed identity decisions, separate detection-confidence and mass-reliability semantics, and one-at-a-time sensitivity tests for both multiply measured objects. Maintenance release v4.0.1 pins the software environment, adds continuous integration and a hash manifest, hardens future identity allocation, and records source-specific virial calibrations without changing a mass, rank, or scientific scenario. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. Next steps are final-manuscript consolidation, method-aware object classes, and duty-cycle diagnostics.
 \end{abstract}
 
 \section{Scientific objective}
@@ -151,6 +151,8 @@ The identity layer performs deterministic coordinate/redshift candidate searches
 
 The v4 science workflow preserves the baseline assumptions and reported asymmetric errors, keeps the common $\pm0.3$ dex comparisons, and adds separately named $\pm0.5$ dex Reines-calibration scenarios for Taylor, Matthee, and ASPIRE. Detection confidence is now distinct from mass/line-model reliability, so robust broad-line detections with absorption or contamination caveats receive caveated follow-up categories without being relabelled as tentative detections. Object-level LRD unions retain supporting measurement and source provenance. Overall summaries explicitly mix unlike selection functions and are descriptive only.
 
+The v4.0.1 method registry also resolves a previously implicit JADES distinction. The 19 H$\alpha$ measurements use the Reines \& Volonteri (2015) relation and the source paper states a 0.3 dex calibration uncertainty. The four tentative H$\beta$ measurements use Vestergaard \& Peterson (2006); because the JADES paper does not assign that estimator a numeric systematic, the registry leaves it unavailable and retains the paper's $A_V=0$ underestimation caveat. These metadata are not folded into the reported statistical errors and do not retroactively alter the frozen v4 scenarios.
+
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v2_main_text_figures/v2_main_text_uncertainty_forest.png}
@@ -226,11 +228,13 @@ The project versions are chronological milestones: v1 is the pilot JADES catalog
   \item \repo{scripts/generate\_v3\_final\_figures.py}: frozen-v3 comparison figures.\par
   \item \repo{scripts/process\_v4\_blagn.py}, \repo{src/identity.py}, and \repo{src/v4\_catalogue.py}: v4 ingestion, pairwise candidate generation, explicit reviewed decisions, aliases, and measurement/object views.\par
   \item \repo{scripts/generate\_v4\_blagn\_science.py} and \repo{src/v4\_science.py}: v4 point and uncertainty products, confidence/reliability separation, phenotype attribution, and duplicate-measurement sensitivity.\par
-  \item \repo{generate\_v4\_final\_figures.py}: corrected-v4 mass--redshift, ranking, uncertainty, source-coverage, and measurement-choice figures.\par
+  \item \repo{requirements-lock.txt}, \repo{releases/v4.0.1-manifest.json}, and \repo{scripts/verify\_v4\_release.py}: exact dependencies, frozen hashes, and write-free in-memory reproduction.\par
+  \item \repo{data/mass\_method\_registry.csv}: reviewed source/method calibrations and explicitly unavailable numeric systematics.\par
+  \item \repo{scripts/generate\_v4\_final\_figures.py}: the five corrected-v4 figures.\par
   \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
 \end{enumerate}
 
-The present test suite contains 74 passing checks. These protect implementation behavior, frozen release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
+Continuous integration installs the pinned Python 3.12 environment, runs the complete regression suite, verifies every manifest hash, rebuilds all 18 frozen v4 catalogue/science CSVs in memory at 10,000 draws with seed 20260808, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 

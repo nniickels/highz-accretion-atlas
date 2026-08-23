@@ -1,8 +1,11 @@
-# Model Menu
-(THIS IS A DRAFT)
+# Model and Sensitivity Menu
 
-## v1 Implemented Growth Equation
-The v1 science module uses the Dayal-style exponential growth equation:
+This is the current registry of implemented baseline assumptions and planned
+scenario families. A listed future scenario is not an implemented result.
+
+## Implemented Baseline Growth Equation
+The same Dayal-style exponential growth equation is used by the v1--v4 science
+workflows:
 
 `M_BH(t_obs) = M_seed * exp[f_Edd * ((1 - epsilon) / epsilon) * Delta_t / t_Edd]`
 
@@ -49,7 +52,7 @@ selects it.
 - Primordial non-Gaussianity / modified power spectrum
 
 These alternatives are future population-level sensitivity tests, not claims
-for non-standard cosmology from any single v1 object.
+for non-standard cosmology from any single catalogue object.
 
 ## Interpretation Models
 **A. MBH inference interpretations**

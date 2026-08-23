@@ -498,9 +498,7 @@ def verify_outputs(
         and mbase["required_log_mseed_p50"].lt(mplus["required_log_mseed_p50"]).all()
     )
 
-    print(f"Wrote uncertainty required-f_Edd summary: {FEDD_SUMMARY_PATH.relative_to(REPO_ROOT)}")
-    print(f"Wrote uncertainty required-seed summary: {MSEED_SUMMARY_PATH.relative_to(REPO_ROOT)}")
-    print(f"Wrote uncertainty-aware ranking table: {UNCERTAINTY_RANKING_PATH.relative_to(REPO_ROOT)}")
+    print("Verified uncertainty products in memory")
     print(f"Rows: f_Edd={len(fedd_summary)}, seed={len(mseed_summary)}, ranking={len(uncertainty_ranking)}")
     print("Sanity checks:")
     for name, passed in checks.items():
@@ -559,6 +557,10 @@ def main() -> None:
     fedd_summary.to_csv(FEDD_SUMMARY_PATH, index=False)
     mseed_summary.to_csv(MSEED_SUMMARY_PATH, index=False)
     uncertainty_ranking.to_csv(UNCERTAINTY_RANKING_PATH, index=False)
+
+    print(f"Wrote uncertainty required-f_Edd summary: {FEDD_SUMMARY_PATH.relative_to(REPO_ROOT)}")
+    print(f"Wrote uncertainty required-seed summary: {MSEED_SUMMARY_PATH.relative_to(REPO_ROOT)}")
+    print(f"Wrote uncertainty-aware ranking table: {UNCERTAINTY_RANKING_PATH.relative_to(REPO_ROOT)}")
 
     point_ranking = uncertainty_ranking.drop(columns=["rank_uncertainty_pressure"])
     verify_outputs(point_ranking, fedd_summary, mseed_summary, uncertainty_ranking)

@@ -1,16 +1,31 @@
 # Getting Started
 
 ## Requirements
-- Python 3.10 or newer
-- `numpy`
-- `pandas`
-- `matplotlib`
-- Jupyter, if you want to run `scripts/v1_evaluate.ipynb`
+
+The reproducible v4.0.1 environment is Python 3.12 with exact package versions
+in `requirements-lock.txt`. Install it with:
+
+```powershell
+python -m pip install --requirement requirements-lock.txt
+```
+
+The lock includes Jupyter for the legacy interactive v1 evaluation notebook.
+Runtime package metadata is also recorded in `pyproject.toml`.
 
 The v1 standardization pass itself only needs Python plus `numpy` and `pandas`.
 
 The project release chronology and filename rules are documented in
 `docs/release-versioning.md`.
+
+Before trusting checked-in v4 products, verify their release hashes and rebuild
+all catalogue and science CSVs in memory (no artifact is written):
+
+```powershell
+python -m scripts.verify_v4_release --reproduce
+```
+
+CI additionally runs this command with `--require-clean`, after the complete
+regression suite, to prove that verification leaves a clean checkout unchanged.
 
 ## Current v4 BLAGN Release
 

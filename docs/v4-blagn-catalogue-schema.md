@@ -43,8 +43,17 @@ changing either release default.
 The candidate search uses a 0.5 arcsec coordinate threshold and
 `delta-z <= 0.01`, checks each new source against both the prior release and
 other new sources, rejects ambiguous multi-candidate choices, and requires an
-explicit accepted/rejected registry row before linking. It is deterministic
-candidate generation followed by review, not a probabilistic cross-match model.
+explicit accepted/rejected registry row before linking. Registry rows label
+their origin as `threshold_candidate` or `manual_assertion`. A manual assertion
+may support a published alias outside the thresholds only when both measurement
+IDs are known and its review basis, reference, and date are nonblank. It is
+deterministic candidate generation followed by review, not a probabilistic
+cross-match model.
+
+New singleton IDs are checked against all inherited and already allocated IDs.
+If two unrelated papers normalize to the same readable object token, the later
+allocation receives a source namespace; a second collision is a hard error.
+Every pre-v4 physical-object ID remains unchanged.
 
 ## Canonical and source-native fields
 
@@ -77,7 +86,12 @@ two new sources. A comparison Eddington ratio may be calculated from published
 MBH and Lbol, but it remains in `edd_ratio_from_mbh_lbol`; it never populates
 `edd_ratio_std` or masquerades as a reported value.
 
-The Reines et al. (2013) Halpha single-epoch method tag is
+The reviewed source/method mapping is in `data/mass_method_registry.csv`. It
+records the exact JADES Halpha calibration (Reines & Volonteri 2015; 0.3 dex
+calibration uncertainty) and Hbeta calibration (Vestergaard & Peterson 2006;
+no numeric systematic stated in the JADES source), without changing the frozen
+generic JADES method tags. The Reines et al. (2013) Halpha single-epoch tag for
+Taylor, Matthee, and ASPIRE is
 `single-epoch-virial-halpha-reines2013`. The 0.5 dex calibration/intrinsic
 uncertainty is stored in `log_mbh_systematic_dex` and is not folded into formal
 errors.

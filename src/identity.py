@@ -38,12 +38,34 @@ def angular_separation_arcsec(
     return np.rad2deg(np.arccos(np.clip(cosine, -1.0, 1.0))) * 3600.0
 
 
-def stable_object_id(object_id: str) -> str:
-    """Create a readable stable ID for a newly introduced singleton."""
+def stable_object_id(
+    object_id: str,
+    *,
+    source_key: str | None = None,
+    reserved_ids: Iterable[str] = (),
+) -> str:
+    """Allocate a readable ID, using a source namespace on token collision.
+
+    Existing release IDs are passed as ``reserved_ids``.  This preserves the
+    historical un-namespaced form when unique and prevents two unrelated
+    source labels from silently receiving the same physical-object ID.
+    """
     token = re.sub(r"[^A-Za-z0-9]+", "-", str(object_id)).strip("-").upper()
     if not token:
         raise ValueError("Cannot create a physical-object ID from a blank object_id")
-    return f"HZA-{token}"
+    candidate = f"HZA-{token}"
+    reserved = {str(value) for value in reserved_ids}
+    if candidate not in reserved:
+        return candidate
+    if source_key is None:
+        raise ValueError(f"Physical-object ID collision for {candidate}; source_key is required")
+    source_token = re.sub(r"[^A-Za-z0-9]+", "-", str(source_key)).strip("-").upper()
+    if not source_token:
+        raise ValueError("Cannot resolve physical-object ID collision from a blank source_key")
+    namespaced = f"HZA-{source_token}-{token}"
+    if namespaced in reserved:
+        raise ValueError(f"Physical-object ID collision remains after namespacing: {namespaced}")
+    return namespaced
 
 
 def candidate_matches(
@@ -128,28 +150,55 @@ def cross_source_candidate_matches(
 def apply_reviewed_identity_overrides(
     candidates: pd.DataFrame,
     overrides: pd.DataFrame,
+    *,
+    known_measurement_ids: Iterable[str] | None = None,
 ) -> tuple[pd.DataFrame, dict[str, str]]:
-    """Require an explicit decision for every candidate and return accepted links."""
+    """Require candidate decisions and allow documented manual assertions.
+
+    ``threshold_candidate`` rows must correspond to a generated candidate.
+    ``manual_assertion`` rows may fall outside the numerical thresholds, but
+    both measurements must be known and the review metadata must be complete.
+    """
     required = {
         "measurement_id", "candidate_measurement_id", "decision", "physical_object_id",
-        "review_basis", "review_reference", "review_date",
+        "review_basis", "review_reference", "review_date", "match_origin",
     }
     if missing := required - set(overrides.columns):
         raise ValueError(f"Identity override registry missing fields: {sorted(missing)}")
     keys = ["measurement_id", "candidate_measurement_id"]
     if overrides.duplicated(keys).any():
         raise ValueError("Identity override registry contains duplicate candidate decisions")
+    origins = {"threshold_candidate", "manual_assertion"}
+    if invalid := set(overrides["match_origin"]) - origins:
+        raise ValueError(f"Invalid identity match origins: {sorted(invalid)}")
+    allowed = {"accepted", "rejected"}
+    if invalid := set(overrides["decision"]) - allowed:
+        raise ValueError(f"Invalid identity decisions: {sorted(invalid)}")
+    for column in ["review_basis", "review_reference", "review_date"]:
+        if overrides[column].isna().any() or overrides[column].astype(str).str.strip().eq("").any():
+            raise ValueError(f"Identity override registry requires nonblank {column}")
     candidate_keys = set(map(tuple, candidates[keys].astype(str).to_numpy()))
-    override_keys = set(map(tuple, overrides[keys].astype(str).to_numpy()))
-    if unexpected := override_keys - candidate_keys:
-        raise ValueError(f"Identity registry contains non-candidate pairs: {sorted(unexpected)}")
-    reviewed = candidates.merge(overrides, on=keys, how="left", validate="one_to_one")
+    threshold_overrides = overrides[overrides["match_origin"].eq("threshold_candidate")]
+    threshold_keys = set(map(tuple, threshold_overrides[keys].astype(str).to_numpy()))
+    if unexpected := threshold_keys - candidate_keys:
+        raise ValueError(f"Identity registry contains stale threshold-candidate pairs: {sorted(unexpected)}")
+    manual = overrides[overrides["match_origin"].eq("manual_assertion")]
+    if not manual.empty:
+        if known_measurement_ids is None:
+            raise ValueError("Manual identity assertions require known_measurement_ids")
+        known = {str(value) for value in known_measurement_ids}
+        asserted = set(manual["measurement_id"].astype(str)) | set(manual["candidate_measurement_id"].astype(str))
+        if unknown := asserted - known:
+            raise ValueError(f"Manual identity assertions contain unknown measurements: {sorted(unknown)}")
+    reviewed = candidates.merge(threshold_overrides, on=keys, how="left", validate="one_to_one")
     if reviewed["decision"].isna().any():
         missing_pairs = reviewed.loc[reviewed["decision"].isna(), keys].to_dict("records")
         raise ValueError(f"Unreviewed identity candidates: {missing_pairs}")
-    allowed = {"accepted", "rejected"}
-    if invalid := set(reviewed["decision"]) - allowed:
-        raise ValueError(f"Invalid identity decisions: {sorted(invalid)}")
+    manual_reviewed = manual.copy()
+    for column in CANDIDATE_COLUMNS:
+        if column not in manual_reviewed:
+            manual_reviewed[column] = np.nan
+    reviewed = pd.concat([reviewed, manual_reviewed.reindex(columns=reviewed.columns)], ignore_index=True)
     accepted = reviewed[reviewed["decision"].eq("accepted")]
     if accepted["physical_object_id"].isna().any():
         raise ValueError("Accepted identity candidates require physical_object_id")

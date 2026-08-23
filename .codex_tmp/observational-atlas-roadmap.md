@@ -41,6 +41,9 @@ Completed so far:
   reliability; reviewed identity overrides and pairwise new-source matching are explicit.
 - Both multiply measured objects have one-at-a-time alternate-measurement
   sensitivity results, and five v4 final-style figures are complete.
+- v4.0.1 maintenance infrastructure is complete: pinned Python dependencies,
+  CI, a hash manifest, in-memory clean-checkout reproduction, collision-safe
+  ID allocation, manual identity assertions, and a source/method mass registry.
 
 Primary project path from here:
 1. Maintain and extend the v2/v3/v4 ranking metrics.
@@ -99,6 +102,8 @@ Primary project path from here:
    - Measurement- and physical-object-level point and uncertainty rankings. **Generalized in v4 on 2026-08-22.**
    - Explicit reviewed-decision registry and pairwise matching among new sources. **Completed in corrected v4.**
    - One-at-a-time alternate-measurement sensitivity. **Completed for both v4 duplicate objects.**
+   - Collision-safe future ID allocation and reviewed out-of-threshold manual
+     assertions. **Completed in v4.0.1 without changing existing IDs.**
 
 7. Expand to additional high-z accreting-BH candidate classes.
    - Lensed high-z AGN candidates.

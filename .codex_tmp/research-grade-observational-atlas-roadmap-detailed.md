@@ -34,8 +34,11 @@ Careful claim posture:
 - v4 now has five release-specific figures, separate detection-confidence and
   mass-reliability semantics, explicit identity decisions, and sensitivity for
   both multiply measured objects.
+- v4.0.1 completes the maintenance gate with pinned dependencies, CI, release
+  hashes, write-free reproduction, collision-safe ID allocation, reviewed
+  manual identity assertions, and source-specific virial-method metadata.
 - The immediate next task is final-manuscript consolidation and claim/citation
-  audit; the next catalogue ingestion should begin only after corrected v4 is frozen.
+  audit; the next catalogue ingestion should begin only after v4.0.1 is frozen.
 - The phase descriptions and prompt sequence below preserve project history;
   they are not all outstanding tasks.
 

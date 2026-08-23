@@ -14,7 +14,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.process_v4_blagn import build_outputs
-from src.identity import apply_reviewed_identity_overrides, candidate_matches, cross_source_candidate_matches
+from src.identity import (
+    apply_reviewed_identity_overrides, candidate_matches, cross_source_candidate_matches,
+    stable_object_id,
+)
 from src.v4_catalogue import ASPIRE_SOURCE_KEY, MASS_METHOD, MATTHEE_SOURCE_KEY, validate_source_raw
 
 
@@ -137,10 +140,39 @@ class V4CatalogueTests(unittest.TestCase):
         ])
         empty_registry = pd.DataFrame(columns=[
             "measurement_id", "candidate_measurement_id", "decision", "physical_object_id",
-            "review_basis", "review_reference", "review_date",
+            "review_basis", "review_reference", "review_date", "match_origin",
         ])
         with self.assertRaisesRegex(ValueError, "Unreviewed identity candidates"):
             apply_reviewed_identity_overrides(candidates, empty_registry)
+
+    def test_stable_id_collision_is_namespaced_or_rejected(self) -> None:
+        self.assertEqual(stable_object_id("same label"), "HZA-SAME-LABEL")
+        self.assertEqual(
+            stable_object_id("same label", source_key="paper_b", reserved_ids={"HZA-SAME-LABEL"}),
+            "HZA-PAPER-B-SAME-LABEL",
+        )
+        with self.assertRaisesRegex(ValueError, "source_key is required"):
+            stable_object_id("same label", reserved_ids={"HZA-SAME-LABEL"})
+
+    def test_documented_manual_assertion_can_fall_outside_thresholds(self) -> None:
+        candidates = pd.DataFrame(columns=[
+            "measurement_id", "candidate_measurement_id", "candidate_object_id",
+            "candidate_physical_object_id", "separation_arcsec", "redshift_delta",
+            "match_scope", "candidate_source_key",
+        ])
+        registry = pd.DataFrame([{
+            "measurement_id": "new", "candidate_measurement_id": "old",
+            "decision": "accepted", "physical_object_id": "HZA-OLD",
+            "review_basis": "published alias and imaging review",
+            "review_reference": "source appendix", "review_date": "2026-08-23",
+            "match_origin": "manual_assertion",
+        }])
+        reviewed, accepted = apply_reviewed_identity_overrides(
+            candidates, registry, known_measurement_ids={"new", "old"},
+        )
+        self.assertEqual(len(reviewed), 1)
+        self.assertEqual(accepted, {"new": "HZA-OLD", "old": "HZA-OLD"})
+
 
 
 if __name__ == "__main__":
