@@ -73,3 +73,21 @@ Detailed extraction and caveat notes are in
   red/compact descriptions remain separate phenotypes.
   Five measurements crossmatch existing CEERS physical objects and five are
   new. See `docs/harikane23-nirspec-extraction-notes.md`.
+
+## v6 THRILS Same-Class Consolidation
+
+- **[source_key: davis26_thrils_blagn] Davis et al. (2026), submitted to
+  ApJ:** seven deep-G395M broad-Halpha measurements at `z=3.52--6.57`,
+  extracted from Appendix Table 5 of arXiv `2602.23310v1`. Six pass the project
+  `z >= 4` cut. Selection requires a broad component above 3 sigma and implied
+  FWHM above 1000 km/s. MBH uses the Reines & Volonteri (2015) Halpha
+  single-epoch calibration; the approximately `0.5 dex` recipe scatter is
+  stored separately from formal posterior errors. Table 5 does not publish
+  row-level LRD, Mstar, Lbol, or Eddington-ratio values, so none is inferred.
+  Coordinates are exact THRILS-ID joins from Hutchison et al. programme Table 3,
+  arXiv `2512.12509v1`, with independent provenance. The Davis and Hutchison
+  source-archive SHA-256 values are respectively
+  `13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b`
+  and `584a56f5867e816c6220ea52f55fc0411f2fc745544ecccfb6ea4ad42c445fdc`.
+  The only known Taylor repeat is below `z=4`; all six retained rows are new
+  v6 objects. See `docs/davis26-thrils-extraction-notes.md`.

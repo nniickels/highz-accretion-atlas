@@ -723,7 +723,8 @@ Codex prompt:
 - Earlier CEERS/JADES discovery papers:
   - status: possible future measurement-version layers after cross-matching.
 - THRILS:
-  - status: preferred next same-class v6 BLAGN source.
+  - status: completed in v6 from Davis Appendix Table 5; six retained
+    measurements add six physical objects.
 - ALPINE-CRISTAL-JWST:
   - status: deferred to heterogeneous v7 after applying the multi-class contract.
 - Jones et al. and Baccus and Xu:
@@ -848,16 +849,16 @@ task queue. Use the immediate-next-task section below for new work.
 11. "Recompute the atlas rankings and compare the v2 v1-catalogue analysis with the v3 expanded BLAGN rankings."
 12. "Plan the first non-BLAGN object class expansion with caveat tags."
 
-## Immediate Next Best Task after v5
+## Immediate Next Best Task after v6
 
 The v3 figure task, v5 Harikane expansion, evidence/eligibility gate,
 exact-membership reproducibility manifest, paper-facing ranking comparison,
 first accretion-history diagnostics, multi-class contract, citation audit, and
-v5 figure selection are complete. The next best concrete task is a read-only
-latest-primary-table and overlap audit for THRILS. A v6 ingestion plan follows
-only if that audit finds a reliable authoritative object-level table; missing
-values must not be reconstructed. No heterogeneous source should enter before
-the v7 gate is applied.
+v5 figure selection and the v6 THRILS same-class consolidation are complete.
+The next best concrete task is a read-only v7 source-admission audit using the
+multi-class eligibility and mass-comparability contract. No heterogeneous
+source should enter until its evidence, mass comparability, selection function,
+identity overlaps, and missingness policy pass that gate.
 
 Historical v3 figure brief:
 
@@ -869,6 +870,5 @@ Historical v3 figure brief:
 - Keep the v2 figure artifacts frozen as the reproducible pre-expansion record.
 
 The historical v4 comparison brief is satisfied by the v5 paper-facing tables
-and figures. The next task is a read-only THRILS source-table audit; v6
-implementation remains conditional on that audit while all completed v1--v5
-artifacts stay preserved.
+and figures. THRILS ingestion and v6 science are complete while all v1--v5
+artifacts remain preserved. The next phase is the read-only v7 admission audit.

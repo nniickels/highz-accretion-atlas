@@ -42,6 +42,10 @@ Completed so far:
 - v5 paper consolidation is complete: exact manifest membership, caveat-aware
   accretion-history comparisons, a primary/full ranking table, four current
   figures, and primary-source citation/claim audits.
+- v6 final same-class consolidation is complete: the authoritative seven-row
+  Davis/THRILS Appendix Table 5 is preserved, six `z >= 4` rows add six physical
+  objects, and the 112-measurement / 105-object workflow has its own manifest,
+  rankings, uncertainty products, and THRILS-specific virial sensitivity.
 - One new cross-paper identity is verified: GOODS-S-13971 = GS-204851. Prior
   release preferences remain stable while every measurement is preserved.
 - v4 confidence semantics separate broad-line detection from mass/line-model
@@ -98,8 +102,8 @@ Primary project path from here:
    - Add the z >= 4 subset of the current 62-object Taylor CEERS/RUBIES BLAGN catalogue first. **Completed 2026-08-17.**
    - Add Matthee EIGER/FRESCO and Lin ASPIRE as complementary NIRCam WFSS selections. **Completed in v4 on 2026-08-22.**
    - Add Harikane and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching. **Harikane completed in v5 on 2026-08-23.**
-   - Audit THRILS as the preferred final same-class BLAGN source for v6; ingest
-     it only if an authoritative object-level table is available and complete.
+   - Add THRILS as the final same-class BLAGN source for v6. **Completed
+     2026-08-25 from the authoritative seven-row Appendix Table 5.**
    - Defer evidence-graded ALPINE-CRISTAL candidates to the first heterogeneous
      v7 release, after applying the multi-class eligibility contract.
    - Defer large overlapping compilations such as Baccus and Xu until physical-object IDs work.

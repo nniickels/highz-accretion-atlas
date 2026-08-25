@@ -64,4 +64,5 @@ with the published statistical uncertainty or used in growth rankings.
 
 The taxonomy is scaffolding, not permission to pool future X-ray, narrow-line,
 photometric, lensed, or disputed candidates. Those additions require
-class-specific evidence and mass-method rules and should begin in v6.
+class-specific evidence and mass-method rules and should begin in v7. v6 is
+reserved for the final same-class BLAGN consolidation.

@@ -81,10 +81,9 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue and science release is **v5**. It adds
-Harikane et al. (2023) as a same-class measurement-version layer and introduces
-orthogonal taxonomy fields without pooling heterogeneous object classes. v4
-remains the frozen Matthee/ASPIRE comparison and figure release:
+paper versions. The current catalogue and science release is **v6**. It completes
+the planned same-class BLAGN foundation with the Davis/THRILS deep-spectroscopy
+sample, while retaining v5 as the current deliberate figure release:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
@@ -93,17 +92,20 @@ remains the frozen Matthee/ASPIRE comparison and figure release:
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue and measurement/object science workflow | `v3_blagn_*` |
 | v4 | Generalized identity, Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | `v4_blagn_*`, `v4_main_text_*` |
 | v5 | Harikane NIRSpec BLAGN measurement layer, class-aware taxonomy, and two-state accretion-history diagnostics | `v5_blagn_*` |
+| v6 | Davis/THRILS same-class BLAGN consolidation and source-specific virial sensitivity | `v6_blagn_*` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
-The shared pinned v4.0.1/v5 environment is in `requirements-lock.txt`; verify
+The shared pinned v4.0.1/v5/v6 environment is in `requirements-lock.txt`; verify
 every frozen v4 CSV without writing outputs with
-`python -m scripts.verify_v4_release --reproduce`. The current v5 catalogue and
+`python -m scripts.verify_v4_release --reproduce`. The frozen v5 catalogue and
 science tables have an equivalent non-writing gate:
 `python -m scripts.verify_v5_release --reproduce`.
+The current v6 catalogue and science tables add the corresponding gate:
+`python -m scripts.verify_v6_release --reproduce`.
 
-Both gates verify exact artifact membership and checked-in bytes against
+All three gates verify exact artifact membership and checked-in bytes against
 SHA-256 manifests.
 Independent reconstruction is then compared with exact schema, row order,
 text, booleans, and missingness plus a tight floating-point tolerance, avoiding
@@ -205,15 +207,12 @@ growth tracks while leaving v1--v4 products unchanged.
 
 ### v6: Final Same-Class BLAGN Consolidation
 
-Finish the comparable broad-line foundation before widening the atlas.
-
-1. Audit THRILS as the preferred next BLAGN source and ingest it only if its
-   latest primary version provides a reliable authoritative object-level table;
-   otherwise record the source as blocked rather than reconstructing values.
-2. Attach earlier CEERS/JADES discovery measurements where they add genuinely
-   distinct fits or observables.
-3. Preserve all v5 artifacts and default-measurement continuity.
-4. Re-run class-homogeneous rankings and measurement-choice sensitivity.
+This completed release adds the full seven-row Davis/THRILS Appendix Table 5,
+retains the one `z<4` repeat in raw storage, and adds six new `z>=4` physical
+objects. The combined release has 112 measurements / 105 objects. It preserves
+all v5 defaults and artifacts, adds a separately labelled THRILS `+/-0.5 dex`
+virial-calibration sensitivity, and leaves unreported LRD, host, luminosity,
+Eddington-ratio, and FWHM values blank.
 
 ### v7: Multi-Class High-z Accreting BH Atlas
 
@@ -241,41 +240,39 @@ For each class:
 Requirements and full run instructions are documented in
 `docs/getting-started.md`.
 
-Minimal current-v5 reproduction path from the repository root, using the frozen
-v4 measurement catalogue as input:
+Minimal current-v6 reproduction path from the repository root, using the frozen
+v5 measurement catalogue as input:
 
 ```powershell
-python -m scripts.process_v5_blagn
-python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
-python -m scripts.generate_v5_final_figures
-python -m scripts.verify_v5_release --reproduce
-python -m scripts.verify_v5_figures
+python -m scripts.process_v6_blagn
+python -m scripts.generate_v6_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.verify_v6_release --reproduce
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
 Expected current products include:
 
-- `data/processed/v5_blagn_measurements.csv` (106 measurements)
-- `data/processed/v5_blagn_objects.csv` (99 physical objects)
-- `data/crossmatch/v5_measurement_object_links.csv`
-- measurement- and object-level `results/v5_blagn_*.csv` products
-- 318-row measurement and 297-row physical-object accretion-history tables
-- a 99-row paper-facing full-versus-primary ranking comparison
+- `data/processed/v6_blagn_measurements.csv` (112 measurements)
+- `data/processed/v6_blagn_objects.csv` (105 physical objects)
+- `data/crossmatch/v6_measurement_object_links.csv`
+- measurement- and object-level `results/v6_blagn_*.csv` products
+- 336-row measurement and 315-row physical-object accretion-history tables
+- a 105-row full-versus-primary ranking comparison
 - four deliberate v5 paper figures under `results/v5_main_text_figures/`
 
-The v5 ranking and uncertainty products use the documented baseline
+The v6 ranking and uncertainty products use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column
 says otherwise. Outputs are observational triage products under stated
 assumptions; they do not prove a single seed or accretion channel. Candidate
 interpretations remain in the complete diagnostic tables, while
 separate primary-rank columns contain only secure/probable evidence statuses.
 Object-level LRD summaries preserve an explicit not-reported state. Full
-from-raw reproduction instructions for v1--v5 and the frozen earlier figure
+from-raw reproduction instructions for v1--v6 and the frozen earlier figure
 sets are in `docs/getting-started.md`.
 
 The Python package version follows the current implemented project science
-release (`5.0.0`). It is distinct from immutable source-paper versions,
-catalogue labels such as `v5-blagn`, and maintenance anchors such as v4.0.1.
+release (`6.0.0`). It is distinct from immutable source-paper versions,
+catalogue labels such as `v6-blagn`, and maintenance anchors such as v4.0.1.
 
 ## References
 Sources of data documented in `data/sources.md`

@@ -789,3 +789,26 @@ For every future Codex contribution that changes repository files:
   pages were visually inspected without clipping or layout defects. PDF
   structure, `git diff --check`, and local documentation-link checks passed.
 - **Status:** Complete and verified locally; changes are uncommitted.
+
+## 2026-08-25 — v6 Davis/THRILS same-class consolidation
+
+- **Objective:** Complete the final same-class BLAGN source gate and release
+  without modifying any v1--v5 artifact.
+- **Contribution:** Verified Davis et al. arXiv `2602.23310v1` Appendix Table 5
+  as a complete seven-row source; joined primary-source coordinates by THRILS
+  ID from Hutchison et al. arXiv `2512.12509v1`; retained the below-cut Taylor
+  repeat in raw history; added six new `z >= 4` objects; generated separate v6
+  catalogue, identity, evaluation, ranking, uncertainty, summary, and
+  accretion-history products; added a separate THRILS `+/-0.5 dex` sensitivity;
+  and added exact release-manifest/reproduction coverage.
+- **Scientific/technical effect:** v6 contains 112 measurements / 105 physical
+  objects and 111/104 primary-ranked rows. Unpublished LRD, host, luminosity,
+  Eddington-ratio, absorption, and FWHM values remain missing. The source's
+  approximately 0.5 dex virial scatter remains separate from formal errors.
+  No v6 figures were generated and all earlier release defaults remain fixed.
+- **Validation:** All 127 regression tests pass. Exact v4.0.1, v5, and v6
+  manifest membership/hashes and full in-memory reproduction pass; canonical
+  v5 figure hashes pass. The 15-page status PDF was rebuilt without TeX layout
+  warnings, rendered page-by-page, and visually inspected without clipping or
+  overlap. `git diff --check` passes.
+- **Status:** Complete and verified locally; changes are uncommitted.

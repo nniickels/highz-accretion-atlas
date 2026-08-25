@@ -34,7 +34,7 @@
 \newcommand{\repo}[1]{{\footnotesize\texttt{#1}}}
 
 \title{\textbf{The High-Redshift Accretion Atlas}\\
-\large Project Status Through v5}
+\large Project Status Through v6}
 \author{Project status manuscript}
 \date{25 August 2026}
 
@@ -42,7 +42,7 @@
 \maketitle
 
 \begin{abstract}
-JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; v4 added 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements; and v5 adds all ten Harikane et al.\ NIRSpec measurements. The current release has 106 measurements representing 99 physical objects, including five verified Harikane overlaps and five new objects; its primary evidence-supported ranks contain 105 measurements and 98 objects. It preserves reported asymmetric statistical errors, leaves the unstated Harikane virial systematic unavailable, and adds orthogonal evidence, type, selection, phenotype, lensing, and ranking-eligibility fields without pooling heterogeneous classes. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. A v5 science extension also evaluates effective two-state histories with burst $\fedd=1,2,3$, retaining reported current Eddington ratios as distinct instantaneous observables. Current paper figures, claim/citation audits, and a multi-class eligibility contract are complete. The next catalogue task is a latest-primary THRILS table audit; same-class v6 ingestion is conditional on an authoritative object-level table, and heterogeneous ingestion begins only in v7.
+JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; v4 added 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements; v5 added all ten Harikane et al.\ NIRSpec measurements; and v6 adds six $z\geq4$ Davis/THRILS measurements from a complete seven-row source table. The current release has 112 measurements representing 105 physical objects, with primary evidence-supported ranks containing 111 measurements and 104 objects. It preserves reported statistical errors, keeps source-specific virial systematics separate, and leaves unpublished THRILS host, luminosity, Eddington-ratio, LRD, and line-width fields missing. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. The inherited v5 two-state histories retain current Eddington ratios as distinct instantaneous observables. The final same-class BLAGN foundation, claim/citation audits, and multi-class eligibility contract are complete; the next catalogue phase is a read-only v7 heterogeneous-source admission audit.
 \end{abstract}
 
 \section{Scientific objective}
@@ -57,7 +57,7 @@ The motivating question is simple: \emph{how can the reported black holes become
 
 The working thesis is that a standardized, provenance-aware atlas can identify a robust set of high-leverage objects for follow-up and detailed seed/accretion modeling. Formation scenarios are therefore treated as diagnostic coordinate systems, not as proof of a unique formation pathway.
 
-\section{Chronological development through v5}
+\section{Chronological development through v6}
 
 \subsection{Stage 1: a controlled observational sample}
 
@@ -79,36 +79,39 @@ Taylor Table 1 measurements (all redshifts) & 63 \\
 Taylor measurements / objects at $z\geq4$ & 37 / 36 \\
 v3 measurements / physical objects at $z\geq4$ & 60 / 59 \\
 Matthee / ASPIRE source measurements & 20 / 16 \\
-v5 measurements / physical objects at $z\geq4$ & 106 / 99 \\
-v5 primary measurements / physical objects & 105 / 98 \\
-v5 evaluation rows (measurement / object) & 464 / 439 \\
-v5 required-$\fedd$ rows (measurement / object) & 1,392 / 1,317 \\
-v5 required-seed rows (measurement / object) & 928 / 878 \\
-v5 duty-cycle rows (measurement / object) & 318 / 297 \\
+v6 measurements / physical objects at $z\geq4$ & 112 / 105 \\
+v6 primary measurements / physical objects & 111 / 104 \\
+v6 evaluation rows (measurement / object) & 494 / 469 \\
+v6 required-$\fedd$ rows (measurement / object) & 1,482 / 1,407 \\
+v6 required-seed rows (measurement / object) & 988 / 938 \\
+v6 duty-cycle rows (measurement / object) & 336 / 315 \\
 Per-object spin/merger parameter maps & 138 \\
 Per-object seed-redshift maps & 23 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The present v5 source composition is:
+The present v6 source composition is:
 \begin{table}[ht]
 \centering
 \caption{Measurement rows and preferred object-level rows by literature source.}
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lrrl@{}}
 \toprule
-Source selection & Measurements & Preferred objects & Main contribution \\
+Source & Measurements & Objects & Main contribution \\
 \midrule
 JADES & 23 & 23 & pilot sample and highest-redshift ceiling \\
 Taylor CEERS/RUBIES & 37 & 36 & first cross-paper measurement version \\
 Matthee EIGER/FRESCO & 20 & 19 & WFSS sample and one JADES overlap \\
 Lin ASPIRE & 16 & 16 & compact-red WFSS selection \\
 Harikane NIRSpec & 10 & 5 & five new objects plus five remeasurements \\
+Davis/THRILS & 6 & 6 & deep-spectroscopy BLAGN \\
 \midrule
-Total & 106 & 99 & current v5 atlas \\
+Total & 112 & 105 & current v6 atlas \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \subsection{Stage 2: a reproducible physical model}
@@ -181,6 +184,12 @@ v5 ingests all ten final-sample Type 1 broad-H$\alpha$ measurements from Harikan
 
 Harikane masses use the Greene \& Ho (2005) H$\alpha$ single-epoch relation applied to extinction-corrected broad-H$\alpha$ luminosity. The paper supplies asymmetric statistical errors but no numeric virial-calibration systematic, so v5 propagates the reported errors and applies only the common $\pm0.3$ dex comparison scenarios to these rows. The source-specific Taylor, Matthee, and ASPIRE $\pm0.5$ dex sensitivities remain separate. Orthogonal taxonomy fields now distinguish evidence strength, spectroscopic type, selection channel, phenotype, lensing status, and growth-ranking eligibility while every current row remains a broad-line AGN.
 
+\subsection{Stage 8 (v6): Davis/THRILS final same-class consolidation}
+
+The v6 source gate verified the complete seven-row broad-H$\alpha$ Appendix Table 5 of Davis et al.\ (2026)~\cite{davis2026}. Processing retains six rows at $z\geq4$; the sole below-cut THRILS row is a known Taylor repeat and remains in immutable raw history. Coordinates and more precise programme redshifts are joined exactly by THRILS ID from the primary THRILS programme catalogue~\cite{hutchison2025}. None of the six retained rows matches a v5 object within the fixed coordinate/redshift thresholds, so v6 contains 112 measurements and 105 physical objects.
+
+Davis masses use the Reines \& Volonteri (2015) H$\alpha$ single-epoch relation. Formal posterior errors remain statistical, while the source's approximately 0.5 dex recipe scatter is represented only by separately labelled sensitivity scenarios. Table 5 does not publish row-level LRD, host mass, bolometric luminosity, or Eddington ratio, and only THRILS 40467 has a source-text FWHM; missing values are not reconstructed. The highest-pressure new object is THRILS 25501 at point primary rank 23 and uncertainty primary rank 36, so the established leading objects remain unchanged. This extends coverage without supporting a pooled demographic claim.
+
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v2_main_text_figures/v2_main_text_uncertainty_forest.png}
@@ -191,7 +200,7 @@ Harikane masses use the Greene \& Ho (2005) H$\alpha$ single-epoch relation appl
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.94\textwidth]{../results/v5_main_text_figures/v5_main_text_mbh_redshift_growth_overview.png}
-\caption{Current v5 physical-object mass--redshift coverage, stratified across the five preferred-measurement source selections. The open marker identifies the retained alternative-interpretation candidate excluded from the primary rank. Reference tracks use the repository baseline and are diagnostic rather than fitted histories.}
+\caption{Latest deliberate rendered overview (v5), stratified across five preferred-measurement source selections. v6 adds six THRILS objects in tables but does not silently regenerate this figure. The open marker identifies the retained alternative-interpretation candidate excluded from the primary rank.}
 \label{fig:v4overview}
 \end{figure}
 
@@ -201,7 +210,7 @@ The v2 v1-catalogue analysis identifies a stable high-leverage group, but the un
 
 \begin{table}[ht]
 \centering
-\caption{Primary evidence-supported v5 physical-object growth-pressure leaders under the baseline reference. The complete diagnostic ordering is retained separately and is exploratory.}
+\caption{Primary evidence-supported v6 physical-object growth-pressure leaders under the baseline reference. The leading five are unchanged from v5; the complete diagnostic ordering is retained separately and is exploratory.}
 \label{tab:v5leaders}
 \small
 \begin{tabular}{@{}lclrr@{}}
@@ -217,7 +226,7 @@ Primary rank & Object & Preferred source & $f_{\rm Edd,req}^{100}$ & $\log M_{\r
 \end{tabular}
 \end{table}
 
-The complete 99-object diagnostic ordering is deliberately exploratory: its first three entries are GN-38509, GS-20057765, and RUBIES-EGS-49140, but the last object is an alternative-interpretation candidate and therefore has no primary rank. In the 98-object primary uncertainty ordering, GN-38509 and GS-20057765 remain first and second, GOODS-N-9771 is third, CEERS-00717 is fourth, and GS-20030333 is fifth. Point and uncertainty rank answer related but distinct questions; neither is a population-frequency statement.
+The complete 105-object diagnostic ordering is deliberately exploratory: its first three entries are GN-38509, GS-20057765, and RUBIES-EGS-49140, but the last object is an alternative-interpretation candidate and therefore has no primary rank. In the 104-object primary uncertainty ordering, GN-38509 and GS-20057765 remain first and second, GOODS-N-9771 is third, CEERS-00717 is fourth, and GS-20030333 is fifth. The highest THRILS object, THRILS 25501, enters point primary rank 23 and uncertainty primary rank 36. Point and uncertainty rank answer related but distinct questions; neither is a population-frequency statement.
 
 \begin{table}[ht]
 \centering
@@ -267,7 +276,7 @@ The corrected v4 point ranking kept GN-38509 first, GS-20057765 second, and RUBI
 
 \section{Release map and reproducibility}
 
-The project versions are chronological milestones: v1 is the pilot JADES catalogue and baseline evaluation, v2 is ranking/uncertainty/figure analysis on that frozen catalogue, v3 is the combined JADES + Taylor catalogue, v4 generalizes identity while adding Matthee and ASPIRE, and v5 adds Harikane measurement versions plus taxonomy scaffolding. Source-paper versions, including arXiv suffixes, are independent provenance metadata. The canonical dependency map is:
+The project versions are chronological milestones: v1 is the pilot JADES catalogue and baseline evaluation, v2 is ranking/uncertainty/figure analysis on that frozen catalogue, v3 is the combined JADES + Taylor catalogue, v4 generalizes identity while adding Matthee and ASPIRE, v5 adds Harikane measurement versions plus taxonomy scaffolding, and v6 completes the same-class foundation with Davis/THRILS. Source-paper versions, including arXiv suffixes, are independent provenance metadata. The canonical dependency map is:
 
 \begin{enumerate}
   \item \repo{data/sources.md} and \repo{data/raw/v1\_raw.csv}: source provenance and extracted measurements.\par
@@ -289,17 +298,19 @@ The project versions are chronological milestones: v1 is the pilot JADES catalog
   \item \repo{scripts/process\_v5\_blagn.py}, \repo{src/v5\_catalogue.py}, and \repo{src/object\_taxonomy.py}: Harikane ingestion, reviewed identity linkage, and orthogonal taxonomy.\par
   \item \repo{scripts/generate\_v5\_blagn\_science.py} and \repo{src/v5\_science.py}: v5 evaluation, full/primary rankings, uncertainty, summaries, measurement sensitivity, and duty-cycle diagnostics.\par
   \item \repo{scripts/generate\_v5\_final\_figures.py}: the current three main-text and one appendix v5 paper figures.\par
-  \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*}/\repo{test\_v5\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
+  \item \repo{scripts/process\_v6\_blagn.py} and \repo{src/v6\_catalogue.py}: THRILS ingestion and identity.\par
+  \item \repo{scripts/generate\_v6\_blagn\_science.py} and \repo{src/v6\_science.py}: v6 evaluation and rankings.\par
+  \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*}/\repo{test\_v5\_*}/\repo{test\_v6\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
 \end{enumerate}
 
-Continuous integration installs the pinned Python 3.12 environment, runs the complete regression suite, verifies exact manifest membership and every manifest hash, rebuilds all frozen v4 products and all 21 current v5 catalogue/science CSVs in memory at 10,000 draws with seed 20260808, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
+Continuous integration installs the pinned Python 3.12 environment, runs the complete regression suite, verifies exact manifest membership and every manifest hash, rebuilds the frozen v4 and v5 releases and all 21 current v6 catalogue/science CSVs in memory at 10,000 draws with seed 20260808, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 
 The present atlas remains a selected-sample triage framework, and its conclusions should be read within these boundaries:
 
 \begin{itemize}
-  \item v5 contains JADES, CEERS/RUBIES, EIGER/FRESCO, ASPIRE, and Harikane NIRSpec selections, not a single complete population sample, so pooled rows cannot support demographic inference;\par
+  \item v6 contains JADES, CEERS/RUBIES, EIGER/FRESCO, ASPIRE, Harikane NIRSpec, and THRILS selections, not a single complete population sample, so pooled rows cannot support demographic inference;\par
   \item the two-state duty-cycle layer is an effective time-weighted sensitivity with fixed efficiency and burst states, not a stochastic, feedback-regulated, or time-resolved accretion history;\par
   \item the equal-side two-piece mass model approximates reported asymmetric uncertainties but is neither a normalized split-normal distribution nor a reconstruction of each source's full posterior;\par
   \item the $\pm0.3$ dex cases are transparent comparison tests and the Taylor/Matthee/ASPIRE $\pm0.5$ dex cases are calibration sensitivities, not reconstructed systematic posteriors;\par
@@ -315,14 +326,14 @@ These limitations motivate the next development stages rather than invalidating 
 
 The next work should proceed in the following order.
 
-\subsection*{1. Prepare the v6 same-class source audit}
-Verify the latest THRILS primary tables, source measurements, uncertainty conventions, and overlaps before implementation. Earlier CEERS/JADES discovery measurements should be attached only when they add distinct fits or observables.
+\subsection*{1. Audit the first heterogeneous v7 source}
+Apply the completed eligibility and mass-comparability contract in a read-only source gate. Verify primary tables, evidence status, mass inference, selection function, missingness, and identity overlaps before implementation.
 
-\subsection*{2. Preserve the completed manuscript and class gates}
-The v5 figure inventory, claim audit, primary-source citation audit, and multi-class eligibility/mass-comparability contract are now explicit repository documents. Keep them synchronized as v6 is added without reopening frozen v1--v5 artifacts.
+\subsection*{2. Preserve the completed manuscript and release gates}
+The v5 figure inventory, claim audit, primary-source citation audit, v6 release manifest, and multi-class eligibility/mass-comparability contract are explicit repository documents. Keep them synchronized without reopening frozen v1--v6 artifacts.
 
 \subsection*{3. Begin heterogeneous classes only in v7}
-After v6, extend the atlas to narrow-line, X-ray, photometric, lensed, high-ionization-line, and luminous-quasar evidence strata under the completed contract. LRD remains a phenotype and lensing remains a property, not standalone object classes.
+Extend the atlas to narrow-line, X-ray, photometric, lensed, high-ionization-line, and luminous-quasar evidence strata only after source admission under the completed contract. LRD remains a phenotype and lensing remains a property, not standalone object classes.
 
 \subsection*{4. Improve the uncertainty model}
 Propagate host-mass and lensing uncertainties where available, add method-specific black-hole-mass systematic scenarios, and use fuller posterior information when a source provides it. The output should continue to emphasize intervals and threshold probabilities rather than categorical point-estimate labels.
@@ -343,7 +354,7 @@ Produce a follow-up matrix specifying whether each object's interpretation is mo
 \clearpage
 \section{Conclusion}
 
-The completed v1--v5 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, class-aware scaffolding, effective two-state duty-cycle diagnostics, release-specific visualization, and automated regression checks. v5 adds five new objects and five independent measurements of existing CEERS objects while preserving every literature row and preventing double-counting. The full 106/99 ordering remains an exploratory diagnostic, while primary rank claims use the 105/98 evidence-supported population. This is not evidence that one formation pathway is required. The citation/figure audit and class contract are complete. The next catalogue task is a read-only latest-primary THRILS table audit; same-class v6 ingestion is conditional on a reliable authoritative object-level table, and heterogeneous classes begin only in v7.
+The completed v1--v6 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, class-aware scaffolding, effective two-state duty-cycle diagnostics, release-specific visualization, and automated regression checks. v6 adds six new THRILS objects while preserving every v1--v5 artifact and default. The full 112/105 ordering remains an exploratory diagnostic, while primary rank claims use the 111/104 evidence-supported population. No THRILS object displaces the established leading primary objects. This is not evidence that one formation pathway is required. The citation/figure audit and class contract are complete; heterogeneous v7 work begins only after a source passes the admission gate.
 
 \begin{thebibliography}{9}
 \bibitem{dayal2024}
@@ -363,6 +374,12 @@ Lin, X. et al. 2024, ``ASPIRE: Broad-line AGN at $z=4$--5 revealed by JWST/NIRCa
 
 \bibitem{harikane2023}
 Harikane, Y. et al. 2023, ``A JWST/NIRSpec First Census of Broad-Line AGNs at $z=4$--7: Detection of 10 Faint AGNs with $M_{\rm BH}\sim10^6$--$10^8\,M_\odot$ and Their Host Galaxy Properties,'' \emph{ApJ}, 959, 39, doi:10.3847/1538-4357/ad029e.
+
+\bibitem{davis2026}
+Davis, K. et al. 2026, ``Extreme Emission Line Galaxies in CEERS Are Powered by Star Formation, not AGN,'' arXiv:2602.23310v1, submitted to \emph{ApJ}.
+
+\bibitem{hutchison2025}
+Hutchison, T. A. et al. 2025, ``THRILS -- The High-(Redshift+Ionization) Line Search: Program Description \& Redshift Catalog,'' arXiv:2512.12509v1.
 \end{thebibliography}
 
 \end{document}

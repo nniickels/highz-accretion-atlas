@@ -24,10 +24,14 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v4_release --reproduce --require-clean
-      - name: Verify current v5 release from a clean worktree
+      - name: Verify frozen v5 release from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v5_release --reproduce --require-clean
+      - name: Verify current v6 release from a clean worktree
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v6_release --reproduce --require-clean
       - name: Verify canonical v5 paper figures from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"

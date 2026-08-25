@@ -1,9 +1,9 @@
 # Multi-Class Eligibility and Mass-Comparability Contract
 
 Status: required design gate for the first heterogeneous catalogue release
-(planned v7). v5 remains a broad-line-AGN release; v6 is reserved for the final
-same-class BLAGN consolidation, with THRILS as the preferred candidate pending
-an authoritative object-level table audit.
+(planned v7). v5 remains a broad-line-AGN release; v6 completes the final
+same-class BLAGN consolidation with THRILS. This contract governs new
+heterogeneous v7 sources.
 
 ## Purpose
 
@@ -108,5 +108,5 @@ Before a heterogeneous source is accepted, tests must verify:
 - unchanged frozen v1--v6 artifacts.
 
 ALPINE-CRISTAL and other heterogeneous candidate sets belong after this gate,
-in v7 or later. THRILS remains the preferred candidate for the next v6
-same-class BLAGN source, conditional on an authoritative object-level table.
+in v7 or later. THRILS was completed in v6 as a same-class source and did not
+require heterogeneous-class admission.

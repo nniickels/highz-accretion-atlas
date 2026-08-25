@@ -71,9 +71,9 @@ class V5ScienceTests(unittest.TestCase):
             ranks = self.frames[name][column].dropna().astype(int)
             self.assertEqual(sorted(ranks), list(range(1, len(ranks) + 1)), name)
 
-    def test_current_package_and_paper_figures_are_v5(self) -> None:
+    def test_current_package_is_v6_and_paper_figures_remain_v5(self) -> None:
         metadata = tomllib.loads((ROOT / "pyproject.toml").read_text())
-        self.assertEqual(metadata["project"]["version"], "5.0.0")
+        self.assertEqual(metadata["project"]["version"], "6.0.0")
         expected = {
             "v5_main_text_mbh_redshift_growth_overview.png",
             "v5_main_text_primary_vs_full_ranking.png",

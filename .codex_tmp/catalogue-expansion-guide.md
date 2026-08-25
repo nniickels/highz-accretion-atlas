@@ -55,8 +55,8 @@ Matthee, Lin, and Harikane are complete.
 | 2 | [Lin et al., ASPIRE](https://arxiv.org/abs/2407.17570) | 16 broad-Halpha sources at `z ~ 4-5` in 25 fields | Completed in v4; independent-field check with tabulated `MBH` and `Lbol` | Compact/red preselection; no tabulated source-reported Eddington ratio or host mass in the extracted tables; nominal masses and Lbol are not dust-corrected; approximately 0.5 dex virial systematic |
 | 3 | [Harikane et al.](https://arxiv.org/abs/2303.11946) | 10 Type 1 AGN at `z = 4.015-6.936` | Completed in v5 as a same-class measurement layer with host information | Five verified overlaps and five new physical objects; no numeric virial systematic or row-level LRD marker was inferred |
 
-The completed Taylor, Matthee, ASPIRE, and Harikane sequence establishes the
-current v5 same-class foundation. Earlier discovery papers should be attached
+The completed Taylor, Matthee, ASPIRE, Harikane, and THRILS sequence establishes
+the final v6 same-class foundation. Earlier discovery papers should be attached
 as measurements of matched objects before another large compilation is ingested.
 
 ### Tier 2A: final same-class v6 extension
@@ -65,11 +65,11 @@ as measurements of matched objects before another large compilation is ingested.
 | --- | --- | --- | --- |
 | [Davis et al., THRILS](https://arxiv.org/abs/2602.23310) | Six newly identified BLAGN, within a seven-object broad-line set at `3.5 < z < 7` | Tests recovery of weak or host-dominated broad components in very deep spectra | Small sample; apply the `z >= 4` cut; confirm which objects are genuinely new after cross-match |
 
-THRILS is the preferred candidate for v6, conditional on a latest-primary
-source audit locating a reliable authoritative object-level table with the
-required measurements and uncertainties. If that table is unavailable, stop
-rather than reconstruct values. v6 should remain a final same-class BLAGN
-consolidation, including any justified earlier CEERS/JADES measurement layers.
+THRILS was admitted in v6 after the latest-primary audit verified the complete
+seven-row Davis Appendix Table 5 and an exact-ID coordinate join to the THRILS
+programme catalogue. Six rows pass `z >= 4` and are six new physical objects;
+the sole known Taylor repeat is below the cut. v6 remains the final same-class
+BLAGN consolidation.
 
 ### Tier 2B: first heterogeneous v7 candidates
 
@@ -334,8 +334,8 @@ Complete these before large multi-paper ingestion:
    **Completed in v5 (2026-08-23): 10 measurements, five overlaps, five new
    physical objects.** Treat any remaining earlier discovery-paper
    measurements as a separate future layer.
-6. Audit THRILS as the preferred final same-class v6 BLAGN layer; ingest only
-   if a reliable authoritative object-level table is available.
+6. Audit and ingest THRILS as the final same-class v6 BLAGN layer.
+   **Completed 2026-08-25 from an authoritative seven-row table.**
 7. Apply the multi-class eligibility/mass-comparability contract, then begin v7
    with evidence-graded ALPINE-CRISTAL candidates if the primary tables pass.
 8. Add high-redshift spotlight objects with explicit method-dependent bounds.
