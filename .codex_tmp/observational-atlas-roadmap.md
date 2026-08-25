@@ -117,7 +117,8 @@ Primary project path from here:
    - XQR-30/classical luminous quasars as a separate comparison stratum.
    - Keep object classes and mass methods visually/statistically distinct.
 
-8. Add duty-cycle and accretion-history diagnostics.
+8. Add duty-cycle and accretion-history diagnostics. **Completed for the v5
+   BLAGN layer; fuller time-dependent/feedback histories remain future work.**
    - Lifetime-average f_Edd.
    - Burst duty cycle D.
    - Burst accretion rate f_Edd,burst.

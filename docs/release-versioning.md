@@ -11,7 +11,7 @@ the preceding Matthee/ASPIRE release; v3 remains the JADES + Taylor comparison.
 | v2 | Ranking, asymmetric-error propagation, and final-style prototypes for the frozen v1 catalogue | v1 processed and evaluation products | `results/v2_object_ranking_table.csv`, `results/v2_uncertainty_*.csv`, `results/v2_main_text_figures/` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue, with separate measurement and physical-object views | frozen v1 catalogue plus the Taylor source extraction and crossmatch | `data/processed/v3_blagn_*.csv`, `results/v3_blagn_*.csv` |
 | v4 | Generalized identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | frozen v3 catalogue plus two source-native extractions | `data/processed/v4_blagn_*.csv`, `results/v4_blagn_*.csv`, `results/v4_main_text_figures/` |
-| v5 | Harikane NIRSpec BLAGN measurement-version layer and orthogonal taxonomy scaffolding | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5_blagn_*.csv`, `results/v5_blagn_*.csv` |
+| v5 | Harikane NIRSpec BLAGN measurement-version layer, orthogonal taxonomy, and accretion-history science extension | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5_blagn_*.csv`, `results/v5_blagn_*.csv` |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -66,6 +66,7 @@ Matthee + ASPIRE raw + identity metadata ---------+-> v4 measurement catalogue
 Harikane raw + reviewed identity decisions -----------------------+-> v5 measurement catalogue
                                                                       -> v5 physical-object catalogue
                                                                       -> v5 evaluation / rankings / summaries
+                                                                      -> v5 two-state duty-cycle diagnostics
 ```
 
 The v3 measurement view retains all 60 `z >= 4` literature measurements. The
@@ -79,8 +80,11 @@ cross-paper link: Matthee `GOODS-S-13971` is JADES `GS-204851`. The prior-releas
 JADES measurement remains the default for continuity, while both measurements
 remain independently rankable in the measurement view.
 
-The current science tables are v5 products. The latest release-specific
-main-text figures remain the frozen v4 set; v5 does not silently relabel them.
+The current science tables are v5 products. The paper-facing
+`v5_blagn_primary_ranking_comparison.csv` distinguishes the complete 106/99
+exploratory diagnostic population from the 105/98 primary evidence-supported
+population. The latest release-specific main-text figures remain the frozen v4
+set; v5 does not silently relabel or overwrite them.
 
 ## Rename Map
 

@@ -92,7 +92,7 @@ remains the frozen Matthee/ASPIRE comparison and figure release:
 | v2 | Ranking, uncertainty propagation, and figure prototypes evaluated on the frozen v1 catalogue | `v2_object_ranking_table.csv`, `v2_uncertainty_*`, `v2_main_text_*` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue and measurement/object science workflow | `v3_blagn_*` |
 | v4 | Generalized identity, Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | `v4_blagn_*`, `v4_main_text_*` |
-| v5 | Harikane NIRSpec BLAGN measurement layer plus class-aware taxonomy scaffolding | `v5_blagn_*` |
+| v5 | Harikane NIRSpec BLAGN measurement layer, class-aware taxonomy, and two-state accretion-history diagnostics | `v5_blagn_*` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
@@ -206,15 +206,19 @@ For each class:
 3. Keep object classes visually and statistically distinct.
 4. Recompute atlas rankings with class-aware caveats.
 
-### v7: Accretion-History Diagnostics
+### v5 science extension: Accretion-History Diagnostics
 
-Move beyond constant-average growth tracks.
+This completed, non-catalogue-bumping layer moves beyond constant-average
+growth tracks while leaving v1--v4 products unchanged.
 
-1. Compare reported current $f_{Edd}$ with required lifetime-average $f_{Edd}$ without treating them as the same quantity.
-2. Add duty-cycle models.
-3. Add bursty-accretion scenarios.
-4. Compute required duty cycle for fixed seed and burst assumptions.
-5. Identify objects that require unusually early, sustained, or efficient growth.
+1. It compares reported current $f_{Edd}$ with required lifetime-average
+   $f_{Edd}$ without treating them as the same quantity.
+2. It evaluates effective two-state histories with zero quiescent accretion and
+   burst $f_{Edd}=1,2,3$.
+3. It computes required duty-cycle point estimates and asymmetric-error Monte
+   Carlo intervals for a $100\,M_\odot$ seed under the baseline assumptions.
+4. It retains duty cycles above one as an explicit sign that the fixed burst
+   scenario is insufficient; it does not clip them into apparent feasibility.
 
 ## Getting Started
 
@@ -237,6 +241,8 @@ Expected current products include:
 - `data/processed/v5_blagn_objects.csv` (99 physical objects)
 - `data/crossmatch/v5_measurement_object_links.csv`
 - measurement- and object-level `results/v5_blagn_*.csv` products
+- 318-row measurement and 297-row physical-object accretion-history tables
+- a 99-row paper-facing full-versus-primary ranking comparison
 
 The v5 ranking and uncertainty products use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column

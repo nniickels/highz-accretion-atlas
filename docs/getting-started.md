@@ -43,14 +43,14 @@ python -m scripts.verify_v5_release --reproduce
 ```
 
 This writes 106 measurements, 99 physical objects, 106 links and aliases, six
-reviewed candidates, and 13 v5 science tables. Five Harikane measurements link
+reviewed candidates, and 16 v5 science tables. Five Harikane measurements link
 to existing objects and five create new objects. See
 `docs/v5-blagn-catalogue-schema.md`,
 `docs/harikane23-nirspec-extraction-notes.md`, and
 `docs/v5-blagn-science-workflow.md`.
 
 The verifier checks a v5 hash manifest and reconstructs all five
-catalogue/identity plus 13 science products in memory. CI runs it with
+catalogue/identity plus 16 science products in memory. CI runs it with
 `--require-clean` after the frozen-v4 gate.
 
 ## Frozen v4 BLAGN Release

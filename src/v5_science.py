@@ -8,8 +8,15 @@ calibration systematic. Statistical errors remain sampled separately.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
+import numpy as np
 import pandas as pd
 
+from scripts.generate_v2_uncertainty_rankings import (
+    asymmetric_normal_samples, resolve_mbh_uncertainty, summarize_distribution,
+)
+from src import models
 from src import v4_science as v4
 from src.v5_catalogue import CATALOGUE_RELEASE, HARIKANE_SOURCE_KEY
 from src.object_taxonomy import TAXONOMY_FIELDS, validate_taxonomy
@@ -20,6 +27,21 @@ EPSILON = v4.EPSILON
 MERGER_BOOST = v4.MERGER_BOOST
 DEFAULT_RANDOM_SEED = v4.DEFAULT_RANDOM_SEED
 DEFAULT_N_SAMPLES = v4.DEFAULT_N_SAMPLES
+
+
+@dataclass(frozen=True)
+class BurstScenario:
+    name: str
+    burst_fedd: float
+
+
+BURST_SCENARIOS = [
+    BurstScenario("burst_fedd_1", 1.0),
+    BurstScenario("burst_fedd_2", 2.0),
+    BurstScenario("burst_fedd_3", 3.0),
+]
+ACCRETION_HISTORY_LOG_MSEED = 2.0
+ACCRETION_HISTORY_QUIESCENT_FEDD = 0.0
 
 SCIENCE_TAXONOMY_FIELDS = [
     *TAXONOMY_FIELDS,
@@ -292,6 +314,132 @@ def build_alternate_measurement_sensitivity(
     ))
 
 
+def build_accretion_history_diagnostics(
+    catalogue: pd.DataFrame, *, n_samples: int = DEFAULT_N_SAMPLES,
+    random_seed: int = DEFAULT_RANDOM_SEED,
+) -> pd.DataFrame:
+    """Evaluate explicit two-state duty-cycle scenarios for every ranking row.
+
+    The required mean rate uses the baseline 100-Msun seed, z_seed=30,
+    epsilon=0.1, and merger_boost=1. Reported Eddington ratios are retained as
+    instantaneous comparison measurements and are never treated as histories.
+    """
+    _require_growth_eligible(catalogue)
+    rows: list[dict[str, object]] = []
+    for _, obj in catalogue.sort_values("ranking_id").iterrows():
+        spec = resolve_mbh_uncertainty(
+            obj["log_mbh_err_plus_std"], obj["log_mbh_err_minus_std"],
+        )
+        rng = v4.v3._rng_for_measurement(random_seed, str(obj["measurement_id"]))
+        mbh_samples = asymmetric_normal_samples(
+            obj["log_mbh_msun_std"], obj["log_mbh_err_plus_std"],
+            obj["log_mbh_err_minus_std"], n_samples=n_samples, rng=rng,
+        )
+        required_samples = models.required_fedd_for_seed(
+            ACCRETION_HISTORY_LOG_MSEED, mbh_samples, EPSILON, Z_SEED,
+            float(obj["redshift"]), merger_boost=MERGER_BOOST,
+        )
+        required_point = float(models.required_fedd_for_seed(
+            ACCRETION_HISTORY_LOG_MSEED, float(obj["log_mbh_msun_std"]), EPSILON,
+            Z_SEED, float(obj["redshift"]), merger_boost=MERGER_BOOST,
+        ))
+        reported_current = obj.get("edd_ratio_std", np.nan)
+        current_available = pd.notna(reported_current) and float(reported_current) > 0.0
+        common = {
+            "catalogue_release": CATALOGUE_RELEASE,
+            "input_catalogue_release": CATALOGUE_RELEASE,
+            "catalogue_view": obj["catalogue_view"],
+            "ranking_id": obj["ranking_id"],
+            "measurement_id": obj["measurement_id"],
+            "physical_object_id": obj["physical_object_id"],
+            "object_id": obj["object_id"],
+            "source_key": obj["source_key"],
+            "survey": obj["survey"],
+            "field": obj["field"],
+            "redshift": obj["redshift"],
+            "evidence_status": obj["evidence_status"],
+            "primary_growth_ranking_flag": obj["primary_growth_ranking_flag"],
+            "lrd_status": obj["lrd_status"],
+            "log_mseed_assumption": ACCRETION_HISTORY_LOG_MSEED,
+            "mseed_assumption_msun": 100.0,
+            "z_seed": Z_SEED,
+            "epsilon": EPSILON,
+            "merger_boost": MERGER_BOOST,
+            "quiescent_fedd": ACCRETION_HISTORY_QUIESCENT_FEDD,
+            "required_lifetime_average_fedd_point": required_point,
+            "reported_current_fedd": reported_current,
+            "reported_current_fedd_status": obj["edd_ratio_diagnostic_status"],
+            "current_fedd_is_instantaneous_not_history": True,
+            "current_to_required_fedd_ratio": (
+                float(reported_current) / required_point
+                if current_available and required_point > 0.0 else np.nan
+            ),
+            "n_samples": int(n_samples),
+            "random_seed": int(random_seed),
+            "reported_statistical_errors_sampled": True,
+            "statistical_error_model": "split-normal-in-log-mbh",
+            "log_mbh_err_plus_reported": obj["log_mbh_err_plus_std"],
+            "log_mbh_err_minus_reported": obj["log_mbh_err_minus_std"],
+            "log_mbh_sigma_plus_used": spec.sigma_plus,
+            "log_mbh_sigma_minus_used": spec.sigma_minus,
+            "mbh_uncertainty_mode": spec.mode,
+            "mass_systematic_applied": False,
+            "interpretation_note": (
+                "effective two-state sensitivity; required mean and current reported fEdd "
+                "are not the same observable"
+            ),
+        }
+        for scenario in BURST_SCENARIOS:
+            duty_samples = models.required_duty_cycle(
+                required_samples, scenario.burst_fedd, ACCRETION_HISTORY_QUIESCENT_FEDD,
+            )
+            duty_point = float(models.required_duty_cycle(
+                required_point, scenario.burst_fedd, ACCRETION_HISTORY_QUIESCENT_FEDD,
+            ))
+            rows.append({
+                **common,
+                "burst_scenario": scenario.name,
+                "burst_fedd": scenario.burst_fedd,
+                "required_duty_cycle_point": duty_point,
+                **summarize_distribution(duty_samples, prefix="required_duty_cycle"),
+                "prob_required_duty_cycle_gt_1": float(np.mean(duty_samples > 1.0)),
+                "fixed_burst_scenario_feasible_point": duty_point <= 1.0,
+            })
+    return pd.DataFrame(rows)
+
+
+def build_primary_ranking_comparison(
+    point_ranking: pd.DataFrame, uncertainty_ranking: pd.DataFrame,
+) -> pd.DataFrame:
+    """Create the paper-facing full-versus-primary physical-object table."""
+    uncertainty = uncertainty_ranking.set_index("ranking_id")
+    result = point_ranking.copy()
+    result["rank_uncertainty_pressure"] = result["ranking_id"].map(
+        uncertainty["rank_uncertainty_pressure"]
+    )
+    result["rank_primary_uncertainty_pressure"] = result["ranking_id"].map(
+        uncertainty["rank_primary_uncertainty_pressure"]
+    )
+    result["full_ranking_role"] = "exploratory_diagnostic"
+    result["primary_ranking_role"] = np.where(
+        result["primary_growth_ranking_flag"].map(_boolish),
+        "included_evidence_supported", "excluded_candidate_or_disputed",
+    )
+    columns = [
+        "catalogue_release", "catalogue_view", "ranking_id", "physical_object_id",
+        "object_id", "measurement_id", "source_key", "survey", "field", "redshift",
+        "evidence_status", "primary_growth_ranking_flag", "ranking_population",
+        "full_ranking_role", "primary_ranking_role", "rank_growth_pressure",
+        "rank_primary_growth_pressure", "rank_uncertainty_pressure",
+        "rank_primary_uncertainty_pressure", "physical_pressure_score_0_100",
+        "req_fedd_seed1e2_z30_eps0p1_b1", "physical_growth_pressure_tier",
+        "measurement_confidence_tier", "lrd_status", "preferred_measurement_reason",
+    ]
+    return result[[column for column in columns if column in result]].sort_values(
+        ["rank_growth_pressure", "ranking_id"]
+    ).reset_index(drop=True)
+
+
 def verify_v5_outputs(outputs: dict[str, pd.DataFrame], *, n_samples: int) -> dict[str, bool]:
     checks = {
         "measurement_count": len(outputs["measurement_point_ranking"]) == 106,
@@ -304,6 +452,23 @@ def verify_v5_outputs(outputs: dict[str, pd.DataFrame], *, n_samples: int) -> di
         "object_uncertainty_mseed_count": len(outputs["object_uncertainty_mseed"]) == 878,
         "sample_count": outputs["measurement_uncertainty_fedd"]["n_samples"].eq(n_samples).all(),
         "alternate_measurement_sensitivity_count": len(outputs["alternate_measurement_sensitivity"]) == 7,
+        "measurement_accretion_history_count": len(outputs["measurement_accretion_history"]) == 318,
+        "object_accretion_history_count": len(outputs["object_accretion_history"]) == 297,
+        "primary_ranking_comparison_count": len(outputs["primary_ranking_comparison"]) == 99,
+        "accretion_history_sample_count": all(
+            outputs[name]["n_samples"].eq(n_samples).all()
+            for name in ["measurement_accretion_history", "object_accretion_history"]
+        ),
+        "duty_cycle_uncertainty_ordering": all(
+            (
+                outputs[name]["required_duty_cycle_p16"]
+                <= outputs[name]["required_duty_cycle_p50"]
+            ).all() and (
+                outputs[name]["required_duty_cycle_p50"]
+                <= outputs[name]["required_duty_cycle_p84"]
+            ).all()
+            for name in ["measurement_accretion_history", "object_accretion_history"]
+        ),
         "taxonomy_in_evaluations": all(
             set(TAXONOMY_FIELDS).issubset(outputs[name].columns)
             for name in ["measurement_evaluation", "object_evaluation"]

@@ -135,6 +135,19 @@ def minimal_raw_rows() -> pd.DataFrame:
 
 
 class ModelsTests(unittest.TestCase):
+    def test_two_state_duty_cycle_model(self) -> None:
+        average = models.two_state_average_fedd(0.25, 2.0)
+        self.assertAlmostEqual(float(average), 0.5)
+        required = models.required_duty_cycle(np.array([0.5, 2.5]), 2.0)
+        np.testing.assert_allclose(required, [0.25, 1.25])
+        self.assertGreater(float(required[1]), 1.0)
+        with self.assertRaisesRegex(ValueError, "0 <= D <= 1"):
+            models.two_state_average_fedd(1.1, 2.0)
+        with self.assertRaisesRegex(ValueError, "burst_fedd must be >"):
+            models.required_duty_cycle(0.5, 0.2, 0.2)
+        with self.assertRaisesRegex(ValueError, "required_fedd_avg must be >="):
+            models.required_duty_cycle(0.1, 1.0, 0.2)
+
     def test_run_growth_sanity_checks(self) -> None:
         checks = models.run_growth_sanity_checks()
         self.assertAlmostEqual(checks["merger_boost_x2_dex"], np.log10(2.0), places=12)

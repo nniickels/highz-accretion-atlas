@@ -14,6 +14,10 @@ science tables, source registry, extraction notes, and roadmaps.
 | Statistical and fixed systematic shifts are separate | v5 uncertainty metadata/tests | verified |
 | No numeric Harikane virial systematic is assumed | mass registry, raw metadata, scenario inventory | verified |
 | CEERS-00717 enters point rank 4 and uncertainty rank 5 | v5 object ranking products | verified |
+| Full diagnostic counts are 106/99 and primary evidence-supported counts are 105/98 | rankings and paper-facing comparison | verified |
+| The primary point top five are GN-38509, GS-20057765, CEERS-00717, GOODS-N-9771, and GS-164055 | paper-facing comparison | verified |
+| Two-state duty-cycle products use a 100-Msun seed, burst fEdd 1/2/3, zero quiescent rate, and the baseline cosmology/growth assumptions | accretion-history products and model tests | verified |
+| Reported current fEdd is equivalent to a lifetime-average history | explicitly prohibited by output metadata and workflow documentation | rejected claim |
 | Mixed-source summaries support demographics | explicitly prohibited by summary metadata | rejected claim |
 | Rankings prove a unique seed channel | explicitly prohibited by project framing | rejected claim |
 

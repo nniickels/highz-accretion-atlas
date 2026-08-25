@@ -37,10 +37,11 @@ Careful claim posture:
 - v4.0.1 completes the maintenance gate with pinned dependencies, CI, release
   hashes, write-free reproduction, collision-safe ID allocation, reviewed
   manual identity assertions, and source-specific virial-method metadata.
-- The Harikane measurement-version ingestion and first class-aware taxonomy
-  scaffolding are complete. The claim audit is recorded in
-  `docs/v5-manuscript-claim-audit.md`; next consolidate the manuscript and then
-  specify class-specific eligibility rules before the first heterogeneous v6 source.
+- The Harikane measurement-version ingestion, first class-aware taxonomy
+  scaffolding, primary-ranking gate, paper-facing ranking comparison, and
+  effective two-state duty-cycle diagnostics are complete. The claim audit is
+  recorded in `docs/v5-manuscript-claim-audit.md`; next specify class-specific
+  eligibility rules before the first heterogeneous v6 source.
 - The phase descriptions and prompt sequence below preserve project history;
   they are not all outstanding tasks.
 
@@ -577,6 +578,12 @@ Codex prompt:
 Goal:
 - Make growth interpretation more physical than constant average `f_Edd` alone.
 
+Status (2026-08-25): completed for the v5 BLAGN science layer with burst
+`f_Edd={1,2,3}`, zero quiescent accretion, asymmetric statistical MBH sampling,
+measurement/object products, and explicit current-versus-lifetime semantics.
+The implementation is an effective two-state sensitivity, not a time-resolved
+feedback or stochastic-light-curve model.
+
 Intermediate steps:
 1. Define lifetime-average `f_Edd`.
 2. Define burst duty cycle `D`.
@@ -819,10 +826,12 @@ task queue. Use the immediate-next-task section below for new work.
 
 ## Immediate Next Best Task after v5
 
-The v3 figure task and v5 Harikane expansion are complete. The next best
-concrete task is to finish the v5 evidence/eligibility gate and reproducibility
-manifest, then consolidate the manuscript before adding a heterogeneous object
-class.
+The v3 figure task, v5 Harikane expansion, evidence/eligibility gate,
+reproducibility manifest, paper-facing ranking comparison, and first
+accretion-history diagnostics are complete. The next best concrete task is to
+define class-specific eligibility and mass-comparability rules before adding a
+heterogeneous v6 source, while completing the citation and figure-selection
+audit in parallel.
 
 Historical v3 figure brief:
 

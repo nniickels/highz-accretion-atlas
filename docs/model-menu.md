@@ -4,7 +4,7 @@ This is the current registry of implemented baseline assumptions and planned
 scenario families. A listed future scenario is not an implemented result.
 
 ## Implemented Baseline Growth Equation
-The same Dayal-style exponential growth equation is used by the v1--v4 science
+The same Dayal-style exponential growth equation is used by the v1--v5 science
 workflows:
 
 `M_BH(t_obs) = M_seed * exp[f_Edd * ((1 - epsilon) / epsilon) * Delta_t / t_Edd]`
@@ -36,7 +36,11 @@ selects it.
 **B. Growth models**
 - Thin-disk Eddington-limited; `f_Edd ≤ 1`, `ε ≈ 0.1`
 - Supercritical / slim-disk-like; allow `f_Edd > 1` and/or reduced `ε` (e.g., `ε ∈ [0.03, 0.1]`)
-- Duty-cycle / bursty growth; `⟨f_Edd⟩ = D * f_Edd_burst`
+- Duty-cycle / bursty growth; the v5 effective two-state implementation uses
+  `⟨f_Edd⟩ = D f_Edd,burst + (1-D) f_Edd,quiescent`, with the released
+  sensitivity fixing `f_Edd,quiescent=0` and `f_Edd,burst={1,2,3}`. It assumes
+  one fixed efficiency and growth coefficient in both states and is not a
+  time-resolved light curve or feedback model.
 - Spin/efficiency scan; `ε ∈ [0.04, 0.3]` 
 - Merger-assisted growth; `B_merge ∈ {1, 2, 5, 10}` applied over `Δt` 
 

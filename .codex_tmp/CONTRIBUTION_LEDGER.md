@@ -688,4 +688,33 @@ For every future Codex contribution that changes repository files:
   contract, and v5 manifest hashes match. Independent comparison with prior v5
   products confirmed unchanged IDs, full diagnostic ranks, and common numerical
   ranking fields to `1e-12`. `git diff --check` passed.
+- **Status:** Complete in commit `d2b1731` (`fixing up`) and pushed to
+  `origin/main`.
+
+### 2026-08-25 - Consolidate paper-facing v5 and add accretion-history diagnostics
+
+- **Objective:** Complete the documentation/primary-ranking cleanup and the
+  first growth-history step before any heterogeneous v6 catalogue ingestion.
+- **Files changed:** v5 science generator/module, shared growth model, focused
+  tests, three new v5 result CSVs, v5 manifest, current workflow/versioning
+  documentation and roadmaps, and the living status manuscript/PDF.
+- **Contribution:** Added a canonical 99-object full-versus-primary paper table;
+  implemented an effective two-state model with zero quiescent accretion and
+  burst `f_Edd={1,2,3}`; propagated asymmetric statistical MBH errors into
+  required-duty-cycle intervals and infeasibility probabilities; preserved
+  current Eddington ratios as instantaneous comparison-only measurements; and
+  made the manuscript's headline ranking primary-evidence-first.
+- **Scientific/technical effect:** Catalogue membership and all v1--v4 artifacts
+  remain unchanged. The full diagnostic population is 106 measurements / 99
+  objects and the primary population is 105 / 98. The new history products have
+  318 measurement rows and 297 object rows. At object level, the median required
+  duty cycles for burst `f_Edd=1,2,3` are 0.574, 0.287, and 0.191; seven full
+  diagnostic objects (six primary) exceed `D=1` for the unit-burst point
+  scenario, explicitly marking that fixed scenario insufficient.
+- **Validation:** All 108 regression tests passed. The frozen v4.0.1 and current
+  v5 verifiers reproduced their complete artifact sets in memory, the updated
+  v5 manifest hashes match, `git diff --check` passed, and the rebuilt 15-page
+  status PDF was rendered and visually inspected. Hosted GitHub Actions was
+  independently confirmed successful for baseline commit `d2b1731`; hosted CI
+  for this uncommitted extension necessarily awaits a commit/push.
 - **Status:** Complete and verified locally; changes are uncommitted.

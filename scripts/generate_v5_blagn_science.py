@@ -8,10 +8,12 @@ from pathlib import Path
 import pandas as pd
 
 from src.v5_science import (
-    DEFAULT_N_SAMPLES, DEFAULT_RANDOM_SEED, build_alternate_measurement_sensitivity,
+    DEFAULT_N_SAMPLES, DEFAULT_RANDOM_SEED, build_accretion_history_diagnostics,
+    build_alternate_measurement_sensitivity,
     build_catalogue_summary, build_growth_summary, build_point_ranking,
-    build_uncertainty_ranking, build_uncertainty_summaries, evaluate_catalogue,
-    prepare_catalogue_view, verify_v5_outputs,
+    build_primary_ranking_comparison, build_uncertainty_ranking,
+    build_uncertainty_summaries, evaluate_catalogue, prepare_catalogue_view,
+    verify_v5_outputs,
 )
 
 
@@ -33,6 +35,9 @@ OUTPUT_PATHS = {
     "catalogue_summary": RESULTS / "v5_blagn_catalogue_summary.csv",
     "growth_summary": RESULTS / "v5_blagn_growth_summary.csv",
     "alternate_measurement_sensitivity": RESULTS / "v5_blagn_alternate_measurement_sensitivity.csv",
+    "measurement_accretion_history": RESULTS / "v5_blagn_measurement_accretion_history.csv",
+    "object_accretion_history": RESULTS / "v5_blagn_physical_object_accretion_history.csv",
+    "primary_ranking_comparison": RESULTS / "v5_blagn_primary_ranking_comparison.csv",
 }
 
 
@@ -59,6 +64,12 @@ def build_outputs(
     object_fedd, object_mseed = build_uncertainty_summaries(
         objects, n_samples=n_samples, random_seed=random_seed,
     )
+    measurement_uncertainty = build_uncertainty_ranking(
+        measurement_point, measurement_fedd, measurement_mseed,
+    )
+    object_uncertainty = build_uncertainty_ranking(
+        object_point, object_fedd, object_mseed,
+    )
     return {
         "measurement_evaluation": measurement_eval,
         "object_evaluation": object_eval,
@@ -68,16 +79,21 @@ def build_outputs(
         "measurement_uncertainty_mseed": measurement_mseed,
         "object_uncertainty_fedd": object_fedd,
         "object_uncertainty_mseed": object_mseed,
-        "measurement_uncertainty_ranking": build_uncertainty_ranking(
-            measurement_point, measurement_fedd, measurement_mseed,
-        ),
-        "object_uncertainty_ranking": build_uncertainty_ranking(
-            object_point, object_fedd, object_mseed,
-        ),
+        "measurement_uncertainty_ranking": measurement_uncertainty,
+        "object_uncertainty_ranking": object_uncertainty,
         "catalogue_summary": build_catalogue_summary(measurements, objects),
         "growth_summary": build_growth_summary(measurement_point, object_point),
         "alternate_measurement_sensitivity": build_alternate_measurement_sensitivity(
             measurements, objects, n_samples=n_samples, random_seed=random_seed,
+        ),
+        "measurement_accretion_history": build_accretion_history_diagnostics(
+            measurements, n_samples=n_samples, random_seed=random_seed,
+        ),
+        "object_accretion_history": build_accretion_history_diagnostics(
+            objects, n_samples=n_samples, random_seed=random_seed,
+        ),
+        "primary_ranking_comparison": build_primary_ranking_comparison(
+            object_point, object_uncertainty,
         ),
     }
 

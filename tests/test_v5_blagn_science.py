@@ -27,6 +27,9 @@ class V5ScienceTests(unittest.TestCase):
             "measurement_uncertainty": "measurement_uncertainty_ranking", "object_uncertainty": "physical_object_uncertainty_ranking",
             "catalogue_summary": "catalogue_summary", "growth_summary": "growth_summary",
             "alternate_sensitivity": "alternate_measurement_sensitivity",
+            "measurement_history": "measurement_accretion_history",
+            "object_history": "physical_object_accretion_history",
+            "ranking_comparison": "primary_ranking_comparison",
         }
         cls.frames = {
             name: pd.read_csv(ROOT / "results" / f"v5_blagn_{stem}.csv")
@@ -40,6 +43,8 @@ class V5ScienceTests(unittest.TestCase):
             "object_fedd": 1317, "object_mseed": 878,
             "measurement_uncertainty": 106, "object_uncertainty": 99,
             "alternate_sensitivity": 7,
+            "measurement_history": 318, "object_history": 297,
+            "ranking_comparison": 99,
         }
         for name, count in expected.items():
             self.assertEqual(len(self.frames[name]), count, name)
@@ -153,6 +158,39 @@ class V5ScienceTests(unittest.TestCase):
         self.assertEqual(int(overall["n_lrd"]), 53)
         self.assertEqual(int(overall["n_non_lrd"]), 19)
         self.assertEqual(int(overall["n_lrd_not_reported"]), 27)
+
+    def test_accretion_history_duty_cycle_semantics(self) -> None:
+        history = self.frames["object_history"]
+        self.assertEqual(set(history["burst_fedd"]), {1.0, 2.0, 3.0})
+        self.assertTrue(history["z_seed"].eq(30.0).all())
+        self.assertTrue(history["epsilon"].eq(0.1).all())
+        self.assertTrue(history["merger_boost"].eq(1.0).all())
+        np.testing.assert_allclose(
+            history["required_duty_cycle_point"],
+            history["required_lifetime_average_fedd_point"] / history["burst_fedd"],
+            rtol=0, atol=1e-12,
+        )
+        self.assertTrue(
+            history["required_duty_cycle_p16"].le(history["required_duty_cycle_p50"]).all()
+        )
+        self.assertTrue(
+            history["required_duty_cycle_p50"].le(history["required_duty_cycle_p84"]).all()
+        )
+        unavailable = history[history["reported_current_fedd"].isna()]
+        self.assertTrue(unavailable["current_to_required_fedd_ratio"].isna().all())
+        self.assertTrue(history["current_fedd_is_instantaneous_not_history"].astype(bool).all())
+        self.assertFalse(history["mass_systematic_applied"].astype(bool).any())
+
+    def test_paper_ranking_comparison_distinguishes_populations(self) -> None:
+        comparison = self.frames["ranking_comparison"].set_index("physical_object_id")
+        candidate = comparison.loc["HZA-RUBIES-EGS-49140"]
+        self.assertEqual(int(candidate["rank_growth_pressure"]), 3)
+        self.assertTrue(pd.isna(candidate["rank_primary_growth_pressure"]))
+        self.assertEqual(candidate["full_ranking_role"], "exploratory_diagnostic")
+        self.assertEqual(candidate["primary_ranking_role"], "excluded_candidate_or_disputed")
+        self.assertEqual(
+            int(comparison.loc["HZA-CEERS-00717", "rank_primary_growth_pressure"]), 3
+        )
 
 
 if __name__ == "__main__":

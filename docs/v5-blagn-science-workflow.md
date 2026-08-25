@@ -12,10 +12,11 @@ python -m scripts.process_v5_blagn
 python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
 ```
 
-The science command writes 13 `results/v5_blagn_*.csv` files: measurement- and
+The science command writes 16 `results/v5_blagn_*.csv` files: measurement- and
 physical-object evaluations, point rankings, required-fEdd and required-seed
 Monte Carlo summaries, uncertainty rankings, stratified catalogue and growth
-summaries, and alternate-measurement sensitivity.
+summaries, alternate-measurement sensitivity, two accretion-history tables, and
+a paper-facing full-versus-primary physical-object ranking comparison.
 
 Evaluation, point-ranking, uncertainty-summary, and uncertainty-ranking rows
 carry the v5 evidence, type, selection, phenotype, lensing, and eligibility
@@ -51,6 +52,30 @@ rows are descriptive and explicitly disallow demographic inference.
 Physical-object LRD summaries preserve positive, explicit-negative, and
 not-reported states; absence of a published designation is never counted as
 non-LRD.
+
+## Accretion-history extension
+
+`v5_blagn_measurement_accretion_history.csv` has 318 rows (106 measurements by
+three burst scenarios), and `v5_blagn_physical_object_accretion_history.csv`
+has 297 rows (99 objects by three scenarios). Each uses a 100-Msun seed,
+`z_seed=30`, `epsilon=0.1`, `merger_boost=1`, zero quiescent accretion, and
+burst `f_Edd=1,2,3`. Required duty-cycle intervals propagate only the reported
+asymmetric statistical MBH errors. No fixed mass systematic is silently folded
+into them. A required duty cycle above one is retained and labels that fixed
+burst scenario insufficient.
+
+Reported `edd_ratio_std` values are copied only when published and are labelled
+current/instantaneous measurements. Their ratio to the required lifetime mean
+is a descriptive comparison, not an inferred historical duty cycle. Missing
+ratios remain missing and do not affect ranking.
+
+For paper use, `v5_blagn_primary_ranking_comparison.csv` is the canonical bridge
+between the complete 99-object exploratory diagnostic ranking and the 98-object
+primary evidence-supported ranking. Main-text rank claims should use the
+primary columns; the complete ordering belongs in an exploratory or appendix
+context. The five frozen v4 figures remain unchanged pending a deliberate v5
+figure selection; the first planned v5 replacement is a primary-versus-full
+rank panel paired with a required-duty-cycle panel.
 
 Verify every checked-in v5 catalogue and science CSV, including a complete
 in-memory reconstruction, without writing artifacts:

@@ -417,6 +417,61 @@ def required_fedd_for_seed(
     )
 
 
+def two_state_average_fedd(
+    duty_cycle: float | np.ndarray,
+    burst_fedd: float | np.ndarray,
+    quiescent_fedd: float | np.ndarray = 0.0,
+) -> np.ndarray:
+    """Return the time-weighted mean ``f_Edd`` for a two-state history.
+
+    This effective model assumes the same radiative efficiency and growth
+    coefficient in both states. It describes an integrated growth history,
+    not an instantaneous light curve.
+    """
+    duty, burst, quiescent = np.broadcast_arrays(
+        _as_float_array(duty_cycle, "duty_cycle"),
+        _as_float_array(burst_fedd, "burst_fedd"),
+        _as_float_array(quiescent_fedd, "quiescent_fedd"),
+    )
+    finite = _finite_mask(duty)
+    if np.any(finite & ((duty < 0.0) | (duty > 1.0))):
+        raise ValueError("duty_cycle must satisfy 0 <= D <= 1 where finite")
+    _validate_nonnegative(burst, "burst_fedd")
+    _validate_nonnegative(quiescent, "quiescent_fedd")
+    finite_states = _finite_mask(burst) & _finite_mask(quiescent)
+    if np.any(finite_states & (burst < quiescent)):
+        raise ValueError("burst_fedd must be >= quiescent_fedd where finite")
+    return duty * burst + (1.0 - duty) * quiescent
+
+
+def required_duty_cycle(
+    required_fedd_avg: float | np.ndarray,
+    burst_fedd: float | np.ndarray,
+    quiescent_fedd: float | np.ndarray = 0.0,
+) -> np.ndarray:
+    """Solve the two-state model for the duty cycle required by a mean rate.
+
+    Values above one are intentionally retained: they mark a fixed-burst
+    scenario that cannot supply the required lifetime-average growth. Negative
+    values are invalid rather than silently clipped.
+    """
+    required, burst, quiescent = np.broadcast_arrays(
+        _as_float_array(required_fedd_avg, "required_fedd_avg"),
+        _as_float_array(burst_fedd, "burst_fedd"),
+        _as_float_array(quiescent_fedd, "quiescent_fedd"),
+    )
+    _validate_nonnegative(required, "required_fedd_avg")
+    _validate_nonnegative(burst, "burst_fedd")
+    _validate_nonnegative(quiescent, "quiescent_fedd")
+    finite_states = _finite_mask(burst) & _finite_mask(quiescent)
+    if np.any(finite_states & (burst <= quiescent)):
+        raise ValueError("burst_fedd must be > quiescent_fedd where finite")
+    finite_required = _finite_mask(required) & _finite_mask(quiescent)
+    if np.any(finite_required & (required < quiescent)):
+        raise ValueError("required_fedd_avg must be >= quiescent_fedd where finite")
+    return (required - quiescent) / (burst - quiescent)
+
+
 def growth_parameter_grid(
     log_mseed_values: float | np.ndarray,
     f_edd_values: float | np.ndarray,
