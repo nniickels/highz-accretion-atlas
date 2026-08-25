@@ -1,0 +1,4 @@
+# Optional legacy interactive v1 notebook environment (Python 3.12).
+-r requirements-lock.txt
+jupyterlab==4.4.6
+nbconvert==7.16.6

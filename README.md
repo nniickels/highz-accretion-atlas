@@ -81,9 +81,9 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue and science release is **v6**. It completes
-the planned same-class BLAGN foundation with the Davis/THRILS deep-spectroscopy
-sample, while retaining v5 as the current deliberate figure release:
+paper versions. The current catalogue layer is **v7**, the current completed
+science release is **v6**, and v5 remains the deliberate figure release. v7
+adds the first evidence-graded heterogeneous source without changing v6:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
@@ -93,19 +93,21 @@ sample, while retaining v5 as the current deliberate figure release:
 | v4 | Generalized identity, Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | `v4_blagn_*`, `v4_main_text_*` |
 | v5 | Harikane NIRSpec BLAGN measurement layer, class-aware taxonomy, and two-state accretion-history diagnostics | `v5_blagn_*` |
 | v6 | Davis/THRILS same-class BLAGN consolidation and source-specific virial sensitivity | `v6_blagn_*` |
+| v7 catalogue | Frozen v6 plus admitted Ren ALPINE--CRISTAL candidate nuclei and explicit host systems | `v7_accreting_*`, `v7_host_systems.csv` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
-The shared pinned v4.0.1/v5/v6 environment is in `requirements-lock.txt`; verify
+The shared pinned v4.0.1--v7 core environment is in `requirements-lock.txt`; verify
 every frozen v4 CSV without writing outputs with
 `python -m scripts.verify_v4_release --reproduce`. The frozen v5 catalogue and
 science tables have an equivalent non-writing gate:
 `python -m scripts.verify_v5_release --reproduce`.
-The current v6 catalogue and science tables add the corresponding gate:
-`python -m scripts.verify_v6_release --reproduce`.
+The v6 catalogue and science tables add the corresponding gate:
+`python -m scripts.verify_v6_release --reproduce`. The current catalogue-only
+v7 layer is checked by `python -m scripts.verify_v7_catalogue --reproduce`.
 
-All three gates verify exact artifact membership and checked-in bytes against
+All four release gates verify exact artifact membership and checked-in bytes against
 SHA-256 manifests.
 Independent reconstruction is then compared with exact schema, row order,
 text, booleans, and missingness plus a tight floating-point tolerance, avoiding
@@ -218,8 +220,13 @@ Eddington-ratio, and FWHM values blank.
 
 The source-independent admission schema and validator are implemented in
 `src/v7_admission.py` under
-`docs/multiclass-eligibility-and-mass-comparability.md`. No heterogeneous source
-rows or v7 release products exist yet.
+`docs/multiclass-eligibility-and-mass-comparability.md`. The catalogue-only v7
+layer now copies frozen v6 through the explicit vocabulary adapter and appends
+the authoritative Ren et al. ALPINE--CRISTAL--JWST Tables 1--2 admission. It has
+119 measurements, 112 physical objects, and 111 host systems. All seven Ren
+nuclei remain available in the exploratory tier; only `DC_536534` enters the
+primary tier. See `docs/v7-catalogue-schema.md`. No v7 science ranking,
+uncertainty result, or figure exists yet.
 
 Planned evidence classes and comparison groups include:
 
@@ -238,6 +245,18 @@ For each class:
 2. Track mass method and selection caveats.
 3. Keep object classes visually and statistically distinct.
 4. Recompute atlas rankings with class-aware caveats.
+
+Catalogue-only v7 reproduction:
+
+```powershell
+python -m scripts.process_v7_catalogue
+python -m scripts.verify_v7_catalogue --reproduce
+```
+
+Future additions are assembled in coherent source-family batches through
+`src/v7_batch.py`; see `docs/v7-source-family-batches.md`. XQR-30 is selected as
+the next large, separately stratified luminous-quasar comparison batch. It is
+not yet admitted and will not be pooled with the faint JWST populations.
 
 ## Getting Started
 

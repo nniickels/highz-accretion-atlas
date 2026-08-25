@@ -1,10 +1,11 @@
 # Multi-Class Eligibility and Mass-Comparability Contract
 
-Status: implemented design and validation gate for the first heterogeneous
-catalogue release (planned v7). v5 remains a broad-line-AGN release; v6
-completes the final same-class BLAGN consolidation with THRILS. This contract
-governs new heterogeneous v7 sources. The executable, source-independent gate
-is `src/v7_admission.py`; field details are in `docs/v7-admission-schema.md`.
+Status: implemented gate for the first heterogeneous catalogue layer (v7).
+v6 completes the final same-class BLAGN science release with THRILS; the
+catalogue-only v7 layer adds the admitted Ren source without overwriting it.
+The executable source-independent gate is `src/v7_admission.py`; field details
+are in `docs/v7-admission-schema.md` and combined products in
+`docs/v7-catalogue-schema.md`.
 
 ## Purpose
 
@@ -118,6 +119,8 @@ Before a heterogeneous source is accepted, tests must verify:
 - source- and class-stratified counts at both catalogue views;
 - unchanged frozen v1--v6 artifacts.
 
-ALPINE-CRISTAL and other heterogeneous candidate sets belong after this gate,
-in v7 or later. THRILS was completed in v6 as a same-class source and did not
-require heterogeneous-class admission.
+The Ren et al. ALPINE--CRISTAL source layer is the first mapping to pass this
+gate and is now attached to the combined catalogue-only v7 products. Other
+heterogeneous candidate sets require their own source audit. THRILS was
+completed in v6 as a same-class source and did not require heterogeneous-class
+admission.

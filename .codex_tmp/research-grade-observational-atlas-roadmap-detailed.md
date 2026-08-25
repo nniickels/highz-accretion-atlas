@@ -28,8 +28,9 @@ Careful claim posture:
 
 ### Current release snapshot
 
-- v5 is the current catalogue and science release: 106 measurements represent
-  99 physical objects at `z >= 4`.
+- v7 is the current catalogue-only layer: 119 measurements represent 112
+  physical objects in 111 host systems. v6 remains the current completed
+  science release at 112 measurements / 105 objects.
 - v3 remains frozen as the JADES + Taylor comparison release.
 - v4 now has five release-specific figures, separate detection-confidence and
   mass-reliability semantics, explicit identity decisions, and sensitivity for
@@ -849,18 +850,21 @@ task queue. Use the immediate-next-task section below for new work.
 11. "Recompute the atlas rankings and compare the v2 v1-catalogue analysis with the v3 expanded BLAGN rankings."
 12. "Plan the first non-BLAGN object class expansion with caveat tags."
 
-## Immediate Next Best Task after v6
+## Immediate Next Best Task after v7 catalogue assembly
 
 The v3 figure task, v5 Harikane expansion, evidence/eligibility gate,
 exact-membership reproducibility manifest, paper-facing ranking comparison,
 first accretion-history diagnostics, multi-class contract, citation audit, and
 v5 figure selection and the v6 THRILS same-class consolidation are complete.
-The read-only v7 source-admission audit is complete, and the source-independent
-v7 schema/validation gate is implemented with synthetic tests. No heterogeneous
-source has yet been ingested. The next concrete task is source-specific raw
-extraction and mapping only for an audited source whose authoritative tables
-remain available, followed by this gate's evidence, mass-comparability,
-selection, identity, host-system, lensing, and missingness checks.
+The v7 source-admission audit, source-independent schema gate, authoritative Ren
+Tables 1--2 extraction, and non-breaking combined catalogue architecture are
+complete. Frozen v6 plus seven Ren nuclei produce 119 measurements, 112 physical
+objects, and 111 host systems with exact manifest reproduction. The next
+concrete task is the class-aware v7 science workflow: generate measurement- and
+physical-object-level evaluation and uncertainty products while keeping the
+primary 112/105 tier distinct from the exploratory conditional-mass tier,
+stratifying source/evidence/mass-method comparisons, and leaving the host-system
+view unranked. Do not generate figures until the numeric workflow is audited.
 
 Historical v3 figure brief:
 
@@ -873,5 +877,6 @@ Historical v3 figure brief:
 
 The historical v4 comparison brief is satisfied by the v5 paper-facing tables
 and figures. THRILS ingestion and v6 science are complete while all v1--v5
-artifacts remain preserved. The read-only v7 admission audit and the generic
-schema gate are complete; source-specific extraction remains next.
+artifacts remain preserved. The v7 admission gate, first authoritative source
+layer, and combined catalogue-only assembly are complete; class-aware numeric
+science products remain next.

@@ -1,0 +1,30 @@
+{
+  "catalogue_release": "v7-accreting-atlas-catalogue",
+  "scope": "catalogue-only; no v7 science rankings or figures",
+  "python": "3.12",
+  "catalogue_counts": {
+    "measurements": 119,
+    "physical_objects": 112,
+    "host_systems": 111,
+    "growth_eligible_measurements": 119,
+    "primary_measurements": 112,
+    "growth_eligible_physical_objects": 112,
+    "primary_physical_objects": 105,
+    "measurement_object_links": 119,
+    "object_host_links": 112,
+    "aliases": 119,
+    "reviewed_match_records": 0,
+    "source_observables": 70
+  },
+  "artifacts": {
+    "data/processed/v7_accreting_measurements.csv": "e94c5060ef819a38b21bbb190811b216b5e3291be1d8bef762cb72700d3f0092",
+    "data/processed/v7_accreting_objects.csv": "b9a74115fa6aad4af88b3650c321a99ea2c0094b99c5932c14b2363cdd7a5feb",
+    "data/processed/v7_host_systems.csv": "8b1d5c23b1e57c3d0118f8cbd76fcce542a634999be5aa1b1149ccc1a85e3733",
+    "data/processed/v7_source_observables.csv": "90e3f3057d636c838896eb956cbe8ca1d3ddc73b0ad6d3acff83a6d94cf72083",
+    "data/processed/v7_catalogue_strata.csv": "8954dc6139b2c081908cd7d1be83462f40d0bf92e74b116ae6afc04668ec02c7",
+    "data/crossmatch/v7_measurement_object_links.csv": "d9c3299db68fb9c9510fbb37399622654b5530170977f1df18fcdcb288d7645f",
+    "data/crossmatch/v7_object_host_links.csv": "342ee350b8b056a6d72e92c7e4de49f836be30de67e8c65f3e045f91542ba4bf",
+    "data/crossmatch/v7_object_aliases.csv": "03925f3710d22e01008627927ec12bb26f6e9c65c0f1519a53630ffca663161f",
+    "data/crossmatch/v7_reviewed_match_candidates.csv": "6ef566c359974c916077141f03bc586ab9c5af5b2ec540bee961cb6df661fb79"
+  }
+}

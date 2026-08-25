@@ -1,12 +1,14 @@
 # v7 heterogeneous-source admission schema
 
-Status: implemented design and validation gate; no heterogeneous source has
-yet been ingested and no v7 release products exist.
+Status: implemented admission and combined-catalogue validation gate. The Ren
+et al. ALPINE--CRISTAL--JWST source layer and the non-breaking combined v7
+measurement catalogue pass it. No v7 science ranking or figure release exists.
 
 The executable contract is `src/v7_admission.py`. It validates proposed
 measurement tables before they can enter a v7 catalogue. The validator is
-source independent and is tested only with synthetic fixtures at this stage.
-It does not read, append to, or regenerate any frozen v1--v6 artifact.
+source independent and has synthetic, source-specific, and combined-catalogue
+tests. It does not append to or regenerate any frozen v1--v6 artifact. Combined
+products are documented in `docs/v7-catalogue-schema.md`.
 
 ## Identity levels
 
@@ -71,6 +73,11 @@ validated by `validate_v7_observables`. Each value is explicitly a `detection`,
 `upper_limit`, or `lower_limit`. Limits retain numeric bounds and units but
 cannot masquerade as detections with symmetric errors.
 
+Source-specific validators must additionally enforce exact foreign-key
+relationships between their authoritative tables. Set membership alone is not
+sufficient: an observable's `measurement_id` must map to the same `object_id`
+as the source measurement table.
+
 ## Source admission sequence
 
 For each proposed source:
@@ -83,5 +90,10 @@ For each proposed source:
 6. Test exact evidence, mass-comparability, lensing, and ranking outcomes.
 7. Verify every frozen v1--v6 manifest before any v7 release is written.
 
-Passing this gate permits source-specific ingestion work; it does not itself
-admit a source or authorize pooled demographic interpretation.
+Passing this gate permits a source-specific layer to proceed to combined
+catalogue design; it does not itself create a release or authorize pooled
+demographic interpretation. The first passing source mapping is documented in
+`docs/ren25-alpine-cristal-jwst-extraction-notes.md`.
+
+The generic source-family batch gate and the selected next comparison family
+are documented in `docs/v7-source-family-batches.md`.

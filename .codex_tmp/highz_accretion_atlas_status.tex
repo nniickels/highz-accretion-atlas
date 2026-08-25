@@ -34,7 +34,7 @@
 \newcommand{\repo}[1]{{\footnotesize\texttt{#1}}}
 
 \title{\textbf{The High-Redshift Accretion Atlas}\\
-\large Project Status Through v6}
+\large Project Status Through the v7 Catalogue Layer}
 \author{Project status manuscript}
 \date{25 August 2026}
 
@@ -42,7 +42,7 @@
 \maketitle
 
 \begin{abstract}
-JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; v4 added 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements; v5 added all ten Harikane et al.\ NIRSpec measurements; and v6 adds six $z\geq4$ Davis/THRILS measurements from a complete seven-row source table. The current release has 112 measurements representing 105 physical objects, with primary evidence-supported ranks containing 111 measurements and 104 objects. It preserves reported statistical errors, keeps source-specific virial systematics separate, and leaves unpublished THRILS host, luminosity, Eddington-ratio, LRD, and line-width fields missing. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. The inherited v5 two-state histories retain current Eddington ratios as distinct instantaneous observables. The final same-class BLAGN foundation, claim/citation audits, and multi-class eligibility contract are complete; the next catalogue phase is a read-only v7 heterogeneous-source admission audit.
+JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; v4 added 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements; v5 added all ten Harikane et al.\ NIRSpec measurements; v6 added six $z\geq4$ Davis/THRILS measurements; and the catalogue-only v7 layer adds seven evidence-graded Ren et al.\ candidate nuclei in six host systems. The current catalogue has 119 measurements representing 112 physical objects in 111 host systems, while v6 remains the completed science release. The v7 primary eligibility tier contains 112 measurements and 105 objects; six BLR-conditional Ren masses remain exploratory only. Reported statistical errors and source-specific virial systematics remain separate. A new source-family batch gate now permits larger coherent additions while enforcing source-local observables, standardized compatibility, and explicit identity review. XQR-30 is selected as the next separate luminous-quasar comparison batch. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, existing rankings express observational growth pressure and do not prove a unique seed or accretion channel. No pooled v7 ranking or figure is yet claimed.
 \end{abstract}
 
 \section{Scientific objective}
@@ -303,7 +303,7 @@ The project versions are chronological milestones: v1 is the pilot JADES catalog
   \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*}/\repo{test\_v5\_*}/\repo{test\_v6\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
 \end{enumerate}
 
-Continuous integration installs the pinned Python 3.12 environment, runs the complete regression suite, verifies exact manifest membership and every manifest hash, rebuilds the frozen v4 and v5 releases and all 21 current v6 catalogue/science CSVs in memory at 10,000 draws with seed 20260808, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
+Continuous integration installs the pinned Python 3.12 core environment, runs the complete regression suite, verifies exact manifest membership and every manifest hash, rebuilds the frozen v4 and v5 releases, all 21 current v6 catalogue/science CSVs, and the catalogue-only v7 products in memory, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors and counts, source-local foreign keys, standardized compatibility, identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 
@@ -326,22 +326,25 @@ These limitations motivate the next development stages rather than invalidating 
 
 The next work should proceed in the following order.
 
-\subsection*{1. Audit the first heterogeneous v7 source}
-Apply the completed eligibility and mass-comparability contract in a read-only source gate. Verify primary tables, evidence status, mass inference, selection function, missingness, and identity overlaps before implementation.
+\subsection*{1. Audit the first larger source-family batch}
+Extract the complete XQR-30 source table for its 42 luminous $z>6$ quasars, retain Mg\,II as the paper's primary mass comparison and C\,IV quantities as explicit alternate observables, resolve the 23 literature repeats, and treat lensing and telluric caveats explicitly. Keep this luminous-quasar comparison family separate from faint JWST candidate populations.
 
 \subsection*{2. Preserve the completed manuscript and release gates}
 The v5 figure inventory, claim audit, primary-source citation audit, v6 release manifest, and multi-class eligibility/mass-comparability contract are explicit repository documents. Keep them synchronized without reopening frozen v1--v6 artifacts.
 
-\subsection*{3. Begin heterogeneous classes only in v7}
-Extend the atlas to narrow-line, X-ray, photometric, lensed, high-ionization-line, and luminous-quasar evidence strata only after source admission under the completed contract. LRD remains a phenotype and lensing remains a property, not standalone object classes.
+\subsection*{3. Expand by coherent evidence family}
+Use the generic batch gate for larger narrow-line, X-ray, photometric, lensed, high-ionization-line, and luminous-quasar additions. Each batch must share an evidence family, preserve source-level selection and mass-method distinctions, and stop for unresolved identity candidates. LRD remains a phenotype and lensing remains a property, not standalone object classes.
 
-\subsection*{4. Improve the uncertainty model}
+\subsection*{4. Build class-aware v7 science only after catalogue stability}
+After at least the selected comparison batch is audited and frozen, produce separate measurement- and physical-object-level numeric products. Keep primary and exploratory tiers distinct, stratify unlike selections, leave the host-system view unranked, and audit tables before generating figures.
+
+\subsection*{5. Improve the uncertainty model}
 Propagate host-mass and lensing uncertainties where available, add method-specific black-hole-mass systematic scenarios, and use fuller posterior information when a source provides it. The output should continue to emphasize intervals and threshold probabilities rather than categorical point-estimate labels.
 
-\subsection*{5. Generalize the first history diagnostics}
+\subsection*{6. Generalize the first history diagnostics}
 The effective two-state duty-cycle calculation is complete. A later model layer should vary the quiescent rate and efficiency, include episodic timing or stochastic histories, and confront feedback constraints without treating reported current Eddington ratios as lifetime averages.
 
-\subsection*{6. Convert the ranking into an observing strategy}
+\subsection*{7. Convert the ranking into an observing strategy}
 Produce a follow-up matrix specifying whether each object's interpretation is most sensitive to deeper spectroscopy, improved virial or dynamical mass constraints, host/AGN decomposition, X-ray observations, lensing reconstruction, or repeat measurements.
 
 \begin{figure}[p]
@@ -354,9 +357,9 @@ Produce a follow-up matrix specifying whether each object's interpretation is mo
 \clearpage
 \section{Conclusion}
 
-The completed v1--v6 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, class-aware scaffolding, effective two-state duty-cycle diagnostics, release-specific visualization, and automated regression checks. v6 adds six new THRILS objects while preserving every v1--v5 artifact and default. The full 112/105 ordering remains an exploratory diagnostic, while primary rank claims use the 111/104 evidence-supported population. No THRILS object displaces the established leading primary objects. This is not evidence that one formation pathway is required. The citation/figure audit and class contract are complete; heterogeneous v7 work begins only after a source passes the admission gate.
+The completed science work through v6 and the catalogue-only v7 assembly demonstrate the atlas concept. The repository combines provenance-aware ingestion, validated standardization, explicit measurement, object, and host identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, class-aware eligibility, censored observables, and automated regression checks. v7 preserves every v1--v6 artifact and default while adding seven Ren candidate nuclei. Its full 119/112 catalogue remains available for exploratory diagnostics, while the 112/105 primary tier excludes six conditional masses. The source-family batch gate makes larger coherent additions practical without equating unlike selections or mass methods; XQR-30 is the next separate comparison batch. This is not evidence that one formation pathway is required. Class-aware v7 rankings remain future work until the expanded catalogue is stable.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \bibitem{dayal2024}
 Dayal, P. 2024, \emph{A\&A}, 690, A182, doi:10.1051/0004-6361/202451481.
 
@@ -380,6 +383,12 @@ Davis, K. et al. 2026, ``Extreme Emission Line Galaxies in CEERS Are Powered by 
 
 \bibitem{hutchison2025}
 Hutchison, T. A. et al. 2025, ``THRILS -- The High-(Redshift+Ionization) Line Search: Program Description \& Redshift Catalog,'' arXiv:2512.12509v1.
+
+\bibitem{ren2025}
+Ren, J. et al. 2025, ``The ALPINE--CRISTAL--JWST Survey: Revealing Less Massive Black Holes in High-Redshift Galaxies,'' \emph{MNRAS}, 544, 211--233, doi:10.1093/mnras/staf1709.
+
+\bibitem{mazzucchelli2023}
+Mazzucchelli, C. et al. 2023, ``XQR-30: Black Hole Masses and Accretion Rates of 42 $z>6$ Quasars,'' \emph{A\&A}, 676, A71, doi:10.1051/0004-6361/202346317.
 \end{thebibliography}
 
 \end{document}

@@ -1,8 +1,4 @@
-# Shared reproducible runtime for frozen v4.0.1 and current v5/v6 (Python 3.12).
+# Shared core runtime for frozen v4.0.1 through the v7 catalogue (Python 3.12).
 numpy==2.5.2
 pandas==2.2.3
 matplotlib==3.11.1
-
-# Required only for the legacy interactive v1 evaluation notebook.
-jupyterlab==4.4.6
-nbconvert==7.16.6

@@ -46,9 +46,10 @@ Completed so far:
   Davis/THRILS Appendix Table 5 is preserved, six `z >= 4` rows add six physical
   objects, and the 112-measurement / 105-object workflow has its own manifest,
   rankings, uncertainty products, and THRILS-specific virial sensitivity.
-- The read-only v7 ALPINE-CRISTAL admission audit and the source-independent
-  heterogeneous schema gate are complete. No v7 source rows or release products
-  exist yet; authoritative source extraction is the next phase.
+- The v7 ALPINE-CRISTAL admission audit, source-independent heterogeneous gate,
+  and non-breaking catalogue-only assembly are complete. Frozen v6 plus the
+  seven Ren candidate nuclei produce 119 measurements, 112 physical objects,
+  and 111 host systems. No v7 science ranking or figure exists yet.
 - One new cross-paper identity is verified: GOODS-S-13971 = GS-204851. Prior
   release preferences remain stable while every measurement is preserved.
 - v4 confidence semantics separate broad-line detection from mass/line-model

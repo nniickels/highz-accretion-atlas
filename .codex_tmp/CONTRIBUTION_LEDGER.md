@@ -835,3 +835,108 @@ For every future Codex contribution that changes repository files:
   reproduction passes; canonical v5 figure membership and hashes pass.
   `git diff --check` passes.
 - **Status:** Complete and verified locally; changes are uncommitted.
+
+## 2026-08-25 — Ren ALPINE--CRISTAL--JWST source admission layer
+
+- **Objective:** Extract and validate the first audited heterogeneous source
+  without creating a combined v7 catalogue or science release.
+- **Contribution:** Preserved all seven published Ren et al. Table 1 candidate
+  rows and all 70 Table 2 line entries; represented twelve 3-sigma upper limits
+  as censored values; mapped seven candidate nuclei to six host systems; kept
+  the shared `DC_848185` host mass at system scope; attached source-specific
+  evidence/outflow/three-component caveats; and passed the source layer through
+  the v7 admission contract in memory. Added a coordinate/redshift audit against
+  v6 and source-specific extraction documentation.
+- **Scientific/technical effect:** `DC_536534` is the sole probable/primary
+  source record. Six intermediate-width candidates retain conditional virial
+  masses in the exploratory tier only. Reines et al. (2013) Halpha masses carry
+  a separate `0.4 dex` sensitivity; no LRD label, Delta-BIC value, alternate
+  host mass, or other unavailable value is inferred. No v1--v6 artifact, v7
+  combined catalogue, rank, result, figure, or manifest changed.
+- **Validation:** All 149 regression tests pass. Source-specific tests verify
+  7/7/6 measurement/object/system counts, 70 line entries, 58 detections,
+  twelve limits, identity, evidence, mass-systematic, host-scope, and
+  primary-rank outcomes, plus zero v6 identity candidates. Exact v4.0.1, v5,
+  and v6 in-memory reproduction passes; canonical v5 figure membership and
+  hashes pass; `git diff --check` passes.
+- **Status:** Complete and verified locally; changes are uncommitted.
+
+## 2026-08-25 — v7 catalogue-only heterogeneous assembly
+
+- **Objective:** Attach the admitted Ren source to frozen v6 through the v7
+  contract without generating heterogeneous science rankings or figures.
+- **Contribution:** Added a non-mutating v6 adapter and combined builder; wrote
+  119 measurement, 112 physical-object, and 111 host-system rows; retained both
+  identity edges; preserved v6 preferred measurements; added the 70-row Ren
+  observable table and source/evidence/phenotype count strata; and added a
+  catalogue-only hash/reproduction manifest. Added the Ren 0.4 dex method entry
+  to the mass registry and synchronized the v7 documentation and roadmaps.
+- **Scientific/technical effect:** All 119 measurements / 112 objects are
+  exploratory growth-eligible. The primary tier contains 112 measurements /
+  105 objects: `DC_536534` enters as probable evidence while six BLR-conditional
+  Ren candidate masses remain exploratory only. `DC_848185_a` and `_b` remain
+  two candidate nuclei sharing one host system and integrated host mass. No
+  v1--v6 artifact, v7 science ranking, result table, or figure was overwritten.
+- **Validation:** All 157 regression tests pass. Exact v4.0.1, v5, v6, and v7
+  in-memory reproduction passes; canonical v5 figure membership and hashes
+  pass; `git diff --check` passes.
+- **Status:** Complete and verified locally; changes are uncommitted.
+
+### 2026-08-25 - Harden v7 and add source-family batch ingestion
+
+- **Objective:** Resolve the v7 schema, source-table foreign-key, manifest,
+  dependency, and scaling findings; verify the catalogue from a clean checkout;
+  and prepare the repository for larger coherent source-family additions without
+  starting pooled heterogeneous science.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `README.md` (modified)
+  - `data/processed/v7_accreting_measurements.csv` (added)
+  - `data/processed/v7_accreting_objects.csv` (added)
+  - `data/source_family_registry.csv` (added)
+  - `docs/getting-started.md` (modified)
+  - `docs/release-versioning.md` (modified)
+  - `docs/v7-admission-schema.md` (modified)
+  - `docs/v7-catalogue-schema.md` (added)
+  - `docs/v7-source-family-batches.md` (added)
+  - `releases/v7-catalogue-manifest.json` (added)
+  - `requirements-lock.txt` (modified)
+  - `requirements-notebook-lock.txt` (added)
+  - `scripts/verify_v7_catalogue.py` (added)
+  - `src/v7_batch.py` (added)
+  - `src/v7_catalogue.py` (added)
+  - `src/v7_ren.py` (added)
+  - `tests/test_v7_batch.py` (added)
+  - `tests/test_v7_catalogue.py` (added)
+  - `tests/test_v7_ren_admission.py` (added)
+- **Contribution:** Routed the Ren source through the shared standardization
+  layer, populated v7 and retained `*_std` uncertainty representations, set
+  row-introduction versions and cosmic ages, and made compatibility equality an
+  executable batch invariant. Strengthened Table 2 validation from independent
+  set checks to the exact Table 1 measurement/object mapping. Added a generic
+  one-family batch assembler with source-local observable validation, duplicate
+  guards, and prior-release/within-batch identity-candidate gates. Extended the
+  v7 verifier to enforce release metadata and all manifest counts. Split the
+  optional notebook environment from the core CI lock. Added an executable
+  source-family registry and selected XQR-30 as the next separately stratified
+  42-quasar comparison batch, pending its complete source and identity audit.
+- **Scientific/technical effect:** Published Ren values, v7 membership,
+  physical identities, host assignments, evidence tiers, and 119/112/111
+  measurement/object/host counts remain unchanged. The seven Ren rows now have
+  complete shared-standardization metadata and cannot be silently lost by
+  consumers of retained compatibility fields. Future larger additions must
+  share an evidence family and cannot carry foreign observables or unresolved
+  identity candidates into a release. No v7 science ranking or figure was
+  generated, and no v1--v6 artifact changed.
+- **Validation:** All 163 regression tests passed under isolated Python 3.12.14
+  with the exact pinned core dependencies. Exact v4.0.1, v5, v6, and v7
+  manifest membership/hashes and full in-memory reproduction passed; canonical
+  v5 figure membership and hashes passed. The exact CI sequence, including all
+  `--require-clean` gates, passed in a fresh committed temporary checkout and
+  left it clean. All CSVs, JSON, and CI YAML parsed; `git diff --check` passed.
+  The updated 15-page status PDF compiled without TeX layout warnings, all pages
+  were rendered, and the full contact sheet plus the changed roadmap and
+  conclusion pages were visually inspected without clipping or overlap.
+- **Status:** Complete and verified locally; changes are uncommitted.

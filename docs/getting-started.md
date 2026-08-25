@@ -2,15 +2,17 @@
 
 ## Requirements
 
-The shared reproducible v4.0.1/v5/v6 environment is Python 3.12 with exact package
+The shared reproducible v4.0.1--v7 environment is Python 3.12 with exact package
 versions in `requirements-lock.txt`. Install it with:
 
 ```powershell
 python -m pip install --requirement requirements-lock.txt
 ```
 
-The lock includes Jupyter for the legacy interactive v1 evaluation notebook.
-Runtime package metadata is also recorded in `pyproject.toml`.
+CI and all non-interactive catalogue/science workflows use only this core lock.
+For the optional legacy interactive v1 notebook environment, install
+`requirements-notebook-lock.txt` instead. Runtime package metadata is also
+recorded in `pyproject.toml`.
 
 The v1 standardization pass itself only needs Python plus `numpy` and `pandas`.
 
@@ -31,7 +33,22 @@ and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
 
-## Current v6 BLAGN Release
+## Current v7 Catalogue Layer
+
+The current catalogue-only layer copies frozen v6 through the heterogeneous
+admission adapter and adds the seven Ren candidate nuclei in six host systems:
+
+```powershell
+python -m scripts.process_v7_catalogue
+python -m scripts.verify_v7_catalogue --reproduce
+```
+
+This writes 119 measurements, 112 physical objects, 111 host systems, explicit
+measurement/object and object/host links, 70 source observables, and stratified
+catalogue counts. It does not generate v7 science rankings, uncertainty tables,
+or figures. See `docs/v7-catalogue-schema.md`.
+
+## Current Completed v6 Science Release
 
 The current release extends frozen v5 with the complete seven-row Davis/THRILS
 Appendix Table 5 and retains six rows after the project redshift cut:

@@ -91,3 +91,28 @@ Detailed extraction and caveat notes are in
   and `584a56f5867e816c6220ea52f55fc0411f2fc745544ecccfb6ea4ad42c445fdc`.
   The only known Taylor repeat is below `z=4`; all six retained rows are new
   v6 objects. See `docs/davis26-thrils-extraction-notes.md`.
+
+## v7 Heterogeneous Source Admission
+
+- **[source_key: ren25_alpine_cristal_jwst_blagn_candidates] Ren et al.
+  (2025), MNRAS 544, 211--233:** seven Type-1 AGN candidate nuclei in six
+  ALPINE--CRISTAL--JWST host systems, extracted from the published Tables 1--2.
+  The latest primary record used is the corrected/typeset MNRAS article, DOI
+  `10.1093/mnras/staf1709`, corresponding to arXiv `2509.02027v2`; the source
+  archive SHA-256 is
+  `c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca`.
+- Table 1 raw storage preserves all seven rows; all are already at `z>5`.
+  Table 2 raw storage preserves 70 line entries: 58 detections and twelve
+  3-sigma upper limits. No figure values or unreported per-row Delta-BIC values
+  are reconstructed.
+- MBH uses `single-epoch-virial-halpha-reines2013`; the paper's `0.4 dex`
+  systematic remains separate from formal Table 1 errors. `DC_536534` maps to
+  probable evidence and primary eligibility. The other six are candidate,
+  BLR-conditional masses retained only in the exploratory diagnostic tier.
+- `DC_848185_a` and `DC_848185_b` are separate candidate nuclei sharing one
+  host-system ID and one integrated host mass. No v6 coordinate/redshift match
+  is found. No LRD classification is published, so it remains missing.
+- The validated source-admission layer is attached non-destructively to the
+  catalogue-only v7 products. No v7 science ranking or figure exists yet. See
+  `docs/ren25-alpine-cristal-jwst-extraction-notes.md` and
+  `docs/v7-catalogue-schema.md`.
