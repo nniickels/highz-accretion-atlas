@@ -51,7 +51,10 @@ python -m scripts.verify_v5_release --reproduce
 
 Committed artifact integrity remains byte-exact through the manifest. Rebuilt
 CSV structure and nonnumeric content are exact; floating-point comparison uses
-`rtol=1e-13` and `atol=1e-14` for cross-platform final-bit stability.
+`rtol=1e-13` and `atol=1e-14` for cross-platform final-bit stability. The
+legacy `separation_arcsec` calculation alone uses `atol=1e-4` arcsec to cover
+documented `arccos` cancellation differences between platform math libraries;
+this is 5,000 times smaller than the 0.5-arcsec candidate-match threshold.
 
 ## Scientific change from v4
 

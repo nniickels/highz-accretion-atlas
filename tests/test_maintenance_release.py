@@ -58,6 +58,17 @@ class MaintenanceReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, "column 'value' differs"):
             assert_frames_semantically_equal(expected, meaningful_change, label="bad numeric change")
 
+    def test_reproduction_comparison_scopes_coordinate_tolerance(self) -> None:
+        expected = pd.DataFrame({"separation_arcsec": [0.056339745988412]})
+        linux_x86_variant = pd.DataFrame({"separation_arcsec": [0.0562558446075508]})
+        assert_frames_semantically_equal(expected, linux_x86_variant, label="platform variant")
+
+        material_coordinate_change = pd.DataFrame({"separation_arcsec": [0.056139745988412]})
+        with self.assertRaisesRegex(AssertionError, "column 'separation_arcsec' differs"):
+            assert_frames_semantically_equal(
+                expected, material_coordinate_change, label="bad coordinate change",
+            )
+
     def test_reproduction_comparison_keeps_text_and_order_exact(self) -> None:
         expected = pd.DataFrame({"id": ["a", "b"], "value": [1.0, 2.0]})
         changed_text = expected.copy()

@@ -12,6 +12,10 @@ from pandas.api.types import is_bool_dtype, is_float_dtype, is_integer_dtype
 
 NUMERIC_RTOL = 1e-13
 NUMERIC_ATOL = 1e-14
+# The legacy great-circle calculation uses arccos near one, where platform
+# libm implementations can differ through cancellation at sub-milliarcsecond
+# scale.  This remains 5,000 times smaller than the 0.5-arcsec candidate cut.
+COLUMN_ATOL = {"separation_arcsec": 1e-4}
 
 
 def csv_round_trip(frame: pd.DataFrame) -> pd.DataFrame:
@@ -42,9 +46,10 @@ def assert_frames_semantically_equal(
         actual_values = actual[column]
         try:
             if is_float_dtype(expected_values.dtype) and is_float_dtype(actual_values.dtype):
+                column_atol = max(atol, COLUMN_ATOL.get(column, 0.0))
                 np.testing.assert_allclose(
                     expected_values.to_numpy(), actual_values.to_numpy(),
-                    rtol=rtol, atol=atol, equal_nan=True,
+                    rtol=rtol, atol=column_atol, equal_nan=True,
                 )
             elif (
                 (is_integer_dtype(expected_values.dtype) or is_bool_dtype(expected_values.dtype))
