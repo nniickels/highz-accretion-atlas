@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sys
+import tomllib
 import unittest
 from pathlib import Path
 
@@ -50,7 +51,41 @@ class V5ScienceTests(unittest.TestCase):
             self.assertEqual(len(self.frames[name]), count, name)
         for frame in self.frames.values():
             self.assertTrue(frame["catalogue_release"].eq("v5-blagn").all())
-        self.assertEqual(sorted(self.frames["object_point"]["rank_growth_pressure"]), list(range(1, 100)))
+        for name, column in [
+            ("measurement_point", "rank_growth_pressure"),
+            ("object_point", "rank_growth_pressure"),
+            ("measurement_uncertainty", "rank_uncertainty_pressure"),
+            ("object_uncertainty", "rank_uncertainty_pressure"),
+        ]:
+            self.assertEqual(
+                sorted(self.frames[name][column].astype(int)),
+                list(range(1, len(self.frames[name]) + 1)),
+                name,
+            )
+        for name, column in [
+            ("measurement_point", "rank_primary_growth_pressure"),
+            ("object_point", "rank_primary_growth_pressure"),
+            ("measurement_uncertainty", "rank_primary_uncertainty_pressure"),
+            ("object_uncertainty", "rank_primary_uncertainty_pressure"),
+        ]:
+            ranks = self.frames[name][column].dropna().astype(int)
+            self.assertEqual(sorted(ranks), list(range(1, len(ranks) + 1)), name)
+
+    def test_current_package_and_paper_figures_are_v5(self) -> None:
+        metadata = tomllib.loads((ROOT / "pyproject.toml").read_text())
+        self.assertEqual(metadata["project"]["version"], "5.0.0")
+        expected = {
+            "v5_main_text_mbh_redshift_growth_overview.png",
+            "v5_main_text_primary_vs_full_ranking.png",
+            "v5_main_text_accretion_history_diagnostics.png",
+            "v5_appendix_measurement_choice_sensitivity.png",
+        }
+        figure_dir = ROOT / "results/v5_main_text_figures"
+        self.assertEqual({path.name for path in figure_dir.glob("*.png")}, expected)
+        for name in expected:
+            data = (figure_dir / name).read_bytes()
+            self.assertTrue(data.startswith(b"\x89PNG\r\n\x1a\n"), name)
+            self.assertGreater(len(data), 50_000, name)
 
     def test_baseline_math_and_harikane_scenario_policy(self) -> None:
         evaluation = self.frames["measurement_eval"]
@@ -180,6 +215,31 @@ class V5ScienceTests(unittest.TestCase):
         self.assertTrue(unavailable["current_to_required_fedd_ratio"].isna().all())
         self.assertTrue(history["current_fedd_is_instantaneous_not_history"].astype(bool).all())
         self.assertFalse(history["mass_systematic_applied"].astype(bool).any())
+        provenance = {
+            "evidence_status_basis", "spectroscopic_type", "selection_channels",
+            "phenotype_tags", "detection_evidence", "quality_flag", "mbh_method",
+            "source_table", "source_paper_version", "source_url", "source_doi",
+            "source_caveat_tags", "log_mbh_systematic_dex", "mbh_systematic_kind",
+            "mbh_formal_uncertainty_kind", "edd_ratio_consistency_flag",
+            "edd_ratio_log_residual_dex", "current_fedd_comparison_eligible_flag",
+            "current_fedd_comparison_status",
+        }
+        self.assertTrue(provenance.issubset(history.columns))
+
+    def test_inconsistent_current_fedd_is_retained_but_not_compared(self) -> None:
+        for name in ["measurement_history", "object_history"]:
+            history = self.frames[name]
+            gn = history[history["physical_object_id"].eq("HZA-GN-11836")]
+            self.assertEqual(len(gn), 3)
+            self.assertTrue(gn["reported_current_fedd"].eq(0.11).all())
+            self.assertTrue(gn["edd_ratio_consistency_flag"].eq("inconsistent").all())
+            self.assertTrue(np.isfinite(gn["edd_ratio_log_residual_dex"]).all())
+            self.assertTrue(gn["current_to_required_fedd_ratio"].isna().all())
+            self.assertFalse(gn["current_fedd_comparison_eligible_flag"].astype(bool).any())
+            self.assertTrue(
+                gn["current_fedd_comparison_status"]
+                .eq("excluded_source_table_inconsistency").all()
+            )
 
     def test_paper_ranking_comparison_distinguishes_populations(self) -> None:
         comparison = self.frames["ranking_comparison"].set_index("physical_object_id")
@@ -191,6 +251,12 @@ class V5ScienceTests(unittest.TestCase):
         self.assertEqual(
             int(comparison.loc["HZA-CEERS-00717", "rank_primary_growth_pressure"]), 3
         )
+        self.assertTrue({
+            "evidence_status_basis", "spectroscopic_type", "selection_channels",
+            "phenotype_tags", "quality_flag", "detection_evidence", "mbh_method",
+            "source_caveat_tags", "detection_confidence_tier",
+            "mass_measurement_reliability_tier",
+        }.issubset(comparison.columns))
 
 
 if __name__ == "__main__":

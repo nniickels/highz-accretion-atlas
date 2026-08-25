@@ -39,9 +39,10 @@ Careful claim posture:
   manual identity assertions, and source-specific virial-method metadata.
 - The Harikane measurement-version ingestion, first class-aware taxonomy
   scaffolding, primary-ranking gate, paper-facing ranking comparison, and
-  effective two-state duty-cycle diagnostics are complete. The claim audit is
-  recorded in `docs/v5-manuscript-claim-audit.md`; next specify class-specific
-  eligibility rules before the first heterogeneous v6 source.
+  effective two-state duty-cycle diagnostics are complete. Caveat propagation,
+  exact manifest membership, four v5 figures, and citation/claim audits are also
+  complete. The multi-class contract is recorded in
+  `docs/multiclass-eligibility-and-mass-comparability.md` for v7.
 - The phase descriptions and prompt sequence below preserve project history;
   they are not all outstanding tasks.
 
@@ -199,7 +200,9 @@ Careful claim posture:
   - `10^5 Msun` seeds require median `f_Edd` around 0.268 and max around 0.592.
 - Under continuous `f_Edd = 1`, `epsilon = 0.1`, no merger, v1 objects are generally reachable from modest seeds by `z_seed = 30`.
 - Under gentler `f_Edd = 0.3`, `epsilon = 0.1`, no merger, hardest objects require heavy or above-heavy seed masses.
-- Current reported Eddington ratios in v1 are low, roughly `0.015-0.38`, so future duty-cycle analysis is important.
+- Current reported Eddington ratios in v1 are low, roughly `0.015-0.38`. The
+  v5 two-state duty-cycle sensitivity is now implemented; time-resolved or
+  feedback-regulated histories remain future work.
 - The most useful scientific product is not "growth tracks exist"; it is ranking which objects remain interesting under transparent assumptions.
 
 ## Final Paper / Atlas Structure
@@ -485,7 +488,11 @@ Candidate sources:
 - Harikane faint BLAGN: **completed in v5** as ten measurement versions, with
   five verified overlaps and five new physical objects. Earlier CEERS/JADES
   discovery papers remain possible separate measurement-version layers.
-- THRILS deep-spectroscopy BLAGN and evidence-graded ALPINE-CRISTAL candidates.
+- THRILS deep-spectroscopy BLAGN as the preferred candidate for the final
+  same-class v6 consolidation, conditional on a reliable authoritative
+  object-level table audit.
+- Evidence-graded ALPINE-CRISTAL candidates only in v7 or later under the
+  multi-class eligibility and mass-comparability contract.
 - Jones et al. as a host-mass/remeasurement layer after stable physical-object IDs exist.
 - Baccus and Xu as a large archival audit only after duplicate resolution works.
 
@@ -552,6 +559,10 @@ Codex prompt:
 Goal:
 - Turn BLAGN foundation into a broader observational atlas.
 
+Status (2026-08-25): the design gate is complete in
+`docs/multiclass-eligibility-and-mass-comparability.md`. Heterogeneous ingestion
+is assigned to v7; v6 remains a final same-class BLAGN consolidation.
+
 Suggested order:
 1. Lensed high-z AGN candidates.
 2. X-ray-selected candidates, with UHZ1 marked disputed under the 2026 reanalysis rather than treated as confirmed.
@@ -584,6 +595,12 @@ measurement/object products, and explicit current-versus-lifetime semantics.
 The implementation is an effective two-state sensitivity, not a time-resolved
 feedback or stochastic-light-curve model.
 
+Presentation status: complete. The current-versus-required and fixed-burst
+panels are generated under `results/v5_main_text_figures/`. Source-inconsistent
+published current values are retained but excluded from ratios. A separate
+duty-cycle rank is intentionally not created because fixed burst/quiescent
+choices make `D` a monotonic rescaling of required average `f_Edd`.
+
 Intermediate steps:
 1. Define lifetime-average `f_Edd`.
 2. Define burst duty cycle `D`.
@@ -594,8 +611,9 @@ Intermediate steps:
    - given radiative efficiency
    - given seed redshift
 5. Compare required lifetime-average `f_Edd` to reported current `f_Edd`.
-6. Add plots of current vs required average `f_Edd`.
-7. Add duty-cycle ranking.
+6. Add plots of current vs required average `f_Edd`. **Completed.**
+7. Interpret duty-cycle values through the canonical primary growth rank;
+   do not create a mathematically redundant ranking. **Completed by design.**
 8. Add caveat that current accretion need not equal historical average.
 9. Add discussion of bursty growth and feedback limits.
 
@@ -635,6 +653,10 @@ Codex prompt:
 ### Phase 10: Final paper figures
 Goal:
 - Assemble the polished figure set for the final paper.
+
+Status (2026-08-25): the current v5 selection is frozen in
+`docs/v5-figure-inventory.md`: three main-text figures and one appendix
+measurement-choice figure. Later multi-class figures remain future work.
 
 Likely main figures:
 1. Catalogue overview in redshift-mass space.
@@ -700,8 +722,10 @@ Codex prompt:
   - status: completed in v5; ten rows, five verified overlaps, five new objects.
 - Earlier CEERS/JADES discovery papers:
   - status: possible future measurement-version layers after cross-matching.
-- THRILS and ALPINE-CRISTAL-JWST:
-  - status: planned selection-bias/evidence-graded extensions.
+- THRILS:
+  - status: preferred next same-class v6 BLAGN source.
+- ALPINE-CRISTAL-JWST:
+  - status: deferred to heterogeneous v7 after applying the multi-class contract.
 - Jones et al. and Baccus and Xu:
   - status: deferred until stable physical-object IDs and duplicate resolution exist.
 
@@ -827,11 +851,13 @@ task queue. Use the immediate-next-task section below for new work.
 ## Immediate Next Best Task after v5
 
 The v3 figure task, v5 Harikane expansion, evidence/eligibility gate,
-reproducibility manifest, paper-facing ranking comparison, and first
-accretion-history diagnostics are complete. The next best concrete task is to
-define class-specific eligibility and mass-comparability rules before adding a
-heterogeneous v6 source, while completing the citation and figure-selection
-audit in parallel.
+exact-membership reproducibility manifest, paper-facing ranking comparison,
+first accretion-history diagnostics, multi-class contract, citation audit, and
+v5 figure selection are complete. The next best concrete task is a read-only
+latest-primary-table and overlap audit for THRILS. A v6 ingestion plan follows
+only if that audit finds a reliable authoritative object-level table; missing
+values must not be reconstructed. No heterogeneous source should enter before
+the v7 gate is applied.
 
 Historical v3 figure brief:
 
@@ -842,6 +868,7 @@ Historical v3 figure brief:
   reported statistical errors and the common `+/-0.3 dex` comparison.
 - Keep the v2 figure artifacts frozen as the reproducible pre-expansion record.
 
-The next task should turn the current v4 tables into paper-ready comparisons,
-while preserving the completed v2 and v3 artifacts and avoiding another source
-ingestion before v4 has been interpreted visually.
+The historical v4 comparison brief is satisfied by the v5 paper-facing tables
+and figures. The next task is a read-only THRILS source-table audit; v6
+implementation remains conditional on that audit while all completed v1--v5
+artifacts stay preserved.

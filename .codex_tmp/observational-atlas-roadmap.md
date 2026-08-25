@@ -39,6 +39,9 @@ Completed so far:
   overlaps and five new objects produce 106 measurements / 99 physical objects.
 - v5 taxonomy scaffolding separates evidence, spectroscopic type, selection
   channel, phenotype, lensing status, and growth-ranking eligibility.
+- v5 paper consolidation is complete: exact manifest membership, caveat-aware
+  accretion-history comparisons, a primary/full ranking table, four current
+  figures, and primary-source citation/claim audits.
 - One new cross-paper identity is verified: GOODS-S-13971 = GS-204851. Prior
   release preferences remain stable while every measurement is preserved.
 - v4 confidence semantics separate broad-line detection from mass/line-model
@@ -75,7 +78,8 @@ Primary project path from here:
    - Appendix: full catalogue, scenario tables, map gallery, validation checks.
 
 3. Preserve the completed v2 figure prototypes derived from the v1 catalogue,
-   and maintain separate release-specific figures. **v3 and v4 figures completed.**
+   and maintain separate release-specific figures. **v3, v4, and the deliberate
+   v5 paper-facing figure set are complete.**
    - Clean MBH vs redshift figure with fewer tracks.
    - Sample compatibility heatmap.
    - Required f_Edd by seed mass.
@@ -94,7 +98,10 @@ Primary project path from here:
    - Add the z >= 4 subset of the current 62-object Taylor CEERS/RUBIES BLAGN catalogue first. **Completed 2026-08-17.**
    - Add Matthee EIGER/FRESCO and Lin ASPIRE as complementary NIRCam WFSS selections. **Completed in v4 on 2026-08-22.**
    - Add Harikane and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching. **Harikane completed in v5 on 2026-08-23.**
-   - Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
+   - Audit THRILS as the preferred final same-class BLAGN source for v6; ingest
+     it only if an authoritative object-level table is available and complete.
+   - Defer evidence-graded ALPINE-CRISTAL candidates to the first heterogeneous
+     v7 release, after applying the multi-class eligibility contract.
    - Defer large overlapping compilations such as Baccus and Xu until physical-object IDs work.
    - Recompute rankings and test whether v1 high-leverage objects remain special.
 
@@ -118,12 +125,15 @@ Primary project path from here:
    - Keep object classes and mass methods visually/statistically distinct.
 
 8. Add duty-cycle and accretion-history diagnostics. **Completed for the v5
-   BLAGN layer; fuller time-dependent/feedback histories remain future work.**
+   BLAGN layer, including paper figures and source-consistency exclusions;
+   fuller time-dependent/feedback histories remain future work.**
    - Lifetime-average f_Edd.
    - Burst duty cycle D.
    - Burst accretion rate f_Edd,burst.
    - Required duty cycle for each object.
    - Compare current reported Eddington ratio against lifetime-average requirement.
+   - Do not create a redundant duty-cycle rank: for fixed burst/quiescent rates,
+     duty fraction is a monotonic transformation of required average growth.
 
 9. Build final atlas/ranking products.
    - Main ranked object table.

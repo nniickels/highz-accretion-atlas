@@ -2,8 +2,8 @@
 
 ## Requirements
 
-The reproducible v4.0.1 environment is Python 3.12 with exact package versions
-in `requirements-lock.txt`. Install it with:
+The shared reproducible v4.0.1/v5 environment is Python 3.12 with exact package
+versions in `requirements-lock.txt`. Install it with:
 
 ```powershell
 python -m pip install --requirement requirements-lock.txt
@@ -26,7 +26,7 @@ python -m scripts.verify_v4_release --reproduce
 
 CI additionally runs this command with `--require-clean`, after the complete
 regression suite, to prove that verification leaves a clean checkout unchanged.
-Manifest hashes are exact. Independently rebuilt tables require exact structure
+Manifest membership and hashes are exact. Independently rebuilt tables require exact structure
 and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
@@ -39,7 +39,9 @@ broad-Halpha sample:
 ```powershell
 python -m scripts.process_v5_blagn
 python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v5_final_figures
 python -m scripts.verify_v5_release --reproduce
+python -m scripts.verify_v5_figures
 ```
 
 This writes 106 measurements, 99 physical objects, 106 links and aliases, six
@@ -47,11 +49,16 @@ reviewed candidates, and 16 v5 science tables. Five Harikane measurements link
 to existing objects and five create new objects. See
 `docs/v5-blagn-catalogue-schema.md`,
 `docs/harikane23-nirspec-extraction-notes.md`, and
-`docs/v5-blagn-science-workflow.md`.
+`docs/v5-blagn-science-workflow.md`. The figure command writes three current
+main-text figures and one appendix sensitivity figure documented in
+`docs/v5-figure-inventory.md`; it does not alter frozen v1--v4 figures.
+The last command verifies exact membership and hashes for those four canonical
+PNGs without regenerating them.
 
-The verifier checks a v5 hash manifest and reconstructs all five
+The verifier checks exact v5 manifest membership and hashes, then reconstructs all five
 catalogue/identity plus 16 science products in memory. CI runs it with
-`--require-clean` after the frozen-v4 gate.
+`--require-clean` after the frozen-v4 gate, then verifies the separate canonical
+figure manifest from the same clean checkout.
 
 ## Frozen v4 BLAGN Release
 

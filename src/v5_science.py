@@ -345,6 +345,22 @@ def build_accretion_history_diagnostics(
         ))
         reported_current = obj.get("edd_ratio_std", np.nan)
         current_available = pd.notna(reported_current) and float(reported_current) > 0.0
+        current_consistency_raw = obj.get("edd_ratio_consistency_flag", "not_evaluable")
+        current_consistency = (
+            "not_evaluable" if pd.isna(current_consistency_raw)
+            else str(current_consistency_raw)
+        )
+        current_comparison_eligible = (
+            current_available and current_consistency != "inconsistent"
+        )
+        if not current_available:
+            current_comparison_status = "unavailable_no_reported_positive_value"
+        elif current_consistency == "inconsistent":
+            current_comparison_status = "excluded_source_table_inconsistency"
+        elif current_consistency == "consistent":
+            current_comparison_status = "eligible_source_table_consistent"
+        else:
+            current_comparison_status = "eligible_but_source_consistency_not_evaluable"
         common = {
             "catalogue_release": CATALOGUE_RELEASE,
             "input_catalogue_release": CATALOGUE_RELEASE,
@@ -358,8 +374,23 @@ def build_accretion_history_diagnostics(
             "field": obj["field"],
             "redshift": obj["redshift"],
             "evidence_status": obj["evidence_status"],
+            "evidence_status_basis": obj.get("evidence_status_basis", np.nan),
+            "spectroscopic_type": obj.get("spectroscopic_type", np.nan),
+            "selection_channels": obj.get("selection_channels", np.nan),
+            "phenotype_tags": obj.get("phenotype_tags", np.nan),
             "primary_growth_ranking_flag": obj["primary_growth_ranking_flag"],
             "lrd_status": obj["lrd_status"],
+            "detection_evidence": obj.get("detection_evidence", np.nan),
+            "quality_flag": obj.get("quality_flag", np.nan),
+            "mbh_method": obj.get("mbh_method", np.nan),
+            "source_table": obj.get("source_table", np.nan),
+            "source_paper_version": obj.get("source_paper_version", np.nan),
+            "source_url": obj.get("source_url", np.nan),
+            "source_doi": obj.get("source_doi", np.nan),
+            "source_caveat_tags": obj.get("source_caveat_tags", np.nan),
+            "log_mbh_systematic_dex": obj.get("log_mbh_systematic_dex", np.nan),
+            "mbh_systematic_kind": obj.get("mbh_systematic_kind", np.nan),
+            "mbh_formal_uncertainty_kind": obj.get("mbh_formal_uncertainty_kind", np.nan),
             "log_mseed_assumption": ACCRETION_HISTORY_LOG_MSEED,
             "mseed_assumption_msun": 100.0,
             "z_seed": Z_SEED,
@@ -369,10 +400,14 @@ def build_accretion_history_diagnostics(
             "required_lifetime_average_fedd_point": required_point,
             "reported_current_fedd": reported_current,
             "reported_current_fedd_status": obj["edd_ratio_diagnostic_status"],
+            "edd_ratio_consistency_flag": current_consistency,
+            "edd_ratio_log_residual_dex": obj.get("edd_ratio_log_residual_dex", np.nan),
+            "current_fedd_comparison_eligible_flag": current_comparison_eligible,
+            "current_fedd_comparison_status": current_comparison_status,
             "current_fedd_is_instantaneous_not_history": True,
             "current_to_required_fedd_ratio": (
                 float(reported_current) / required_point
-                if current_available and required_point > 0.0 else np.nan
+                if current_comparison_eligible and required_point > 0.0 else np.nan
             ),
             "n_samples": int(n_samples),
             "random_seed": int(random_seed),
@@ -386,7 +421,8 @@ def build_accretion_history_diagnostics(
             "mass_systematic_applied": False,
             "interpretation_note": (
                 "effective two-state sensitivity; required mean and current reported fEdd "
-                "are not the same observable"
+                "are not the same observable; source-inconsistent current values are retained "
+                "but excluded from the ratio comparison"
             ),
         }
         for scenario in BURST_SCENARIOS:
@@ -429,6 +465,11 @@ def build_primary_ranking_comparison(
         "catalogue_release", "catalogue_view", "ranking_id", "physical_object_id",
         "object_id", "measurement_id", "source_key", "survey", "field", "redshift",
         "evidence_status", "primary_growth_ranking_flag", "ranking_population",
+        "evidence_status_basis", "spectroscopic_type", "selection_channels",
+        "phenotype_tags", "quality_flag", "detection_evidence", "mbh_method",
+        "source_caveat_tags", "detection_confidence_tier",
+        "detection_confidence_score_0_100", "mass_measurement_reliability_tier",
+        "mass_measurement_reliability_score_0_100", "source_virial_sensitivity_note",
         "full_ranking_role", "primary_ranking_role", "rank_growth_pressure",
         "rank_primary_growth_pressure", "rank_uncertainty_pressure",
         "rank_primary_uncertainty_pressure", "physical_pressure_score_0_100",
@@ -493,6 +534,36 @@ def verify_v5_outputs(outputs: dict[str, pd.DataFrame], *, n_samples: int) -> di
         "primary_object_ranks_contiguous": sorted(
             outputs["object_point_ranking"]["rank_primary_growth_pressure"].dropna().astype(int)
         ) == list(range(1, 99)),
+        "all_point_ranks_contiguous": all(
+            sorted(outputs[name]["rank_growth_pressure"].astype(int))
+            == list(range(1, len(outputs[name]) + 1))
+            for name in ["measurement_point_ranking", "object_point_ranking"]
+        ),
+        "all_uncertainty_ranks_contiguous": all(
+            sorted(outputs[name]["rank_uncertainty_pressure"].astype(int))
+            == list(range(1, len(outputs[name]) + 1))
+            for name in ["measurement_uncertainty_ranking", "object_uncertainty_ranking"]
+        ),
+        "all_primary_ranks_contiguous": all(
+            sorted(outputs[name][column].dropna().astype(int))
+            == list(range(1, int(outputs[name][column].notna().sum()) + 1))
+            for name, column in [
+                ("measurement_point_ranking", "rank_primary_growth_pressure"),
+                ("object_point_ranking", "rank_primary_growth_pressure"),
+                ("measurement_uncertainty_ranking", "rank_primary_uncertainty_pressure"),
+                ("object_uncertainty_ranking", "rank_primary_uncertainty_pressure"),
+            ]
+        ),
+        "inconsistent_current_fedd_excluded": all(
+            frame.loc[
+                frame["edd_ratio_consistency_flag"].eq("inconsistent"),
+                "current_to_required_fedd_ratio",
+            ].isna().all()
+            for frame in [
+                outputs["measurement_accretion_history"],
+                outputs["object_accretion_history"],
+            ]
+        ),
         "release_metadata": all(
             frame["catalogue_release"].eq(CATALOGUE_RELEASE).all() for frame in outputs.values()
         ),

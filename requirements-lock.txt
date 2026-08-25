@@ -1,4 +1,4 @@
-# Runtime versions for the v4.0.1 maintenance release (Python 3.12).
+# Shared reproducible runtime for frozen v4.0.1 and current v5 (Python 3.12).
 numpy==2.5.2
 pandas==2.2.3
 matplotlib==3.11.1

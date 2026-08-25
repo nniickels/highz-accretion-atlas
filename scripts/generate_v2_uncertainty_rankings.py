@@ -1,7 +1,8 @@
 """Propagate v1-catalogue mass uncertainty through the v2 diagnostics.
 
 The v2 uncertainty model samples source-reported asymmetric log(MBH) errors
-with a split-normal approximation, then applies systematic mass-shift scenarios.
+with an equal-side two-piece normal approximation, then applies systematic
+mass-shift scenarios.
 It writes long-form diagnostic summaries plus an uncertainty-aware ranking table.
 """
 
@@ -95,7 +96,7 @@ def asymmetric_normal_samples(
     n_samples: int,
     rng: np.random.Generator,
 ) -> np.ndarray:
-    """Sample a split-normal approximation for asymmetric log-space errors."""
+    """Sample an equal-side two-piece normal approximation in log space."""
     spec = resolve_mbh_uncertainty(err_plus, err_minus)
 
     z = rng.standard_normal(int(n_samples))

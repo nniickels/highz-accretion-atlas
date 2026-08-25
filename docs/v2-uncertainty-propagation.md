@@ -33,8 +33,11 @@ reported asymmetric errors:
 - if neither side is available, the row is treated as a point estimate
 - negative reported uncertainties are treated as invalid input
 
-This is a split-normal approximation in log-mass space. It captures the reported
-asymmetry without adding a heavy statistical dependency. It is not a full
+This is an equal-side two-piece normal approximation in log-mass space. It is
+retained in machine-readable products under the legacy label
+`split-normal-in-log-mbh`. It captures the reported asymmetry without adding a
+heavy statistical dependency, but it is not the normalized split-normal
+distribution whose side weights depend on the two scales and it is not a full
 posterior reconstruction.
 
 The sampled distribution has 50% of draws on each side of the reported central

@@ -76,7 +76,9 @@ Scenarios are separate rows and columns:
 
 The Taylor shifts are sensitivity bounds, not an added Gaussian error. Each
 uncertainty scenario first samples the reported asymmetric statistical MBH
-errors with a split-normal approximation and then applies one fixed shift.
+errors with the established equal-side two-piece normal approximation (the
+legacy machine-readable label is `split-normal-in-log-mbh`) and then applies
+one fixed shift.
 Columns explicitly record that statistical and systematic terms were not
 combined. The deterministic seed is resolved per measurement ID, so a preferred
 measurement has identical draws in the measurement and physical-object views.

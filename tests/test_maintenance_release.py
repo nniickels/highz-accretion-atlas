@@ -17,13 +17,47 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.generate_v2_uncertainty_rankings import verify_outputs
 from scripts.reproduction import assert_frames_semantically_equal
-from scripts.verify_v4_release import MANIFEST_PATH, verify_manifest_hashes
+from scripts.verify_v4_release import (
+    MANIFEST_PATH, verify_manifest_hashes, verify_manifest_membership,
+)
+from scripts.verify_v5_release import (
+    MANIFEST_PATH as V5_MANIFEST_PATH,
+    verify_manifest_membership as verify_v5_manifest_membership,
+)
+from scripts.verify_v5_figures import (
+    MANIFEST_PATH as V5_FIGURE_MANIFEST_PATH,
+    verify_manifest_hashes as verify_v5_figure_hashes,
+    verify_manifest_membership as verify_v5_figure_membership,
+)
 from src.mass_systematics import load_mass_method_registry, validate_catalogue_method_coverage
 
 
 class MaintenanceReleaseTests(unittest.TestCase):
     def test_manifest_hashes_match_committed_release_artifacts(self) -> None:
-        verify_manifest_hashes(json.loads(MANIFEST_PATH.read_text()))
+        manifest = json.loads(MANIFEST_PATH.read_text())
+        verify_manifest_membership(manifest)
+        verify_manifest_hashes(manifest)
+
+    def test_release_manifests_have_exact_artifact_membership(self) -> None:
+        v4 = json.loads(MANIFEST_PATH.read_text())
+        v5 = json.loads(V5_MANIFEST_PATH.read_text())
+        verify_manifest_membership(v4)
+        verify_v5_manifest_membership(v5)
+
+        broken = {**v5, "artifacts": dict(v5["artifacts"])}
+        broken["artifacts"]["results/unexpected.csv"] = "0" * 64
+        with self.assertRaisesRegex(AssertionError, "unexpected entries"):
+            verify_v5_manifest_membership(broken)
+
+    def test_v5_figure_manifest_has_exact_membership_and_hashes(self) -> None:
+        manifest = json.loads(V5_FIGURE_MANIFEST_PATH.read_text())
+        verify_v5_figure_membership(manifest)
+        verify_v5_figure_hashes(manifest)
+
+        broken = {**manifest, "artifacts": dict(manifest["artifacts"])}
+        broken["artifacts"].pop(next(iter(broken["artifacts"])))
+        with self.assertRaisesRegex(AssertionError, "unexpected files"):
+            verify_v5_figure_membership(broken)
 
     def test_every_v4_source_method_pair_is_registered(self) -> None:
         catalogue = pd.read_csv(ROOT / "data/processed/v4_blagn_measurements.csv")

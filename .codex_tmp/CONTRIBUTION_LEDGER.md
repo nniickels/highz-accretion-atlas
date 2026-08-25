@@ -714,7 +714,78 @@ For every future Codex contribution that changes repository files:
 - **Validation:** All 108 regression tests passed. The frozen v4.0.1 and current
   v5 verifiers reproduced their complete artifact sets in memory, the updated
   v5 manifest hashes match, `git diff --check` passed, and the rebuilt 15-page
-  status PDF was rendered and visually inspected. Hosted GitHub Actions was
-  independently confirmed successful for baseline commit `d2b1731`; hosted CI
-  for this uncommitted extension necessarily awaits a commit/push.
+  status PDF was rendered and visually inspected. Hosted GitHub Actions run
+  `32814549253` passed for the committed state.
+- **Status:** Complete in commit `b73a241` (`v5 diagnostics`) and pushed to
+  `origin/main`.
+
+### 2026-08-25 - Complete the v5 science and manuscript consistency gate
+
+- **Objective:** Resolve the remaining caveat-propagation, release-contract,
+  figure-selection, chronology, citation, and documentation findings without
+  changing v1--v4 artifacts or v5 catalogue membership/ranks.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/catalogue-expansion-guide.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/observational-atlas-roadmap.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `.github/workflows/ci.yml` (modified)
+  - `README.md` (modified)
+  - `docs/getting-started.md` (modified)
+  - `docs/multiclass-eligibility-and-mass-comparability.md` (added)
+  - `docs/release-versioning.md` (modified)
+  - `docs/v2-uncertainty-propagation.md` (modified)
+  - `docs/v3-blagn-science-workflow.md` (modified)
+  - `docs/v4-blagn-science-workflow.md` (modified)
+  - `docs/v5-blagn-science-workflow.md` (modified)
+  - `docs/v5-figure-inventory.md` (added)
+  - `docs/v5-manuscript-citation-audit.md` (added)
+  - `docs/v5-manuscript-claim-audit.md` (modified)
+  - `pyproject.toml` (modified)
+  - `releases/v5-manifest.json` (modified)
+  - `requirements-lock.txt` (modified)
+  - `releases/v5-figures-manifest.json` (added)
+  - `results/v5_blagn_measurement_accretion_history.csv` (modified)
+  - `results/v5_blagn_physical_object_accretion_history.csv` (modified)
+  - `results/v5_blagn_primary_ranking_comparison.csv` (modified)
+  - `results/v5_main_text_figures/v5_appendix_measurement_choice_sensitivity.png` (added)
+  - `results/v5_main_text_figures/v5_main_text_accretion_history_diagnostics.png` (added)
+  - `results/v5_main_text_figures/v5_main_text_mbh_redshift_growth_overview.png` (added)
+  - `results/v5_main_text_figures/v5_main_text_primary_vs_full_ranking.png` (added)
+  - `scripts/generate_v5_final_figures.py` (added)
+  - `scripts/generate_v2_uncertainty_rankings.py` (modified)
+  - `scripts/verify_v4_release.py` (modified)
+  - `scripts/verify_v5_release.py` (modified)
+  - `scripts/verify_v5_figures.py` (added)
+  - `src/v5_science.py` (modified)
+  - `tests/test_maintenance_release.py` (modified)
+  - `tests/test_v5_blagn_science.py` (modified)
+- **Contribution:** Retained GN-11836's published Eddington ratio while making
+  its failed source-table consistency check an explicit exclusion from the
+  current-to-required comparison; propagated method, evidence, systematic, and
+  source caveats into accretion-history and paper-facing tables; required exact
+  manifest membership; aligned package metadata with v5; generated a current
+  three-main/one-appendix figure set; completed primary-source citation and
+  multi-class admission contracts; and resolved chronology so v6 is the final
+  same-class BLAGN consolidation and v7 is the first heterogeneous release.
+  The canonical PNGs now have a separate exact-membership/hash manifest and CI
+  gate. Documentation now identifies the asymmetric-error sampler precisely as
+  an equal-side two-piece normal approximation while retaining the historical
+  machine-readable label, and makes THRILS ingestion conditional on an
+  authoritative object-level source table.
+- **Scientific/technical effect:** Catalogue membership, physical identities,
+  all complete and primary ranks, baseline mathematics, and every v1--v4
+  artifact remain unchanged. Only the three v5 tables needing new caveat fields
+  changed. Fixed-burst duty cycle is documented as a transformed view of the
+  canonical required-average-growth ordering, not an independent rank.
+- **Validation:** All 112 regression tests passed. Exact v4.0.1 and v5 CSV
+  manifest membership/hashes and full in-memory reproduction passed; the new
+  v5 figure manifest membership and hashes also passed. GN-11836 is present
+  in both history views with `reported_current_fedd=0.11`, residual `-0.908 dex`,
+  false comparison eligibility, and a missing ratio. All four PNGs were opened
+  and visually inspected. The rebuilt 15-page status PDF was rendered and all
+  pages were visually inspected without clipping or layout defects. PDF
+  structure, `git diff --check`, and local documentation-link checks passed.
 - **Status:** Complete and verified locally; changes are uncommitted.

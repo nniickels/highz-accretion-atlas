@@ -97,13 +97,14 @@ remains the frozen Matthee/ASPIRE comparison and figure release:
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
-The exact v4.0.1 environment is in `requirements-lock.txt`; verify every frozen
-v4 CSV without writing outputs with
+The shared pinned v4.0.1/v5 environment is in `requirements-lock.txt`; verify
+every frozen v4 CSV without writing outputs with
 `python -m scripts.verify_v4_release --reproduce`. The current v5 catalogue and
 science tables have an equivalent non-writing gate:
 `python -m scripts.verify_v5_release --reproduce`.
 
-Both gates verify checked-in artifact bytes against exact SHA-256 manifests.
+Both gates verify exact artifact membership and checked-in bytes against
+SHA-256 manifests.
 Independent reconstruction is then compared with exact schema, row order,
 text, booleans, and missingness plus a tight floating-point tolerance, avoiding
 false failures from final-bit differences between macOS/ARM and Linux/x86.
@@ -173,8 +174,8 @@ physical objects.
 2. Keep `measurement_id` as the row-level source-paper measurement ID.
 3. Add aliases and cross-match metadata.
 4. Build measurement-level and object-level ranking tables.
-5. Preserve explicit default-measurement rules. Alternate-measurement rank
-   sensitivity remains the next analysis step.
+5. Preserve explicit default-measurement rules. One-at-a-time
+   alternate-measurement rank sensitivity is complete for every nondefault row.
 6. Add the Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples without
    changing v1--v3 artifacts or pooling their unlike selection functions.
 
@@ -186,9 +187,38 @@ retains every prior default measurement. The result is 106 measurements / 99
 physical objects. It also separates evidence status, spectroscopic type,
 selection channel, phenotype, lensing status, and growth-ranking eligibility.
 
-### v6: Multi-Class High-z Accreting BH Atlas
+### v5 science extension: Accretion-History Diagnostics
 
-Expand beyond broad-line AGN.
+This completed, non-catalogue-bumping layer moves beyond constant-average
+growth tracks while leaving v1--v4 products unchanged.
+
+1. It compares reported current $f_{Edd}$ with required lifetime-average
+   $f_{Edd}$ without treating them as the same quantity.
+2. It evaluates effective two-state histories with zero quiescent accretion and
+   burst $f_{Edd}=1,2,3$.
+3. It computes required duty-cycle point estimates and asymmetric-error Monte
+   Carlo intervals for a $100\,M_\odot$ seed under the baseline assumptions.
+4. It retains duty cycles above one as an explicit sign that the fixed burst
+   scenario is insufficient; it does not clip them into apparent feasibility.
+5. It retains source-inconsistent reported values for audit but excludes them
+   from current-versus-lifetime ratio comparisons.
+
+### v6: Final Same-Class BLAGN Consolidation
+
+Finish the comparable broad-line foundation before widening the atlas.
+
+1. Audit THRILS as the preferred next BLAGN source and ingest it only if its
+   latest primary version provides a reliable authoritative object-level table;
+   otherwise record the source as blocked rather than reconstructing values.
+2. Attach earlier CEERS/JADES discovery measurements where they add genuinely
+   distinct fits or observables.
+3. Preserve all v5 artifacts and default-measurement continuity.
+4. Re-run class-homogeneous rankings and measurement-choice sensitivity.
+
+### v7: Multi-Class High-z Accreting BH Atlas
+
+Expand beyond broad-line AGN only after applying
+`docs/multiclass-eligibility-and-mass-comparability.md`.
 
 Possible classes:
 
@@ -206,20 +236,6 @@ For each class:
 3. Keep object classes visually and statistically distinct.
 4. Recompute atlas rankings with class-aware caveats.
 
-### v5 science extension: Accretion-History Diagnostics
-
-This completed, non-catalogue-bumping layer moves beyond constant-average
-growth tracks while leaving v1--v4 products unchanged.
-
-1. It compares reported current $f_{Edd}$ with required lifetime-average
-   $f_{Edd}$ without treating them as the same quantity.
-2. It evaluates effective two-state histories with zero quiescent accretion and
-   burst $f_{Edd}=1,2,3$.
-3. It computes required duty-cycle point estimates and asymmetric-error Monte
-   Carlo intervals for a $100\,M_\odot$ seed under the baseline assumptions.
-4. It retains duty cycles above one as an explicit sign that the fixed burst
-   scenario is insufficient; it does not clip them into apparent feasibility.
-
 ## Getting Started
 
 Requirements and full run instructions are documented in
@@ -231,7 +247,9 @@ v4 measurement catalogue as input:
 ```powershell
 python -m scripts.process_v5_blagn
 python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v5_final_figures
 python -m scripts.verify_v5_release --reproduce
+python -m scripts.verify_v5_figures
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
@@ -243,6 +261,7 @@ Expected current products include:
 - measurement- and object-level `results/v5_blagn_*.csv` products
 - 318-row measurement and 297-row physical-object accretion-history tables
 - a 99-row paper-facing full-versus-primary ranking comparison
+- four deliberate v5 paper figures under `results/v5_main_text_figures/`
 
 The v5 ranking and uncertainty products use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column
@@ -253,6 +272,10 @@ separate primary-rank columns contain only secure/probable evidence statuses.
 Object-level LRD summaries preserve an explicit not-reported state. Full
 from-raw reproduction instructions for v1--v5 and the frozen earlier figure
 sets are in `docs/getting-started.md`.
+
+The Python package version follows the current implemented project science
+release (`5.0.0`). It is distinct from immutable source-paper versions,
+catalogue labels such as `v5-blagn`, and maintenance anchors such as v4.0.1.
 
 ## References
 Sources of data documented in `data/sources.md`

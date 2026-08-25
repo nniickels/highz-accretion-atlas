@@ -1,6 +1,6 @@
 # v5 manuscript claim audit
 
-Audit date: 2026-08-23. Scope: the living status manuscript, current catalogue,
+Audit date: 2026-08-25. Scope: the living status manuscript, current catalogue,
 science tables, source registry, extraction notes, and roadmaps.
 
 | Claim | Repository evidence | Status |
@@ -18,11 +18,14 @@ science tables, source registry, extraction notes, and roadmaps.
 | The primary point top five are GN-38509, GS-20057765, CEERS-00717, GOODS-N-9771, and GS-164055 | paper-facing comparison | verified |
 | Two-state duty-cycle products use a 100-Msun seed, burst fEdd 1/2/3, zero quiescent rate, and the baseline cosmology/growth assumptions | accretion-history products and model tests | verified |
 | Reported current fEdd is equivalent to a lifetime-average history | explicitly prohibited by output metadata and workflow documentation | rejected claim |
+| GN-11836's published current fEdd may be used in a current-to-required ratio despite its source-table inconsistency | published value is retained, but the accretion-history comparison eligibility flag is false and ratio is missing | rejected claim |
+| Fixed-burst duty-cycle ordering is independent of required-average-fEdd ordering | for fixed burst and zero quiescent rate, duty cycle is a monotonic rescaling | rejected claim |
+| Four v5 paper figures describe the current sample without replacing frozen v4 figures | v5 generator, separate figure manifest/verifier, figure inventory, and visual inspection | verified |
+| Both release manifests require exact artifact membership in addition to matching hashes | release verifiers and maintenance regression tests | verified |
 | Mixed-source summaries support demographics | explicitly prohibited by summary metadata | rejected claim |
 | Rankings prove a unique seed channel | explicitly prohibited by project framing | rejected claim |
 
-The current claims are internally reproducible. Before submission, every
-literature statement still requires a final citation-by-citation check against
-the published primary version, and figure/table numbers must be refreshed if a
-later release supersedes v5. No demographic conclusion should be drawn from the
-combined row counts.
+The current claims are internally reproducible. The primary-source citation
+check is recorded in `docs/v5-manuscript-citation-audit.md`. Figure/table numbers
+must still be refreshed if a later release supersedes v5. No demographic
+conclusion should be drawn from the combined row counts.

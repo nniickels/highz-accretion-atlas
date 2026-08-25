@@ -1,6 +1,6 @@
 [project]
 name = "highz-accretion-atlas"
-version = "4.0.1"
+version = "5.0.0"
 description = "A provenance-aware catalogue and growth-pressure atlas for high-redshift accreting black holes."
 requires-python = ">=3.12,<3.13"
 dependencies = [

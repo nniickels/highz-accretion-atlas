@@ -19,7 +19,8 @@ leaves release defaults unchanged.
 ## Uncertainty and systematic scenarios
 
 Reported asymmetric MBH errors are sampled with the same deterministic
-split-normal method and random seed used in v2/v3. Global +/-0.3 dex comparisons
+equal-side two-piece normal method and random seed used in v2/v3 (retained
+under the legacy machine-readable `split-normal-in-log-mbh` label). Global +/-0.3 dex comparisons
 remain. Taylor, Matthee, and ASPIRE each receive separately named +/-0.5 dex
 Reines-calibration scenarios. Statistical and systematic uncertainties are
 never silently combined.

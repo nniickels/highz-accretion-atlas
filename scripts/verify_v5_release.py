@@ -30,6 +30,28 @@ def worktree_status() -> str:
     ).stdout.strip()
 
 
+def expected_artifact_paths() -> set[str]:
+    """Return the exact catalogue and science artifact set for the v5 release."""
+    return {
+        path.relative_to(ROOT).as_posix()
+        for path in (*CATALOGUE_PATHS.values(), *SCIENCE_PATHS.values())
+    }
+
+
+def verify_manifest_membership(manifest: dict[str, object]) -> None:
+    artifacts = manifest["artifacts"]
+    assert isinstance(artifacts, dict)
+    actual = set(artifacts)
+    expected = expected_artifact_paths()
+    if actual != expected:
+        missing = sorted(expected - actual)
+        unexpected = sorted(actual - expected)
+        raise AssertionError(
+            "Release-manifest membership mismatch:\n"
+            f"missing entries: {missing}\nunexpected entries: {unexpected}"
+        )
+
+
 def verify_manifest_hashes(manifest: dict[str, object]) -> None:
     artifacts = manifest["artifacts"]
     assert isinstance(artifacts, dict)
@@ -65,6 +87,7 @@ def main() -> None:
     if args.require_clean and worktree_status():
         raise AssertionError("Release verification requires a clean Git worktree")
     manifest = json.loads(MANIFEST_PATH.read_text())
+    verify_manifest_membership(manifest)
     verify_manifest_hashes(manifest)
     if args.reproduce:
         verify_reproduction(manifest)

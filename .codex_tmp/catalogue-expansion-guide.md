@@ -1,7 +1,7 @@
 # High-z Accretion Atlas: Catalogue Expansion Guide
 
 Status: working research guide; same-class additions completed through v5
-Literature review date: 2026-08-17; implementation audit: 2026-08-23
+Literature review date: 2026-08-25; implementation audit: 2026-08-25
 Repository scope at audit: v5 JADES + Taylor + Matthee + Lin + Harikane broad-line AGN catalogue
 
 ## Purpose
@@ -59,16 +59,28 @@ The completed Taylor, Matthee, ASPIRE, and Harikane sequence establishes the
 current v5 same-class foundation. Earlier discovery papers should be attached
 as measurements of matched objects before another large compilation is ingested.
 
-### Tier 2: selection-bias and lower-confidence extensions
+### Tier 2A: final same-class v6 extension
 
 | Source | Current reported sample | Recommended atlas role | Main cautions |
 | --- | --- | --- | --- |
 | [Davis et al., THRILS](https://arxiv.org/abs/2602.23310) | Six newly identified BLAGN, within a seven-object broad-line set at `3.5 < z < 7` | Tests recovery of weak or host-dominated broad components in very deep spectra | Small sample; apply the `z >= 4` cut; confirm which objects are genuinely new after cross-match |
+
+THRILS is the preferred candidate for v6, conditional on a latest-primary
+source audit locating a reliable authoritative object-level table with the
+required measurements and uncertainties. If that table is unavailable, stop
+rather than reconstruct values. v6 should remain a final same-class BLAGN
+consolidation, including any justified earlier CEERS/JADES measurement layers.
+
+### Tier 2B: first heterogeneous v7 candidates
+
+| Source | Current reported sample | Recommended atlas role | Main cautions |
+| --- | --- | --- | --- |
 | [Ren et al., ALPINE-CRISTAL-JWST](https://academic.oup.com/mnras/article/544/1/211/8301219) | Seven AGN candidates in 18 massive galaxies at `z = 4.4-5.7` | Host-selected counterpoint with low inferred masses and host properties | Only one is highly robust; possible outflow/intermediate-width contamination; retain evidence tiers and a roughly 0.4 dex mass-systematic floor |
 
 These sources should not be assigned the same evidence quality merely because a
 virial mass is tabulated. Detection confidence and mass uncertainty are separate
-attributes.
+attributes. ALPINE-CRISTAL belongs only after the contract in
+`docs/multiclass-eligibility-and-mass-comparability.md` is enforced.
 
 ### Tier 3: large overlapping compilations and remeasurements
 
@@ -322,13 +334,16 @@ Complete these before large multi-paper ingestion:
    **Completed in v5 (2026-08-23): 10 measurements, five overlaps, five new
    physical objects.** Treat any remaining earlier discovery-paper
    measurements as a separate future layer.
-6. Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
-7. Add high-redshift spotlight objects with explicit method-dependent bounds.
-8. Add Jones et al. as a host-mass/remeasurement layer.
-9. Audit and ingest the `z >= 4` Baccus and Xu catalogue only after duplicate
+6. Audit THRILS as the preferred final same-class v6 BLAGN layer; ingest only
+   if a reliable authoritative object-level table is available.
+7. Apply the multi-class eligibility/mass-comparability contract, then begin v7
+   with evidence-graded ALPINE-CRISTAL candidates if the primary tables pass.
+8. Add high-redshift spotlight objects with explicit method-dependent bounds.
+9. Add Jones et al. as a host-mass/remeasurement layer.
+10. Audit and ingest the `z >= 4` Baccus and Xu catalogue only after duplicate
    resolution is working.
-10. Add XQR-30 as a separately plotted luminous-quasar anchor.
-11. Add narrow-line, X-ray, and photometric candidate populations under
+11. Add XQR-30 as a separately plotted luminous-quasar anchor.
+12. Add narrow-line, X-ray, and photometric candidate populations under
     class-specific evidence and growth-eligibility rules.
 
 ## Source-Memo Corrections to Remember

@@ -42,7 +42,7 @@
 \maketitle
 
 \begin{abstract}
-JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; v4 added 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements; and v5 adds all ten Harikane et al.\ NIRSpec measurements. The current release has 106 measurements representing 99 physical objects, including five verified Harikane overlaps and five new objects; its primary evidence-supported ranks contain 105 measurements and 98 objects. It preserves reported asymmetric statistical errors, leaves the unstated Harikane virial systematic unavailable, and adds orthogonal evidence, type, selection, phenotype, lensing, and ranking-eligibility fields without pooling heterogeneous classes. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. A v5 science extension also evaluates effective two-state histories with burst $\fedd=1,2,3$, retaining reported current Eddington ratios as distinct instantaneous observables. Next steps are citation/figure consolidation and class-specific eligibility rules before v6 ingestion.
+JWST has identified accreting black-hole candidates at epochs where the available growth time is short and inferred physical quantities remain method-dependent. This project develops a reproducible, source-tracked, uncertainty-aware atlas that ranks observational leverage under explicit seed and accretion assumptions. Project v1 standardized 23 JADES broad-line AGN measurements at $z\geq4$; v2 added point and Monte Carlo rankings plus figure prototypes; v3 added 37 Taylor et al.\ CEERS/RUBIES measurements; v4 added 20 Matthee et al.\ EIGER/FRESCO and 16 Lin et al.\ ASPIRE measurements; and v5 adds all ten Harikane et al.\ NIRSpec measurements. The current release has 106 measurements representing 99 physical objects, including five verified Harikane overlaps and five new objects; its primary evidence-supported ranks contain 105 measurements and 98 objects. It preserves reported asymmetric statistical errors, leaves the unstated Harikane virial systematic unavailable, and adds orthogonal evidence, type, selection, phenotype, lensing, and ranking-eligibility fields without pooling heterogeneous classes. Under the baseline $z_{\rm seed}=30$, $\epsilon=0.1$, and no-merger reference, rankings express observational growth pressure and do not prove a unique seed or accretion channel. A v5 science extension also evaluates effective two-state histories with burst $\fedd=1,2,3$, retaining reported current Eddington ratios as distinct instantaneous observables. Current paper figures, claim/citation audits, and a multi-class eligibility contract are complete. The next catalogue task is a latest-primary THRILS table audit; same-class v6 ingestion is conditional on an authoritative object-level table, and heterogeneous ingestion begins only in v7.
 \end{abstract}
 
 \section{Scientific objective}
@@ -148,7 +148,7 @@ This produces a measurement-level table rather than a single opaque score. Host-
 
 \subsection{Stage 4: uncertainty propagation}
 
-Point estimates are insufficient near physically meaningful thresholds. The uncertainty layer draws 10,000 samples per measurement from a split-normal approximation to the reported asymmetric $\log_{10}\mbh$ uncertainty. For every draw, the pipeline recomputes the required $\fedd$ and required seed mass. It reports the 5th, 16th, 50th, 84th, and 95th percentiles, together with threshold probabilities.
+Point estimates are insufficient near physically meaningful thresholds. The uncertainty layer draws 10,000 samples per measurement from the project's equal-side two-piece normal approximation to the reported asymmetric $\log_{10}\mbh$ uncertainty. The sign of a standard-normal draw selects the reported upper or lower scale, giving each side 50\% probability; this is not the normalized split-normal distribution or a reconstruction of the source posterior. For every draw, the pipeline recomputes the required $\fedd$ and required seed mass. It reports the 5th, 16th, 50th, 84th, and 95th percentiles, together with threshold probabilities.
 
 Three systematic mass scenarios are evaluated separately:
 \begin{equation}
@@ -190,8 +190,8 @@ Harikane masses use the Greene \& Ho (2005) H$\alpha$ single-epoch relation appl
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.94\textwidth]{../results/v4_main_text_figures/v4_main_text_mbh_redshift_growth_overview.png}
-\caption{v4 physical-object mass--redshift coverage, stratified across the four source selections. Reference tracks use the repository baseline and are diagnostic rather than fitted histories.}
+\includegraphics[width=0.94\textwidth]{../results/v5_main_text_figures/v5_main_text_mbh_redshift_growth_overview.png}
+\caption{Current v5 physical-object mass--redshift coverage, stratified across the five preferred-measurement source selections. The open marker identifies the retained alternative-interpretation candidate excluded from the primary rank. Reference tracks use the repository baseline and are diagnostic rather than fitted histories.}
 \label{fig:v4overview}
 \end{figure}
 
@@ -240,21 +240,28 @@ GN-954 & robust & 0.13 & 0.36 & comparison/systematics object \\
 
 GN-38509 is currently the clearest robust result: it remains demanding in both light-seed and gentle-growth diagnostics after propagating the reported mass uncertainty. GS-20057765 is more extreme in the light-seed calculation but is tentative and has a broader required-seed distribution. It is therefore a high-priority follow-up target rather than an equally secure theoretical constraint. GN-954 illustrates why probability statements matter: its point estimate is near a pressure boundary, but its baseline probability of requiring super-Eddington lifetime-average growth from a $100\,M_\odot$ seed is only 0.13.
 
-The reported Eddington ratios are instantaneous observational estimates, whereas the model-derived $\fedd$ values are lifetime averages. The v5 extension now evaluates the effective two-state relation $\langle\fedd\rangle=D f_{\rm Edd,burst}+(1-D)f_{\rm Edd,quiet}$ with $f_{\rm Edd,quiet}=0$ and $f_{\rm Edd,burst}=1,2,3$. For the 99 object defaults, the median required duty cycles are 0.574, 0.287, and 0.191, respectively. Seven objects exceed $D=1$ in the $f_{\rm Edd,burst}=1$ point scenario (six in the primary population); none do so for burst rates 2 or 3. These are fixed-assumption feasibility diagnostics, not reconstructed light curves, and the 28 published current object-level ratios are not substituted for historical averages. A separate source-table cross-check identifies GN-11836 as internally inconsistent: its published $\log M_{\rm BH}=6.06$ and $\log L_{\rm bol}=44.11$ imply $\lambda_{\rm Edd}\simeq0.89$, while the table reports 0.11. All published values are retained pending clarification, and the measurement is downgraded to medium confidence for Eddington-ratio comparisons.
-
-The corrected v4 point ranking kept GN-38509 first, GS-20057765 second, and RUBIES-EGS-49140 third. Those three remain the v5 leaders. Harikane CEERS-00717 enters point-estimate growth-pressure rank 4 and uncertainty-aware rank 5, while GOODS-N-9771 shifts from v4 point rank 4 to v5 rank 5. Seven nondefault measurements are now tested one at a time, including the three-measurement CEERS-2782 object. These are sensitivity results, not changes to release defaults.
+The reported Eddington ratios are instantaneous observational estimates, whereas the model-derived $\fedd$ values are lifetime averages. The v5 extension now evaluates the effective two-state relation $\langle\fedd\rangle=D f_{\rm Edd,burst}+(1-D)f_{\rm Edd,quiet}$ with $f_{\rm Edd,quiet}=0$ and $f_{\rm Edd,burst}=1,2,3$. For the 99 object defaults, the median required duty cycles are 0.574, 0.287, and 0.191, respectively. Seven objects exceed $D=1$ in the $f_{\rm Edd,burst}=1$ point scenario (six in the primary population); none do so for burst rates 2 or 3. These are fixed-assumption feasibility diagnostics, not reconstructed light curves, and the 28 published current object-level ratios are not substituted for historical averages. A separate source-table cross-check identifies GN-11836 as internally inconsistent: its published $\log M_{\rm BH}=6.06$ and $\log L_{\rm bol}=44.11$ imply $\lambda_{\rm Edd}\simeq0.89$, while the table reports 0.11. All published values are retained pending clarification, but the current-to-required ratio is left missing and the row is explicitly ineligible for that comparison.
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.94\textwidth]{../results/v4_main_text_figures/v4_main_text_measurement_choice_sensitivity.png}
-\caption{One-at-a-time sensitivity to the nondefault literature measurement for each multiply measured physical object. The exercise recomputes the full 94-object ranking while preserving all published rows and the documented release defaults.}
+\includegraphics[width=0.98\textwidth]{../results/v5_main_text_figures/v5_main_text_accretion_history_diagnostics.png}
+\caption{Current v5 effective two-state diagnostics. The left panel shows required duty fractions for fixed burst rates; because each is a monotonic rescaling of the required lifetime-average rate, the canonical primary growth rank is retained rather than inventing a redundant duty-cycle rank. The right panel keeps published current Eddington ratios distinct from historical requirements and marks GN-11836 as retained but excluded from ratio use.}
+\label{fig:v5history}
+\end{figure}
+
+The corrected v4 point ranking kept GN-38509 first, GS-20057765 second, and RUBIES-EGS-49140 third. Those three remain the v5 complete exploratory leaders; RUBIES-EGS-49140 has no primary rank because of its alternative interpretation. Harikane CEERS-00717 enters point-estimate growth-pressure rank 4 and uncertainty-aware rank 5, while GOODS-N-9771 shifts from v4 point rank 4 to v5 rank 5. Seven nondefault measurements are now tested one at a time, including the three-measurement CEERS-2782 object. These are sensitivity results, not changes to release defaults.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.94\textwidth]{../results/v5_main_text_figures/v5_appendix_measurement_choice_sensitivity.png}
+\caption{Current-v5 one-at-a-time sensitivity to all seven nondefault literature measurements. The exercise recomputes the full 99-object ranking while preserving every published row and documented release default.}
 \label{fig:v4measurementchoice}
 \end{figure}
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.88\textwidth]{../results/v4_main_text_figures/v4_main_text_ranked_required_fedd.png}
-\caption{Corrected-v4 physical-object growth-pressure ranking. Bar colour records the preferred-measurement source, while hatching flags mass/line-model caveats independently of broad-line detection confidence. Each physical object appears once.}
+\includegraphics[width=0.98\textwidth]{../results/v5_main_text_figures/v5_main_text_primary_vs_full_ranking.png}
+\caption{Current-v5 full versus primary physical-object growth-pressure ranking. The candidate remains visible in the complete diagnostic ordering but receives no evidence-supported primary rank; exclusion is evidential rather than a numerical score penalty.}
 \label{fig:triage}
 \end{figure}
 
@@ -281,10 +288,11 @@ The project versions are chronological milestones: v1 is the pilot JADES catalog
   \item \repo{scripts/generate\_v4\_final\_figures.py}: the five corrected-v4 figures.\par
   \item \repo{scripts/process\_v5\_blagn.py}, \repo{src/v5\_catalogue.py}, and \repo{src/object\_taxonomy.py}: Harikane ingestion, reviewed identity linkage, and orthogonal taxonomy.\par
   \item \repo{scripts/generate\_v5\_blagn\_science.py} and \repo{src/v5\_science.py}: v5 evaluation, full/primary rankings, uncertainty, summaries, measurement sensitivity, and duty-cycle diagnostics.\par
+  \item \repo{scripts/generate\_v5\_final\_figures.py}: the current three main-text and one appendix v5 paper figures.\par
   \item \repo{tests/test\_v1\_v2\_pipeline.py} and the \repo{test\_v3\_*}/\repo{test\_v4\_*}/\repo{test\_v5\_*} modules: model, schema, release, provenance, ranking, uncertainty, and regression checks.\par
 \end{enumerate}
 
-Continuous integration installs the pinned Python 3.12 environment, runs the complete regression suite, verifies every manifest hash, rebuilds all frozen v4 products and all 21 current v5 catalogue/science CSVs in memory at 10,000 draws with seed 20260808, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
+Continuous integration installs the pinned Python 3.12 environment, runs the complete regression suite, verifies exact manifest membership and every manifest hash, rebuilds all frozen v4 products and all 21 current v5 catalogue/science CSVs in memory at 10,000 draws with seed 20260808, and requires the checkout to remain clean. These checks protect implementation behavior, release byte anchors, source counts and identity links, explicit review decisions, confidence semantics, systematic separation, measurement sensitivity, and current numerical rankings; they do not establish that the astrophysical assumptions are uniquely correct.
 
 \section{Limitations}
 
@@ -293,7 +301,7 @@ The present atlas remains a selected-sample triage framework, and its conclusion
 \begin{itemize}
   \item v5 contains JADES, CEERS/RUBIES, EIGER/FRESCO, ASPIRE, and Harikane NIRSpec selections, not a single complete population sample, so pooled rows cannot support demographic inference;\par
   \item the two-state duty-cycle layer is an effective time-weighted sensitivity with fixed efficiency and burst states, not a stochastic, feedback-regulated, or time-resolved accretion history;\par
-  \item the split-normal mass model approximates reported asymmetric uncertainties but is not a reconstruction of each source's full posterior;\par
+  \item the equal-side two-piece mass model approximates reported asymmetric uncertainties but is neither a normalized split-normal distribution nor a reconstruction of each source's full posterior;\par
   \item the $\pm0.3$ dex cases are transparent comparison tests and the Taylor/Matthee/ASPIRE $\pm0.5$ dex cases are calibration sensitivities, not reconstructed systematic posteriors;\par
   \item the four stack-supported tentative broad-H$\beta$ candidates require individual spectroscopic confirmation before they can serve as secure theoretical constraints;\par
   \item the GN-11836 source-table Eddington-ratio inconsistency must be clarified before that ratio is used quantitatively;\par
@@ -307,14 +315,14 @@ These limitations motivate the next development stages rather than invalidating 
 
 The next work should proceed in the following order.
 
-\subsection*{1. Consolidate and audit the final manuscript}
-Integrate the frozen v4 figures with current v5 tables, complete the citation-by-citation audit, and decide which source-stratified products belong in the main text or appendix. The current numeric claim audit is recorded in \repo{docs/v5-manuscript-claim-audit.md}.
+\subsection*{1. Prepare the v6 same-class source audit}
+Verify the latest THRILS primary tables, source measurements, uncertainty conventions, and overlaps before implementation. Earlier CEERS/JADES discovery measurements should be attached only when they add distinct fits or observables.
 
-\subsection*{2. Specify class-specific eligibility before v6 ingestion}
-Define evidence and mass-method requirements for narrow-line, X-ray, photometric LRD, lensed, and quasar strata before adding the first heterogeneous source. Earlier discovery-paper remeasurements should continue to attach to stable physical objects.
+\subsection*{2. Preserve the completed manuscript and class gates}
+The v5 figure inventory, claim audit, primary-source citation audit, and multi-class eligibility/mass-comparability contract are now explicit repository documents. Keep them synchronized as v6 is added without reopening frozen v1--v5 artifacts.
 
-\subsection*{3. Add object classes without erasing method differences}
-Extend the atlas to little red dots, X-ray candidates, lensed candidates, high-ionization-line candidates, and classical luminous quasars. Each class will retain distinct selection and mass-method metadata so that heterogeneous measurements are not treated as interchangeable.
+\subsection*{3. Begin heterogeneous classes only in v7}
+After v6, extend the atlas to narrow-line, X-ray, photometric, lensed, high-ionization-line, and luminous-quasar evidence strata under the completed contract. LRD remains a phenotype and lensing remains a property, not standalone object classes.
 
 \subsection*{4. Improve the uncertainty model}
 Propagate host-mass and lensing uncertainties where available, add method-specific black-hole-mass systematic scenarios, and use fuller posterior information when a source provides it. The output should continue to emphasize intervals and threshold probabilities rather than categorical point-estimate labels.
@@ -335,14 +343,14 @@ Produce a follow-up matrix specifying whether each object's interpretation is mo
 \clearpage
 \section{Conclusion}
 
-The completed v1--v5 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, class-aware scaffolding, effective two-state duty-cycle diagnostics, release-specific visualization, and automated regression checks. v5 adds five new objects and five independent measurements of existing CEERS objects while preserving every literature row and preventing double-counting. The full 106/99 ordering remains an exploratory diagnostic, while primary rank claims use the 105/98 evidence-supported population. This is not evidence that one formation pathway is required. The next phase should finish the citation/figure audit, establish class-specific eligibility rules, and only then ingest heterogeneous v6 classes.
+The completed v1--v5 work demonstrates the atlas concept: provenance-aware ingestion, validated standardization, explicit reviewed measurement/object identity, transparent physical modeling, point and Monte Carlo rankings, selection-aware summaries, duplicate-measurement sensitivity, class-aware scaffolding, effective two-state duty-cycle diagnostics, release-specific visualization, and automated regression checks. v5 adds five new objects and five independent measurements of existing CEERS objects while preserving every literature row and preventing double-counting. The full 106/99 ordering remains an exploratory diagnostic, while primary rank claims use the 105/98 evidence-supported population. This is not evidence that one formation pathway is required. The citation/figure audit and class contract are complete. The next catalogue task is a read-only latest-primary THRILS table audit; same-class v6 ingestion is conditional on a reliable authoritative object-level table, and heterogeneous classes begin only in v7.
 
 \begin{thebibliography}{9}
 \bibitem{dayal2024}
-Dayal, P. 2024, \emph{A\&A}, 690, A182.
+Dayal, P. 2024, \emph{A\&A}, 690, A182, doi:10.1051/0004-6361/202451481.
 
 \bibitem{juodzbalis2026}
-Juod\v{z}balis, I. et al. 2026, ``JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST,'' \emph{MNRAS}, 546, stag086, arXiv:2504.03551.
+Juod\v{z}balis, I. et al. 2026, ``JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST,'' \emph{MNRAS}, 546, stag086, doi:10.1093/mnras/stag086.
 
 \bibitem{taylor2025}
 Taylor, A. J. et al. 2025, ``Broad-Line AGN at $3.5<z<6$: The Black Hole Mass Function and a Connection with Little Red Dots,'' \emph{ApJ}, 986, 165, doi:10.3847/1538-4357/add15b.
