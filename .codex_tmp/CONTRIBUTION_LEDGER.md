@@ -939,4 +939,5 @@ For every future Codex contribution that changes repository files:
   The updated 15-page status PDF compiled without TeX layout warnings, all pages
   were rendered, and the full contact sheet plus the changed roadmap and
   conclusion pages were visually inspected without clipping or overlap.
-- **Status:** Complete and verified locally; changes are uncommitted.
+- **Status:** Complete in commit `e82e82f` (`Freeze v7 catalogue and batch
+  ingestion`); verified locally and not pushed.
