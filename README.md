@@ -102,6 +102,11 @@ v4 CSV without writing outputs with
 `python -m scripts.verify_v4_release --reproduce`. The current v5 catalogue and
 science tables have an equivalent non-writing gate:
 `python -m scripts.verify_v5_release --reproduce`.
+
+Both gates verify checked-in artifact bytes against exact SHA-256 manifests.
+Independent reconstruction is then compared with exact schema, row order,
+text, booleans, and missingness plus a tight floating-point tolerance, avoiding
+false failures from final-bit differences between macOS/ARM and Linux/x86.
 ### v1: Pilot Broad-Line AGN Atlas
 
 Start with one clean object class from one source paper.

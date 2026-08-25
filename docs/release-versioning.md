@@ -44,7 +44,9 @@ does not require a release tag.
   earlier artifact.
 - Use a patch tag for infrastructure or documentation maintenance that leaves
   the scientific release invariant. Confirm that invariance with a checked-in
-  hash manifest and in-memory reproduction.
+  hash manifest and in-memory reproduction. Manifest integrity remains
+  byte-exact; cross-platform reconstruction compares structure and nonnumeric
+  values exactly and floating-point values at documented tight tolerance.
 
 ## Current Dependency Map
 

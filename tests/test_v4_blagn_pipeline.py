@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.process_v4_blagn import build_outputs
+from scripts.reproduction import assert_csv_reproduction
 from src.identity import (
     apply_reviewed_identity_overrides, candidate_matches, cross_source_candidate_matches,
     stable_object_id,
@@ -111,7 +112,7 @@ class V4CatalogueTests(unittest.TestCase):
             "aliases": ROOT / "data/crossmatch/v4_object_aliases.csv",
             "candidates": ROOT / "data/crossmatch/v4_reviewed_match_candidates.csv",
         }.items():
-            self.assertEqual(path.read_text(), self.outputs[name].to_csv(index=False))
+            assert_csv_reproduction(path, self.outputs[name])
 
     def test_v3_catalogues_are_byte_identical(self) -> None:
         self.assertEqual(sha256(V3_MEASUREMENTS), V3_MEASUREMENTS_SHA256)

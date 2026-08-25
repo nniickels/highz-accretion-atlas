@@ -26,6 +26,10 @@ python -m scripts.verify_v4_release --reproduce
 
 CI additionally runs this command with `--require-clean`, after the complete
 regression suite, to prove that verification leaves a clean checkout unchanged.
+Manifest hashes are exact. Independently rebuilt tables require exact structure
+and nonnumeric content, while floating-point columns use `rtol=1e-13` and
+`atol=1e-14` so normal platform-level `libm` differences do not create false
+failures.
 
 ## Current v5 BLAGN Release
 

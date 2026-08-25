@@ -1,4 +1,4 @@
-"""Verify v4.0.1 hashes and optionally reproduce every frozen v4 CSV in memory."""
+"""Verify v4.0.1 hashes and cross-platform reproduction of every frozen CSV."""
 
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from scripts.generate_v4_blagn_science import OUTPUT_PATHS as SCIENCE_PATHS
 from scripts.generate_v4_blagn_science import build_outputs as build_science_outputs
 from scripts.process_v4_blagn import OUTPUTS as CATALOGUE_PATHS
 from scripts.process_v4_blagn import build_outputs as build_catalogue_outputs
+from scripts.reproduction import assert_csv_reproduction
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -43,23 +44,15 @@ def verify_manifest_hashes(manifest: dict[str, object]) -> None:
 
 
 def verify_reproduction(manifest: dict[str, object]) -> None:
-    expected_hashes = manifest["artifacts"]
-    assert isinstance(expected_hashes, dict)
     catalogue = build_catalogue_outputs()
     for name, frame in catalogue.items():
-        relative = str(CATALOGUE_PATHS[name].relative_to(ROOT))
-        actual = sha256_bytes(frame.to_csv(index=False).encode())
-        if actual != expected_hashes[relative]:
-            raise AssertionError(f"In-memory catalogue reproduction differs: {relative}")
+        assert_csv_reproduction(CATALOGUE_PATHS[name], frame)
     science = build_science_outputs(
         n_samples=int(manifest["monte_carlo_samples"]),
         random_seed=int(manifest["random_seed"]),
     )
     for name, frame in science.items():
-        relative = str(SCIENCE_PATHS[name].relative_to(ROOT))
-        actual = sha256_bytes(frame.to_csv(index=False).encode())
-        if actual != expected_hashes[relative]:
-            raise AssertionError(f"In-memory science reproduction differs: {relative}")
+        assert_csv_reproduction(SCIENCE_PATHS[name], frame)
 
 
 def main() -> None:
@@ -75,10 +68,9 @@ def main() -> None:
         verify_reproduction(manifest)
     if args.require_clean and worktree_status():
         raise AssertionError("Release verification changed the Git worktree")
-    mode = "hashes and in-memory reproduction" if args.reproduce else "artifact hashes"
+    mode = "hashes and cross-platform in-memory reproduction" if args.reproduce else "artifact hashes"
     print(f"Verified {manifest['maintenance_release']} {mode}; no release artifact was written")
 
 
 if __name__ == "__main__":
     main()
-

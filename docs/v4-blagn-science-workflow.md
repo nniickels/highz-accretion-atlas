@@ -84,6 +84,10 @@ v4.0.1 hash manifest, including a complete 10,000-draw in-memory rebuild:
 python -m scripts.verify_v4_release --reproduce
 ```
 
+This keeps exact SHA-256 checks for committed artifacts and uses semantic
+cross-platform comparison for rebuilt CSVs: exact structure and nonnumeric
+content, with `rtol=1e-13` and `atol=1e-14` for floating-point columns.
+
 The output names begin `v4_blagn_` and leave all v1--v3 artifacts unchanged.
 The generator verifies catalogue/evaluation row counts, unique ranking IDs,
 release metadata, and the requested Monte Carlo sample count before reporting

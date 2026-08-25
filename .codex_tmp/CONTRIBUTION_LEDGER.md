@@ -640,3 +640,24 @@ For every future Codex contribution that changes repository files:
   comparison against the prior v5 files confirmed unchanged IDs, ranks, and
   every common numerical ranking column to `1e-12`. `git diff --check` passed.
 - **Status:** Complete and verified locally; changes are uncommitted.
+
+### 2026-08-24 - Make release reproduction cross-platform
+
+- **Objective:** Correct the GitHub Actions failure caused by final-bit
+  floating-point differences between macOS/ARM and Ubuntu/x86 without weakening
+  frozen-artifact integrity checks.
+- **Files changed:** `scripts/reproduction.py`, both release verifiers, the v4
+  catalogue regression test, focused maintenance tests, and reproducibility
+  documentation.
+- **Contribution:** Retained byte-exact SHA-256 validation for checked-in
+  artifacts while replacing platform-fragile generated-CSV string/hash
+  comparisons with exact schema/order/text/boolean/missingness checks and
+  floating comparison at `rtol=1e-13`, `atol=1e-14`.
+- **Scientific/technical effect:** No catalogue, source extraction, identity,
+  result CSV, manifest, rank, uncertainty value, or figure changed. A final-bit
+  `numpy.log10` difference no longer causes a false CI failure, while meaningful
+  numeric changes and any structural or nonnumeric change still fail.
+- **Validation:** All 100 regression tests passed. Exact v4.0.1 and v5 manifest
+  checks passed, and both releases reproduced all 18 artifacts in memory under
+  the cross-platform comparison contract. `git diff --check` passed.
+- **Status:** Complete and verified locally; changes are uncommitted.

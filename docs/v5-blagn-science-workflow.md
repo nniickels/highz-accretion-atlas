@@ -49,6 +49,10 @@ in-memory reconstruction, without writing artifacts:
 python -m scripts.verify_v5_release --reproduce
 ```
 
+Committed artifact integrity remains byte-exact through the manifest. Rebuilt
+CSV structure and nonnumeric content are exact; floating-point comparison uses
+`rtol=1e-13` and `atol=1e-14` for cross-platform final-bit stability.
+
 ## Scientific change from v4
 
 Harikane adds five new physical objects and five independent measurements of

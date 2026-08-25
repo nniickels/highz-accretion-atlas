@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.generate_v2_uncertainty_rankings import verify_outputs
+from scripts.reproduction import assert_frames_semantically_equal
 from scripts.verify_v4_release import MANIFEST_PATH, verify_manifest_hashes
 from src.mass_systematics import load_mass_method_registry, validate_catalogue_method_coverage
 
@@ -46,7 +47,27 @@ class MaintenanceReleaseTests(unittest.TestCase):
         self.assertNotIn("Wrote uncertainty", verifier)
         self.assertIn("Verified uncertainty products in memory", verifier)
 
+    def test_reproduction_comparison_allows_only_tiny_float_variation(self) -> None:
+        expected = pd.DataFrame({"id": ["a", "b"], "value": [0.010434002921364333, 2.0]})
+        final_bit_variant = expected.copy()
+        final_bit_variant.loc[0, "value"] = 0.010434002921364332
+        assert_frames_semantically_equal(expected, final_bit_variant, label="platform variant")
+
+        meaningful_change = expected.copy()
+        meaningful_change.loc[0, "value"] += 1e-6
+        with self.assertRaisesRegex(AssertionError, "column 'value' differs"):
+            assert_frames_semantically_equal(expected, meaningful_change, label="bad numeric change")
+
+    def test_reproduction_comparison_keeps_text_and_order_exact(self) -> None:
+        expected = pd.DataFrame({"id": ["a", "b"], "value": [1.0, 2.0]})
+        changed_text = expected.copy()
+        changed_text.loc[1, "id"] = "B"
+        with self.assertRaisesRegex(AssertionError, "column 'id' differs"):
+            assert_frames_semantically_equal(expected, changed_text, label="bad text change")
+
+        with self.assertRaisesRegex(AssertionError, "column order or membership differs"):
+            assert_frames_semantically_equal(expected, expected[["value", "id"]])
+
 
 if __name__ == "__main__":
     unittest.main()
-
