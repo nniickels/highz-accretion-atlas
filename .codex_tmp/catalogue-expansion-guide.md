@@ -338,6 +338,8 @@ Complete these before large multi-paper ingestion:
    **Completed 2026-08-25 from an authoritative seven-row table.**
 7. Apply the multi-class eligibility/mass-comparability contract, then begin v7
    with evidence-graded ALPINE-CRISTAL candidates if the primary tables pass.
+   **The read-only source audit and generic schema/validation gate are complete;
+   authoritative source-table extraction and source-specific mapping remain.**
 8. Add high-redshift spotlight objects with explicit method-dependent bounds.
 9. Add Jones et al. as a host-mass/remeasurement layer.
 10. Audit and ingest the `z >= 4` Baccus and Xu catalogue only after duplicate

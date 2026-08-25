@@ -1,9 +1,10 @@
 # Multi-Class Eligibility and Mass-Comparability Contract
 
-Status: required design gate for the first heterogeneous catalogue release
-(planned v7). v5 remains a broad-line-AGN release; v6 completes the final
-same-class BLAGN consolidation with THRILS. This contract governs new
-heterogeneous v7 sources.
+Status: implemented design and validation gate for the first heterogeneous
+catalogue release (planned v7). v5 remains a broad-line-AGN release; v6
+completes the final same-class BLAGN consolidation with THRILS. This contract
+governs new heterogeneous v7 sources. The executable, source-independent gate
+is `src/v7_admission.py`; field details are in `docs/v7-admission-schema.md`.
 
 ## Purpose
 
@@ -32,6 +33,10 @@ Every measurement must record these axes independently:
    `mass_comparability_group`.
 9. `growth_ranking_eligible_flag` and `primary_growth_ranking_flag`, each with
    a machine-checkable reason.
+10. `host_system_id` and `host_property_scope`, so multiple candidate nuclei
+    can share one system-level host measurement without duplicating it.
+11. `conditional_mass_flag` and `conditional_mass_reason`, so a published
+    numeric mass whose physical interpretation is conditional remains explicit.
 
 ## Allowed evidence classes
 
@@ -43,6 +48,10 @@ The first multi-class release may use controlled classes such as:
 - `high_ionization_line_candidate`;
 - `photometric_agn_candidate`;
 - `luminous_quasar_comparison`.
+
+These underscore-delimited values are the canonical v7 spellings. Frozen
+v5/v6 products retain their historical hyphenated object class and long-form
+evidence labels. The v7 adapter translates copies without changing those files.
 
 Lensing is a property, not a class. `lrd` is a phenotype, not a class. A source
 may have multiple evidence measurements linked to one physical object, but no
@@ -103,6 +112,8 @@ Before a heterogeneous source is accepted, tests must verify:
 - controlled class/evidence/phenotype/lensing/mass-group values;
 - nonempty basis fields for candidate or disputed classifications;
 - correct handling of limits, missing values, and method systematics;
+- correct measurement/object/host-system cardinality and shared host scope;
+- conditional-mass reasons and separately validated censored observables;
 - exact eligibility outcomes and exclusion reasons;
 - source- and class-stratified counts at both catalogue views;
 - unchanged frozen v1--v6 artifacts.

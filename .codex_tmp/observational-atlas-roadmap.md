@@ -46,6 +46,9 @@ Completed so far:
   Davis/THRILS Appendix Table 5 is preserved, six `z >= 4` rows add six physical
   objects, and the 112-measurement / 105-object workflow has its own manifest,
   rankings, uncertainty products, and THRILS-specific virial sensitivity.
+- The read-only v7 ALPINE-CRISTAL admission audit and the source-independent
+  heterogeneous schema gate are complete. No v7 source rows or release products
+  exist yet; authoritative source extraction is the next phase.
 - One new cross-paper identity is verified: GOODS-S-13971 = GS-204851. Prior
   release preferences remain stable while every measurement is preserved.
 - v4 confidence semantics separate broad-line detection from mass/line-model

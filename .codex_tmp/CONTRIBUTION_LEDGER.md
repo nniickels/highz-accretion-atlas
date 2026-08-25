@@ -812,3 +812,26 @@ For every future Codex contribution that changes repository files:
   warnings, rendered page-by-page, and visually inspected without clipping or
   overlap. `git diff --check` passes.
 - **Status:** Complete and verified locally; changes are uncommitted.
+
+## 2026-08-25 — v7 heterogeneous admission schema gate
+
+- **Objective:** Implement the source-independent v7 design gate after the
+  read-only ALPINE--CRISTAL admission audit, without ingesting source rows or
+  modifying frozen v1--v6 products.
+- **Contribution:** Added controlled v7 object/evidence, spectroscopy,
+  selection, phenotype, lensing, mass-comparability, conditional-mass, and
+  ranking-eligibility validation; added measurement/physical-object/host-system
+  identity and shared-host-property rules; added a long-form detection/limit
+  observable validator; and added an explicit non-mutating adapter from frozen
+  v5/v6 vocabulary. Updated forward-looking documentation and roadmaps to
+  distinguish the completed gate from the still-pending source extraction.
+- **Scientific/technical effect:** No catalogue row, physical identity, science
+  result, figure, release manifest, or rank changed. The gate prevents candidate
+  evidence from entering primary ranks, keeps conditional BLR masses explicit,
+  leaves unpublished host/luminosity/Eddington diagnostics non-penalizing, and
+  supports multiple candidate nuclei sharing one system-level host value.
+- **Validation:** All 139 regression tests pass, including 12 synthetic v7 gate
+  tests and exact frozen-manifest checks. Exact v4.0.1, v5, and v6 in-memory
+  reproduction passes; canonical v5 figure membership and hashes pass.
+  `git diff --check` passes.
+- **Status:** Complete and verified locally; changes are uncommitted.

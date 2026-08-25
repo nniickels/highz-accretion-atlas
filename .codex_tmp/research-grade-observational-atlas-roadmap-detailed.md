@@ -855,10 +855,12 @@ The v3 figure task, v5 Harikane expansion, evidence/eligibility gate,
 exact-membership reproducibility manifest, paper-facing ranking comparison,
 first accretion-history diagnostics, multi-class contract, citation audit, and
 v5 figure selection and the v6 THRILS same-class consolidation are complete.
-The next best concrete task is a read-only v7 source-admission audit using the
-multi-class eligibility and mass-comparability contract. No heterogeneous
-source should enter until its evidence, mass comparability, selection function,
-identity overlaps, and missingness policy pass that gate.
+The read-only v7 source-admission audit is complete, and the source-independent
+v7 schema/validation gate is implemented with synthetic tests. No heterogeneous
+source has yet been ingested. The next concrete task is source-specific raw
+extraction and mapping only for an audited source whose authoritative tables
+remain available, followed by this gate's evidence, mass-comparability,
+selection, identity, host-system, lensing, and missingness checks.
 
 Historical v3 figure brief:
 
@@ -871,4 +873,5 @@ Historical v3 figure brief:
 
 The historical v4 comparison brief is satisfied by the v5 paper-facing tables
 and figures. THRILS ingestion and v6 science are complete while all v1--v5
-artifacts remain preserved. The next phase is the read-only v7 admission audit.
+artifacts remain preserved. The read-only v7 admission audit and the generic
+schema gate are complete; source-specific extraction remains next.

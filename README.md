@@ -216,21 +216,25 @@ Eddington-ratio, and FWHM values blank.
 
 ### v7: Multi-Class High-z Accreting BH Atlas
 
-Expand beyond broad-line AGN only after applying
-`docs/multiclass-eligibility-and-mass-comparability.md`.
+The source-independent admission schema and validator are implemented in
+`src/v7_admission.py` under
+`docs/multiclass-eligibility-and-mass-comparability.md`. No heterogeneous source
+rows or v7 release products exist yet.
 
-Possible classes:
+Planned evidence classes and comparison groups include:
 
-- LRDs / compact red AGN candidates
 - X-ray-selected high-z black-hole candidates
-- lensed candidates
 - high-ionization-line candidates
 - narrow-line AGN candidates
+- photometric AGN candidates
 - luminous high-redshift quasars as comparison anchors
+
+LRD/compact/red designations are phenotypes, and lensing is a separate
+measurement property; neither is an accretion-evidence class.
 
 For each class:
 
-1. Define required metadata fields.
+1. Validate required metadata and measurement/object/host-system identity.
 2. Track mass method and selection caveats.
 3. Keep object classes visually and statistically distinct.
 4. Recompute atlas rankings with class-aware caveats.
