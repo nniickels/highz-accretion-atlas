@@ -26,7 +26,15 @@ but their separate detection-confidence field remains tentative. These labels
 do not alter published classifications or silently discard measurements.
 
 `evidence_status_basis` records the rule used for each label. Growth ranking is
-allowed only when `growth_ranking_eligible_flag` is true; the v5 science layer
-raises an error if an ineligible row is passed to it. Evidence status, line
-detection confidence, and mass/line-model reliability therefore remain
-distinct.
+evaluated only when `growth_ranking_eligible_flag` is true; the v5 science
+layer raises an error if an ineligible row is passed to it. The additional
+`primary_growth_ranking_flag` limits the primary evidence-supported ordering to
+secure and probable systems. Candidate measurements remain preserved in the
+full exploratory diagnostic ordering but receive no primary rank. Evidence
+status, line-detection confidence, and mass/line-model reliability therefore
+remain distinct.
+
+At physical-object level, evidence status is the most conservative status
+among all linked measurements. The preferred measurement's status and the
+measurement/source identifiers supporting the aggregate status remain
+separate provenance fields.

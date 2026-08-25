@@ -16,6 +16,7 @@ SPECTROSCOPIC_TYPES = {
 TAXONOMY_FIELDS = [
     "evidence_status", "evidence_status_basis", "spectroscopic_type", "selection_channels",
     "phenotype_tags", "lensing_status", "growth_ranking_eligible_flag",
+    "primary_growth_ranking_flag",
 ]
 
 INTERPRETIVE_CANDIDATE_TAGS = {"alternative_non_agn"}
@@ -95,6 +96,10 @@ def add_blagn_taxonomy(catalogue: pd.DataFrame) -> pd.DataFrame:
         pd.to_numeric(result["log_mbh_msun_std"], errors="coerce").notna()
         & ~result["evidence_status"].eq("disputed_accreting_mbh")
     )
+    result["primary_growth_ranking_flag"] = (
+        result["growth_ranking_eligible_flag"]
+        & result["evidence_status"].isin({"secure_accreting_mbh", "probable_accreting_mbh"})
+    )
     validate_taxonomy(result)
     return result
 
@@ -110,3 +115,10 @@ def validate_taxonomy(catalogue: pd.DataFrame) -> None:
     eligible = catalogue["growth_ranking_eligible_flag"].map(_boolish)
     if catalogue.loc[eligible, "log_mbh_msun_std"].isna().any():
         raise ValueError("Growth-ranking-eligible rows require a black-hole mass")
+    primary = catalogue["primary_growth_ranking_flag"].map(_boolish)
+    if (primary & ~eligible).any():
+        raise ValueError("Primary growth-ranking rows must be growth-ranking eligible")
+    if catalogue.loc[primary, "evidence_status"].isin(
+        {"candidate_accreting_mbh", "disputed_accreting_mbh"}
+    ).any():
+        raise ValueError("Candidate or disputed rows cannot enter the primary growth ranking")

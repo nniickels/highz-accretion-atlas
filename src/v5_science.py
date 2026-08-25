@@ -27,6 +27,12 @@ SCIENCE_TAXONOMY_FIELDS = [
     "all_measurements_phenotype_tags",
     "phenotype_evidence_measurement_ids",
     "phenotype_evidence_source_keys",
+    "preferred_measurement_evidence_status",
+    "preferred_measurement_evidence_status_basis",
+    "all_measurements_evidence_status",
+    "all_measurements_evidence_status_basis",
+    "evidence_status_measurement_ids",
+    "evidence_status_source_keys",
 ]
 
 
@@ -71,10 +77,11 @@ def _taxonomy_strata(frame: pd.DataFrame):
         ("evidence_status", "evidence_status"),
         ("spectroscopic_type", "spectroscopic_type"),
         ("growth_ranking_eligible_flag", "growth_ranking_eligibility"),
+        ("primary_growth_ranking_flag", "primary_growth_ranking_population"),
     ]:
         values = frame[field].map(
             lambda value: str(_boolish(value)).lower()
-            if field == "growth_ranking_eligible_flag"
+            if field in {"growth_ranking_eligible_flag", "primary_growth_ranking_flag"}
             else ("not_reported" if pd.isna(value) else str(value))
         )
         for value in sorted(values.unique()):
@@ -87,12 +94,8 @@ def _catalogue_taxonomy_summary(frame: pd.DataFrame) -> pd.DataFrame:
     for stratum_type, value, group in _taxonomy_strata(frame):
         preferred_lrd = group.get("preferred_measurement_lrd_flag", group["lrd_flag"]).map(_boolish)
         any_lrd = group.get("lrd_reported_by_any_measurement", group["lrd_flag"]).map(_boolish)
-        if view == "physical_object":
-            n_lrd = int(any_lrd.sum())
-            n_non_lrd = int((~any_lrd).sum())
-        else:
-            n_lrd = int(group["lrd_status"].eq("lrd").sum())
-            n_non_lrd = int(group["lrd_status"].eq("non_lrd").sum())
+        n_lrd = int(group["lrd_status"].eq("lrd").sum())
+        n_non_lrd = int(group["lrd_status"].eq("non_lrd").sum())
         rows.append({
             "catalogue_release": CATALOGUE_RELEASE,
             "input_catalogue_release": CATALOGUE_RELEASE,
@@ -123,7 +126,7 @@ def _catalogue_taxonomy_summary(frame: pd.DataFrame) -> pd.DataFrame:
             "n_lrd_cross_source_only": int((any_lrd & ~preferred_lrd).sum()),
             "lrd_count_basis": (
                 "measurement-row phenotype" if view == "measurement"
-                else "any linked measurement; preferred attribution reported separately"
+                else "any linked designation with missingness preserved; preferred attribution reported separately"
             ),
         })
     return pd.DataFrame(rows)
@@ -177,6 +180,12 @@ def build_point_ranking(catalogue: pd.DataFrame, evaluation: pd.DataFrame) -> pd
         "Harikane statistical errors are propagated; no numeric virial-calibration "
         "systematic is published, so no source-specific scenario is inferred"
     )
+    primary = result["primary_growth_ranking_flag"].map(_boolish)
+    result["ranking_population"] = "exploratory_candidate_or_disputed"
+    result.loc[primary, "ranking_population"] = "primary_evidence_supported"
+    result["rank_primary_growth_pressure"] = pd.Series(pd.NA, index=result.index, dtype="Int64")
+    primary_order = result.loc[primary].sort_values("rank_growth_pressure").index
+    result.loc[primary_order, "rank_primary_growth_pressure"] = range(1, len(primary_order) + 1)
     return result
 
 
@@ -197,11 +206,57 @@ def build_uncertainty_summaries(
 def build_uncertainty_ranking(
     point_ranking: pd.DataFrame, fedd_summary: pd.DataFrame, mseed_summary: pd.DataFrame,
 ) -> pd.DataFrame:
-    return _release(v4.build_uncertainty_ranking(point_ranking, fedd_summary, mseed_summary))
+    result = _release(v4.build_uncertainty_ranking(point_ranking, fedd_summary, mseed_summary))
+    primary = result["primary_growth_ranking_flag"].map(_boolish)
+    result["rank_primary_uncertainty_pressure"] = pd.Series(pd.NA, index=result.index, dtype="Int64")
+    primary_order = result.loc[primary].sort_values("rank_uncertainty_pressure").index
+    result.loc[primary_order, "rank_primary_uncertainty_pressure"] = range(1, len(primary_order) + 1)
+    return result
+
+
+def _summary_group(objects: pd.DataFrame, stratum_type: str, value: str) -> pd.DataFrame:
+    group = objects
+    if stratum_type == "source":
+        group = group[group["source_key"].astype("string").fillna("not_reported").eq(value)]
+    elif stratum_type == "survey":
+        group = group[group["survey"].astype("string").fillna("not_reported").eq(value)]
+    elif stratum_type == "field":
+        group = group[group["field"].astype("string").fillna("not_reported").eq(value)]
+    elif stratum_type == "survey_field":
+        combined = (
+            group["survey"].astype("string").fillna("not_reported") + "/"
+            + group["field"].astype("string").fillna("not_reported")
+        )
+        group = group[combined.eq(value)]
+    elif stratum_type == "lrd_phenotype":
+        group = group[group["lrd_status"].astype("string").fillna("not_reported").eq(value)]
+    return group
+
+
+def _correct_object_lrd_counts(result: pd.DataFrame, objects: pd.DataFrame) -> pd.DataFrame:
+    corrected = result.copy()
+    object_rows = corrected["catalogue_view"].eq("physical_object")
+    preferred_strata = {"source", "survey", "field", "survey_field"}
+    for index, row in corrected[object_rows].iterrows():
+        stratum_type = str(row["stratum_type"])
+        group = _summary_group(objects, stratum_type, str(row["stratum_value"]))
+        if stratum_type in preferred_strata:
+            status = group["preferred_measurement_lrd_flag"]
+            reported = status.notna()
+            lrd = status.map(_boolish)
+        else:
+            reported = group["lrd_status"].ne("not_reported_by_source")
+            lrd = group["lrd_status"].eq("lrd")
+        corrected.loc[index, "n_lrd"] = int(lrd.sum())
+        corrected.loc[index, "n_non_lrd"] = int((reported & ~lrd).sum())
+        corrected.loc[index, "n_lrd_not_reported"] = int((~reported).sum())
+    return corrected
 
 
 def build_catalogue_summary(measurements: pd.DataFrame, objects: pd.DataFrame) -> pd.DataFrame:
-    result = _release(v4.build_catalogue_summary(measurements, objects))
+    result = _correct_object_lrd_counts(
+        _release(v4.build_catalogue_summary(measurements, objects)), objects,
+    )
     result.loc[result["stratum_type"].eq("overall"), "selection_function_note"] = (
         "descriptive only: mixes JADES, CEERS/RUBIES, EIGER/FRESCO, ASPIRE, "
         "and Harikane NIRSpec selection functions"
@@ -264,6 +319,15 @@ def verify_v5_outputs(outputs: dict[str, pd.DataFrame], *, n_samples: int) -> di
             outputs[name]["growth_ranking_eligible_flag"].map(_boolish).all()
             for name in ["measurement_point_ranking", "object_point_ranking"]
         ),
+        "primary_measurement_count": int(
+            outputs["measurement_point_ranking"]["primary_growth_ranking_flag"].map(_boolish).sum()
+        ) == 105,
+        "primary_object_count": int(
+            outputs["object_point_ranking"]["primary_growth_ranking_flag"].map(_boolish).sum()
+        ) == 98,
+        "primary_object_ranks_contiguous": sorted(
+            outputs["object_point_ranking"]["rank_primary_growth_pressure"].dropna().astype(int)
+        ) == list(range(1, 99)),
         "release_metadata": all(
             frame["catalogue_release"].eq(CATALOGUE_RELEASE).all() for frame in outputs.values()
         ),

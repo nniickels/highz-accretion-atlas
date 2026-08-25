@@ -95,7 +95,7 @@ class V5ScienceTests(unittest.TestCase):
         fields = {
             "evidence_status", "evidence_status_basis", "spectroscopic_type",
             "selection_channels", "phenotype_tags", "lensing_status",
-            "growth_ranking_eligible_flag",
+            "growth_ranking_eligible_flag", "primary_growth_ranking_flag",
         }
         for name in [
             "measurement_eval", "object_eval", "measurement_point", "object_point",
@@ -105,7 +105,7 @@ class V5ScienceTests(unittest.TestCase):
             self.assertTrue(fields.issubset(self.frames[name].columns), name)
         expected_strata = {
             "object_class", "evidence_status", "spectroscopic_type",
-            "growth_ranking_eligibility",
+            "growth_ranking_eligibility", "primary_growth_ranking_population",
         }
         self.assertTrue(expected_strata.issubset(set(self.frames["catalogue_summary"]["stratum_type"])))
         self.assertTrue(expected_strata.issubset(set(self.frames["growth_summary"]["stratum_type"])))
@@ -113,6 +113,7 @@ class V5ScienceTests(unittest.TestCase):
     def test_growth_workflow_rejects_ineligible_rows(self) -> None:
         measurements = pd.read_csv(ROOT / "data/processed/v5_blagn_measurements.csv").head(1)
         measurements.loc[:, "growth_ranking_eligible_flag"] = False
+        measurements.loc[:, "primary_growth_ranking_flag"] = False
         prepared = prepare_catalogue_view(measurements, view="measurement")
         with self.assertRaisesRegex(ValueError, "ineligible catalogue rows"):
             evaluate_catalogue(prepared)
@@ -123,6 +124,35 @@ class V5ScienceTests(unittest.TestCase):
         ]
         for label in ["JADES", "CEERS/RUBIES", "EIGER/FRESCO", "ASPIRE", "Harikane"]:
             self.assertTrue(overall["selection_function_note"].str.contains(label, regex=False).all())
+
+    def test_primary_ranking_excludes_candidates_but_preserves_diagnostics(self) -> None:
+        point = self.frames["object_point"].set_index("physical_object_id")
+        candidate = point.loc["HZA-RUBIES-EGS-49140"]
+        self.assertEqual(int(candidate["rank_growth_pressure"]), 3)
+        self.assertTrue(pd.isna(candidate["rank_primary_growth_pressure"]))
+        self.assertEqual(candidate["ranking_population"], "exploratory_candidate_or_disputed")
+        primary = point["rank_primary_growth_pressure"].dropna().astype(int)
+        self.assertEqual(sorted(primary), list(range(1, 99)))
+        self.assertEqual(int(point.loc["HZA-CEERS-00717", "rank_primary_growth_pressure"]), 3)
+        uncertainty = self.frames["object_uncertainty"].set_index("physical_object_id")
+        self.assertTrue(pd.isna(
+            uncertainty.loc["HZA-RUBIES-EGS-49140", "rank_primary_uncertainty_pressure"]
+        ))
+
+    def test_object_lrd_summary_preserves_unreported_state(self) -> None:
+        summary = self.frames["catalogue_summary"]
+        self.assertTrue(
+            (summary["n_lrd"] + summary["n_non_lrd"] + summary["n_lrd_not_reported"])
+            .eq(summary["n_rows"])
+            .all()
+        )
+        overall = self.frames["catalogue_summary"][
+            self.frames["catalogue_summary"]["catalogue_view"].eq("physical_object")
+            & self.frames["catalogue_summary"]["stratum_type"].eq("overall")
+        ].iloc[0]
+        self.assertEqual(int(overall["n_lrd"]), 53)
+        self.assertEqual(int(overall["n_non_lrd"]), 19)
+        self.assertEqual(int(overall["n_lrd_not_reported"]), 27)
 
 
 if __name__ == "__main__":

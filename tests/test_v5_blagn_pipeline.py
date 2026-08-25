@@ -13,7 +13,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from src.v5_catalogue import HARIKANE_MASS_METHOD, HARIKANE_SOURCE_KEY
+from src.v5_catalogue import HARIKANE_MASS_METHOD, HARIKANE_SOURCE_KEY, build_v5_catalogues
 
 
 class V5PipelineTests(unittest.TestCase):
@@ -75,6 +75,7 @@ class V5PipelineTests(unittest.TestCase):
         ].iloc[0]
         self.assertEqual(alternative["evidence_status"], "candidate_accreting_mbh")
         self.assertTrue(bool(alternative["growth_ranking_eligible_flag"]))
+        self.assertFalse(bool(alternative["primary_growth_ranking_flag"]))
 
     def test_object_phenotypes_union_linked_measurements(self) -> None:
         triple = self.objects[self.objects["physical_object_id"].eq("HZA-CEERS-2782")].iloc[0]
@@ -83,6 +84,39 @@ class V5PipelineTests(unittest.TestCase):
         linked = self.objects[self.objects["physical_object_id"].eq("HZA-CEERS-672")].iloc[0]
         self.assertIn("red_agn", linked["phenotype_tags"])
         self.assertIn("compact_source", linked["phenotype_tags"])
+
+    def test_object_lrd_missingness_and_evidence_aggregation(self) -> None:
+        self.assertEqual(int(self.objects["lrd_flag"].eq(True).sum()), 53)
+        self.assertEqual(int(self.objects["lrd_flag"].eq(False).sum()), 19)
+        self.assertEqual(int(self.objects["lrd_flag"].isna().sum()), 27)
+        unreported = self.objects[
+            self.objects["physical_object_id"].eq("HZA-CEERS-00717")
+        ].iloc[0]
+        self.assertTrue(pd.isna(unreported["lrd_flag"]))
+        triple = self.objects[
+            self.objects["physical_object_id"].eq("HZA-CEERS-2782")
+        ].iloc[0]
+        self.assertEqual(triple["preferred_measurement_evidence_status"], "probable_accreting_mbh")
+        self.assertEqual(triple["evidence_status"], "probable_accreting_mbh")
+        self.assertIn("RUBIESEGS50052_taylor24", triple["evidence_status_measurement_ids"])
+
+    def test_object_evidence_uses_most_conservative_linked_measurement(self) -> None:
+        raw = self.raw.copy()
+        target = raw["measurement_id"].eq("CEERS02782_harikane23")
+        raw.loc[target, "source_caveat_tags"] = (
+            raw.loc[target, "source_caveat_tags"].astype(str)
+            + ";alternative_non_agn_test_interpretation"
+        )
+        outputs = build_v5_catalogues(
+            pd.read_csv(ROOT / "data/processed/v4_blagn_measurements.csv"),
+            raw,
+            pd.read_csv(ROOT / "data/crossmatch/v5_reviewed_identity_overrides.csv"),
+        )
+        objects = outputs[1].set_index("physical_object_id")
+        linked = objects.loc["HZA-CEERS-2782"]
+        self.assertEqual(linked["preferred_measurement_evidence_status"], "probable_accreting_mbh")
+        self.assertEqual(linked["evidence_status"], "candidate_accreting_mbh")
+        self.assertFalse(bool(linked["primary_growth_ranking_flag"]))
 
     def test_harikane_host_systematic_is_separate(self) -> None:
         harikane = self.measurements[self.measurements["source_key"].eq(HARIKANE_SOURCE_KEY)]

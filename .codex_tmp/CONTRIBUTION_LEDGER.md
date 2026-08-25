@@ -589,7 +589,8 @@ For every future Codex contribution that changes repository files:
   PNG, reviewed as contact sheets, and the dense directory, module, source-count,
   ranking, and dependency-map pages were inspected at full resolution with no
   clipping, overlap, or illegible content.
-- **Status:** Complete and verified locally; changes are uncommitted.
+- **Status:** Complete in commit `184b4c8` (`v5 documentation`) and pushed to
+  `origin/main`.
 
 ### 2026-08-24 - Restore the scientific status-manuscript direction
 
@@ -614,7 +615,8 @@ For every future Codex contribution that changes repository files:
   15-page PDF without warnings. Every page was rendered and reviewed; the two new
   tables were additionally inspected at full resolution with no clipping, overlap,
   or legibility problems.
-- **Status:** Complete and verified locally; changes are uncommitted.
+- **Status:** Complete in commit `184b4c8` (`v5 documentation`) and pushed to
+  `origin/main`.
 
 ### 2026-08-24 - Complete the v5 evidence and reproducibility gate
 
@@ -639,7 +641,8 @@ For every future Codex contribution that changes repository files:
   current v5 verifiers reproduced all 18 artifacts in memory. Independent
   comparison against the prior v5 files confirmed unchanged IDs, ranks, and
   every common numerical ranking column to `1e-12`. `git diff --check` passed.
-- **Status:** Complete and verified locally; changes are uncommitted.
+- **Status:** Complete in commit `184b4c8` (`v5 documentation`) and pushed to
+  `origin/main`.
 
 ### 2026-08-24 - Make release reproduction cross-platform
 
@@ -660,4 +663,29 @@ For every future Codex contribution that changes repository files:
 - **Validation:** All 100 regression tests passed. Exact v4.0.1 and v5 manifest
   checks passed, and both releases reproduced all 18 artifacts in memory under
   the cross-platform comparison contract. `git diff --check` passed.
+- **Status:** Complete across commits `f4ae2ac` (`reproducibility fixes`) and
+  `e7ddfb0` (`reproducibility tests`), both pushed to `origin/main`.
+
+### 2026-08-25 - Preserve three-state LRD and primary-ranking semantics
+
+- **Objective:** Remove the remaining object-level phenotype ambiguity and
+  make candidate participation in growth diagnostics explicit without deleting
+  any literature measurement.
+- **Files changed:** v5 taxonomy/catalogue/science modules, focused tests,
+  current v5 processed and science CSVs, manifest, and concise taxonomy/workflow
+  documentation.
+- **Contribution:** Preserved LRD, explicit non-LRD, and not-reported states at
+  physical-object level; conservatively aggregated linked-measurement evidence;
+  retained all candidates in exploratory diagnostics while assigning primary
+  ranks only to secure/probable evidence; and corrected committed ledger states.
+- **Scientific/technical effect:** Catalogue membership, physical identities,
+  growth calculations, and full diagnostic ranks remain unchanged. The primary
+  evidence-supported population contains 105 measurements and 98 physical
+  objects. Object-level LRD counts are 53 positive, 19 explicit negative, and
+  27 not reported.
+- **Validation:** All 105 regression tests passed. The frozen v4.0.1 and current
+  v5 verifiers reproduced all 18 artifacts under the cross-platform comparison
+  contract, and v5 manifest hashes match. Independent comparison with prior v5
+  products confirmed unchanged IDs, full diagnostic ranks, and common numerical
+  ranking fields to `1e-12`. `git diff --check` passed.
 - **Status:** Complete and verified locally; changes are uncommitted.

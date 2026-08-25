@@ -23,6 +23,13 @@ metadata. Summary products add object-class, evidence-status,
 spectroscopic-type, and eligibility strata. The workflow fails rather than
 ranking any row whose `growth_ranking_eligible_flag` is false.
 
+The complete diagnostic rankings preserve all 106 measurements and 99 objects.
+`rank_primary_growth_pressure` and `rank_primary_uncertainty_pressure` cover
+the evidence-supported subset of 105 measurements and 98 objects. The single
+alternative-interpretation candidate remains visible with its full growth
+diagnostics but has a blank primary rank. This keeps physical growth pressure
+separate from confidence in the accreting-black-hole interpretation.
+
 The object view prevents physical double-counting. In particular,
 CEERS-2782/RUBIES-EGS-50052/Harikane CEERS-02782 are three measurements of one
 black hole. Seven nonpreferred measurements are tested one at a time without
@@ -41,6 +48,9 @@ Missing host mass, luminosity, or Eddington-ratio diagnostics are labelled
 unavailable and are not scoring penalties. Summary tables are stratified by
 source, survey, field, survey/field, and LRD phenotype; overall mixed-selection
 rows are descriptive and explicitly disallow demographic inference.
+Physical-object LRD summaries preserve positive, explicit-negative, and
+not-reported states; absence of a published designation is never counted as
+non-LRD.
 
 Verify every checked-in v5 catalogue and science CSV, including a complete
 in-memory reconstruction, without writing artifacts:

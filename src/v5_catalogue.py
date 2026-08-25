@@ -11,7 +11,7 @@ from src.identity import (
     apply_reviewed_identity_overrides, candidate_matches, require_unambiguous_candidates,
     stable_object_id,
 )
-from src.object_taxonomy import TAXONOMY_FIELDS, add_blagn_taxonomy
+from src.object_taxonomy import TAXONOMY_FIELDS, add_blagn_taxonomy, validate_taxonomy
 from src.standardize_data import CANONICAL_RAW_FIELDS, standardize_dataframe
 
 
@@ -59,6 +59,13 @@ HARIKANE_EXTRA_FIELDS = [
     "log_mstar_systematic_dex", "mstar_systematic_kind",
     "mstar_systematic_applied_flag",
 ]
+
+EVIDENCE_STATUS_PRIORITY = {
+    "secure_accreting_mbh": 0,
+    "probable_accreting_mbh": 1,
+    "candidate_accreting_mbh": 2,
+    "disputed_accreting_mbh": 3,
+}
 
 
 def _require_columns(frame: pd.DataFrame, fields: Iterable[str], label: str) -> None:
@@ -235,6 +242,7 @@ def build_v5_catalogues(
         available_measurement_ids=("measurement_id", lambda values: ";".join(values.astype(str))),
         available_object_ids=("object_id", lambda values: ";".join(values.astype(str))),
         lrd_reported_by_any_measurement=("lrd_flag", lambda values: any(pd.notna(v) and bool(v) for v in values)),
+        lrd_designation_reported_by_any_measurement=("lrd_flag", lambda values: values.notna().any()),
     ).reset_index()
     lrd_rows = measurements[measurements["lrd_flag"].fillna(False).astype(bool)]
     lrd_ids = lrd_rows.groupby("physical_object_id")["measurement_id"].agg(lambda values: ";".join(values.astype(str)))
@@ -261,12 +269,51 @@ def build_v5_catalogues(
     aggregates["phenotype_evidence_measurement_ids"] = aggregates["physical_object_id"].map(phenotype_ids)
     aggregates["phenotype_evidence_source_keys"] = aggregates["physical_object_id"].map(phenotype_sources)
     aggregates["all_measurements_phenotype_tags"] = aggregates["physical_object_id"].map(phenotype_union)
+    evidence_priority = measurements["evidence_status"].map(EVIDENCE_STATUS_PRIORITY)
+    worst_priority = evidence_priority.groupby(measurements["physical_object_id"]).max()
+    worst_status = worst_priority.map({value: key for key, value in EVIDENCE_STATUS_PRIORITY.items()})
+    evidence_rows = measurements[
+        evidence_priority.eq(measurements["physical_object_id"].map(worst_priority))
+    ]
+    evidence_ids = evidence_rows.groupby("physical_object_id")["measurement_id"].agg(
+        lambda values: ";".join(values.astype(str))
+    )
+    evidence_sources = evidence_rows.groupby("physical_object_id")["source_key"].agg(
+        lambda values: ";".join(dict.fromkeys(values.astype(str)))
+    )
+    evidence_bases = evidence_rows.groupby("physical_object_id")["evidence_status_basis"].agg(
+        lambda values: ";".join(dict.fromkeys(values.astype(str)))
+    )
+    aggregates["all_measurements_evidence_status"] = aggregates["physical_object_id"].map(worst_status)
+    aggregates["evidence_status_measurement_ids"] = aggregates["physical_object_id"].map(evidence_ids)
+    aggregates["evidence_status_source_keys"] = aggregates["physical_object_id"].map(evidence_sources)
+    aggregates["all_measurements_evidence_status_basis"] = aggregates["physical_object_id"].map(evidence_bases)
     objects = measurements[measurements["preferred_measurement_flag"]].copy()
     objects["preferred_measurement_lrd_flag"] = objects["lrd_flag"]
     objects["preferred_measurement_phenotype_tags"] = objects["phenotype_tags"]
+    objects["preferred_measurement_evidence_status"] = objects["evidence_status"]
+    objects["preferred_measurement_evidence_status_basis"] = objects["evidence_status_basis"]
     objects = objects.merge(aggregates, on="physical_object_id", validate="one_to_one")
-    objects["lrd_flag"] = objects["lrd_reported_by_any_measurement"]
+    objects["lrd_flag"] = objects.apply(
+        lambda row: (
+            bool(row["lrd_reported_by_any_measurement"])
+            if bool(row["lrd_designation_reported_by_any_measurement"])
+            else np.nan
+        ),
+        axis=1,
+    )
     objects["phenotype_tags"] = objects["all_measurements_phenotype_tags"].fillna("")
+    objects["evidence_status"] = objects["all_measurements_evidence_status"]
+    objects["evidence_status_basis"] = objects["all_measurements_evidence_status_basis"]
+    objects["growth_ranking_eligible_flag"] = (
+        pd.to_numeric(objects["log_mbh_msun_std"], errors="coerce").notna()
+        & ~objects["evidence_status"].eq("disputed_accreting_mbh")
+    )
+    objects["primary_growth_ranking_flag"] = (
+        objects["growth_ranking_eligible_flag"]
+        & objects["evidence_status"].isin({"secure_accreting_mbh", "probable_accreting_mbh"})
+    )
+    validate_taxonomy(objects)
 
     aliases = measurements[[
         "physical_object_id", "measurement_id", "object_id", "source_key", "ra_deg", "dec_deg", "redshift",

@@ -33,6 +33,8 @@ pooling unlike classes:
 - `phenotype_tags`: independent descriptors such as `lrd`, `red_agn`, or `compact_source`;
 - `lensing_status`: whether lensing metadata are present;
 - `growth_ranking_eligible_flag`: whether a sufficiently supported MBH exists for growth diagnostics.
+- `primary_growth_ranking_flag`: whether the row belongs to the secure/probable
+  primary ordering rather than the preserved exploratory candidate layer.
 
 All v5 rows remain `object_class=broad-line-agn`,
 `spectroscopic_type=type1_broad_line`, and growth-ranking eligible. Evidence
@@ -45,6 +47,16 @@ At physical-object level, `phenotype_tags` is the union across every linked
 measurement. `preferred_measurement_phenotype_tags` preserves the default
 measurement alone, while `phenotype_evidence_measurement_ids` and
 `phenotype_evidence_source_keys` make the union auditable.
+
+Physical-object `evidence_status` is likewise the most conservative status
+among linked measurements. Preferred-measurement evidence and the linked
+measurement/source support for the aggregate status are retained separately.
+
+Object-level LRD status is explicitly three-state: `true` if any linked
+measurement reports LRD, `false` only if at least one linked measurement
+provides a designation and none reports LRD, and blank if no linked source
+provides a designation. The current object view therefore contains 53 LRDs, 19
+explicit non-LRDs, and 27 objects with no reported designation.
 
 Harikane's typical `0.2 dex` stellar-mass systematic from the fixed SED-fitting
 prior is stored separately in `log_mstar_systematic_dex` and is not combined

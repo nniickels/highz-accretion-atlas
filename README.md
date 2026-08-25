@@ -241,7 +241,10 @@ Expected current products include:
 The v5 ranking and uncertainty products use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column
 says otherwise. Outputs are observational triage products under stated
-assumptions; they do not prove a single seed or accretion channel. Full
+assumptions; they do not prove a single seed or accretion channel. Candidate
+interpretations remain in the complete diagnostic tables, while
+separate primary-rank columns contain only secure/probable evidence statuses.
+Object-level LRD summaries preserve an explicit not-reported state. Full
 from-raw reproduction instructions for v1--v5 and the frozen earlier figure
 sets are in `docs/getting-started.md`.
 
