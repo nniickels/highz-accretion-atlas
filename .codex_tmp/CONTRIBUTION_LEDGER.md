@@ -560,5 +560,83 @@ For every future Codex contribution that changes repository files:
   products in memory and confirmed all 18 hashes. `git diff --check` passed.
   Rebuilt the 15-page status PDF without TeX warnings, rendered all pages, and
   visually inspected the full document.
-- **Status:** Complete and verified locally; changes are not yet committed or
-  pushed.
+- **Status:** Complete in commit `9a1fa3d` (`v5`) and pushed to `origin/main`.
+
+### 2026-08-24 - Expand the status paper into a detailed repository tour
+
+- **Objective:** Update the living status document so it gives a detailed,
+  newcomer-oriented tour of the repository's important scientific, data,
+  software, release, and validation components, with visual explanations.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (rebuilt)
+- **Contribution:** Retitled and refreshed the report, added a one-way data-flow
+  diagram, a full directory map, a measurement-versus-physical-object identity
+  diagram, a module-by-module implementation tour, a reproducibility walkthrough,
+  current repository scale and source-composition summaries, and a v5 top-five
+  growth-pressure table. Preserved the chronological science narrative, existing
+  release-specific figures, limitations, roadmap, and bibliography. Added running
+  headers and consistent page numbering for navigation.
+- **Scientific/technical effect:** No catalogue, identity, model, ranking, or
+  result artifact changed. The documentation now makes the repository architecture,
+  frozen-v4/current-v5 distinction, uncertainty policy, and release gates easier to
+  audit; all scientific numbers are drawn from the current checked-in v5 tables and
+  existing verified documentation.
+- **Validation:** All 93 regression tests passed. The v4.0.1 verifier confirmed all
+  18 frozen hashes and reproduced the frozen catalogue/science products in memory.
+  Tectonic compiled the 19-page PDF without warnings. All pages were rendered to
+  PNG, reviewed as contact sheets, and the dense directory, module, source-count,
+  ranking, and dependency-map pages were inspected at full resolution with no
+  clipping, overlap, or illegible content.
+- **Status:** Complete and verified locally; changes are uncommitted.
+
+### 2026-08-24 - Restore the scientific status-manuscript direction
+
+- **Objective:** Revise the status-paper update so it preserves the earlier
+  scientific narrative and formatting rather than presenting a literal tour of
+  repository directories and modules.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.tex` (modified)
+  - `.codex_tmp/highz_accretion_atlas_status.pdf` (rebuilt)
+- **Contribution:** Removed the repository-at-a-glance section, architecture and
+  identity boxes, directory/module catalogues, reproduction walkthrough, and
+  navigation-specific header styling. Restored the original project-status title,
+  abstract direction, section flow, typography, and page furniture. Retained only
+  two concise current-v5 additions: the literature-source measurement/object
+  composition and the present point-versus-uncertainty top-five ranking summary.
+- **Scientific/technical effect:** The report again reads as a chronological
+  scientific status manuscript while incorporating current v5 evidence. No data,
+  identity, model, ranking, or other result artifact changed.
+- **Validation:** All 93 regression tests passed, and the v4.0.1 verifier confirmed
+  every frozen hash plus in-memory reproduction. Tectonic compiled the final
+  15-page PDF without warnings. Every page was rendered and reviewed; the two new
+  tables were additionally inspected at full resolution with no clipping, overlap,
+  or legibility problems.
+- **Status:** Complete and verified locally; changes are uncommitted.
+
+### 2026-08-24 - Complete the v5 evidence and reproducibility gate
+
+- **Objective:** Resolve the remaining review findings with the smallest
+  non-breaking v5-only changes before any heterogeneous v6 expansion.
+- **Files changed:** v5 taxonomy/catalogue/science modules and tests; the v5
+  processed catalogue and science CSVs; CI, source/schema/workflow/release
+  documentation and roadmaps; `scripts/verify_v5_release.py`; and
+  `releases/v5-manifest.json`.
+- **Contribution:** Separated robust line detection from secure accreting-MBH
+  interpretation with an auditable evidence basis; enforced growth eligibility;
+  propagated taxonomy through evaluation and uncertainty products; added
+  taxonomy summary strata; unioned phenotype evidence across linked
+  measurements; recorded the Harikane `0.2 dex` host-mass systematic without
+  applying it; corrected mixed-selection and roadmap language; and added an
+  exact v5 hash/reproduction gate to CI.
+- **Scientific/technical effect:** All 106 measurements and 99 physical objects
+  remain eligible and retain identical numerical values and ranks. Evidence
+  labels are now 96 secure, nine probable, and one candidate. No v1--v4
+  artifact or figure changed.
+- **Validation:** All 98 regression tests passed. Both the frozen v4.0.1 and
+  current v5 verifiers reproduced all 18 artifacts in memory. Independent
+  comparison against the prior v5 files confirmed unchanged IDs, ranks, and
+  every common numerical ranking column to `1e-12`. `git diff --check` passed.
+- **Status:** Complete and verified locally; changes are uncommitted.

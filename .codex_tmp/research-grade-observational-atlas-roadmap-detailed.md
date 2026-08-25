@@ -481,7 +481,9 @@ Candidate sources:
   retained `z >= 4` layer has 37 measurements / 36 physical objects.
 - Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples as complementary
   NIRCam WFSS selections. **Completed in v4.**
-- Harikane faint BLAGN and earlier CEERS/JADES discovery papers as measurement-version layers after cross-matching.
+- Harikane faint BLAGN: **completed in v5** as ten measurement versions, with
+  five verified overlaps and five new physical objects. Earlier CEERS/JADES
+  discovery papers remain possible separate measurement-version layers.
 - THRILS deep-spectroscopy BLAGN and evidence-graded ALPINE-CRISTAL candidates.
 - Jones et al. as a host-mass/remeasurement layer after stable physical-object IDs exist.
 - Baccus and Xu as a large archival audit only after duplicate resolution works.
@@ -687,9 +689,10 @@ Codex prompt:
   - status: completed in v4 as complementary NIRCam WFSS expansions; 36
     measurements contribute 35 additional physical objects after linking
     GOODS-S-13971 to JADES GS-204851.
-- Harikane et al. faint BLAGN and earlier CEERS/JADES discovery papers:
-  - status: planned.
-  - treat overlapping sources as measurement versions after physical-object cross-matching.
+- Harikane et al. faint BLAGN:
+  - status: completed in v5; ten rows, five verified overlaps, five new objects.
+- Earlier CEERS/JADES discovery papers:
+  - status: possible future measurement-version layers after cross-matching.
 - THRILS and ALPINE-CRISTAL-JWST:
   - status: planned selection-bias/evidence-graded extensions.
 - Jones et al. and Baccus and Xu:
@@ -814,11 +817,12 @@ task queue. Use the immediate-next-task section below for new work.
 11. "Recompute the atlas rankings and compare the v2 v1-catalogue analysis with the v3 expanded BLAGN rankings."
 12. "Plan the first non-BLAGN object class expansion with caveat tags."
 
-## Immediate Next Best Task after v4
+## Immediate Next Best Task after v5
 
-The v3 figure task below is complete. The next best concrete task is to
-consolidate the manuscript around the verified v4 comparison and add explicit
-measurement-choice sensitivity for multiply measured objects.
+The v3 figure task and v5 Harikane expansion are complete. The next best
+concrete task is to finish the v5 evidence/eligibility gate and reproducibility
+manifest, then consolidate the manuscript before adding a heterogeneous object
+class.
 
 Historical v3 figure brief:
 

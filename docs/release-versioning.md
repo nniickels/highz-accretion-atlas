@@ -22,6 +22,10 @@ Patch tags such as `v4.0.1` do not advance the catalogue chronology. The
 records hashes for its catalogue and science CSVs, exact Monte Carlo controls,
 and expected counts.
 
+The current v5 CSVs are independently covered by `releases/v5-manifest.json`
+and `python -m scripts.verify_v5_release --reproduce`; this reproducibility gate
+does not require a release tag.
+
 ## Naming Rules
 
 - Put the project release prefix first on processed data, generated results,

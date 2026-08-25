@@ -318,8 +318,10 @@ Complete these before large multi-paper ingestion:
 4. Ingest Matthee EIGER/FRESCO and Lin ASPIRE as complementary survey selections.
    **Completed in v4 (2026-08-22): 36 measurements; one Matthee/JADES crossmatch;
    96 measurements / 94 physical objects in the combined release.**
-5. Attach Harikane and earlier discovery-paper measurements to matched physical
-   objects.
+5. Attach Harikane measurements to matched physical objects.
+   **Completed in v5 (2026-08-23): 10 measurements, five overlaps, five new
+   physical objects.** Treat any remaining earlier discovery-paper
+   measurements as a separate future layer.
 6. Add THRILS and evidence-graded ALPINE-CRISTAL candidates.
 7. Add high-redshift spotlight objects with explicit method-dependent bounds.
 8. Add Jones et al. as a host-mass/remeasurement layer.

@@ -14,9 +14,14 @@ SPECTROSCOPIC_TYPES = {
     "type1_broad_line", "type2_narrow_line", "intermediate_or_ambiguous", "unknown",
 }
 TAXONOMY_FIELDS = [
-    "evidence_status", "spectroscopic_type", "selection_channels",
+    "evidence_status", "evidence_status_basis", "spectroscopic_type", "selection_channels",
     "phenotype_tags", "lensing_status", "growth_ranking_eligible_flag",
 ]
+
+INTERPRETIVE_CANDIDATE_TAGS = {"alternative_non_agn"}
+INTERPRETIVE_PROBABLE_TAGS = {
+    "possible_outflow_contribution", "absorption_interpretation_uncertain",
+}
 
 
 def _boolish(value: object) -> bool:
@@ -27,13 +32,46 @@ def _boolish(value: object) -> bool:
     return bool(value)
 
 
+def _tags(value: object) -> set[str]:
+    if pd.isna(value):
+        return set()
+    return {tag.strip() for tag in str(value).split(";") if tag.strip()}
+
+
+def _contains_any(tags: set[str], tokens: set[str]) -> bool:
+    return any(token in tag for token in tokens for tag in tags)
+
+
+def _evidence_assignment(row: pd.Series) -> tuple[str, str]:
+    """Keep line-detection robustness separate from physical interpretation."""
+    tags = _tags(row.get("source_caveat_tags"))
+    if _contains_any(tags, INTERPRETIVE_CANDIDATE_TAGS):
+        return (
+            "candidate_accreting_mbh",
+            "robust_broad_line_with_recorded_alternative_non_agn_interpretation",
+        )
+    if _contains_any(tags, INTERPRETIVE_PROBABLE_TAGS):
+        return (
+            "probable_accreting_mbh",
+            "robust_broad_line_with_recorded_outflow_or_absorption_interpretive_caveat",
+        )
+    if str(row.get("quality_flag", "")).lower() == "robust":
+        return (
+            "secure_accreting_mbh",
+            "published_blagn_with_robust_detection_and_no_recorded_alternative_interpretation",
+        )
+    return (
+        "probable_accreting_mbh",
+        "published_blagn_with_tentative_broad_line_detection",
+    )
+
+
 def add_blagn_taxonomy(catalogue: pd.DataFrame) -> pd.DataFrame:
     """Add v5 taxonomy axes without changing the historical object class."""
     result = catalogue.copy()
-    robust = result["quality_flag"].astype(str).str.lower().eq("robust")
-    result["evidence_status"] = np.where(
-        robust, "secure_accreting_mbh", "probable_accreting_mbh",
-    )
+    evidence = result.apply(_evidence_assignment, axis=1)
+    result["evidence_status"] = [value[0] for value in evidence]
+    result["evidence_status_basis"] = [value[1] for value in evidence]
     result["spectroscopic_type"] = "type1_broad_line"
     species = result.get("broad_line_species", pd.Series(index=result.index, dtype=object))
     result["selection_channels"] = species.astype("string").str.lower().map(
@@ -72,4 +110,3 @@ def validate_taxonomy(catalogue: pd.DataFrame) -> None:
     eligible = catalogue["growth_ranking_eligible_flag"].map(_boolish)
     if catalogue.loc[eligible, "log_mbh_msun_std"].isna().any():
         raise ValueError("Growth-ranking-eligible rows require a black-hole mass")
-

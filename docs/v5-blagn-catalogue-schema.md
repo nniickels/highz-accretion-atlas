@@ -27,6 +27,7 @@ v5 adds fields that prepare the atlas for later heterogeneous evidence without
 pooling unlike classes:
 
 - `evidence_status`: strength of the accreting massive-black-hole evidence;
+- `evidence_status_basis`: controlled reason for the assigned evidence status;
 - `spectroscopic_type`: Type 1 broad-line, Type 2 narrow-line, ambiguous, or unknown;
 - `selection_channels`: the observation that selected the measurement;
 - `phenotype_tags`: independent descriptors such as `lrd`, `red_agn`, or `compact_source`;
@@ -34,9 +35,20 @@ pooling unlike classes:
 - `growth_ranking_eligible_flag`: whether a sufficiently supported MBH exists for growth diagnostics.
 
 All v5 rows remain `object_class=broad-line-agn`,
-`spectroscopic_type=type1_broad_line`, and growth-ranking eligible. LRD is never
-used as the object class. Blank LRD state means the source did not provide a
-row-level designation; it does not mean non-LRD.
+`spectroscopic_type=type1_broad_line`, and growth-ranking eligible. Evidence
+status is nevertheless caveat-aware: robust detection is not automatically a
+secure physical interpretation. LRD is never used as the object class. Blank
+LRD state means the source did not provide a row-level designation; it does not
+mean non-LRD.
+
+At physical-object level, `phenotype_tags` is the union across every linked
+measurement. `preferred_measurement_phenotype_tags` preserves the default
+measurement alone, while `phenotype_evidence_measurement_ids` and
+`phenotype_evidence_source_keys` make the union auditable.
+
+Harikane's typical `0.2 dex` stellar-mass systematic from the fixed SED-fitting
+prior is stored separately in `log_mstar_systematic_dex` and is not combined
+with the published statistical uncertainty or used in growth rankings.
 
 The taxonomy is scaffolding, not permission to pool future X-ray, narrow-line,
 photometric, lensed, or disputed candidates. Those additions require

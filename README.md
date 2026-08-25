@@ -1,5 +1,7 @@
 # highz-accretion-atlas
-A standardized, assumption-tracked catalogue of JWST-identified high-redshift (z $\ge$ 4) accreting objects and their possible formation and growth scenarios.
+A standardized, assumption-tracked catalogue of JWST-identified high-redshift
+($z \ge 4$) accreting massive-black-hole systems and candidates, and their
+possible formation and growth scenarios.
 
 
 ## Background
@@ -97,7 +99,9 @@ paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
 The exact v4.0.1 environment is in `requirements-lock.txt`; verify every frozen
 v4 CSV without writing outputs with
-`python -m scripts.verify_v4_release --reproduce`.
+`python -m scripts.verify_v4_release --reproduce`. The current v5 catalogue and
+science tables have an equivalent non-writing gate:
+`python -m scripts.verify_v5_release --reproduce`.
 ### v1: Pilot Broad-Line AGN Atlas
 
 Start with one clean object class from one source paper.
@@ -218,6 +222,7 @@ v4 measurement catalogue as input:
 ```powershell
 python -m scripts.process_v5_blagn
 python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.verify_v5_release --reproduce
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 

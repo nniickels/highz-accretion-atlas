@@ -17,6 +17,12 @@ physical-object evaluations, point rankings, required-fEdd and required-seed
 Monte Carlo summaries, uncertainty rankings, stratified catalogue and growth
 summaries, and alternate-measurement sensitivity.
 
+Evaluation, point-ranking, uncertainty-summary, and uncertainty-ranking rows
+carry the v5 evidence, type, selection, phenotype, lensing, and eligibility
+metadata. Summary products add object-class, evidence-status,
+spectroscopic-type, and eligibility strata. The workflow fails rather than
+ranking any row whose `growth_ranking_eligible_flag` is false.
+
 The object view prevents physical double-counting. In particular,
 CEERS-2782/RUBIES-EGS-50052/Harikane CEERS-02782 are three measurements of one
 black hole. Seven nonpreferred measurements are tested one at a time without
@@ -35,6 +41,13 @@ Missing host mass, luminosity, or Eddington-ratio diagnostics are labelled
 unavailable and are not scoring penalties. Summary tables are stratified by
 source, survey, field, survey/field, and LRD phenotype; overall mixed-selection
 rows are descriptive and explicitly disallow demographic inference.
+
+Verify every checked-in v5 catalogue and science CSV, including a complete
+in-memory reconstruction, without writing artifacts:
+
+```powershell
+python -m scripts.verify_v5_release --reproduce
+```
 
 ## Scientific change from v4
 

@@ -70,6 +70,24 @@ class V5PipelineTests(unittest.TestCase):
         red = self.measurements[self.measurements["measurement_id"].eq("CEERS00746_harikane23")].iloc[0]
         self.assertIn("red_agn", red["phenotype_tags"])
         self.assertNotIn("lrd", red["phenotype_tags"])
+        alternative = self.measurements[
+            self.measurements["measurement_id"].eq("RUBIESEGS49140_taylor24")
+        ].iloc[0]
+        self.assertEqual(alternative["evidence_status"], "candidate_accreting_mbh")
+        self.assertTrue(bool(alternative["growth_ranking_eligible_flag"]))
+
+    def test_object_phenotypes_union_linked_measurements(self) -> None:
+        triple = self.objects[self.objects["physical_object_id"].eq("HZA-CEERS-2782")].iloc[0]
+        self.assertIn("compact_source", triple["phenotype_tags"])
+        self.assertIn("CEERS02782_harikane23", triple["phenotype_evidence_measurement_ids"])
+        linked = self.objects[self.objects["physical_object_id"].eq("HZA-CEERS-672")].iloc[0]
+        self.assertIn("red_agn", linked["phenotype_tags"])
+        self.assertIn("compact_source", linked["phenotype_tags"])
+
+    def test_harikane_host_systematic_is_separate(self) -> None:
+        harikane = self.measurements[self.measurements["source_key"].eq(HARIKANE_SOURCE_KEY)]
+        self.assertTrue(harikane["log_mstar_systematic_dex"].eq(0.2).all())
+        self.assertFalse(harikane["mstar_systematic_applied_flag"].astype(bool).any())
 
     def test_every_object_has_one_default_measurement(self) -> None:
         counts = self.links.groupby("physical_object_id")["preferred_measurement_flag"].sum()

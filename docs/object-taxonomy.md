@@ -16,3 +16,17 @@ spectroscopic type, selection channel, phenotype, lensing, mass method, and
 growth-ranking eligibility. Only objects with sufficiently credible MBH
 constraints should enter the primary growth ranking. Unlike selection
 functions and evidence classes remain separately summarized and visualized.
+
+For the v5 broad-line sample, `secure_accreting_mbh` means a published robust
+broad-line detection without a recorded alternative physical interpretation.
+A robust line with a possible outflow or uncertain absorption interpretation
+is `probable_accreting_mbh`; a recorded alternative non-AGN explanation is
+`candidate_accreting_mbh`. Tentative broad-line detections are also probable,
+but their separate detection-confidence field remains tentative. These labels
+do not alter published classifications or silently discard measurements.
+
+`evidence_status_basis` records the rule used for each label. Growth ranking is
+allowed only when `growth_ranking_eligible_flag` is true; the v5 science layer
+raises an error if an ineligible row is passed to it. Evidence status, line
+detection confidence, and mass/line-model reliability therefore remain
+distinct.

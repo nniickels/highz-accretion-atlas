@@ -36,9 +36,19 @@ OUTPUT_PATHS = {
 }
 
 
-def build_outputs(*, n_samples: int, random_seed: int) -> dict[str, pd.DataFrame]:
-    measurements = prepare_catalogue_view(pd.read_csv(MEASUREMENTS), view="measurement")
-    objects = prepare_catalogue_view(pd.read_csv(OBJECTS), view="physical_object")
+def build_outputs(
+    *, n_samples: int, random_seed: int,
+    measurements: pd.DataFrame | None = None,
+    objects: pd.DataFrame | None = None,
+) -> dict[str, pd.DataFrame]:
+    measurements = prepare_catalogue_view(
+        pd.read_csv(MEASUREMENTS) if measurements is None else measurements,
+        view="measurement",
+    )
+    objects = prepare_catalogue_view(
+        pd.read_csv(OBJECTS) if objects is None else objects,
+        view="physical_object",
+    )
     measurement_eval = evaluate_catalogue(measurements)
     object_eval = evaluate_catalogue(objects)
     measurement_point = build_point_ranking(measurements, measurement_eval)

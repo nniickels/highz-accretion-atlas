@@ -35,6 +35,7 @@ broad-Halpha sample:
 ```powershell
 python -m scripts.process_v5_blagn
 python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
+python -m scripts.verify_v5_release --reproduce
 ```
 
 This writes 106 measurements, 99 physical objects, 106 links and aliases, six
@@ -43,6 +44,10 @@ to existing objects and five create new objects. See
 `docs/v5-blagn-catalogue-schema.md`,
 `docs/harikane23-nirspec-extraction-notes.md`, and
 `docs/v5-blagn-science-workflow.md`.
+
+The verifier checks a v5 hash manifest and reconstructs all five
+catalogue/identity plus 13 science products in memory. CI runs it with
+`--require-clean` after the frozen-v4 gate.
 
 ## Frozen v4 BLAGN Release
 

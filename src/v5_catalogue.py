@@ -56,6 +56,8 @@ HARIKANE_EXTRA_FIELDS = [
     "mbh_formal_uncertainty_kind", "dust_correction_applied_flag",
     "source_paper_version", "source_url", "source_doi", "source_archive_url",
     "source_archive_sha256", "extraction_date", "selection_criteria",
+    "log_mstar_systematic_dex", "mstar_systematic_kind",
+    "mstar_systematic_applied_flag",
 ]
 
 
@@ -152,6 +154,9 @@ def standardize_harikane(raw: pd.DataFrame) -> pd.DataFrame:
     extras["source_archive_sha256"] = HARIKANE_ARCHIVE_SHA256
     extras["extraction_date"] = "2026-08-23"
     extras["selection_criteria"] = "NIRSpec parent sample at zspec 3.8-8.9; permitted broad Halpha FWHM >1000 km/s and S/N >5; narrow forbidden lines; outflow-component veto; final rows have Delta AIC >20"
+    extras["log_mstar_systematic_dex"] = 0.2
+    extras["mstar_systematic_kind"] = "typical systematic from fixed SED-fitting prior; Harikane et al. (2023) Section 4.3"
+    extras["mstar_systematic_applied_flag"] = False
     return standardized.merge(
         extras[["measurement_id", *HARIKANE_EXTRA_FIELDS]], on="measurement_id", validate="one_to_one",
     )
@@ -236,16 +241,32 @@ def build_v5_catalogues(
     lrd_sources = lrd_rows.groupby("physical_object_id")["source_key"].agg(lambda values: ";".join(dict.fromkeys(values.astype(str))))
     aggregates["lrd_evidence_measurement_ids"] = aggregates["physical_object_id"].map(lrd_ids)
     aggregates["lrd_evidence_source_keys"] = aggregates["physical_object_id"].map(lrd_sources)
+    phenotype_rows = measurements[
+        measurements["phenotype_tags"].fillna("").astype(str).str.strip().ne("")
+    ]
+    phenotype_ids = phenotype_rows.groupby("physical_object_id")["measurement_id"].agg(
+        lambda values: ";".join(values.astype(str))
+    )
+    phenotype_sources = phenotype_rows.groupby("physical_object_id")["source_key"].agg(
+        lambda values: ";".join(dict.fromkeys(values.astype(str)))
+    )
+    phenotype_union = grouped["phenotype_tags"].agg(
+        lambda values: ";".join(dict.fromkeys(
+            tag
+            for value in values.dropna().astype(str)
+            for tag in value.split(";")
+            if tag
+        ))
+    )
+    aggregates["phenotype_evidence_measurement_ids"] = aggregates["physical_object_id"].map(phenotype_ids)
+    aggregates["phenotype_evidence_source_keys"] = aggregates["physical_object_id"].map(phenotype_sources)
+    aggregates["all_measurements_phenotype_tags"] = aggregates["physical_object_id"].map(phenotype_union)
     objects = measurements[measurements["preferred_measurement_flag"]].copy()
     objects["preferred_measurement_lrd_flag"] = objects["lrd_flag"]
+    objects["preferred_measurement_phenotype_tags"] = objects["phenotype_tags"]
     objects = objects.merge(aggregates, on="physical_object_id", validate="one_to_one")
     objects["lrd_flag"] = objects["lrd_reported_by_any_measurement"]
-    objects["phenotype_tags"] = objects.apply(
-        lambda row: ";".join(dict.fromkeys(filter(None, [
-            *str(row.get("phenotype_tags", "")).split(";"),
-            "lrd" if bool(row["lrd_reported_by_any_measurement"]) else "",
-        ]))), axis=1,
-    )
+    objects["phenotype_tags"] = objects["all_measurements_phenotype_tags"].fillna("")
 
     aliases = measurements[[
         "physical_object_id", "measurement_id", "object_id", "source_key", "ra_deg", "dec_deg", "redshift",
@@ -263,4 +284,3 @@ def build_v5_catalogues(
         aliases.sort_values(["physical_object_id", "measurement_id"]).reset_index(drop=True),
         candidates.sort_values(["measurement_id", "candidate_measurement_id"]).reset_index(drop=True),
     )
-

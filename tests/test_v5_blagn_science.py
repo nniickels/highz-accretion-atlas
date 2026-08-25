@@ -13,7 +13,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.v5_catalogue import HARIKANE_SOURCE_KEY
-from src.v5_science import EPSILON, MERGER_BOOST, Z_SEED
+from src.v5_science import EPSILON, MERGER_BOOST, Z_SEED, evaluate_catalogue, prepare_catalogue_view
 
 
 class V5ScienceTests(unittest.TestCase):
@@ -90,6 +90,39 @@ class V5ScienceTests(unittest.TestCase):
         self.assertEqual(int(point.loc["HZA-CEERS-00717", "rank_growth_pressure"]), 4)
         uncertainty = self.frames["object_uncertainty"].set_index("physical_object_id")
         self.assertEqual(int(uncertainty.loc["HZA-CEERS-00717", "rank_uncertainty_pressure"]), 5)
+
+    def test_taxonomy_propagates_and_is_stratified(self) -> None:
+        fields = {
+            "evidence_status", "evidence_status_basis", "spectroscopic_type",
+            "selection_channels", "phenotype_tags", "lensing_status",
+            "growth_ranking_eligible_flag",
+        }
+        for name in [
+            "measurement_eval", "object_eval", "measurement_point", "object_point",
+            "measurement_fedd", "measurement_mseed", "object_fedd", "object_mseed",
+            "measurement_uncertainty", "object_uncertainty",
+        ]:
+            self.assertTrue(fields.issubset(self.frames[name].columns), name)
+        expected_strata = {
+            "object_class", "evidence_status", "spectroscopic_type",
+            "growth_ranking_eligibility",
+        }
+        self.assertTrue(expected_strata.issubset(set(self.frames["catalogue_summary"]["stratum_type"])))
+        self.assertTrue(expected_strata.issubset(set(self.frames["growth_summary"]["stratum_type"])))
+
+    def test_growth_workflow_rejects_ineligible_rows(self) -> None:
+        measurements = pd.read_csv(ROOT / "data/processed/v5_blagn_measurements.csv").head(1)
+        measurements.loc[:, "growth_ranking_eligible_flag"] = False
+        prepared = prepare_catalogue_view(measurements, view="measurement")
+        with self.assertRaisesRegex(ValueError, "ineligible catalogue rows"):
+            evaluate_catalogue(prepared)
+
+    def test_growth_summary_names_all_selection_families(self) -> None:
+        overall = self.frames["growth_summary"][
+            self.frames["growth_summary"]["stratum_type"].eq("overall")
+        ]
+        for label in ["JADES", "CEERS/RUBIES", "EIGER/FRESCO", "ASPIRE", "Harikane"]:
+            self.assertTrue(overall["selection_function_note"].str.contains(label, regex=False).all())
 
 
 if __name__ == "__main__":

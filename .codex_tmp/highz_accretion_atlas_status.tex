@@ -36,7 +36,7 @@
 \title{\textbf{The High-Redshift Accretion Atlas}\\
 \large Project Status Through v5}
 \author{Project status manuscript}
-\date{23 August 2026}
+\date{24 August 2026}
 
 \begin{document}
 \maketitle
@@ -85,6 +85,26 @@ v5 required-$\fedd$ rows (measurement / object) & 1,392 / 1,317 \\
 v5 required-seed rows (measurement / object) & 928 / 878 \\
 Per-object spin/merger parameter maps & 138 \\
 Per-object seed-redshift maps & 23 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The present v5 source composition is:
+\begin{table}[ht]
+\centering
+\caption{Measurement rows and preferred object-level rows by literature source.}
+\small
+\begin{tabular}{@{}lrrl@{}}
+\toprule
+Source selection & Measurements & Preferred objects & Main contribution \\
+\midrule
+JADES & 23 & 23 & pilot sample and highest-redshift ceiling \\
+Taylor CEERS/RUBIES & 37 & 36 & first cross-paper measurement version \\
+Matthee EIGER/FRESCO & 20 & 19 & WFSS sample and one JADES overlap \\
+Lin ASPIRE & 16 & 16 & compact-red WFSS selection \\
+Harikane NIRSpec & 10 & 5 & five new objects plus five remeasurements \\
+\midrule
+Total & 106 & 99 & current v5 atlas \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -176,6 +196,26 @@ Harikane masses use the Greene \& Ho (2005) H$\alpha$ single-epoch relation appl
 \section{Current scientific findings}
 
 The v2 v1-catalogue analysis identifies a stable high-leverage group, but the uncertainty analysis changes how strongly individual objects should be described. The v3 object-level ranking retains GN-38509 and GS-20057765 in the first two positions and adds RUBIES-EGS-49140 in third; the Taylor object is flagged for possible outflow contribution or an alternative non-AGN broad-line interpretation. Table~\ref{tab:objects} retains the detailed v1 probabilities that underlie the first comparison.
+
+\begin{table}[ht]
+\centering
+\caption{Current v5 physical-object growth-pressure leaders under the baseline reference.}
+\label{tab:v5leaders}
+\small
+\begin{tabular}{@{}lclrr@{}}
+\toprule
+Point rank & Object & Preferred source & $f_{\rm Edd,req}^{100}$ & $\log M_{\rm seed,req}^{0.3}$ \\
+\midrule
+1 & GN-38509 & JADES & 1.065 & 6.719 \\
+2 & GS-20057765 & JADES & 1.355 & 6.150 \\
+3 & RUBIES-EGS-49140 & Taylor & 1.016 & 6.411 \\
+4 & CEERS-00717 & Harikane & 1.027 & 6.242 \\
+5 & GOODS-N-9771 & Matthee & 0.810 & 6.124 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The uncertainty-aware first through third positions are GN-38509, GS-20057765, and RUBIES-EGS-49140. GOODS-N-9771 is fourth and CEERS-00717 is fifth. The swap in fourth and fifth place illustrates the intended use of the Monte Carlo layer: point rank and uncertainty rank answer related but not identical questions. The table is a growth-pressure ordering under the declared reference assumptions, not an evidence-strength ordering or a population statement.
 
 \begin{table}[ht]
 \centering

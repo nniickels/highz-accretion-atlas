@@ -67,7 +67,9 @@ Detailed extraction and caveat notes are in
   all final rows have Delta AIC greater than 20. MBH uses the Greene & Ho
   (2005) Halpha estimator and extinction-corrected broad-Halpha luminosity.
   The source gives no numeric virial systematic, so none is inferred. Six host
-  masses and four upper limits are preserved distinctly. No row-level LRD
-  marker is published; red/compact descriptions remain separate phenotypes.
+  masses and four upper limits are preserved distinctly. The paper's typical
+  `0.2 dex` host-mass systematic from its fixed SED-fitting prior is recorded
+  separately and not applied. No row-level LRD marker is published;
+  red/compact descriptions remain separate phenotypes.
   Five measurements crossmatch existing CEERS physical objects and five are
   new. See `docs/harikane23-nirspec-extraction-notes.md`.
