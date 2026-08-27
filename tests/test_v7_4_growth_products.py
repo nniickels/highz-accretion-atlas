@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.build_v7_4_growth_manifest import MANIFEST_PATH
 from scripts.generate_v7_4_growth_products import (
+    COMPILED_CAPTIONS,
     COMPATIBILITY_PATH,
     COVERAGE_PATH,
     GALLERY_INVENTORY_PATH,
@@ -62,6 +63,9 @@ class V74GrowthProductTests(unittest.TestCase):
             self.gallery["artifact_kind"].value_counts().to_dict(),
             {"per_object_figure": 588, "compiled_class_grid": 6},
         )
+        grids = self.gallery[self.gallery["artifact_kind"].eq("compiled_class_grid")]
+        self.assertTrue(grids["caption_policy"].eq("one_shared_gallery_footer").all())
+        self.assertEqual(set(grids["product_kind"]), set(COMPILED_CAPTIONS))
 
     def test_compatibility_is_class_stratified_and_bounded(self) -> None:
         self.assertEqual(len(self.compatibility), 288)

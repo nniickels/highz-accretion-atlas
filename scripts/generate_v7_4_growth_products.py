@@ -26,7 +26,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 from src.models import (
     SEED_MODELS,
@@ -67,6 +67,24 @@ SPIN_CASES = (
     (1.0, "spin_plus1_eps0p423", "a=+1"),
 )
 MERGER_CASES = ((1.0, "no_merger_boost"), (2.0, "merger_boost_x2"))
+COMPILED_CAPTIONS = {
+    "parameter_map": (
+        "Shared assumptions: white contour reproduces the canonical mass; "
+        "photon-trapping efficiency is used above Eddington; z_seed=30."
+    ),
+    "seed_redshift_map": (
+        "Shared assumptions: baseline epsilon=0.1, no merger boost, and "
+        "Planck-style cosmology."
+    ),
+    "growth_track": (
+        "Shared assumptions: z_seed=30, epsilon=0.1, and no merger boost."
+    ),
+}
+COMPILED_CAPTION_CROP_PX = {
+    "parameter_map": 55,
+    "seed_redshift_map": 42,
+    "growth_track": 42,
+}
 
 
 def boolish(value: object) -> bool:
@@ -405,25 +423,39 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def compile_contact_sheet(paths: list[Path], output: Path, *, cell: tuple[int, int], columns: int = 5) -> tuple[int, int]:
+def compile_contact_sheet(
+    paths: list[Path],
+    output: Path,
+    *,
+    cell: tuple[int, int],
+    common_caption: str,
+    caption_crop_px: int,
+    columns: int = 5,
+) -> tuple[int, int]:
     if not paths:
         raise ValueError(f"Cannot compile an empty contact sheet: {output}")
     rows = math.ceil(len(paths) / columns)
     gutter = 10
     banner = 70
+    footer = 70
     width = columns * cell[0] + (columns - 1) * gutter
-    height = banner + rows * cell[1] + (rows - 1) * gutter
+    height = banner + rows * cell[1] + (rows - 1) * gutter + footer
     canvas = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(canvas)
-    draw.text((18, 20), output.stem.replace("_", " "), fill="black")
+    font = ImageFont.load_default(size=24)
+    draw.text((18, 18), output.stem.replace("_", " "), fill="black", font=font)
     for index, path in enumerate(paths):
         with Image.open(path) as source:
-            panel = source.convert("RGB")
+            if caption_crop_px <= 0 or caption_crop_px >= source.height:
+                raise ValueError(f"Invalid caption crop for {path}: {caption_crop_px}px")
+            panel = source.crop((0, 0, source.width, source.height - caption_crop_px)).convert("RGB")
             panel.thumbnail(cell, Image.Resampling.LANCZOS)
         row, column = divmod(index, columns)
         x = column * (cell[0] + gutter) + (cell[0] - panel.width) // 2
         y = banner + row * (cell[1] + gutter) + (cell[1] - panel.height) // 2
         canvas.paste(panel, (x, y))
+    caption_y = height - footer + 18
+    draw.text((18, caption_y), common_caption, fill="black", font=font)
     output.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(output, format="PNG", compress_level=9, dpi=(300, 300))
     return canvas.size
@@ -451,6 +483,7 @@ def generate_figures(eligible: pd.DataFrame) -> pd.DataFrame:
                 "width_px": width,
                 "height_px": height,
                 "dpi": 180 if product_kind != "parameter_map" else 160,
+                "caption_policy": "standalone_plot_footer",
                 "sha256": sha256(path),
             })
         if number % 20 == 0 or number == len(ordered):
@@ -465,7 +498,13 @@ def generate_figures(eligible: pd.DataFrame) -> pd.DataFrame:
         ]:
             paths = [object_product_paths(obj)[product_kind] for _, obj in group.iterrows()]
             output = COMPILED_DIR / f"v7_4_all_{slug}_{product_kind}s.png"
-            width, height = compile_contact_sheet(paths, output, cell=cell)
+            width, height = compile_contact_sheet(
+                paths,
+                output,
+                cell=cell,
+                common_caption=COMPILED_CAPTIONS[product_kind],
+                caption_crop_px=COMPILED_CAPTION_CROP_PX[product_kind],
+            )
             inventory.append({
                 "science_release": SCIENCE_RELEASE,
                 "artifact_kind": "compiled_class_grid",
@@ -476,6 +515,7 @@ def generate_figures(eligible: pd.DataFrame) -> pd.DataFrame:
                 "width_px": width,
                 "height_px": height,
                 "dpi": 300,
+                "caption_policy": "one_shared_gallery_footer",
                 "sha256": sha256(output),
             })
             print(f"Compiled {len(paths)} {product_kind} panels: {output.relative_to(ROOT)}")

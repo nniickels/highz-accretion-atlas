@@ -24,13 +24,13 @@
     "missing_mass_inference_allowed": false
   },
   "artifacts": {
-    "results/releases/v7_4/figures/v7_4_class_compatibility_fractions.png": "a18099c03b83760cb20519e41a8cbab5ae1ee44166daa4013c8314fefe560408",
-    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_broad_line_agn_growth_tracks.png": "7a0a26a368c3a2975daed00d153d37c9feff4ddc9df442a78598011e49f81f4b",
-    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_broad_line_agn_parameter_maps.png": "577d8455f576612681887159a692507e143579648c5e35a4903b7039c8953fab",
-    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_broad_line_agn_seed_redshift_maps.png": "28860f690a84d996cd4cb4e82cb65cadb984d069ac0a0d00b4690b49befe73af",
-    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_luminous_quasar_comparison_growth_tracks.png": "0bd30e47b4af85f8abb7fdb5514387db02c03433b5ef819390d76e877b7daf3f",
-    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_luminous_quasar_comparison_parameter_maps.png": "1f21dedcb0c3046565176588c8600303161f2061cd7eb76b37b755a94a157230",
-    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_luminous_quasar_comparison_seed_redshift_maps.png": "e7cd63a5a4ddd4ec2c7941821a5131ed2adc5b39e01459ff6b9c1974ed1c818c",
+    "results/releases/v7_4/figures/v7_4_class_compatibility_fractions.png": "c2cc996a147aa926d006bba55251cf39d7d9131e671898f945d6bd2349c0006b",
+    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_broad_line_agn_growth_tracks.png": "8bc8e5ba82b51568823f41aeaa6e1a74ab6ca7df8e2f482c9d9daa5b3146ebb0",
+    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_broad_line_agn_parameter_maps.png": "a628b6b4a2033330221ad19d9c9fc1d3d695ccb3886f20bd05109340284a1716",
+    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_broad_line_agn_seed_redshift_maps.png": "776a25e482d832bd4cd032961254b59d59e8ae74f38aa434b508c992cc1ba84b",
+    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_luminous_quasar_comparison_growth_tracks.png": "55145091748388a87123a75611ab729bcd3231df38e66dad1fbfd1fa075b72c4",
+    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_luminous_quasar_comparison_parameter_maps.png": "0c6615c4b4b29c5d834fedad9b93062c5ff3659afc523c0c980b5699f2c70556",
+    "results/releases/v7_4/galleries/compiled_by_class/v7_4_all_luminous_quasar_comparison_seed_redshift_maps.png": "63c11f5e90ae1df0629d434cbff6745dd7e71b76d7d6ba070dbf32587255eae0",
     "results/releases/v7_4/galleries/per_object/growth_tracks/broad_line_agn/v7_4_growth_track_hza-ceers-00717.png": "61b1ecfb3f586e7871847c4d037091e0aeeb5e2e7a82f071af0f7baff983b933",
     "results/releases/v7_4/galleries/per_object/growth_tracks/broad_line_agn/v7_4_growth_track_hza-ceers-01236.png": "6cbf1be487a2aa3c36107bff12d7bfe44f41084ca6ac3f70cff75ef74356e96f",
     "results/releases/v7_4/galleries/per_object/growth_tracks/broad_line_agn/v7_4_growth_track_hza-ceers-01665.png": "50e82460c27d49b85449c511243e4d82f035c4bada087c8c880ebb45418e4f93",
@@ -619,10 +619,10 @@
     "results/releases/v7_4/galleries/per_object/seed_redshift_maps/luminous_quasar_comparison/v7_4_seed_redshift_map_hza-xqr30-vdes-j2250-5015.png": "fc630c5d3c4922403dd1a5526aa38d27e83fefda49abb522bc6584388e2935e5",
     "results/releases/v7_4/galleries/per_object/seed_redshift_maps/luminous_quasar_comparison/v7_4_seed_redshift_map_hza-xqr30-vst-atlas-j025-33.png": "ef64416f321df6f990310ce7005f1eebc1518aabe63902c0676514ee6c7a77c0",
     "results/releases/v7_4/galleries/per_object/seed_redshift_maps/luminous_quasar_comparison/v7_4_seed_redshift_map_hza-xqr30-vst-atlas-j029-36.png": "8086980f13a6c4e8be55df0bd5504c1b2474aae1e416bd4c32cc9a78e177631c",
-    "results/releases/v7_4/galleries/v7_4_growth_gallery_inventory.csv": "84bdfea4ad67db7f32f9142618239e4f72f7d703c6d0ae06b93e8f0624777213",
+    "results/releases/v7_4/galleries/v7_4_growth_gallery_inventory.csv": "a3c7a9ea1b21077236db4ccf3ac11576554888286dcec0961a437def1eb5d01b",
     "results/releases/v7_4/tables/v7_4_class_compatibility_fractions.csv": "1c28a9b5a7b3c6f4411c2182c73db481ef32ca7688f28e309a8f00e622afda24",
     "results/releases/v7_4/tables/v7_4_growth_product_coverage.csv": "5386000ce45be5b69980c13392bdd0158e13ab827835ec90bb61a56906b1cacd",
     "results/releases/v7_4/tables/v7_4_growth_unavailable_objects.csv": "45c0222d6b1786159d80eceaaff0b6f64454398a8edf5d8ec77c68713298ee76",
-    "results/results_inventory.csv": "1d14d89d65d7176966ef9b3c388327d60bb17894b709791efcac820de9784a13"
+    "results/results_inventory.csv": "e4c9f51dfb4588d57824fe2dc3645676cdcd5b6c339689c4f79de9b61eab3075"
   }
 }

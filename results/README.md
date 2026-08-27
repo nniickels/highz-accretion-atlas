@@ -41,6 +41,8 @@ same convention.
   growth tracks, six high-resolution class grids, and class-specific
   compatibility fractions. Its coverage table explicitly records the other
   22 catalogue objects as unavailable rather than silently omitting them.
+  Each compiled grid uses one shared assumptions caption; captions are not
+  repeated inside every object panel.
 - `results_inventory.csv` indexes every result artifact with its release,
   collection, size, SHA-256 hash, and canonical path.
 
