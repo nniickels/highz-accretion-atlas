@@ -133,3 +133,21 @@ Detailed extraction and caveat notes are in
   coordinate/redshift candidate in v7.0. Four source-table Eddington-ratio
   inconsistencies are preserved and machine-flagged rather than overwritten.
   See `docs/xqr30-extraction-notes.md`.
+
+## v7.2 GNIRS Luminous-Quasar Comparison Layer
+
+- **[source_key: shen19_gnirs50] Shen et al. (2019), ApJ 873:35:** the
+  complete 50-quasar Gemini/GNIRS sample from CDS `J/ApJ/873/35`.
+- The source-fiducial mass uses MgII when available (29 rows), otherwise CIV
+  (20 rows); J0055+0146 has no accepted virial mass and remains explicit but
+  growth-ineligible. The source-stated 0.4 dex systematic is separate from
+  Monte Carlo spectral-fit errors.
+- Eight BAL and four radio-loud annotations are retained. Six measurements
+  share physical identities with XQR-30; three threshold matches and three
+  manual sub-arcsecond/name assertions are recorded in the reviewed registry.
+- CDS Table 1 and Table 3 hashes are respectively
+  `40ed1598d8c6d4d4a4aa580c578742f9e0334c26bb9dd762a9a0375231a7239f`
+  and `e1eae3266b9ccfc966303c6e389e9c16141678199924a67ab4c786fed3240323`;
+  arXiv `1809.05584v1` hashes to
+  `2b4376dc136873c4b8db0e5016568b9b1d4692042f6bb035e61fa8bd76b980ef`.
+  See `docs/shen19-gnirs50-extraction-notes.md`.

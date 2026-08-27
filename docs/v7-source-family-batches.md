@@ -73,3 +73,18 @@ No subsequent family may be appended directly to the v7.1 filenames. It must
 receive a new release prefix and repeat the same source-audit and identity gate.
 
 Primary source: <https://arxiv.org/abs/2306.16474v1>.
+
+## Released second larger batch: GNIRS-50
+
+Shen et al. (2019) passed the same gate in catalogue-only v7.2. The complete
+50-row sample and 50-row spectral catalogue are machine-readable through CDS.
+The release preserves 29 MgII fiducial masses, 20 CIV-only fiducial masses, one
+explicitly massless object, 629 available source observables, eight BAL flags,
+and four radio-loud flags. Six identities shared with XQR-30 are reviewed and
+merged without discarding either measurement. See
+`docs/shen19-gnirs50-extraction-notes.md`.
+
+The larger 50-row admission demonstrates that batch size can increase once a
+source has complete authoritative tables. It does not relax the source gate:
+SHELLQs XVII was evaluated but deferred because its public archive lacks the
+131-row object-level measurement table needed for reproducible admission.

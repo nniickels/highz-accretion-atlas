@@ -162,7 +162,7 @@ class V7BatchAssemblyTests(unittest.TestCase):
         )
         released = registry[registry["status"].eq("released_catalogue_layer")]
         self.assertEqual(released["source_key"].tolist(), [
-            self.bundle.source_key, "xqr30_mazzucchelli23",
+            self.bundle.source_key, "xqr30_mazzucchelli23", "shen19_gnirs50",
         ])
         selected = registry[registry["status"].eq("selected_pending_source_audit")]
         self.assertTrue(selected.empty)

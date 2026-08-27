@@ -1,3 +1,4 @@
 batch_id,evidence_family,source_key,status,admission_module,object_class,notes
 v7.0-ren,host_selected_broad_halpha_candidates,ren25_alpine_cristal_jwst_blagn_candidates,released_catalogue_layer,src.v7_ren,broad_line_agn,Seven nuclei in six host systems; one probable primary row.
 v7.1-xqr30,luminous_quasar_comparison,xqr30_mazzucchelli23,released_catalogue_layer,src.v7_xqr30,luminous_quasar_comparison,Homogeneous 42-quasar comparison batch; MgII canonical and CIV alternate observables; no cross-class science pooling.
+v7.2-gnirs50,luminous_quasar_comparison,shen19_gnirs50,released_catalogue_layer,src.v7_shen19,luminous_quasar_comparison,Complete 50-quasar GNIRS batch; source-fiducial MgII-or-CIV masses; six reviewed XQR identities; no cross-class science pooling.

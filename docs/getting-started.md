@@ -33,21 +33,22 @@ and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
 
-## Current v7.1 Catalogue Layer
+## Current v7.2 Catalogue Layer
 
-The current catalogue-only layer copies frozen v7.0 and adds all 42 E-XQR-30
-luminous quasars as a separate comparison stratum:
+The current catalogue-only layer copies frozen v7.1 and adds all 50 Shen et al.
+GNIRS quasars as a second luminous-quasar comparison family:
 
 ```powershell
-python -m scripts.process_v7_1_catalogue
-python -m scripts.verify_v7_1_catalogue --reproduce
+python -m scripts.process_v7_2_catalogue
+python -m scripts.verify_v7_2_catalogue --reproduce
 ```
 
-This writes 161 measurements, 154 physical objects, 153 host systems, explicit
-measurement/object and object/host links, 364 source observables, a 23-record
-external-literature identity audit, and stratified catalogue counts. It does
-not generate heterogeneous science rankings, uncertainty tables, or figures.
-See `docs/v7.1-catalogue-schema.md` and `docs/xqr30-extraction-notes.md`.
+This writes 211 measurements, 198 physical objects, 197 host systems, explicit
+measurement/object and object/host links, 993 source observables, six reviewed
+GNIRS/XQR identity decisions, and stratified catalogue counts. It does not
+generate heterogeneous science rankings, uncertainty tables, or figures. See
+`docs/v7.2-catalogue-schema.md` and
+`docs/shen19-gnirs50-extraction-notes.md`.
 
 ## Current Completed v6 Science Release
 

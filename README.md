@@ -81,9 +81,9 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue layer is **v7.1**, the current completed
-science release is **v6**, and v5 remains the deliberate figure release. v7.1
-adds the XQR-30 luminous-quasar comparison stratum without changing v7.0:
+paper versions. The current catalogue layer is **v7.2**, the current completed
+science release is **v6**, and v5 remains the deliberate figure release. v7.2
+adds the GNIRS-50 luminous-quasar family without changing v7.0 or v7.1:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
@@ -95,22 +95,24 @@ adds the XQR-30 luminous-quasar comparison stratum without changing v7.0:
 | v6 | Davis/THRILS same-class BLAGN consolidation and source-specific virial sensitivity | `v6_blagn_*` |
 | v7.0 catalogue | Frozen v6 plus admitted Ren ALPINE--CRISTAL candidate nuclei and explicit host systems | `v7_accreting_*`, `v7_host_systems.csv` |
 | v7.1 catalogue | Frozen v7.0 plus all 42 E-XQR-30 luminous quasars as a separate comparison stratum | `v7_1_accreting_*`, `v7_1_host_systems.csv` |
+| v7.2 catalogue | Frozen v7.1 plus all 50 Shen et al. GNIRS quasars, including six reviewed XQR repeats | `v7_2_accreting_*`, `v7_2_host_systems.csv` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
-The shared pinned v4.0.1--v7.1 core environment is in `requirements-lock.txt`; verify
+The shared pinned v4.0.1--v7.2 core environment is in `requirements-lock.txt`; verify
 every frozen v4 CSV without writing outputs with
 `python -m scripts.verify_v4_release --reproduce`. The frozen v5 catalogue and
 science tables have an equivalent non-writing gate:
 `python -m scripts.verify_v5_release --reproduce`.
 The v6 catalogue and science tables add the corresponding gate:
-`python -m scripts.verify_v6_release --reproduce`. The current catalogue-only
-v7 layer is checked by `python -m scripts.verify_v7_catalogue --reproduce`.
-The current v7.1 layer is checked independently by
-`python -m scripts.verify_v7_1_catalogue --reproduce`.
+`python -m scripts.verify_v6_release --reproduce`. The frozen catalogue-only
+v7.0 layer is checked by `python -m scripts.verify_v7_catalogue --reproduce`.
+The frozen v7.1 layer is checked independently by
+`python -m scripts.verify_v7_1_catalogue --reproduce`; current v7.2 is checked by
+`python -m scripts.verify_v7_2_catalogue --reproduce`.
 
-All four release gates verify exact artifact membership and checked-in bytes against
+All release gates verify exact artifact membership and checked-in bytes against
 SHA-256 manifests.
 Independent reconstruction is then compared with exact schema, row order,
 text, booleans, and missingness plus a tight floating-point tolerance, avoiding
@@ -249,17 +251,17 @@ For each class:
 3. Keep object classes visually and statistically distinct.
 4. Recompute atlas rankings with class-aware caveats.
 
-Catalogue-only v7.1 reproduction:
+Catalogue-only v7.2 reproduction:
 
 ```powershell
-python -m scripts.process_v7_1_catalogue
-python -m scripts.verify_v7_1_catalogue --reproduce
+python -m scripts.process_v7_2_catalogue
+python -m scripts.verify_v7_2_catalogue --reproduce
 ```
 
 Future additions are assembled in coherent source-family batches through
-`src/v7_batch.py`; see `docs/v7-source-family-batches.md`. XQR-30 is now
-admitted as a separately stratified luminous-quasar comparison batch and is
-not pooled with the faint JWST populations.
+`src/v7_batch.py`; see `docs/v7-source-family-batches.md`. XQR-30 and GNIRS-50
+are separately provenance-tracked luminous-quasar batches and are not pooled
+with the faint JWST populations.
 
 ## Getting Started
 
