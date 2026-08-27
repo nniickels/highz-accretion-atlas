@@ -2,7 +2,7 @@
 
 Project release numbers identify reproducible catalogue or science milestones.
 They do not identify the version of a source paper. The current catalogue layer
-is **v7.3** and the current science layer is **v7.2**. v4.0.1 remains
+is **v7.4** and the current science layer is **v7.2**. v4.0.1 remains
 the frozen reproducibility anchor for the preceding Matthee/ASPIRE release; v3
 remains the JADES + Taylor comparison.
 
@@ -16,9 +16,10 @@ remains the JADES + Taylor comparison.
 | v6 | Final same-class BLAGN consolidation with the Davis/THRILS deep-spectroscopy sample | frozen v5 plus Davis Appendix Table 5 and Hutchison Table 3 coordinates | `data/processed/v6_blagn_*.csv`, `results/v6_blagn_*.csv` |
 | v7.0 catalogue (frozen) | First heterogeneous evidence-class catalogue layer | frozen v6 plus Ren et al. rows admitted by the multi-class contract | 119 measurements / 112 objects / 111 host systems; catalogue products only |
 | v7.1 catalogue (frozen) | First luminous-quasar comparison extension | frozen v7.0 plus the complete 42-object XQR-30 source family | 161 measurements / 154 objects / 153 host systems; catalogue products only |
-| v7.2 catalogue (current) | Second larger luminous-quasar source family | frozen v7.1 plus the complete 50-object Shen/GNIRS source family | 211 measurements / 198 objects / 197 host systems; catalogue products only |
+| v7.2 catalogue (frozen) | Second larger luminous-quasar source family | frozen v7.1 plus the complete 50-object Shen/GNIRS source family | 211 measurements / 198 objects / 197 host systems; catalogue products only |
 | v7.2 science (current) | Heterogeneous atlas growth diagnostics | frozen v7.2 catalogue | eight class-aware ranking, uncertainty, audit, sensitivity, summary, and policy tables; no figures |
-| v7.3 catalogue (current) | First X-ray evidence-history family | frozen v7.2 plus two UHZ1 literature assessments | 213 measurements / 199 objects / 198 host systems; catalogue products only |
+| v7.3 catalogue (frozen) | First X-ray evidence-history family | frozen v7.2 plus two UHZ1 literature assessments | 213 measurements / 199 objects / 198 host systems; catalogue products only |
+| v7.4 catalogue (current) | First narrow-line/high-ionization family | frozen v7.3 plus 20 tabulated Scholtz et al. candidates at z >= 4 | 233 measurements / 218 objects / 217 host systems; catalogue products only |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -64,6 +65,12 @@ The UHZ1 extension is independently covered by
 `python -m scripts.verify_v7_3_catalogue --reproduce`. Its two source-versioned
 rows map to one object; the full-data reanalysis is preferred and neither row
 has a canonical numeric mass.
+
+The Scholtz/JADES extension is independently covered by
+`releases/v7.4-catalogue-manifest.json` and
+`python -m scripts.verify_v7_4_catalogue --reproduce`. It admits all 20
+tabulated `z >= 4` rows, links JADES 8083 to the existing object, and retains
+the source's 42-claimed versus 41-tabulated discrepancy.
 
 The four canonical rendered v5 PNGs are independently hash-anchored by
 `releases/v5-figures-manifest.json` and checked with
@@ -133,6 +140,7 @@ XQR-30 mass table + companion coordinates --------------------------------------
 Shen/GNIRS CDS Tables 1 + 3 --------------------------------------------------------------------------------------------+-> v7.2 catalogue / identity / observable / strata products
                                                                                                                               -> v7.2 class-aware science tables
 UHZ1 original claim + full-data reanalysis -----------------------------------------------------------------------------------> v7.3 catalogue / evidence-history / observable products
+Scholtz JADES narrow/high-ionization table -----------------------------------------------------------------------------------> v7.4 catalogue / identity / observable products
 ```
 
 The v3 measurement view retains all 60 `z >= 4` literature measurements. The
@@ -147,7 +155,7 @@ JADES measurement remains the default for continuity, while both measurements
 remain independently rankable in the measurement view.
 
 The current heterogeneous science tables remain frozen v7.2 products while the
-current catalogue is v7.3. The earlier
+current catalogue is v7.4. The earlier
 paper-facing `v6_blagn_primary_ranking_comparison.csv` remains frozen and
 distinguishes the complete 112/105 exploratory diagnostic population from the
 111/104 primary evidence-supported population. Deliberate current figures live under

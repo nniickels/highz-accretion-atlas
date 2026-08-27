@@ -88,9 +88,10 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue layer is **v7.3**, the current science
-layer is **v7.2**, and v5 remains the deliberate figure release. v7.3 adds the
-UHZ1 X-ray evidence history without changing frozen v7.2 products:
+paper versions. The current catalogue layer is **v7.4**, the current science
+layer is **v7.2**, and v5 remains the deliberate paper-figure release. v7.4
+adds the JADES narrow-line/high-ionization family without changing frozen v7.2
+science products:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
@@ -105,11 +106,12 @@ UHZ1 X-ray evidence history without changing frozen v7.2 products:
 | v7.2 catalogue | Frozen v7.1 plus all 50 Shen et al. GNIRS quasars, including six reviewed XQR repeats | `v7_2_accreting_*`, `v7_2_host_systems.csv` |
 | v7.2 science | Class-aware growth-pressure rankings on frozen v7.2 with separate mass-method strata and uncertainty boundaries | `v7_2_class_aware_*` |
 | v7.3 catalogue | Frozen v7.2 plus the original and reanalysed UHZ1 X-ray evidence versions as one disputed physical object | `v7_3_accreting_*`, `v7_3_host_systems.csv` |
+| v7.4 catalogue | Frozen v7.3 plus all 20 tabulated Scholtz et al. candidates at z >= 4, including one reviewed JADES 8083 repeat | `v7_4_accreting_*`, `v7_4_host_systems.csv` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
-The shared pinned v4.0.1--v7.3 core environment is in `requirements-lock.txt`; verify
+The shared pinned v4.0.1--v7.4 core environment is in `requirements-lock.txt`; verify
 every frozen v4 CSV without writing outputs with
 `python -m scripts.verify_v4_release --reproduce`. The frozen v5 catalogue and
 science tables have an equivalent non-writing gate:
@@ -121,7 +123,8 @@ The frozen v7.1 layer is checked independently by
 `python -m scripts.verify_v7_1_catalogue --reproduce`; frozen v7.2 is checked by
 `python -m scripts.verify_v7_2_catalogue --reproduce`; the class-aware science
 layer is checked by `python -m scripts.verify_v7_2_science --reproduce`.
-Current v7.3 is checked by `python -m scripts.verify_v7_3_catalogue --reproduce`.
+Frozen v7.3 is checked by `python -m scripts.verify_v7_3_catalogue --reproduce`;
+current v7.4 is checked by `python -m scripts.verify_v7_4_catalogue --reproduce`.
 
 All release gates verify exact artifact membership and checked-in bytes against
 SHA-256 manifests.
@@ -298,6 +301,20 @@ published assumption-dependent mass range as bounds, not a canonical point
 mass, so the v7.3 growth-eligible population is unchanged. See
 `docs/uhz1-xray-evidence-history-extraction-notes.md`.
 
+Catalogue-only v7.4 reproduction:
+
+```powershell
+python -m scripts.process_v7_4_catalogue
+python -m scripts.verify_v7_4_catalogue --reproduce
+```
+
+This adds 20 tabulated `z >= 4` JADES candidates (three source-tentative),
+seven high-ionization line fluxes, and one reviewed link to existing JADES
+8083. No numeric black-hole mass is inferred, so growth eligibility is
+unchanged; the conservative all-measurements evidence aggregate removes JADES
+8083 from the catalogue-level primary-object subset. See
+`docs/scholtz25-jades-narrow-line-extraction-notes.md`.
+
 ## Getting Started
 
 Requirements and full run instructions are documented in
@@ -343,8 +360,8 @@ Object-level LRD summaries preserve an explicit not-reported state. Full
 from-raw reproduction instructions for v1--v6 and the frozen earlier figure
 sets are in `docs/getting-started.md`.
 
-The Python package version follows the current implemented project science
-release (`7.2.0`). It is distinct from immutable source-paper versions,
+The Python package version follows the current implemented science milestone
+(`7.2.0`). It is distinct from immutable source-paper versions,
 catalogue labels such as `v7.2-accreting-atlas-catalogue`, and maintenance
 anchors such as v4.0.1.
 

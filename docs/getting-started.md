@@ -2,7 +2,7 @@
 
 ## Requirements
 
-The shared reproducible v4.0.1--v7.3 catalogue and science environment is Python 3.12 with exact
+The shared reproducible v4.0.1--v7.4 catalogue and science environment is Python 3.12 with exact
 package versions in `requirements-lock.txt`. Do not use the Apple Command Line
 Tools Python: it may resolve as Python 3.9 and does not contain the project
 dependencies.
@@ -63,9 +63,25 @@ and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
 
-## Current v7.3 Catalogue and v7.2 Science Layers
+## Current v7.4 Catalogue and v7.2 Science Layers
 
-The current catalogue copies frozen v7.2 and adds the two-version UHZ1 X-ray
+The current catalogue copies frozen v7.3 and adds all 20 tabulated Scholtz et
+al. candidates at `z >= 4`:
+
+```powershell
+python -m scripts.process_v7_4_catalogue
+python -m scripts.verify_v7_4_catalogue --reproduce
+```
+
+It contains 233 measurements, 218 physical objects, and 217 host systems. The
+new family has no numeric black-hole masses, so frozen v7.2 science remains the
+current growth analysis. The conservative object evidence aggregate reduces
+the catalogue's primary-object count by one for multiply observed JADES 8083.
+See `docs/v7.4-catalogue-schema.md`.
+
+### Frozen v7.3 catalogue
+
+The v7.3 catalogue copies frozen v7.2 and adds the two-version UHZ1 X-ray
 evidence history:
 
 ```powershell

@@ -169,3 +169,18 @@ Detailed extraction and caveat notes are in
   canonical point mass. Both rows remain growth-ineligible. See
   `docs/uhz1-xray-evidence-history-extraction-notes.md` and
   `docs/v7.3-catalogue-schema.md`.
+
+## v7.4 JADES Narrow-Line/High-Ionization Layer
+
+- **[source_key: scholtz25_jades_narrow_line_agn] Scholtz et al. (2025),
+  A&A 697, A175:** all 20 entries at `z >= 4` from the paper's 41-row source
+  table. The prose reports 42 candidates; that unresolved discrepancy is
+  retained as provenance rather than filled by inference.
+- Three S2-VO87 rows retain the paper's tentative asterisk and seven detected
+  Ne IV, Ne V, or N V fluxes are stored as observables. JADES DR3 supplies
+  target coordinates.
+- JADES 8083 is linked to the existing broad-line physical object; the earlier
+  numeric-mass measurement remains preferred. No new row has a numeric BH
+  mass or enters growth ranking. See
+  `docs/scholtz25-jades-narrow-line-extraction-notes.md` and
+  `docs/v7.4-catalogue-schema.md`.
