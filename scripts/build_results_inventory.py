@@ -30,12 +30,18 @@ def category(path: Path) -> tuple[str, str]:
         return "table", "compiled_grid_inventory"
     if "/galleries/compiled_object_grids/" in text:
         return "figure", "compiled_all_object_grids"
+    if "/galleries/compiled_by_class/" in text:
+        return "figure", "compiled_class_growth_grids"
+    if text.endswith("/galleries/v7_4_growth_gallery_inventory.csv"):
+        return "table", "growth_gallery_inventory"
     if "/figures/main_text/" in text:
         return "figure", "main_text_or_appendix_figures"
     if "parameter_maps" in text:
         return "figure", "per_object_parameter_maps"
     if "seed_redshift_maps" in text:
         return "figure", "per_object_seed_redshift_maps"
+    if "growth_tracks" in text:
+        return "figure", "per_object_growth_tracks"
     if "3d_tests" in text:
         return "figure", "exploratory_3d"
     if path.suffix.lower() == ".png":

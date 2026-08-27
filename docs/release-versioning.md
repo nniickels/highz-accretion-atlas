@@ -19,7 +19,8 @@ remains the JADES + Taylor comparison.
 | v7.2 catalogue (frozen) | Second larger luminous-quasar source family | frozen v7.1 plus the complete 50-object Shen/GNIRS source family | 211 measurements / 198 objects / 197 host systems; catalogue products only |
 | v7.2 science (current) | Heterogeneous atlas growth diagnostics | frozen v7.2 catalogue | eight class-aware ranking, uncertainty, audit, sensitivity, summary, and policy tables; no figures |
 | v7.3 catalogue (frozen) | First X-ray evidence-history family | frozen v7.2 plus two UHZ1 literature assessments | 213 measurements / 199 objects / 198 host systems; catalogue products only |
-| v7.4 catalogue (current) | First narrow-line/high-ionization family | frozen v7.3 plus 20 tabulated Scholtz et al. candidates at z >= 4 | 233 measurements / 218 objects / 217 host systems; catalogue products only |
+| v7.4 catalogue (current) | First narrow-line/high-ionization family | frozen v7.3 plus 20 tabulated Scholtz et al. candidates at z >= 4 | 233 measurements / 218 objects / 217 host systems |
+| v7.4 growth products (current) | Complete class-stratified visualization layer | frozen v7.4 catalogue | three figures for each of 196 eligible objects, six class grids, class-only compatibility fractions, and 22 explicit unavailable records |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -79,6 +80,13 @@ The Scholtz/JADES extension is independently covered by
 `python -m scripts.verify_v7_4_catalogue --reproduce`. It admits all 20
 tabulated `z >= 4` rows, links JADES 8083 to the existing object, and retains
 the source's 42-claimed versus 41-tabulated discrepancy.
+
+The v7.4 growth products are independently covered by
+`releases/v7.4-growth-visualization-manifest.json` and
+`python -m scripts.verify_v7_4_growth_products`. Compatibility fractions are
+descriptive within `broad_line_agn` and `luminous_quasar_comparison`; pooling
+the heterogeneous classes or inferring masses for unavailable objects is
+explicitly prohibited by the release contract.
 
 The four canonical rendered v5 PNGs are independently hash-anchored by
 `releases/v5-figures-manifest.json` and checked with

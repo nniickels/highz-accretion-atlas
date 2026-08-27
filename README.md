@@ -73,12 +73,14 @@ Appendix or supplement products:
 - sensitivity tests
 - source-by-source caveats
 
-The complete per-object map collections are also available as seven lossless
-high-resolution grids under `results/releases/v7_3/galleries/compiled_object_grids/`: six fixed
-spin/merger parameter-space cases and one seed-redshift compilation. Each grid
-is 6048 by 5648 pixels at 300 dpi and contains all 23 v1 objects. Start with
-`results/README.md` or the machine-readable `results/results_inventory.csv` to
-navigate the full results tree without moving immutable release artifacts.
+The current v7.4 growth collection covers every eligible object: 196 parameter
+map sheets, 196 seed-redshift maps, and 196 growth tracks, organized by object
+class under `results/releases/v7_4/galleries/per_object/`. Six large class grids
+under `compiled_by_class/` provide zoomable compilations. Class-specific
+compatibility fractions are tabulated separately; no heterogeneous pooled
+fraction is reported. A coverage audit records all 22 ineligible objects and
+why a growth product is unavailable. Start with `results/README.md` or the
+machine-readable `results/results_inventory.csv` to navigate the full tree.
 
 The main text should showcase the atlas logic and strongest rankings, while
 the appendix preserves the comprehensive technical and visual record. This
@@ -125,6 +127,8 @@ The frozen v7.1 layer is checked independently by
 layer is checked by `python -m scripts.verify_v7_2_science --reproduce`.
 Frozen v7.3 is checked by `python -m scripts.verify_v7_3_catalogue --reproduce`;
 current v7.4 is checked by `python -m scripts.verify_v7_4_catalogue --reproduce`.
+The complete v7.4 growth-product layer is checked independently by
+`python -m scripts.verify_v7_4_growth_products`.
 
 All release gates verify exact artifact membership and checked-in bytes against
 SHA-256 manifests.

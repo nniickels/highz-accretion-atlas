@@ -458,5 +458,23 @@ The seven lossless 6048-by-5648 PNG grids live in
 `results/releases/v7_3/galleries/compiled_object_grids/`. This step reads but does not overwrite any
 individual map or frozen science table.
 
+## Complete v7.4 Growth Products
+
+Generate parameter-map sheets, seed-redshift maps, and reference growth tracks
+for all 196 growth-eligible v7.4 objects, then build the class grids and
+class-specific compatibility table:
+
+```powershell
+python -m scripts.generate_v7_4_growth_products
+python -m scripts.build_results_inventory
+python -m scripts.build_v7_4_growth_manifest
+python -m scripts.verify_v7_4_growth_products
+```
+
+The coverage table includes all 218 physical objects. The 22 objects without a
+valid growth product remain explicit with a reason; the workflow never imputes
+a missing black-hole mass. Compatibility fractions are descriptive within each
+eligible object class and must not be pooled across the heterogeneous catalogue.
+
 These figures use the same processed v1 catalogue and restrict the seed
 redshift scan to `z_seed <= 30`.

@@ -963,3 +963,23 @@ For every future Codex contribution that changes repository files:
   figure hashes and the v7.3 gallery dimensions, membership, and cross-inventory
   hashes pass. The results inventory still contains exactly 269 artifacts.
 - **Status:** Complete and verified locally; commit and remote CI pending.
+
+### 2026-08-27 - Complete v7.4 per-object growth collection
+
+- **Objective:** Give every growth-eligible catalogue object the same complete
+  visual diagnostic set and make unavailable cases auditable.
+- **Contribution:** Generated parameter-map sheets, seed-redshift maps, and
+  reference growth tracks for all 196 eligible objects; added six zoomable
+  class grids, 288 class-specific compatibility rows, an all-object coverage
+  audit, a 22-object unavailable audit, a 594-image gallery index, and a
+  byte-exact 600-artifact release manifest. Expanded the global results index
+  from 269 to 868 artifacts and added CI verification.
+- **Scientific/technical effect:** Broad-line AGN and luminous-quasar results
+  remain separate. Compatibility fractions are descriptive within class only;
+  no pooled demographic fraction or missing-mass inference is allowed. The 22
+  unavailable objects remain visible with explicit exclusion reasons.
+- **Validation:** All 216 regression tests pass. Every v4 through v7.4
+  catalogue/science reproduction gate passes, both organized-gallery gates
+  pass, canonical v5 figure hashes pass, and `git diff --check` is clean.
+- **Status:** Complete and verified locally; commit, push, clean-worktree
+  verification, and remote CI pending.

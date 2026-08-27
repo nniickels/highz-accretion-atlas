@@ -60,6 +60,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_3_results_gallery --require-clean
+      - name: Verify complete v7.4 growth-product release
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_4_growth_products --require-clean
       - name: Verify canonical v5 paper figures from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"

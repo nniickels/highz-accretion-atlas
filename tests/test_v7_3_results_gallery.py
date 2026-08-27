@@ -36,16 +36,17 @@ class V73ResultsGalleryTests(unittest.TestCase):
 
     def test_results_inventory_is_unique_and_categorized(self) -> None:
         inventory = pd.read_csv(ROOT / "results/results_inventory.csv")
-        self.assertEqual(len(inventory), 269)
+        self.assertEqual(len(inventory), 868)
         self.assertTrue(inventory["path"].is_unique)
+        v1_inventory = inventory[inventory["release"].eq("v1")]
         self.assertEqual(
             int(inventory["collection"].eq("compiled_all_object_grids").sum()), 7,
         )
         self.assertEqual(
-            int(inventory["collection"].eq("per_object_parameter_maps").sum()), 138,
+            int(v1_inventory["collection"].eq("per_object_parameter_maps").sum()), 138,
         )
         self.assertEqual(
-            int(inventory["collection"].eq("per_object_seed_redshift_maps").sum()), 23,
+            int(v1_inventory["collection"].eq("per_object_seed_redshift_maps").sum()), 23,
         )
 
     def test_manifest_and_cross_inventory_hashes_are_enforced(self) -> None:
