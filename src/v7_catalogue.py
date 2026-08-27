@@ -168,7 +168,11 @@ def _aggregate_objects(measurements: pd.DataFrame) -> pd.DataFrame:
     return objects
 
 
-def _build_host_systems(measurements: pd.DataFrame) -> pd.DataFrame:
+def _build_host_systems(
+    measurements: pd.DataFrame,
+    *,
+    catalogue_release: str = CATALOGUE_RELEASE,
+) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
     for host_system_id, group in measurements.groupby("host_system_id", sort=True):
         physical_ids = list(dict.fromkeys(group["physical_object_id"].astype(str)))
@@ -179,7 +183,7 @@ def _build_host_systems(measurements: pd.DataFrame) -> pd.DataFrame:
         host_values = pd.to_numeric(group["log_mstar_msun_std"], errors="coerce").dropna().unique()
         host_limits = pd.to_numeric(group["log_mstar_upper_limit_msun"], errors="coerce").dropna().unique()
         rows.append({
-            "catalogue_release": CATALOGUE_RELEASE,
+            "catalogue_release": catalogue_release,
             "host_system_id": host_system_id,
             "n_physical_objects": len(physical_ids),
             "n_measurements": len(measurement_ids),
@@ -203,7 +207,12 @@ def _build_host_systems(measurements: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def _build_strata(measurements: pd.DataFrame, objects: pd.DataFrame) -> pd.DataFrame:
+def _build_strata(
+    measurements: pd.DataFrame,
+    objects: pd.DataFrame,
+    *,
+    catalogue_release: str = CATALOGUE_RELEASE,
+) -> pd.DataFrame:
     records: list[dict[str, object]] = []
     for level, frame in [("measurement", measurements), ("physical_object", objects)]:
         dimensions = {
@@ -221,7 +230,7 @@ def _build_strata(measurements: pd.DataFrame, objects: pd.DataFrame) -> pd.DataF
             for value, indexes in values.groupby(values, dropna=False).groups.items():
                 subset = frame.loc[indexes]
                 records.append({
-                    "catalogue_release": CATALOGUE_RELEASE,
+                    "catalogue_release": catalogue_release,
                     "entity_level": level,
                     "stratum_dimension": dimension,
                     "stratum_value": value,

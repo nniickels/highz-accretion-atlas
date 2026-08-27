@@ -36,6 +36,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_catalogue --reproduce --require-clean
+      - name: Verify current v7.1 catalogue from a clean worktree
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_1_catalogue --reproduce --require-clean
       - name: Verify canonical v5 paper figures from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"

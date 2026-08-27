@@ -1,0 +1,24 @@
+measurement_id,object_id,literature_alias,literature_reference,atlas_prior_candidate_count,identity_disposition,review_basis,review_date
+XQR30-VST-ATLAS-J025-33_mazzucchelli23,VST-ATLAS J025-33,J0142-3327,Chehade et al. (2018),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J060-24_mazzucchelli23,PSO J060+24,PSO060+24,Shen et al. (2019),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-VDES-J0224-4711_mazzucchelli23,VDES J0224-4711,J0224-4711,Reed et al. (2019),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-DELS-J0923-0402_mazzucchelli23,DELS J0923+0402,J0923+0402,Yang et al. (2021),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-DELS-J1535-1943_mazzucchelli23,DELS J1535+1943,J1535+1943,Yang et al. (2021),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J239-07_mazzucchelli23,PSO J239-07,PSO239-07,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-VDES-J2211-3206_mazzucchelli23,VDES J2211-3206,J2211-3206,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-SDSS-J0842-1218_mazzucchelli23,SDSS J0842+1218,J0842+1218,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J231-20_mazzucchelli23,PSO J231-20,PSO231-20,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J158-14_mazzucchelli23,PSO J158-14,PSO158-14,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J007-04_mazzucchelli23,PSO J007+04,PSO007+04,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J065-26_mazzucchelli23,PSO J065-26,PSO065-26,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J183-05_mazzucchelli23,PSO J183+05,PSO183+05,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-SDSS-J2310-1855_mazzucchelli23,SDSS J2310+1855,J2310+1855,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J359-06_mazzucchelli23,PSO J359-06,PSOJ359-06,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J323-12_mazzucchelli23,PSO J323+12,PSOJ323+12,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-ULAS-J1319-0950_mazzucchelli23,ULAS J1319+0950,J1319+0950,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-PSO-J036-03_mazzucchelli23,PSO J036+03,PSO036+03,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-SDSS-J1030-0524_mazzucchelli23,SDSS J1030+0524,J1030+0524,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-SDSS-J1306-0356_mazzucchelli23,SDSS J1306+0356,J1306+0356,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-CFHQS-J1509-1749_mazzucchelli23,CFHQS J1509-1749,J1509-1749,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-SDSS-J0100-2802_mazzucchelli23,SDSS J0100+2802,J0100+2802,Farina et al. (2022),0,new_atlas_physical_object,Paper Section 4.4 alias plus coordinate/redshift search against v7.0,2026-08-26
+XQR30-WISEA-J0439-1634_mazzucchelli23,WISEA J0439+1634,J0439+1634,Yang et al. (2021),0,new_atlas_physical_object_lensed,Paper Section 4.4 alias plus coordinate/redshift search against v7.0; lensing handled separately,2026-08-26

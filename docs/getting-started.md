@@ -33,20 +33,21 @@ and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
 
-## Current v7 Catalogue Layer
+## Current v7.1 Catalogue Layer
 
-The current catalogue-only layer copies frozen v6 through the heterogeneous
-admission adapter and adds the seven Ren candidate nuclei in six host systems:
+The current catalogue-only layer copies frozen v7.0 and adds all 42 E-XQR-30
+luminous quasars as a separate comparison stratum:
 
 ```powershell
-python -m scripts.process_v7_catalogue
-python -m scripts.verify_v7_catalogue --reproduce
+python -m scripts.process_v7_1_catalogue
+python -m scripts.verify_v7_1_catalogue --reproduce
 ```
 
-This writes 119 measurements, 112 physical objects, 111 host systems, explicit
-measurement/object and object/host links, 70 source observables, and stratified
-catalogue counts. It does not generate v7 science rankings, uncertainty tables,
-or figures. See `docs/v7-catalogue-schema.md`.
+This writes 161 measurements, 154 physical objects, 153 host systems, explicit
+measurement/object and object/host links, 364 source observables, a 23-record
+external-literature identity audit, and stratified catalogue counts. It does
+not generate heterogeneous science rankings, uncertainty tables, or figures.
+See `docs/v7.1-catalogue-schema.md` and `docs/xqr30-extraction-notes.md`.
 
 ## Current Completed v6 Science Release
 

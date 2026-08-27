@@ -116,3 +116,20 @@ Detailed extraction and caveat notes are in
   catalogue-only v7 products. No v7 science ranking or figure exists yet. See
   `docs/ren25-alpine-cristal-jwst-extraction-notes.md` and
   `docs/v7-catalogue-schema.md`.
+
+## v7.1 Luminous-Quasar Comparison Layer
+
+- **[source_key: xqr30_mazzucchelli23] Mazzucchelli et al. (2023), A&A
+  676 A71:** all 42 E-XQR-30 luminous quasars with MgII canonical masses and
+  CIV alternate observables. The mass-table arXiv `2306.16474v1` archive hash
+  is `412055cec92c368f711605822d806c949816695a451efee867904d2171fee53f`.
+- Coordinates and canonical aliases come from the complete 42-row E-XQR-30
+  table in D'Odorico et al. (2023), arXiv `2305.05053v1`, archive hash
+  `1cf315f5fd4cd9f0edebb840c254dcd6bee26e2a061ce9fc9ff5bc8f344d7c42`.
+- The 0.55 dex MgII scaling-relation systematic is separate from statistical
+  fit errors. Seven telluric caveats, the PSO J065+01 CIV low-S/N caveat, BAL
+  annotations, and uncorrected lensing for WISEA J0439+1634 are explicit.
+- The paper's 23 earlier-literature repeats are audited separately; none has a
+  coordinate/redshift candidate in v7.0. Four source-table Eddington-ratio
+  inconsistencies are preserved and machine-flagged rather than overwritten.
+  See `docs/xqr30-extraction-notes.md`.

@@ -1,4 +1,4 @@
-# v7 catalogue-only heterogeneous atlas layer
+# Frozen v7.0 catalogue-only heterogeneous atlas layer
 
 v7 non-destructively copies the frozen v6 catalogue through the controlled
 vocabulary adapter in `src/v7_admission.py` and appends the admitted Ren et al.
@@ -84,4 +84,6 @@ conditional masses.
 
 Larger additions are organized by evidence family under
 `docs/v7-source-family-batches.md`; the next selected batch is the distinct
-XQR-30 luminous-quasar comparison stratum.
+XQR-30 luminous-quasar comparison stratum. That extension is now released in
+separate v7.1-prefixed artifacts; this frozen v7.0 layer and manifest remain
+byte-identical.

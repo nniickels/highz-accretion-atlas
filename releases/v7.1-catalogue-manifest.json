@@ -1,0 +1,39 @@
+{
+  "catalogue_release": "v7.1-accreting-atlas-catalogue",
+  "parent_catalogue_release": "v7-accreting-atlas-catalogue",
+  "scope": "catalogue-only XQR-30 extension; no v7.1 science rankings or figures",
+  "python": "3.12",
+  "catalogue_counts": {
+    "measurements": 161,
+    "physical_objects": 154,
+    "host_systems": 153,
+    "growth_eligible_measurements": 160,
+    "primary_measurements": 153,
+    "growth_eligible_physical_objects": 153,
+    "primary_physical_objects": 146,
+    "measurement_object_links": 161,
+    "object_host_links": 154,
+    "aliases": 203,
+    "reviewed_match_records": 0,
+    "external_literature_identity_records": 23,
+    "source_observables": 364,
+    "xqr30_measurements": 42,
+    "published_edd_ratio_inconsistencies": 4
+  },
+  "source_archives": {
+    "arXiv:2306.16474v1": "412055cec92c368f711605822d806c949816695a451efee867904d2171fee53f",
+    "arXiv:2305.05053v1": "1cf315f5fd4cd9f0edebb840c254dcd6bee26e2a061ce9fc9ff5bc8f344d7c42"
+  },
+  "artifacts": {
+    "data/processed/v7_1_accreting_measurements.csv": "49f1713e7f05dd3d3f1d9382a9e7634ff28fd74de34f06202ab46e6fedfd08a5",
+    "data/processed/v7_1_accreting_objects.csv": "799e0c97afe0b0f5fab95e9cd0ea476d697a6d174d1916d9b643fbb465e9e68a",
+    "data/processed/v7_1_host_systems.csv": "070da3417237fc35387c3d51b254c2a2172e1f59dea4b3093b05d352d672840b",
+    "data/crossmatch/v7_1_measurement_object_links.csv": "dd8d72d5baf2ff79f3cbf217b446cacc94a1dc9e7e5e3174113e62177e8a4067",
+    "data/crossmatch/v7_1_object_host_links.csv": "00d0483623f516783313fe8f03f8e3935875738fae6852de23015e540ebe93a0",
+    "data/crossmatch/v7_1_object_aliases.csv": "12af2cf5d94180eb9e528f0bef963fbcdc1ef9d20300fa7b7dc749bec0659a9d",
+    "data/crossmatch/v7_1_reviewed_match_candidates.csv": "4ff283c1cd46cbea2275fcc07bfd473cc53a2086c336471a814211dd7fe9c3e1",
+    "data/crossmatch/v7_1_released_external_literature_identity_audit.csv": "4775855e572896d86635c6f961529bab5e028fa88d6d38257382493d84806d91",
+    "data/processed/v7_1_source_observables.csv": "a5e65c0b5cafbb605c443d2f0e79c0db6337c7267df6d11884b5b629a0c02aa0",
+    "data/processed/v7_1_catalogue_strata.csv": "382f360e8ca45adc513380b161d1d5933fedd70aae8d9e506da41ac47eee249a"
+  }
+}

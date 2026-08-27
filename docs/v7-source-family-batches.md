@@ -30,7 +30,7 @@ through `selected_pending_source_audit`, `extracted`, `admitted`, and
 `released_catalogue_layer`; status cannot substitute for the corresponding raw
 file, validator, tests, and manifest.
 
-## Selected first larger batch: XQR-30
+## Released first larger batch: XQR-30
 
 The first post-v7.0 batch is the luminous-quasar comparison family represented
 by Mazzucchelli et al. (2023), XQR-30, A&A 676 A71,
@@ -63,8 +63,13 @@ Admission decisions to freeze during the source audit:
 - generate catalogue products and source/class strata only. Do not pool this
   luminous comparison family into v7 growth rankings or demographics.
 
-The XQR-30 selection is a roadmap decision, not an admission. No XQR-30 row is
-released until its complete source table, coordinate provenance, identity
-review, source-specific validator, and regression tests are checked in.
+XQR-30 passed this gate in catalogue-only v7.1. The complete 42-row mass table,
+42-row companion coordinate table, source-archive hashes, seven telluric
+caveats, one CIV low-S/N caveat, lensing treatment, 23-record external-
+literature identity audit, source validator, regression tests, and immutable
+v7.1 manifest are checked in. See `docs/xqr30-extraction-notes.md`.
+
+No subsequent family may be appended directly to the v7.1 filenames. It must
+receive a new release prefix and repeat the same source-audit and identity gate.
 
 Primary source: <https://arxiv.org/abs/2306.16474v1>.

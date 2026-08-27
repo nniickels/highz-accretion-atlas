@@ -2,7 +2,7 @@
 
 Project release numbers identify reproducible catalogue or science milestones.
 They do not identify the version of a source paper. The current catalogue layer
-is **v7** and the current completed science release is **v6**. v4.0.1 remains
+is **v7.1** and the current completed science release is **v6**. v4.0.1 remains
 the frozen reproducibility anchor for the preceding Matthee/ASPIRE release; v3
 remains the JADES + Taylor comparison.
 
@@ -14,8 +14,9 @@ remains the JADES + Taylor comparison.
 | v4 | Generalized identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | frozen v3 catalogue plus two source-native extractions | `data/processed/v4_blagn_*.csv`, `results/v4_blagn_*.csv`, `results/v4_main_text_figures/` |
 | v5 | Harikane NIRSpec BLAGN measurement-version layer, orthogonal taxonomy, accretion-history science extension, and current paper figures | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5_blagn_*.csv`, `results/v5_blagn_*.csv`, `results/v5_main_text_figures/` |
 | v6 | Final same-class BLAGN consolidation with the Davis/THRILS deep-spectroscopy sample | frozen v5 plus Davis Appendix Table 5 and Hutchison Table 3 coordinates | `data/processed/v6_blagn_*.csv`, `results/v6_blagn_*.csv` |
-| v7 catalogue (current) | First heterogeneous evidence-class catalogue layer | frozen v6 plus Ren et al. rows admitted by the multi-class contract | 119 measurements / 112 objects / 111 host systems; catalogue products only |
-| v7 science (planned) | Class-aware heterogeneous atlas analysis | the verified v7 catalogue layer | rankings and figures that keep evidence and mass-comparability strata explicit |
+| v7.0 catalogue (frozen) | First heterogeneous evidence-class catalogue layer | frozen v6 plus Ren et al. rows admitted by the multi-class contract | 119 measurements / 112 objects / 111 host systems; catalogue products only |
+| v7.1 catalogue (current) | Luminous-quasar comparison extension | frozen v7.0 plus the complete 42-object XQR-30 source family | 161 measurements / 154 objects / 153 host systems; catalogue products only |
+| class-aware science (planned) | Heterogeneous atlas analysis | a verified heterogeneous catalogue layer | rankings and figures that keep evidence and mass-comparability strata explicit |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -41,6 +42,11 @@ The catalogue-only v7 files are covered by
 `python -m scripts.verify_v7_catalogue --reproduce`. This manifest deliberately
 contains no science ranking, uncertainty, or figure artifact.
 
+The XQR-30 extension is independently covered by
+`releases/v7.1-catalogue-manifest.json` and
+`python -m scripts.verify_v7_1_catalogue --reproduce`. Its `v7_1_` filenames do
+not replace the frozen v7.0 artifacts.
+
 The four canonical rendered v5 PNGs are independently hash-anchored by
 `releases/v5-figures-manifest.json` and checked with
 `python -m scripts.verify_v5_figures`. Keeping the figure boundary separate
@@ -59,7 +65,9 @@ label (`v6-blagn`), or a promise that every historical artifact was regenerated.
   `taylor24_ceers_rubies_blagn_table1.csv`. Their provenance columns record the
   paper version, DOI, archive URL, extraction date, and checksum.
 - Use `project_version` for the row's standardization release (`v1`, `v3`, `v4`, `v5`, `v6`, or `v7`)
-  and `catalogue_release` for the named combined catalogue.
+  and `catalogue_release` for the named combined catalogue. v7.1 rows introduced
+  by XQR-30 use `project_version=v7.1`; inherited rows retain their introduction
+  version.
 - Use `analysis_release` and `input_catalogue_release` on v2 result tables so a
   filename cannot be mistaken for the catalogue version it evaluates.
 - Treat an arXiv suffix such as `v2` in `2409.06772v2` only as a source-paper
@@ -101,6 +109,8 @@ THRILS Table 5 + programme coordinates -----------------------------------------
 Ren Tables 1--2 + v7 admission gate ----------------------------------------------------------+-> v7 measurement catalogue
                                                                                                   -> v7 physical-object catalogue
                                                                                                   -> v7 host-system / observable / strata products
+                                                                                                              |
+XQR-30 mass table + companion coordinates ---------------------------------------------------------------+-> v7.1 catalogue / identity / observable / strata products
 ```
 
 The v3 measurement view retains all 60 `z >= 4` literature measurements. The
@@ -115,7 +125,7 @@ JADES measurement remains the default for continuity, while both measurements
 remain independently rankable in the measurement view.
 
 The current science tables remain v6 products. The current catalogue layer is
-v7 and has no science tables yet. The paper-facing
+v7.1 and has no heterogeneous science tables yet. The paper-facing
 `v6_blagn_primary_ranking_comparison.csv` distinguishes the complete 112/105
 exploratory diagnostic population from the 111/104 primary evidence-supported
 population. Deliberate current figures live under

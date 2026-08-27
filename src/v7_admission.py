@@ -201,6 +201,8 @@ def expected_growth_eligibility_reason(row: pd.Series) -> str:
         return "missing_uncertainty_semantics"
     if row["lensing_mass_correction_status"] == "unresolved":
         return "unresolved_lensing_treatment"
+    if row["lensing_mass_correction_status"] == "not_applied":
+        return "lensing_correction_not_applied"
     if row["identity_resolution_status"] != "resolved":
         return "unresolved_physical_identity"
     return GROWTH_ELIGIBLE_REASON

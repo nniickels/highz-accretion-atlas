@@ -14,7 +14,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src.identity import CANDIDATE_COLUMNS, candidate_matches, cross_source_candidate_matches
+from src.identity import (
+    CANDIDATE_COLUMNS,
+    apply_reviewed_identity_overrides,
+    candidate_matches,
+    cross_source_candidate_matches,
+)
 from src.v7_admission import OBJECT_CLASSES, validate_v7_admission, validate_v7_observables
 
 
@@ -127,6 +132,7 @@ def assemble_source_family_batch(
     prior_measurements: pd.DataFrame,
     bundles: list[SourceAdmissionBundle],
     *,
+    identity_overrides: pd.DataFrame | None = None,
     require_resolved_identity: bool = True,
 ) -> BatchAssembly:
     """Combine audited bundles without silently resolving scientific identity.
@@ -168,7 +174,37 @@ def assemble_source_family_batch(
     identity_candidates = pd.concat(
         candidate_frames, ignore_index=True,
     ).reindex(columns=CANDIDATE_COLUMNS)
-    if require_resolved_identity and not identity_candidates.empty:
+    if identity_overrides is not None:
+        identity_candidates, accepted_map = apply_reviewed_identity_overrides(
+            identity_candidates,
+            identity_overrides,
+            known_measurement_ids=pd.concat(
+                [prior_measurements["measurement_id"], new_measurements["measurement_id"]],
+                ignore_index=True,
+            ),
+        )
+        new_ids = set(new_measurements["measurement_id"].astype(str))
+        prior_hosts = (
+            prior_measurements[["physical_object_id", "host_system_id"]]
+            .drop_duplicates()
+            .groupby("physical_object_id")["host_system_id"]
+            .agg(lambda values: list(dict.fromkeys(values.astype(str))))
+        )
+        for measurement_id, physical_object_id in accepted_map.items():
+            if measurement_id not in new_ids:
+                continue
+            mask = new_measurements["measurement_id"].astype(str).eq(measurement_id)
+            new_measurements.loc[mask, "physical_object_id"] = physical_object_id
+            if physical_object_id in prior_hosts.index:
+                hosts = prior_hosts.loc[physical_object_id]
+                if len(hosts) != 1:
+                    raise ValueError(
+                        f"Reviewed identity {physical_object_id} has ambiguous prior host systems"
+                    )
+                new_measurements.loc[mask, "host_system_id"] = hosts[0]
+        validate_v7_admission(new_measurements)
+        validate_standardized_compatibility(new_measurements)
+    elif require_resolved_identity and not identity_candidates.empty:
         ids = sorted(identity_candidates["measurement_id"].astype(str).unique())
         raise ValueError(f"Source-family batch has unresolved identity candidates: {ids}")
 
