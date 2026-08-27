@@ -268,14 +268,24 @@ with the faint JWST populations.
 Requirements and full run instructions are documented in
 `docs/getting-started.md`.
 
+The project requires Python 3.12. On macOS/Linux, use the repository-local
+interpreter explicitly after following the setup instructions:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
+```
+
+Plain `python3` on macOS may select Apple Python 3.9 without NumPy or pandas;
+that is an environment failure, not a test result from the supported runtime.
+
 Minimal current-v6 reproduction path from the repository root, using the frozen
 v5 measurement catalogue as input:
 
 ```powershell
-python -m scripts.process_v6_blagn
-python -m scripts.generate_v6_blagn_science --n-samples 10000 --seed 20260808
-python -m scripts.verify_v6_release --reproduce
-$env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
+.\.venv\Scripts\python.exe -m scripts.process_v6_blagn
+.\.venv\Scripts\python.exe -m scripts.generate_v6_blagn_science --n-samples 10000 --seed 20260808
+.\.venv\Scripts\python.exe -m scripts.verify_v6_release --reproduce
+$env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discover -s tests
 ```
 
 Expected current products include:

@@ -2,12 +2,42 @@
 
 ## Requirements
 
-The shared reproducible v4.0.1--v7 environment is Python 3.12 with exact package
-versions in `requirements-lock.txt`. Install it with:
+The shared reproducible v4.0.1--v7.2 environment is Python 3.12 with exact
+package versions in `requirements-lock.txt`. Do not use the Apple Command Line
+Tools Python: it may resolve as Python 3.9 and does not contain the project
+dependencies.
+
+Create a repository-local environment on macOS or Linux with:
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install --requirement requirements-lock.txt
+.venv/bin/python --version
+```
+
+On Windows PowerShell, use:
 
 ```powershell
-python -m pip install --requirement requirements-lock.txt
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --requirement requirements-lock.txt
+.\.venv\Scripts\python.exe --version
 ```
+
+The version check must report Python 3.12. Run tests without relying on shell
+activation or an ambiguous `python` command:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
+```
+
+```powershell
+$env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discover -s tests
+```
+
+The remaining examples use `python` for readability and assume the environment
+has first been activated with `source .venv/bin/activate` on macOS/Linux or
+`.\.venv\Scripts\Activate.ps1` in PowerShell. Using the explicit interpreter
+paths above is equally valid.
 
 CI and all non-interactive catalogue/science workflows use only this core lock.
 For the optional legacy interactive v1 notebook environment, install
@@ -187,7 +217,7 @@ jupyter notebook scripts/v1_evaluate.ipynb
 python scripts/generate_v2_rankings.py
 python scripts/generate_v2_uncertainty_rankings.py --n-samples 10000 --seed 20260808
 python scripts/generate_v2_final_figures.py
-$env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
+$env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discover -s tests
 ```
 
 Current v1 catalogue regression anchors are 23 processed measurements, redshift range
@@ -344,7 +374,7 @@ exploratory v1 outputs.
 Run the v1--v5 verification suite from the repository root:
 
 ```powershell
-$env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
+$env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discover -s tests
 ```
 
 These checks cover growth-model sanity behavior, catalogue standardization,
