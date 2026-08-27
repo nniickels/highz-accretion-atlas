@@ -1,8 +1,13 @@
 # High-z Accretion Atlas: Catalogue Expansion Guide
 
-Status: working research guide; same-class additions completed through v5
+Status: historical research-planning snapshot; superseded by the implemented
+v7.5 release documentation
 Literature review date: 2026-08-25; implementation audit: 2026-08-25
 Repository scope at audit: v5 JADES + Taylor + Matthee + Lin + Harikane broad-line AGN catalogue
+
+> Historical boundary: statements using “current,” source priorities, and next
+> steps below describe the dated v5 audit state. For current catalogue status,
+> use `README.md`, `data/sources.md`, and `docs/v7.5-release-notes.md`.
 
 ## Purpose
 

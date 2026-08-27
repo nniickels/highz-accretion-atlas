@@ -1012,3 +1012,105 @@ For every future Codex contribution that changes repository files:
   visually inspected. `git diff --check` passes.
 - **Status:** Complete and verified locally; commit, clean-worktree verification,
   push, and remote CI pending.
+
+### 2026-08-27 - Reconcile current documentation and publication provenance
+
+- **Objective:** Correct every confirmed documentation inconsistency from the
+  repository-wide audit without changing scientific catalogue or result data.
+- **Files changed:**
+  - `.codex_tmp/CONTRIBUTION_LEDGER.md` (modified)
+  - `.codex_tmp/catalogue-expansion-guide.md` (modified)
+  - `.codex_tmp/observational-atlas-roadmap.md` (modified)
+  - `.codex_tmp/research-grade-observational-atlas-roadmap-detailed.md` (modified)
+  - `.github/workflows/ci.yml` (modified)
+  - `CHANGELOG.md` (modified)
+  - `CONTRIBUTING.md` (modified)
+  - `README.md` (modified)
+  - `data/README.md` (modified)
+  - `data/sources.md` (modified)
+  - `docs/getting-started.md` (modified)
+  - `docs/model-menu.md` (modified)
+  - `docs/release-versioning.md` (modified)
+  - `docs/uhz1-xray-evidence-history-extraction-notes.md` (modified)
+  - `docs/v2-ranking-metrics.md` (modified)
+  - `docs/v2-uncertainty-propagation.md` (modified)
+  - `docs/v6-blagn-science-workflow.md` (modified)
+  - `docs/v7.5-citation-audit.md` (modified)
+  - `docs/v7.5-release-notes.md` (modified)
+  - `paper/README.md` (modified)
+  - `paper/highz_accretion_atlas_v7_5.tex` (modified)
+  - `paper/highz_accretion_atlas_v7_5.pdf` (modified)
+  - `releases/v7.5-publication-manifest.json` (modified)
+- **Contribution:** Reconciled frozen/current release terminology, corrected
+  the data-directory map and project-version vocabulary, documented the frozen
+  JADES provenance gap and current 21-row Scholtz correction, fixed the v7.5
+  manifest count, completed contributor verification instructions, clarified
+  raw-versus-processed provenance storage, separated background reading from
+  catalogue sources, and marked superseded roadmap files as historical.
+  Completed the publication citation trail with exact Zou, D'Odorico,
+  Hutchison, Goulding, and JADES DR3 provenance; corrected Goulding's year and
+  DOI; rebuilt and visually inspected the authoritative PDF; and refreshed its
+  publication-manifest hashes.
+- **Scientific/technical effect:** No catalogue membership, measurement value,
+  identity decision, ranking, science table, or figure changed. Documentation
+  now describes v7.5 as current and all preceding releases as frozen or
+  historical, while accurately exposing unavailable frozen-v1 provenance.
+- **Validation:** All 231 regression tests pass. All four v7.5 catalogue,
+  science, figure/gallery, and publication gates pass. The TeX source compiled
+  without layout warnings; all seven PDF pages were rendered and visually
+  inspected with no clipping, overlap, broken citations, or unreadable content.
+  `CITATION.cff` and the publication manifest parse successfully, every
+  documented Python module resolves, targeted stale-language searches are
+  empty, and `git diff --check` passes.
+- **Status:** Complete and verified locally; uncommitted.
+
+### 2026-08-27 - Complete source-provenance improvements
+
+- **Objective:** Convert the source-quality review's provenance recommendations
+  into a controlled, verifiable supplement without rewriting frozen data.
+- **Files added:** `data/source_provenance_registry.csv`,
+  `releases/source-provenance-manifest.json`,
+  `scripts/verify_source_provenance.py`, `src/source_provenance.py`, and
+  `tests/test_source_provenance.py`.
+- **Files updated:** `.github/workflows/ci.yml`, `CHANGELOG.md`,
+  `CONTRIBUTING.md`, `README.md`, `data/README.md`, `data/sources.md`,
+  `docs/getting-started.md`, `docs/release-versioning.md`, and
+  `releases/v7.5-publication-manifest.json`.
+- **Contribution:** Added 16 machine-readable records covering all 11 current
+  source families plus the Hutchison and D'Odorico coordinate sources,
+  Goulding context source, and JADES DR3 coordinate release. Separated source
+  role, publication status, evidence status, paper DOI, and dataset DOI;
+  scheduled reviews for Davis, Hutchison, and Zou; attached the Shen VizieR
+  dataset DOI; and backfilled the exact current Juodžbalis v2 archive and DOI
+  while preserving the unknown historical v1 extraction date.
+- **Scientific/technical effect:** No raw or processed catalogue value,
+  membership, identity decision, ranking, result, figure, or manuscript content
+  changed. Candidate/disputed evidence remains distinct from publication
+  maturity, including the Davis EELG-parent context and UHZ1 evidence history.
+- **Validation:** All 237 regression tests pass. The source-provenance gate and
+  all four v7.5 catalogue, science, figure/gallery, and publication gates pass;
+  exact manifest hashes and in-memory reproductions are verified.
+- **Status:** Complete and verified locally; uncommitted.
+
+### 2026-08-27 - Finalize v7.5 repository navigation and release handoff
+
+- **Objective:** Make the completed catalogue easy to enter and navigate, then
+  prepare the full integrated state for its clean public release.
+- **Files updated:** `README.md`, `data/README.md`, `CHANGELOG.md`,
+  `.codex_tmp/CONTRIBUTION_LEDGER.md`, and the affected v7.5 publication
+  manifest hash.
+- **Contribution:** Added prominent links to the current object catalogue,
+  schema, results inventory, manuscript draft, and source provenance. Added a
+  table-by-table guide for all current processed and crossmatch products,
+  including row counts, row meanings, stable relational keys, preferred-row
+  semantics, and a tested minimal read example. Preserved all frozen release
+  paths and artifacts.
+- **Scientific/technical effect:** Navigation and release packaging only; no
+  catalogue membership, value, identity decision, analysis result, figure, or
+  manuscript claim changed.
+- **Validation:** All 237 regression tests, source-provenance verification, and
+  every release gate from v4 through v7.5 pass. All local Markdown links and
+  release JSON files validate; the documented read example returns 219 objects
+  and 196 growth-eligible objects; `git diff --check` passes.
+- **Status:** Final integrated state prepared for commit, clean-worktree
+  verification, tag finalization, push, and remote CI.

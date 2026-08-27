@@ -329,7 +329,7 @@ that map most directly onto growth pressure.
 
 ## Expected High-Leverage v1 Objects
 
-The current v1 outputs identify the following high-leverage objects under the
+The frozen v1 outputs identify the following high-leverage objects under the
 baseline `z_seed=30`, `epsilon=0.1`, no-merger reference.
 
 | Object | Status | Why it is high leverage | Main caveat |

@@ -1,5 +1,10 @@
 # High-z Accretion Atlas: Research-Grade Roadmap
 
+> Historical planning snapshot. This roadmap records the path through the
+> initial v7 catalogue assembly; its “current” labels and future-task lists are
+> not the v7.5 release status. Use `README.md` and
+> `docs/v7.5-release-notes.md` for the current state.
+
 Thread intent:
 - This project path is Path B: an observational atlas / follow-up triage project.
 - Draft the final paper continuously throughout the project.

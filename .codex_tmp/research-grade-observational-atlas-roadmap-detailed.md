@@ -1,5 +1,10 @@
 # Research-Grade Observational Atlas Roadmap
 
+> Historical planning snapshot. This document preserves the roadmap through
+> the initial v7 catalogue assembly. Its “current release” and “immediate next
+> task” sections are intentionally retained as dated history and are superseded
+> by `README.md` and `docs/v7.5-release-notes.md`.
+
 Purpose of this file:
 - Preserve the full project roadmap for future Codex threads.
 - Make it easy to remember what has been completed, what comes next, and what prompts to give Codex.

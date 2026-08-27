@@ -55,7 +55,14 @@ are therefore retained as analysis strata.
 
 Every measurement has a stable measurement ID, physical-object ID, and host
 system ID. Source-native values, adopted canonical values, uncertainty kinds,
-method tags, URLs, archive checksums, and identity decisions are preserved.
+method tags, URLs, available archive checksums, and identity decisions are
+preserved. Missing historical provenance is explicit: the 23 frozen-v1
+Juod\v{z}balis/JADES rows predate archive hashing and retain a documented
+unavailable checksum and extraction-date limitation rather than a fabricated
+value. Auxiliary coordinate and context inputs are attributed separately to the
+E-XQR-30 survey catalogue \cite{dodorico2023}, the THRILS programme catalogue
+\cite{hutchison2025}, the UHZ1 spectroscopy paper \cite{goulding2023}, and the
+versioned JADES DR3 GOODS-S prism catalogue.
 Alternate measurements are never silently averaged or deleted. Exactly one
 preferred measurement controls each object-level status in v7.5, while the
 complete history of measurement-level evidence statuses and bases remains in the
@@ -222,11 +229,14 @@ outside the scope of the data product.
 \bibitem{lin2024} Lin, X. et al. 2024, \emph{ApJ}, 974, 147, doi:10.3847/1538-4357/ad6565.
 \bibitem{harikane2023} Harikane, Y. et al. 2023, \emph{ApJ}, 959, 39, doi:10.3847/1538-4357/ad029e.
 \bibitem{davis2026} Davis, K. et al. 2026, arXiv:2602.23310v1.
+\bibitem{hutchison2025} Hutchison, T. A. et al. 2025, THRILS redshift catalogue, arXiv:2512.12509v1.
 \bibitem{ren2025} Ren, J. et al. 2025, \emph{MNRAS}, 544, 211--233, doi:10.1093/mnras/staf1709.
 \bibitem{mazzucchelli2023} Mazzucchelli, C. et al. 2023, \emph{A\&A}, 676, A71, doi:10.1051/0004-6361/202346317.
+\bibitem{dodorico2023} D'Odorico, V. et al. 2023, \emph{MNRAS}, 523, 1399--1420, doi:10.1093/mnras/stad1468.
 \bibitem{shen2019} Shen, Y. et al. 2019, \emph{ApJ}, 873, 35, doi:10.3847/1538-4357/ab03d9.
 \bibitem{bogdan2024} Bogd\'an, \'A. et al. 2024, \emph{Nature Astronomy}, 8, 126, doi:10.1038/s41550-023-02111-9.
-\bibitem{zou2026} Zou, F. et al. 2026, UHZ1 full-data X-ray reanalysis, source version recorded in the v7.3 evidence-history table.
+\bibitem{goulding2023} Goulding, A. D. et al. 2023, \emph{ApJL}, 955, L24, doi:10.3847/2041-8213/acf7c5.
+\bibitem{zou2026} Zou, F. et al. 2026, UHZ1 full-data X-ray reanalysis, arXiv:2603.24893v1.
 \bibitem{scholtz2025} Scholtz, J. et al. 2025, \emph{A\&A}, 697, A175, doi:10.1051/0004-6361/202348804.
 \end{thebibliography}
 

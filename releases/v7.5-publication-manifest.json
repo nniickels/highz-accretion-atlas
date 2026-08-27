@@ -7,13 +7,13 @@
   "artifacts": {
     "CITATION.cff": "8581b060a4a299dd197814f5474be230be3d44d8dce121dc21959e1002e02e9f",
     "LICENSE": "ed74c7be61e8569c8193a4067bd88f4ba0878865b52f5c0a885a4c7f5d58894e",
-    "CHANGELOG.md": "cdb0444d174237928df5b8bfb33e05bf101ae272528ee41fafeae24dd6b16c0e",
-    "CONTRIBUTING.md": "837b9d2adbae7e920b68277bd2a40f3ecaacec5dbf06f65dde3e90a7a287de03",
-    "docs/v7.5-release-notes.md": "82d0e4115fb23d327c32a5368fe317ebaf629c1d58d89156ed95559ec27a6f63",
+    "CHANGELOG.md": "ad0fb470093076bf2467b81d67d903ab7526c37da8efc21caf5eba23e9f209cd",
+    "CONTRIBUTING.md": "cc4a7756407660dc6ebf309cf673f8b21ffc13e81ef367575d0f27d43b52e5b7",
+    "docs/v7.5-release-notes.md": "a441b7379e43429507baf23608b548b05735d54262bf4bf73625b62f64695b69",
     "docs/v7.5-claim-audit.md": "9150d8c61be3455f5b716a5662a5b89c90af162619f9f22ecb538e91745a9205",
-    "docs/v7.5-citation-audit.md": "e3316c8b762f8ba1f7a913e192257a3feb6aeeeb2c631cf3fb50477d59bb4921",
-    "paper/README.md": "0f7e009f03cdb26e6b5199793722ee6e9ca08fa790fe8fc302f1eebc02e7028e",
-    "paper/highz_accretion_atlas_v7_5.tex": "da248bf9ea87af0c85465e7db1a70dd816a03ea5ede47b2b39001edccc3130b7",
-    "paper/highz_accretion_atlas_v7_5.pdf": "86456c93df4c04aa3ec912b713d7b939fb06b122846d8e112a488568060099ab"
+    "docs/v7.5-citation-audit.md": "816a8e7bdaeabc1fbcc0e90e74a6cdb68071d9c31c4cbcd3efc0423fc6ec3bea",
+    "paper/README.md": "2741a829d2221e53b51a3219ab23260ec2b83fef5aecf69ea2a2718bbbbd532a",
+    "paper/highz_accretion_atlas_v7_5.tex": "6773f80c1ad4f9877efa90e55f7e68ed5fc36d57da08d99619e51771b5f9b3c8",
+    "paper/highz_accretion_atlas_v7_5.pdf": "f526ea06fe39ec0157028bbbc3f04a979ba15dc5d30f629b2c5ea7758077a34a"
   }
 }

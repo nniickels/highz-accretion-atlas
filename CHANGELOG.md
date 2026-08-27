@@ -12,6 +12,16 @@
 - Released class-aware science, four high-resolution main-text figures, and
   exact coverage over the complete 588-image growth gallery.
 - Added an authoritative v7.5 manuscript, citation metadata, claim/citation
-  audits, and independent catalogue/science/figure release manifests.
+  audits, and independent catalogue/science/figure/publication release
+  manifests.
+- Reconciled current-versus-frozen terminology, source/provenance limitations,
+  supporting citations, manifest counts, contributor checks, directory maps,
+  and historical roadmap labels across the documentation and manuscript.
+- Added a hash-anchored source-provenance supplement with controlled source
+  roles, publication/evidence status, exact versions and archives, paper versus
+  dataset DOIs, preprint review dates, full v7.5 source-family coverage, CI
+  verification, and regression tests without changing frozen catalogue rows.
+- Added prominent current-release entry points and a table-by-table catalogue
+  guide with stable join keys, row meanings, and a minimal analysis example.
 
 Historical releases and their manifests remain immutable.

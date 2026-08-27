@@ -1,8 +1,35 @@
 # Source Registry
 
+## Machine-readable provenance supplement
+
+`data/source_provenance_registry.csv` records one row per primary,
+reanalysis, coordinate, or context source used by the current catalogue. Its
+controlled `publication_status`, `evidence_status`, and `source_role` fields
+separate publication maturity, scientific evidence strength, and actual use;
+these concepts must not be inferred from one another. Paper DOIs and dataset
+DOIs are separate fields. Exact source-archive hashes, extraction dates, the
+2026-08-27 status-verification date, and scheduled preprint reviews are
+machine checked by `python -m scripts.verify_source_provenance`.
+
+The supplement backfills the current exact Juodžbalis record as MNRAS 546,
+stag086 / arXiv `2504.03551v2`, DOI `10.1093/mnras/stag086`, with source-archive
+SHA-256
+`0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd`.
+This is deliberately not represented as the unknown historical v1 extraction:
+the frozen rows retain `not_recorded_in_frozen_v1_source_layer`, and no frozen
+catalogue value is changed. The registry also records the Shen catalogue DOI
+`10.26093/cds/vizier.18730035` independently of the paper DOI.
+
+As verified on 2026-08-27, Davis `2602.23310v1`, Hutchison `2512.12509v1`,
+and Zou `2603.24893v1` remain preprints in their official arXiv records. Their
+registry rows require another status review by 2026-11-27. The Davis objects'
+photometric-EELG parent selection remains context rather than evidence against
+the later broad-line detections; the UHZ1 reanalysis retains `disputed`
+evidence explicitly.
+
 **1. [source_key: juodzbalis25_jades_blagn]**
 - **Citation:** Juodžbalis et al. (2026), *JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST*, MNRAS 546, stag086, arXiv:2504.03551
-- **ADS/arXiv:** https://arxiv.org/abs/2504.03551
+- **Published record:** DOI https://doi.org/10.1093/mnras/stag086; arXiv https://arxiv.org/abs/2504.03551
 - **Survey/Field:** JADES / GOODS-N + GOODS-S
 - **Object selection used here:** Type 1 (broad-line) AGN from JADES spectroscopy
 - **Values extracted:** z, MBH, Lbol, lambda_Edd, Mstar
@@ -12,6 +39,11 @@
 - **Source consistency warning:** For GN-11836, Table 2 reports `log_mbh=6.06`, `log_lbol=44.11`, and `lambda_Edd=0.11`. The mass and luminosity imply `lambda_Edd` approximately 0.89, a -0.91 dex residual for the tabulated ratio. The catalogue preserves all three published values verbatim, flags the inconsistency structurally, and requires source clarification before choosing which value to revise.
 - **Columns standardized beyond paper tables:** `redshift_kind=spec` (NIRSpec spectroscopy), method fields encode the paper methodology (`single-epoch-virial-halpha` or `single-epoch-virial-hbeta`, BEAGLE or CIGALE host decomposition, Balmer-line bolometric correction), `agn_contam_flag=1` for this Type-1 AGN sample, and `lensing_mu` left blank because no magnification correction is reported for these sources.
 - **Ingestion notes:** Numeric values copied directly; asymmetric uncertainties split into *_err_plus and *_err_minus
+- **Frozen-v1 provenance limitation:** the current catalogue retains
+  `extraction_date=not_recorded_in_frozen_v1_source_layer` and has no archived
+  source checksum for these 23 rows. The DOI and source URL are documented
+  here, but the missing historical extraction date/checksum must not be
+  represented as complete row-level provenance.
 
 **2. [source_key: taylor24_ceers_rubies_blagn]**
 - **Citation:** Taylor et al. (2025), *Broad-Line AGNs at 3.5<z<6: The Black Hole Mass Function and a Connection with Little Red Dots*, The Astrophysical Journal 986, 165
@@ -160,7 +192,8 @@ Detailed extraction and caveat notes are in
   object. Their source-archive SHA-256 values are
   `d1446d873c81c0ee83f7cc1c0648d85f8a93b0967eb5d14ef7b46d0564ab2e6c`
   and `2690ce8d6345a097ebc642232205d0337eabe76f582c661db815bff4912f77d4`.
-  The companion Goulding et al. spectroscopy archive hashes to
+  The companion Goulding et al. (2023) spectroscopy paper (ApJL 955 L24, DOI
+  `10.3847/2041-8213/acf7c5`, arXiv `2308.02750v3`) archive hashes to
   `73628a4c4632871e6b3888b61f2e6cedf28ead1d1af7f45a20cac20f8988b729`.
 - The original 4.2--4.4 sigma claim is `candidate`; the current 2.3--2.9 sigma,
   nonpersistent reanalysis is preferred and `disputed`. The nine MIRI upper
@@ -170,7 +203,7 @@ Detailed extraction and caveat notes are in
   `docs/uhz1-xray-evidence-history-extraction-notes.md` and
   `docs/v7.3-catalogue-schema.md`.
 
-## v7.4 JADES Narrow-Line/High-Ionization Layer
+## Frozen v7.4 JADES Narrow-Line/High-Ionization Layer
 
 - **[source_key: scholtz25_jades_narrow_line_agn] Scholtz et al. (2025),
   A&A 697, A175:** all 20 entries at `z >= 4` from the paper's 41-row source
@@ -184,3 +217,15 @@ Detailed extraction and caveat notes are in
   mass or enters growth ranking. See
   `docs/scholtz25-jades-narrow-line-extraction-notes.md` and
   `docs/v7.4-catalogue-schema.md`.
+
+## Current v7.5 Scholtz Provenance Correction
+
+- The complete 41-row source-native TeX table proves that 21, not 20, rows meet
+  `z >= 4`. Frozen v7.4 remains unchanged; v7.5 adds the previously omitted
+  `JADES-NS-GS00099671` measurement with no inferred black-hole mass.
+- The source family therefore has 21 admitted measurements and 21 source
+  physical IDs. One row, JADES 8083, is linked to an existing broad-line object,
+  so the combined v7.5 object-class view contains 20 narrow-line candidate
+  objects contributed by this family.
+- The current release counts and evidence aggregation are documented in
+  `docs/v7.5-catalogue-schema.md` and `docs/v7.5-release-notes.md`.

@@ -20,6 +20,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m unittest discover -s tests
+      - name: Verify source provenance supplement from a clean worktree
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_source_provenance --require-clean
       - name: Verify frozen v4 release from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
@@ -28,19 +32,19 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v5_release --reproduce --require-clean
-      - name: Verify current v6 release from a clean worktree
+      - name: Verify frozen v6 release from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v6_release --reproduce --require-clean
-      - name: Verify current v7 catalogue from a clean worktree
+      - name: Verify frozen v7 catalogue from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_catalogue --reproduce --require-clean
-      - name: Verify current v7.1 catalogue from a clean worktree
+      - name: Verify frozen v7.1 catalogue from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_1_catalogue --reproduce --require-clean
-      - name: Verify current v7.2 catalogue from a clean worktree
+      - name: Verify frozen v7.2 catalogue from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_2_catalogue --reproduce --require-clean
@@ -48,11 +52,11 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_2_science --reproduce --require-clean
-      - name: Verify current v7.3 catalogue from a clean worktree
+      - name: Verify frozen v7.3 catalogue from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_3_catalogue --reproduce --require-clean
-      - name: Verify current v7.4 catalogue from a clean worktree
+      - name: Verify frozen v7.4 catalogue from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_4_catalogue --reproduce --require-clean

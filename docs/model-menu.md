@@ -24,7 +24,7 @@ unphysical inputs, such as negative redshift, negative `f_Edd`, invalid
 
 ## Formation and Growth Models
 These are scenario families for comparison and future expansion. Listing a
-scenario here does not mean the current v1 catalogue requires it or uniquely
+scenario here does not mean the frozen v1 catalogue requires it or uniquely
 selects it.
 
 **A. Seeds**

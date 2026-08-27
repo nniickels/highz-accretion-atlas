@@ -34,8 +34,6 @@ survey/field, phenotype, and catalogue view. Overall rows explicitly warn that
 the constituent selection functions differ and cannot support pooled demographic
 inference.
 
-No v6 figure set is generated in this release step. The four v5 paper-facing
-figures remain the latest deliberate rendered products until a separate v6
-figure-selection review establishes that a new plot materially changes the
-paper argument.
-
+No v6 figure set is generated in this release step. At the frozen v6 release
+boundary, the four v5 paper-facing figures remained the associated deliberate
+rendered products. They are historical now that v7.5 has its own figure set.

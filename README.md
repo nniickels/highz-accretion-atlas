@@ -3,6 +3,28 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
 
+## Start here
+
+The current integrated release is **v7.5**: 234 literature measurements mapped
+to 219 physical objects in 218 host systems.
+
+- Start analysis with the
+  [one-row-per-object catalogue](data/processed/v7_5/v7_5_accreting_objects.csv).
+- Use the [data guide](data/README.md) to choose among measurement, object,
+  host, observable, identity, and provenance tables and to join them safely.
+- Read the [v7.5 release notes](docs/v7.5-release-notes.md) and
+  [catalogue schema](docs/v7.5-catalogue-schema.md) for the scientific contract.
+- Browse generated products through the [results guide](results/README.md) and
+  [results inventory](results/results_inventory.csv).
+- Read the current manuscript draft as [PDF](paper/highz_accretion_atlas_v7_5.pdf)
+  or [TeX](paper/highz_accretion_atlas_v7_5.tex).
+- Audit source roles, publication status, DOIs, versions, and archive hashes in
+  the [source-provenance registry](data/source_provenance_registry.csv).
+
+Stable joins use `measurement_id` $\rightarrow$ `physical_object_id`
+$\rightarrow$ `host_system_id`. The source-local `object_id` is retained for
+provenance and should not be used as a cross-paper identity key.
+
 
 ## Background
 The James Webb Space Telescope pushes observational cosmology into the first few billion years of cosmic history, and it has revealed massive accreting objects that are hard to explain due to the limited time for them to grow. It follows that one of the biggest questions cosmologists are asking right now is: “How did these objects get so big, so fast?” My research project aims to contribute to this question by creating a standardized cross-paper catalogue of these objects and then testing what scenarios could have theoretically formed each one. Either they started from a sufficiently massive seed, accreted continuously for a long enough time, formed very early, or some combination of these conditions. This is explored and visualized with parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
@@ -131,7 +153,8 @@ Frozen v7.3 is checked by `python -m scripts.verify_v7_3_catalogue --reproduce`;
 frozen v7.4 is checked by `python -m scripts.verify_v7_4_catalogue --reproduce`.
 The complete v7.4 growth-product layer is checked independently by
 `python -m scripts.verify_v7_4_growth_products`.
-The current integrated release is checked by
+The current source layer and integrated release are checked by
+`python -m scripts.verify_source_provenance`,
 `python -m scripts.verify_v7_5_catalogue --reproduce`,
 `python -m scripts.verify_v7_5_science --reproduce`,
 `python -m scripts.verify_v7_5_figures`, and
@@ -332,6 +355,7 @@ Current v7.5 integrated reproduction:
 python -m scripts.process_v7_5_catalogue
 python -m scripts.generate_v7_5_class_aware_science --n-samples 10000 --seed 20260808
 python -m scripts.generate_v7_5_figures
+python -m scripts.verify_source_provenance
 python -m scripts.verify_v7_5_catalogue --reproduce
 python -m scripts.verify_v7_5_science --reproduce
 python -m scripts.verify_v7_5_figures
@@ -362,8 +386,8 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 Plain `python3` on macOS may select Apple Python 3.9 without NumPy or pandas;
 that is an environment failure, not a test result from the supported runtime.
 
-Minimal current-v6 reproduction path from the repository root, using the frozen
-v5 measurement catalogue as input:
+Historical frozen-v6 reproduction path from the repository root, using the
+frozen v5 measurement catalogue as input:
 
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.process_v6_blagn
@@ -372,7 +396,7 @@ v5 measurement catalogue as input:
 $env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discover -s tests
 ```
 
-Expected current products include:
+Expected frozen-v6 products include:
 
 - `data/processed/v6/v6_blagn_measurements.csv` (112 measurements)
 - `data/processed/v6/v6_blagn_objects.csv` (105 physical objects)
@@ -398,9 +422,11 @@ catalogue labels such as `v7.5-accreting-atlas-catalogue`, and maintenance
 anchors such as v4.0.1.
 
 ## References
-Sources of data documented in `data/sources.md`
 
-(Draft/rough list:)
+Catalogue data sources are documented authoritatively in `data/sources.md`.
+The following is background and prospective reading, not a list of sources
+currently represented by catalogue rows:
+
 1. Dayal, P. 2024, [A&A](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html), 690, A182
 2. Ji, X., Maiolino, R., Übler, H., et al. 2025, [MNRAS, 544, 3900](https://doi.org/10.1093/mnras/staf1867)
 3. Maiolino, R., Übler, H., D’Eugenio, F., et al. 2025, [arXiv:2505.22567](https://arxiv.org/abs/2505.22567) 

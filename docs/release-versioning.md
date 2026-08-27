@@ -12,7 +12,7 @@ remains the JADES + Taylor comparison.
 | v2 | Ranking, asymmetric-error propagation, and final-style prototypes for the frozen v1 catalogue | v1 processed and evaluation products | `results/releases/v2/` |
 | v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue, with separate measurement and physical-object views | frozen v1 catalogue plus the Taylor source extraction and crossmatch | `data/processed/v3/`, `data/crossmatch/v3/`, `results/releases/v3/` |
 | v4 | Generalized identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | frozen v3 catalogue plus two source-native extractions | `data/processed/v4/`, `data/crossmatch/v4/`, `results/releases/v4/` |
-| v5 | Harikane NIRSpec BLAGN measurement-version layer, orthogonal taxonomy, accretion-history science extension, and current paper figures | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5/`, `data/crossmatch/v5/`, `results/releases/v5/` |
+| v5 | Harikane NIRSpec BLAGN measurement-version layer, orthogonal taxonomy, accretion-history science extension, and v5 paper figures | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5/`, `data/crossmatch/v5/`, `results/releases/v5/` |
 | v6 | Final same-class BLAGN consolidation with the Davis/THRILS deep-spectroscopy sample | frozen v5 plus Davis Appendix Table 5 and Hutchison Table 3 coordinates | `data/processed/v6/`, `data/crossmatch/v6/`, `results/releases/v6/` |
 | v7.0 catalogue (frozen) | First heterogeneous evidence-class catalogue layer | frozen v6 plus Ren et al. rows admitted by the multi-class contract | 119 measurements / 112 objects / 111 host systems; catalogue products only |
 | v7.1 catalogue (frozen) | First luminous-quasar comparison extension | frozen v7.0 plus the complete 42-object XQR-30 source family | 161 measurements / 154 objects / 153 host systems; catalogue products only |
@@ -46,9 +46,10 @@ does not require a release tag. Both v4.0.1 and v5 verifiers require exact
 manifest membership as well as matching hashes, so omitted or unexpected
 release artifacts fail verification.
 
-The current v6 CSVs are covered by `releases/v6-manifest.json` and
+The frozen v6 CSVs are covered by `releases/v6-manifest.json` and
 `python -m scripts.verify_v6_release --reproduce`. v6 does not regenerate a
-figure set; the deliberate v5 figures remain the latest paper-facing images.
+figure set; the deliberate v5 figures remain the paper-facing images for that
+historical BLAGN stage. The current paper-facing images are released with v7.5.
 
 The catalogue-only v7 files are covered by
 `releases/v7-catalogue-manifest.json` and
@@ -91,12 +92,21 @@ explicitly prohibited by the release contract.
 
 The integrated v7.5 release is independently covered by catalogue, science,
 figure, and publication manifests. Verify it with
+`python -m scripts.verify_source_provenance`,
 `python -m scripts.verify_v7_5_catalogue --reproduce`,
 `python -m scripts.verify_v7_5_science --reproduce`,
 `python -m scripts.verify_v7_5_figures`, and
 `python -m scripts.verify_v7_5_publication`. The complete source-table audit
 corrects the Scholtz subset to 21 rows at `z >= 4`; frozen v7.4 bytes remain
 unchanged.
+
+The source-provenance registry is a dated, hash-anchored supplement rather than
+a catalogue or science release. Updating a paper's publication status, adding
+a dataset DOI, or documenting a newly recoverable archive hash does not by
+itself advance the project release number because those changes do not alter
+frozen catalogue values. Any source update that changes admitted measurements
+or their scientific interpretation must instead follow the normal new-release
+process.
 
 The four canonical rendered v5 PNGs are independently hash-anchored by
 `releases/v5-figures-manifest.json` and checked with
@@ -113,12 +123,15 @@ label, or a promise that every historical artifact was regenerated.
 - Put the project release prefix first on processed data, generated results,
   release-specific scripts, tests, and documentation.
 - Keep immutable source-specific raw extractions descriptive, for example
-  `taylor24_ceers_rubies_blagn_table1.csv`. Their provenance columns record the
-  paper version, DOI, archive URL, extraction date, and checksum.
+  `taylor24_ceers_rubies_blagn_table1.csv`. Provenance must be recoverable from
+  the raw table, processed catalogue, `data/sources.md`/registry CSVs, and release
+  manifest together. Not every historical raw CSV embeds paper version, DOI,
+  archive URL, extraction date, and checksum columns directly.
 - Use `project_version` for the row's standardization release (`v1`, `v3`,
-  `v4`, `v5`, `v6`, `v7`, `v7.1`, or `v7.2`) and `catalogue_release` for the
-  named combined catalogue. XQR-30 and GNIRS-50 rows use their introduction
-  releases; inherited rows retain their original `project_version`.
+  `v4`, `v5`, `v6`, `v7`, `v7.1`, `v7.2`, `v7.3`, `v7.4`, or `v7.5`) and
+  `catalogue_release` for the named combined catalogue. Rows use their
+  introduction or correction release; inherited rows retain their original
+  `project_version`.
 - Use `analysis_release` and `input_catalogue_release` on v2 result tables so a
   filename cannot be mistaken for the catalogue version it evaluates.
 - Treat an arXiv suffix such as `v2` in `2409.06772v2` only as a source-paper

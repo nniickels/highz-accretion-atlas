@@ -10,8 +10,9 @@ independent objects:
   DOI `10.1038/s41550-023-02111-9`, arXiv `2305.15458v2`.
 - Zou et al. (2026), submitted, arXiv `2603.24893v1`.
 
-Goulding et al. (2024), ApJL 955 L24, arXiv `2308.02750v3`, supplies the
-companion spectroscopic and host-galaxy context used in the audit. The three
+Goulding et al. (2023), ApJL 955 L24, DOI
+`10.3847/2041-8213/acf7c5`, arXiv `2308.02750v3`, supplies the companion
+spectroscopic and host-galaxy context used in the audit. The three
 downloaded source archives have SHA-256 hashes recorded in the v7.3 manifest.
 The extraction date is 2026-08-27.
 
