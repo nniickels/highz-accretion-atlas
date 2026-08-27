@@ -2,7 +2,7 @@
 
 ## Requirements
 
-The shared reproducible v4.0.1--v7.2 catalogue and science environment is Python 3.12 with exact
+The shared reproducible v4.0.1--v7.3 catalogue and science environment is Python 3.12 with exact
 package versions in `requirements-lock.txt`. Do not use the Apple Command Line
 Tools Python: it may resolve as Python 3.9 and does not contain the project
 dependencies.
@@ -63,9 +63,24 @@ and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
 
-## Current v7.2 Catalogue and Science Layer
+## Current v7.3 Catalogue and v7.2 Science Layers
 
-The current catalogue-only layer copies frozen v7.1 and adds all 50 Shen et al.
+The current catalogue copies frozen v7.2 and adds the two-version UHZ1 X-ray
+evidence history:
+
+```powershell
+python -m scripts.process_v7_3_catalogue
+python -m scripts.verify_v7_3_catalogue --reproduce
+```
+
+It contains 213 measurements, 199 physical objects, and 198 host systems. UHZ1
+is represented once at object level, with the disputed full-data reanalysis
+preferred; neither literature version is growth-ranked because no canonical
+numeric mass is admitted. See `docs/v7.3-catalogue-schema.md`.
+
+### Frozen v7.2 catalogue and class-aware science
+
+The frozen v7.2 catalogue layer copies frozen v7.1 and adds all 50 Shen et al.
 GNIRS quasars as a second luminous-quasar comparison family:
 
 ```powershell

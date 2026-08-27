@@ -151,3 +151,21 @@ Detailed extraction and caveat notes are in
   arXiv `1809.05584v1` hashes to
   `2b4376dc136873c4b8db0e5016568b9b1d4692042f6bb035e61fa8bd76b980ef`.
   See `docs/shen19-gnirs50-extraction-notes.md`.
+
+## v7.3 UHZ1 X-ray Evidence-History Layer
+
+- **[source_key: uhz1_xray_evidence_history] UHZ1 / UNCOVER-26185:** two
+  measurement versions preserve the original Bogdán et al. (2024) X-ray AGN
+  interpretation and the Zou et al. (2026) full-data reanalysis as one physical
+  object. Their source-archive SHA-256 values are
+  `d1446d873c81c0ee83f7cc1c0648d85f8a93b0967eb5d14ef7b46d0564ab2e6c`
+  and `2690ce8d6345a097ebc642232205d0337eabe76f582c661db815bff4912f77d4`.
+  The companion Goulding et al. spectroscopy archive hashes to
+  `73628a4c4632871e6b3888b61f2e6cedf28ead1d1af7f45a20cac20f8988b729`.
+- The original 4.2--4.4 sigma claim is `candidate`; the current 2.3--2.9 sigma,
+  nonpersistent reanalysis is preferred and `disputed`. The nine MIRI upper
+  limits and bolometric limit are censored observables.
+- The published `10^7--10^8 Msun` Eddington-assumed range is not converted to a
+  canonical point mass. Both rows remain growth-ineligible. See
+  `docs/uhz1-xray-evidence-history-extraction-notes.md` and
+  `docs/v7.3-catalogue-schema.md`.

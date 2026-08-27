@@ -1,0 +1,39 @@
+{
+  "catalogue_release": "v7.3-accreting-atlas-catalogue",
+  "parent_catalogue_release": "v7.2-accreting-atlas-catalogue",
+  "scope": "catalogue-only UHZ1 X-ray evidence-history extension; frozen v7.2 science remains current",
+  "python": "3.12",
+  "catalogue_counts": {
+    "measurements": 213,
+    "physical_objects": 199,
+    "host_systems": 198,
+    "growth_eligible_measurements": 209,
+    "primary_measurements": 182,
+    "growth_eligible_physical_objects": 196,
+    "primary_physical_objects": 171,
+    "measurement_object_links": 213,
+    "object_host_links": 199,
+    "aliases": 255,
+    "reviewed_identity_records": 0,
+    "source_observables": 1015,
+    "uhz1_measurement_versions": 2,
+    "uhz1_physical_objects": 1,
+    "uhz1_numeric_masses": 0
+  },
+  "source_archives": {
+    "arXiv:2305.15458v2": "d1446d873c81c0ee83f7cc1c0648d85f8a93b0967eb5d14ef7b46d0564ab2e6c",
+    "arXiv:2308.02750v3": "73628a4c4632871e6b3888b61f2e6cedf28ead1d1af7f45a20cac20f8988b729",
+    "arXiv:2603.24893v1": "2690ce8d6345a097ebc642232205d0337eabe76f582c661db815bff4912f77d4"
+  },
+  "artifacts": {
+    "data/processed/v7_3_accreting_measurements.csv": "8adce78fbda943406f83b35fcc4ec1b813a861df2645782cc4d67bead7ce271a",
+    "data/processed/v7_3_accreting_objects.csv": "0da66aa049ebec0725862bea873a2f8d2049eb61dd6d5271980bb800cc3825b7",
+    "data/processed/v7_3_host_systems.csv": "581cbda6e1a72f33c95e38b6cc7578873d5e98d3a98ec171af5ec5de1e1eba1b",
+    "data/crossmatch/v7_3_measurement_object_links.csv": "84a68ef6daaa18d1896d1ff0d13ce1f534f59e29fc43dd7efbe46fd61738b635",
+    "data/crossmatch/v7_3_object_host_links.csv": "c528507e17c24b1989f697b8e6402efb79802c4a7e7e190acbf6f24c85fb03a4",
+    "data/crossmatch/v7_3_object_aliases.csv": "9f82f4fdaa9d1a0f27d3c560cd6b46b75864a3c2843a726a248c3a4c092394e1",
+    "data/crossmatch/v7_3_reviewed_match_candidates.csv": "2929c24fa566ea228b7479526d6bd8437e4c49997d86c6bf0437d50a3adb0d39",
+    "data/processed/v7_3_source_observables.csv": "acc0e6d35db2cdef046a3fea93eeeb58f295e3daac611449c6f9de67b6f845c4",
+    "data/processed/v7_3_catalogue_strata.csv": "7c9caab5f53e250a84945d5ea21171f97884966caa5fbf96ef88f112dd0afe99"
+  }
+}

@@ -1,0 +1,256 @@
+catalogue_release,physical_object_id,host_system_id,measurement_id,object_id,source_key,ra_deg,dec_deg,redshift,alias_kind
+v7.3-accreting-atlas-catalogue,HZA-CEERS-00717,HZS-CEERS-00717,CEERS00717_harikane23,CEERS-00717,harikane23_nirspec_blagn,215.08141667,52.97219444,6.936,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-01236,HZS-CEERS-01236,CEERS01236_harikane23,CEERS-01236,harikane23_nirspec_blagn,215.14529167,52.96727778,4.484,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-01665,HZS-CEERS-01665,CEERS01665_harikane23,CEERS-01665,harikane23_nirspec_blagn,215.17820833,53.05936111,4.483,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-1244,HZS-CEERS-1244,CEERS01244_harikane23,CEERS-01244,harikane23_nirspec_blagn,215.24066667,53.03605556,4.478,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-1244,HZS-CEERS-1244,CEERS1244_taylor24,CEERS-1244,taylor24_ceers_rubies_blagn,215.240652,53.036041,4.478,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-2782,HZS-CEERS-2782,CEERS02782_harikane23,CEERS-02782,harikane23_nirspec_blagn,214.82345833,52.83027778,5.241,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-2782,HZS-CEERS-2782,CEERS2782_taylor24,CEERS-2782,taylor24_ceers_rubies_blagn,214.823453,52.830281,5.24,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-2782,HZS-CEERS-2782,RUBIESEGS50052_taylor24,RUBIES-EGS-50052,taylor24_ceers_rubies_blagn,214.823454,52.830277,5.24,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-397,HZS-CEERS-397,CEERS00397_harikane23,CEERS-00397,harikane23_nirspec_blagn,214.83620833,52.88269444,6.0,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-397,HZS-CEERS-397,CEERS397_taylor24,CEERS-397,taylor24_ceers_rubies_blagn,214.836197,52.882693,6.0,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-672,HZS-CEERS-672,CEERS00672_harikane23,CEERS-00672,harikane23_nirspec_blagn,214.88966667,52.83297222,5.666,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-672,HZS-CEERS-672,CEERS672_taylor24,CEERS-672,taylor24_ceers_rubies_blagn,214.889677,52.832977,5.666,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-746,HZS-CEERS-746,CEERS00746_harikane23,CEERS-00746,harikane23_nirspec_blagn,214.809125,52.86847222,5.624,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-CEERS-746,HZS-CEERS-746,CEERS746_taylor24,CEERS-746,taylor24_ceers_rubies_blagn,214.809142,52.868484,5.623,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-DC-417567,HZS-DC-417567,DC417567_ren25,DC_417567,ren25_alpine_cristal_jwst_blagn_candidates,150.5170078,1.9289283,5.67,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-DC-519281,HZS-DC-519281,DC519281_ren25,DC_519281,ren25_alpine_cristal_jwst_blagn_candidates,149.7537227,2.0910165,5.5759,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-DC-536534,HZS-DC-536534,DC536534_ren25,DC_536534,ren25_alpine_cristal_jwst_blagn_candidates,149.9718537,2.1181852,5.6886,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-DC-683613,HZS-DC-683613,DC683613_ren25,DC_683613,ren25_alpine_cristal_jwst_blagn_candidates,150.0392432,2.3372033,5.542,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-DC-848185-A,HZS-DC-848185,DC848185a_ren25,DC_848185_a,ren25_alpine_cristal_jwst_blagn_candidates,150.0895382,2.5865496,5.2931,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-DC-848185-B,HZS-DC-848185,DC848185b_ren25,DC_848185_b,ren25_alpine_cristal_jwst_blagn_candidates,150.0896631,2.5863339,5.2931,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-DC-873321,HZS-DC-873321,DC873321_ren25,DC_873321,ren25_alpine_cristal_jwst_blagn_candidates,150.0169147,2.6266375,5.1542,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GLASS-150029,HZS-GLASS-150029,GLASS150029_harikane23,GLASS-150029,harikane23_nirspec_blagn,3.57716667,-30.42258333,4.583,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GLASS-160133,HZS-GLASS-160133,GLASS160133_harikane23,GLASS-160133,harikane23_nirspec_blagn,3.58029167,-30.42438889,4.015,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-1093,HZS-GN-1093,GN1093_juodzbalis25,GN-1093,juodzbalis25_jades_blagn,189.17974,62.22463,5.594,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-11836,HZS-GN-11836,GN11836_juodzbalis25,GN-11836,juodzbalis25_jades_blagn,189.22059,62.26368,4.409,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-20621,HZS-GN-20621,GN20621_juodzbalis25,GN-20621,juodzbalis25_jades_blagn,189.12252,62.29285,4.682,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-38509,HZS-GN-38509,GN38509_juodzbalis25,GN-38509,juodzbalis25_jades_blagn,189.09144,62.22811,6.678,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-4685,HZS-GN-4685,GN4685_juodzbalis25,GN-4685,juodzbalis25_jades_blagn,189.09629,62.23914,7.415,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-53757,HZS-GN-53757,GN53757_juodzbalis25,GN-53757,juodzbalis25_jades_blagn,189.26978,62.19421,4.447,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-61888,HZS-GN-61888,GN61888_juodzbalis25,GN-61888,juodzbalis25_jades_blagn,189.16802,62.21701,5.874,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-62309,HZS-GN-62309,GN62309_juodzbalis25,GN-62309,juodzbalis25_jades_blagn,189.24898,62.21835,5.172,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-73488,HZS-GN-73488,GN73488_juodzbalis25,GN-73488,juodzbalis25_jades_blagn,189.1974,62.17723,4.133,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-77652,HZS-GN-77652,GN77652_juodzbalis25,GN-77652,juodzbalis25_jades_blagn,189.29323,62.199,5.229,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GN-954,HZS-GN-954,GN954_juodzbalis25,GN-954,juodzbalis25_jades_blagn,189.15197,62.25964,6.759,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0002-2550,HZS-GNIRS50-J0002-2550,GNIRS50-J0002-2550_shen19,J0002+2550,shen19_gnirs50,0.6641250000000001,25.843027777777777,5.81732,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0008-0626,HZS-GNIRS50-J0008-0626,GNIRS50-J0008-0626_shen19,J0008-0626,shen19_gnirs50,2.107375,-6.434611111111112,5.92914,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0033-0125,HZS-GNIRS50-J0033-0125,GNIRS50-J0033-0125_shen19,J0033-0125,shen19_gnirs50,8.297500000000001,-1.4235833333333334,6.01884,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0050-3445,HZS-GNIRS50-J0050-3445,GNIRS50-J0050-3445_shen19,J0050+3445,shen19_gnirs50,12.527791666666667,34.756277777777775,6.24598,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0055-0146,HZS-GNIRS50-J0055-0146,GNIRS50-J0055-0146_shen19,J0055+0146,shen19_gnirs50,13.762125,1.77175,5.95421,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0136-0226,HZS-GNIRS50-J0136-0226,GNIRS50-J0136-0226_shen19,J0136+0226,shen19_gnirs50,24.013208333333335,2.434916666666667,6.20648,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0203-0012,HZS-GNIRS50-J0203-0012,GNIRS50-J0203-0012_shen19,J0203+0012,shen19_gnirs50,30.884916666666665,0.2081111111111111,5.77689,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0221-0802,HZS-GNIRS50-J0221-0802,GNIRS50-J0221-0802_shen19,J0221-0802,shen19_gnirs50,35.344625,-8.047638888888889,6.20015,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0227-0605,HZS-GNIRS50-J0227-0605,GNIRS50-J0227-0605_shen19,J0227-0605,shen19_gnirs50,36.930375000000005,-6.091722222222222,6.20651,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0300-2232,HZS-GNIRS50-J0300-2232,GNIRS50-J0300-2232_shen19,J0300-2232,shen19_gnirs50,45.184083333333334,-22.54088888888889,5.65156,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0353-0104,HZS-GNIRS50-J0353-0104,GNIRS50-J0353-0104_shen19,J0353+0104,shen19_gnirs50,58.457166666666666,1.0678888888888889,6.05732,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0810-5105,HZS-GNIRS50-J0810-5105,GNIRS50-J0810-5105_shen19,J0810+5105,shen19_gnirs50,122.72633333333332,51.09447222222222,5.80496,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0835-3217,HZS-GNIRS50-J0835-3217,GNIRS50-J0835-3217_shen19,J0835+3217,shen19_gnirs50,128.85733333333334,32.29794444444444,5.9016,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0840-5624,HZS-GNIRS50-J0840-5624,GNIRS50-J0840-5624_shen19,J0840+5624,shen19_gnirs50,130.14620833333333,56.40552777777778,5.81997,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0841-2905,HZS-GNIRS50-J0841-2905,GNIRS50-J0841-2905_shen19,J0841+2905,shen19_gnirs50,130.33133333333333,29.084555555555553,5.95354,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J0850-3246,HZS-GNIRS50-J0850-3246,GNIRS50-J0850-3246_shen19,J0850+3246,shen19_gnirs50,132.70104166666667,32.77997222222222,5.67312,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1044-0125,HZS-GNIRS50-J1044-0125,GNIRS50-J1044-0125_shen19,J1044-0125,shen19_gnirs50,161.13766666666666,-1.417277777777778,5.78549,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1137-3549,HZS-GNIRS50-J1137-3549,GNIRS50-J1137-3549_shen19,J1137+3549,shen19_gnirs50,174.32387500000002,35.83247222222222,6.00204,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1143-3808,HZS-GNIRS50-J1143-3808,GNIRS50-J1143-3808_shen19,J1143+3808,shen19_gnirs50,175.90970833333333,38.141305555555554,5.82516,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1148-0702,HZS-GNIRS50-J1148-0702,GNIRS50-J1148-0702_shen19,J1148+0702,shen19_gnirs50,177.01370833333334,7.035638888888888,6.34412,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1148-5251,HZS-GNIRS50-J1148-5251,GNIRS50-J1148-5251_shen19,J1148+5251,shen19_gnirs50,177.06933333333333,52.86397222222222,6.42201,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1207-0630,HZS-GNIRS50-J1207-0630,GNIRS50-J1207-0630_shen19,J1207+0630,shen19_gnirs50,181.90595833333333,6.502805555555556,6.02793,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1243-2529,HZS-GNIRS50-J1243-2529,GNIRS50-J1243-2529_shen19,J1243+2529,shen19_gnirs50,190.92004166666663,25.489972222222224,5.84308,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1250-3130,HZS-GNIRS50-J1250-3130,GNIRS50-J1250-3130_shen19,J1250+3130,shen19_gnirs50,192.716375,31.50636111111111,6.13728,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1257-6349,HZS-GNIRS50-J1257-6349,GNIRS50-J1257-6349_shen19,J1257+6349,shen19_gnirs50,194.48945833333332,63.827000000000005,5.97714,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1335-3533,HZS-GNIRS50-J1335-3533,GNIRS50-J1335-3533_shen19,J1335+3533,shen19_gnirs50,203.96170833333335,35.55438888888889,5.84703,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1403-0902,HZS-GNIRS50-J1403-0902,GNIRS50-J1403-0902_shen19,J1403+0902,shen19_gnirs50,210.82970833333337,9.047472222222222,5.77302,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1425-3254,HZS-GNIRS50-J1425-3254,GNIRS50-J1425-3254_shen19,J1425+3254,shen19_gnirs50,216.31808333333333,32.90266666666667,5.86147,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1427-3312,HZS-GNIRS50-J1427-3312,GNIRS50-J1427-3312_shen19,J1427+3312,shen19_gnirs50,216.91079166666665,33.21138888888889,6.12115,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1429-5447,HZS-GNIRS50-J1429-5447,GNIRS50-J1429-5447_shen19,J1429+5447,shen19_gnirs50,217.467375,54.78825,6.11548,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1436-5007,HZS-GNIRS50-J1436-5007,GNIRS50-J1436-5007_shen19,J1436+5007,shen19_gnirs50,219.04891666666663,50.11858333333333,5.81132,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1545-6028,HZS-GNIRS50-J1545-6028,GNIRS50-J1545-6028_shen19,J1545+6028,shen19_gnirs50,236.467,60.473333333333336,5.7935,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1602-4228,HZS-GNIRS50-J1602-4228,GNIRS50-J1602-4228_shen19,J1602+4228,shen19_gnirs50,240.72491666666667,42.47358333333334,6.07949,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1609-3041,HZS-GNIRS50-J1609-3041,GNIRS50-J1609-3041_shen19,J1609+3041,shen19_gnirs50,242.40529166666667,30.696555555555555,6.14192,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1621-5155,HZS-GNIRS50-J1621-5155,GNIRS50-J1621-5155_shen19,J1621+5155,shen19_gnirs50,245.25383333333335,51.93025,5.63323,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1623-3112,HZS-GNIRS50-J1623-3112,GNIRS50-J1623-3112_shen19,J1623+3112,shen19_gnirs50,245.88254166666667,31.200138888888887,6.254,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J1630-4012,HZS-GNIRS50-J1630-4012,GNIRS50-J1630-4012_shen19,J1630+4012,shen19_gnirs50,247.64125,40.20266666666667,6.06311,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J2307-0031,HZS-GNIRS50-J2307-0031,GNIRS50-J2307-0031_shen19,J2307+0031,shen19_gnirs50,346.8972916666667,0.5303888888888889,5.90021,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J2329-0403,HZS-GNIRS50-J2329-0403,GNIRS50-J2329-0403_shen19,J2329-0403,shen19_gnirs50,352.31025,-4.056694444444444,5.88263,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-J2356-0023,HZS-GNIRS50-J2356-0023,GNIRS50-J2356-0023_shen19,J2356+0023,shen19_gnirs50,359.2149166666666,0.3925833333333333,5.99266,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-P000-26,HZS-GNIRS50-P000-26,GNIRS50-P000-26_shen19,P000+26,shen19_gnirs50,0.340125,26.83588888888889,5.73276,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-P210-27,HZS-GNIRS50-P210-27,GNIRS50-P210-27_shen19,P210+27,shen19_gnirs50,210.44725,27.82638888888889,6.16694,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-P228-21,HZS-GNIRS50-P228-21,GNIRS50-P228-21_shen19,P228+21,shen19_gnirs50,228.687125,21.238833333333336,5.89177,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GNIRS50-P333-26,HZS-GNIRS50-P333-26,GNIRS50-P333-26_shen19,P333+26,shen19_gnirs50,333.9859583333334,26.10816666666667,6.02651,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GOODS-N-12839,HZS-GOODS-N-12839,GOODSN12839_matthee23,GOODS-N-12839,matthee23_eiger_fresco_blagn,189.34429167,62.26336389,5.241,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GOODS-N-13733,HZS-GOODS-N-13733,GOODSN13733_matthee23,GOODS-N-13733,matthee23_eiger_fresco_blagn,189.05708333,62.26893889,5.236,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GOODS-N-14409,HZS-GOODS-N-14409,GOODSN14409_matthee23,GOODS-N-14409,matthee23_eiger_fresco_blagn,189.07208333,62.27343056,5.139,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GOODS-N-15498,HZS-GOODS-N-15498,GOODSN15498_matthee23,GOODS-N-15498,matthee23_eiger_fresco_blagn,189.28554167,62.28078333,5.086,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GOODS-N-16813,HZS-GOODS-N-16813,GOODSN16813_matthee23,GOODS-N-16813,matthee23_eiger_fresco_blagn,189.17929167,62.29253333,5.355,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GOODS-N-4014,HZS-GOODS-N-4014,GOODSN4014_matthee23,GOODS-N-4014,matthee23_eiger_fresco_blagn,189.300125,62.21204444,5.228,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GOODS-N-9771,HZS-GOODS-N-9771,GOODSN9771_matthee23,GOODS-N-9771,matthee23_eiger_fresco_blagn,189.281,62.24730833,5.538,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-10013704,HZS-GS-10013704,GS10013704_juodzbalis25,GS-10013704,juodzbalis25_jades_blagn,53.12654,-27.81809,5.919,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-159717,HZS-GS-159717,GS159717_juodzbalis25,GS-159717,juodzbalis25_jades_blagn,53.09753,-27.90126,5.077,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-164055,HZS-GS-164055,GS164055_juodzbalis25,GS-164055,juodzbalis25_jades_blagn,53.08168,-27.88857,7.397,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-172975,HZS-GS-172975,GS172975_juodzbalis25,GS-172975,juodzbalis25_jades_blagn,53.08773,-27.87124,4.741,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-20030333,HZS-GS-20030333,GS20030333_juodzbalis25,GS-20030333,juodzbalis25_jades_blagn,53.05373,-27.87789,7.891,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-20057765,HZS-GS-20057765,GS20057765_juodzbalis25,GS-20057765,juodzbalis25_jades_blagn,53.0408,-27.85901,8.913,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-200679,HZS-GS-200679,GS200679_juodzbalis25,GS-200679,juodzbalis25_jades_blagn,53.11392,-27.8062,4.547,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-204851,HZS-GS-204851,GOODSS13971_matthee23,GOODS-S-13971,matthee23_eiger_fresco_blagn,53.13858333,-27.79025,5.481,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-204851,HZS-GS-204851,GS204851_juodzbalis25,GS-204851,juodzbalis25_jades_blagn,53.13859,-27.79025,5.48,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-210600,HZS-GS-210600,GS210600_juodzbalis25,GS-210600,juodzbalis25_jades_blagn,53.16611,-27.77985,6.306,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-30148179,HZS-GS-30148179,GS30148179_juodzbalis25,GS-30148179,juodzbalis25_jades_blagn,53.14208,-27.77985,5.922,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-38562,HZS-GS-38562,GS38562_juodzbalis25,GS-38562,juodzbalis25_jades_blagn,53.13586,-27.87165,4.822,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-GS-8083,HZS-GS-8083,GS8083_juodzbalis25,GS-8083,juodzbalis25_jades_blagn,53.13284,-27.80186,4.753,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0100-12446,HZS-J0100-12446,J010012446_matthee23,J0100-12446,matthee23_eiger_fresco_blagn,15.04825,28.00971667,4.699,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0100-15157,HZS-J0100-15157,J010015157_matthee23,J0100-15157,matthee23_eiger_fresco_blagn,15.03025,28.05017778,4.941,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0100-16221,HZS-J0100-16221,J010016221_matthee23,J0100-16221,matthee23_eiger_fresco_blagn,15.03404167,28.05157778,4.349,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0100-2017,HZS-J0100-2017,J01002017_matthee23,J0100-2017,matthee23_eiger_fresco_blagn,15.05804167,28.07241389,4.938,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0109M3047-BHAE-1,HZS-J0109M3047-BHAE-1,J0109M3047BHAE1_lin24,J0109M3047-BHAE-1,lin24_aspire_blagn,17.4772,-30.8353,4.36,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0148-12884,HZS-J0148-12884,J014812884_matthee23,J0148-12884,matthee23_eiger_fresco_blagn,27.17325,6.01591667,4.602,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0148-4214,HZS-J0148-4214,J01484214_matthee23,J0148-4214,matthee23_eiger_fresco_blagn,27.13870833,5.99723333,5.019,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0148-976,HZS-J0148-976,J0148976_matthee23,J0148-976,matthee23_eiger_fresco_blagn,27.14616667,5.955825,4.163,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0218P0007-BHAE-1,HZS-J0218P0007-BHAE-1,J0218P0007BHAE1_lin24,J0218P0007-BHAE-1,lin24_aspire_blagn,34.695,0.0874,4.2291,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0224M4711-BHAE-1,HZS-J0224M4711-BHAE-1,J0224M4711BHAE1_lin24,J0224M4711-BHAE-1,lin24_aspire_blagn,36.0952,-47.2007,4.0639,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0229M0808-BHAE-1,HZS-J0229M0808-BHAE-1,J0229M0808BHAE1_lin24,J0229M0808-BHAE-1,lin24_aspire_blagn,37.4083,-8.1459,4.3653,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0229M0808-BHAE-2,HZS-J0229M0808-BHAE-2,J0229M0808BHAE2_lin24,J0229M0808-BHAE-2,lin24_aspire_blagn,37.3964,-8.1954,5.0369,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0430M1445-BHAE-1,HZS-J0430M1445-BHAE-1,J0430M1445BHAE1_lin24,J0430M1445-BHAE-1,lin24_aspire_blagn,67.6898,-14.7873,4.0947,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0910M0414-BHAE-1,HZS-J0910M0414-BHAE-1,J0910M0414BHAE1_lin24,J0910M0414-BHAE-1,lin24_aspire_blagn,137.7143,-4.2213,4.9102,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J0923P0402-BHAE-1,HZS-J0923P0402-BHAE-1,J0923P0402BHAE1_lin24,J0923P0402-BHAE-1,lin24_aspire_blagn,140.9658,4.0545,4.8688,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1120-14389,HZS-J1120-14389,J112014389_matthee23,J1120-14389,matthee23_eiger_fresco_blagn,170.00370833,6.71956111,4.897,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1120-7546,HZS-J1120-7546,J11207546_matthee23,J1120-7546,matthee23_eiger_fresco_blagn,169.99941667,6.654725,4.967,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1148-18404,HZS-J1148-18404,J114818404_matthee23,J1148-18404,matthee23_eiger_fresco_blagn,177.05795833,52.86280278,5.011,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1148-21787,HZS-J1148-21787,J114821787_matthee23,J1148-21787,matthee23_eiger_fresco_blagn,177.02141667,52.83362222,4.277,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1148-7111,HZS-J1148-7111,J11487111_matthee23,J1148-7111,matthee23_eiger_fresco_blagn,177.10170833,52.90796111,4.339,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1526M2050-BHAE-1,HZS-J1526M2050-BHAE-1,J1526M2050BHAE1_lin24,J1526M2050-BHAE-1,lin24_aspire_blagn,231.6589,-20.8692,4.1573,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1526M2050-BHAE-2,HZS-J1526M2050-BHAE-2,J1526M2050BHAE2_lin24,J1526M2050-BHAE-2,lin24_aspire_blagn,231.6513,-20.8566,4.8708,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J1526M2050-BHAE-3,HZS-J1526M2050-BHAE-3,J1526M2050BHAE3_lin24,J1526M2050-BHAE-3,lin24_aspire_blagn,231.671,-20.8434,4.8751,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J2002M3013-BHAE-1,HZS-J2002M3013-BHAE-1,J2002M3013BHAE1_lin24,J2002M3013-BHAE-1,lin24_aspire_blagn,300.6666,-30.1814,4.9461,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J2132P1217-BHAE-1,HZS-J2132P1217-BHAE-1,J2132P1217BHAE1_lin24,J2132P1217-BHAE-1,lin24_aspire_blagn,323.1515,12.3108,4.925,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J2232P2930-BHAE-1,HZS-J2232P2930-BHAE-1,J2232P2930BHAE1_lin24,J2232P2930-BHAE-1,lin24_aspire_blagn,338.2275,29.494,4.1349,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J2232P2930-BHAE-2,HZS-J2232P2930-BHAE-2,J2232P2930BHAE2_lin24,J2232P2930-BHAE-2,lin24_aspire_blagn,338.2381,29.5225,4.4693,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-J2232P2930-BHAE-3,HZS-J2232P2930-BHAE-3,J2232P2930BHAE3_lin24,J2232P2930-BHAE-3,lin24_aspire_blagn,338.2325,29.5094,4.7061,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-13872,HZS-RUBIES-EGS-13872,RUBIESEGS13872_taylor24,RUBIES-EGS-13872,taylor24_ceers_rubies_blagn,215.132933,52.970705,5.262,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-17146,HZS-RUBIES-EGS-17146,RUBIESEGS17146_taylor24,RUBIES-EGS-17146,taylor24_ceers_rubies_blagn,214.949482,52.845415,5.0,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-28812,HZS-RUBIES-EGS-28812,RUBIESEGS28812_taylor24,RUBIES-EGS-28812,taylor24_ceers_rubies_blagn,214.924149,52.84905,4.222,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-29489,HZS-RUBIES-EGS-29489,RUBIESEGS29489_taylor24,RUBIES-EGS-29489,taylor24_ceers_rubies_blagn,215.022071,52.920786,4.543,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-37124,HZS-RUBIES-EGS-37124,RUBIESEGS37124_taylor24,RUBIES-EGS-37124,taylor24_ceers_rubies_blagn,214.990977,52.916524,5.682,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-42046,HZS-RUBIES-EGS-42046,RUBIESEGS42046_taylor24,RUBIES-EGS-42046,taylor24_ceers_rubies_blagn,214.795368,52.788847,5.276,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-42232,HZS-RUBIES-EGS-42232,RUBIESEGS42232_taylor24,RUBIES-EGS-42232,taylor24_ceers_rubies_blagn,214.886792,52.855381,4.954,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-45599,HZS-RUBIES-EGS-45599,RUBIESEGS45599_taylor24,RUBIES-EGS-45599,taylor24_ceers_rubies_blagn,214.831103,52.824124,4.862,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-46985,HZS-RUBIES-EGS-46985,RUBIESEGS46985_taylor24,RUBIES-EGS-46985,taylor24_ceers_rubies_blagn,214.805654,52.809497,4.963,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-49140,HZS-RUBIES-EGS-49140,RUBIESEGS49140_taylor24,RUBIES-EGS-49140,taylor24_ceers_rubies_blagn,214.892248,52.87741,6.685,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-60935,HZS-RUBIES-EGS-60935,RUBIESEGS60935_taylor24,RUBIES-EGS-60935,taylor24_ceers_rubies_blagn,214.923373,52.925593,5.287,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-6411,HZS-RUBIES-EGS-6411,RUBIESEGS6411_taylor24,RUBIES-EGS-6411,taylor24_ceers_rubies_blagn,215.109185,52.93977,4.88,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-EGS-926125,HZS-RUBIES-EGS-926125,RUBIESEGS926125_taylor24,RUBIES-EGS-926125,taylor24_ceers_rubies_blagn,215.137081,52.988554,5.284,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-119957,HZS-RUBIES-UDS-119957,RUBIESUDS119957_taylor24,RUBIES-UDS-119957,taylor24_ceers_rubies_blagn,34.268908,-5.176722,4.149,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-139709,HZS-RUBIES-UDS-139709,RUBIESUDS139709_taylor24,RUBIES-UDS-139709,taylor24_ceers_rubies_blagn,34.296002,-5.149895,5.685,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-143683,HZS-RUBIES-UDS-143683,RUBIESUDS143683_taylor24,RUBIES-UDS-143683,taylor24_ceers_rubies_blagn,34.316389,-5.144678,4.226,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-155916,HZS-RUBIES-UDS-155916,RUBIESUDS155916_taylor24,RUBIES-UDS-155916,taylor24_ceers_rubies_blagn,34.317031,-5.127611,4.098,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-172350,HZS-RUBIES-UDS-172350,RUBIESUDS172350_taylor24,RUBIES-UDS-172350,taylor24_ceers_rubies_blagn,34.368951,-5.103941,5.58,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-174752,HZS-RUBIES-UDS-174752,RUBIESUDS174752_taylor24,RUBIES-UDS-174752,taylor24_ceers_rubies_blagn,34.205808,-5.1005,6.039,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-182791,HZS-RUBIES-UDS-182791,RUBIESUDS182791_taylor24,RUBIES-UDS-182791,taylor24_ceers_rubies_blagn,34.213813,-5.08705,4.718,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-19484,HZS-RUBIES-UDS-19484,RUBIESUDS19484_taylor24,RUBIES-UDS-19484,taylor24_ceers_rubies_blagn,34.232426,-5.280654,4.656,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-19521,HZS-RUBIES-UDS-19521,RUBIESUDS19521_taylor24,RUBIES-UDS-19521,taylor24_ceers_rubies_blagn,34.383672,-5.287732,5.669,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-29813,HZS-RUBIES-UDS-29813,RUBIESUDS29813_taylor24,RUBIES-UDS-29813,taylor24_ceers_rubies_blagn,34.453355,-5.270717,5.44,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-30969,HZS-RUBIES-UDS-30969,RUBIESUDS30969_taylor24,RUBIES-UDS-30969,taylor24_ceers_rubies_blagn,34.296356,-5.268672,4.0,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-31747,HZS-RUBIES-UDS-31747,RUBIESUDS31747_taylor24,RUBIES-UDS-31747,taylor24_ceers_rubies_blagn,34.223757,-5.260245,4.13,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-35974,HZS-RUBIES-UDS-35974,RUBIESUDS35974_taylor24,RUBIES-UDS-35974,taylor24_ceers_rubies_blagn,34.331644,-5.260593,4.367,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-47509,HZS-RUBIES-UDS-47509,RUBIESUDS47509_taylor24,RUBIES-UDS-47509,taylor24_ceers_rubies_blagn,34.264602,-5.232586,5.673,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-48507,HZS-RUBIES-UDS-48507,RUBIESUDS48507_taylor24,RUBIES-UDS-48507,taylor24_ceers_rubies_blagn,34.284578,-5.230702,4.468,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-63139,HZS-RUBIES-UDS-63139,RUBIESUDS63139_taylor24,RUBIES-UDS-63139,taylor24_ceers_rubies_blagn,34.230848,-5.202607,4.435,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-807469,HZS-RUBIES-UDS-807469,RUBIESUDS807469_taylor24,RUBIES-UDS-807469,taylor24_ceers_rubies_blagn,34.376139,-5.310366,6.778,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-RUBIES-UDS-970351,HZS-RUBIES-UDS-970351,RUBIESUDS970351_taylor24,RUBIES-UDS-970351,taylor24_ceers_rubies_blagn,34.2619,-5.105205,5.282,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-THRILS-101567,HZS-THRILS-101567,THRILS101567_davis26,THRILS-101567,davis26_thrils_blagn,214.831734,52.867166,5.33,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-THRILS-24975,HZS-THRILS-24975,THRILS24975_davis26,THRILS-24975,davis26_thrils_blagn,214.940291,52.941319,4.4,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-THRILS-25501,HZS-THRILS-25501,THRILS25501_davis26,THRILS-25501,davis26_thrils_blagn,214.863029,52.889436,6.57,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-THRILS-40467,HZS-THRILS-40467,THRILS40467_davis26,THRILS-40467,davis26_thrils_blagn,214.923949,52.948385,5.27,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-THRILS-44774,HZS-THRILS-44774,THRILS44774_davis26,THRILS-44774,davis26_thrils_blagn,214.828433,52.853442,5.11,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-THRILS-49400,HZS-THRILS-49400,THRILS49400_davis26,THRILS-49400,davis26_thrils_blagn,215.000179,52.907742,5.11,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-UHZ1,HZS-UHZ1,UHZ1_bogdan24,UHZ1,uhz1_xray_evidence_history,3.567066666666667,-30.37785694444445,10.3,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-UHZ1,HZS-UHZ1,UHZ1_zou26,UHZ1 / UNCOVER-26185,uhz1_xray_evidence_history,3.567066666666667,-30.37785694444445,10.054,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-CFHQS-J1509-1749,HZS-XQR30-CFHQS-J1509-1749,XQR30-CFHQS-J1509-1749_mazzucchelli23,CFHQSJ1509-1,xqr30_mazzucchelli23,227.42408333333333,-17.82411111111111,6.1225,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-CFHQS-J1509-1749,HZS-XQR30-CFHQS-J1509-1749,XQR30-CFHQS-J1509-1749_mazzucchelli23,CFHQS J1509-1749,xqr30_mazzucchelli23,227.42408333333333,-17.82411111111111,6.1225,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-DELS-J0923-0402,HZS-XQR30-DELS-J0923-0402,XQR30-DELS-J0923-0402_mazzucchelli23,J0923+0402,xqr30_mazzucchelli23,140.94633333333334,4.048444444444445,6.633,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-DELS-J0923-0402,HZS-XQR30-DELS-J0923-0402,XQR30-DELS-J0923-0402_mazzucchelli23,DELS J0923+0402,xqr30_mazzucchelli23,140.94633333333334,4.048444444444445,6.633,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-DELS-J1535-1943,HZS-XQR30-DELS-J1535-1943,XQR30-DELS-J1535-1943_mazzucchelli23,J1535+1943,xqr30_mazzucchelli23,233.88695833333335,19.72225,6.37,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-DELS-J1535-1943,HZS-XQR30-DELS-J1535-1943,XQR30-DELS-J1535-1943_mazzucchelli23,DELS J1535+1943,xqr30_mazzucchelli23,233.88695833333335,19.72225,6.37,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J007-04,HZS-XQR30-PSO-J007-04,GNIRS50-J0028-0457_shen19,J0028+0457,shen19_gnirs50,7.027333333333334,4.957138888888889,5.96005,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J007-04,HZS-XQR30-PSO-J007-04,XQR30-PSO-J007-04_mazzucchelli23,PSOJ007+04,xqr30_mazzucchelli23,7.027333333333334,4.957122222222222,6.0015,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J007-04,HZS-XQR30-PSO-J007-04,XQR30-PSO-J007-04_mazzucchelli23,PSO J007+04,xqr30_mazzucchelli23,7.027333333333334,4.957122222222222,6.0015,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J009-10,HZS-XQR30-PSO-J009-10,XQR30-PSO-J009-10_mazzucchelli23,PSOJ009-10,xqr30_mazzucchelli23,9.7355,-10.43163888888889,6.004,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J009-10,HZS-XQR30-PSO-J009-10,XQR30-PSO-J009-10_mazzucchelli23,PSO J009-10,xqr30_mazzucchelli23,9.7355,-10.43163888888889,6.004,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J023-02,HZS-XQR30-PSO-J023-02,XQR30-PSO-J023-02_mazzucchelli23,PSOJ023-02,xqr30_mazzucchelli23,23.00708333333333,-2.2675305555555556,5.9,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J023-02,HZS-XQR30-PSO-J023-02,XQR30-PSO-J023-02_mazzucchelli23,PSO J023-02,xqr30_mazzucchelli23,23.00708333333333,-2.2675305555555556,5.9,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J025-11,HZS-XQR30-PSO-J025-11,XQR30-PSO-J025-11_mazzucchelli23,PSOJ025-11,xqr30_mazzucchelli23,25.237625,-11.683188888888887,5.85,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J025-11,HZS-XQR30-PSO-J025-11,XQR30-PSO-J025-11_mazzucchelli23,PSO J025-11,xqr30_mazzucchelli23,25.237625,-11.683188888888887,5.85,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J029-29,HZS-XQR30-PSO-J029-29,XQR30-PSO-J029-29_mazzucchelli23,PSOJ029-29,xqr30_mazzucchelli23,29.51725,-29.088680555555555,5.984,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J029-29,HZS-XQR30-PSO-J029-29,XQR30-PSO-J029-29_mazzucchelli23,PSO J029-29,xqr30_mazzucchelli23,29.51725,-29.088680555555555,5.984,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J036-03,HZS-XQR30-PSO-J036-03,XQR30-PSO-J036-03_mazzucchelli23,PSOJ036+03,xqr30_mazzucchelli23,36.50779166666667,3.0497888888888887,6.5405,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J036-03,HZS-XQR30-PSO-J036-03,XQR30-PSO-J036-03_mazzucchelli23,PSO J036+03,xqr30_mazzucchelli23,36.50779166666667,3.0497888888888887,6.5405,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J060-24,HZS-XQR30-PSO-J060-24,GNIRS50-P060-24_shen19,P060+24,shen19_gnirs50,60.55287499999999,24.85677777777778,6.17377,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J060-24,HZS-XQR30-PSO-J060-24,XQR30-PSO-J060-24_mazzucchelli23,PSOJ060+24,xqr30_mazzucchelli23,60.55287499999999,24.856783333333336,6.18,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J060-24,HZS-XQR30-PSO-J060-24,XQR30-PSO-J060-24_mazzucchelli23,PSO J060+24,xqr30_mazzucchelli23,60.55287499999999,24.856783333333336,6.18,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J065-01,HZS-XQR30-PSO-J065-01,XQR30-PSO-J065-01_mazzucchelli23,PSOJ065+01,xqr30_mazzucchelli23,65.95895833333334,1.723552777777778,5.79,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J065-01,HZS-XQR30-PSO-J065-01,XQR30-PSO-J065-01_mazzucchelli23,PSO J065+01,xqr30_mazzucchelli23,65.95895833333334,1.723552777777778,5.79,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J065-26,HZS-XQR30-PSO-J065-26,XQR30-PSO-J065-26_mazzucchelli23,PSOJ065-26,xqr30_mazzucchelli23,65.40854166666665,-26.954333333333334,6.1871,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J065-26,HZS-XQR30-PSO-J065-26,XQR30-PSO-J065-26_mazzucchelli23,PSO J065-26,xqr30_mazzucchelli23,65.40854166666665,-26.954333333333334,6.1871,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J089-15,HZS-XQR30-PSO-J089-15,XQR30-PSO-J089-15_mazzucchelli23,PSOJ089-15,xqr30_mazzucchelli23,89.93945833333333,-15.583388888888887,5.957,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J089-15,HZS-XQR30-PSO-J089-15,XQR30-PSO-J089-15_mazzucchelli23,PSO J089-15,xqr30_mazzucchelli23,89.93945833333333,-15.583388888888887,5.957,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J108-08,HZS-XQR30-PSO-J108-08,XQR30-PSO-J108-08_mazzucchelli23,PSOJ108+08,xqr30_mazzucchelli23,108.44295833333334,8.92573611111111,5.9485,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J108-08,HZS-XQR30-PSO-J108-08,XQR30-PSO-J108-08_mazzucchelli23,PSO J108+08,xqr30_mazzucchelli23,108.44295833333334,8.92573611111111,5.9485,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J158-14,HZS-XQR30-PSO-J158-14,XQR30-PSO-J158-14_mazzucchelli23,PSOJ158-14,xqr30_mazzucchelli23,158.69375,-14.420994444444444,6.0685,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J158-14,HZS-XQR30-PSO-J158-14,XQR30-PSO-J158-14_mazzucchelli23,PSO J158-14,xqr30_mazzucchelli23,158.69375,-14.420994444444444,6.0685,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J183-05,HZS-XQR30-PSO-J183-05,XQR30-PSO-J183-05_mazzucchelli23,PSOJ183+05,xqr30_mazzucchelli23,183.11241666666663,5.092636111111111,6.4386,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J183-05,HZS-XQR30-PSO-J183-05,XQR30-PSO-J183-05_mazzucchelli23,PSO J183+05,xqr30_mazzucchelli23,183.11241666666663,5.092636111111111,6.4386,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J183-12,HZS-XQR30-PSO-J183-12,XQR30-PSO-J183-12_mazzucchelli23,PSOJ183-12,xqr30_mazzucchelli23,183.29920833333333,-12.767625,5.86,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J183-12,HZS-XQR30-PSO-J183-12,XQR30-PSO-J183-12_mazzucchelli23,PSO J183-12,xqr30_mazzucchelli23,183.29920833333333,-12.767625,5.86,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J217-07,HZS-XQR30-PSO-J217-07,XQR30-PSO-J217-07_mazzucchelli23,PSOJ217-07,xqr30_mazzucchelli23,217.9185416666667,-7.412027777777778,6.1663,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J217-07,HZS-XQR30-PSO-J217-07,XQR30-PSO-J217-07_mazzucchelli23,PSO J217-07,xqr30_mazzucchelli23,217.9185416666667,-7.412027777777778,6.1663,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J217-16,HZS-XQR30-PSO-J217-16,XQR30-PSO-J217-16_mazzucchelli23,PSOJ217-16,xqr30_mazzucchelli23,217.089125,-16.045361111111113,6.1498,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J217-16,HZS-XQR30-PSO-J217-16,XQR30-PSO-J217-16_mazzucchelli23,PSO J217-16,xqr30_mazzucchelli23,217.089125,-16.045361111111113,6.1498,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J231-20,HZS-XQR30-PSO-J231-20,XQR30-PSO-J231-20_mazzucchelli23,PSOJ231-20,xqr30_mazzucchelli23,231.65766666666667,-20.833516666666664,6.5869,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J231-20,HZS-XQR30-PSO-J231-20,XQR30-PSO-J231-20_mazzucchelli23,PSO J231-20,xqr30_mazzucchelli23,231.65766666666667,-20.833516666666664,6.5869,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J239-07,HZS-XQR30-PSO-J239-07,XQR30-PSO-J239-07_mazzucchelli23,PSOJ239-07,xqr30_mazzucchelli23,239.71245833333336,-7.402663888888889,6.1102,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J239-07,HZS-XQR30-PSO-J239-07,XQR30-PSO-J239-07_mazzucchelli23,PSO J239-07,xqr30_mazzucchelli23,239.71245833333336,-7.402663888888889,6.1102,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J242-12,HZS-XQR30-PSO-J242-12,XQR30-PSO-J242-12_mazzucchelli23,PSOJ242-12,xqr30_mazzucchelli23,242.43970833333327,-12.981697222222222,5.83,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J242-12,HZS-XQR30-PSO-J242-12,XQR30-PSO-J242-12_mazzucchelli23,PSO J242-12,xqr30_mazzucchelli23,242.43970833333327,-12.981697222222222,5.83,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J308-27,HZS-XQR30-PSO-J308-27,XQR30-PSO-J308-27_mazzucchelli23,PSOJ308-27,xqr30_mazzucchelli23,308.4829583333334,-27.6485,5.7985,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J308-27,HZS-XQR30-PSO-J308-27,XQR30-PSO-J308-27_mazzucchelli23,PSO J308-27,xqr30_mazzucchelli23,308.4829583333334,-27.6485,5.7985,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J323-12,HZS-XQR30-PSO-J323-12,XQR30-PSO-J323-12_mazzucchelli23,PSOJ323+12,xqr30_mazzucchelli23,323.1382916666667,12.298683333333331,6.5872,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J323-12,HZS-XQR30-PSO-J323-12,XQR30-PSO-J323-12_mazzucchelli23,PSO J323+12,xqr30_mazzucchelli23,323.1382916666667,12.298683333333331,6.5872,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J359-06,HZS-XQR30-PSO-J359-06,XQR30-PSO-J359-06_mazzucchelli23,PSOJ359-06,xqr30_mazzucchelli23,359.1352083333333,-6.383127777777777,6.1722,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-PSO-J359-06,HZS-XQR30-PSO-J359-06,XQR30-PSO-J359-06_mazzucchelli23,PSO J359-06,xqr30_mazzucchelli23,359.1352083333333,-6.383127777777777,6.1722,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0100-2802,HZS-XQR30-SDSS-J0100-2802,XQR30-SDSS-J0100-2802_mazzucchelli23,SDSSJ0100+28,xqr30_mazzucchelli23,15.05425,28.0405,6.3268,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0100-2802,HZS-XQR30-SDSS-J0100-2802,XQR30-SDSS-J0100-2802_mazzucchelli23,SDSS J0100+2802,xqr30_mazzucchelli23,15.05425,28.0405,6.3268,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0818-1722,HZS-XQR30-SDSS-J0818-1722,XQR30-SDSS-J0818-1722_mazzucchelli23,SDSSJ0818+17,xqr30_mazzucchelli23,124.61416666666666,17.38111388888889,5.96,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0818-1722,HZS-XQR30-SDSS-J0818-1722,XQR30-SDSS-J0818-1722_mazzucchelli23,SDSS J0818+1722,xqr30_mazzucchelli23,124.61416666666666,17.38111388888889,5.96,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0836-0054,HZS-XQR30-SDSS-J0836-0054,GNIRS50-J0836-0054_shen19,J0836+0054,shen19_gnirs50,129.18270833333332,0.9148055555555556,5.83428,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0836-0054,HZS-XQR30-SDSS-J0836-0054,XQR30-SDSS-J0836-0054_mazzucchelli23,SDSSJ0836+00,xqr30_mazzucchelli23,129.18275,0.9147944444444444,5.773,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0836-0054,HZS-XQR30-SDSS-J0836-0054,XQR30-SDSS-J0836-0054_mazzucchelli23,SDSS J0836+0054,xqr30_mazzucchelli23,129.18275,0.9147944444444444,5.773,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0842-1218,HZS-XQR30-SDSS-J0842-1218,GNIRS50-J0842-1218_shen19,J0842+1218,shen19_gnirs50,130.62262499999997,12.31402777777778,6.06925,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0842-1218,HZS-XQR30-SDSS-J0842-1218,XQR30-SDSS-J0842-1218_mazzucchelli23,SDSSJ0842+1218,xqr30_mazzucchelli23,130.62262499999997,12.31405,6.0754,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0842-1218,HZS-XQR30-SDSS-J0842-1218,XQR30-SDSS-J0842-1218_mazzucchelli23,SDSS J0842+1218,xqr30_mazzucchelli23,130.62262499999997,12.31405,6.0754,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0927-2001,HZS-XQR30-SDSS-J0927-2001,GNIRS50-J0927-2001_shen19,J0927+2001,shen19_gnirs50,141.84091666666666,20.023249999999997,5.76991,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0927-2001,HZS-XQR30-SDSS-J0927-2001,XQR30-SDSS-J0927-2001_mazzucchelli23,SDSSJ0927+20,xqr30_mazzucchelli23,141.84091666666666,20.023233333333337,5.7722,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J0927-2001,HZS-XQR30-SDSS-J0927-2001,XQR30-SDSS-J0927-2001_mazzucchelli23,SDSS J0927+2001,xqr30_mazzucchelli23,141.84091666666666,20.023233333333337,5.7722,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J1030-0524,HZS-XQR30-SDSS-J1030-0524,XQR30-SDSS-J1030-0524_mazzucchelli23,SDSSJ1030+05,xqr30_mazzucchelli23,157.61295833333335,5.415294444444445,6.304,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J1030-0524,HZS-XQR30-SDSS-J1030-0524,XQR30-SDSS-J1030-0524_mazzucchelli23,SDSS J1030+0524,xqr30_mazzucchelli23,157.61295833333335,5.415294444444445,6.304,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J1306-0356,HZS-XQR30-SDSS-J1306-0356,XQR30-SDSS-J1306-0356_mazzucchelli23,SDSSJ1306+03,xqr30_mazzucchelli23,196.53441666666663,3.9406083333333335,6.033,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J1306-0356,HZS-XQR30-SDSS-J1306-0356,XQR30-SDSS-J1306-0356_mazzucchelli23,SDSS J1306+0356,xqr30_mazzucchelli23,196.53441666666663,3.9406083333333335,6.033,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J2310-1855,HZS-XQR30-SDSS-J2310-1855,GNIRS50-J2310-1855_shen19,J2310+1855,shen19_gnirs50,347.66200000000003,18.92213888888889,5.95734,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J2310-1855,HZS-XQR30-SDSS-J2310-1855,XQR30-SDSS-J2310-1855_mazzucchelli23,SDSSJ2310+18,xqr30_mazzucchelli23,347.66204166666665,18.92213888888889,6.0031,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-SDSS-J2310-1855,HZS-XQR30-SDSS-J2310-1855,XQR30-SDSS-J2310-1855_mazzucchelli23,SDSS J2310+1855,xqr30_mazzucchelli23,347.66204166666665,18.92213888888889,6.0031,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-ULAS-J0148-0600,HZS-XQR30-ULAS-J0148-0600,XQR30-ULAS-J0148-0600_mazzucchelli23,ULASJ0148+06,xqr30_mazzucchelli23,27.156833333333335,6.005572222222222,5.977,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-ULAS-J0148-0600,HZS-XQR30-ULAS-J0148-0600,XQR30-ULAS-J0148-0600_mazzucchelli23,ULAS J0148+0600,xqr30_mazzucchelli23,27.156833333333335,6.005572222222222,5.977,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-ULAS-J1319-0950,HZS-XQR30-ULAS-J1319-0950,XQR30-ULAS-J1319-0950_mazzucchelli23,ULASJ1319+09,xqr30_mazzucchelli23,199.79704166666667,9.847636111111113,6.1347,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-ULAS-J1319-0950,HZS-XQR30-ULAS-J1319-0950,XQR30-ULAS-J1319-0950_mazzucchelli23,ULAS J1319+0950,xqr30_mazzucchelli23,199.79704166666667,9.847636111111113,6.1347,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J0224-4711,HZS-XQR30-VDES-J0224-4711,XQR30-VDES-J0224-4711_mazzucchelli23,VDESJ0224-4711,xqr30_mazzucchelli23,36.11058333333333,-47.1915,6.526,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J0224-4711,HZS-XQR30-VDES-J0224-4711,XQR30-VDES-J0224-4711_mazzucchelli23,VDES J0224-4711,xqr30_mazzucchelli23,36.11058333333333,-47.1915,6.526,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J0408-5632,HZS-XQR30-VDES-J0408-5632,XQR30-VDES-J0408-5632_mazzucchelli23,J0408-5632,xqr30_mazzucchelli23,62.080125,-56.541333333333334,6.0345,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J0408-5632,HZS-XQR30-VDES-J0408-5632,XQR30-VDES-J0408-5632_mazzucchelli23,VDES J0408-5632,xqr30_mazzucchelli23,62.080125,-56.541333333333334,6.0345,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J2211-3206,HZS-XQR30-VDES-J2211-3206,XQR30-VDES-J2211-3206_mazzucchelli23,VIK J2211-3206,xqr30_mazzucchelli23,332.8007083333333,-32.10359444444445,6.3394,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J2211-3206,HZS-XQR30-VDES-J2211-3206,XQR30-VDES-J2211-3206_mazzucchelli23,VDES J2211-3206,xqr30_mazzucchelli23,332.8007083333333,-32.10359444444445,6.3394,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J2250-5015,HZS-XQR30-VDES-J2250-5015,XQR30-VDES-J2250-5015_mazzucchelli23,VDES J2250-5051,xqr30_mazzucchelli23,342.508375,-50.261722222222225,5.9767,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VDES-J2250-5015,HZS-XQR30-VDES-J2250-5015,XQR30-VDES-J2250-5015_mazzucchelli23,VDES J2250-5015,xqr30_mazzucchelli23,342.508375,-50.261722222222225,5.9767,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VST-ATLAS-J025-33,HZS-XQR30-VST-ATLAS-J025-33,XQR30-VST-ATLAS-J025-33_mazzucchelli23,ATLASJ025-33,xqr30_mazzucchelli23,25.682166666666667,-33.462669444444444,6.3373,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VST-ATLAS-J025-33,HZS-XQR30-VST-ATLAS-J025-33,XQR30-VST-ATLAS-J025-33_mazzucchelli23,VST-ATLAS J025-33,xqr30_mazzucchelli23,25.682166666666667,-33.462669444444444,6.3373,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VST-ATLAS-J029-36,HZS-XQR30-VST-ATLAS-J029-36,XQR30-VST-ATLAS-J029-36_mazzucchelli23,ATLASJ029-36,xqr30_mazzucchelli23,29.991541666666667,-36.56572222222222,6.02,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-VST-ATLAS-J029-36,HZS-XQR30-VST-ATLAS-J029-36,XQR30-VST-ATLAS-J029-36_mazzucchelli23,VST-ATLAS J029-36,xqr30_mazzucchelli23,29.991541666666667,-36.56572222222222,6.02,source_object_id
+v7.3-accreting-atlas-catalogue,HZA-XQR30-WISEA-J0439-1634,HZS-XQR30-WISEA-J0439-1634,XQR30-WISEA-J0439-1634_mazzucchelli23,QSOJ0439+1634,xqr30_mazzucchelli23,69.94616666666668,16.57111388888889,6.5188,mass_table_alias
+v7.3-accreting-atlas-catalogue,HZA-XQR30-WISEA-J0439-1634,HZS-XQR30-WISEA-J0439-1634,XQR30-WISEA-J0439-1634_mazzucchelli23,WISEA J0439+1634,xqr30_mazzucchelli23,69.94616666666668,16.57111388888889,6.5188,source_object_id

@@ -211,10 +211,14 @@ def assemble_source_family_batch(
     columns = list(dict.fromkeys([
         *prior_measurements.columns, *new_measurements.columns,
     ]))
-    measurements = pd.concat([
-        prior_measurements.reindex(columns=columns),
-        new_measurements.reindex(columns=columns),
-    ], ignore_index=True)
+    # Omit source-specific columns that are entirely missing in the new batch
+    # during concatenation; reindex restores the union afterward. This keeps
+    # dtype inference deterministic across the pandas 2.x/3.x transition.
+    prior_aligned = prior_measurements.reindex(columns=columns)
+    new_aligned = new_measurements.reindex(columns=columns).dropna(axis=1, how="all")
+    measurements = pd.concat(
+        [prior_aligned, new_aligned], ignore_index=True, sort=False,
+    ).reindex(columns=columns)
     validate_v7_admission(measurements)
     validate_standardized_compatibility(measurements)
 
