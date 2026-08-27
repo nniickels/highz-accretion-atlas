@@ -36,7 +36,7 @@ class V73ResultsGalleryTests(unittest.TestCase):
 
     def test_results_inventory_is_unique_and_categorized(self) -> None:
         inventory = pd.read_csv(ROOT / "results/results_inventory.csv")
-        self.assertEqual(len(inventory), 868)
+        self.assertEqual(len(inventory), 882)
         self.assertTrue(inventory["path"].is_unique)
         v1_inventory = inventory[inventory["release"].eq("v1")]
         self.assertEqual(

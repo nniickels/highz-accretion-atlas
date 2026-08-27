@@ -983,3 +983,32 @@ For every future Codex contribution that changes repository files:
   pass, canonical v5 figure hashes pass, and `git diff --check` is clean.
 - **Status:** Complete and verified locally; commit, push, clean-worktree
   verification, and remote CI pending.
+
+### 2026-08-27 - Complete integrated v7.5 research release
+
+- **Objective:** Complete the next four milestones: provenance/evidence-policy
+  closure, current class-aware science, current figures/full-gallery coverage,
+  and manuscript/publication packaging.
+- **Contribution:** Added the complete 41-row Scholtz source-native table and
+  proved the exact 21-row `z >= 4` subset; admitted the omitted
+  JADES-NS-GS00099671 row without inventing a mass; introduced preferred-row
+  object evidence aggregation with full status history; released the 234/219/218
+  catalogue and eight current science tables; generated four visually inspected
+  high-resolution figures; indexed all 219 objects against the complete inherited
+  588-image/six-grid gallery; and added the authoritative seven-page manuscript,
+  citation metadata, license, release notes, claim/citation audits, contribution
+  guidance, CI gates, and catalogue/science/figure/publication manifests.
+- **Scientific/technical effect:** Frozen v7.4 bytes remain unchanged. Growth
+  eligibility stays at 209 measurements / 196 objects because the corrected
+  source row has no canonical black-hole mass. The preferred secure JADES 8083
+  row again controls its object status, raising the primary object count to 171,
+  while its candidate alternate remains auditable. All 23 catalogue-only objects
+  are explicit in current gallery coverage and all 48 excluded measurement/object
+  rows are explicit in current science.
+- **Validation:** All 231 regression tests pass. v7.4 catalogue and gallery
+  gates still pass. All four v7.5 release gates pass with exact hashes and
+  in-memory reproduction where applicable. The manuscript compiled without TeX
+  layout warnings; all seven rendered pages and all four source figures were
+  visually inspected. `git diff --check` passes.
+- **Status:** Complete and verified locally; commit, clean-worktree verification,
+  push, and remote CI pending.

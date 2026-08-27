@@ -73,12 +73,12 @@ Appendix or supplement products:
 - sensitivity tests
 - source-by-source caveats
 
-The current v7.4 growth collection covers every eligible object: 196 parameter
+The complete growth collection covers every eligible object: 196 parameter
 map sheets, 196 seed-redshift maps, and 196 growth tracks, organized by object
 class under `results/releases/v7_4/galleries/per_object/`. Six large class grids
 under `compiled_by_class/` provide zoomable compilations. Class-specific
 compatibility fractions are tabulated separately; no heterogeneous pooled
-fraction is reported. A coverage audit records all 22 ineligible objects and
+fraction is reported. The current v7.5 coverage audit records all 23 ineligible objects and
 why a growth product is unavailable. Start with `results/README.md` or the
 machine-readable `results/results_inventory.csv` to navigate the full tree.
 
@@ -90,10 +90,11 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue layer is **v7.4**, the current science
-layer is **v7.2**, and v5 remains the deliberate paper-figure release. v7.4
-adds the JADES narrow-line/high-ionization family without changing frozen v7.2
-science products:
+paper versions. The current integrated catalogue, science, figure, and
+manuscript release is **v7.5**. It corrects the audited JADES
+narrow/high-ionization membership, applies the preferred-measurement object
+evidence policy, and advances the class-aware science without rewriting frozen
+releases:
 
 | Release | Meaning | Canonical products |
 | --- | --- | --- |
@@ -109,11 +110,12 @@ science products:
 | v7.2 science | Class-aware growth-pressure rankings on frozen v7.2 with separate mass-method strata and uncertainty boundaries | `v7_2_class_aware_*` |
 | v7.3 catalogue | Frozen v7.2 plus the original and reanalysed UHZ1 X-ray evidence versions as one disputed physical object | `v7_3_accreting_*`, `v7_3_host_systems.csv` |
 | v7.4 catalogue | Frozen v7.3 plus all 20 tabulated Scholtz et al. candidates at z >= 4, including one reviewed JADES 8083 repeat | `v7_4_accreting_*`, `v7_4_host_systems.csv` |
+| v7.5 integrated release | Exact 21-row Scholtz z >= 4 subset, preferred-measurement object evidence, current class-aware science, four figures, gallery coverage, and manuscript | `v7_5_*`, `paper/highz_accretion_atlas_v7_5.*` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
 version independently. See `docs/release-versioning.md` for the full mapping.
-The shared pinned v4.0.1--v7.4 core environment is in `requirements-lock.txt`; verify
+The shared pinned v4.0.1--v7.5 core environment is in `requirements-lock.txt`; verify
 every frozen v4 CSV without writing outputs with
 `python -m scripts.verify_v4_release --reproduce`. The frozen v5 catalogue and
 science tables have an equivalent non-writing gate:
@@ -126,9 +128,14 @@ The frozen v7.1 layer is checked independently by
 `python -m scripts.verify_v7_2_catalogue --reproduce`; the class-aware science
 layer is checked by `python -m scripts.verify_v7_2_science --reproduce`.
 Frozen v7.3 is checked by `python -m scripts.verify_v7_3_catalogue --reproduce`;
-current v7.4 is checked by `python -m scripts.verify_v7_4_catalogue --reproduce`.
+frozen v7.4 is checked by `python -m scripts.verify_v7_4_catalogue --reproduce`.
 The complete v7.4 growth-product layer is checked independently by
 `python -m scripts.verify_v7_4_growth_products`.
+The current integrated release is checked by
+`python -m scripts.verify_v7_5_catalogue --reproduce`,
+`python -m scripts.verify_v7_5_science --reproduce`,
+`python -m scripts.verify_v7_5_figures`, and
+`python -m scripts.verify_v7_5_publication`.
 
 All release gates verify exact artifact membership and checked-in bytes against
 SHA-256 manifests.
@@ -319,6 +326,27 @@ unchanged; the conservative all-measurements evidence aggregate removes JADES
 8083 from the catalogue-level primary-object subset. See
 `docs/scholtz25-jades-narrow-line-extraction-notes.md`.
 
+Current v7.5 integrated reproduction:
+
+```powershell
+python -m scripts.process_v7_5_catalogue
+python -m scripts.generate_v7_5_class_aware_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v7_5_figures
+python -m scripts.verify_v7_5_catalogue --reproduce
+python -m scripts.verify_v7_5_science --reproduce
+python -m scripts.verify_v7_5_figures
+python -m scripts.verify_v7_5_publication
+```
+
+v7.5 contains 234 measurements, 219 objects, and 218 host systems. The full
+Scholtz source-table audit proves 21 rows at `z >= 4`; the newly admitted row
+has no invented black-hole mass. Current science retains 196 eligible objects,
+and current figures plus the inherited gallery cover every one. See
+`docs/v7.5-release-notes.md` and `paper/`.
+The field-level and analysis contracts are documented in
+`docs/v7.5-catalogue-schema.md` and
+`docs/v7.5-class-aware-science-workflow.md`.
+
 ## Getting Started
 
 Requirements and full run instructions are documented in
@@ -365,8 +393,8 @@ from-raw reproduction instructions for v1--v6 and the frozen earlier figure
 sets are in `docs/getting-started.md`.
 
 The Python package version follows the current implemented science milestone
-(`7.2.0`). It is distinct from immutable source-paper versions,
-catalogue labels such as `v7.2-accreting-atlas-catalogue`, and maintenance
+(`7.5.0`). It is distinct from immutable source-paper versions,
+catalogue labels such as `v7.5-accreting-atlas-catalogue`, and maintenance
 anchors such as v4.0.1.
 
 ## References

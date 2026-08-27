@@ -23,7 +23,7 @@ EXPECTED_COUNTS = {
     "seed_redshift_maps": 23,
     "compiled_grids": 7,
     "panels_across_grids": 161,
-    "results_inventory_rows": 868,
+    "results_inventory_rows": 882,
 }
 EXPECTED_GRID_SPEC = {
     "columns": 5,
@@ -68,8 +68,8 @@ def verify_gallery_contract() -> None:
     for field, expected in [("width_px", 6048), ("height_px", 5648), ("dpi", 300)]:
         if not grid_inventory[field].eq(expected).all():
             raise AssertionError(f"Compiled grids require {field}={expected}")
-    if len(results_inventory) != 868 or not results_inventory["path"].is_unique:
-        raise AssertionError("Results inventory must contain 868 unique artifact paths")
+    if len(results_inventory) != 882 or not results_inventory["path"].is_unique:
+        raise AssertionError("Results inventory must contain 882 unique artifact paths")
     indexed = results_inventory.set_index("path")
     for _, row in grid_inventory.iterrows():
         path = ROOT / row["output_path"]

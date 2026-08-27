@@ -2,7 +2,7 @@
 
 ## Requirements
 
-The shared reproducible v4.0.1--v7.4 catalogue and science environment is Python 3.12 with exact
+The shared reproducible v4.0.1--v7.5 catalogue and science environment is Python 3.12 with exact
 package versions in `requirements-lock.txt`. Do not use the Apple Command Line
 Tools Python: it may resolve as Python 3.9 and does not contain the project
 dependencies.
@@ -63,9 +63,29 @@ and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
 
-## Current v7.4 Catalogue and v7.2 Science Layers
+## Current v7.5 Integrated Release
 
-The current catalogue copies frozen v7.3 and adds all 20 tabulated Scholtz et
+Build and verify the current catalogue, science, and figure layers:
+
+```powershell
+python -m scripts.process_v7_5_catalogue
+python -m scripts.generate_v7_5_class_aware_science --n-samples 10000 --seed 20260808
+python -m scripts.generate_v7_5_figures
+python -m scripts.verify_v7_5_catalogue --reproduce
+python -m scripts.verify_v7_5_science --reproduce
+python -m scripts.verify_v7_5_figures
+python -m scripts.verify_v7_5_publication
+```
+
+The release contains 234 measurements, 219 physical objects, and 218 host
+systems. Science ranks 209 eligible measurements and 196 eligible objects,
+with every excluded row retained in a 48-row measurement/object audit. Four
+high-resolution paper figures and a 219-row coverage table point to the complete
+588-image growth gallery. See `docs/v7.5-release-notes.md`.
+
+### Frozen v7.4 catalogue
+
+The frozen catalogue copies frozen v7.3 and adds 20 Scholtz et
 al. candidates at `z >= 4`:
 
 ```powershell
@@ -74,8 +94,7 @@ python -m scripts.verify_v7_4_catalogue --reproduce
 ```
 
 It contains 233 measurements, 218 physical objects, and 217 host systems. The
-new family has no numeric black-hole masses, so frozen v7.2 science remains the
-current growth analysis. The conservative object evidence aggregate reduces
+new family has no numeric black-hole masses. The conservative frozen object evidence aggregate reduces
 the catalogue's primary-object count by one for multiply observed JADES 8083.
 See `docs/v7.4-catalogue-schema.md`.
 
@@ -458,7 +477,7 @@ The seven lossless 6048-by-5648 PNG grids live in
 `results/releases/v7_3/galleries/compiled_object_grids/`. This step reads but does not overwrite any
 individual map or frozen science table.
 
-## Complete v7.4 Growth Products
+## Complete Growth Products
 
 Generate parameter-map sheets, seed-redshift maps, and reference growth tracks
 for all 196 growth-eligible v7.4 objects, then build the class grids and
@@ -471,10 +490,14 @@ python -m scripts.build_v7_4_growth_manifest
 python -m scripts.verify_v7_4_growth_products
 ```
 
-The coverage table includes all 218 physical objects. The 22 objects without a
+The frozen v7.4 coverage table includes all 218 physical objects. The 22 objects without a
 valid growth product remain explicit with a reason; the workflow never imputes
 a missing black-hole mass. Compatibility fractions are descriptive within each
 eligible object class and must not be pooled across the heterogeneous catalogue.
+
+The current `results/releases/v7_5/tables/v7_5_growth_gallery_coverage.csv`
+extends the audit to all 219 v7.5 objects. It points to the unchanged v7.4
+gallery for all 196 eligible objects and marks 23 objects unavailable.
 
 These figures use the same processed v1 catalogue and restrict the seed
 redshift scan to `z_seed <= 30`.

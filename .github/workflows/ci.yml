@@ -68,3 +68,19 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v5_figures --require-clean
+      - name: Verify current v7.5 catalogue from a clean worktree
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_5_catalogue --reproduce --require-clean
+      - name: Verify current v7.5 class-aware science from a clean worktree
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_5_science --reproduce --require-clean
+      - name: Verify current v7.5 figures and gallery coverage
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_5_figures --require-clean
+      - name: Verify current v7.5 publication package
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_5_publication --require-clean

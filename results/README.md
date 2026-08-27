@@ -33,7 +33,7 @@ same convention.
   prototypes for the frozen v1 catalogue.
 - `releases/v3/` through `releases/v6/` contain the frozen BLAGN science tables;
   v3-v5 also retain their figure sets.
-- `releases/v7_2/tables/` contains the current class-aware science layer.
+- `releases/v7_2/tables/` contains the frozen first class-aware science layer.
 - `releases/v7_3/galleries/compiled_object_grids/` contains seven lossless,
   high-resolution grids compiling every v1 per-object map by scenario.
 - `releases/v7_4/` contains complete growth products for all 196 eligible
@@ -43,6 +43,11 @@ same convention.
   22 catalogue objects as unavailable rather than silently omitting them.
   Each compiled grid uses one shared assumptions caption; captions are not
   repeated inside every object panel.
+- `releases/v7_5/` is current: eight class-aware science tables, four
+  high-resolution paper figures, and a 219-object coverage index. The eligible
+  population and numeric growth inputs are unchanged, so the index reuses the
+  complete v7.4 gallery byte-for-byte and explicitly records 23 unavailable
+  objects.
 - `results_inventory.csv` indexes every result artifact with its release,
   collection, size, SHA-256 hash, and canonical path.
 
@@ -58,13 +63,12 @@ python -m scripts.generate_all_object_grid_figures
 python -m scripts.build_results_inventory
 ```
 
-Regenerate and verify the complete current growth collection with:
+Regenerate and verify the complete current figure/coverage layer with:
 
 ```bash
-python -m scripts.generate_v7_4_growth_products
+python -m scripts.generate_v7_5_figures
 python -m scripts.build_results_inventory
-python -m scripts.build_v7_4_growth_manifest
-python -m scripts.verify_v7_4_growth_products
+python -m scripts.verify_v7_5_figures
 ```
 
 The grid step reads but does not rewrite individual maps. The inventory is

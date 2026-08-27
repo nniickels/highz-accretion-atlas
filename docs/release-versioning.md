@@ -1,8 +1,8 @@
 # Release Versioning and Filename Map
 
 Project release numbers identify reproducible catalogue or science milestones.
-They do not identify the version of a source paper. The current catalogue layer
-is **v7.4** and the current science layer is **v7.2**. v4.0.1 remains
+They do not identify the version of a source paper. The current integrated
+catalogue, science, figure, and manuscript release is **v7.5**. v4.0.1 remains
 the frozen reproducibility anchor for the preceding Matthee/ASPIRE release; v3
 remains the JADES + Taylor comparison.
 
@@ -17,10 +17,11 @@ remains the JADES + Taylor comparison.
 | v7.0 catalogue (frozen) | First heterogeneous evidence-class catalogue layer | frozen v6 plus Ren et al. rows admitted by the multi-class contract | 119 measurements / 112 objects / 111 host systems; catalogue products only |
 | v7.1 catalogue (frozen) | First luminous-quasar comparison extension | frozen v7.0 plus the complete 42-object XQR-30 source family | 161 measurements / 154 objects / 153 host systems; catalogue products only |
 | v7.2 catalogue (frozen) | Second larger luminous-quasar source family | frozen v7.1 plus the complete 50-object Shen/GNIRS source family | 211 measurements / 198 objects / 197 host systems; catalogue products only |
-| v7.2 science (current) | Heterogeneous atlas growth diagnostics | frozen v7.2 catalogue | eight class-aware ranking, uncertainty, audit, sensitivity, summary, and policy tables; no figures |
+| v7.2 science (frozen) | First heterogeneous atlas growth diagnostics | frozen v7.2 catalogue | eight class-aware ranking, uncertainty, audit, sensitivity, summary, and policy tables; no figures |
 | v7.3 catalogue (frozen) | First X-ray evidence-history family | frozen v7.2 plus two UHZ1 literature assessments | 213 measurements / 199 objects / 198 host systems; catalogue products only |
-| v7.4 catalogue (current) | First narrow-line/high-ionization family | frozen v7.3 plus 20 tabulated Scholtz et al. candidates at z >= 4 | 233 measurements / 218 objects / 217 host systems |
-| v7.4 growth products (current) | Complete class-stratified visualization layer | frozen v7.4 catalogue | three figures for each of 196 eligible objects, six class grids, class-only compatibility fractions, and 22 explicit unavailable records |
+| v7.4 catalogue (frozen) | First narrow-line/high-ionization family | frozen v7.3 plus 20 tabulated Scholtz et al. candidates at z >= 4 | 233 measurements / 218 objects / 217 host systems |
+| v7.4 growth products (frozen gallery parent) | Complete class-stratified visualization layer | frozen v7.4 catalogue | three figures for each of 196 eligible objects, six class grids, class-only compatibility fractions, and 22 explicit unavailable records |
+| v7.5 integrated release (current) | Provenance correction, preferred-evidence policy, current science, figures, gallery coverage, and manuscript | frozen v7.4 plus the omitted 21st Scholtz z >= 4 row | 234 measurements / 219 objects / 218 hosts; eight science tables; four figures; 219-object gallery audit |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -88,6 +89,15 @@ descriptive within `broad_line_agn` and `luminous_quasar_comparison`; pooling
 the heterogeneous classes or inferring masses for unavailable objects is
 explicitly prohibited by the release contract.
 
+The integrated v7.5 release is independently covered by catalogue, science,
+figure, and publication manifests. Verify it with
+`python -m scripts.verify_v7_5_catalogue --reproduce`,
+`python -m scripts.verify_v7_5_science --reproduce`,
+`python -m scripts.verify_v7_5_figures`, and
+`python -m scripts.verify_v7_5_publication`. The complete source-table audit
+corrects the Scholtz subset to 21 rows at `z >= 4`; frozen v7.4 bytes remain
+unchanged.
+
 The four canonical rendered v5 PNGs are independently hash-anchored by
 `releases/v5-figures-manifest.json` and checked with
 `python -m scripts.verify_v5_figures`. Keeping the figure boundary separate
@@ -95,7 +105,7 @@ preserves strict cross-platform CSV reconstruction while acknowledging that
 rendered bytes can depend on platform font and graphics libraries.
 
 The installable package version follows the current implemented science
-milestone (`7.2.0`). That version is not a source-paper version, a catalogue
+milestone (`7.5.0`). That version is not a source-paper version, a catalogue
 label, or a promise that every historical artifact was regenerated.
 
 ## Naming Rules
@@ -170,13 +180,13 @@ cross-paper link: Matthee `GOODS-S-13971` is JADES `GS-204851`. The prior-releas
 JADES measurement remains the default for continuity, while both measurements
 remain independently rankable in the measurement view.
 
-The current heterogeneous science tables remain frozen v7.2 products while the
-current catalogue is v7.4. The earlier
-paper-facing `v6_blagn_primary_ranking_comparison.csv` remains frozen and
+The current heterogeneous science, catalogue, and paper-facing products are
+the integrated v7.5 release. Earlier v7.2 science, v7.4 catalogue/gallery, and
+`v6_blagn_primary_ranking_comparison.csv` products remain frozen; the latter
 distinguishes the complete 112/105 exploratory diagnostic population from the
-111/104 primary evidence-supported population. Deliberate current figures live under
-`results/releases/v5/figures/main_text/`; the frozen v4 set remains unchanged as the
-previous-release record.
+111/104 primary evidence-supported population. Current figures live under
+`results/releases/v7_5/figures/main_text/`; all earlier rendered sets remain
+unchanged as release records.
 
 ## Rename Map
 

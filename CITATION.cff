@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this atlas, please cite the software release and the primary source papers represented in the data you use."
+title: "High-Redshift Accretion Atlas"
+type: software
+version: 7.5.0
+date-released: 2026-08-27
+authors:
+  - family-names: Jiang
+    given-names: Nicole
+repository-code: "https://github.com/nniickels/highz-accretion-atlas"
+url: "https://github.com/nniickels/highz-accretion-atlas"
+license: MIT
+abstract: "A provenance-aware catalogue and class-aware growth-pressure atlas for reported high-redshift accreting black holes."
+keywords:
+  - black holes
+  - high redshift
+  - JWST
+  - reproducible research

@@ -37,7 +37,7 @@ SOURCE_REGISTRY_STATUSES = {
 }
 SOURCE_REGISTRY_FIELDS = {
     "batch_id", "evidence_family", "source_key", "status", "admission_module",
-    "object_class", "notes",
+    "object_class", "object_classes", "notes",
 }
 
 
@@ -57,6 +57,18 @@ def validate_source_family_registry(registry: pd.DataFrame) -> None:
         raise ValueError(f"Invalid source-family registry statuses: {sorted(invalid)}")
     if invalid := set(registry["object_class"]) - OBJECT_CLASSES:
         raise ValueError(f"Invalid source-family object classes: {sorted(invalid)}")
+    declared_classes: set[str] = set()
+    for value in registry["object_classes"]:
+        classes = {item.strip() for item in str(value).split(";") if item.strip()}
+        if not classes:
+            raise ValueError("Source-family registry requires nonblank object_classes")
+        declared_classes.update(classes)
+    if invalid := declared_classes - OBJECT_CLASSES:
+        raise ValueError(f"Invalid source-family object_classes: {sorted(invalid)}")
+    for _, row in registry.iterrows():
+        classes = {item.strip() for item in str(row["object_classes"]).split(";")}
+        if row["object_class"] not in classes:
+            raise ValueError("object_class must be included in object_classes")
     implemented = registry["status"].isin({"admitted", "released_catalogue_layer"})
     modules = registry["admission_module"].fillna("").astype(str).str.strip()
     if modules.loc[implemented].eq("").any():

@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
+from pathlib import Path
+import re
+from collections.abc import Callable
 
 from src.identity import stable_object_id
 from src.models import cosmic_time_gyr
@@ -18,9 +21,64 @@ EXPECTED_ARCHIVES = {
     "arXiv:2311.18731v4": PAPER_ARCHIVE_SHA256,
     "JADES-DR3-GOODS-S-prism-v3.1.3": COORDINATE_ARCHIVE_SHA256,
 }
+SOURCE_REPORTED_COUNT = 42
+SOURCE_TABULATED_COUNT = 41
+V7_4_ADMITTED_COUNT = 20
+TRUE_ZGE4_COUNT = 21
 
 
-def validate_scholtz_source(source: pd.DataFrame) -> pd.DataFrame:
+def parse_full_table_membership(path: str | Path) -> pd.DataFrame:
+    """Parse the source-native TeX table sufficiently to audit the z>=4 cut."""
+    pattern = re.compile(
+        r"^(JADES-NS-GS(?P<nirspec_id>\d+))&\s*(?P<program_id>\d+)\s*&\s*"
+        r"(?P<redshift>[0-9.]+)\s*&(?P<remainder>.*)\\\\$"
+    )
+    rows = []
+    for line in Path(path).read_text().splitlines():
+        match = pattern.match(line.strip())
+        if not match:
+            continue
+        remainder = match.group("remainder")
+        method = remainder.split("&", 1)[0].strip()
+        rows.append({
+            "object_id": match.group(1),
+            "nirspec_id": int(match.group("nirspec_id")),
+            "program_id": int(match.group("program_id")),
+            "redshift": float(match.group("redshift")),
+            "selection_method_tex": method,
+            "tentative_flag": "*" in method,
+        })
+    result = pd.DataFrame(rows)
+    if len(result) != SOURCE_TABULATED_COUNT or not result["object_id"].is_unique:
+        raise ValueError(
+            f"Scholtz full table must contain {SOURCE_TABULATED_COUNT} unique rows"
+        )
+    if int(result["tentative_flag"].sum()) != 10:
+        raise ValueError("Scholtz full table must retain ten tentative rows")
+    return result
+
+
+def validate_full_table_selection(
+    full_table_path: str | Path, admitted_source: pd.DataFrame,
+) -> pd.DataFrame:
+    """Prove the admitted source is exactly the z>=4 subset of the full table."""
+    full = parse_full_table_membership(full_table_path)
+    admitted = _coerce_scholtz_rows(admitted_source)
+    expected = set(full.loc[full["redshift"].ge(4), "object_id"])
+    observed = set(admitted["object_id"])
+    if len(expected) != TRUE_ZGE4_COUNT or observed != expected:
+        raise ValueError(
+            "Scholtz admitted IDs are not the exact z>=4 full-table subset; "
+            f"missing={sorted(expected-observed)}, unexpected={sorted(observed-expected)}"
+        )
+    redshifts = admitted.set_index("object_id")["redshift"]
+    full_redshifts = full.set_index("object_id")["redshift"]
+    if not redshifts.sort_index().equals(full_redshifts.loc[redshifts.index].sort_index()):
+        raise ValueError("Scholtz admitted redshifts disagree with the full source table")
+    return full
+
+
+def _coerce_scholtz_rows(source: pd.DataFrame) -> pd.DataFrame:
     required = {
         "measurement_id", "object_id", "nirspec_id", "program_id", "ra_deg",
         "dec_deg", "redshift", "selection_method", "tentative_flag",
@@ -33,8 +91,8 @@ def validate_scholtz_source(source: pd.DataFrame) -> pd.DataFrame:
     if missing := sorted(required - set(source.columns)):
         raise ValueError(f"Scholtz source extraction missing columns: {missing}")
     clean = source.copy()
-    if len(clean) != 20 or not clean["measurement_id"].is_unique:
-        raise ValueError("Scholtz z>=4 extraction must contain 20 unique tabulated rows")
+    if clean.empty or not clean["measurement_id"].is_unique:
+        raise ValueError("Scholtz extraction must contain unique measurement rows")
     numeric = sorted(required - {"measurement_id", "object_id", "selection_method", "tentative_flag", "notes"})
     clean[numeric] = clean[numeric].apply(pd.to_numeric, errors="raise")
     clean["tentative_flag"] = clean["tentative_flag"].map(
@@ -42,6 +100,13 @@ def validate_scholtz_source(source: pd.DataFrame) -> pd.DataFrame:
     )
     if clean["redshift"].lt(4).any():
         raise ValueError("Scholtz atlas extraction contains a row below z=4")
+    return clean
+
+
+def validate_scholtz_source(source: pd.DataFrame) -> pd.DataFrame:
+    clean = _coerce_scholtz_rows(source)
+    if len(clean) != V7_4_ADMITTED_COUNT:
+        raise ValueError("Frozen v7.4 Scholtz extraction must contain 20 unique rows")
     if int(clean["tentative_flag"].sum()) != 3:
         raise ValueError("Expected three z>=4 S2-VO87 tentative rows")
     if int(clean[["neiv2424_flux_1e19", "nev3427_flux_1e19", "nv1240_flux_1e19"]].notna().sum().sum()) != 7:
@@ -52,6 +117,16 @@ def validate_scholtz_source(source: pd.DataFrame) -> pd.DataFrame:
     return clean
 
 
+def validate_scholtz_99671_correction(source: pd.DataFrame) -> pd.DataFrame:
+    clean = _coerce_scholtz_rows(source)
+    if len(clean) != 1 or clean["object_id"].tolist() != ["JADES-NS-GS00099671"]:
+        raise ValueError("v7.5 correction must contain only JADES-NS-GS00099671")
+    row = clean.iloc[0]
+    if (row["redshift"], row["log_mstar_msun"], row["log_lbol_erg_s"]) != (5.936, 7.5, 42.9):
+        raise ValueError("JADES 99671 correction anchors changed")
+    return clean
+
+
 def _selection_channels(method: str) -> str:
     high = "High ion" in method or "HeII" in method
     return "narrow_line_diagnostics;high_ionization_line" if high else "narrow_line_diagnostics"
@@ -59,8 +134,11 @@ def _selection_channels(method: str) -> str:
 
 def build_scholtz_admission(
     source: pd.DataFrame, *, template_columns: list[str], reserved_ids: set[str],
+    source_validator: Callable[[pd.DataFrame], pd.DataFrame] = validate_scholtz_source,
+    catalogue_release: str = "v7.4-accreting-atlas-catalogue",
+    project_version: str = "v7.4",
 ) -> pd.DataFrame:
-    clean = validate_scholtz_source(source)
+    clean = source_validator(source)
     rows = pd.DataFrame(pd.NA, index=range(len(clean)), columns=template_columns, dtype=object)
     allocated = set(reserved_ids)
     for index, raw in clean.reset_index(drop=True).iterrows():
@@ -70,7 +148,7 @@ def build_scholtz_admission(
         )
         allocated.add(physical_id)
         values = {
-            "catalogue_release": "v7.4-accreting-atlas-catalogue",
+            "catalogue_release": catalogue_release,
             "physical_object_id": physical_id,
             "host_system_id": physical_id.replace("HZA-", "HZS-", 1),
             "measurement_id": raw["measurement_id"],
@@ -95,7 +173,7 @@ def build_scholtz_admission(
             "mstar_interpretation_tag": "source_host_sed_fit",
             "lbol_interpretation_tag": "source_narrow_line_bolometric_estimate",
             "quality_flag": "tentative" if raw["tentative_flag"] else "source_candidate",
-            "project_version": "v7.4", "source_key": SOURCE_KEY,
+            "project_version": project_version, "source_key": SOURCE_KEY,
             "source_table": "Scholtz et al. Table 1; Appendix Table A.1; JADES DR3 target coordinates",
             "notes": str(raw["notes"]) if pd.notna(raw["notes"]) else "",
             "selection_channel": "narrow_line_spectroscopy",
@@ -158,8 +236,11 @@ def build_scholtz_admission(
     return rows
 
 
-def build_scholtz_observables(source: pd.DataFrame) -> pd.DataFrame:
-    clean = validate_scholtz_source(source)
+def build_scholtz_observables(
+    source: pd.DataFrame,
+    *, source_validator: Callable[[pd.DataFrame], pd.DataFrame] = validate_scholtz_source,
+) -> pd.DataFrame:
+    clean = source_validator(source)
     rows: list[dict[str, object]] = []
     def add(mid: str, name: str, value: float, unit: str, *, ep=np.nan, em=np.nan, location="Table 1") -> None:
         rows.append({

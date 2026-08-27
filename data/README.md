@@ -22,3 +22,10 @@ create duplicate aliases at the directory root.
 
 Generated science tables and figures live in `results/releases/<release>/`.
 Release hashes and reproduction metadata live in `releases/`.
+
+The current v7.5 catalogue lives in `processed/v7_5/` and
+`crossmatch/v7_5/`. It contains 234 measurements, 219 physical objects, and 218
+host systems. The raw Scholtz provenance audit retains both the frozen v7.4
+20-row extraction, the one-row v7.5 correction, and the complete 41-row
+source-native TeX table; release code proves their combined 21-row `z >= 4`
+membership.

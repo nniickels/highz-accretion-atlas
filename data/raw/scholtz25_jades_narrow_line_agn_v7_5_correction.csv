@@ -1,0 +1,2 @@
+measurement_id,object_id,nirspec_id,program_id,ra_deg,dec_deg,redshift,selection_method,tentative_flag,log_mstar_msun,log_mstar_err_plus,log_mstar_err_minus,sfr_msun_yr,sfr_err_plus,sfr_err_minus,muv,log_lbol_erg_s,notes,neiv2424_flux_1e19,neiv2424_err_1e19,nev3427_flux_1e19,nev3427_err_1e19,nv1240_flux_1e19,nv1240_err_1e19
+scholtz25_00099671,JADES-NS-GS00099671,99671,3215,53.1266432,-27.8177313,5.936,HeII4686,False,7.5,0.05,0.05,1.2,0.07,0.06,-18.0,42.9,,,,,,
