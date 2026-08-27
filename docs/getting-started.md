@@ -429,5 +429,18 @@ This writes:
 - one exploratory 3D required-`f_Edd` surface in
   `results/v1_seed_redshift_3d_tests/`
 
+After the individual parameter and seed-redshift maps exist, compile every
+object into zoomable grid figures and refresh the categorized results index:
+
+```powershell
+python -m scripts.generate_all_object_grid_figures
+python -m scripts.build_results_inventory
+python -m scripts.verify_v7_3_results_gallery
+```
+
+The seven lossless 6048-by-5648 PNG grids live in
+`results/compiled_object_grids/`. This step reads but does not overwrite any
+individual map or frozen science table.
+
 These figures use the same processed v1 catalogue and restrict the seed
 redshift scan to `z_seed <= 30`.

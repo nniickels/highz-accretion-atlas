@@ -52,6 +52,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_3_catalogue --reproduce --require-clean
+      - name: Verify organized high-resolution results gallery
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_3_results_gallery --require-clean
       - name: Verify canonical v5 paper figures from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"

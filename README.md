@@ -73,6 +73,13 @@ Appendix or supplement products:
 - sensitivity tests
 - source-by-source caveats
 
+The complete per-object map collections are also available as seven lossless
+high-resolution grids under `results/compiled_object_grids/`: six fixed
+spin/merger parameter-space cases and one seed-redshift compilation. Each grid
+is 6048 by 5648 pixels at 300 dpi and contains all 23 v1 objects. Start with
+`results/README.md` or the machine-readable `results/results_inventory.csv` to
+navigate the full results tree without moving immutable release artifacts.
+
 The main text should showcase the atlas logic and strongest rankings, while
 the appendix preserves the comprehensive technical and visual record. This
 keeps the project centered on observational triage rather than on claiming that
