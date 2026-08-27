@@ -44,6 +44,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m scripts.verify_v7_2_catalogue --reproduce --require-clean
+      - name: Verify v7.2 class-aware science from a clean worktree
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m scripts.verify_v7_2_science --reproduce --require-clean
       - name: Verify canonical v5 paper figures from a clean worktree
         env:
           PYTHONDONTWRITEBYTECODE: "1"

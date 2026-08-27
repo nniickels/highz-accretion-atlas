@@ -81,8 +81,8 @@ any single seed or accretion channel is proven.
 ## Workflow
 
 Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current catalogue layer is **v7.2**, the current completed
-science release is **v6**, and v5 remains the deliberate figure release. v7.2
+paper versions. The current catalogue and science layers are **v7.2**, while v5
+remains the deliberate figure release. v7.2
 adds the GNIRS-50 luminous-quasar family without changing v7.0 or v7.1:
 
 | Release | Meaning | Canonical products |
@@ -96,6 +96,7 @@ adds the GNIRS-50 luminous-quasar family without changing v7.0 or v7.1:
 | v7.0 catalogue | Frozen v6 plus admitted Ren ALPINE--CRISTAL candidate nuclei and explicit host systems | `v7_accreting_*`, `v7_host_systems.csv` |
 | v7.1 catalogue | Frozen v7.0 plus all 42 E-XQR-30 luminous quasars as a separate comparison stratum | `v7_1_accreting_*`, `v7_1_host_systems.csv` |
 | v7.2 catalogue | Frozen v7.1 plus all 50 Shen et al. GNIRS quasars, including six reviewed XQR repeats | `v7_2_accreting_*`, `v7_2_host_systems.csv` |
+| v7.2 science | Class-aware growth-pressure rankings on frozen v7.2 with separate mass-method strata and uncertainty boundaries | `v7_2_class_aware_*` |
 
 Source-specific raw files retain descriptive names because they are immutable
 paper extractions, while `source_paper_version` records the publication/arXiv
@@ -110,7 +111,8 @@ The v6 catalogue and science tables add the corresponding gate:
 v7.0 layer is checked by `python -m scripts.verify_v7_catalogue --reproduce`.
 The frozen v7.1 layer is checked independently by
 `python -m scripts.verify_v7_1_catalogue --reproduce`; current v7.2 is checked by
-`python -m scripts.verify_v7_2_catalogue --reproduce`.
+`python -m scripts.verify_v7_2_catalogue --reproduce`; the class-aware science
+layer is checked by `python -m scripts.verify_v7_2_science --reproduce`.
 
 All release gates verify exact artifact membership and checked-in bytes against
 SHA-256 manifests.
@@ -230,10 +232,9 @@ layer now copies frozen v6 through the explicit vocabulary adapter and appends
 the authoritative Ren et al. ALPINE--CRISTAL--JWST Tables 1--2 admission. It has
 119 measurements, 112 physical objects, and 111 host systems. All seven Ren
 nuclei remain available in the exploratory tier; only `DC_536534` enters the
-primary tier. See `docs/v7-catalogue-schema.md`. No v7 science ranking,
-uncertainty result, or figure exists yet.
+primary tier. See `docs/v7-catalogue-schema.md`.
 
-Planned evidence classes and comparison groups include:
+Evidence classes and comparison groups tracked by the schema include:
 
 - X-ray-selected high-z black-hole candidates
 - high-ionization-line candidates
@@ -257,6 +258,18 @@ Catalogue-only v7.2 reproduction:
 python -m scripts.process_v7_2_catalogue
 python -m scripts.verify_v7_2_catalogue --reproduce
 ```
+
+Class-aware science reproduction:
+
+```powershell
+python -m scripts.generate_v7_2_class_aware_science --n-samples 10000 --seed 20260808
+python -m scripts.verify_v7_2_science --reproduce
+```
+
+The science release ranks the 209 eligible measurements and 196 eligible
+preferred objects within explicit object-class and mass-comparability scopes.
+Its global rank is labelled for navigation only, and its policy product forbids
+pooled demographic inference. See `docs/v7.2-class-aware-science-workflow.md`.
 
 Future additions are assembled in coherent source-family batches through
 `src/v7_batch.py`; see `docs/v7-source-family-batches.md`. XQR-30 and GNIRS-50
@@ -309,8 +322,9 @@ from-raw reproduction instructions for v1--v6 and the frozen earlier figure
 sets are in `docs/getting-started.md`.
 
 The Python package version follows the current implemented project science
-release (`6.0.0`). It is distinct from immutable source-paper versions,
-catalogue labels such as `v6-blagn`, and maintenance anchors such as v4.0.1.
+release (`7.2.0`). It is distinct from immutable source-paper versions,
+catalogue labels such as `v7.2-accreting-atlas-catalogue`, and maintenance
+anchors such as v4.0.1.
 
 ## References
 Sources of data documented in `data/sources.md`

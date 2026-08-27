@@ -1,0 +1,5 @@
+science_release,scope,allowed,policy
+v7.2-class-aware-science,global_navigation_rank,True,navigation_only_no_cross_class_science_claim
+v7.2-class-aware-science,within_object_class_rank,True,descriptive_growth_pressure_comparison_only
+v7.2-class-aware-science,within_class_and_mass_group_rank,True,primary_interpretive_comparison_scope
+v7.2-class-aware-science,pooled_demographic_inference,False,forbidden_without_selection_function_and_completeness_model

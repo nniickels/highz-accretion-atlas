@@ -1,8 +1,8 @@
 # Release Versioning and Filename Map
 
 Project release numbers identify reproducible catalogue or science milestones.
-They do not identify the version of a source paper. The current catalogue layer
-is **v7.2** and the current completed science release is **v6**. v4.0.1 remains
+They do not identify the version of a source paper. The current catalogue and
+science layers are **v7.2**. v4.0.1 remains
 the frozen reproducibility anchor for the preceding Matthee/ASPIRE release; v3
 remains the JADES + Taylor comparison.
 
@@ -17,7 +17,7 @@ remains the JADES + Taylor comparison.
 | v7.0 catalogue (frozen) | First heterogeneous evidence-class catalogue layer | frozen v6 plus Ren et al. rows admitted by the multi-class contract | 119 measurements / 112 objects / 111 host systems; catalogue products only |
 | v7.1 catalogue (frozen) | First luminous-quasar comparison extension | frozen v7.0 plus the complete 42-object XQR-30 source family | 161 measurements / 154 objects / 153 host systems; catalogue products only |
 | v7.2 catalogue (current) | Second larger luminous-quasar source family | frozen v7.1 plus the complete 50-object Shen/GNIRS source family | 211 measurements / 198 objects / 197 host systems; catalogue products only |
-| class-aware science (planned) | Heterogeneous atlas analysis | a verified heterogeneous catalogue layer | rankings and figures that keep evidence and mass-comparability strata explicit |
+| v7.2 science (current) | Heterogeneous atlas growth diagnostics | frozen v7.2 catalogue | eight class-aware ranking, uncertainty, audit, sensitivity, summary, and policy tables; no figures |
 
 This means v2 is an **analysis release**, not a second catalogue extraction.
 The later combined products extend earlier releases, but do not overwrite or
@@ -53,6 +53,11 @@ The GNIRS-50 extension is independently covered by
 `python -m scripts.verify_v7_2_catalogue --reproduce`. Its `v7_2_` filenames do
 not replace the frozen v7.0 or v7.1 artifacts.
 
+The v7.2 science layer is independently covered by
+`releases/v7.2-science-manifest.json` and
+`python -m scripts.verify_v7_2_science --reproduce`. It consumes frozen v7.2
+without changing catalogue membership or preferred-measurement decisions.
+
 The four canonical rendered v5 PNGs are independently hash-anchored by
 `releases/v5-figures-manifest.json` and checked with
 `python -m scripts.verify_v5_figures`. Keeping the figure boundary separate
@@ -60,8 +65,8 @@ preserves strict cross-platform CSV reconstruction while acknowledging that
 rendered bytes can depend on platform font and graphics libraries.
 
 The installable package version follows the current implemented science
-milestone (`6.0.0`). That version is not a source-paper version, a catalogue
-label (`v6-blagn`), or a promise that every historical artifact was regenerated.
+milestone (`7.2.0`). That version is not a source-paper version, a catalogue
+label, or a promise that every historical artifact was regenerated.
 
 ## Naming Rules
 
@@ -119,6 +124,7 @@ Ren Tables 1--2 + v7 admission gate --------------------------------------------
 XQR-30 mass table + companion coordinates ---------------------------------------------------------------+-> v7.1 catalogue / identity / observable / strata products
                                                                                                                        |
 Shen/GNIRS CDS Tables 1 + 3 --------------------------------------------------------------------------------------------+-> v7.2 catalogue / identity / observable / strata products
+                                                                                                                              -> v7.2 class-aware science tables
 ```
 
 The v3 measurement view retains all 60 `z >= 4` literature measurements. The
@@ -132,11 +138,10 @@ cross-paper link: Matthee `GOODS-S-13971` is JADES `GS-204851`. The prior-releas
 JADES measurement remains the default for continuity, while both measurements
 remain independently rankable in the measurement view.
 
-The current science tables remain v6 products. The current catalogue layer is
-v7.2 and has no heterogeneous science tables yet. The paper-facing
-`v6_blagn_primary_ranking_comparison.csv` distinguishes the complete 112/105
-exploratory diagnostic population from the 111/104 primary evidence-supported
-population. Deliberate current figures live under
+The current heterogeneous science tables are v7.2 products. The earlier
+paper-facing `v6_blagn_primary_ranking_comparison.csv` remains frozen and
+distinguishes the complete 112/105 exploratory diagnostic population from the
+111/104 primary evidence-supported population. Deliberate current figures live under
 `results/v5_main_text_figures/`; the frozen v4 set remains unchanged as the
 previous-release record.
 

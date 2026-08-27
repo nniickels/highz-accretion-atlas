@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
-import subprocess
 from pathlib import Path
 
 import pandas as pd
 
 from scripts.process_v7_2_catalogue import OUTPUTS, build_outputs
+from scripts.release_verification import (
+    relative_artifact_paths, require_clean_worktree, verify_artifact_manifest,
+)
 from scripts.reproduction import assert_csv_reproduction
 from src.v7_2_catalogue import CATALOGUE_RELEASE
 
@@ -43,15 +44,8 @@ EXPECTED_SOURCE_ARCHIVES = {
 }
 
 
-def worktree_status() -> str:
-    return subprocess.run(
-        ["git", "status", "--porcelain"], cwd=ROOT, check=True,
-        capture_output=True, text=True,
-    ).stdout.strip()
-
-
 def expected_artifact_paths() -> set[str]:
-    return {path.relative_to(ROOT).as_posix() for path in OUTPUTS.values()}
+    return relative_artifact_paths(ROOT, OUTPUTS.values())
 
 
 def observed_catalogue_counts() -> dict[str, int]:
@@ -102,23 +96,10 @@ def verify_manifest_metadata(manifest: dict[str, object]) -> None:
 
 
 def verify_manifest(manifest: dict[str, object]) -> None:
-    artifacts = manifest.get("artifacts")
-    if not isinstance(artifacts, dict):
-        raise AssertionError("v7.2 catalogue manifest artifacts must be an object")
-    expected_paths = expected_artifact_paths()
-    if set(artifacts) != expected_paths:
-        raise AssertionError(
-            f"v7.2 manifest membership mismatch; missing={sorted(expected_paths - set(artifacts))}, "
-            f"unexpected={sorted(set(artifacts) - expected_paths)}"
-        )
-    failures = []
-    for relative, expected in artifacts.items():
-        path = ROOT / relative
-        actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else "MISSING"
-        if actual != expected:
-            failures.append(f"{relative}: expected {expected}, found {actual}")
-    if failures:
-        raise AssertionError("v7.2 catalogue manifest hash mismatch:\n" + "\n".join(failures))
+    verify_artifact_manifest(
+        root=ROOT, artifacts=manifest.get("artifacts"),
+        expected_paths=expected_artifact_paths(), release_label="v7.2 catalogue",
+    )
 
 
 def verify_reproduction() -> None:
@@ -131,15 +112,15 @@ def main() -> None:
     parser.add_argument("--reproduce", action="store_true")
     parser.add_argument("--require-clean", action="store_true")
     args = parser.parse_args()
-    if args.require_clean and worktree_status():
-        raise AssertionError("v7.2 catalogue verification requires a clean Git worktree")
+    if args.require_clean:
+        require_clean_worktree(ROOT, "v7.2 catalogue")
     manifest = json.loads(MANIFEST_PATH.read_text())
     verify_manifest_metadata(manifest)
     verify_manifest(manifest)
     if args.reproduce:
         verify_reproduction()
-    if args.require_clean and worktree_status():
-        raise AssertionError("v7.2 catalogue verification changed the Git worktree")
+    if args.require_clean:
+        require_clean_worktree(ROOT, "v7.2 catalogue")
     mode = "hashes and in-memory reproduction" if args.reproduce else "artifact hashes"
     print(f"Verified {manifest['catalogue_release']} {mode}; no artifact was written")
 

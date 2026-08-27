@@ -120,8 +120,8 @@ class V7CatalogueTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, "catalogue_counts mismatch"):
             verify_manifest_metadata(broken)
 
-    def test_no_v7_science_or_figure_outputs_exist(self) -> None:
-        self.assertFalse(any((ROOT / "results").glob("v7_*.csv")))
+    def test_no_v7_0_science_or_figure_outputs_exist(self) -> None:
+        self.assertFalse(any((ROOT / "results").glob("v7_class_aware_*.csv")))
         self.assertFalse(any((ROOT / "results").glob("v7_*.png")))
 
 

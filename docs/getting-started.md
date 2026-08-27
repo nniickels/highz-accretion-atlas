@@ -2,7 +2,7 @@
 
 ## Requirements
 
-The shared reproducible v4.0.1--v7.2 environment is Python 3.12 with exact
+The shared reproducible v4.0.1--v7.2 catalogue and science environment is Python 3.12 with exact
 package versions in `requirements-lock.txt`. Do not use the Apple Command Line
 Tools Python: it may resolve as Python 3.9 and does not contain the project
 dependencies.
@@ -63,7 +63,7 @@ and nonnumeric content, while floating-point columns use `rtol=1e-13` and
 `atol=1e-14` so normal platform-level `libm` differences do not create false
 failures.
 
-## Current v7.2 Catalogue Layer
+## Current v7.2 Catalogue and Science Layer
 
 The current catalogue-only layer copies frozen v7.1 and adds all 50 Shen et al.
 GNIRS quasars as a second luminous-quasar comparison family:
@@ -75,10 +75,20 @@ python -m scripts.verify_v7_2_catalogue --reproduce
 
 This writes 211 measurements, 198 physical objects, 197 host systems, explicit
 measurement/object and object/host links, 993 source observables, six reviewed
-GNIRS/XQR identity decisions, and stratified catalogue counts. It does not
-generate heterogeneous science rankings, uncertainty tables, or figures. See
+GNIRS/XQR identity decisions, and stratified catalogue counts. Build and verify
+the class-aware science layer separately:
+
+```powershell
+python -m scripts.generate_v7_2_class_aware_science --n-samples 10000 --seed 20260808
+python -m scripts.verify_v7_2_science --reproduce
+```
+
+The eight science tables keep global navigation distinct from within-class and
+within-mass-method comparisons, propagate published statistical mass errors,
+and retain a separate systematic envelope. No v7.2 figure set is generated. See
 `docs/v7.2-catalogue-schema.md` and
-`docs/shen19-gnirs50-extraction-notes.md`.
+`docs/shen19-gnirs50-extraction-notes.md`, and
+`docs/v7.2-class-aware-science-workflow.md`.
 
 ## Current Completed v6 Science Release
 
@@ -371,7 +381,7 @@ exploratory v1 outputs.
 
 ## Verification Checks
 
-Run the v1--v5 verification suite from the repository root:
+Run the full v1--v7.2 regression suite from the repository root:
 
 ```powershell
 $env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discover -s tests
