@@ -52,7 +52,7 @@ class V71CatalogueTests(unittest.TestCase):
         self.assertEqual(len(self.outputs["external_literature_identity_audit"]), 23)
 
     def test_v7_is_inherited_without_overwriting_frozen_files(self) -> None:
-        frozen = pd.read_csv(ROOT / "data/processed/v7_accreting_measurements.csv")
+        frozen = pd.read_csv(ROOT / "data/processed/v7/v7_accreting_measurements.csv")
         inherited = self.measurements[self.measurements["source_key"].ne(SOURCE_KEY)]
         self.assertEqual(set(inherited["measurement_id"]), set(frozen["measurement_id"]))
         fields = ["ra_deg", "dec_deg", "redshift", "log_mbh_msun_std"]

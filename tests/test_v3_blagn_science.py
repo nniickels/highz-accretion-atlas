@@ -17,7 +17,8 @@ from src.v3_catalogue import TAYLOR_SOURCE_KEY
 from src.v3_science import EPSILON, MERGER_BOOST, Z_SEED
 
 
-RESULTS = REPO_ROOT / "results"
+RESULTS = REPO_ROOT / "results/releases/v3/tables"
+V2_TABLES = REPO_ROOT / "results/releases/v2/tables"
 
 
 class V3ScienceOutputTests(unittest.TestCase):
@@ -109,7 +110,7 @@ class V3ScienceOutputTests(unittest.TestCase):
         expanded = expanded[expanded["source_key"].eq("juodzbalis25_jades_blagn")].set_index(
             "measurement_id"
         )
-        v1 = pd.read_csv(RESULTS / "v2_object_ranking_table.csv").set_index("measurement_id")
+        v1 = pd.read_csv(V2_TABLES / "v2_object_ranking_table.csv").set_index("measurement_id")
         columns = [
             "req_fedd_seed1e2_z30_eps0p1_b1",
             "req_fedd_seed1e4_z30_eps0p1_b1",

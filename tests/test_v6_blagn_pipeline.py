@@ -24,10 +24,10 @@ class V6PipelineTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.raw = pd.read_csv(ROOT / "data/raw/davis26_thrils_blagn_table5.csv")
-        cls.measurements = pd.read_csv(ROOT / "data/processed/v6_blagn_measurements.csv")
-        cls.objects = pd.read_csv(ROOT / "data/processed/v6_blagn_objects.csv")
-        cls.links = pd.read_csv(ROOT / "data/crossmatch/v6_measurement_object_links.csv")
-        cls.candidates = pd.read_csv(ROOT / "data/crossmatch/v6_reviewed_match_candidates.csv")
+        cls.measurements = pd.read_csv(ROOT / "data/processed/v6/v6_blagn_measurements.csv")
+        cls.objects = pd.read_csv(ROOT / "data/processed/v6/v6_blagn_objects.csv")
+        cls.links = pd.read_csv(ROOT / "data/crossmatch/v6/v6_measurement_object_links.csv")
+        cls.candidates = pd.read_csv(ROOT / "data/crossmatch/v6/v6_reviewed_match_candidates.csv")
 
     def test_authoritative_table_and_release_counts(self) -> None:
         self.assertEqual(len(self.raw), 7)
@@ -88,7 +88,7 @@ class V6PipelineTests(unittest.TestCase):
 
     def test_rebuild_is_exact_for_committed_catalogues(self) -> None:
         outputs = build_v6_catalogues(
-            pd.read_csv(ROOT / "data/processed/v5_blagn_measurements.csv"), self.raw,
+            pd.read_csv(ROOT / "data/processed/v5/v5_blagn_measurements.csv"), self.raw,
         )
         expected = [self.measurements, self.objects, self.links]
         for actual, committed in zip(outputs[:3], expected, strict=True):

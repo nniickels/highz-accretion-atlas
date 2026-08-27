@@ -74,7 +74,7 @@ class V73CatalogueTests(unittest.TestCase):
         self.assertIn("hard_xray_significance_high", set(new["observable_name"]))
 
     def test_frozen_v7_2_rows_are_inherited_without_scientific_overwrite(self) -> None:
-        frozen = pd.read_csv(ROOT / "data/processed/v7_2_accreting_measurements.csv")
+        frozen = pd.read_csv(ROOT / "data/processed/v7_2/v7_2_accreting_measurements.csv")
         inherited = self.measurements[self.measurements["source_key"].ne(SOURCE_KEY)]
         self.assertEqual(set(inherited["measurement_id"]), set(frozen["measurement_id"]))
         fields = ["ra_deg", "dec_deg", "redshift", "log_mbh_msun_std", "evidence_status"]

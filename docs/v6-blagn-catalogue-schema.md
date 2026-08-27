@@ -8,11 +8,11 @@ objects. All v1--v5 products and default-measurement choices remain unchanged.
 | Product | Rows | Purpose |
 | --- | ---: | --- |
 | `data/raw/davis26_thrils_blagn_table5.csv` | 7 | Complete source-native Appendix Table 5 extraction plus exact-ID coordinate provenance |
-| `data/processed/v6_blagn_measurements.csv` | 112 | Every retained literature measurement |
-| `data/processed/v6_blagn_objects.csv` | 105 | One reproducible default measurement per object |
-| `data/crossmatch/v6_measurement_object_links.csv` | 112 | Measurement/object links and default rules |
-| `data/crossmatch/v6_object_aliases.csv` | 112 | Source aliases and coordinates |
-| `data/crossmatch/v6_reviewed_match_candidates.csv` | 0 | Empty, schema-preserving candidate registry |
+| `data/processed/v6/v6_blagn_measurements.csv` | 112 | Every retained literature measurement |
+| `data/processed/v6/v6_blagn_objects.csv` | 105 | One reproducible default measurement per object |
+| `data/crossmatch/v6/v6_measurement_object_links.csv` | 112 | Measurement/object links and default rules |
+| `data/crossmatch/v6/v6_object_aliases.csv` | 112 | Source aliases and coordinates |
+| `data/crossmatch/v6/v6_reviewed_match_candidates.csv` | 0 | Empty, schema-preserving candidate registry |
 
 Six THRILS rows pass the redshift cut and all are new physical objects. The
 known THRILS/Taylor repeat lies below `z=4`, so it is documented in raw-source

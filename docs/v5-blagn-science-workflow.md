@@ -12,7 +12,7 @@ python -m scripts.process_v5_blagn
 python -m scripts.generate_v5_blagn_science --n-samples 10000 --seed 20260808
 ```
 
-The science command writes 16 `results/v5_blagn_*.csv` files: measurement- and
+The science command writes 16 `results/releases/v5/tables/v5_blagn_*.csv` files: measurement- and
 physical-object evaluations, point rankings, required-fEdd and required-seed
 Monte Carlo summaries, uncertainty rankings, stratified catalogue and growth
 summaries, alternate-measurement sensitivity, two accretion-history tables, and
@@ -89,7 +89,7 @@ between the complete 99-object exploratory diagnostic ranking and the 98-object
 primary evidence-supported ranking. Main-text rank claims should use the
 primary columns; the complete ordering belongs in an exploratory or appendix
 context. Four deliberate v5 figures now live under
-`results/v5_main_text_figures/` and are mapped in
+`results/releases/v5/figures/main_text/` and are mapped in
 `docs/v5-figure-inventory.md`. Frozen v4 figures remain unchanged.
 
 Verify every checked-in v5 catalogue and science CSV, including a complete

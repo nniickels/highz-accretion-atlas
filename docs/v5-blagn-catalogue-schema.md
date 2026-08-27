@@ -7,12 +7,12 @@ contains 106 literature measurements representing 99 physical objects at
 | Product | Rows | Purpose |
 | --- | ---: | --- |
 | `data/raw/harikane23_nirspec_blagn_tables1_3.csv` | 10 | Immutable source-table extraction |
-| `data/processed/v5_blagn_measurements.csv` | 106 | Every literature measurement |
-| `data/processed/v5_blagn_objects.csv` | 99 | One reproducible default measurement per object |
-| `data/crossmatch/v5_measurement_object_links.csv` | 106 | Measurement/object links and default rules |
-| `data/crossmatch/v5_object_aliases.csv` | 106 | Source aliases and coordinates |
-| `data/crossmatch/v5_reviewed_match_candidates.csv` | 6 | Reviewed threshold candidates |
-| `data/crossmatch/v5_reviewed_identity_overrides.csv` | 6 | Explicit accepted identity decisions |
+| `data/processed/v5/v5_blagn_measurements.csv` | 106 | Every literature measurement |
+| `data/processed/v5/v5_blagn_objects.csv` | 99 | One reproducible default measurement per object |
+| `data/crossmatch/v5/v5_measurement_object_links.csv` | 106 | Measurement/object links and default rules |
+| `data/crossmatch/v5/v5_object_aliases.csv` | 106 | Source aliases and coordinates |
+| `data/crossmatch/v5/v5_reviewed_match_candidates.csv` | 6 | Reviewed threshold candidates |
+| `data/crossmatch/v5/v5_reviewed_identity_overrides.csv` | 6 | Explicit accepted identity decisions |
 
 Five Harikane measurements match five existing physical objects; five are new.
 The six candidate rows arise because CEERS-02782 is independently close to two

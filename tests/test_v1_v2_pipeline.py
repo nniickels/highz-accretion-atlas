@@ -444,7 +444,7 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
     """
 
     def test_processed_catalogue_current_v1_sample_anchors(self) -> None:
-        catalogue = pd.read_csv(REPO_ROOT / "data" / "processed" / "v1_processed.csv")
+        catalogue = pd.read_csv(REPO_ROOT / "data/processed/v1/v1_processed.csv")
 
         self.assertEqual(len(catalogue), 23)
         self.assertAlmostEqual(catalogue["redshift"].min(), 4.133, places=3)
@@ -455,7 +455,7 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
         self.assertEqual(inconsistent["object_id"].tolist(), ["GN-11836"])
 
     def test_baseline_light_seed_required_fedd_top_objects(self) -> None:
-        required_fedd = pd.read_csv(REPO_ROOT / "results" / "v1_required_fedd_by_seed_mass.csv")
+        required_fedd = pd.read_csv(REPO_ROOT / "results/releases/v1/tables/v1_required_fedd_by_seed_mass.csv")
         baseline_light_seed = required_fedd[
             required_fedd["interpretation_variant"].eq("baseline")
             & required_fedd["fedd_requirement_config"].eq("eps0p1_no_merger_boost")
@@ -467,7 +467,7 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
         self.assertEqual(actual_top_six, expected_top_six)
 
     def test_baseline_gentle_growth_required_seed_top_object(self) -> None:
-        required_mseed = pd.read_csv(REPO_ROOT / "results" / "v1_required_mseed_by_growth_assumption.csv")
+        required_mseed = pd.read_csv(REPO_ROOT / "results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv")
         baseline_gentle = required_mseed[
             required_mseed["interpretation_variant"].eq("baseline")
             & required_mseed["growth_config"].eq("fedd0p3_eps0p1_no_merger_boost")
@@ -478,7 +478,7 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
         self.assertAlmostEqual(top["required_log_mseed"], 6.718503, places=6)
 
     def test_result_table_merger_boost_x2_shifts_required_seed_by_log10_two(self) -> None:
-        required_mseed = pd.read_csv(REPO_ROOT / "results" / "v1_required_mseed_by_growth_assumption.csv")
+        required_mseed = pd.read_csv(REPO_ROOT / "results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv")
         baseline = required_mseed[
             required_mseed["interpretation_variant"].eq("baseline")
             & required_mseed["growth_config"].eq("fedd0p3_eps0p1_no_merger_boost")
@@ -593,7 +593,7 @@ class UncertaintyPropagationTests(unittest.TestCase):
 
     def test_uncertainty_output_contract_and_probability_bounds(self) -> None:
         fedd, mseed, ranking = build_uncertainty_outputs(n_samples=256, random_seed=13579)
-        n_objects = pd.read_csv(REPO_ROOT / "data" / "processed" / "v1_processed.csv")["measurement_id"].nunique()
+        n_objects = pd.read_csv(REPO_ROOT / "data/processed/v1/v1_processed.csv")["measurement_id"].nunique()
 
         self.assertEqual(len(fedd), n_objects * 3 * 3)
         self.assertEqual(len(mseed), n_objects * 3 * 2)

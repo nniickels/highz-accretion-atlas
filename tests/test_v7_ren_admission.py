@@ -162,7 +162,7 @@ class RenV7AdmissionTests(unittest.TestCase):
         self.assertTrue(self.admission["selection_criteria"].str.contains("DeltaBIC").all())
 
     def test_no_coordinate_redshift_candidate_against_v6(self) -> None:
-        v6 = pd.read_csv(ROOT / "data/processed/v6_blagn_measurements.csv")
+        v6 = pd.read_csv(ROOT / "data/processed/v6/v6_blagn_measurements.csv")
         self.assertTrue(v6_identity_candidates(self.admission, v6).empty)
 
 if __name__ == "__main__":

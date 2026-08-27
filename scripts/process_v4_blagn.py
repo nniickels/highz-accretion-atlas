@@ -10,17 +10,17 @@ from src.v4_catalogue import ASPIRE_SOURCE_KEY, MATTHEE_SOURCE_KEY, build_v4_cat
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-V3_MEASUREMENTS = PROJECT_ROOT / "data" / "processed" / "v3_blagn_measurements.csv"
+V3_MEASUREMENTS = PROJECT_ROOT / "data/processed/v3/v3_blagn_measurements.csv"
 MATTHEE_RAW = PROJECT_ROOT / "data" / "raw" / "matthee23_eiger_fresco_blagn_tables1_3.csv"
 ASPIRE_RAW = PROJECT_ROOT / "data" / "raw" / "lin24_aspire_blagn_tables1_3.csv"
-IDENTITY_OVERRIDES = PROJECT_ROOT / "data" / "crossmatch" / "v4_reviewed_identity_overrides.csv"
+IDENTITY_OVERRIDES = PROJECT_ROOT / "data/crossmatch/v4/v4_reviewed_identity_overrides.csv"
 
 OUTPUTS = {
-    "measurements": PROJECT_ROOT / "data" / "processed" / "v4_blagn_measurements.csv",
-    "objects": PROJECT_ROOT / "data" / "processed" / "v4_blagn_objects.csv",
-    "links": PROJECT_ROOT / "data" / "crossmatch" / "v4_measurement_object_links.csv",
-    "aliases": PROJECT_ROOT / "data" / "crossmatch" / "v4_object_aliases.csv",
-    "candidates": PROJECT_ROOT / "data" / "crossmatch" / "v4_reviewed_match_candidates.csv",
+    "measurements": PROJECT_ROOT / "data/processed/v4/v4_blagn_measurements.csv",
+    "objects": PROJECT_ROOT / "data/processed/v4/v4_blagn_objects.csv",
+    "links": PROJECT_ROOT / "data/crossmatch/v4/v4_measurement_object_links.csv",
+    "aliases": PROJECT_ROOT / "data/crossmatch/v4/v4_object_aliases.csv",
+    "candidates": PROJECT_ROOT / "data/crossmatch/v4/v4_reviewed_match_candidates.csv",
 }
 
 

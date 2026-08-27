@@ -1,18 +1,18 @@
 # v3 Expanded BLAGN Catalogue Schema
 
 The v3 CEERS/RUBIES expansion is a separate release layer. It does not append to
-`data/raw/v1_raw.csv`, overwrite `data/processed/v1_processed.csv`, or alter any
+`data/raw/v1_raw.csv`, overwrite `data/processed/v1/v1_processed.csv`, or alter any
 v1 result or ranking file.
 
 ## Release artifacts
 
 - `data/raw/taylor24_ceers_rubies_blagn_table1.csv`: all 63 published Table 1
   measurements, including 26 rows below `z=4`.
-- `data/crossmatch/v3_measurement_object_links.csv`: stable measurement-to-object
+- `data/crossmatch/v3/v3_measurement_object_links.csv`: stable measurement-to-object
   links for v1 and Taylor, including the explicit CEERS/RUBIES duplicate.
-- `data/processed/v3_blagn_measurements.csv`: 60 measurements at `z >= 4`
+- `data/processed/v3/v3_blagn_measurements.csv`: 60 measurements at `z >= 4`
   (23 v1 plus 37 Taylor).
-- `data/processed/v3_blagn_objects.csv`: 59 physical objects, represented
+- `data/processed/v3/v3_blagn_objects.csv`: 59 physical objects, represented
   by one documented preferred measurement each.
 
 Regenerate only these two v3 processed files with:

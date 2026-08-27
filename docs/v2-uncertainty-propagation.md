@@ -86,9 +86,9 @@ All v2 uncertainty diagnostics currently use:
 
 | Output | Rows | Meaning |
 | --- | --- | --- |
-| `results/v2_uncertainty_required_fedd_summary.csv` | one row per object, scenario, and fixed seed mass | Required lifetime-average `f_Edd` percentiles and `P(required f_Edd > 1)`. |
-| `results/v2_uncertainty_required_mseed_summary.csv` | one row per object, scenario, and fixed growth history | Required seed-mass percentiles in `log10(Msun)` and `Msun`, plus probabilities above `1e5` and `1e6 Msun`. |
-| `results/v2_uncertainty_aware_ranking_table.csv` | one row per current v1 measurement/object | Point-estimate ranking table plus uncertainty percentiles, threshold probabilities, and uncertainty-aware ranks. |
+| `results/releases/v2/tables/v2_uncertainty_required_fedd_summary.csv` | one row per object, scenario, and fixed seed mass | Required lifetime-average `f_Edd` percentiles and `P(required f_Edd > 1)`. |
+| `results/releases/v2/tables/v2_uncertainty_required_mseed_summary.csv` | one row per object, scenario, and fixed growth history | Required seed-mass percentiles in `log10(Msun)` and `Msun`, plus probabilities above `1e5` and `1e6 Msun`. |
+| `results/releases/v2/tables/v2_uncertainty_aware_ranking_table.csv` | one row per current v1 measurement/object | Point-estimate ranking table plus uncertainty percentiles, threshold probabilities, and uncertainty-aware ranks. |
 
 Percentile summaries include 5th, 16th, 50th, 84th, and 95th percentiles.
 Seed-mass summaries include both `required_log_mseed_*` and

@@ -18,9 +18,9 @@ from src.v6_science import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RESULTS = ROOT / "results"
-MEASUREMENTS = ROOT / "data/processed/v6_blagn_measurements.csv"
-OBJECTS = ROOT / "data/processed/v6_blagn_objects.csv"
+RESULTS = ROOT / "results/releases/v6/tables"
+MEASUREMENTS = ROOT / "data/processed/v6/v6_blagn_measurements.csv"
+OBJECTS = ROOT / "data/processed/v6/v6_blagn_objects.csv"
 OUTPUT_PATHS = {
     "measurement_evaluation": RESULTS / "v6_blagn_measurement_evaluation.csv",
     "object_evaluation": RESULTS / "v6_blagn_physical_object_evaluation.csv",

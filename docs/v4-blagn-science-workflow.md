@@ -101,7 +101,7 @@ success. Run the full v1--v4 regression suite separately with:
 $env:PYTHONDONTWRITEBYTECODE='1'; python -m unittest discover -s tests
 ```
 
-The five v4 figures under `results/v4_main_text_figures/` include mass-redshift,
+The five v4 figures under `results/releases/v4/figures/main_text/` include mass-redshift,
 ranked-growth, uncertainty, source-coverage, and duplicate-measurement
-sensitivity views. The four files under `results/v3_main_text_figures/` remain
+sensitivity views. The four files under `results/releases/v3/figures/main_text/` remain
 intentional frozen-v3 comparisons.

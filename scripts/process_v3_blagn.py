@@ -10,11 +10,11 @@ from src.v3_catalogue import build_v3_catalogues, validate_taylor_raw
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-V1_PROCESSED_PATH = PROJECT_ROOT / "data" / "processed" / "v1_processed.csv"
+V1_PROCESSED_PATH = PROJECT_ROOT / "data/processed/v1/v1_processed.csv"
 TAYLOR_RAW_PATH = PROJECT_ROOT / "data" / "raw" / "taylor24_ceers_rubies_blagn_table1.csv"
-LINK_PATH = PROJECT_ROOT / "data" / "crossmatch" / "v3_measurement_object_links.csv"
-MEASUREMENT_OUTPUT_PATH = PROJECT_ROOT / "data" / "processed" / "v3_blagn_measurements.csv"
-OBJECT_OUTPUT_PATH = PROJECT_ROOT / "data" / "processed" / "v3_blagn_objects.csv"
+LINK_PATH = PROJECT_ROOT / "data/crossmatch/v3/v3_measurement_object_links.csv"
+MEASUREMENT_OUTPUT_PATH = PROJECT_ROOT / "data/processed/v3/v3_blagn_measurements.csv"
+OBJECT_OUTPUT_PATH = PROJECT_ROOT / "data/processed/v3/v3_blagn_objects.csv"
 
 
 def main() -> None:

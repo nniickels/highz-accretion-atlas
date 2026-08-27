@@ -17,11 +17,11 @@ import pandas as pd
 from src.models import cosmic_time_gyr, predicted_log_mbh
 
 
-RESULTS = PROJECT_ROOT / "results"
-OUTPUT = RESULTS / "v3_main_text_figures"
+RESULTS = PROJECT_ROOT / "results/releases/v3/tables"
+OUTPUT = PROJECT_ROOT / "results/releases/v3/figures/main_text"
 OBJECT_POINT = RESULTS / "v3_blagn_physical_object_point_ranking.csv"
 OBJECT_UNCERTAINTY = RESULTS / "v3_blagn_physical_object_uncertainty_ranking.csv"
-MEASUREMENTS = PROJECT_ROOT / "data" / "processed" / "v3_blagn_measurements.csv"
+MEASUREMENTS = PROJECT_ROOT / "data/processed/v3/v3_blagn_measurements.csv"
 
 SOURCE_STYLE = {
     "juodzbalis25_jades_blagn": ("JADES", "#204A87", "o"),

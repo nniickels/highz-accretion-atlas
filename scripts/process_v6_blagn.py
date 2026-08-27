@@ -10,14 +10,14 @@ from src.v6_catalogue import build_v6_catalogues
 
 
 ROOT = Path(__file__).resolve().parents[1]
-V5_MEASUREMENTS = ROOT / "data/processed/v5_blagn_measurements.csv"
+V5_MEASUREMENTS = ROOT / "data/processed/v5/v5_blagn_measurements.csv"
 THRILS_RAW = ROOT / "data/raw/davis26_thrils_blagn_table5.csv"
 OUTPUTS = {
-    "measurements": ROOT / "data/processed/v6_blagn_measurements.csv",
-    "objects": ROOT / "data/processed/v6_blagn_objects.csv",
-    "links": ROOT / "data/crossmatch/v6_measurement_object_links.csv",
-    "aliases": ROOT / "data/crossmatch/v6_object_aliases.csv",
-    "candidates": ROOT / "data/crossmatch/v6_reviewed_match_candidates.csv",
+    "measurements": ROOT / "data/processed/v6/v6_blagn_measurements.csv",
+    "objects": ROOT / "data/processed/v6/v6_blagn_objects.csv",
+    "links": ROOT / "data/crossmatch/v6/v6_measurement_object_links.csv",
+    "aliases": ROOT / "data/crossmatch/v6/v6_object_aliases.csv",
+    "candidates": ROOT / "data/crossmatch/v6/v6_reviewed_match_candidates.csv",
 }
 
 

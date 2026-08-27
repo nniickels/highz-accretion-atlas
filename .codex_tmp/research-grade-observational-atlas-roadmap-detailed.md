@@ -56,7 +56,7 @@ Careful claim posture:
 ### v1 data foundation
 - v1 uses one clean source class from one source paper: JADES broad-line AGN from Juodzbalis et al. 2025.
 - Raw catalogue exists at `data/raw/v1_raw.csv`.
-- Processed catalogue exists at `data/processed/v1_processed.csv`.
+- Processed catalogue exists at `data/processed/v1/v1_processed.csv`.
 - Source registry exists at `data/sources.md`.
 - Catalogue schema exists at `docs/catalogue-schema.md`.
 - v1 raw file has 34 rows.
@@ -101,7 +101,7 @@ Careful claim posture:
 
 ### Standardization pipeline
 - `src/standardize_data.py` implements canonical raw fields, validation, numeric coercion, optional missingness flags, and processed output assembly.
-- `scripts/process_data.py` regenerates `data/processed/v1_processed.csv` from `data/raw/v1_raw.csv`.
+- `scripts/process_data.py` regenerates `data/processed/v1/v1_processed.csv` from `data/raw/v1_raw.csv`.
 - Validation includes:
   - required canonical columns
   - required values
@@ -145,17 +145,17 @@ Careful claim posture:
 ### v1 evaluation products
 - `scripts/v1_evaluate.ipynb` builds v1 science outputs.
 - Generated CSV outputs:
-  - `results/v1_evaluation_table.csv`
-  - `results/v1_required_fedd_by_seed_mass.csv`
-  - `results/v1_required_mseed_by_growth_assumption.csv`
-  - `results/v1_sample_summary.csv`
-  - `results/v1_mass_compatibility_spin_merger_grid.csv`
+  - `results/releases/v1/tables/v1_evaluation_table.csv`
+  - `results/releases/v1/tables/v1_required_fedd_by_seed_mass.csv`
+  - `results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv`
+  - `results/releases/v1/tables/v1_sample_summary.csv`
+  - `results/releases/v1/tables/v1_mass_compatibility_spin_merger_grid.csv`
 - Generated figure outputs:
-  - `results/v1_mbh_vs_redshift_growth_tracks.png`
-  - `results/v1_sample_compatibility_summary.png`
-  - per-object parameter maps in `results/v1_parameter_maps/`
-  - per-object seed-redshift maps in `results/v1_seed_redshift_maps/`
-  - one 3D seed-redshift test in `results/v1_seed_redshift_3d_tests/`
+  - `results/releases/v1/figures/v1_mbh_vs_redshift_growth_tracks.png`
+  - `results/releases/v1/figures/v1_sample_compatibility_summary.png`
+  - per-object parameter maps in `results/releases/v1/galleries/parameter_maps/`
+  - per-object seed-redshift maps in `results/releases/v1/galleries/seed_redshift_maps/`
+  - one 3D seed-redshift test in `results/releases/v1/galleries/seed_redshift_3d_tests/`
 - Verified counts:
   - 8832 evaluation rows
   - 2208 required-`f_Edd` rows
@@ -597,7 +597,7 @@ The implementation is an effective two-state sensitivity, not a time-resolved
 feedback or stochastic-light-curve model.
 
 Presentation status: complete. The current-versus-required and fixed-burst
-panels are generated under `results/v5_main_text_figures/`. Source-inconsistent
+panels are generated under `results/releases/v5/figures/main_text/`. Source-inconsistent
 published current values are retained but excluded from ratios. A separate
 duty-cycle rank is intentionally not created because fixed burst/quiescent
 choices make `D` a monotonic rescaling of required average `f_Edd`.

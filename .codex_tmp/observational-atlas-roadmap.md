@@ -32,7 +32,7 @@ Completed so far:
 - v3 measurement- and physical-object-level evaluations, rankings, uncertainty
   products, and stratified summaries completed.
 - v3 final-style comparison figures completed under
-  `results/v3_main_text_figures/`.
+  `results/releases/v3/figures/main_text/`.
 - v4 generalized measurement identity and same-class expansion completed with
   Matthee EIGER/FRESCO and Lin ASPIRE: 96 measurements / 94 physical objects.
 - v5 adds the ten-row Harikane NIRSpec BLAGN measurement layer: five verified

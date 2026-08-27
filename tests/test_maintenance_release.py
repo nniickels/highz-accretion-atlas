@@ -60,7 +60,7 @@ class MaintenanceReleaseTests(unittest.TestCase):
             verify_v5_figure_membership(broken)
 
     def test_every_v4_source_method_pair_is_registered(self) -> None:
-        catalogue = pd.read_csv(ROOT / "data/processed/v4_blagn_measurements.csv")
+        catalogue = pd.read_csv(ROOT / "data/processed/v4/v4_blagn_measurements.csv")
         registry = load_mass_method_registry(ROOT / "data/mass_method_registry.csv")
         validate_catalogue_method_coverage(catalogue, registry)
         jades_halpha = registry.set_index(["source_key", "mbh_method"]).loc[

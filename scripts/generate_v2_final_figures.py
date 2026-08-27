@@ -30,17 +30,18 @@ sys.path.insert(0, str(REPO_ROOT))
 
 from src.models import cosmic_time_gyr, predicted_log_mbh
 
-RESULTS_DIR = REPO_ROOT / "results"
-FIGURE_DIR = RESULTS_DIR / "v2_main_text_figures"
-RANKING_PATH = RESULTS_DIR / "v2_object_ranking_table.csv"
-UNCERTAINTY_RANKING_PATH = RESULTS_DIR / "v2_uncertainty_aware_ranking_table.csv"
-UNCERTAINTY_FEDD_PATH = RESULTS_DIR / "v2_uncertainty_required_fedd_summary.csv"
-UNCERTAINTY_MSEED_PATH = RESULTS_DIR / "v2_uncertainty_required_mseed_summary.csv"
+V1_GALLERIES = REPO_ROOT / "results/releases/v1/galleries"
+V2_TABLES = REPO_ROOT / "results/releases/v2/tables"
+FIGURE_DIR = REPO_ROOT / "results/releases/v2/figures/main_text"
+RANKING_PATH = V2_TABLES / "v2_object_ranking_table.csv"
+UNCERTAINTY_RANKING_PATH = V2_TABLES / "v2_uncertainty_aware_ranking_table.csv"
+UNCERTAINTY_FEDD_PATH = V2_TABLES / "v2_uncertainty_required_fedd_summary.csv"
+UNCERTAINTY_MSEED_PATH = V2_TABLES / "v2_uncertainty_required_mseed_summary.csv"
 
 SPOTLIGHT_MAPS = {
-    "GN-38509": RESULTS_DIR / "v1_seed_redshift_maps" / "v1_seed_redshift_map_gn38509-juodzbalis25.png",
-    "GS-20057765": RESULTS_DIR
-    / "v1_seed_redshift_maps"
+    "GN-38509": V1_GALLERIES / "seed_redshift_maps" / "v1_seed_redshift_map_gn38509-juodzbalis25.png",
+    "GS-20057765": V1_GALLERIES
+    / "seed_redshift_maps"
     / "v1_seed_redshift_map_gs20057765-juodzbalis25.png",
 }
 

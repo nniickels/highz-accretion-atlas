@@ -12,8 +12,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-OUTPUT_DIR = RESULTS / "compiled_object_grids"
-CATALOGUE = ROOT / "data/processed/v1_processed.csv"
+OUTPUT_DIR = RESULTS / "releases/v7_3/galleries/compiled_object_grids"
+CATALOGUE = ROOT / "data/processed/v1/v1_processed.csv"
 N_COLUMNS = 5
 CELL_WIDTH = 1200
 CELL_HEIGHT = 1120
@@ -22,7 +22,7 @@ BACKGROUND = (255, 255, 255)
 
 
 def scenario_sources() -> dict[str, Path]:
-    base = RESULTS / "v1_parameter_maps"
+    base = RESULTS / "releases/v1/galleries/parameter_maps"
     return {
         "parameter_spin_minus1_eps0p038_no_merger_boost": base / "spin_minus1_eps0p038/no_merger_boost",
         "parameter_spin_minus1_eps0p038_merger_boost_x2": base / "spin_minus1_eps0p038/merger_boost_x2",
@@ -30,7 +30,7 @@ def scenario_sources() -> dict[str, Path]:
         "parameter_spin_0_eps0p057_merger_boost_x2": base / "spin_0_eps0p057/merger_boost_x2",
         "parameter_spin_plus1_eps0p423_no_merger_boost": base / "spin_plus1_eps0p423/no_merger_boost",
         "parameter_spin_plus1_eps0p423_merger_boost_x2": base / "spin_plus1_eps0p423/merger_boost_x2",
-        "seed_redshift_baseline": RESULTS / "v1_seed_redshift_maps",
+        "seed_redshift_baseline": RESULTS / "releases/v1/galleries/seed_redshift_maps",
     }
 
 

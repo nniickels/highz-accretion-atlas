@@ -14,7 +14,7 @@ from src.standardize_data import standardize_raw_csv
  
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_PATH = PROJECT_ROOT / "data" / "raw" / "v1_raw.csv"
-PROCESSED_PATH = PROJECT_ROOT / "data" / "processed" / "v1_processed.csv"
+PROCESSED_PATH = PROJECT_ROOT / "data/processed/v1/v1_processed.csv"
 
 # Optional canonical_name -> source_column_name mapping for non-canonical raw tables.
 # Leave empty for v1_raw.csv because it already uses canonical names.

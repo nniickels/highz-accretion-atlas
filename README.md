@@ -74,7 +74,7 @@ Appendix or supplement products:
 - source-by-source caveats
 
 The complete per-object map collections are also available as seven lossless
-high-resolution grids under `results/compiled_object_grids/`: six fixed
+high-resolution grids under `results/releases/v7_3/galleries/compiled_object_grids/`: six fixed
 spin/merger parameter-space cases and one seed-redshift compilation. Each grid
 is 6048 by 5648 pixels at 300 dpi and contains all 23 v1 objects. Start with
 `results/README.md` or the machine-readable `results/results_inventory.csv` to
@@ -136,7 +136,7 @@ false failures from final-bit differences between macOS/ARM and Linux/x86.
 Start with one clean object class from one source paper.
 
 1. Ingest the JADES broad-line AGN catalogue into `data/raw/v1_raw.csv`.
-2. Standardize it into `data/processed/v1_processed.csv`.
+2. Standardize it into `data/processed/v1/v1_processed.csv`.
 3. Validate schema, required values, missing fields, methods, and provenance.
 4. Compute cosmic ages and growth intervals.
 5. Implement baseline growth diagnostics:
@@ -182,10 +182,10 @@ Add more broad-line AGN catalogues while keeping the object class relatively con
 4. Compare how different papers move objects through growth-parameter space.
 5. Recompute rankings and uncertainty-aware diagnostics. Measurement- and
    physical-object-level expanded products now live under
-   `results/v3_blagn_*.csv` and are documented in
+   `results/releases/v3/tables/v3_blagn_*.csv` and are documented in
    `docs/v3-blagn-science-workflow.md`.
 6. Update final-style figures and tables. The frozen v3 catalogue now has its own
-   final-style overview and ranking figures under `results/v3_main_text_figures/`.
+   final-style overview and ranking figures under `results/releases/v3/figures/main_text/`.
 
 ### v4: Measurement Versioning and Same-Class Expansion
 
@@ -342,13 +342,13 @@ $env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discove
 
 Expected current products include:
 
-- `data/processed/v6_blagn_measurements.csv` (112 measurements)
-- `data/processed/v6_blagn_objects.csv` (105 physical objects)
-- `data/crossmatch/v6_measurement_object_links.csv`
-- measurement- and object-level `results/v6_blagn_*.csv` products
+- `data/processed/v6/v6_blagn_measurements.csv` (112 measurements)
+- `data/processed/v6/v6_blagn_objects.csv` (105 physical objects)
+- `data/crossmatch/v6/v6_measurement_object_links.csv`
+- measurement- and object-level `results/releases/v6/tables/v6_blagn_*.csv` products
 - 336-row measurement and 315-row physical-object accretion-history tables
 - a 105-row full-versus-primary ranking comparison
-- four deliberate v5 paper figures under `results/v5_main_text_figures/`
+- four deliberate v5 paper figures under `results/releases/v5/figures/main_text/`
 
 The v6 ranking and uncertainty products use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column

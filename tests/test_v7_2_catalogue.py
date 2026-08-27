@@ -70,7 +70,7 @@ class V72CatalogueTests(unittest.TestCase):
         self.assertTrue(preferred.eq(1).all())
 
     def test_v7_1_is_inherited_without_scientific_overwrite(self) -> None:
-        frozen = pd.read_csv(ROOT / "data/processed/v7_1_accreting_measurements.csv")
+        frozen = pd.read_csv(ROOT / "data/processed/v7_1/v7_1_accreting_measurements.csv")
         inherited = self.measurements[self.measurements["source_key"].ne(SOURCE_KEY)]
         self.assertEqual(set(inherited["measurement_id"]), set(frozen["measurement_id"]))
         fields = ["ra_deg", "dec_deg", "redshift", "log_mbh_msun_std"]

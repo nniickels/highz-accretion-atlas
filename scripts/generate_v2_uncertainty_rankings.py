@@ -22,7 +22,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from scripts.generate_v2_rankings import build_ranking_table, read_inputs
 from src.models import required_fedd_for_seed, required_seed_mass_for_growth
 
-RESULTS_DIR = REPO_ROOT / "results"
+RESULTS_DIR = REPO_ROOT / "results/releases/v2/tables"
 FEDD_SUMMARY_PATH = RESULTS_DIR / "v2_uncertainty_required_fedd_summary.csv"
 MSEED_SUMMARY_PATH = RESULTS_DIR / "v2_uncertainty_required_mseed_summary.csv"
 UNCERTAINTY_RANKING_PATH = RESULTS_DIR / "v2_uncertainty_aware_ranking_table.csv"

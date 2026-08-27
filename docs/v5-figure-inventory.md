@@ -7,7 +7,7 @@ python -m scripts.generate_v5_final_figures
 ```
 
 It reads only the canonical v5 result tables and writes new files under
-`results/v5_main_text_figures/`. Frozen v1--v4 figures are not overwritten.
+`results/releases/v5/figures/main_text/`. Frozen v1--v4 figures are not overwritten.
 
 The canonical PNG membership and SHA-256 hashes are recorded separately in
 `releases/v5-figures-manifest.json`. Verify them without rewriting any figure:

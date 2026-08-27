@@ -51,7 +51,7 @@ class V74CatalogueTests(unittest.TestCase):
         self.assertEqual(preferred["measurement_id"].tolist(), ["GS8083_juodzbalis25"])
 
     def test_frozen_v7_3_rows_are_inherited(self) -> None:
-        frozen = pd.read_csv(ROOT / "data/processed/v7_3_accreting_measurements.csv")
+        frozen = pd.read_csv(ROOT / "data/processed/v7_3/v7_3_accreting_measurements.csv")
         inherited = self.measurements[self.measurements["source_key"].ne(SOURCE_KEY)]
         fields = ["ra_deg", "dec_deg", "redshift", "log_mbh_msun_std", "evidence_status"]
         pd.testing.assert_frame_equal(frozen.set_index("measurement_id")[fields].sort_index(), inherited.set_index("measurement_id")[fields].sort_index())

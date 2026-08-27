@@ -16,7 +16,7 @@ from scripts.release_verification import require_clean_worktree, verify_artifact
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "releases/v7.3-results-gallery-manifest.json"
-GRID_DIR = ROOT / "results/compiled_object_grids"
+GRID_DIR = ROOT / "results/releases/v7_3/galleries/compiled_object_grids"
 RESULTS_INVENTORY = ROOT / "results/results_inventory.csv"
 EXPECTED_COUNTS = {
     "parameter_maps": 138,
@@ -38,10 +38,10 @@ EXPECTED_GRID_SPEC = {
 def expected_artifact_paths() -> set[str]:
     return {
         *{
-            f"results/compiled_object_grids/all_objects_{scenario}.png"
+            f"results/releases/v7_3/galleries/compiled_object_grids/all_objects_{scenario}.png"
             for scenario in scenario_sources()
         },
-        "results/compiled_object_grids/grid_inventory.csv",
+        "results/releases/v7_3/galleries/compiled_object_grids/grid_inventory.csv",
         "results/results_inventory.csv",
     }
 

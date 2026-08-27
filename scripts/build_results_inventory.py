@@ -1,4 +1,4 @@
-"""Build a deterministic, categorized inventory without moving frozen results."""
+"""Build a deterministic inventory of release-organized result artifacts."""
 
 from __future__ import annotations
 
@@ -16,6 +16,8 @@ EXCLUDED = {"README.md", OUTPUT.name}
 
 
 def release_label(path: Path) -> str:
+    if len(path.parts) >= 2 and path.parts[0] == "releases":
+        return path.parts[1].replace("_", ".")
     match = re.match(r"v(\d+(?:_\d+)?)", path.name)
     if not match:
         match = re.match(r"v(\d+(?:_\d+)?)", path.parts[0])
@@ -24,11 +26,11 @@ def release_label(path: Path) -> str:
 
 def category(path: Path) -> tuple[str, str]:
     text = path.as_posix()
-    if text == "compiled_object_grids/grid_inventory.csv":
+    if text.endswith("/galleries/compiled_object_grids/grid_inventory.csv"):
         return "table", "compiled_grid_inventory"
-    if text.startswith("compiled_object_grids/"):
+    if "/galleries/compiled_object_grids/" in text:
         return "figure", "compiled_all_object_grids"
-    if "main_text_figures" in text:
+    if "/figures/main_text/" in text:
         return "figure", "main_text_or_appendix_figures"
     if "parameter_maps" in text:
         return "figure", "per_object_parameter_maps"
@@ -57,10 +59,7 @@ def build_inventory() -> pd.DataFrame:
             "path": (Path("results") / relative).as_posix(),
             "size_bytes": path.stat().st_size,
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-            "path_policy": (
-                "immutable_existing_path" if not relative.as_posix().startswith("compiled_object_grids/")
-                else "organized_compilation_path"
-            ),
+            "path_policy": "release_organized_path",
         })
     result = pd.DataFrame(rows).sort_values(
         ["release", "artifact_kind", "collection", "path"],

@@ -144,7 +144,7 @@ class V7AdmissionTests(unittest.TestCase):
         self.assertEqual(frozen.iloc[0]["object_class"], "broad-line-agn")
 
     def test_all_frozen_v6_taxonomy_tokens_have_a_v7_path(self) -> None:
-        frozen = pd.read_csv(ROOT / "data/processed/v6_blagn_measurements.csv")
+        frozen = pd.read_csv(ROOT / "data/processed/v6/v6_blagn_measurements.csv")
         translated = normalize_v7_vocabulary(frozen)
         self.assertLessEqual(set(translated["object_class"]), OBJECT_CLASSES)
         self.assertLessEqual(set(translated["evidence_status"]), EVIDENCE_STATUSES)

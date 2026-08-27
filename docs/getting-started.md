@@ -195,7 +195,7 @@ python -m scripts.generate_v4_final_figures
 
 The v4 processing command writes 96 measurement rows, 94 physical-object rows,
 96 measurement/object links, 96 aliases, and one reviewed cross-paper match
-candidate plus its explicit review decision. The science command writes 13 `results/v4_blagn_*.csv` products at
+candidate plus its explicit review decision. The science command writes 13 `results/releases/v4/tables/v4_blagn_*.csv` products at
 measurement and physical-object level. Expected source additions are 20 Matthee
 EIGER/FRESCO rows and 16 Lin ASPIRE rows. The newly reviewed identity is
 `GOODS-S-13971 = GS-204851`; the existing
@@ -206,7 +206,7 @@ See `docs/v4-blagn-catalogue-schema.md` for catalogue/identity details and
 No command overwrites a v1--v3 artifact.
 
 The figure command writes five v4-specific final figures to
-`results/v4_main_text_figures/`. Generate the frozen-v3 comparison figures
+`results/releases/v4/figures/main_text/`. Generate the frozen-v3 comparison figures
 separately when needed:
 
 ```powershell
@@ -225,8 +225,8 @@ This validates all 63 Taylor Table 1 measurements, applies `z >= 4` only in the
 processing layer, combines the resulting 37 measurements with the 23-row v1
 catalogue, and writes:
 
-- `data/processed/v3_blagn_measurements.csv` (60 measurement rows)
-- `data/processed/v3_blagn_objects.csv` (59 physical-object rows)
+- `data/processed/v3/v3_blagn_measurements.csv` (60 measurement rows)
+- `data/processed/v3/v3_blagn_objects.csv` (59 physical-object rows)
 
 The object view links CEERS-2782 and RUBIES-EGS-50052 but retains both in the
 measurement view. The command does not run rankings or regenerate figures.
@@ -240,7 +240,7 @@ stratified summaries with:
 python -m scripts.generate_v3_blagn_science --n-samples 10000 --seed 20260808
 ```
 
-This writes only `results/v3_blagn_*.csv` products. It produces separate
+This writes only `results/releases/v3/tables/v3_blagn_*.csv` products. It produces separate
 measurement- and physical-object-level rankings, keeps statistical MBH sampling
 separate from the global `+/-0.3 dex` and Taylor-only `+/-0.5 dex` sensitivity
 scenarios, and does not regenerate figures. See
@@ -283,7 +283,7 @@ Expected behavior:
   and unique `measurement_id`
 - filters to `redshift >= 4`
 - preserves source/method/provenance fields in the processed catalogue
-- writes `data/processed/v1_processed.csv`
+- writes `data/processed/v1/v1_processed.csv`
 - prints optional missing-field counts for Mstar, Lbol, Eddington ratio, and
   lensing metadata
 
@@ -292,13 +292,13 @@ Expected behavior:
 Inspect the regenerated file:
 
 ```powershell
-python -c "import pandas as pd; df = pd.read_csv('data/processed/v1_processed.csv'); print(df.shape); print(df[['missing_mstar_flag','missing_lbol_flag','missing_edd_ratio_flag','missing_lensing_flag']].sum())"
+python -c "import pandas as pd; df = pd.read_csv('data/processed/v1/v1_processed.csv'); print(df.shape); print(df[['missing_mstar_flag','missing_lbol_flag','missing_edd_ratio_flag','missing_lensing_flag']].sum())"
 ```
 
 Confirm the processed columns against the schema:
 
 ```powershell
-python -c "import pandas as pd; print('\n'.join(pd.read_csv('data/processed/v1_processed.csv', nrows=0).columns))"
+python -c "import pandas as pd; print('\n'.join(pd.read_csv('data/processed/v1/v1_processed.csv', nrows=0).columns))"
 ```
 
 The processed column definitions and missing-value policy are documented in
@@ -317,16 +317,16 @@ should be run first so the notebook uses the latest processed CSV.
 
 The notebook writes these v1 CSV outputs:
 
-- `results/v1_evaluation_table.csv`
-- `results/v1_required_fedd_by_seed_mass.csv`
-- `results/v1_required_mseed_by_growth_assumption.csv`
-- `results/v1_sample_summary.csv`
+- `results/releases/v1/tables/v1_evaluation_table.csv`
+- `results/releases/v1/tables/v1_required_fedd_by_seed_mass.csv`
+- `results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv`
+- `results/releases/v1/tables/v1_sample_summary.csv`
 
 It also writes these PNG figure outputs:
 
-- `results/v1_mbh_vs_redshift_growth_tracks.png`
-- `results/v1_sample_compatibility_summary.png`
-- one per-object PNG map per processed object in `results/v1_parameter_maps/`
+- `results/releases/v1/figures/v1_mbh_vs_redshift_growth_tracks.png`
+- `results/releases/v1/figures/v1_sample_compatibility_summary.png`
+- one per-object PNG map per processed object in `results/releases/v1/galleries/parameter_maps/`
 
 The v1 notebook writes static PNG figure outputs only.
 
@@ -344,7 +344,7 @@ python scripts/generate_v2_rankings.py
 
 This writes:
 
-- `results/v2_object_ranking_table.csv`
+- `results/releases/v2/tables/v2_object_ranking_table.csv`
 
 The script prints a verification summary with the row count, `measurement_id`
 uniqueness check, top-ranked physical-pressure objects, and sanity checks for
@@ -372,9 +372,9 @@ python scripts/generate_v2_uncertainty_rankings.py --n-samples 10000 --seed 2026
 This samples the reported asymmetric black-hole mass errors and evaluates
 baseline, `MBH -0.3 dex`, and `MBH +0.3 dex` systematic scenarios. It writes:
 
-- `results/v2_uncertainty_required_fedd_summary.csv`
-- `results/v2_uncertainty_required_mseed_summary.csv`
-- `results/v2_uncertainty_aware_ranking_table.csv`
+- `results/releases/v2/tables/v2_uncertainty_required_fedd_summary.csv`
+- `results/releases/v2/tables/v2_uncertainty_required_mseed_summary.csv`
+- `results/releases/v2/tables/v2_uncertainty_aware_ranking_table.csv`
 
 The uncertainty propagation design and current v2 ranking summary are
 documented in `docs/v2-uncertainty-propagation.md`.
@@ -394,7 +394,7 @@ python scripts/generate_v2_final_figures.py
 
 This writes final-style prototype figures to:
 
-- `results/v2_main_text_figures/`
+- `results/releases/v2/figures/main_text/`
 
 Expected prototype filenames:
 
@@ -441,9 +441,9 @@ python scripts/generate_seed_redshift_figures.py
 This writes:
 
 - per-object `M_seed` versus `z_seed` required-`f_Edd` maps in
-  `results/v1_seed_redshift_maps/`
+  `results/releases/v1/galleries/seed_redshift_maps/`
 - one exploratory 3D required-`f_Edd` surface in
-  `results/v1_seed_redshift_3d_tests/`
+  `results/releases/v1/galleries/seed_redshift_3d_tests/`
 
 After the individual parameter and seed-redshift maps exist, compile every
 object into zoomable grid figures and refresh the categorized results index:
@@ -455,7 +455,7 @@ python -m scripts.verify_v7_3_results_gallery
 ```
 
 The seven lossless 6048-by-5648 PNG grids live in
-`results/compiled_object_grids/`. This step reads but does not overwrite any
+`results/releases/v7_3/galleries/compiled_object_grids/`. This step reads but does not overwrite any
 individual map or frozen science table.
 
 These figures use the same processed v1 catalogue and restrict the seed

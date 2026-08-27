@@ -26,10 +26,10 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.models import required_fedd_for_seed
 
 
-PROCESSED_PATH = REPO_ROOT / "data" / "processed" / "v1_processed.csv"
-RESULTS_DIR = REPO_ROOT / "results"
-SEED_REDSHIFT_MAP_DIR = RESULTS_DIR / "v1_seed_redshift_maps"
-SEED_REDSHIFT_3D_DIR = RESULTS_DIR / "v1_seed_redshift_3d_tests"
+PROCESSED_PATH = REPO_ROOT / "data/processed/v1/v1_processed.csv"
+GALLERY_DIR = REPO_ROOT / "results/releases/v1/galleries"
+SEED_REDSHIFT_MAP_DIR = GALLERY_DIR / "seed_redshift_maps"
+SEED_REDSHIFT_3D_DIR = GALLERY_DIR / "seed_redshift_3d_tests"
 
 Z_SEED_MAX = 30.0
 LOG_MSEED_AXIS = np.linspace(1.0, 6.2, 180)

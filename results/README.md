@@ -1,24 +1,44 @@
 # Results Directory Guide
 
-This directory contains immutable historical release artifacts plus organized
-current compilations. Existing root-level CSVs and release figure paths remain
-in place because manifests, reproduction commands, documentation, and citations
-refer to those exact paths. New collections use descriptive subdirectories.
+Generated results are organized first by project release and then by artifact
+type. Historical releases are retained as frozen snapshots: later products are
+usually more complete or polished, but earlier releases can contain distinct
+diagnostics and are part of the reproducibility record.
 
-## Find a result
+## Layout
 
-- `results_inventory.csv`: machine-readable index of every result artifact,
-  including release, category, byte size, SHA-256 hash, and path policy.
-- `compiled_object_grids/`: high-resolution lossless grids containing every v1
-  object map. There are six spin/merger parameter-map grids and one baseline
-  seed-redshift grid. `grid_inventory.csv` records dimensions and hashes.
-- `v1_parameter_maps/`: 138 individual parameter maps: 23 objects across three
-  spin efficiencies and two merger assumptions.
-- `v1_seed_redshift_maps/`: 23 individual seed-redshift maps.
-- `v2_main_text_figures/` through `v5_main_text_figures/`: release-specific
-  paper-facing or prototype figures.
-- Root-level `v1_*.csv` through `v7_2_*.csv`: frozen science tables retained at
-  their original manifest-covered paths.
+```text
+results/
+├── README.md
+├── results_inventory.csv
+└── releases/
+    └── <release>/
+        ├── tables/       generated CSV science products
+        ├── figures/      standalone and paper-facing figures
+        │   └── main_text/
+        └── galleries/    large per-object or compiled figure collections
+```
+
+Only folders needed by a release are present. Release names use underscores for
+minor versions in paths (`v7_2`, `v7_3`) because artifact filenames follow the
+same convention.
+
+## Current and historical products
+
+- `releases/v1/` contains the pilot evaluation tables, standalone diagnostics,
+  138 parameter maps, 23 seed-redshift maps, and exploratory 3D tests.
+- `releases/v2/` contains ranking and uncertainty tables plus final-style
+  prototypes for the frozen v1 catalogue.
+- `releases/v3/` through `releases/v6/` contain the frozen BLAGN science tables;
+  v3-v5 also retain their figure sets.
+- `releases/v7_2/tables/` contains the current class-aware science layer.
+- `releases/v7_3/galleries/compiled_object_grids/` contains seven lossless,
+  high-resolution grids compiling every v1 per-object map by scenario.
+- `results_inventory.csv` indexes every result artifact with its release,
+  collection, size, SHA-256 hash, and canonical path.
+
+Catalogue tables are stored under `data/processed/<release>/` and identity
+products under `data/crossmatch/<release>/`; see `data/README.md`.
 
 ## Regeneration
 
@@ -29,12 +49,12 @@ python -m scripts.generate_all_object_grid_figures
 python -m scripts.build_results_inventory
 ```
 
-The compilation step reads but does not rewrite individual maps. The inventory
-step is non-scientific metadata and does not move or alter an artifact.
+The grid step reads but does not rewrite individual maps. The inventory is
+deterministic metadata and does not alter scientific artifacts.
 
 ## Interpretation boundary
 
 The grids are appendix/supplement navigation products. Each panel retains the
-assumptions and labels of its source map. They help compare all objects under
-one fixed scenario; they do not turn heterogeneous selections into a
-demographically complete sample or identify a unique formation history.
+assumptions and labels of its source map. They support comparison under one
+fixed scenario; they do not make the heterogeneous catalogue demographically
+complete or identify a unique formation history.

@@ -1,6 +1,6 @@
 # v1 Catalogue Schema
 
-`data/processed/v1_processed.csv` is generated from `data/raw/v1_raw.csv` by
+`data/processed/v1/v1_processed.csv` is generated from `data/raw/v1_raw.csv` by
 running `python -m scripts.process_data` from the repository root. v1 keeps one
 clean source class from one source paper, filtered to `redshift >= 4`.
 

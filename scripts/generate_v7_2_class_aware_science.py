@@ -22,17 +22,17 @@ from src.v7_2_science import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MEASUREMENTS = ROOT / "data/processed/v7_2_accreting_measurements.csv"
-OBJECTS = ROOT / "data/processed/v7_2_accreting_objects.csv"
+MEASUREMENTS = ROOT / "data/processed/v7_2/v7_2_accreting_measurements.csv"
+OBJECTS = ROOT / "data/processed/v7_2/v7_2_accreting_objects.csv"
 OUTPUT_PATHS = {
-    "measurement_point_ranking": ROOT / "results/v7_2_class_aware_measurement_point_ranking.csv",
-    "object_point_ranking": ROOT / "results/v7_2_class_aware_object_point_ranking.csv",
-    "measurement_uncertainty_ranking": ROOT / "results/v7_2_class_aware_measurement_uncertainty_ranking.csv",
-    "object_uncertainty_ranking": ROOT / "results/v7_2_class_aware_object_uncertainty_ranking.csv",
-    "class_method_summary": ROOT / "results/v7_2_class_aware_class_method_summary.csv",
-    "exclusion_audit": ROOT / "results/v7_2_class_aware_exclusion_audit.csv",
-    "alternate_measurement_sensitivity": ROOT / "results/v7_2_class_aware_alternate_measurement_sensitivity.csv",
-    "science_policy": ROOT / "results/v7_2_class_aware_science_policy.csv",
+    "measurement_point_ranking": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_measurement_point_ranking.csv",
+    "object_point_ranking": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_object_point_ranking.csv",
+    "measurement_uncertainty_ranking": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_measurement_uncertainty_ranking.csv",
+    "object_uncertainty_ranking": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_object_uncertainty_ranking.csv",
+    "class_method_summary": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_class_method_summary.csv",
+    "exclusion_audit": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_exclusion_audit.csv",
+    "alternate_measurement_sensitivity": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_alternate_measurement_sensitivity.csv",
+    "science_policy": ROOT / "results/releases/v7_2/tables/v7_2_class_aware_science_policy.csv",
 }
 
 

@@ -13,24 +13,24 @@
     "reviewed_match_records": 1
   },
   "artifacts": {
-    "data/processed/v4_blagn_measurements.csv": "518cade0c388f67758f65805e607a060e467c18728c7cafb2fdb431ac05eea2d",
-    "data/processed/v4_blagn_objects.csv": "d88d998e09ff49feac90e0f1406d96691f44c2698f33c9c9bb2df808af40266e",
-    "data/crossmatch/v4_measurement_object_links.csv": "3f7a57cf3f5d23c76d5ea2272614d97bd1907d1abc78c74713c52b5bc4af5900",
-    "data/crossmatch/v4_object_aliases.csv": "a0a8b2a6b9df25b2089d41406cb149c63c2c4fd5216830cda955b3caa2ff3b64",
-    "data/crossmatch/v4_reviewed_match_candidates.csv": "d26754292837d19e7f45340e72c1f059ff5c42f09ab5caaa6368034d8066fc4f",
-    "results/v4_blagn_alternate_measurement_sensitivity.csv": "204568c329a2ae303623200e9a8b8e420bdcdcb203889ea76860fdf4cb799ff0",
-    "results/v4_blagn_catalogue_summary.csv": "c518809935847dab3ad86ce4382598d3d53d0ab846ec29dd3f3f5c538bdd9f31",
-    "results/v4_blagn_growth_summary.csv": "15b8d0095a38c2cd921d8655e719ed8357524a17246bb48225f118c8a3b9265a",
-    "results/v4_blagn_measurement_evaluation.csv": "2a1f378d3691e75de7c23425e4a7605259fa0e3d7d029a79085a91b375d38758",
-    "results/v4_blagn_measurement_point_ranking.csv": "72b4c0d7d9f8692b2eb7f26691224eafc1b01d4d3a8817afee349aa29d8f233b",
-    "results/v4_blagn_measurement_uncertainty_fedd.csv": "c47e56d922198e3cd78eee913958b525b6b0acb148a2e971d44ca99535567389",
-    "results/v4_blagn_measurement_uncertainty_mseed.csv": "eea2d17c3970c7156b7136737b19cdea1556176066327d0c1d3f73e478d2bc3c",
-    "results/v4_blagn_measurement_uncertainty_ranking.csv": "17cba38e70682c01151cf117a7677ce5a71010f3d983fdb3060bd1d226c87a71",
-    "results/v4_blagn_physical_object_evaluation.csv": "fd445bcd7726623c290f875ef0fd942590f2ce0c0c7e302ace29b6193e769c73",
-    "results/v4_blagn_physical_object_point_ranking.csv": "e42628a9990cc556e660d629b509b84151cc7e3ae392db12b521711ea1fe1df5",
-    "results/v4_blagn_physical_object_uncertainty_fedd.csv": "49640bbd501bfc6338ccb277f31330c624c723d4f71b2672697c53dd4be8bc6d",
-    "results/v4_blagn_physical_object_uncertainty_mseed.csv": "a1d486be0306f8532447ea26925a0b5e7b8cd85d101f5ff76eded6f10a6b41d0",
-    "results/v4_blagn_physical_object_uncertainty_ranking.csv": "e0c4a494d3d8b7e0ca04332d86ff03abea457d7d4719cd28636c68db701899e5"
+    "data/processed/v4/v4_blagn_measurements.csv": "518cade0c388f67758f65805e607a060e467c18728c7cafb2fdb431ac05eea2d",
+    "data/processed/v4/v4_blagn_objects.csv": "d88d998e09ff49feac90e0f1406d96691f44c2698f33c9c9bb2df808af40266e",
+    "data/crossmatch/v4/v4_measurement_object_links.csv": "3f7a57cf3f5d23c76d5ea2272614d97bd1907d1abc78c74713c52b5bc4af5900",
+    "data/crossmatch/v4/v4_object_aliases.csv": "a0a8b2a6b9df25b2089d41406cb149c63c2c4fd5216830cda955b3caa2ff3b64",
+    "data/crossmatch/v4/v4_reviewed_match_candidates.csv": "d26754292837d19e7f45340e72c1f059ff5c42f09ab5caaa6368034d8066fc4f",
+    "results/releases/v4/tables/v4_blagn_alternate_measurement_sensitivity.csv": "204568c329a2ae303623200e9a8b8e420bdcdcb203889ea76860fdf4cb799ff0",
+    "results/releases/v4/tables/v4_blagn_catalogue_summary.csv": "c518809935847dab3ad86ce4382598d3d53d0ab846ec29dd3f3f5c538bdd9f31",
+    "results/releases/v4/tables/v4_blagn_growth_summary.csv": "15b8d0095a38c2cd921d8655e719ed8357524a17246bb48225f118c8a3b9265a",
+    "results/releases/v4/tables/v4_blagn_measurement_evaluation.csv": "2a1f378d3691e75de7c23425e4a7605259fa0e3d7d029a79085a91b375d38758",
+    "results/releases/v4/tables/v4_blagn_measurement_point_ranking.csv": "72b4c0d7d9f8692b2eb7f26691224eafc1b01d4d3a8817afee349aa29d8f233b",
+    "results/releases/v4/tables/v4_blagn_measurement_uncertainty_fedd.csv": "c47e56d922198e3cd78eee913958b525b6b0acb148a2e971d44ca99535567389",
+    "results/releases/v4/tables/v4_blagn_measurement_uncertainty_mseed.csv": "eea2d17c3970c7156b7136737b19cdea1556176066327d0c1d3f73e478d2bc3c",
+    "results/releases/v4/tables/v4_blagn_measurement_uncertainty_ranking.csv": "17cba38e70682c01151cf117a7677ce5a71010f3d983fdb3060bd1d226c87a71",
+    "results/releases/v4/tables/v4_blagn_physical_object_evaluation.csv": "fd445bcd7726623c290f875ef0fd942590f2ce0c0c7e302ace29b6193e769c73",
+    "results/releases/v4/tables/v4_blagn_physical_object_point_ranking.csv": "e42628a9990cc556e660d629b509b84151cc7e3ae392db12b521711ea1fe1df5",
+    "results/releases/v4/tables/v4_blagn_physical_object_uncertainty_fedd.csv": "49640bbd501bfc6338ccb277f31330c624c723d4f71b2672697c53dd4be8bc6d",
+    "results/releases/v4/tables/v4_blagn_physical_object_uncertainty_mseed.csv": "a1d486be0306f8532447ea26925a0b5e7b8cd85d101f5ff76eded6f10a6b41d0",
+    "results/releases/v4/tables/v4_blagn_physical_object_uncertainty_ranking.csv": "e0c4a494d3d8b7e0ca04332d86ff03abea457d7d4719cd28636c68db701899e5"
   }
 }
 

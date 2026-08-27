@@ -10,22 +10,22 @@ from src.v7_4_catalogue import build_v7_4_catalogues
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = {
-    "v7_3_measurements": ROOT / "data/processed/v7_3_accreting_measurements.csv",
-    "v7_3_observables": ROOT / "data/processed/v7_3_source_observables.csv",
-    "v7_3_aliases": ROOT / "data/crossmatch/v7_3_object_aliases.csv",
+    "v7_3_measurements": ROOT / "data/processed/v7_3/v7_3_accreting_measurements.csv",
+    "v7_3_observables": ROOT / "data/processed/v7_3/v7_3_source_observables.csv",
+    "v7_3_aliases": ROOT / "data/crossmatch/v7_3/v7_3_object_aliases.csv",
     "scholtz_source": ROOT / "data/raw/scholtz25_jades_narrow_line_agn_zge4.csv",
-    "identity_overrides": ROOT / "data/crossmatch/v7_4_reviewed_identity_overrides.csv",
+    "identity_overrides": ROOT / "data/crossmatch/v7_4/v7_4_reviewed_identity_overrides.csv",
 }
 OUTPUTS = {
-    "measurements": ROOT / "data/processed/v7_4_accreting_measurements.csv",
-    "objects": ROOT / "data/processed/v7_4_accreting_objects.csv",
-    "host_systems": ROOT / "data/processed/v7_4_host_systems.csv",
-    "measurement_object_links": ROOT / "data/crossmatch/v7_4_measurement_object_links.csv",
-    "object_host_links": ROOT / "data/crossmatch/v7_4_object_host_links.csv",
-    "aliases": ROOT / "data/crossmatch/v7_4_object_aliases.csv",
-    "reviewed_match_candidates": ROOT / "data/crossmatch/v7_4_reviewed_match_candidates.csv",
-    "observables": ROOT / "data/processed/v7_4_source_observables.csv",
-    "strata": ROOT / "data/processed/v7_4_catalogue_strata.csv",
+    "measurements": ROOT / "data/processed/v7_4/v7_4_accreting_measurements.csv",
+    "objects": ROOT / "data/processed/v7_4/v7_4_accreting_objects.csv",
+    "host_systems": ROOT / "data/processed/v7_4/v7_4_host_systems.csv",
+    "measurement_object_links": ROOT / "data/crossmatch/v7_4/v7_4_measurement_object_links.csv",
+    "object_host_links": ROOT / "data/crossmatch/v7_4/v7_4_object_host_links.csv",
+    "aliases": ROOT / "data/crossmatch/v7_4/v7_4_object_aliases.csv",
+    "reviewed_match_candidates": ROOT / "data/crossmatch/v7_4/v7_4_reviewed_match_candidates.csv",
+    "observables": ROOT / "data/processed/v7_4/v7_4_source_observables.csv",
+    "strata": ROOT / "data/processed/v7_4/v7_4_catalogue_strata.csv",
 }
 
 

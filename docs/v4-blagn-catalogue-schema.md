@@ -10,17 +10,17 @@ z >= 4. No v1--v3 file is overwritten.
 | --- | ---: | --- |
 | `data/raw/matthee23_eiger_fresco_blagn_tables1_3.csv` | 20 | Source-native Tables 1--3 extraction |
 | `data/raw/lin24_aspire_blagn_tables1_3.csv` | 16 | Source-native Tables 1--3 extraction |
-| `data/processed/v4_blagn_measurements.csv` | 96 | Lossless literature-measurement analysis view |
-| `data/processed/v4_blagn_objects.csv` | 94 | One default measurement per physical object |
-| `data/crossmatch/v4_measurement_object_links.csv` | 96 | Measurement-to-object links and default rules |
-| `data/crossmatch/v4_object_aliases.csv` | 96 | Source aliases and coordinates by physical object |
-| `data/crossmatch/v4_reviewed_match_candidates.csv` | 1 | Reviewed new coordinate/redshift match |
-| `data/crossmatch/v4_reviewed_identity_overrides.csv` | 1 | Explicit accepted/rejected identity decisions |
+| `data/processed/v4/v4_blagn_measurements.csv` | 96 | Lossless literature-measurement analysis view |
+| `data/processed/v4/v4_blagn_objects.csv` | 94 | One default measurement per physical object |
+| `data/crossmatch/v4/v4_measurement_object_links.csv` | 96 | Measurement-to-object links and default rules |
+| `data/crossmatch/v4/v4_object_aliases.csv` | 96 | Source aliases and coordinates by physical object |
+| `data/crossmatch/v4/v4_reviewed_match_candidates.csv` | 1 | Reviewed new coordinate/redshift match |
+| `data/crossmatch/v4/v4_reviewed_identity_overrides.csv` | 1 | Explicit accepted/rejected identity decisions |
 
 ## Identity and default measurements
 
 `measurement_id` identifies one published measurement; `physical_object_id`
-identifies the astrophysical source. `data/crossmatch/v4_measurement_object_links.csv`
+identifies the astrophysical source. `data/crossmatch/v4/v4_measurement_object_links.csv`
 stores the one-to-many mapping and the default-measurement rule. Existing v3
 preferences are retained for longitudinal reproducibility. Therefore the new
 Matthee measurement of GS-204851 is not made the default, even though it is
@@ -37,7 +37,7 @@ The two multiply measured physical objects are:
 Every other object has one measurement in v4. Default selection is a
 reproducible view rule, not a claim that the alternative measurement is
 scientifically invalid. Both alternatives are exercised by the separate
-`results/v4_blagn_alternate_measurement_sensitivity.csv` product without
+`results/releases/v4/tables/v4_blagn_alternate_measurement_sensitivity.csv` product without
 changing either release default.
 
 The candidate search uses a 0.5 arcsec coordinate threshold and

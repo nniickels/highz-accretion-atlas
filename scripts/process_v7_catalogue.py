@@ -10,19 +10,19 @@ from src.v7_catalogue import build_v7_catalogues
 
 
 ROOT = Path(__file__).resolve().parents[1]
-V6_MEASUREMENTS = ROOT / "data/processed/v6_blagn_measurements.csv"
+V6_MEASUREMENTS = ROOT / "data/processed/v6/v6_blagn_measurements.csv"
 REN_TABLE1 = ROOT / "data/raw/ren25_alpine_cristal_jwst_table1.csv"
 REN_TABLE2 = ROOT / "data/raw/ren25_alpine_cristal_jwst_table2_observables.csv"
 OUTPUTS = {
-    "measurements": ROOT / "data/processed/v7_accreting_measurements.csv",
-    "objects": ROOT / "data/processed/v7_accreting_objects.csv",
-    "host_systems": ROOT / "data/processed/v7_host_systems.csv",
-    "measurement_object_links": ROOT / "data/crossmatch/v7_measurement_object_links.csv",
-    "object_host_links": ROOT / "data/crossmatch/v7_object_host_links.csv",
-    "aliases": ROOT / "data/crossmatch/v7_object_aliases.csv",
-    "reviewed_match_candidates": ROOT / "data/crossmatch/v7_reviewed_match_candidates.csv",
-    "observables": ROOT / "data/processed/v7_source_observables.csv",
-    "strata": ROOT / "data/processed/v7_catalogue_strata.csv",
+    "measurements": ROOT / "data/processed/v7/v7_accreting_measurements.csv",
+    "objects": ROOT / "data/processed/v7/v7_accreting_objects.csv",
+    "host_systems": ROOT / "data/processed/v7/v7_host_systems.csv",
+    "measurement_object_links": ROOT / "data/crossmatch/v7/v7_measurement_object_links.csv",
+    "object_host_links": ROOT / "data/crossmatch/v7/v7_object_host_links.csv",
+    "aliases": ROOT / "data/crossmatch/v7/v7_object_aliases.csv",
+    "reviewed_match_candidates": ROOT / "data/crossmatch/v7/v7_reviewed_match_candidates.csv",
+    "observables": ROOT / "data/processed/v7/v7_source_observables.csv",
+    "strata": ROOT / "data/processed/v7/v7_catalogue_strata.csv",
 }
 
 

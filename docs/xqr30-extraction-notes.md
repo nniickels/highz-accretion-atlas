@@ -46,7 +46,7 @@ table names are retained as aliases. This also preserves the mass-table spelling
 The coordinate/redshift search finds no candidate against the v7.0 atlas.
 Section 4.4 of the mass paper identifies 23 objects with earlier measurements
 in the wider literature, but those comparison measurements are not rows in
-v7.0. `data/crossmatch/v7_1_external_literature_identity_audit.csv` therefore
+v7.0. `data/crossmatch/v7_1/v7_1_external_literature_identity_audit.csv` therefore
 records all 23 as reviewed external repeats and new atlas physical objects,
 including the separately treated lensed quasar. The release candidate table is
 empty because there is no prior-atlas pair to accept or reject.

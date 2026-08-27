@@ -26,7 +26,7 @@ class V73ResultsGalleryTests(unittest.TestCase):
             self.assertEqual(len(ordered_sources(directory, scenario)), 23, scenario)
 
     def test_seven_lossless_high_resolution_grids_exist(self) -> None:
-        grids = sorted((ROOT / "results/compiled_object_grids").glob("all_objects_*.png"))
+        grids = sorted((ROOT / "results/releases/v7_3/galleries/compiled_object_grids").glob("all_objects_*.png"))
         self.assertEqual(len(grids), 7)
         for path in grids:
             with Image.open(path) as image:

@@ -2,7 +2,7 @@
 
 This script builds a one-row-per-measurement ranking product from the processed
 v1 catalogue and existing v1 evaluation CSVs. It intentionally writes only new CSV
-tables in ``results/`` and does not touch exploratory figure outputs.
+tables in the v2 release directory and does not touch exploratory figure outputs.
 """
 
 from __future__ import annotations
@@ -16,11 +16,12 @@ import pandas as pd
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 
-PROCESSED_PATH = REPO_ROOT / "data" / "processed" / "v1_processed.csv"
-RESULTS_DIR = REPO_ROOT / "results"
-REQUIRED_FEDD_PATH = RESULTS_DIR / "v1_required_fedd_by_seed_mass.csv"
-REQUIRED_MSEED_PATH = RESULTS_DIR / "v1_required_mseed_by_growth_assumption.csv"
-RANKING_PATH = RESULTS_DIR / "v2_object_ranking_table.csv"
+PROCESSED_PATH = REPO_ROOT / "data/processed/v1/v1_processed.csv"
+V1_TABLES = REPO_ROOT / "results/releases/v1/tables"
+V2_TABLES = REPO_ROOT / "results/releases/v2/tables"
+REQUIRED_FEDD_PATH = V1_TABLES / "v1_required_fedd_by_seed_mass.csv"
+REQUIRED_MSEED_PATH = V1_TABLES / "v1_required_mseed_by_growth_assumption.csv"
+RANKING_PATH = V2_TABLES / "v2_object_ranking_table.csv"
 ANALYSIS_RELEASE = "v2"
 
 BASELINE_INTERPRETATION = "baseline"

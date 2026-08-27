@@ -26,10 +26,10 @@ from src.v3_catalogue import (
 
 TAYLOR_RAW_PATH = REPO_ROOT / "data" / "raw" / "taylor24_ceers_rubies_blagn_table1.csv"
 V1_RAW_PATH = REPO_ROOT / "data" / "raw" / "v1_raw.csv"
-V1_PROCESSED_PATH = REPO_ROOT / "data" / "processed" / "v1_processed.csv"
-LINK_PATH = REPO_ROOT / "data" / "crossmatch" / "v3_measurement_object_links.csv"
-MEASUREMENT_OUTPUT_PATH = REPO_ROOT / "data" / "processed" / "v3_blagn_measurements.csv"
-OBJECT_OUTPUT_PATH = REPO_ROOT / "data" / "processed" / "v3_blagn_objects.csv"
+V1_PROCESSED_PATH = REPO_ROOT / "data/processed/v1/v1_processed.csv"
+LINK_PATH = REPO_ROOT / "data/crossmatch/v3/v3_measurement_object_links.csv"
+MEASUREMENT_OUTPUT_PATH = REPO_ROOT / "data/processed/v3/v3_blagn_measurements.csv"
+OBJECT_OUTPUT_PATH = REPO_ROOT / "data/processed/v3/v3_blagn_objects.csv"
 
 V1_RAW_SHA256 = "56644ea68912ea136149509202df5f618dae084e20a58d457d7b798ea79ffc7c"
 V1_PROCESSED_SHA256 = "c8bdff0c1d2af56475850402f3a0548d865131286d7413bbcc06755d7d1d0bb8"

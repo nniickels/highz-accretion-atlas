@@ -27,22 +27,22 @@ existing duplicate-measurement links and v6 default choices remain unchanged.
 
 ## Products
 
-- `data/processed/v7_accreting_measurements.csv`: one row per literature
+- `data/processed/v7/v7_accreting_measurements.csv`: one row per literature
   measurement; the executable admission contract applies here.
-- `data/processed/v7_accreting_objects.csv`: one row per physical object, using
+- `data/processed/v7/v7_accreting_objects.csv`: one row per physical object, using
   the frozen v6 preferred-measurement rules and the only Ren measurement for
   each nucleus. Evidence is conservatively aggregated across linked rows.
-- `data/processed/v7_host_systems.csv`: identity and shared-host metadata only;
+- `data/processed/v7/v7_host_systems.csv`: identity and shared-host metadata only;
   it is not a black-hole ranking table.
-- `data/processed/v7_source_observables.csv`: all 70 source-native Ren Table 2
+- `data/processed/v7/v7_source_observables.csv`: all 70 source-native Ren Table 2
   entries, including twelve explicit upper limits.
-- `data/processed/v7_catalogue_strata.csv`: counts by entity level, source,
+- `data/processed/v7/v7_catalogue_strata.csv`: counts by entity level, source,
   survey, field, evidence, class, and LRD phenotype. These are catalogue counts,
   not pooled demographic inference.
-- `data/crossmatch/v7_measurement_object_links.csv` and
-  `data/crossmatch/v7_object_host_links.csv`: the two explicit identity edges.
-- `data/crossmatch/v7_object_aliases.csv`: source aliases and coordinates.
-- `data/crossmatch/v7_reviewed_match_candidates.csv`: empty because the Ren
+- `data/crossmatch/v7/v7_measurement_object_links.csv` and
+  `data/crossmatch/v7/v7_object_host_links.csv`: the two explicit identity edges.
+- `data/crossmatch/v7/v7_object_aliases.csv`: source aliases and coordinates.
+- `data/crossmatch/v7/v7_reviewed_match_candidates.csv`: empty because the Ren
   coordinate/redshift audit found no candidate v6 match.
 
 ## v6 inheritance decisions

@@ -24,8 +24,8 @@ from src.v4_catalogue import ASPIRE_SOURCE_KEY, MASS_METHOD, MATTHEE_SOURCE_KEY,
 
 RAW_MATTHEE = ROOT / "data/raw/matthee23_eiger_fresco_blagn_tables1_3.csv"
 RAW_ASPIRE = ROOT / "data/raw/lin24_aspire_blagn_tables1_3.csv"
-V3_MEASUREMENTS = ROOT / "data/processed/v3_blagn_measurements.csv"
-V3_OBJECTS = ROOT / "data/processed/v3_blagn_objects.csv"
+V3_MEASUREMENTS = ROOT / "data/processed/v3/v3_blagn_measurements.csv"
+V3_OBJECTS = ROOT / "data/processed/v3/v3_blagn_objects.csv"
 V3_MEASUREMENTS_SHA256 = "7df69c0a0c18631ebbe56a17a4453316bee86e7f0631dd13bedfa70c1d2e1b76"
 V3_OBJECTS_SHA256 = "5c67d8a8cdf7250027c14f5fff7891a7e361b0d6c5ed851a0b322443713e2126"
 
@@ -106,11 +106,11 @@ class V4CatalogueTests(unittest.TestCase):
 
     def test_committed_products_match_builder(self) -> None:
         for name, path in {
-            "measurements": ROOT / "data/processed/v4_blagn_measurements.csv",
-            "objects": ROOT / "data/processed/v4_blagn_objects.csv",
-            "links": ROOT / "data/crossmatch/v4_measurement_object_links.csv",
-            "aliases": ROOT / "data/crossmatch/v4_object_aliases.csv",
-            "candidates": ROOT / "data/crossmatch/v4_reviewed_match_candidates.csv",
+            "measurements": ROOT / "data/processed/v4/v4_blagn_measurements.csv",
+            "objects": ROOT / "data/processed/v4/v4_blagn_objects.csv",
+            "links": ROOT / "data/crossmatch/v4/v4_measurement_object_links.csv",
+            "aliases": ROOT / "data/crossmatch/v4/v4_object_aliases.csv",
+            "candidates": ROOT / "data/crossmatch/v4/v4_reviewed_match_candidates.csv",
         }.items():
             assert_csv_reproduction(path, self.outputs[name])
 

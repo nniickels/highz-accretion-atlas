@@ -13,7 +13,7 @@ python -m scripts.generate_v6_blagn_science --n-samples 10000 --seed 20260808
 python -m scripts.verify_v6_release --reproduce
 ```
 
-The science command writes 16 `results/v6_blagn_*.csv` tables at measurement
+The science command writes 16 `results/releases/v6/tables/v6_blagn_*.csv` tables at measurement
 and physical-object level: evaluations, point rankings, statistical-uncertainty
 summaries and rankings, stratified summaries, measurement-choice sensitivity,
 accretion-history diagnostics, and the full-versus-primary object comparison.

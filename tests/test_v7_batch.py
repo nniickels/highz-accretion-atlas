@@ -25,7 +25,7 @@ from src.v7_ren import build_ren_admission, build_ren_observables
 class V7BatchAssemblyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        v6 = pd.read_csv(ROOT / "data/processed/v6_blagn_measurements.csv")
+        v6 = pd.read_csv(ROOT / "data/processed/v6/v6_blagn_measurements.csv")
         table1 = pd.read_csv(ROOT / "data/raw/ren25_alpine_cristal_jwst_table1.csv")
         table2 = pd.read_csv(
             ROOT / "data/raw/ren25_alpine_cristal_jwst_table2_observables.csv"

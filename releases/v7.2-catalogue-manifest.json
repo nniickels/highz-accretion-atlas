@@ -26,14 +26,14 @@
     "CDS J/ApJ/873/35 table3.dat": "e1eae3266b9ccfc966303c6e389e9c16141678199924a67ab4c786fed3240323"
   },
   "artifacts": {
-    "data/processed/v7_2_accreting_measurements.csv": "4a3ec65eb15f745694e67c80ceda75d0285376283bc0003422eb17706eff251c",
-    "data/processed/v7_2_accreting_objects.csv": "59008bb38ba2022bf2934171bd0061750bd0adab75f177fd9d369a224272c93a",
-    "data/processed/v7_2_host_systems.csv": "b834d3823ffc85f28f3d9444a1b74be5ef4364225037dbecaf6c8395b42cc3df",
-    "data/crossmatch/v7_2_measurement_object_links.csv": "5c8eb67aead604c8044b026e78e2bb49a3d7578ecb295698361a95e17a4cc1ae",
-    "data/crossmatch/v7_2_object_host_links.csv": "1af35de2cda0ac73a1ac29d8dd1d5ff611ebf3367d251c2bf441a58f28b83f86",
-    "data/crossmatch/v7_2_object_aliases.csv": "e9abc7bfcc1c48890b2ce805ab7e08acc7dc3680c5541cc068d97ad6248b4455",
-    "data/crossmatch/v7_2_reviewed_match_candidates.csv": "eb22185ec7f954d76811597d4dc47c11cd4673283a814ff6c20ae82a865536df",
-    "data/processed/v7_2_source_observables.csv": "bfe4b2f86d7bbd34c80d1f7b78431e17eacc56e6aa17dccc52f522b47fbc1d64",
-    "data/processed/v7_2_catalogue_strata.csv": "ac3a4c8701cddfd38aec861d0f3faf0e6b45fc01027a1c973cb4866d78bc46db"
+    "data/processed/v7_2/v7_2_accreting_measurements.csv": "4a3ec65eb15f745694e67c80ceda75d0285376283bc0003422eb17706eff251c",
+    "data/processed/v7_2/v7_2_accreting_objects.csv": "59008bb38ba2022bf2934171bd0061750bd0adab75f177fd9d369a224272c93a",
+    "data/processed/v7_2/v7_2_host_systems.csv": "b834d3823ffc85f28f3d9444a1b74be5ef4364225037dbecaf6c8395b42cc3df",
+    "data/crossmatch/v7_2/v7_2_measurement_object_links.csv": "5c8eb67aead604c8044b026e78e2bb49a3d7578ecb295698361a95e17a4cc1ae",
+    "data/crossmatch/v7_2/v7_2_object_host_links.csv": "1af35de2cda0ac73a1ac29d8dd1d5ff611ebf3367d251c2bf441a58f28b83f86",
+    "data/crossmatch/v7_2/v7_2_object_aliases.csv": "e9abc7bfcc1c48890b2ce805ab7e08acc7dc3680c5541cc068d97ad6248b4455",
+    "data/crossmatch/v7_2/v7_2_reviewed_match_candidates.csv": "eb22185ec7f954d76811597d4dc47c11cd4673283a814ff6c20ae82a865536df",
+    "data/processed/v7_2/v7_2_source_observables.csv": "bfe4b2f86d7bbd34c80d1f7b78431e17eacc56e6aa17dccc52f522b47fbc1d64",
+    "data/processed/v7_2/v7_2_catalogue_strata.csv": "ac3a4c8701cddfd38aec861d0f3faf0e6b45fc01027a1c973cb4866d78bc46db"
   }
 }

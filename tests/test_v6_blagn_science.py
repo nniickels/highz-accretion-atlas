@@ -33,7 +33,7 @@ class V6ScienceTests(unittest.TestCase):
             "ranking_comparison": "primary_ranking_comparison",
         }
         cls.frames = {
-            name: pd.read_csv(ROOT / "results" / f"v6_blagn_{stem}.csv")
+            name: pd.read_csv(ROOT / "results/releases/v6/tables" / f"v6_blagn_{stem}.csv")
             for name, stem in stems.items()
         }
 
@@ -83,7 +83,7 @@ class V6ScienceTests(unittest.TestCase):
 
     def test_v5_rows_remain_numerically_preserved(self) -> None:
         v6 = self.frames["measurement_point"].set_index("measurement_id")
-        v5 = pd.read_csv(ROOT / "results/v5_blagn_measurement_point_ranking.csv").set_index("measurement_id")
+        v5 = pd.read_csv(ROOT / "results/releases/v5/tables/v5_blagn_measurement_point_ranking.csv").set_index("measurement_id")
         for column in ["req_fedd_seed1e2_z30_eps0p1_b1", "req_log_mseed_fedd0p3_z30_eps0p1_b1"]:
             np.testing.assert_allclose(v6.loc[v5.index, column], v5[column], rtol=0, atol=1e-12)
 
@@ -91,7 +91,7 @@ class V6ScienceTests(unittest.TestCase):
         release = v5_science.CATALOGUE_RELEASE
         scenarios = v4_science.SOURCE_SCENARIOS
         measurements = prepare_catalogue_view(
-            pd.read_csv(ROOT / "data/processed/v6_blagn_measurements.csv"), view="measurement",
+            pd.read_csv(ROOT / "data/processed/v6/v6_blagn_measurements.csv"), view="measurement",
         )
         evaluate_catalogue(measurements)
         self.assertEqual(v5_science.CATALOGUE_RELEASE, release)

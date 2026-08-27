@@ -20,10 +20,10 @@ class V5PipelineTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.raw = pd.read_csv(ROOT / "data/raw/harikane23_nirspec_blagn_tables1_3.csv")
-        cls.measurements = pd.read_csv(ROOT / "data/processed/v5_blagn_measurements.csv")
-        cls.objects = pd.read_csv(ROOT / "data/processed/v5_blagn_objects.csv")
-        cls.links = pd.read_csv(ROOT / "data/crossmatch/v5_measurement_object_links.csv")
-        cls.candidates = pd.read_csv(ROOT / "data/crossmatch/v5_reviewed_match_candidates.csv")
+        cls.measurements = pd.read_csv(ROOT / "data/processed/v5/v5_blagn_measurements.csv")
+        cls.objects = pd.read_csv(ROOT / "data/processed/v5/v5_blagn_objects.csv")
+        cls.links = pd.read_csv(ROOT / "data/crossmatch/v5/v5_measurement_object_links.csv")
+        cls.candidates = pd.read_csv(ROOT / "data/crossmatch/v5/v5_reviewed_match_candidates.csv")
 
     def test_authoritative_source_and_release_counts(self) -> None:
         self.assertEqual(len(self.raw), 10)
@@ -108,9 +108,9 @@ class V5PipelineTests(unittest.TestCase):
             + ";alternative_non_agn_test_interpretation"
         )
         outputs = build_v5_catalogues(
-            pd.read_csv(ROOT / "data/processed/v4_blagn_measurements.csv"),
+            pd.read_csv(ROOT / "data/processed/v4/v4_blagn_measurements.csv"),
             raw,
-            pd.read_csv(ROOT / "data/crossmatch/v5_reviewed_identity_overrides.csv"),
+            pd.read_csv(ROOT / "data/crossmatch/v5/v5_reviewed_identity_overrides.csv"),
         )
         objects = outputs[1].set_index("physical_object_id")
         linked = objects.loc["HZA-CEERS-2782"]

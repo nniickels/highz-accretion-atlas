@@ -22,9 +22,9 @@ from src.v3_science import (
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RESULTS_DIR = PROJECT_ROOT / "results"
-MEASUREMENT_INPUT = PROJECT_ROOT / "data" / "processed" / "v3_blagn_measurements.csv"
-OBJECT_INPUT = PROJECT_ROOT / "data" / "processed" / "v3_blagn_objects.csv"
+RESULTS_DIR = PROJECT_ROOT / "results/releases/v3/tables"
+MEASUREMENT_INPUT = PROJECT_ROOT / "data/processed/v3/v3_blagn_measurements.csv"
+OBJECT_INPUT = PROJECT_ROOT / "data/processed/v3/v3_blagn_objects.csv"
 
 OUTPUT_PATHS = {
     "measurement_evaluation": RESULTS_DIR / "v3_blagn_measurement_evaluation.csv",

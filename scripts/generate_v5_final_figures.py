@@ -17,8 +17,8 @@ import pandas as pd
 from src.models import cosmic_time_gyr, predicted_log_mbh
 
 
-RESULTS = PROJECT_ROOT / "results"
-OUTPUT = RESULTS / "v5_main_text_figures"
+RESULTS = PROJECT_ROOT / "results/releases/v5/tables"
+OUTPUT = PROJECT_ROOT / "results/releases/v5/figures/main_text"
 SOURCE_STYLE = {
     "juodzbalis25_jades_blagn": ("JADES", "#204A87", "o"),
     "taylor24_ceers_rubies_blagn": ("CEERS/RUBIES", "#B24C28", "s"),

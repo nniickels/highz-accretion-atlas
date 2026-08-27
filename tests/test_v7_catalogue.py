@@ -41,7 +41,7 @@ class V7CatalogueTests(unittest.TestCase):
         self.assertTrue(self.outputs["reviewed_match_candidates"].empty)
 
     def test_v6_rows_are_inherited_without_overwriting_v6(self) -> None:
-        frozen = pd.read_csv(ROOT / "data/processed/v6_blagn_measurements.csv")
+        frozen = pd.read_csv(ROOT / "data/processed/v6/v6_blagn_measurements.csv")
         inherited = self.measurements[self.measurements["source_key"].ne(REN_SOURCE_KEY)]
         self.assertEqual(set(inherited["measurement_id"]), set(frozen["measurement_id"]))
         shared_numeric = [
@@ -51,7 +51,7 @@ class V7CatalogueTests(unittest.TestCase):
         left = frozen.set_index("measurement_id")[shared_numeric].sort_index()
         right = inherited.set_index("measurement_id")[shared_numeric].sort_index()
         pd.testing.assert_frame_equal(left, right)
-        self.assertEqual(len(list((ROOT / "data/processed").glob("v6_*.csv"))), 2)
+        self.assertEqual(len(list((ROOT / "data/processed/v6").glob("v6_*.csv"))), 2)
 
     def test_ren_identity_and_host_system_semantics(self) -> None:
         ren = self.measurements[self.measurements["source_key"].eq(REN_SOURCE_KEY)]
