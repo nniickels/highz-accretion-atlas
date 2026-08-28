@@ -3,29 +3,6 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
 
-## Start here
-
-The current integrated release is **v7.5**: 234 literature measurements mapped
-to 219 physical objects in 218 host systems.
-
-- Start analysis with the
-  [one-row-per-object catalogue](data/processed/v7_5/v7_5_accreting_objects.csv).
-- Use the [data guide](data/README.md) to choose among measurement, object,
-  host, observable, identity, and provenance tables and to join them safely.
-- Read the [v7.5 release notes](docs/v7.5-release-notes.md) and
-  [catalogue schema](docs/v7.5-catalogue-schema.md) for the scientific contract.
-- Browse generated products through the [results guide](results/README.md) and
-  [results inventory](results/results_inventory.csv).
-- Read the current manuscript draft as [PDF](paper/highz_accretion_atlas_v7_5.pdf)
-  or [TeX](paper/highz_accretion_atlas_v7_5.tex).
-- Audit source roles, publication status, DOIs, versions, and archive hashes in
-  the [source-provenance registry](data/source_provenance_registry.csv).
-
-Stable joins use `measurement_id` $\rightarrow$ `physical_object_id`
-$\rightarrow$ `host_system_id`. The source-local `object_id` is retained for
-provenance and should not be used as a cross-paper identity key.
-
-
 ## Background
 The James Webb Space Telescope pushes observational cosmology into the first few billion years of cosmic history, and it has revealed massive accreting objects that are hard to explain due to the limited time for them to grow. It follows that one of the biggest questions cosmologists are asking right now is: “How did these objects get so big, so fast?” My research project aims to contribute to this question by creating a standardized cross-paper catalogue of these objects and then testing what scenarios could have theoretically formed each one. Either they started from a sufficiently massive seed, accreted continuously for a long enough time, formed very early, or some combination of these conditions. This is explored and visualized with parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
 

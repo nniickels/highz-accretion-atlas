@@ -6,8 +6,9 @@ __pycache__/
 htmlcov/
 .venv/
 
-# Local tool/runtime caches.
-.codex_tmp/matplotlib/
+# Local tool/runtime caches and historical working documents.
+.codex_tmp/
+docs/archive/
 
 # Common editor and OS noise.
 .DS_Store
