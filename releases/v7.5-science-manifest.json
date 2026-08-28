@@ -16,13 +16,13 @@
     "science_policy": 4
   },
   "artifacts": {
-    "results/releases/v7_5/tables/v7_5_class_aware_alternate_measurement_sensitivity.csv": "b997c824efac63eb5e0f4bc4e7009bd080274b11645335dd362ef9aaf571f86f",
-    "results/releases/v7_5/tables/v7_5_class_aware_class_method_summary.csv": "62f92b2c7b9bcbf09be7e2b17784e4983cd23fb535a2abb0cf33701d12fa4821",
-    "results/releases/v7_5/tables/v7_5_class_aware_exclusion_audit.csv": "66de5afcf3e4cc04519e52a514d1e3338ab1ed21e4fd91bf2713f2c2e69e58d4",
-    "results/releases/v7_5/tables/v7_5_class_aware_measurement_point_ranking.csv": "081053a50d2ad8c7d12e90ae061aa262d23c319e63f21778a746fd95b774d84e",
-    "results/releases/v7_5/tables/v7_5_class_aware_measurement_uncertainty_ranking.csv": "0001b65306088a1d8d7d21c0c453fe7a31ba095ee88dc30b5d71a53da3ddf53b",
-    "results/releases/v7_5/tables/v7_5_class_aware_object_point_ranking.csv": "d7295eea369b62afe3cbbaddc558dc8e7d0f2cefc19a1a1381b2f10912397963",
-    "results/releases/v7_5/tables/v7_5_class_aware_object_uncertainty_ranking.csv": "31a3442ed8567d761cf92ec865bdc6a406a7e7202ab3155178d7fac37ca6f825",
-    "results/releases/v7_5/tables/v7_5_class_aware_science_policy.csv": "971bbe1fb194fdde71a5fe97a56d4feb6c9bb39e5fbc036a8f3e038a6d1cb68e"
+    "results/tables/v7_5_class_aware_alternate_measurement_sensitivity.csv": "b997c824efac63eb5e0f4bc4e7009bd080274b11645335dd362ef9aaf571f86f",
+    "results/tables/v7_5_class_aware_class_method_summary.csv": "62f92b2c7b9bcbf09be7e2b17784e4983cd23fb535a2abb0cf33701d12fa4821",
+    "results/tables/v7_5_class_aware_exclusion_audit.csv": "66de5afcf3e4cc04519e52a514d1e3338ab1ed21e4fd91bf2713f2c2e69e58d4",
+    "results/tables/v7_5_class_aware_measurement_point_ranking.csv": "081053a50d2ad8c7d12e90ae061aa262d23c319e63f21778a746fd95b774d84e",
+    "results/tables/v7_5_class_aware_measurement_uncertainty_ranking.csv": "0001b65306088a1d8d7d21c0c453fe7a31ba095ee88dc30b5d71a53da3ddf53b",
+    "results/tables/v7_5_class_aware_object_point_ranking.csv": "d7295eea369b62afe3cbbaddc558dc8e7d0f2cefc19a1a1381b2f10912397963",
+    "results/tables/v7_5_class_aware_object_uncertainty_ranking.csv": "31a3442ed8567d761cf92ec865bdc6a406a7e7202ab3155178d7fac37ca6f825",
+    "results/tables/v7_5_class_aware_science_policy.csv": "971bbe1fb194fdde71a5fe97a56d4feb6c9bb39e5fbc036a8f3e038a6d1cb68e"
   }
 }

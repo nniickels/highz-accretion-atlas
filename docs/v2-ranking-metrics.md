@@ -2,7 +2,7 @@
 
 This document defines the v2 ranking design, evaluated on the frozen v1
 catalogue, and the
-implemented `results/releases/v2/tables/v2_object_ranking_table.csv` table.
+implemented `results/past_releases/v2/tables/v2_object_ranking_table.csv` table.
 
 ## Ranking Philosophy
 
@@ -41,12 +41,12 @@ followed this exact history.
 The implemented baseline ranking columns are selected from the existing result
 tables with these filters:
 
-- `results/releases/v1/tables/v1_required_fedd_by_seed_mass.csv`:
+- `results/past_releases/v1/tables/v1_required_fedd_by_seed_mass.csv`:
   `interpretation_variant=baseline`,
   `fedd_requirement_config=eps0p1_no_merger_boost`, and
   `seed_mass_assumption` in `seed_1e2_msun`, `seed_1e4_msun`, and
   `seed_1e5_msun`.
-- `results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv`:
+- `results/past_releases/v1/tables/v1_required_mseed_by_growth_assumption.csv`:
   `interpretation_variant=baseline` and `growth_config` in
   `fedd0p3_eps0p1_no_merger_boost` and
   `fedd1_eps0p1_no_merger_boost`.
@@ -239,7 +239,7 @@ quantities are not used for `rank_physical_pressure`.
 
 ## Proposed v1 Ranking Table Schema
 
-The proposed output file is `results/releases/v2/tables/v2_object_ranking_table.csv`.
+The proposed output file is `results/past_releases/v2/tables/v2_object_ranking_table.csv`.
 
 | Column | Units | Source or derivation |
 | --- | --- | --- |

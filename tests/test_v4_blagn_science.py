@@ -28,7 +28,7 @@ class V4ScienceTests(unittest.TestCase):
             "catalogue_summary": "v4_blagn_catalogue_summary.csv", "growth_summary": "v4_blagn_growth_summary.csv",
             "alternate_sensitivity": "v4_blagn_alternate_measurement_sensitivity.csv",
         }
-        tables = ROOT / "results/releases/v4/tables"
+        tables = ROOT / "results/past_releases/v4/tables"
         cls.frames = {name: pd.read_csv(tables / file) for name, file in names.items()}
 
     def test_counts_release_and_unique_ranks(self) -> None:
@@ -91,7 +91,7 @@ class V4ScienceTests(unittest.TestCase):
 
     def test_v3_baseline_rows_are_numerically_preserved(self) -> None:
         v4 = self.frames["measurement_point"].set_index("measurement_id")
-        v3 = pd.read_csv(ROOT / "results/releases/v3/tables/v3_blagn_measurement_point_ranking.csv").set_index("measurement_id")
+        v3 = pd.read_csv(ROOT / "results/past_releases/v3/tables/v3_blagn_measurement_point_ranking.csv").set_index("measurement_id")
         for column in ["req_fedd_seed1e2_z30_eps0p1_b1", "req_log_mseed_fedd0p3_z30_eps0p1_b1"]:
             np.testing.assert_allclose(v4.loc[v3.index, column], v3[column], rtol=0, atol=1e-12)
 

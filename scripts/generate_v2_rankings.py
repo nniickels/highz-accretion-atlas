@@ -17,8 +17,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 
 PROCESSED_PATH = REPO_ROOT / "data/processed/v1/v1_processed.csv"
-V1_TABLES = REPO_ROOT / "results/releases/v1/tables"
-V2_TABLES = REPO_ROOT / "results/releases/v2/tables"
+V1_TABLES = REPO_ROOT / "results/past_releases/v1/tables"
+V2_TABLES = REPO_ROOT / "results/past_releases/v2/tables"
 REQUIRED_FEDD_PATH = V1_TABLES / "v1_required_fedd_by_seed_mass.csv"
 REQUIRED_MSEED_PATH = V1_TABLES / "v1_required_mseed_by_growth_assumption.csv"
 RANKING_PATH = V2_TABLES / "v2_object_ranking_table.csv"

@@ -16,7 +16,7 @@ from src.v4_science import (
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RESULTS_DIR = PROJECT_ROOT / "results/releases/v4/tables"
+RESULTS_DIR = PROJECT_ROOT / "results/past_releases/v4/tables"
 MEASUREMENT_INPUT = PROJECT_ROOT / "data/processed/v4/v4_blagn_measurements.csv"
 OBJECT_INPUT = PROJECT_ROOT / "data/processed/v4/v4_blagn_objects.csv"
 OUTPUT_PATHS = {

@@ -4,9 +4,9 @@
   "generator": "scripts.generate_v5_final_figures",
   "rendering_note": "Hashes anchor the canonical rendered PNGs. Regeneration is deterministic in the pinned environment but is verified separately from cross-platform CSV reconstruction because rendering can depend on platform font and graphics libraries.",
   "artifacts": {
-    "results/releases/v5/figures/main_text/v5_appendix_measurement_choice_sensitivity.png": "eba3624a2ed423354dc5082ccdbb6b7de471d12a670cd2b760d3e009ff49b849",
-    "results/releases/v5/figures/main_text/v5_main_text_accretion_history_diagnostics.png": "5c186a39439793e7194abc5617958918b36276ab2e0894dc9e514dfc84f31857",
-    "results/releases/v5/figures/main_text/v5_main_text_mbh_redshift_growth_overview.png": "92972203c838cfd4365a7add4d26ae41b8a6f8ffa31f3c7cae3e394c061cfe6e",
-    "results/releases/v5/figures/main_text/v5_main_text_primary_vs_full_ranking.png": "e74306c9dd0b4187842aabd1165c8ce3b9ad3ce5f80b16457f2ebb9cb03a6538"
+    "results/past_releases/v5/figures/main_text/v5_appendix_measurement_choice_sensitivity.png": "eba3624a2ed423354dc5082ccdbb6b7de471d12a670cd2b760d3e009ff49b849",
+    "results/past_releases/v5/figures/main_text/v5_main_text_accretion_history_diagnostics.png": "5c186a39439793e7194abc5617958918b36276ab2e0894dc9e514dfc84f31857",
+    "results/past_releases/v5/figures/main_text/v5_main_text_mbh_redshift_growth_overview.png": "92972203c838cfd4365a7add4d26ae41b8a6f8ffa31f3c7cae3e394c061cfe6e",
+    "results/past_releases/v5/figures/main_text/v5_main_text_primary_vs_full_ranking.png": "e74306c9dd0b4187842aabd1165c8ce3b9ad3ce5f80b16457f2ebb9cb03a6538"
   }
 }

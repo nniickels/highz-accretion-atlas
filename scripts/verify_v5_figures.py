@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "releases" / "v5-figures-manifest.json"
-OUTPUT = ROOT / "results/releases/v5/figures/main_text"
+OUTPUT = ROOT / "results/past_releases/v5/figures/main_text"
 
 
 def sha256_bytes(value: bytes) -> str:

@@ -76,7 +76,7 @@ then-current membership, identity decisions, and schema required to reproduce
 its science products. Do not replace an older file with a newer release or
 create duplicate aliases at the directory root.
 
-Generated science tables and figures live in `results/releases/<release>/`.
+Generated science tables and figures live in `results/past_releases/<release>/`.
 Release hashes and reproduction metadata live in `releases/`.
 
 `source_provenance_registry.csv` is a machine-readable, non-destructive

@@ -40,7 +40,7 @@ from src.models import (
 
 
 CATALOGUE = ROOT / "data/processed/v7_4/v7_4_accreting_objects.csv"
-RELEASE_DIR = ROOT / "results/releases/v7_4"
+RELEASE_DIR = ROOT / "results/past_releases/v7_4"
 TABLE_DIR = RELEASE_DIR / "tables"
 FIGURE_DIR = RELEASE_DIR / "figures"
 GALLERY_DIR = RELEASE_DIR / "galleries"

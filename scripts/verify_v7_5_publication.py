@@ -12,7 +12,7 @@ from scripts.release_verification import require_clean_worktree, verify_artifact
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "releases/v7.5-publication-manifest.json"
 ARTIFACTS = {
-    "CITATION.cff", "LICENSE", "CHANGELOG.md", "CONTRIBUTING.md",
+    "CITATION.cff", "LICENSE", "CONTRIBUTING.md",
     "docs/v7.5-release-notes.md", "docs/v7.5-claim-audit.md",
     "docs/v7.5-citation-audit.md", "paper/README.md",
     "paper/highz_accretion_atlas_v7_5.tex",

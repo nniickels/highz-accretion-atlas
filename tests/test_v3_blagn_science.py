@@ -17,8 +17,8 @@ from src.v3_catalogue import TAYLOR_SOURCE_KEY
 from src.v3_science import EPSILON, MERGER_BOOST, Z_SEED
 
 
-RESULTS = REPO_ROOT / "results/releases/v3/tables"
-V2_TABLES = REPO_ROOT / "results/releases/v2/tables"
+RESULTS = REPO_ROOT / "results/past_releases/v3/tables"
+V2_TABLES = REPO_ROOT / "results/past_releases/v2/tables"
 
 
 class V3ScienceOutputTests(unittest.TestCase):

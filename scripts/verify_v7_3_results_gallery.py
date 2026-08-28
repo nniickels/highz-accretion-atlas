@@ -16,14 +16,14 @@ from scripts.release_verification import require_clean_worktree, verify_artifact
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "releases/v7.3-results-gallery-manifest.json"
-GRID_DIR = ROOT / "results/releases/v7_3/galleries/compiled_object_grids"
+GRID_DIR = ROOT / "results/past_releases/v7_3/galleries/compiled_object_grids"
 RESULTS_INVENTORY = ROOT / "results/results_inventory.csv"
 EXPECTED_COUNTS = {
     "parameter_maps": 138,
     "seed_redshift_maps": 23,
     "compiled_grids": 7,
     "panels_across_grids": 161,
-    "results_inventory_rows": 882,
+    "results_inventory_rows": 881,
 }
 EXPECTED_GRID_SPEC = {
     "columns": 5,
@@ -38,10 +38,10 @@ EXPECTED_GRID_SPEC = {
 def expected_artifact_paths() -> set[str]:
     return {
         *{
-            f"results/releases/v7_3/galleries/compiled_object_grids/all_objects_{scenario}.png"
+            f"results/past_releases/v7_3/galleries/compiled_object_grids/all_objects_{scenario}.png"
             for scenario in scenario_sources()
         },
-        "results/releases/v7_3/galleries/compiled_object_grids/grid_inventory.csv",
+        "results/past_releases/v7_3/galleries/compiled_object_grids/grid_inventory.csv",
         "results/results_inventory.csv",
     }
 
@@ -68,8 +68,8 @@ def verify_gallery_contract() -> None:
     for field, expected in [("width_px", 6048), ("height_px", 5648), ("dpi", 300)]:
         if not grid_inventory[field].eq(expected).all():
             raise AssertionError(f"Compiled grids require {field}={expected}")
-    if len(results_inventory) != 882 or not results_inventory["path"].is_unique:
-        raise AssertionError("Results inventory must contain 882 unique artifact paths")
+    if len(results_inventory) != 881 or not results_inventory["path"].is_unique:
+        raise AssertionError("Results inventory must contain 881 unique artifact paths")
     indexed = results_inventory.set_index("path")
     for _, row in grid_inventory.iterrows():
         path = ROOT / row["output_path"]

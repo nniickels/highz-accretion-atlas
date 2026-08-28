@@ -8,12 +8,12 @@ remains the JADES + Taylor comparison.
 
 | Release | Scope | Inputs | Canonical outputs |
 | --- | --- | --- | --- |
-| v1 | Pilot JADES broad-line AGN catalogue and baseline growth evaluation | `data/raw/v1_raw.csv` | `data/processed/v1/`, `results/releases/v1/` |
-| v2 | Ranking, asymmetric-error propagation, and final-style prototypes for the frozen v1 catalogue | v1 processed and evaluation products | `results/releases/v2/` |
-| v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue, with separate measurement and physical-object views | frozen v1 catalogue plus the Taylor source extraction and crossmatch | `data/processed/v3/`, `data/crossmatch/v3/`, `results/releases/v3/` |
-| v4 | Generalized identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | frozen v3 catalogue plus two source-native extractions | `data/processed/v4/`, `data/crossmatch/v4/`, `results/releases/v4/` |
-| v5 | Harikane NIRSpec BLAGN measurement-version layer, orthogonal taxonomy, accretion-history science extension, and v5 paper figures | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5/`, `data/crossmatch/v5/`, `results/releases/v5/` |
-| v6 | Final same-class BLAGN consolidation with the Davis/THRILS deep-spectroscopy sample | frozen v5 plus Davis Appendix Table 5 and Hutchison Table 3 coordinates | `data/processed/v6/`, `data/crossmatch/v6/`, `results/releases/v6/` |
+| v1 | Pilot JADES broad-line AGN catalogue and baseline growth evaluation | `data/raw/v1_raw.csv` | `data/processed/v1/`, `results/past_releases/v1/` |
+| v2 | Ranking, asymmetric-error propagation, and final-style prototypes for the frozen v1 catalogue | v1 processed and evaluation products | `results/past_releases/v2/` |
+| v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue, with separate measurement and physical-object views | frozen v1 catalogue plus the Taylor source extraction and crossmatch | `data/processed/v3/`, `data/crossmatch/v3/`, `results/past_releases/v3/` |
+| v4 | Generalized identity plus Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | frozen v3 catalogue plus two source-native extractions | `data/processed/v4/`, `data/crossmatch/v4/`, `results/past_releases/v4/` |
+| v5 | Harikane NIRSpec BLAGN measurement-version layer, orthogonal taxonomy, accretion-history science extension, and v5 paper figures | frozen v4 catalogue plus Harikane Tables 1--3 | `data/processed/v5/`, `data/crossmatch/v5/`, `results/past_releases/v5/` |
+| v6 | Final same-class BLAGN consolidation with the Davis/THRILS deep-spectroscopy sample | frozen v5 plus Davis Appendix Table 5 and Hutchison Table 3 coordinates | `data/processed/v6/`, `data/crossmatch/v6/`, `results/past_releases/v6/` |
 | v7.0 catalogue (frozen) | First heterogeneous evidence-class catalogue layer | frozen v6 plus Ren et al. rows admitted by the multi-class contract | 119 measurements / 112 objects / 111 host systems; catalogue products only |
 | v7.1 catalogue (frozen) | First luminous-quasar comparison extension | frozen v7.0 plus the complete 42-object XQR-30 source family | 161 measurements / 154 objects / 153 host systems; catalogue products only |
 | v7.2 catalogue (frozen) | Second larger luminous-quasar source family | frozen v7.1 plus the complete 50-object Shen/GNIRS source family | 211 measurements / 198 objects / 197 host systems; catalogue products only |
@@ -31,7 +31,7 @@ As of the 2026-08-27 repository-layout maintenance pass, generated artifacts
 are grouped without changing their contents: catalogue tables live under
 `data/processed/<release>/`, identity products under
 `data/crossmatch/<release>/`, and science outputs under
-`results/releases/<release>/tables|figures|galleries`. Historical tags preserve
+`results/past_releases/<release>/tables|figures|galleries`. Historical tags preserve
 the paths used at the time of each original release; current manifests and
 reproduction commands use the organized paths above.
 
@@ -198,7 +198,7 @@ the integrated v7.5 release. Earlier v7.2 science, v7.4 catalogue/gallery, and
 `v6_blagn_primary_ranking_comparison.csv` products remain frozen; the latter
 distinguishes the complete 112/105 exploratory diagnostic population from the
 111/104 primary evidence-supported population. Current figures live under
-`results/releases/v7_5/figures/main_text/`; all earlier rendered sets remain
+`results/figures/`; all earlier rendered sets remain
 unchanged as release records.
 
 ## Rename Map
@@ -208,15 +208,15 @@ unchanged as release records.
 | `scripts/generate_v1_rankings.py` | `scripts/generate_v2_rankings.py` |
 | `scripts/generate_v1_uncertainty_rankings.py` | `scripts/generate_v2_uncertainty_rankings.py` |
 | `scripts/generate_v1_final_figures.py` | `scripts/generate_v2_final_figures.py` |
-| `results/v1_object_ranking_table.csv` | `results/releases/v2/tables/v2_object_ranking_table.csv` |
-| `results/v1_uncertainty_*.csv` | `results/releases/v2/tables/v2_uncertainty_*.csv` |
-| `results/v1_main_text_figures/v1_main_text_*.png` | `results/releases/v2/figures/main_text/v2_main_text_*.png` |
+| `results/v1_object_ranking_table.csv` | `results/past_releases/v2/tables/v2_object_ranking_table.csv` |
+| `results/v1_uncertainty_*.csv` | `results/past_releases/v2/tables/v2_uncertainty_*.csv` |
+| `results/v1_main_text_figures/v1_main_text_*.png` | `results/past_releases/v2/figures/main_text/v2_main_text_*.png` |
 | `scripts/process_expanded_blagn.py` | `scripts/process_v3_blagn.py` |
 | `scripts/generate_expanded_blagn_science.py` | `scripts/generate_v3_blagn_science.py` |
 | `src/expanded_catalogue.py` | `src/v3_catalogue.py` |
 | `src/expanded_science.py` | `src/v3_science.py` |
 | `data/processed/expanded_blagn_*.csv` | `data/processed/v3/v3_blagn_*.csv` |
-| `results/expanded_blagn_*.csv` | `results/releases/v3/tables/v3_blagn_*.csv` |
+| `results/expanded_blagn_*.csv` | `results/past_releases/v3/tables/v3_blagn_*.csv` |
 
 All code, documentation, tests, and status-report references use the current
 names. The old paths are intentionally not maintained as duplicate aliases,

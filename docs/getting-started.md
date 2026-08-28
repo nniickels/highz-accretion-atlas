@@ -216,7 +216,7 @@ python -m scripts.generate_v4_final_figures
 
 The v4 processing command writes 96 measurement rows, 94 physical-object rows,
 96 measurement/object links, 96 aliases, and one reviewed cross-paper match
-candidate plus its explicit review decision. The science command writes 13 `results/releases/v4/tables/v4_blagn_*.csv` products at
+candidate plus its explicit review decision. The science command writes 13 `results/past_releases/v4/tables/v4_blagn_*.csv` products at
 measurement and physical-object level. Expected source additions are 20 Matthee
 EIGER/FRESCO rows and 16 Lin ASPIRE rows. The newly reviewed identity is
 `GOODS-S-13971 = GS-204851`; the existing
@@ -227,7 +227,7 @@ See `docs/v4-blagn-catalogue-schema.md` for catalogue/identity details and
 No command overwrites a v1--v3 artifact.
 
 The figure command writes five v4-specific final figures to
-`results/releases/v4/figures/main_text/`. Generate the frozen-v3 comparison figures
+`results/past_releases/v4/figures/main_text/`. Generate the frozen-v3 comparison figures
 separately when needed:
 
 ```powershell
@@ -261,7 +261,7 @@ stratified summaries with:
 python -m scripts.generate_v3_blagn_science --n-samples 10000 --seed 20260808
 ```
 
-This writes only `results/releases/v3/tables/v3_blagn_*.csv` products. It produces separate
+This writes only `results/past_releases/v3/tables/v3_blagn_*.csv` products. It produces separate
 measurement- and physical-object-level rankings, keeps statistical MBH sampling
 separate from the global `+/-0.3 dex` and Taylor-only `+/-0.5 dex` sensitivity
 scenarios, and does not regenerate figures. See
@@ -338,16 +338,16 @@ should be run first so the notebook uses the latest processed CSV.
 
 The notebook writes these v1 CSV outputs:
 
-- `results/releases/v1/tables/v1_evaluation_table.csv`
-- `results/releases/v1/tables/v1_required_fedd_by_seed_mass.csv`
-- `results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv`
-- `results/releases/v1/tables/v1_sample_summary.csv`
+- `results/past_releases/v1/tables/v1_evaluation_table.csv`
+- `results/past_releases/v1/tables/v1_required_fedd_by_seed_mass.csv`
+- `results/past_releases/v1/tables/v1_required_mseed_by_growth_assumption.csv`
+- `results/past_releases/v1/tables/v1_sample_summary.csv`
 
 It also writes these PNG figure outputs:
 
-- `results/releases/v1/figures/v1_mbh_vs_redshift_growth_tracks.png`
-- `results/releases/v1/figures/v1_sample_compatibility_summary.png`
-- one per-object PNG map per processed object in `results/releases/v1/galleries/parameter_maps/`
+- `results/past_releases/v1/figures/v1_mbh_vs_redshift_growth_tracks.png`
+- `results/past_releases/v1/figures/v1_sample_compatibility_summary.png`
+- one per-object PNG map per processed object in `results/past_releases/v1/galleries/parameter_maps/`
 
 The v1 notebook writes static PNG figure outputs only.
 
@@ -365,7 +365,7 @@ python scripts/generate_v2_rankings.py
 
 This writes:
 
-- `results/releases/v2/tables/v2_object_ranking_table.csv`
+- `results/past_releases/v2/tables/v2_object_ranking_table.csv`
 
 The script prints a verification summary with the row count, `measurement_id`
 uniqueness check, top-ranked physical-pressure objects, and sanity checks for
@@ -393,9 +393,9 @@ python scripts/generate_v2_uncertainty_rankings.py --n-samples 10000 --seed 2026
 This samples the reported asymmetric black-hole mass errors and evaluates
 baseline, `MBH -0.3 dex`, and `MBH +0.3 dex` systematic scenarios. It writes:
 
-- `results/releases/v2/tables/v2_uncertainty_required_fedd_summary.csv`
-- `results/releases/v2/tables/v2_uncertainty_required_mseed_summary.csv`
-- `results/releases/v2/tables/v2_uncertainty_aware_ranking_table.csv`
+- `results/past_releases/v2/tables/v2_uncertainty_required_fedd_summary.csv`
+- `results/past_releases/v2/tables/v2_uncertainty_required_mseed_summary.csv`
+- `results/past_releases/v2/tables/v2_uncertainty_aware_ranking_table.csv`
 
 The uncertainty propagation design and frozen v2 ranking summary are
 documented in `docs/v2-uncertainty-propagation.md`.
@@ -415,7 +415,7 @@ python scripts/generate_v2_final_figures.py
 
 This writes final-style prototype figures to:
 
-- `results/releases/v2/figures/main_text/`
+- `results/past_releases/v2/figures/main_text/`
 
 Expected prototype filenames:
 
@@ -462,9 +462,9 @@ python scripts/generate_seed_redshift_figures.py
 This writes:
 
 - per-object `M_seed` versus `z_seed` required-`f_Edd` maps in
-  `results/releases/v1/galleries/seed_redshift_maps/`
+  `results/past_releases/v1/galleries/seed_redshift_maps/`
 - one exploratory 3D required-`f_Edd` surface in
-  `results/releases/v1/galleries/seed_redshift_3d_tests/`
+  `results/past_releases/v1/galleries/seed_redshift_3d_tests/`
 
 After the individual parameter and seed-redshift maps exist, compile every
 object into zoomable grid figures and refresh the categorized results index:
@@ -476,7 +476,7 @@ python -m scripts.verify_v7_3_results_gallery
 ```
 
 The seven lossless 6048-by-5648 PNG grids live in
-`results/releases/v7_3/galleries/compiled_object_grids/`. This step reads but does not overwrite any
+`results/past_releases/v7_3/galleries/compiled_object_grids/`. This step reads but does not overwrite any
 individual map or frozen science table.
 
 ## Complete Growth Products
@@ -497,7 +497,7 @@ valid growth product remain explicit with a reason; the workflow never imputes
 a missing black-hole mass. Compatibility fractions are descriptive within each
 eligible object class and must not be pooled across the heterogeneous catalogue.
 
-The current `results/releases/v7_5/tables/v7_5_growth_gallery_coverage.csv`
+The current `results/tables/v7_5_growth_gallery_coverage.csv`
 extends the audit to all 219 v7.5 objects. It points to the unchanged v7.4
 gallery for all 196 eligible objects and marks 23 objects unavailable.
 

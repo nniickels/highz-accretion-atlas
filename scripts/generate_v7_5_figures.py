@@ -19,10 +19,10 @@ import pandas as pd
 
 
 OBJECTS = ROOT / "data/processed/v7_5/v7_5_accreting_objects.csv"
-TABLES = ROOT / "results/releases/v7_5/tables"
-FIGURES = ROOT / "results/releases/v7_5/figures/main_text"
-GALLERIES = ROOT / "results/releases/v7_5/galleries"
-V74_COVERAGE = ROOT / "results/releases/v7_4/tables/v7_4_growth_product_coverage.csv"
+TABLES = ROOT / "results/tables"
+FIGURES = ROOT / "results/figures"
+GALLERIES = ROOT / "results/galleries"
+V74_COVERAGE = ROOT / "results/past_releases/v7_4/tables/v7_4_growth_product_coverage.csv"
 OUTPUT_PATHS = {
     "catalogue_growth_landscape": FIGURES / "v7_5_catalogue_growth_landscape.png",
     "class_aware_growth_pressure": FIGURES / "v7_5_class_aware_growth_pressure.png",

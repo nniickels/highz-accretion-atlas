@@ -40,7 +40,7 @@ def expected_artifact_paths() -> set[str]:
         slug = class_slug(object_class)
         for kind in ("parameter_map", "seed_redshift_map", "growth_track"):
             paths.add(
-                ROOT / "results/releases/v7_4/galleries/compiled_by_class"
+                ROOT / "results/past_releases/v7_4/galleries/compiled_by_class"
                 / f"v7_4_all_{slug}_{kind}s.png"
             )
     return {path.relative_to(ROOT).as_posix() for path in paths}

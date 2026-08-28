@@ -12,11 +12,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 OUTPUT = RESULTS / "results_inventory.csv"
-EXCLUDED = {"README.md", OUTPUT.name}
+EXCLUDED = {OUTPUT.name}
 
 
 def release_label(path: Path) -> str:
-    if len(path.parts) >= 2 and path.parts[0] == "releases":
+    if len(path.parts) >= 2 and path.parts[0] == "past_releases":
         return path.parts[1].replace("_", ".")
     match = re.match(r"v(\d+(?:_\d+)?)", path.name)
     if not match:
@@ -26,6 +26,10 @@ def release_label(path: Path) -> str:
 
 def category(path: Path) -> tuple[str, str]:
     text = path.as_posix()
+    if path.parts[0] == "figures":
+        return "figure", "current_paper_figures"
+    if path.parts[0] == "tables":
+        return "table", "current_science_tables"
     if text.endswith("/galleries/compiled_object_grids/grid_inventory.csv"):
         return "table", "compiled_grid_inventory"
     if "/galleries/compiled_object_grids/" in text:
@@ -55,7 +59,7 @@ def build_inventory() -> pd.DataFrame:
     rows = []
     for path in sorted(item for item in RESULTS.rglob("*") if item.is_file()):
         relative = path.relative_to(RESULTS)
-        if relative.as_posix() in EXCLUDED:
+        if relative.name == "README.md" or relative.as_posix() in EXCLUDED:
             continue
         artifact_kind, collection = category(relative)
         rows.append({
@@ -65,7 +69,7 @@ def build_inventory() -> pd.DataFrame:
             "path": (Path("results") / relative).as_posix(),
             "size_bytes": path.stat().st_size,
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-            "path_policy": "release_organized_path",
+            "path_policy": "current_product_or_past_release_path",
         })
     result = pd.DataFrame(rows).sort_values(
         ["release", "artifact_kind", "collection", "path"],

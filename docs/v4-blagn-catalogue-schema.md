@@ -37,7 +37,7 @@ The two multiply measured physical objects are:
 Every other object has one measurement in v4. Default selection is a
 reproducible view rule, not a claim that the alternative measurement is
 scientifically invalid. Both alternatives are exercised by the separate
-`results/releases/v4/tables/v4_blagn_alternate_measurement_sensitivity.csv` product without
+`results/past_releases/v4/tables/v4_blagn_alternate_measurement_sensitivity.csv` product without
 changing either release default.
 
 The candidate search uses a 0.5 arcsec coordinate threshold and

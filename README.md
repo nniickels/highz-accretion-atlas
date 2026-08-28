@@ -74,7 +74,7 @@ Appendix or supplement products:
 
 The complete growth collection covers every eligible object: 196 parameter
 map sheets, 196 seed-redshift maps, and 196 growth tracks, organized by object
-class under `results/releases/v7_4/galleries/per_object/`. Six large class grids
+class under `results/past_releases/v7_4/galleries/per_object/`. Six large class grids
 under `compiled_by_class/` provide zoomable compilations. Class-specific
 compatibility fractions are tabulated separately; no heterogeneous pooled
 fraction is reported. The current v7.5 coverage audit records all 23 ineligible objects and
@@ -193,10 +193,10 @@ Add more broad-line AGN catalogues while keeping the object class relatively con
 4. Compare how different papers move objects through growth-parameter space.
 5. Recompute rankings and uncertainty-aware diagnostics. Measurement- and
    physical-object-level expanded products now live under
-   `results/releases/v3/tables/v3_blagn_*.csv` and are documented in
+   `results/past_releases/v3/tables/v3_blagn_*.csv` and are documented in
    `docs/v3-blagn-science-workflow.md`.
 6. Update final-style figures and tables. The frozen v3 catalogue now has its own
-   final-style overview and ranking figures under `results/releases/v3/figures/main_text/`.
+   final-style overview and ranking figures under `results/past_releases/v3/figures/main_text/`.
 
 ### v4: Measurement Versioning and Same-Class Expansion
 
@@ -378,10 +378,10 @@ Expected frozen-v6 products include:
 - `data/processed/v6/v6_blagn_measurements.csv` (112 measurements)
 - `data/processed/v6/v6_blagn_objects.csv` (105 physical objects)
 - `data/crossmatch/v6/v6_measurement_object_links.csv`
-- measurement- and object-level `results/releases/v6/tables/v6_blagn_*.csv` products
+- measurement- and object-level `results/past_releases/v6/tables/v6_blagn_*.csv` products
 - 336-row measurement and 315-row physical-object accretion-history tables
 - a 105-row full-versus-primary ranking comparison
-- four deliberate v5 paper figures under `results/releases/v5/figures/main_text/`
+- four deliberate v5 paper figures under `results/past_releases/v5/figures/main_text/`
 
 The v6 ranking and uncertainty products use the documented baseline
 `z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column
@@ -397,6 +397,17 @@ The Python package version follows the current implemented science milestone
 (`7.5.0`). It is distinct from immutable source-paper versions,
 catalogue labels such as `v7.5-accreting-atlas-catalogue`, and maintenance
 anchors such as v4.0.1.
+
+## Repository map
+
+Folder-level guides keep current products distinct from frozen release history:
+
+- [`data/`](data/README.md): raw sources, processed catalogues, and identity products
+- [`results/`](results/README.md): science tables, figures, galleries, and inventory
+- [`docs/publication/`](docs/publication/README.md): curated paper-ready and supplement-ready products
+- [`docs/`](docs/README.md): current contracts, methods, source notes, and historical documentation
+- [`releases/`](releases/README.md): exact release manifests and hashes
+- [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
 
 ## References
 

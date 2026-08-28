@@ -455,7 +455,7 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
         self.assertEqual(inconsistent["object_id"].tolist(), ["GN-11836"])
 
     def test_baseline_light_seed_required_fedd_top_objects(self) -> None:
-        required_fedd = pd.read_csv(REPO_ROOT / "results/releases/v1/tables/v1_required_fedd_by_seed_mass.csv")
+        required_fedd = pd.read_csv(REPO_ROOT / "results/past_releases/v1/tables/v1_required_fedd_by_seed_mass.csv")
         baseline_light_seed = required_fedd[
             required_fedd["interpretation_variant"].eq("baseline")
             & required_fedd["fedd_requirement_config"].eq("eps0p1_no_merger_boost")
@@ -467,7 +467,7 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
         self.assertEqual(actual_top_six, expected_top_six)
 
     def test_baseline_gentle_growth_required_seed_top_object(self) -> None:
-        required_mseed = pd.read_csv(REPO_ROOT / "results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv")
+        required_mseed = pd.read_csv(REPO_ROOT / "results/past_releases/v1/tables/v1_required_mseed_by_growth_assumption.csv")
         baseline_gentle = required_mseed[
             required_mseed["interpretation_variant"].eq("baseline")
             & required_mseed["growth_config"].eq("fedd0p3_eps0p1_no_merger_boost")
@@ -478,7 +478,7 @@ class V1NumericRegressionAnchorTests(unittest.TestCase):
         self.assertAlmostEqual(top["required_log_mseed"], 6.718503, places=6)
 
     def test_result_table_merger_boost_x2_shifts_required_seed_by_log10_two(self) -> None:
-        required_mseed = pd.read_csv(REPO_ROOT / "results/releases/v1/tables/v1_required_mseed_by_growth_assumption.csv")
+        required_mseed = pd.read_csv(REPO_ROOT / "results/past_releases/v1/tables/v1_required_mseed_by_growth_assumption.csv")
         baseline = required_mseed[
             required_mseed["interpretation_variant"].eq("baseline")
             & required_mseed["growth_config"].eq("fedd0p3_eps0p1_no_merger_boost")

@@ -33,7 +33,7 @@ class V5ScienceTests(unittest.TestCase):
             "ranking_comparison": "primary_ranking_comparison",
         }
         cls.frames = {
-            name: pd.read_csv(ROOT / "results/releases/v5/tables" / f"v5_blagn_{stem}.csv")
+            name: pd.read_csv(ROOT / "results/past_releases/v5/tables" / f"v5_blagn_{stem}.csv")
             for name, stem in stems.items()
         }
 
@@ -80,7 +80,7 @@ class V5ScienceTests(unittest.TestCase):
             "v5_main_text_accretion_history_diagnostics.png",
             "v5_appendix_measurement_choice_sensitivity.png",
         }
-        figure_dir = ROOT / "results/releases/v5/figures/main_text"
+        figure_dir = ROOT / "results/past_releases/v5/figures/main_text"
         self.assertEqual({path.name for path in figure_dir.glob("*.png")}, expected)
         for name in expected:
             data = (figure_dir / name).read_bytes()
@@ -121,7 +121,7 @@ class V5ScienceTests(unittest.TestCase):
 
     def test_v4_rows_remain_numerically_preserved(self) -> None:
         v5 = self.frames["measurement_point"].set_index("measurement_id")
-        v4 = pd.read_csv(ROOT / "results/releases/v4/tables/v4_blagn_measurement_point_ranking.csv").set_index("measurement_id")
+        v4 = pd.read_csv(ROOT / "results/past_releases/v4/tables/v4_blagn_measurement_point_ranking.csv").set_index("measurement_id")
         for column in ["req_fedd_seed1e2_z30_eps0p1_b1", "req_log_mseed_fedd0p3_z30_eps0p1_b1"]:
             np.testing.assert_allclose(v5.loc[v4.index, column], v4[column], rtol=0, atol=1e-12)
 

@@ -3,7 +3,7 @@
   "input_catalogue_release": "v7.5-accreting-atlas-catalogue",
   "input_science_release": "v7.5-class-aware-science",
   "scope": "four paper-facing high-resolution figures and exact current coverage over the complete inherited v7.4 growth gallery",
-  "parent_gallery_manifest_sha256": "a340fc9fa1a8da93242768f31bb11cd48449d10c9368ead82c4d2b8d7f4c6642",
+  "parent_gallery_manifest_sha256": "4bab767cdf0e73ece689302db9b5d27829881ed944c0700a0295553a1b8bba73",
   "counts": {
     "paper_figures": 4,
     "catalogue_objects": 219,
@@ -13,10 +13,10 @@
     "inherited_compiled_class_grids": 6
   },
   "artifacts": {
-    "results/releases/v7_5/figures/main_text/v7_5_catalogue_growth_landscape.png": "91ff786da3533fff09b7a37cb046313e8209b658461a05e2047f1e8ec3928303",
-    "results/releases/v7_5/figures/main_text/v7_5_class_aware_growth_pressure.png": "ff8617708725b767bac1e75c71bfce064cec5266a06408be9516f0e8150162ed",
-    "results/releases/v7_5/figures/main_text/v7_5_uncertainty_robustness.png": "fba9d19238c9ad5c7f5c5b21569bff7edeaa22c9d1428556c240c9a799102224",
-    "results/releases/v7_5/figures/main_text/v7_5_measurement_sensitivity.png": "7c15de93492c2f53e74c6d8b17dad6f9fd6db5e979f76deb9409c53813b7ad97",
-    "results/releases/v7_5/tables/v7_5_growth_gallery_coverage.csv": "f0b253ab26ee01ae62cdf26226affcdf0599d502b94542ba0183bc5bf7e424d1"
+    "results/figures/v7_5_catalogue_growth_landscape.png": "91ff786da3533fff09b7a37cb046313e8209b658461a05e2047f1e8ec3928303",
+    "results/figures/v7_5_class_aware_growth_pressure.png": "ff8617708725b767bac1e75c71bfce064cec5266a06408be9516f0e8150162ed",
+    "results/figures/v7_5_uncertainty_robustness.png": "fba9d19238c9ad5c7f5c5b21569bff7edeaa22c9d1428556c240c9a799102224",
+    "results/figures/v7_5_measurement_sensitivity.png": "7c15de93492c2f53e74c6d8b17dad6f9fd6db5e979f76deb9409c53813b7ad97",
+    "results/tables/v7_5_growth_gallery_coverage.csv": "ab04cee89ec07ee10513d4add208b00d9dd49c83085488e9c6d0ddb31f0500fe"
   }
 }

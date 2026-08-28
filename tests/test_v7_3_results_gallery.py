@@ -26,7 +26,7 @@ class V73ResultsGalleryTests(unittest.TestCase):
             self.assertEqual(len(ordered_sources(directory, scenario)), 23, scenario)
 
     def test_seven_lossless_high_resolution_grids_exist(self) -> None:
-        grids = sorted((ROOT / "results/releases/v7_3/galleries/compiled_object_grids").glob("all_objects_*.png"))
+        grids = sorted((ROOT / "results/past_releases/v7_3/galleries/compiled_object_grids").glob("all_objects_*.png"))
         self.assertEqual(len(grids), 7)
         for path in grids:
             with Image.open(path) as image:
@@ -36,7 +36,7 @@ class V73ResultsGalleryTests(unittest.TestCase):
 
     def test_results_inventory_is_unique_and_categorized(self) -> None:
         inventory = pd.read_csv(ROOT / "results/results_inventory.csv")
-        self.assertEqual(len(inventory), 882)
+        self.assertEqual(len(inventory), 881)
         self.assertTrue(inventory["path"].is_unique)
         v1_inventory = inventory[inventory["release"].eq("v1")]
         self.assertEqual(

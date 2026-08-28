@@ -27,7 +27,7 @@ from src.models import required_fedd_for_seed
 
 
 PROCESSED_PATH = REPO_ROOT / "data/processed/v1/v1_processed.csv"
-GALLERY_DIR = REPO_ROOT / "results/releases/v1/galleries"
+GALLERY_DIR = REPO_ROOT / "results/past_releases/v1/galleries"
 SEED_REDSHIFT_MAP_DIR = GALLERY_DIR / "seed_redshift_maps"
 SEED_REDSHIFT_3D_DIR = GALLERY_DIR / "seed_redshift_3d_tests"
 

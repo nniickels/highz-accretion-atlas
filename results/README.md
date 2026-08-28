@@ -1,9 +1,8 @@
 # Results Directory Guide
 
-Generated results are organized first by project release and then by artifact
-type. Historical releases are retained as frozen snapshots: later products are
-usually more complete or polished, but earlier releases can contain distinct
-diagnostics and are part of the reproducibility record.
+Current paper-ready products are placed first by artifact type. Historical
+results are retained separately as frozen snapshots for reproduction and
+comparison.
 
 ## Layout
 
@@ -11,48 +10,55 @@ diagnostics and are part of the reproducibility record.
 results/
 ├── README.md
 ├── results_inventory.csv
-└── releases/
-    └── <release>/
-        ├── tables/       generated CSV science products
-        ├── figures/      standalone and paper-facing figures
-        │   └── main_text/
-        └── galleries/
-            ├── per_object/         complete object-level collections
-            └── compiled_by_class/  zoomable class-specific grids
+├── figures/             four current v7.5 paper figures
+├── tables/              current v7.5 science and coverage tables
+├── galleries/           current gallery guide
+└── past_releases/
+    └── <release>/       frozen historical tables, figures, and galleries
 ```
 
-Only folders needed by a release are present. Release names use underscores for
-minor versions in paths (`v7_2`, `v7_3`) because artifact filenames follow the
-same convention.
+Historical release names use underscores for minor versions in paths (`v7_2`,
+`v7_3`) because artifact filenames follow the same convention.
 
-## Current and historical products
+## Current paper products
 
-- `releases/v1/` contains the pilot evaluation tables, standalone diagnostics,
+- [`figures/`](figures/) contains the four high-resolution figures referenced
+  by the current manuscript.
+- [`tables/`](tables/) contains the eight current class-aware science tables and
+  the complete 219-object gallery-coverage table.
+- [`galleries/`](galleries/) explains how current coverage reuses the complete
+  v7.4 gallery without duplicating 588 images.
+- [`../docs/publication/`](../docs/publication/) distinguishes submission-ready,
+  supplement-ready, and internal-QA products.
+
+## Past releases
+
+- `past_releases/v1/` contains the pilot evaluation tables, standalone diagnostics,
   138 parameter maps, 23 seed-redshift maps, and exploratory 3D tests.
-- `releases/v2/` contains ranking and uncertainty tables plus final-style
+- `past_releases/v2/` contains ranking and uncertainty tables plus final-style
   prototypes for the frozen v1 catalogue.
-- `releases/v3/` through `releases/v6/` contain the frozen BLAGN science tables;
+- `past_releases/v3/` through `past_releases/v6/` contain the frozen BLAGN science tables;
   v3-v5 also retain their figure sets.
-- `releases/v7_2/tables/` contains the frozen first class-aware science layer.
-- `releases/v7_3/galleries/compiled_object_grids/` contains seven lossless,
+- `past_releases/v7_2/tables/` contains the frozen first class-aware science layer.
+- `past_releases/v7_3/galleries/compiled_object_grids/` contains seven lossless,
   high-resolution grids compiling every v1 per-object map by scenario.
-- `releases/v7_4/` contains complete growth products for all 196 eligible
+- `past_releases/v7_4/` contains complete growth products for all 196 eligible
   objects: 196 parameter-map sheets, 196 seed-redshift maps, 196 reference
   growth tracks, six high-resolution class grids, and class-specific
   compatibility fractions. Its coverage table explicitly records the other
   22 catalogue objects as unavailable rather than silently omitting them.
   Each compiled grid uses one shared assumptions caption; captions are not
-  repeated inside every object panel.
-- `releases/v7_5/` is current: eight class-aware science tables, four
-  high-resolution paper figures, and a 219-object coverage index. The eligible
-  population and numeric growth inputs are unchanged, so the index reuses the
-  complete v7.4 gallery byte-for-byte and explicitly records 23 unavailable
-  objects.
+  repeated inside every object panel. The current coverage table points to
+  these files because the eligible population and growth inputs are unchanged.
 - `results_inventory.csv` indexes every result artifact with its release,
   collection, size, SHA-256 hash, and canonical path.
 
 Catalogue tables are stored under `data/processed/<release>/` and identity
 products under `data/crossmatch/<release>/`; see `data/README.md`.
+
+For the curated distinction between submission-ready figures, supplement-ready
+tables/galleries, and internal QA artifacts, see
+[`docs/publication/README.md`](../docs/publication/README.md).
 
 ## Regeneration
 
