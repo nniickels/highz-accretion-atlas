@@ -1,2 +1,0 @@
-catalogue_release,measurement_id,candidate_measurement_id,candidate_object_id,candidate_physical_object_id,separation_arcsec,redshift_delta,match_scope,candidate_source_key,decision,physical_object_id,review_basis,review_reference,review_date,match_origin
-v7.4-accreting-atlas-catalogue,scholtz25_00008083,GS8083_juodzbalis25,,,,,,,accepted,HZA-GS-8083,Same JADES NIRSpec source 8083 and coordinates agree to 0.013 arcsec; redshift versions differ,Scholtz et al. Table 1 Type-1 note; JADES DR3 target coordinates; Juodzbalis source ID,2026-08-27,manual_assertion

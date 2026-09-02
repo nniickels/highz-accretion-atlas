@@ -9,7 +9,7 @@ separate publication maturity, scientific evidence strength, and actual use;
 these concepts must not be inferred from one another. Paper DOIs and dataset
 DOIs are separate fields. Exact source-archive hashes, extraction dates, the
 2026-08-27 status-verification date, and scheduled preprint reviews are
-machine checked by `python -m scripts.verify_source_provenance`.
+machine checked by `python -m src.internal.verify_source_provenance`.
 
 The supplement backfills the current exact Juodžbalis record as MNRAS 546,
 stag086 / arXiv `2504.03551v2`, DOI `10.1093/mnras/stag086`, with source-archive
@@ -58,9 +58,9 @@ evidence explicitly.
 - **Missingness:** Mstar, Lbol, and Eddington ratio are not published in Table 1 and remain blank rather than being inferred.
 - **Verified anchors:** 63 measurements / 62 physical objects in Table 1; 37 / 36 at `z >= 4`; 21 LRD rows full / 17 filtered; 4 absorption-fit rows full / 3 filtered.
 - **Extraction archive:** https://arxiv.org/e-print/2409.06772v2; SHA-256 `50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0`; extracted 2026-08-17
-- **Limitations:** The paper mentions 11 contaminated spectra without identifying the full set in Table 1, so no per-row contamination flags were inferred. See `docs/taylor24-ceers-rubies-extraction-notes.md` for object caveats.
+- **Limitations:** The paper mentions 11 contaminated spectra without identifying the full set in Table 1, so no per-row contamination flags were inferred. See `docs/source-notes/taylor24-ceers-rubies-extraction-notes.md` for object caveats.
 
-## v4 Same-Class Broad-Line Additions
+## v2 sources: Matthee and Lin
 
 - **[source_key: matthee23_eiger_fresco_blagn] Matthee et al. (2024),
   EIGER/FRESCO:** 20 broad-Halpha emitters at
@@ -84,10 +84,10 @@ evidence explicitly.
   the object class.
 
 Detailed extraction and caveat notes are in
-`docs/matthee23-eiger-fresco-extraction-notes.md` and
-`docs/lin24-aspire-extraction-notes.md`.
+`docs/source-notes/matthee23-eiger-fresco-extraction-notes.md` and
+`docs/source-notes/lin24-aspire-extraction-notes.md`.
 
-## v5 Harikane Measurement Layer
+## v2 source: Harikane
 
 - **[source_key: harikane23_nirspec_blagn] Harikane et al. (2023), ApJ
   959:39:** ten Type 1 broad-Halpha AGN at `z=4.015--6.936`, extracted from
@@ -104,9 +104,9 @@ Detailed extraction and caveat notes are in
   separately and not applied. No row-level LRD marker is published;
   red/compact descriptions remain separate phenotypes.
   Five measurements crossmatch existing CEERS physical objects and five are
-  new. See `docs/harikane23-nirspec-extraction-notes.md`.
+  new. See `docs/source-notes/harikane23-nirspec-extraction-notes.md`.
 
-## v6 THRILS Same-Class Consolidation
+## v2 source: Davis/THRILS
 
 - **[source_key: davis26_thrils_blagn] Davis et al. (2026), submitted to
   ApJ:** seven deep-G395M broad-Halpha measurements at `z=3.52--6.57`,
@@ -122,9 +122,9 @@ Detailed extraction and caveat notes are in
   `13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b`
   and `584a56f5867e816c6220ea52f55fc0411f2fc745544ecccfb6ea4ad42c445fdc`.
   The only known Taylor repeat is below `z=4`; all six retained rows are new
-  v6 objects. See `docs/davis26-thrils-extraction-notes.md`.
+  v2 objects. See `docs/source-notes/davis26-thrils-extraction-notes.md`.
 
-## v7 Heterogeneous Source Admission
+## v2 source: Ren ALPINE--CRISTAL
 
 - **[source_key: ren25_alpine_cristal_jwst_blagn_candidates] Ren et al.
   (2025), MNRAS 544, 211--233:** seven Type-1 AGN candidate nuclei in six
@@ -142,14 +142,15 @@ Detailed extraction and caveat notes are in
   probable evidence and primary eligibility. The other six are candidate,
   BLR-conditional masses retained only in the exploratory diagnostic tier.
 - `DC_848185_a` and `DC_848185_b` are separate candidate nuclei sharing one
-  host-system ID and one integrated host mass. No v6 coordinate/redshift match
+  host-system ID and one integrated host mass. No earlier-source coordinate/redshift match
   is found. No LRD classification is published, so it remains missing.
 - The validated source-admission layer is attached non-destructively to the
-  catalogue-only v7 products. No v7 science ranking or figure exists yet. See
-  `docs/ren25-alpine-cristal-jwst-extraction-notes.md` and
-  `docs/v7-catalogue-schema.md`.
+  canonical v2 and v3 products; its eligible probable row participates in the
+  shared science and figures. See
+  `docs/source-notes/ren25-alpine-cristal-jwst-extraction-notes.md` and
+  `docs/current/v3-catalogue-schema.md`.
 
-## v7.1 Luminous-Quasar Comparison Layer
+## v3 source: XQR-30 luminous quasars
 
 - **[source_key: xqr30_mazzucchelli23] Mazzucchelli et al. (2023), A&A
   676 A71:** all 42 E-XQR-30 luminous quasars with MgII canonical masses and
@@ -162,11 +163,11 @@ Detailed extraction and caveat notes are in
   fit errors. Seven telluric caveats, the PSO J065+01 CIV low-S/N caveat, BAL
   annotations, and uncorrected lensing for WISEA J0439+1634 are explicit.
 - The paper's 23 earlier-literature repeats are audited separately; none has a
-  coordinate/redshift candidate in v7.0. Four source-table Eddington-ratio
+  coordinate/redshift candidate in the final catalogue. Four source-table Eddington-ratio
   inconsistencies are preserved and machine-flagged rather than overwritten.
-  See `docs/xqr30-extraction-notes.md`.
+  See `docs/source-notes/xqr30-extraction-notes.md`.
 
-## v7.2 GNIRS Luminous-Quasar Comparison Layer
+## v3 source: GNIRS-50 luminous quasars
 
 - **[source_key: shen19_gnirs50] Shen et al. (2019), ApJ 873:35:** the
   complete 50-quasar Gemini/GNIRS sample from CDS `J/ApJ/873/35`.
@@ -182,9 +183,9 @@ Detailed extraction and caveat notes are in
   and `e1eae3266b9ccfc966303c6e389e9c16141678199924a67ab4c786fed3240323`;
   arXiv `1809.05584v1` hashes to
   `2b4376dc136873c4b8db0e5016568b9b1d4692042f6bb035e61fa8bd76b980ef`.
-  See `docs/shen19-gnirs50-extraction-notes.md`.
+  See `docs/source-notes/shen19-gnirs50-extraction-notes.md`.
 
-## v7.3 UHZ1 X-ray Evidence-History Layer
+## v3 source: UHZ1 X-ray evidence history
 
 - **[source_key: uhz1_xray_evidence_history] UHZ1 / UNCOVER-26185:** two
   measurement versions preserve the original Bogdán et al. (2024) X-ray AGN
@@ -200,10 +201,10 @@ Detailed extraction and caveat notes are in
   limits and bolometric limit are censored observables.
 - The published `10^7--10^8 Msun` Eddington-assumed range is not converted to a
   canonical point mass. Both rows remain growth-ineligible. See
-  `docs/uhz1-xray-evidence-history-extraction-notes.md` and
-  `docs/v7.3-catalogue-schema.md`.
+  `docs/source-notes/uhz1-xray-evidence-history-extraction-notes.md` and
+  `docs/current/v3-catalogue-schema.md`.
 
-## Frozen v7.4 JADES Narrow-Line/High-Ionization Layer
+## v3 source: Scholtz JADES narrow-line candidates
 
 - **[source_key: scholtz25_jades_narrow_line_agn] Scholtz et al. (2025),
   A&A 697, A175:** all 20 entries at `z >= 4` from the paper's 41-row source
@@ -215,17 +216,17 @@ Detailed extraction and caveat notes are in
 - JADES 8083 is linked to the existing broad-line physical object; the earlier
   numeric-mass measurement remains preferred. No new row has a numeric BH
   mass or enters growth ranking. See
-  `docs/scholtz25-jades-narrow-line-extraction-notes.md` and
-  `docs/v7.4-catalogue-schema.md`.
+  `docs/source-notes/scholtz25-jades-narrow-line-extraction-notes.md` and
+  `docs/current/v3-catalogue-schema.md`.
 
-## Current v7.5 Scholtz Provenance Correction
+## v3 Scholtz provenance correction
 
 - The complete 41-row source-native TeX table proves that 21, not 20, rows meet
-  `z >= 4`. Frozen v7.4 remains unchanged; v7.5 adds the previously omitted
+  `z >= 4`. v3 includes the previously omitted
   `JADES-NS-GS00099671` measurement with no inferred black-hole mass.
 - The source family therefore has 21 admitted measurements and 21 source
   physical IDs. One row, JADES 8083, is linked to an existing broad-line object,
-  so the combined v7.5 object-class view contains 20 narrow-line candidate
+  so the combined v3 object-class view contains 20 narrow-line candidate
   objects contributed by this family.
-- The current release counts and evidence aggregation are documented in
-  `docs/v7.5-catalogue-schema.md` and `docs/v7.5-release-notes.md`.
+- The current dataset counts and evidence aggregation are documented in
+  `docs/current/v3-catalogue-schema.md` and `docs/current/v3-notes.md`.

@@ -51,35 +51,35 @@ For each object, the pipeline computes the cosmic time available between $z_{see
 
 Main-text products:
 
-- catalogue overview in redshift-mass space
-- object ranking by growth pressure
-- required $f_{Edd}$ summaries for fixed seed masses
-- required seed-mass summaries for fixed accretion histories
-- compatibility heatmap across seed/growth assumptions
-- uncertainty and systematics robustness plots
-- selected object-level parameter maps
-- follow-up priority table or matrix
+- catalogue overview in redshift-mass space — `results/v3/figures/v3_catalogue_growth_landscape.png`
+- object ranking by growth pressure — `results/v3/tables/v3_object_point_ranking.csv` and `results/v3/figures/v3_class_aware_growth_pressure.png`
+- required $f_{Edd}$ summaries for fixed seed masses — `results/v3/tables/v3_required_fedd_by_seed_mass.csv`
+- required seed-mass summaries for fixed accretion histories — `results/v3/tables/v3_required_mseed_by_growth_assumption.csv`
+- compatibility heatmap across seed/growth assumptions — `results/v3/figures/v3_compatibility_summary.png` and `results/v3/tables/v3_all_object_compatibility.csv`
+- uncertainty and systematics robustness plots — `results/v3/figures/v3_uncertainty_robustness.png`, `results/v3/figures/v3_monte_carlo_summary.png`, and `results/v3/figures/v3_measurement_sensitivity.png`
+- selected object-level parameter maps — `results/v3/gallery/per_object/<class>/parameter_maps/`
+- follow-up priority table or matrix — `results/v3/tables/v3_followup_priority.csv`
 
 Appendix or supplement products:
 
-- full catalogue schema
-- full source registry
-- full processed catalogue tables
-- full result tables
-- full per-object parameter-map gallery
-- full seed-redshift map gallery
-- validation checks
-- sensitivity tests
-- source-by-source caveats
+- full catalogue schema — `docs/current/v3-catalogue-schema.md`
+- full source registry — `data/source_family_registry.csv`, `data/source_provenance_registry.csv`, and `data/mass_method_registry.csv`
+- full processed catalogue tables — `data/processed/v3/` with identity products in `data/crossmatch/v3/`
+- full result tables — `results/v3/tables/`
+- full per-object parameter-map gallery — `results/v3/gallery/per_object/<class>/parameter_maps/`
+- full seed-redshift map gallery — `results/v3/gallery/per_object/<class>/seed_redshift_maps/`
+- validation checks — `results/v3/tables/v3_exclusion_audit.csv`, `results/v3/tables/v3_all_object_visual_coverage.csv`, and `results/v3/tables/v3_science_policy.csv`; executable gate in `scripts/04_verify.ipynb`
+- sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
+- source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
 
-The complete growth collection covers every eligible object: 196 parameter
-map sheets, 196 seed-redshift maps, and 196 growth tracks, organized by object
-class under `results/past_releases/v7_4/galleries/per_object/`. Six large class grids
-under `compiled_by_class/` provide zoomable compilations. Class-specific
-compatibility fractions are tabulated separately; no heterogeneous pooled
-fraction is reported. The current v7.5 coverage audit records all 23 ineligible objects and
-why a growth product is unavailable. Start with `results/README.md` or the
-machine-readable `results/results_inventory.csv` to navigate the full tree.
+The canonical v3 visual collection covers all 219 objects with one parameter
+map, one growth-track panel, and one seed-redshift panel each under
+`results/v3/gallery/per_object/`. The 196 growth-eligible objects receive
+numerical panels; the other 23 receive explicit no-inference status panels.
+Catalogue-wide compatibility and Monte
+Carlo atlases retain every object label, while class-specific summaries avoid
+reporting a heterogeneous pooled demographic fraction. Start with
+`results/README.md` or the version manifests under `releases/`.
 
 The main text should showcase the atlas logic and strongest rankings, while
 the appendix preserves the comprehensive technical and visual record. This
@@ -88,325 +88,73 @@ any single seed or accretion channel is proven.
 
 ## Workflow
 
-Project release numbers describe reproducible catalogue/science milestones, not
-paper versions. The current integrated catalogue, science, figure, and
-manuscript release is **v7.5**. It corrects the audited JADES
-narrow/high-ionization membership, applies the preferred-measurement object
-evidence policy, and advances the class-aware science without rewriting frozen
-releases:
+Dataset versions describe nested scientific datasets, not software releases or
+chronological development checkpoints. Every version uses the same latest
+applicable corrections, identity rules, cosmology, growth model, uncertainty
+propagation, comparison policy, and visual grammar.
 
-| Release | Meaning | Canonical products |
-| --- | --- | --- |
-| v1 | Original 23-row JADES BLAGN catalogue and baseline evaluation | `v1_raw.csv`, `v1_processed.csv`, `v1_evaluation_*` |
-| v2 | Ranking, uncertainty propagation, and figure prototypes evaluated on the frozen v1 catalogue | `v2_object_ranking_table.csv`, `v2_uncertainty_*`, `v2_main_text_*` |
-| v3 | Combined JADES + Taylor CEERS/RUBIES BLAGN catalogue and measurement/object science workflow | `v3_blagn_*` |
-| v4 | Generalized identity, Matthee EIGER/FRESCO and Lin ASPIRE BLAGN, corrected confidence semantics, duplicate sensitivity, and final figures | `v4_blagn_*`, `v4_main_text_*` |
-| v5 | Harikane NIRSpec BLAGN measurement layer, class-aware taxonomy, and two-state accretion-history diagnostics | `v5_blagn_*` |
-| v6 | Davis/THRILS same-class BLAGN consolidation and source-specific virial sensitivity | `v6_blagn_*` |
-| v7.0 catalogue | Frozen v6 plus admitted Ren ALPINE--CRISTAL candidate nuclei and explicit host systems | `v7_accreting_*`, `v7_host_systems.csv` |
-| v7.1 catalogue | Frozen v7.0 plus all 42 E-XQR-30 luminous quasars as a separate comparison stratum | `v7_1_accreting_*`, `v7_1_host_systems.csv` |
-| v7.2 catalogue | Frozen v7.1 plus all 50 Shen et al. GNIRS quasars, including six reviewed XQR repeats | `v7_2_accreting_*`, `v7_2_host_systems.csv` |
-| v7.2 science | Class-aware growth-pressure rankings on frozen v7.2 with separate mass-method strata and uncertainty boundaries | `v7_2_class_aware_*` |
-| v7.3 catalogue | Frozen v7.2 plus the original and reanalysed UHZ1 X-ray evidence versions as one disputed physical object | `v7_3_accreting_*`, `v7_3_host_systems.csv` |
-| v7.4 catalogue | Frozen v7.3 plus all 20 tabulated Scholtz et al. candidates at z >= 4, including one reviewed JADES 8083 repeat | `v7_4_accreting_*`, `v7_4_host_systems.csv` |
-| v7.5 integrated release | Exact 21-row Scholtz z >= 4 subset, preferred-measurement object evidence, current class-aware science, four figures, gallery coverage, and manuscript | `v7_5_*`, `paper/highz_accretion_atlas_v7_5.*` |
+| Version | Dataset | Measurements | Objects | Hosts |
+| --- | --- | ---: | ---: | ---: |
+| v1 | Original Juodzbalis et al. JADES BLAGN catalogue | 23 | 23 | 23 |
+| v2 | v1 plus comparable BLAGN from Taylor, Matthee, Lin, Harikane, Davis/THRILS, and Ren | 119 | 112 | 111 |
+| v3 | v2 plus XQR-30, GNIRS-50, UHZ1, and the audited Scholtz set | 234 | 219 | 218 |
 
-Source-specific raw files retain descriptive names because they are immutable
-paper extractions, while `source_paper_version` records the publication/arXiv
-version independently. See `docs/release-versioning.md` for the full mapping.
-The shared pinned v4.0.1--v7.5 core environment is in `requirements-lock.txt`; verify
-every frozen v4 CSV without writing outputs with
-`python -m scripts.verify_v4_release --reproduce`. The frozen v5 catalogue and
-science tables have an equivalent non-writing gate:
-`python -m scripts.verify_v5_release --reproduce`.
-The v6 catalogue and science tables add the corresponding gate:
-`python -m scripts.verify_v6_release --reproduce`. The frozen catalogue-only
-v7.0 layer is checked by `python -m scripts.verify_v7_catalogue --reproduce`.
-The frozen v7.1 layer is checked independently by
-`python -m scripts.verify_v7_1_catalogue --reproduce`; frozen v7.2 is checked by
-`python -m scripts.verify_v7_2_catalogue --reproduce`; the class-aware science
-layer is checked by `python -m scripts.verify_v7_2_science --reproduce`.
-Frozen v7.3 is checked by `python -m scripts.verify_v7_3_catalogue --reproduce`;
-frozen v7.4 is checked by `python -m scripts.verify_v7_4_catalogue --reproduce`.
-The complete v7.4 growth-product layer is checked independently by
-`python -m scripts.verify_v7_4_growth_products`.
-The current source layer and integrated release are checked by
-`python -m scripts.verify_source_provenance`,
-`python -m scripts.verify_v7_5_catalogue --reproduce`,
-`python -m scripts.verify_v7_5_science --reproduce`,
-`python -m scripts.verify_v7_5_figures`, and
-`python -m scripts.verify_v7_5_publication`.
+For each version, canonical catalogues are under
+`data/processed/<version>/`, identity products are under
+`data/crossmatch/<version>/`, and science tables, figures, and per-object
+galleries are under `results/<version>/`. Source-specific raw files retain
+descriptive publication names because they are immutable extractions.
 
-All release gates verify exact artifact membership and checked-in bytes against
-SHA-256 manifests.
-Independent reconstruction is then compared with exact schema, row order,
-text, booleans, and missingness plus a tight floating-point tolerance, avoiding
-false failures from final-bit differences between macOS/ARM and Linux/x86.
-### v1: Pilot Broad-Line AGN Atlas
+Run the numbered notebooks in `scripts/` from top to bottom. They call tested
+Python modules under `src/internal/`; scientific implementation does not live
+only in notebook state. To execute the complete workflow non-interactively:
 
-Start with one clean object class from one source paper.
-
-1. Ingest the JADES broad-line AGN catalogue into `data/raw/v1_raw.csv`.
-2. Standardize it into `data/processed/v1/v1_processed.csv`.
-3. Validate schema, required values, missing fields, methods, and provenance.
-4. Compute cosmic ages and growth intervals.
-5. Implement baseline growth diagnostics:
-   - predicted black-hole mass
-   - required average $f_{Edd}$
-   - required seed mass
-   - seed-redshift dependence
-6. Produce first v1 outputs:
-   - $M_{BH}$ vs redshift growth tracks
-   - per-object seed/accretion maps
-   - required $f_{Edd}$ tables
-   - required seed-mass tables
-   - sample compatibility summaries
-
-### v2: Ranking, Uncertainty, and Figure Prototypes
-
-Turn the pilot catalogue into an observational triage tool.
-
-1. Define ranking metrics:
-   - required $f_{Edd}$ for fixed seed masses
-   - required seed mass for fixed accretion histories
-   - $M_{BH}/M_*$ tension
-   - robustness to black-hole mass shifts
-   - object quality and method caveats
-   - follow-up priority
-2. Generate ranked object tables.
-3. Add uncertainty propagation using reported errors.
-4. Add systematic mass-shift tests, such as $M_{BH}\pm0.3$ dex.
-5. Report percentile ranges and threshold probabilities instead of only point estimates.
-6. Create final-style figure prototypes and maintain a living final-paper draft.
-
-### v3: Expanded Broad-Line AGN Atlas
-
-Add more broad-line AGN catalogues while keeping the object class relatively consistent.
-
-1. Add source-specific raw files or ingestion scripts. The first expansion is
-   Taylor CEERS/RUBIES in `data/raw/taylor24_ceers_rubies_blagn_table1.csv`.
-2. Preserve source-paper measurements rather than overwriting them. Expanded
-   products are separate from all v1 and v2 raw, processed, result, and figure files.
-3. Track duplicate objects using coordinates, aliases, and redshift. The
-   v3 release already uses stable physical-object IDs and retains both
-   CEERS-2782 and RUBIES-EGS-50052 measurements.
-4. Compare how different papers move objects through growth-parameter space.
-5. Recompute rankings and uncertainty-aware diagnostics. Measurement- and
-   physical-object-level expanded products now live under
-   `results/past_releases/v3/tables/v3_blagn_*.csv` and are documented in
-   `docs/v3-blagn-science-workflow.md`.
-6. Update final-style figures and tables. The frozen v3 catalogue now has its own
-   final-style overview and ranking figures under `results/past_releases/v3/figures/main_text/`.
-
-### v4: Measurement Versioning and Same-Class Expansion
-
-This completed release generalizes the physical-object/literature-measurement
-split introduced by the Taylor expansion. It contains 96 measurements and 94
-physical objects.
-
-1. Extend stable physical object IDs across further overlapping sources.
-2. Keep `measurement_id` as the row-level source-paper measurement ID.
-3. Add aliases and cross-match metadata.
-4. Build measurement-level and object-level ranking tables.
-5. Preserve explicit default-measurement rules. One-at-a-time
-   alternate-measurement rank sensitivity is complete for every nondefault row.
-6. Add the Matthee EIGER/FRESCO and Lin ASPIRE broad-Halpha samples without
-   changing v1--v3 artifacts or pooling their unlike selection functions.
-
-### v5: Harikane Measurement Version and Taxonomy Foundation
-
-This completed release adds all ten Harikane et al. broad-Halpha measurements,
-links five to existing physical objects, creates five new physical objects, and
-retains every prior default measurement. The result is 106 measurements / 99
-physical objects. It also separates evidence status, spectroscopic type,
-selection channel, phenotype, lensing status, and growth-ranking eligibility.
-
-### v5 science extension: Accretion-History Diagnostics
-
-This completed, non-catalogue-bumping layer moves beyond constant-average
-growth tracks while leaving v1--v4 products unchanged.
-
-1. It compares reported current $f_{Edd}$ with required lifetime-average
-   $f_{Edd}$ without treating them as the same quantity.
-2. It evaluates effective two-state histories with zero quiescent accretion and
-   burst $f_{Edd}=1,2,3$.
-3. It computes required duty-cycle point estimates and asymmetric-error Monte
-   Carlo intervals for a $100\,M_\odot$ seed under the baseline assumptions.
-4. It retains duty cycles above one as an explicit sign that the fixed burst
-   scenario is insufficient; it does not clip them into apparent feasibility.
-5. It retains source-inconsistent reported values for audit but excludes them
-   from current-versus-lifetime ratio comparisons.
-
-### v6: Final Same-Class BLAGN Consolidation
-
-This completed release adds the full seven-row Davis/THRILS Appendix Table 5,
-retains the one `z<4` repeat in raw storage, and adds six new `z>=4` physical
-objects. The combined release has 112 measurements / 105 objects. It preserves
-all v5 defaults and artifacts, adds a separately labelled THRILS `+/-0.5 dex`
-virial-calibration sensitivity, and leaves unreported LRD, host, luminosity,
-Eddington-ratio, and FWHM values blank.
-
-### v7: Multi-Class High-z Accreting BH Atlas
-
-The source-independent admission schema and validator are implemented in
-`src/v7_admission.py` under
-`docs/multiclass-eligibility-and-mass-comparability.md`. The catalogue-only v7
-layer now copies frozen v6 through the explicit vocabulary adapter and appends
-the authoritative Ren et al. ALPINE--CRISTAL--JWST Tables 1--2 admission. It has
-119 measurements, 112 physical objects, and 111 host systems. All seven Ren
-nuclei remain available in the exploratory tier; only `DC_536534` enters the
-primary tier. See `docs/v7-catalogue-schema.md`.
-
-Evidence classes and comparison groups tracked by the schema include:
-
-- X-ray-selected high-z black-hole candidates
-- high-ionization-line candidates
-- narrow-line AGN candidates
-- photometric AGN candidates
-- luminous high-redshift quasars as comparison anchors
-
-LRD/compact/red designations are phenotypes, and lensing is a separate
-measurement property; neither is an accretion-evidence class.
-
-For each class:
-
-1. Validate required metadata and measurement/object/host-system identity.
-2. Track mass method and selection caveats.
-3. Keep object classes visually and statistically distinct.
-4. Recompute atlas rankings with class-aware caveats.
-
-Catalogue-only v7.2 reproduction:
-
-```powershell
-python -m scripts.process_v7_2_catalogue
-python -m scripts.verify_v7_2_catalogue --reproduce
+```bash
+mkdir -p /tmp/highz-atlas-notebooks
+.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/00_process_catalogues.ipynb
+.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/01_generate_science.ipynb
+.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/02_generate_figures.ipynb
+.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/03_generate_atlas.ipynb
+.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/04_verify.ipynb
 ```
 
-Class-aware science reproduction:
-
-```powershell
-python -m scripts.generate_v7_2_class_aware_science --n-samples 10000 --seed 20260808
-python -m scripts.verify_v7_2_science --reproduce
-```
-
-The science release ranks the 209 eligible measurements and 196 eligible
-preferred objects within explicit object-class and mass-comparability scopes.
-Its global rank is labelled for navigation only, and its policy product forbids
-pooled demographic inference. See `docs/v7.2-class-aware-science-workflow.md`.
-
-Future additions are assembled in coherent source-family batches through
-`src/v7_batch.py`; see `docs/v7-source-family-batches.md`. XQR-30 and GNIRS-50
-are separately provenance-tracked luminous-quasar batches and are not pooled
-with the faint JWST populations.
-
-Catalogue-only v7.3 reproduction:
-
-```powershell
-python -m scripts.process_v7_3_catalogue
-python -m scripts.verify_v7_3_catalogue --reproduce
-```
-
-The UHZ1 addition retains the original candidate X-ray interpretation and the
-preferred disputed reanalysis as two versions of one object. It preserves the
-published assumption-dependent mass range as bounds, not a canonical point
-mass, so the v7.3 growth-eligible population is unchanged. See
-`docs/uhz1-xray-evidence-history-extraction-notes.md`.
-
-Catalogue-only v7.4 reproduction:
-
-```powershell
-python -m scripts.process_v7_4_catalogue
-python -m scripts.verify_v7_4_catalogue --reproduce
-```
-
-This adds 20 tabulated `z >= 4` JADES candidates (three source-tentative),
-seven high-ionization line fluxes, and one reviewed link to existing JADES
-8083. No numeric black-hole mass is inferred, so growth eligibility is
-unchanged; the conservative all-measurements evidence aggregate removes JADES
-8083 from the catalogue-level primary-object subset. See
-`docs/scholtz25-jades-narrow-line-extraction-notes.md`.
-
-Current v7.5 integrated reproduction:
-
-```powershell
-python -m scripts.process_v7_5_catalogue
-python -m scripts.generate_v7_5_class_aware_science --n-samples 10000 --seed 20260808
-python -m scripts.generate_v7_5_figures
-python -m scripts.verify_source_provenance
-python -m scripts.verify_v7_5_catalogue --reproduce
-python -m scripts.verify_v7_5_science --reproduce
-python -m scripts.verify_v7_5_figures
-python -m scripts.verify_v7_5_publication
-```
-
-v7.5 contains 234 measurements, 219 objects, and 218 host systems. The full
-Scholtz source-table audit proves 21 rows at `z >= 4`; the newly admitted row
-has no invented black-hole mass. Current science retains 196 eligible objects,
-and current figures plus the inherited gallery cover every one. See
-`docs/v7.5-release-notes.md` and `paper/`.
-The field-level and analysis contracts are documented in
-`docs/v7.5-catalogue-schema.md` and
-`docs/v7.5-class-aware-science-workflow.md`.
+Only the historical source-admission builders required for exact reconstruction
+remain under `src/internal/compatibility/`; they do not define public dataset
+versions or write legacy output trees.
 
 ## Getting Started
 
-Requirements and full run instructions are documented in
-`docs/getting-started.md`.
+The project requires Python 3.12. Create a repository-local virtual environment
+and install the pinned project requirements:
 
-The project requires Python 3.12. On macOS/Linux, use the repository-local
-interpreter explicitly after following the setup instructions:
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install --requirement requirements-notebook-lock.txt
+```
+
+Run the complete regression and verification suite:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
+.venv/bin/python -m src.internal.verify_source_provenance
+.venv/bin/python -m src.internal.verify_versions
 ```
 
-Plain `python3` on macOS may select Apple Python 3.9 without NumPy or pandas;
-that is an environment failure, not a test result from the supported runtime.
-
-Historical frozen-v6 reproduction path from the repository root, using the
-frozen v5 measurement catalogue as input:
-
-```powershell
-.\.venv\Scripts\python.exe -m scripts.process_v6_blagn
-.\.venv\Scripts\python.exe -m scripts.generate_v6_blagn_science --n-samples 10000 --seed 20260808
-.\.venv\Scripts\python.exe -m scripts.verify_v6_release --reproduce
-$env:PYTHONDONTWRITEBYTECODE='1'; .\.venv\Scripts\python.exe -m unittest discover -s tests
-```
-
-Expected frozen-v6 products include:
-
-- `data/processed/v6/v6_blagn_measurements.csv` (112 measurements)
-- `data/processed/v6/v6_blagn_objects.csv` (105 physical objects)
-- `data/crossmatch/v6/v6_measurement_object_links.csv`
-- measurement- and object-level `results/past_releases/v6/tables/v6_blagn_*.csv` products
-- 336-row measurement and 315-row physical-object accretion-history tables
-- a 105-row full-versus-primary ranking comparison
-- four deliberate v5 paper figures under `results/past_releases/v5/figures/main_text/`
-
-The v6 ranking and uncertainty products use the documented baseline
-`z_seed=30`, `epsilon=0.1`, `merger_boost=1` reference unless a scenario column
-says otherwise. Outputs are observational triage products under stated
-assumptions; they do not prove a single seed or accretion channel. Candidate
-interpretations remain in the complete diagnostic tables, while
-separate primary-rank columns contain only secure/probable evidence statuses.
-Object-level LRD summaries preserve an explicit not-reported state. Full
-from-raw reproduction instructions for v1--v6 and the frozen earlier figure
-sets are in `docs/getting-started.md`.
-
-The Python package version follows the current implemented science milestone
-(`7.5.0`). It is distinct from immutable source-paper versions,
-catalogue labels such as `v7.5-accreting-atlas-catalogue`, and maintenance
-anchors such as v4.0.1.
+Full dataset generation commands are listed in the workflow above. The source
+review cutoff and explicit admission boundary are documented in
+`docs/current/literature-scope.md`; versioning details are in
+`docs/guides/versioning.md`.
 
 ## Repository map
 
-Folder-level guides keep current products distinct from frozen release history:
+Folder-level guides keep current products distinct from the retained project
+record and obsolete material recoverable through Git history:
 
 - [`data/`](data/README.md): raw sources, processed catalogues, and identity products
 - [`results/`](results/README.md): science tables, figures, galleries, and inventory
 - [`docs/publication/`](docs/publication/README.md): curated paper-ready and supplement-ready products
 - [`docs/`](docs/README.md): current contracts, methods, source notes, and historical documentation
-- [`releases/`](releases/README.md): exact release manifests and hashes
+- [`releases/`](releases/README.md): exact dataset manifests and hashes
 - [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
 
 ## References

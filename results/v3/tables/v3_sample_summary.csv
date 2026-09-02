@@ -1,0 +1,5 @@
+object_class,n_objects,n_growth_eligible,median_redshift,median_log_mbh,science_release,input_catalogue_release
+broad_line_agn,112,112,5.0055,7.33,v3-shared-science,v3-dataset-catalogue
+luminous_quasar_comparison,86,84,6.011419999999999,9.42,v3-shared-science,v3-dataset-catalogue
+narrow_line_agn_candidate,20,0,5.57,,v3-shared-science,v3-dataset-catalogue
+xray_agn_candidate,1,0,10.054,,v3-shared-science,v3-dataset-catalogue

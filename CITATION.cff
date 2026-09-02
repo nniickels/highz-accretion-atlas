@@ -1,9 +1,7 @@
 cff-version: 1.2.0
-message: "If you use this atlas, please cite the software release and the primary source papers represented in the data you use."
+message: "If you use this atlas, please cite the dataset and the primary source papers represented in the data you use."
 title: "High-Redshift Accretion Atlas"
-type: software
-version: 7.5.0
-date-released: 2026-08-27
+type: dataset
 authors:
   - family-names: Jiang
     given-names: Nicole

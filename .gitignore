@@ -8,7 +8,16 @@ htmlcov/
 
 # Local tool/runtime caches and historical working documents.
 .codex_tmp/
-docs/archive/
+docs/archive/*
+!docs/archive/README.md
+!docs/archive/legacy/
+!docs/archive/legacy/**
+!docs/archive/releases/
+!docs/archive/releases/**
+!docs/archive/project-history/
+!docs/archive/project-history/*.md
+!docs/archive/project-history/*.tex
+!docs/archive/project-history/*.pdf
 
 # Common editor and OS noise.
 .DS_Store

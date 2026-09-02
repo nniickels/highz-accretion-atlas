@@ -1,10 +1,13 @@
-# Processed Catalogues
+# Processed catalogues
 
-Each subdirectory is a frozen standardized catalogue release. Use `v7_5/` for
-the current integrated catalogue and earlier directories only when reproducing
-or comparing historical releases.
+- `v1/`: 23 original JADES BLAGN measurements and objects.
+- `v2/`: 119 comparable BLAGN measurements representing 112 objects.
+- `v3/`: final heterogeneous catalogue, 234 measurements and 219 objects.
 
-The current one-row-per-object entry point is
-[`v7_5/v7_5_accreting_objects.csv`](v7_5/v7_5_accreting_objects.csv). See
-[`../README.md`](../README.md) for table meanings, counts, and safe joins.
+These are dataset scopes, not software releases. Each uses the same schema and
+contains measurement, object, host, observable, and strata tables. Use the
+object table for one row per physical object and the measurement table when
+literature-measurement multiplicity matters.
 
+Legacy same-class ingestion tables may remain as internal regression inputs;
+they are not additional public dataset versions.

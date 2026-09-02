@@ -1,35 +1,27 @@
-# Source Package Guide
+# Source package
 
-The `src` package is organized by responsibility and release rather than by
-nested packages so established imports and frozen reproduction remain stable.
+Public scientific code is organized by responsibility, not by former software
+release number.
 
-## Shared foundations
+## Canonical interfaces
 
+- `datasets.py`: v1/v2/v3 membership, materialization, and canonical metadata
+- `science.py`: shared rankings, uncertainty, duty-cycle, follow-up, and caveat products
 - `models.py`: cosmology and black-hole growth equations
-- `scoring.py`: model compatibility and ranking scores
-- `standardize_data.py`: original standardization and validation
-- `identity.py`: stable object identity and match candidates
-- `object_taxonomy.py`: controlled evidence, class, phenotype, and eligibility terms
+- `scoring.py`: compatibility and ranking scores
+- `identity.py`: stable identities and match candidates
+- `object_taxonomy.py`: evidence, class, phenotype, and eligibility vocabulary
 - `mass_systematics.py`: source-method systematic registry
-- `source_provenance.py`: provenance-registry validation
+- `source_provenance.py`: provenance validation
+- `standardize_data.py`: source-table standardization
 
-## Catalogue and science releases
+## Internal workflow
 
-- `v3_catalogue.py` through `v6_catalogue.py`: frozen BLAGN catalogue builders
-- `v3_science.py` through `v6_science.py`: frozen BLAGN science builders
-- `v7_catalogue.py`, `v7_admission.py`, and `v7_batch.py`: generalized v7 framework
-- `v7_1_catalogue.py` through `v7_5_catalogue.py`: successive catalogue layers
-- `v7_2_science.py` and `v7_5_science.py`: class-aware science layers
+`internal/` contains deterministic catalogue, science, figure, atlas, manifest,
+inventory, extraction, and verification helpers called by the notebooks in
+`scripts/`.
 
-## Source-family adapters
-
-- `v7_ren.py`: ALPINE–CRISTAL–JWST candidates
-- `v7_xqr30.py`: XQR-30 luminous quasars
-- `v7_shen19.py`: GNIRS-50 luminous quasars
-- `v7_3_uhz1.py`: UHZ1 evidence history
-- `v7_4_scholtz.py`: JADES narrow/high-ionization candidates
-
-Release-numbered modules are intentionally retained. Consolidating them would
-make frozen reconstruction less transparent and risks changing historical
-behavior.
-
+`internal/compatibility/` contains only the retained source-admission builders
+needed to reconstruct the complete catalogue from the frozen assembly inputs in
+`data/assembly/`. Their historical `v7_*` names are implementation history, not
+public dataset versions or supported user entry points.

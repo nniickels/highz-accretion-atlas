@@ -1,2 +1,0 @@
-measurement_id,candidate_measurement_id,decision,physical_object_id,review_basis,review_reference,review_date,match_origin
-GOODSS13971_matthee23,GS204851_juodzbalis25,accepted,HZA-GS-204851,"coordinate, redshift, and published source-name review","Matthee et al. 2024 Tables 1-3; Juodzbalis et al. 2025 source catalogue",2026-08-22,threshold_candidate

@@ -1,19 +1,31 @@
 [project]
 name = "highz-accretion-atlas"
-version = "7.5.0"
+# Internal package placeholder; public v1/v2/v3 labels are dataset versions.
+version = "0.0.0"
 description = "A provenance-aware catalogue and growth-pressure atlas for high-redshift accreting black holes."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Nicole Jiang" },
+]
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "numpy==2.5.2",
   "pandas==2.2.3",
   "matplotlib==3.11.1",
+  "pillow==12.3.0",
 ]
 
 [project.optional-dependencies]
 notebook = [
   "jupyterlab==4.4.6",
   "nbconvert==7.16.6",
+  "reportlab==4.4.9",
 ]
 
-[tool.setuptools]
-packages = ["src", "scripts"]
+[project.urls]
+Repository = "https://github.com/nniickels/highz-accretion-atlas"
+
+[tool.setuptools.packages.find]
+include = ["src", "src.*"]

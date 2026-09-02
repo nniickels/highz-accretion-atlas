@@ -1,10 +1,9 @@
-# Identity and Crossmatch Products
+# Identity and crossmatch data
 
-Each release directory contains measurement-to-object links, object aliases,
-reviewed match candidates, and—where applicable—object-to-host links.
+`v1/`, `v2/`, and `v3/` mirror the three dataset scopes. Each contains
+measurement-to-object links, object-to-host links, aliases, and review/audit
+tables. The v3 tables are the final complete identity products.
 
-For current analysis use `v7_5/`. Join with stable `measurement_id`,
-`physical_object_id`, and `host_system_id` values; do not use a source-local
-`object_id` as a cross-paper identity key. See [`../README.md`](../README.md)
-for the relational model and table inventory.
-
+Some source-review inputs still carry historical internal filenames because
+the ingestion code treats them as immutable audit evidence; those names do not
+define additional dataset versions.

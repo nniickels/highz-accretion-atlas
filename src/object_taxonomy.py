@@ -68,7 +68,7 @@ def _evidence_assignment(row: pd.Series) -> tuple[str, str]:
 
 
 def add_blagn_taxonomy(catalogue: pd.DataFrame) -> pd.DataFrame:
-    """Add v5 taxonomy axes without changing the historical object class."""
+    """Add canonical taxonomy axes without changing source classifications."""
     result = catalogue.copy()
     evidence = result.apply(_evidence_assignment, axis=1)
     result["evidence_status"] = [value[0] for value in evidence]

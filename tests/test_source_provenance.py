@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from scripts.verify_source_provenance import MANIFEST_PATH, verify_metadata
+from src.internal.verify_source_provenance import MANIFEST_PATH, verify_metadata
 from src.source_provenance import (
     load_source_provenance_registry, validate_catalogue_source_coverage,
     validate_source_provenance_registry,
@@ -17,7 +17,7 @@ from src.source_provenance import (
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = ROOT / "data/source_provenance_registry.csv"
-CATALOGUE_PATH = ROOT / "data/processed/v7_5/v7_5_accreting_measurements.csv"
+CATALOGUE_PATH = ROOT / "data/processed/v3/v3_accreting_measurements.csv"
 
 
 class SourceProvenanceTests(unittest.TestCase):

@@ -1,14 +1,16 @@
-# Main-Text Figures
+# v3 paper-ready figures
 
-The four canonical, high-resolution v7.5 manuscript figures are:
+Canonical figures are in [`results/v3/figures/`](../../../results/v3/figures/):
 
-1. [Catalogue growth landscape](../../../results/figures/v7_5_catalogue_growth_landscape.png)
-2. [Class-aware growth pressure](../../../results/figures/v7_5_class_aware_growth_pressure.png)
-3. [Uncertainty robustness](../../../results/figures/v7_5_uncertainty_robustness.png)
-4. [Alternate-measurement sensitivity](../../../results/figures/v7_5_measurement_sensitivity.png)
+1. catalogue growth landscape
+2. class-aware growth pressure
+3. uncertainty robustness
+4. alternate-measurement sensitivity
+5. all-object growth tracks
+6. parameter-map gallery
+7. compatibility summary and complete object atlas
+8. Monte Carlo summary and complete object uncertainty atlas
 
-These exact files are referenced by the manuscript and verified by
-[`../../../releases/v7.5-figures-manifest.json`](../../../releases/v7.5-figures-manifest.json).
-Do not copy or rename them for repository organization; regenerate them with
-`python -m scripts.generate_v7_5_figures` when the underlying release changes.
-
+All are verified by `src.internal.verify_versions` through
+`scripts/04_verify.ipynb`. Equivalent v1 and v2
+figures use the same names and definitions under their respective directories.

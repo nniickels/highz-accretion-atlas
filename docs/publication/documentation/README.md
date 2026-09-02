@@ -2,28 +2,25 @@
 
 ## Scientific contract
 
-- [v7.5 release notes](../../../docs/v7.5-release-notes.md)
-- [Catalogue schema](../../../docs/v7.5-catalogue-schema.md)
-- [Class-aware science workflow](../../../docs/v7.5-class-aware-science-workflow.md)
-- [Object taxonomy](../../../docs/object-taxonomy.md)
-- [Mass-comparability policy](../../../docs/multiclass-eligibility-and-mass-comparability.md)
-- [Growth-model menu](../../../docs/model-menu.md)
+- [v3 notes](../../../docs/current/v3-notes.md)
+- [Catalogue schema](../../../docs/current/v3-catalogue-schema.md)
+- [Class-aware science workflow](../../../docs/current/v3-class-aware-science-workflow.md)
+- [Object taxonomy](../../../docs/reference/object-taxonomy.md)
+- [Mass-comparability policy](../../../docs/reference/multiclass-eligibility-and-mass-comparability.md)
+- [Growth-model menu](../../../docs/reference/model-menu.md)
 
 ## Provenance and reproducibility
 
 - [Source guide](../../../data/sources.md)
 - [Data guide](../../../data/README.md)
 - [Results guide](../../../results/README.md)
-- [Reproduction instructions](../../../docs/getting-started.md)
-- [Release versioning](../../../docs/release-versioning.md)
+- [Reproduction instructions](../../../docs/guides/getting-started.md)
+- [Dataset versioning](../../../docs/guides/versioning.md)
 
 ## Internal publication checks
 
-- [Claim audit](../../../docs/v7.5-claim-audit.md)
-- [Citation audit](../../../docs/v7.5-citation-audit.md)
-- [Publication manifest](../../../releases/v7.5-publication-manifest.json)
+- [Claim audit](../../../docs/current/v3-claim-audit.md)
+- [Citation audit](../../../docs/current/v3-citation-audit.md)
 
-The first two groups are suitable supporting documentation for a data or code
-release. The internal publication checks demonstrate QA but normally would not
-be submitted as paper sections.
-
+The first two groups are suitable paper-supporting documentation. The internal
+publication checks demonstrate QA but normally would not be manuscript sections.

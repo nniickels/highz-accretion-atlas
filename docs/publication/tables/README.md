@@ -1,25 +1,10 @@
-# Released Tables
+# v3 tables
 
-## Primary paper-analysis tables
+The final catalogue is under [`data/processed/v3/`](../../../data/processed/v3/).
+The preferred paper-analysis and audit tables are under
+[`results/v3/tables/`](../../../results/v3/tables/), including point and Monte
+Carlo rankings, class/method summaries, alternate-measurement sensitivity,
+the 219-object follow-up matrix, the 11-source caveat summary, exclusions,
+duty-cycle diagnostics, compatibility, and visual coverage.
 
-- [Object point ranking](../../../results/tables/v7_5_class_aware_object_point_ranking.csv)
-- [Object uncertainty ranking](../../../results/tables/v7_5_class_aware_object_uncertainty_ranking.csv)
-- [Class and mass-method summary](../../../results/tables/v7_5_class_aware_class_method_summary.csv)
-- [Alternate-measurement sensitivity](../../../results/tables/v7_5_class_aware_alternate_measurement_sensitivity.csv)
-
-## Supplement and audit tables
-
-- [One-row-per-object catalogue](../../../data/processed/v7_5/v7_5_accreting_objects.csv)
-- [Measurement catalogue](../../../data/processed/v7_5/v7_5_accreting_measurements.csv)
-- [Host-system catalogue](../../../data/processed/v7_5/v7_5_host_systems.csv)
-- [Source observables](../../../data/processed/v7_5/v7_5_source_observables.csv)
-- [Science exclusion audit](../../../results/tables/v7_5_class_aware_exclusion_audit.csv)
-- [Gallery coverage audit](../../../results/tables/v7_5_growth_gallery_coverage.csv)
-- [Source-provenance registry](../../../data/source_provenance_registry.csv)
-
-Measurement-level rankings, the released science policy, identity links,
-aliases, and catalogue strata remain available in the canonical `data/` and
-`results/` release directories. See [`../../../data/README.md`](../../../data/README.md)
-for safe joins and [`../../../results/README.md`](../../../results/README.md)
-for the complete results inventory.
-
+Identity products are under [`data/crossmatch/v3/`](../../../data/crossmatch/v3/).

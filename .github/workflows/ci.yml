@@ -20,71 +20,11 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m unittest discover -s tests
-      - name: Verify source provenance supplement from a clean worktree
+      - name: Verify source provenance
         env:
           PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_source_provenance --require-clean
-      - name: Verify frozen v4 release from a clean worktree
+        run: python -m src.internal.verify_source_provenance
+      - name: Verify v1/v2/v3 dataset and result contracts
         env:
           PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v4_release --reproduce --require-clean
-      - name: Verify frozen v5 release from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v5_release --reproduce --require-clean
-      - name: Verify frozen v6 release from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v6_release --reproduce --require-clean
-      - name: Verify frozen v7 catalogue from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_catalogue --reproduce --require-clean
-      - name: Verify frozen v7.1 catalogue from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_1_catalogue --reproduce --require-clean
-      - name: Verify frozen v7.2 catalogue from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_2_catalogue --reproduce --require-clean
-      - name: Verify v7.2 class-aware science from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_2_science --reproduce --require-clean
-      - name: Verify frozen v7.3 catalogue from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_3_catalogue --reproduce --require-clean
-      - name: Verify frozen v7.4 catalogue from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_4_catalogue --reproduce --require-clean
-      - name: Verify organized high-resolution results gallery
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_3_results_gallery --require-clean
-      - name: Verify complete v7.4 growth-product release
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_4_growth_products --require-clean
-      - name: Verify canonical v5 paper figures from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v5_figures --require-clean
-      - name: Verify current v7.5 catalogue from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_5_catalogue --reproduce --require-clean
-      - name: Verify current v7.5 class-aware science from a clean worktree
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_5_science --reproduce --require-clean
-      - name: Verify current v7.5 figures and gallery coverage
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_5_figures --require-clean
-      - name: Verify current v7.5 publication package
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m scripts.verify_v7_5_publication --require-clean
+        run: python -m src.internal.verify_versions
