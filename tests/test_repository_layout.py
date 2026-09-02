@@ -57,6 +57,11 @@ class RepositoryLayoutTests(unittest.TestCase):
         ]
         self.assertEqual(unexpected, [])
 
+    def test_compiled_manuscript_is_present(self) -> None:
+        manuscript = ROOT / "paper/highz_accretion_atlas_v3.pdf"
+        self.assertGreater(manuscript.stat().st_size, 1_000_000)
+        self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
+
     def test_complete_seed_redshift_galleries(self) -> None:
         expected = {"v1": 23, "v2": 112, "v3": 219}
         for version, count in expected.items():

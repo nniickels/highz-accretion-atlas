@@ -8,14 +8,23 @@ jobs:
   test-and-verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: requirements-lock.txt
+          cache-dependency-path: |
+            requirements-lock.txt
+            requirements-notebook-lock.txt
       - name: Install pinned dependencies
-        run: python -m pip install --requirement requirements-lock.txt
+        run: python -m pip install --requirement requirements-notebook-lock.txt
+      - name: Build and import the Python package
+        run: |
+          mkdir -p "$RUNNER_TEMP/wheel"
+          python -m pip wheel . --no-deps --no-build-isolation --wheel-dir "$RUNNER_TEMP/wheel"
+          python -m pip install --no-deps --force-reinstall "$RUNNER_TEMP"/wheel/*.whl
+          cd "$RUNNER_TEMP"
+          python -c "import src.datasets, src.science, src.internal.compatibility.v7_catalogue"
       - name: Run regression suite
         env:
           PYTHONDONTWRITEBYTECODE: "1"
@@ -28,3 +37,27 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m src.internal.verify_versions
+      - name: Execute the complete public notebook workflow
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          notebook_workspace="$RUNNER_TEMP/highz-atlas-notebook-workspace"
+          executed_notebooks="$RUNNER_TEMP/highz-atlas-executed-notebooks"
+          mkdir -p "$notebook_workspace" "$executed_notebooks"
+          git archive HEAD | tar -x -C "$notebook_workspace"
+          cd "$notebook_workspace"
+          for notebook in scripts/0[0-4]_*.ipynb; do
+            python -m jupyter nbconvert --to notebook --execute \
+              --ExecutePreprocessor.timeout=1800 \
+              --output-dir="$executed_notebooks" "$notebook"
+          done
+      - name: Install manuscript compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+      - name: Compile manuscript
+        working-directory: paper
+        run: |
+          pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
+          pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
+          test -s highz_accretion_atlas_v3.pdf

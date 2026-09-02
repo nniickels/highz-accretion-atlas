@@ -10,14 +10,15 @@ htmlcov/
 .codex_tmp/
 docs/archive/*
 !docs/archive/README.md
-!docs/archive/legacy/
-!docs/archive/legacy/**
-!docs/archive/releases/
-!docs/archive/releases/**
 !docs/archive/project-history/
 !docs/archive/project-history/*.md
 !docs/archive/project-history/*.tex
 !docs/archive/project-history/*.pdf
+
+# Local LaTeX build intermediates; the final manuscript PDF is retained.
+paper/*.aux
+paper/*.log
+paper/*.out
 
 # Common editor and OS noise.
 .DS_Store

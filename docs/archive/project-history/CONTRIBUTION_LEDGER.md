@@ -1349,3 +1349,54 @@ For every future Codex contribution that changes repository files:
   passes.
 - **Status:** Documentation and metadata corrections complete and verified
   locally; uncommitted.
+
+### 2026-09-02 - Harden CI, scientific claim tests, and manuscript delivery
+
+- **Objective:** Complete the remaining post-migration maintenance work by
+  strengthening automated validation, compiling the final manuscript, and
+  removing obsolete configuration and local residue.
+- **Files changed:** `.github/workflows/ci.yml`, `.gitignore`, `paper/README.md`,
+  `paper/highz_accretion_atlas_v3.pdf`, `tests/README.md`,
+  `tests/test_scientific_claims.py`, `docs/current/v3-claim-audit.md`,
+  `docs/publication/README.md`, and this ledger.
+- **Contribution:** Updated the official checkout and Python setup actions to
+  their Node 24-compatible v7 releases. Extended CI to install the complete
+  pinned notebook environment, build and import the wheel outside the source
+  tree, execute all five public notebooks in an isolated checkout, and compile
+  the manuscript with LaTeX. Added direct regression anchors for the Scholtz
+  41/21 table counts, the JADES-NS-GS00099671 no-mass correction, the JADES 8083
+  identity merge, J1148+5251's two leading ranks, the top-eight unit
+  probabilities, primary-row counts, alternate comparisons, follow-up and
+  caveat counts, and complete panel coverage. Compiled and indexed the final
+  manuscript PDF, removed obsolete archive allow-list rules, and ignored only
+  LaTeX intermediate files.
+- **Scientific/technical effect:** No catalogue membership, source value,
+  numerical result, or scientific interpretation changed. Existing manuscript
+  claims now have explicit unit-level regression coverage in addition to exact
+  end-to-end reproduction.
+- **Validation:** All 31 tests pass, including the compiled-manuscript artifact
+  check. Source provenance verifies 16 records and
+  all 11 v3 source families; manifests, result inventory, strict dataset
+  nesting, shared analysis, and exact CSV reproduction pass. The wheel builds
+  and imports outside the repository. All five notebooks execute in order in an
+  isolated copy and reproduce the checked-in processed data, crossmatches,
+  results, and manifests byte for byte. Tectonic compiled the eight-page
+  manuscript without warnings; every page was rendered and visually inspected.
+- **Status:** CI, claim-test, manuscript, and cleanup hardening complete and
+  verified locally; the updated remote CI will run after these changes are
+  committed and pushed.
+
+### 2026-09-02 - Remove the public contribution guide
+
+- **Objective:** Remove GitHub's automatic repository-level Contributing tab.
+- **Files changed:** `CONTRIBUTING.md` (removed) and this ledger.
+- **Contribution:** Removed the root contribution guide so GitHub no longer
+  promotes it as repository community documentation. The maintained setup,
+  workflow, validation, and source-provenance guidance remains in the README,
+  documentation guides, and test documentation.
+- **Scientific/technical effect:** None; no source code, data, results, or
+  scientific claims changed.
+- **Validation:** Confirmed that active documentation does not link to the
+  removed file; the complete repository validation suite is rerun with this
+  change before publication.
+- **Status:** Complete.

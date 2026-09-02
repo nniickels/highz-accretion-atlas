@@ -1,6 +1,7 @@
 # Paper-ready products
 
-- Manuscript: [`../../paper/highz_accretion_atlas_v3.tex`](../../paper/highz_accretion_atlas_v3.tex)
+- Manuscript source: [`../../paper/highz_accretion_atlas_v3.tex`](../../paper/highz_accretion_atlas_v3.tex)
+- Compiled manuscript: [`../../paper/highz_accretion_atlas_v3.pdf`](../../paper/highz_accretion_atlas_v3.pdf)
 - Figures: [`figures/README.md`](figures/README.md)
 - Tables: [`tables/README.md`](tables/README.md)
 - Complete object gallery: [`supplement/README.md`](supplement/README.md)
