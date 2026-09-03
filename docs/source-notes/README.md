@@ -10,6 +10,7 @@
 - [`ren25-alpine-cristal-jwst-extraction-notes.md`](ren25-alpine-cristal-jwst-extraction-notes.md)
 - [`uhz1-xray-evidence-history-extraction-notes.md`](uhz1-xray-evidence-history-extraction-notes.md)
 - [`scholtz25-jades-narrow-line-extraction-notes.md`](scholtz25-jades-narrow-line-extraction-notes.md)
+- [`heterogeneous-v3-expansion-extraction-notes.md`](heterogeneous-v3-expansion-extraction-notes.md)
 
 Admission policy is documented under
 [`../reference/`](../reference/README.md). Canonical citations and limitations

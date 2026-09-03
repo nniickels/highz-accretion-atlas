@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -61,6 +62,26 @@ class RepositoryLayoutTests(unittest.TestCase):
         manuscript = ROOT / "paper/highz_accretion_atlas_v3.pdf"
         self.assertGreater(manuscript.stat().st_size, 1_000_000)
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
+
+    def test_manuscript_citations_have_bibliography_entries(self) -> None:
+        manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
+        expected = {
+            "bogdan2024", "chavezortiz2026", "chisholm2024", "davis2026",
+            "dayal2024", "goulding2023", "greene2024", "harikane2023",
+            "hutchison2025", "juodzbalis2026", "killi2024", "kocevski2025",
+            "larson2023", "leung2026", "lin2024", "lyu2024", "maiolino2024",
+            "mascia2026", "matthee2024", "mazzolari2024", "napolitano2025",
+            "ren2025", "scholtz2025", "skyfire2026", "tang2025", "taylor2025",
+            "ubler2024", "zhang2026", "zou2026",
+        }
+        cited = {
+            key.strip()
+            for group in re.findall(r"\\cite\{([^}]+)\}", manuscript)
+            for key in group.split(",")
+        }
+        bibliography = set(re.findall(r"\\bibitem\{([^}]+)\}", manuscript))
+        self.assertEqual(cited, expected)
+        self.assertEqual(bibliography, expected)
 
     def test_complete_axis_named_parameter_maps(self) -> None:
         expected = {"v1": 23, "v2": 152, "v3": 249}

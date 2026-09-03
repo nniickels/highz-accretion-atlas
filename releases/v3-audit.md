@@ -35,20 +35,20 @@ disputed because its preferred full-data reanalysis is disputed.
 
 ## Manuscript citation audit
 
-The manuscript currently cites these 16 admitted source families:
+The manuscript cites all 25 admitted source families:
 
 - Juodžbalis, Taylor, Matthee, Lin, Harikane, Davis, Ren, Greene, Kocevski,
   Skyfire, Larson, Killi, and Übler broad-line samples
 - Bogdán and Zou for the UHZ1 evidence history
 - Scholtz for the JADES narrow/high-ionization candidates
 - Maiolino for GN-z11
+- Chisholm, Tang, Mazzolari, Zhang, and Chavez Ortiz for the expanded
+  high-ionization and narrow-line families
+- Leung/MEOW and Lyu/SMILES for MIRI-selected candidates
+- Napolitano for GHZ9 and Mascia for compact blue broad-line emitters
 
 It also cites Hutchison for THRILS coordinates, Goulding for UHZ1 context, and
-Dayal for the growth model. The manuscript's 20 citation keys and 20
+Dayal for the growth model. The manuscript's 29 citation keys and 29
 bibliography entries match exactly.
-
-Nine source families admitted in the expanded v3 catalogue still require
-manuscript citations: Chisholm, Tang, Mazzolari, MEOW, Lyu, Napolitano, Zhang,
-Chavez Ortiz, and Mascia. The versioned JADES DR3 GOODS-S prism catalogue also
-supplies Scholtz-row coordinates and is identified in the manuscript and
-extraction notes.
+The versioned JADES DR3 GOODS-S prism catalogue supplies Scholtz-row coordinates
+and is identified in the manuscript and extraction notes.

@@ -236,3 +236,54 @@ a future alternate-measurement/reanalysis source.
   objects contributed by this family.
 - The current dataset counts and evidence aggregation are documented in
   `docs/reference/admission-schema.md` and `releases/v3-audit.md`.
+
+## v3 heterogeneous evidence expansion reviewed 2026-09-03
+
+The following nine source families contribute 75 identity-audited objects to
+v3 only. None publishes an unconditional black-hole mass suitable for the
+current growth calculation; proxy ranges, upper limits, and masses based on an
+assumed Eddington ratio remain contextual observables.
+
+- **[source_key: chisholm24_gn42437_nev] Chisholm et al. (2024):** GN-42437
+  is admitted as `probable` from its seven-sigma [Ne V] detection and joint
+  stellar-plus-AGN photoionization interpretation. The Bagpipes host mass is
+  canonical, while the method-dependent `log(MBH/Msun) ~ 5--7` range is
+  contextual.
+- **[source_key: tang25_high_ionization] Tang et al. (2025):** three new N V,
+  [Ne IV], or [Ne V] candidates are retained with line-identification and
+  ionizing-source uncertainty. Known overlaps are excluded, and no BH mass is
+  inferred.
+- **[source_key: mazzolari24_ceers_nlagn] Mazzolari et al. (2024):** 25 new
+  `z >= 4` CEERS narrow-line candidates are admitted from Table 3 after removing
+  two known overlaps. Source SED masses and narrow-line bolometric estimates
+  are retained; diagnostic ambiguity with extreme star formation remains
+  explicit.
+- **[source_key: meow26_miri_agn] Leung et al. (2026), MEOW:** 12 newly
+  identified MIRI SED-selected AGN or composite candidates are admitted.
+  CIGALE/SKIRTOR accretion luminosities and AGN fractions are preserved without
+  converting them to BH masses.
+- **[source_key: lyu24_smiles_miri_agn] Lyu et al. (2024), SMILES:** 19
+  JWST-only high-redshift MIRI candidates are admitted from machine-readable
+  Table 2. Prospector host masses and MIRI AGN-component luminosities retain the
+  source's high-redshift SED-selection caveat.
+- **[source_key: napolitano25_ghz9] Napolitano et al. (2025):** GHZ9 is
+  admitted as `probable` from its JWST high-ionization spectrum and Chandra
+  association. The luminosity-based BH estimate assumes Eddington accretion and
+  is therefore contextual rather than canonical.
+- **[source_key: zhang25_narrow_line_lrds] Zhang et al. (2026):** five
+  narrow-line LRD candidates are admitted from Tables 1--2. Their BH constraints
+  are line-width-based upper limits, not measured point masses.
+- **[source_key: chavezortiz26_ghz2] Chavez Ortiz et al. (2025/2026):** GHZ2 is
+  admitted as `probable` from joint spectral/photometric AGN modelling. Its BH
+  estimate assumes an Eddington ratio of 0.5 and carries an approximately
+  one-dex systematic, so it remains contextual.
+- **[source_key: mascia26_compact_blue_ble] Mascia et al. (2026):** eight new
+  compact blue broad-line emitters remain `candidate` because the source allows
+  AGN and stellar central-engine interpretations and publishes no object-level
+  BH masses.
+
+Row selection, source-table locations, methods, alias exclusions, and evidence
+decisions are documented in
+`docs/source-notes/heterogeneous-v3-expansion-extraction-notes.md`. Exact source
+versions, DOIs, archive hashes, and review dates are machine-readable in
+`data/source_provenance_registry.csv`.

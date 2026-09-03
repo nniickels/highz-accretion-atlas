@@ -77,7 +77,7 @@ Appendix or supplement products:
 The canonical v3 gallery covers all 249 objects with one $f_{Edd}$-mass map in
 `results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
 `results/v3/parameter_maps/seedredshift_mass_maps/`. The 153
-growth-eligible objects receive numerical panels; the other 21 receive explicit
+growth-eligible objects receive numerical panels; the other 96 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
 companion contains 72 curves spanning three seed masses, three $f_{Edd}$
