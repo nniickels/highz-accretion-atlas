@@ -31,6 +31,10 @@ The existing catalogue landscape, class-aware pressure, and alternate-
 measurement sensitivity figures remain valid supporting main-text figures
 because they are calculated from the same v3 catalogue.
 
+All combined growth-track figures use a common reversed observed-redshift axis
+from 10 to 3. Figure dimensions and subplot margins are unchanged, placing the
+observed catalogue points more centrally without changing any data or model.
+
 ## Complete supplement figures
 
 - `v3_all_object_fedd_mass_map_gallery.png`: all 219 $f_{Edd}$-mass panels.

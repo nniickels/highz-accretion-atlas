@@ -116,6 +116,8 @@ FULL_TRACK_CURVE_COUNT = (
     * len(FULL_TRACK_MERGER_CASES)
 )
 HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX = 0.7
+GROWTH_TRACK_REDSHIFT_LIMITS = (10.0, 3.0)
+GROWTH_TRACK_AGE_TICKS = np.arange(10.0, 2.0, -1.0)
 
 
 def high_uncertainty_luminous_quasars(objects: pd.DataFrame) -> pd.DataFrame:
@@ -227,7 +229,9 @@ def materialize_fedd_mass_maps(objects: pd.DataFrame, *, rebuild: bool) -> pd.Da
 def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
     eligible = objects[objects["growth_ranking_eligible_flag"].map(boolish)].copy()
     unavailable = objects[~objects["growth_ranking_eligible_flag"].map(boolish)].copy()
-    redshift = np.linspace(4.0, 12.0, 300)
+    redshift = np.linspace(
+        GROWTH_TRACK_REDSHIFT_LIMITS[1], GROWTH_TRACK_REDSHIFT_LIMITS[0], 300,
+    )
     fig, (ax, status) = plt.subplots(2, 1, figsize=(15, 10.5),
                                      gridspec_kw={"height_ratios": [4.2, 1]},
                                      constrained_layout=True)
@@ -241,13 +245,13 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
         ax.scatter(group["redshift"], group["log_mbh_msun_std"], s=30, alpha=0.75,
                    color=COLORS[object_class], edgecolor="white", linewidth=0.35,
                    label=f"{LABELS[object_class]} ({len(group)})")
-    ax.set(xlim=(12.2, 3.8), ylim=(4.5, 10.8), xlabel="Observed redshift",
+    ax.set(xlim=GROWTH_TRACK_REDSHIFT_LIMITS, ylim=(4.5, 10.8), xlabel="Observed redshift",
            ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",
            title=f"{VERSION}: all-object growth-track atlas")
     ax.grid(alpha=0.2)
     ax.legend(ncol=3, frameon=False, fontsize=9)
 
-    status.set_xlim(12.2, 3.8)
+    status.set_xlim(*GROWTH_TRACK_REDSHIFT_LIMITS)
     status.set_ylim(-0.6, 3.6)
     for y, (object_class, group) in enumerate(unavailable.groupby("object_class", sort=True)):
         status.scatter(group["redshift"], np.full(len(group), y), marker="|", s=260,
@@ -273,7 +277,9 @@ def plot_full_assumption_growth_tracks(
     if exclude_high_uncertainty_luminous_quasars:
         excluded_ids = set(high_uncertainty_luminous_quasars(objects)["physical_object_id"])
         eligible = eligible.loc[~eligible["physical_object_id"].isin(excluded_ids)].copy()
-    redshift = np.linspace(12.0, 4.0, 400)
+    redshift = np.linspace(
+        GROWTH_TRACK_REDSHIFT_LIMITS[0], GROWTH_TRACK_REDSHIFT_LIMITS[1], 400,
+    )
     fig, (ax, status) = plt.subplots(
         2, 1, figsize=(15, 12.5), gridspec_kw={"height_ratios": [4.4, 1]},
     )
@@ -305,7 +311,7 @@ def plot_full_assumption_growth_tracks(
     if exclude_high_uncertainty_luminous_quasars:
         title += "\nexcluding luminous quasars with mass uncertainty > 0.7 dex"
     ax.set(
-        xlim=(12.2, 3.8), ylim=(4.5, 10.8), xlabel="Observed redshift",
+        xlim=GROWTH_TRACK_REDSHIFT_LIMITS, ylim=(4.5, 10.8), xlabel="Observed redshift",
         ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",
         title=title,
     )
@@ -313,7 +319,7 @@ def plot_full_assumption_growth_tracks(
 
     age_axis = ax.twiny()
     age_axis.set_xlim(ax.get_xlim())
-    age_redshifts = np.array([12, 10, 8, 7, 6, 5, 4], dtype=float)
+    age_redshifts = GROWTH_TRACK_AGE_TICKS
     age_axis.set_xticks(age_redshifts)
     age_axis.set_xticklabels([f"{age:.2f}" for age in cosmic_time_gyr(age_redshifts)])
     age_axis.set_xlabel("Age of the Universe (Gyr)", labelpad=7)
@@ -344,7 +350,7 @@ def plot_full_assumption_growth_tracks(
         for _, label, alpha in FULL_TRACK_MERGER_CASES
     ]
 
-    status.set_xlim(12.2, 3.8)
+    status.set_xlim(*GROWTH_TRACK_REDSHIFT_LIMITS)
     status.set_ylim(-0.6, 3.6)
     for y, (object_class, group) in enumerate(unavailable.groupby("object_class", sort=True)):
         status.scatter(group["redshift"], np.full(len(group), y), marker="|", s=260,

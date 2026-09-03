@@ -1580,3 +1580,25 @@ For every future Codex contribution that changes repository files:
   inspected without layout defects.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-02 - Reframe all growth-track axes to redshift 10--3
+
+- **Objective:** Center the observed objects more effectively in every combined
+  growth-track visualization without changing figure dimensions or plot
+  margins.
+- **Contribution:** Changed the shared reversed observed-redshift limits from
+  12.2--3.8 to exactly 10--3 for the v1, v2, and v3 overview figures and both
+  comprehensive v3 companions. Extended the model-curve grids to $z=3$ and
+  updated the comprehensive figures' cosmic-age ticks to cover integer
+  redshifts 10 through 3. Updated the current documentation, claim audit,
+  manuscript, and archived status report.
+- **Scientific/technical effect:** Visual framing only. Catalogue membership,
+  object values, uncertainties, growth equations, assumptions, rankings, and
+  plot dimensions/margins are unchanged.
+- **Validation:** Regenerated and visually inspected all five growth-track
+  figures. All 34 tests, provenance checks, version checks, manifests, result
+  inventory, exact CSV reproduction, and dataset nesting pass. Both nine-page
+  PDFs were rebuilt and their updated figure pages visually inspected without
+  clipping or layout defects.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

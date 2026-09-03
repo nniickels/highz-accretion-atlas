@@ -18,7 +18,9 @@ public repository contract; necessary assembly logic is isolated under
 `src/internal/compatibility/`.
 
 Individual growth-track panels are intentionally omitted. A combined
-growth-track overview for each version remains under `figures/`; v3 also has
+growth-track overview for each version remains under `figures/`. All combined
+growth-track figures use the same observed-redshift range from 10 down to 3,
+with their existing figure dimensions and plot margins retained; v3 also has
 `v3_all_object_growth_tracks_full_assumptions.png`, which preserves the full
 historical v1 line grid as a separate companion figure. The additional
 `v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png` keeps
