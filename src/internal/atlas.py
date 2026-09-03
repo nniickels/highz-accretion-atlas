@@ -76,6 +76,11 @@ COLORS = {
     "narrow_line_agn_candidate": "#6B5CA5",
     "xray_agn_candidate": "#777777",
 }
+GROWTH_TRACK_COLORS = {
+    **COLORS,
+    "broad_line_agn": "#7B2CBF",
+    "luminous_quasar_comparison": "#D62728",
+}
 LABELS = {
     "broad_line_agn": "Broad-line AGN",
     "luminous_quasar_comparison": "Luminous quasars",
@@ -83,10 +88,10 @@ LABELS = {
     "xray_agn_candidate": "X-ray candidates",
 }
 SEED_LABELS = {
-    "light_popiii": "Light seeds\n($10^1$–$10^2\\,M_\\odot$)",
-    "intermediate_cluster": "Intermediate seeds\n($10^3$–$10^4\\,M_\\odot$)",
-    "heavy_dcbh": "Heavy seeds\n($10^4$–$10^6\\,M_\\odot$)",
-    "pbh": "PBH-origin hypothesis\n(assumed $10^2$–$10^6\\,M_\\odot$)",
+    "light_seeds": "Light seeds\n($10^1$–$10^2\\,M_\\odot$)",
+    "intermediate_seeds": "Intermediate seeds\n($10^3$–$10^4\\,M_\\odot$)",
+    "heavy_seeds": "Heavy seeds\n($10^4$–$10^6\\,M_\\odot$)",
+    "pbh_origin_hypothesis": "PBH-origin hypothesis\n(assumed $10^2$–$10^6\\,M_\\odot$)",
 }
 
 FULL_TRACK_SEEDS = (
@@ -243,7 +248,7 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
                     label=rf"$10^{{{int(seed)}}}\,M_\odot$, $f_{{\rm Edd}}={fedd:g}$")
     for object_class, group in eligible.groupby("object_class"):
         ax.scatter(group["redshift"], group["log_mbh_msun_std"], s=30, alpha=0.75,
-                   color=COLORS[object_class], edgecolor="white", linewidth=0.35,
+                   color=GROWTH_TRACK_COLORS[object_class], edgecolor="white", linewidth=0.35,
                    label=f"{LABELS[object_class]} ({len(group)})")
     ax.set(xlim=GROWTH_TRACK_REDSHIFT_LIMITS, ylim=(4.5, 10.8), xlabel="Observed redshift",
            ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",
@@ -255,7 +260,7 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
     status.set_ylim(-0.6, 3.6)
     for y, (object_class, group) in enumerate(unavailable.groupby("object_class", sort=True)):
         status.scatter(group["redshift"], np.full(len(group), y), marker="|", s=260,
-                       linewidths=2, color=COLORS[object_class])
+                       linewidths=2, color=GROWTH_TRACK_COLORS[object_class])
     classes = list(unavailable.groupby("object_class", sort=True).groups)
     status.set_yticks(range(len(classes)), [f"{LABELS[key]} (no numerical mass)" for key in classes])
     status.set_xlabel(f"Redshift of all {len(unavailable)} catalogue-only objects")
@@ -303,8 +308,8 @@ def plot_full_assumption_growth_tracks(
         ])
         ax.errorbar(
             group["redshift"], group["log_mbh_msun_std"], yerr=yerr, fmt="o",
-            ms=4.2, mfc=COLORS[object_class], mec="white", mew=0.35,
-            ecolor=COLORS[object_class], elinewidth=0.55, capsize=1.4, alpha=0.8,
+            ms=4.2, mfc=GROWTH_TRACK_COLORS[object_class], mec="white", mew=0.35,
+            ecolor=GROWTH_TRACK_COLORS[object_class], elinewidth=0.55, capsize=1.4, alpha=0.8,
         )
 
     title = f"{VERSION}: all-object growth tracks"
@@ -327,7 +332,7 @@ def plot_full_assumption_growth_tracks(
     seed_handles = [Line2D([0], [0], color=color, lw=2.2, label=label)
                     for _, label, color in FULL_TRACK_SEEDS]
     class_handles = [
-        Line2D([0], [0], marker="o", color="none", markerfacecolor=COLORS[key],
+        Line2D([0], [0], marker="o", color="none", markerfacecolor=GROWTH_TRACK_COLORS[key],
                markeredgecolor="white", markersize=6,
                label=f"{LABELS[key]} ({len(group)})")
         for key, group in eligible.groupby("object_class")
@@ -354,7 +359,7 @@ def plot_full_assumption_growth_tracks(
     status.set_ylim(-0.6, 3.6)
     for y, (object_class, group) in enumerate(unavailable.groupby("object_class", sort=True)):
         status.scatter(group["redshift"], np.full(len(group), y), marker="|", s=260,
-                       linewidths=2, color=COLORS[object_class])
+                       linewidths=2, color=GROWTH_TRACK_COLORS[object_class])
     classes = list(unavailable.groupby("object_class", sort=True).groups)
     status.set_yticks(range(len(classes)), [LABELS[key] for key in classes])
     status.set_ylabel("No numerical mass", labelpad=12)

@@ -1602,3 +1602,23 @@ For every future Codex contribution that changes repository files:
   clipping or layout defects.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-02 - Increase growth-track class-color contrast
+
+- **Objective:** Make the two numerical object classes easier to distinguish in
+  every combined growth-track visualization.
+- **Contribution:** Added a growth-track-specific class palette using purple
+  (`#7B2CBF`) for broad-line AGN and red (`#D62728`) for luminous quasars.
+  Applied it to points, uncertainties, legends, and applicable no-inference
+  markers in the v1, v2, and v3 overviews and both comprehensive v3 companions.
+  Other repository figures retain their existing class colors. Updated current
+  documentation, claim audit, manuscript, and status report.
+- **Scientific/technical effect:** Visual encoding only. Data, uncertainties,
+  models, selections, rankings, axes, dimensions, and margins are unchanged.
+- **Validation:** Regenerated and visually inspected all five growth-track
+  figures. All 34 tests, provenance checks, version checks, manifests, result
+  inventory, exact CSV reproduction, and dataset nesting pass. Both nine-page
+  PDFs were rebuilt and the updated figure pages visually inspected without
+  clipping or layout defects.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

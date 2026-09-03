@@ -34,6 +34,9 @@ because they are calculated from the same v3 catalogue.
 All combined growth-track figures use a common reversed observed-redshift axis
 from 10 to 3. Figure dimensions and subplot margins are unchanged, placing the
 observed catalogue points more centrally without changing any data or model.
+Within these figures only, broad-line AGN are purple and luminous quasars are
+red to maximize contrast; other repository figures retain their established
+class palette.
 
 ## Complete supplement figures
 
