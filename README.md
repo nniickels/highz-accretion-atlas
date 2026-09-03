@@ -85,9 +85,9 @@ growth-eligible objects receive numerical panels; the other 23 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
 companion contains 72 curves spanning three seed masses, three $f_{Edd}$
-values, four efficiencies, and two merger boosts. Seed mass is encoded by line
-style and $f_{Edd}$ by color; efficiency remains encoded by line width and
-merger boost by opacity. Its uncertainty-filtered
+values, four efficiencies, and two merger boosts. Seed mass is encoded by
+color, $f_{Edd}$ by line style, efficiency by line width, and merger boost by
+opacity. Its uncertainty-filtered
 counterpart applies the explicit 0.7 dex cut only to luminous quasars, removing
 four extreme-error measurements while retaining every other numerical object
 and all 23 no-inference markers.

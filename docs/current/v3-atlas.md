@@ -18,8 +18,8 @@ catalogue strata. These are the canonical v3 files.
 2. `v3_all_object_growth_tracks_full_assumptions.png` — the same v3 objects
    against all 72 historical v1 reference curves: three seed masses crossed
    with three $f_{Edd}$ values, four constant efficiencies, and two merger boosts.
-   Seed mass uses line style, $f_{Edd}$ uses color, efficiency uses line width,
-   and merger boost uses opacity.
+   Seed mass uses color, $f_{Edd}$ uses line style, efficiency uses line width,
+   and merger boost uses opacity, matching the pre-contrast companion design.
 3. `v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png` —
    the same 72-curve view after excluding only the four luminous quasars whose
    maximum reported black-hole-mass uncertainty exceeds 0.7 dex. The excluded
@@ -36,9 +36,9 @@ because they are calculated from the same v3 catalogue.
 All combined growth-track figures use a common reversed observed-redshift axis
 from 10 to 3. Figure dimensions and subplot margins are unchanged, placing the
 observed catalogue points more centrally without changing any data or model.
-Within these figures only, broad-line AGN are purple and luminous quasars are
-red to maximize contrast; other repository figures retain their established
-class palette.
+In the overview growth-track figures, broad-line AGN are purple and luminous
+quasars are red to maximize contrast. The two full-assumption companions retain
+their earlier blue/orange object palette and historical curve encodings.
 
 ## Complete supplement figures
 

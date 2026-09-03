@@ -1662,3 +1662,22 @@ For every future Codex contribution that changes repository files:
   verification, inventories, manifests, and rebuilt PDFs were run afterward.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-03 - Restore pre-contrast full-assumption growth tracks
+
+- **Objective:** Return the two v3 full-assumption growth-track companions to
+  their appearance immediately before the red/purple object-color request.
+- **Contribution:** Restored the historical full-assumption encoding: seed
+  masses are blue, green, and orange; $f_{Edd}$ uses dashed, solid, and dotted
+  line styles; radiative efficiency uses line width; and merger boost uses
+  opacity. Restored the companion object points and no-inference markers to the
+  established blue/orange class palette. Updated regression tests and current
+  documentation while leaving the ordinary overview growth tracks purple/red.
+- **Scientific/technical effect:** Visual restoration only. The 72 curves,
+  growth model, $z=10$--3 framing, 0.7-dex filter, data, axes, dimensions,
+  margins, and scientific results are unchanged.
+- **Validation:** Regenerated and visually inspected both full-assumption
+  figures, then ran repository tests, provenance and version verification,
+  manifest checks, and PDF rebuild/inspection.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

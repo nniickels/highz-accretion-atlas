@@ -10,9 +10,9 @@ import pandas as pd
 from src.internal.atlas import (
     FULL_TRACK_CURVE_COUNT,
     FULL_TRACK_EPSILON_CASES,
-    FULL_TRACK_FEDD_COLORS,
+    FULL_TRACK_FEDD_STYLES,
     FULL_TRACK_MERGER_CASES,
-    FULL_TRACK_SEED_STYLES,
+    FULL_TRACK_SEEDS,
     GROWTH_TRACK_AGE_TICKS,
     GROWTH_TRACK_COLORS,
     GROWTH_TRACK_REDSHIFT_LIMITS,
@@ -33,15 +33,12 @@ TABLES = ROOT / "results/v3/tables"
 
 class V3ScientificClaimTests(unittest.TestCase):
     def test_full_growth_track_assumption_grid_matches_historical_v1(self) -> None:
-        self.assertEqual(len(FULL_TRACK_SEED_STYLES), 3)
-        self.assertEqual([item[0] for item in FULL_TRACK_FEDD_COLORS], [0.3, 1.0, 2.0])
+        self.assertEqual(len(FULL_TRACK_SEEDS), 3)
+        self.assertEqual([item[0] for item in FULL_TRACK_FEDD_STYLES], [0.3, 1.0, 2.0])
+        self.assertEqual([item[2] for item in FULL_TRACK_SEEDS], ["#2F6B9A", "#3A8B5C", "#B66A1E"])
         self.assertEqual(
-            [item[2] for item in FULL_TRACK_SEED_STYLES],
+            [item[1] for item in FULL_TRACK_FEDD_STYLES],
             [(0, (5, 3)), "-", (0, (1, 1))],
-        )
-        self.assertEqual(
-            [item[1] for item in FULL_TRACK_FEDD_COLORS],
-            ["#2F6B9A", "#3A8B5C", "#B66A1E"],
         )
         self.assertEqual(len(FULL_TRACK_EPSILON_CASES), 4)
         self.assertEqual([item[0] for item in FULL_TRACK_MERGER_CASES], [1.0, 2.0])
