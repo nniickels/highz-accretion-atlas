@@ -1622,3 +1622,23 @@ For every future Codex contribution that changes repository files:
   clipping or layout defects.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-02 - Rename per-version gallery roots to parameter maps
+
+- **Objective:** Give the per-object visualization directories a descriptive
+  name that matches their contents in every public dataset version.
+- **Contribution:** Renamed `results/v1/gallery/`, `results/v2/gallery/`, and
+  `results/v3/gallery/` to the corresponding `parameter_maps/` directories.
+  Preserved the axis-named `fedd_mass_maps/` and `seedredshift_mass_maps/`
+  subdirectories and all 708 panel files. Updated generators, verification,
+  coverage tables, inventories, manifests, current documentation, and
+  status-report paths.
+- **Scientific/technical effect:** Repository-path change only. Panel bytes,
+  catalogue membership, numerical results, model assumptions, and scientific
+  claims are unchanged.
+- **Validation:** Confirmed 46, 224, and 438 parameter-map panels for v1, v2,
+  and v3 respectively, with no obsolete per-version `gallery/` directory.
+  Repository tests, provenance and version verification, manifest checks, and
+  a rebuilt, visually inspected status PDF were completed after the move.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

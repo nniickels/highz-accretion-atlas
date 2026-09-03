@@ -69,11 +69,18 @@ def verify_version(version: str) -> None:
         or set(coverage["product_kind"]) != {"fedd_mass_map", "seedredshift_mass_map"}
     ):
         raise AssertionError(f"{version} per-object visual coverage mismatch")
-    if coverage["path"].str.contains("/per_object/|/growth_tracks/", regex=True).any():
-        raise AssertionError(f"{version} gallery contains an obsolete intermediate or growth-track path")
-    gallery_dirs = {path.name for path in (results / "gallery").iterdir() if path.is_dir()}
-    if gallery_dirs != {"fedd_mass_maps", "seedredshift_mass_maps"}:
-        raise AssertionError(f"{version} gallery folders are not canonical: {sorted(gallery_dirs)}")
+    if coverage["path"].str.contains("/gallery/|/per_object/|/growth_tracks/", regex=True).any():
+        raise AssertionError(f"{version} parameter maps contain an obsolete path")
+    expected_prefix = f"results/{version}/parameter_maps/"
+    if not coverage["path"].str.startswith(expected_prefix).all():
+        raise AssertionError(f"{version} parameter-map paths do not use {expected_prefix}")
+    parameter_map_dirs = {
+        path.name for path in (results / "parameter_maps").iterdir() if path.is_dir()
+    }
+    if parameter_map_dirs != {"fedd_mass_maps", "seedredshift_mass_maps"}:
+        raise AssertionError(
+            f"{version} parameter-map folders are not canonical: {sorted(parameter_map_dirs)}"
+        )
     if any(not (ROOT / path).is_file() for path in coverage["path"]):
         raise AssertionError(f"{version} has missing per-object panels")
     compatibility = pd.read_csv(results / "tables" / f"{version}_all_object_compatibility.csv")

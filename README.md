@@ -57,7 +57,7 @@ Main-text products:
 - required seed-mass summaries for fixed accretion histories — `results/v3/tables/v3_required_mseed_by_growth_assumption.csv`
 - compatibility heatmap across seed/growth assumptions — `results/v3/figures/v3_compatibility_summary.png` and `results/v3/tables/v3_all_object_compatibility.csv`
 - uncertainty and systematics robustness plots — `results/v3/figures/v3_uncertainty_robustness.png`, `results/v3/figures/v3_monte_carlo_summary.png`, and `results/v3/figures/v3_measurement_sensitivity.png`
-- selected object-level $f_{Edd}$-mass maps — `results/v3/gallery/fedd_mass_maps/`
+- selected object-level $f_{Edd}$-mass maps — `results/v3/parameter_maps/fedd_mass_maps/`
 - follow-up priority table or matrix — `results/v3/tables/v3_followup_priority.csv`
 
 Appendix or supplement products:
@@ -66,8 +66,8 @@ Appendix or supplement products:
 - full source registry — `data/source_family_registry.csv`, `data/source_provenance_registry.csv`, and `data/mass_method_registry.csv`
 - full processed catalogue tables — `data/processed/v3/` with identity products in `data/crossmatch/v3/`
 - full result tables — `results/v3/tables/`
-- full per-object $f_{Edd}$-mass map gallery — `results/v3/gallery/fedd_mass_maps/`
-- full seed-redshift-mass map gallery — `results/v3/gallery/seedredshift_mass_maps/`
+- full per-object $f_{Edd}$-mass map gallery — `results/v3/parameter_maps/fedd_mass_maps/`
+- full seed-redshift-mass map gallery — `results/v3/parameter_maps/seedredshift_mass_maps/`
 - comprehensive v3 growth-track grid preserving all historical v1 line
   combinations — `results/v3/figures/v3_all_object_growth_tracks_full_assumptions.png`
 - uncertainty-filtered version of that grid, excluding the four luminous
@@ -79,8 +79,8 @@ Appendix or supplement products:
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
 
 The canonical v3 gallery covers all 219 objects with one $f_{Edd}$-mass map in
-`results/v3/gallery/fedd_mass_maps/` and one seed-redshift-mass map in
-`results/v3/gallery/seedredshift_mass_maps/`. The 196
+`results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
+`results/v3/parameter_maps/seedredshift_mass_maps/`. The 196
 growth-eligible objects receive numerical panels; the other 23 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3

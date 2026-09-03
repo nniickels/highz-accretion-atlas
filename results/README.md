@@ -6,7 +6,7 @@
 results/<version>/
 ├── figures/               paper-ready summaries and all-object atlases
 ├── tables/                rankings, follow-up priorities, uncertainty, compatibility, and audits
-└── gallery/
+└── parameter_maps/
     ├── fedd_mass_maps/             f_Edd versus seed-mass panels for every object
     └── seedredshift_mass_maps/     seed-redshift versus seed-mass panels for every object
 ```

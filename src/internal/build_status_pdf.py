@@ -207,7 +207,7 @@ def build() -> None:
         "panels explaining why no inference is made."
     )])
     story.extend(_figure(
-        "results/v3/gallery/fedd_mass_maps/v3_fedd_mass_map_hza-gn-38509.png",
+        "results/v3/parameter_maps/fedd_mass_maps/v3_fedd_mass_map_hza-gn-38509.png",
         "<b>Figure 6.</b> GN-38509 f_Edd-mass sheet. Six spin/merger combinations show "
         "which seed and accretion choices reproduce the preferred mass.",
     ))

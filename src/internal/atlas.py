@@ -48,7 +48,7 @@ CATALOGUE = ROOT / "data/processed/v3/v3_accreting_objects.csv"
 UNCERTAINTY = ROOT / "results/v3/tables/v3_object_uncertainty_ranking.csv"
 FIGURES = ROOT / "results/v3/figures"
 TABLES = ROOT / "results/v3/tables"
-GALLERY = ROOT / "results/v3/gallery"
+PARAMETER_MAPS = ROOT / "results/v3/parameter_maps"
 
 FIGURE_PATHS = {
     "catalogue_landscape": FIGURES / "v3_catalogue_growth_landscape.png",
@@ -172,7 +172,7 @@ def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame]:
 def object_paths(obj: pd.Series) -> dict[str, Path]:
     stem = slug(obj["physical_object_id"])
     return {
-        "fedd_mass_map": GALLERY / "fedd_mass_maps" / f"{VERSION}_fedd_mass_map_{stem}.png",
+        "fedd_mass_map": PARAMETER_MAPS / "fedd_mass_maps" / f"{VERSION}_fedd_mass_map_{stem}.png",
     }
 
 

@@ -45,15 +45,15 @@ class palette.
   across all supported scenarios.
 - `v3_all_object_monte_carlo_uncertainty.png`: every object label and every
   supported 16th--84th percentile interval.
-- `results/v3/gallery/fedd_mass_maps/`: one $f_{Edd}$-mass map per object.
-- `results/v3/gallery/seedredshift_mass_maps/`: one seed-redshift-mass map per object.
+- `results/v3/parameter_maps/fedd_mass_maps/`: one $f_{Edd}$-mass map per object.
+- `results/v3/parameter_maps/seedredshift_mass_maps/`: one seed-redshift-mass map per object.
 
-The gallery therefore contains 438 canonical per-object panels. Numerical
+The parameter-map directories therefore contain 438 canonical per-object panels. Numerical
 seed-redshift-mass maps solve for the lifetime-average Eddington fraction over seed
 mass and seed redshift using the baseline efficiency and merger assumptions;
 objects without a supported mass receive the same explicit no-inference
 treatment as the $f_{Edd}$-mass maps. Growth tracks are provided only in
-combined all-object figures, never as individual gallery panels.
+combined all-object figures, never as individual parameter-map panels.
 
 For the 23 objects without a supported canonical numerical black-hole mass,
 the visual atlas uses explicit no-inference panels. It does not invent masses,

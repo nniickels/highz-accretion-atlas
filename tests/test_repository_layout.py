@@ -62,24 +62,25 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertGreater(manuscript.stat().st_size, 1_000_000)
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
 
-    def test_complete_axis_named_galleries(self) -> None:
+    def test_complete_axis_named_parameter_maps(self) -> None:
         expected = {"v1": 23, "v2": 112, "v3": 219}
         for version, count in expected.items():
-            gallery = ROOT / "results" / version / "gallery"
+            parameter_maps = ROOT / "results" / version / "parameter_maps"
             self.assertEqual(
-                {path.name for path in gallery.iterdir() if path.is_dir()},
+                {path.name for path in parameter_maps.iterdir() if path.is_dir()},
                 {"fedd_mass_maps", "seedredshift_mass_maps"},
                 version,
             )
-            self.assertEqual(len(list((gallery / "fedd_mass_maps").glob("*.png"))), count, version)
-            self.assertEqual(len(list((gallery / "seedredshift_mass_maps").glob("*.png"))), count, version)
+            self.assertEqual(len(list((parameter_maps / "fedd_mass_maps").glob("*.png"))), count, version)
+            self.assertEqual(len(list((parameter_maps / "seedredshift_mass_maps").glob("*.png"))), count, version)
 
-    def test_galleries_are_flat_and_have_no_individual_growth_tracks(self) -> None:
+    def test_parameter_maps_are_flat_and_have_no_individual_growth_tracks(self) -> None:
         for version in ("v1", "v2", "v3"):
-            gallery = ROOT / "results" / version / "gallery"
-            self.assertFalse((gallery / "per_object").exists(), version)
-            self.assertEqual(list(gallery.rglob("growth_tracks")), [], version)
-            self.assertEqual(list(gallery.rglob("*_growth_track_*.png")), [], version)
+            parameter_maps = ROOT / "results" / version / "parameter_maps"
+            self.assertFalse((parameter_maps / "per_object").exists(), version)
+            self.assertEqual(list(parameter_maps.rglob("growth_tracks")), [], version)
+            self.assertEqual(list(parameter_maps.rglob("*_growth_track_*.png")), [], version)
+            self.assertFalse((ROOT / "results" / version / "gallery").exists(), version)
 
     def test_followup_and_source_caveat_products(self) -> None:
         expected_objects = {"v1": 23, "v2": 112, "v3": 219}

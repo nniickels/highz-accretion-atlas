@@ -26,7 +26,7 @@ MERGER_BOOST = 1.0
 def panel_path(version: str, obj: pd.Series) -> Path:
     stem = atlas.slug(obj["physical_object_id"])
     return (
-        ROOT / "results" / version / "gallery" / "seedredshift_mass_maps"
+        ROOT / "results" / version / "parameter_maps" / "seedredshift_mass_maps"
         / f"{version}_seedredshift_mass_map_{stem}.png"
     )
 
@@ -103,5 +103,5 @@ def materialize(version: str, objects: pd.DataFrame, *, rebuild: bool) -> pd.Dat
         })
     result = pd.DataFrame(rows)
     if len(result) != len(objects) or result["physical_object_id"].nunique() != len(objects):
-        raise AssertionError("Seed-redshift/mass gallery must contain one panel per object")
+        raise AssertionError("Seed-redshift/mass maps must contain one panel per object")
     return result

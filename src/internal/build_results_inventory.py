@@ -24,9 +24,9 @@ def release_label(path: Path) -> str:
 
 def category(path: Path) -> tuple[str, str]:
     text = path.as_posix()
-    if "gallery/fedd_mass_maps/" in text:
+    if "parameter_maps/fedd_mass_maps/" in text:
         return "figure", "per_object_fedd_mass_maps"
-    if "gallery/seedredshift_mass_maps/" in text:
+    if "parameter_maps/seedredshift_mass_maps/" in text:
         return "figure", "per_object_seedredshift_mass_maps"
     if path.suffix.lower() == ".png":
         return "figure", "standalone_figures"

@@ -15,7 +15,7 @@ def configure(version: str) -> None:
     atlas.CATALOGUE = atlas.ROOT / "data/processed" / version / f"{version}_accreting_objects.csv"
     atlas.TABLES = atlas.ROOT / "results" / version / "tables"
     atlas.FIGURES = atlas.ROOT / "results" / version / "figures"
-    atlas.GALLERY = atlas.ROOT / "results" / version / "gallery"
+    atlas.PARAMETER_MAPS = atlas.ROOT / "results" / version / "parameter_maps"
     atlas.UNCERTAINTY = atlas.TABLES / f"{version}_object_uncertainty_ranking.csv"
     atlas.FIGURE_PATHS = {
         "growth_tracks": atlas.FIGURES / f"{version}_all_object_growth_tracks.png",
