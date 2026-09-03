@@ -16,7 +16,7 @@
 | 438 per-object panels cover all 219 objects: 219 $f_{Edd}$-mass and 219 seed-redshift-mass panels | focused claim regression, v3 dataset manifest, and visual-coverage verifier | verified |
 | Full-assumption v3 growth-track figure contains the historical v1 grid of 72 curves | focused assumption-grid regression and figure-resolution verifier | verified |
 | Every combined growth-track figure uses the common observed-redshift range 10 to 3 without changing figure dimensions or margins | focused axis-range regression and generated figures | verified |
-| Overview growth-track object colors encode broad-line AGN in purple and luminous quasars in red; full-assumption companions retain their pre-contrast palette | focused palette regression and generated figures | verified |
+| Overview growth-track object colors encode broad-line AGN in purple and luminous quasars in yellow; full-assumption companions retain their pre-contrast palette | focused palette regression and generated figures | verified |
 | Uncertainty-filtered full-assumption view excludes exactly four luminous quasars above the declared 0.7 dex mass-error threshold | focused selection regression, `v3_growth_track_uncertainty_filter.csv`, and figure-resolution verifier | verified |
 
 Interpretive claims are deliberately bounded: ranks are navigation/descriptive,

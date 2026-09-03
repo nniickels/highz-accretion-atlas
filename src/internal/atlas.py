@@ -79,7 +79,7 @@ COLORS = {
 GROWTH_TRACK_COLORS = {
     **COLORS,
     "broad_line_agn": "#7B2CBF",
-    "luminous_quasar_comparison": "#D62728",
+    "luminous_quasar_comparison": "#E6B800",
 }
 LABELS = {
     "broad_line_agn": "Broad-line AGN",

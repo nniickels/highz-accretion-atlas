@@ -1681,3 +1681,21 @@ For every future Codex contribution that changes repository files:
   manifest checks, and PDF rebuild/inspection.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-03 - Use yellow/purple overview growth-track classes
+
+- **Objective:** Change the ordinary combined growth-track plots from the
+  red/purple class pairing to the requested yellow/purple pairing.
+- **Contribution:** Set luminous quasars to dark yellow (`#E6B800`) and retained
+  purple (`#7B2CBF`) for broad-line AGN in the v1, v2, and v3 overview plots.
+  Updated the overview legends, regression anchor, current documentation,
+  manuscript, and status report. The two full-assumption companions remain in
+  their restored pre-contrast blue/orange form.
+- **Scientific/technical effect:** Visual encoding only. Data, uncertainties,
+  curves, selections, axes, dimensions, margins, and scientific claims are
+  unchanged.
+- **Validation:** Regenerated and visually inspected all three overview plots,
+  then ran repository tests, provenance and version verification, manifest
+  checks, and PDF rebuild/inspection.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

@@ -46,7 +46,7 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(GROWTH_TRACK_REDSHIFT_LIMITS, (10.0, 3.0))
         self.assertEqual(GROWTH_TRACK_AGE_TICKS.tolist(), list(range(10, 2, -1)))
         self.assertEqual(GROWTH_TRACK_COLORS["broad_line_agn"], "#7B2CBF")
-        self.assertEqual(GROWTH_TRACK_COLORS["luminous_quasar_comparison"], "#D62728")
+        self.assertEqual(GROWTH_TRACK_COLORS["luminous_quasar_comparison"], "#E6B800")
 
     def test_growth_track_uncertainty_filter_is_explicit_and_luminous_only(self) -> None:
         objects = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_objects.csv")
