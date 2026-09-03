@@ -465,7 +465,8 @@ def plot_compatibility_summary(objects: pd.DataFrame, compatibility: pd.DataFram
                     value = float(pivot.iloc[y, x])
                     axes[row, col].text(x, y, f"{value:.0%}", ha="center", va="center",
                                         fontsize=7, color="white" if value < 0.6 else "black")
-            axes[row, col].set_title(f"{LABELS[object_class]} — {SEED_LABELS[seed_name]}")
+            class_title = LABELS[object_class].removesuffix(" candidates")
+            axes[row, col].set_title(f"{class_title} — {SEED_LABELS[seed_name]}")
             axes[row, col].set_xticks(range(pivot.shape[1]),
                                       [f"B={2 if b == 'merger_boost_x2' else 1}\nf={f:g}" for b, f in pivot.columns],
                                       fontsize=7)
