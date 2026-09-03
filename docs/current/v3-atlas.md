@@ -18,6 +18,8 @@ catalogue strata. These are the canonical v3 files.
 2. `v3_all_object_growth_tracks_full_assumptions.png` — the same v3 objects
    against all 72 historical v1 reference curves: three seed masses crossed
    with three $f_{Edd}$ values, four constant efficiencies, and two merger boosts.
+   Seed mass uses line style, $f_{Edd}$ uses color, efficiency uses line width,
+   and merger boost uses opacity.
 3. `v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png` —
    the same 72-curve view after excluding only the four luminous quasars whose
    maximum reported black-hole-mass uncertainty exceeds 0.7 dex. The excluded

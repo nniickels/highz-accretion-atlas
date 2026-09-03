@@ -94,15 +94,15 @@ SEED_LABELS = {
     "pbh_origin_hypothesis": "PBH-origin hypothesis\n(assumed $10^2$–$10^6\\,M_\\odot$)",
 }
 
-FULL_TRACK_SEEDS = (
-    (2.0, r"$10^2\,M_\odot$", "#2F6B9A"),
-    (4.0, r"$10^4\,M_\odot$", "#3A8B5C"),
-    (5.0, r"$10^5\,M_\odot$", "#B66A1E"),
+FULL_TRACK_SEED_STYLES = (
+    (2.0, r"$10^2\,M_\odot$", (0, (5, 3))),
+    (4.0, r"$10^4\,M_\odot$", "-"),
+    (5.0, r"$10^5\,M_\odot$", (0, (1, 1))),
 )
-FULL_TRACK_FEDD_STYLES = (
-    (0.3, (0, (5, 3))),
-    (1.0, "-"),
-    (2.0, (0, (1, 1))),
+FULL_TRACK_FEDD_COLORS = (
+    (0.3, "#2F6B9A"),
+    (1.0, "#3A8B5C"),
+    (2.0, "#B66A1E"),
 )
 FULL_TRACK_EPSILON_CASES = (
     (0.1, r"$\epsilon=0.100$", 0.75),
@@ -115,8 +115,8 @@ FULL_TRACK_MERGER_CASES = (
     (2.0, r"$B_{\rm merge}=2$", 0.45),
 )
 FULL_TRACK_CURVE_COUNT = (
-    len(FULL_TRACK_SEEDS)
-    * len(FULL_TRACK_FEDD_STYLES)
+    len(FULL_TRACK_SEED_STYLES)
+    * len(FULL_TRACK_FEDD_COLORS)
     * len(FULL_TRACK_EPSILON_CASES)
     * len(FULL_TRACK_MERGER_CASES)
 )
@@ -290,8 +290,8 @@ def plot_full_assumption_growth_tracks(
     )
     fig.subplots_adjust(left=0.14, right=0.985, bottom=0.20, top=0.87, hspace=0.16)
 
-    for log_seed, _, color in FULL_TRACK_SEEDS:
-        for fedd, linestyle in FULL_TRACK_FEDD_STYLES:
+    for log_seed, _, linestyle in FULL_TRACK_SEED_STYLES:
+        for fedd, color in FULL_TRACK_FEDD_COLORS:
             for epsilon, _, linewidth in FULL_TRACK_EPSILON_CASES:
                 for boost, _, alpha in FULL_TRACK_MERGER_CASES:
                     ax.plot(
@@ -329,8 +329,8 @@ def plot_full_assumption_growth_tracks(
     age_axis.set_xticklabels([f"{age:.2f}" for age in cosmic_time_gyr(age_redshifts)])
     age_axis.set_xlabel("Age of the Universe (Gyr)", labelpad=7)
 
-    seed_handles = [Line2D([0], [0], color=color, lw=2.2, label=label)
-                    for _, label, color in FULL_TRACK_SEEDS]
+    seed_handles = [Line2D([0], [0], color="#4A4A4A", lw=2.2, ls=linestyle, label=label)
+                    for _, label, linestyle in FULL_TRACK_SEED_STYLES]
     class_handles = [
         Line2D([0], [0], marker="o", color="none", markerfacecolor=GROWTH_TRACK_COLORS[key],
                markeredgecolor="white", markersize=6,
@@ -338,15 +338,15 @@ def plot_full_assumption_growth_tracks(
         for key, group in eligible.groupby("object_class")
     ]
     object_legend = ax.legend(
-        handles=seed_handles + class_handles, title="Seed mass and v3 objects",
+        handles=seed_handles + class_handles, title="Seed-mass style and v3 objects",
         loc="upper left", ncols=3, frameon=False, fontsize=8.5,
     )
     ax.add_artist(object_legend)
 
     encoding_handles = [
-        Line2D([0], [0], color="#4A4A4A", lw=2.2, ls=linestyle,
+        Line2D([0], [0], color=color, lw=2.2,
                label=rf"$f_{{\rm Edd}}={fedd:g}$")
-        for fedd, linestyle in FULL_TRACK_FEDD_STYLES
+        for fedd, color in FULL_TRACK_FEDD_COLORS
     ] + [
         Line2D([0], [0], color="#4A4A4A", lw=linewidth, label=label)
         for _, label, linewidth in FULL_TRACK_EPSILON_CASES
@@ -374,7 +374,8 @@ def plot_full_assumption_growth_tracks(
     )
     fig.text(
         0.55, 0.008,
-        "Line style encodes f_Edd; width encodes constant radiative efficiency; "
+        r"Line style encodes seed mass; color encodes $f_{\rm Edd}$; "
+        "width encodes constant radiative efficiency; "
         "opacity encodes merger boost.",
         ha="center", fontsize=8,
     )

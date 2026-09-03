@@ -1642,3 +1642,23 @@ For every future Codex contribution that changes repository files:
   a rebuilt, visually inspected status PDF were completed after the move.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-02 - Separate seed-mass and accretion-rate track encodings
+
+- **Objective:** Make the dense v3 full-assumption growth-track companions
+  easier to interpret by assigning seed mass and accretion rate to different
+  visual channels.
+- **Contribution:** Changed both full-assumption figures so the three seed
+  masses use dashed, solid, and dotted line styles, while the three
+  $f_{Edd}$ values use blue, green, and orange. Constant radiative efficiency
+  remains encoded by line width and merger boost by opacity. Updated figure
+  legends, inline encoding notes, regression tests, current documentation,
+  manuscript, and status report.
+- **Scientific/technical effect:** Visual encoding only. All 72 reference
+  curves, model parameters, object values, uncertainty selection, axes,
+  dimensions, margins, catalogue data, and scientific claims are unchanged.
+- **Validation:** Regenerated and visually inspected the complete and
+  uncertainty-filtered figures. Repository tests, provenance checks, version
+  verification, inventories, manifests, and rebuilt PDFs were run afterward.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.
