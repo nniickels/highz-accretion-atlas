@@ -77,7 +77,11 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 182)
         self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 171)
         self.assertEqual(len(alternates), 13)
-        self.assertEqual((len(followup), len(caveats), len(coverage)), (219, 11, 657))
+        self.assertEqual((len(followup), len(caveats), len(coverage)), (219, 11, 438))
+        self.assertEqual(
+            coverage.groupby("product_kind").size().to_dict(),
+            {"fedd_mass_map": 219, "seedredshift_mass_map": 219},
+        )
 
     def test_jades_8083_identity_merge_retains_one_preferred_measurement(self) -> None:
         measurements = pd.read_csv(

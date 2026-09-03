@@ -1064,6 +1064,35 @@ For every future Codex contribution that changes repository files:
   empty, and `git diff --check` passes.
 - **Status:** Complete and verified locally; uncommitted.
 
+### 2026-09-02 - Rename and fully flatten map galleries
+
+- **Objective:** Replace generic or class-nested gallery names with two direct,
+  axis-named folders for every canonical dataset version.
+- **Files changed:** Gallery products under `results/v1/`, `results/v2/`, and
+  `results/v3/`; the visual-coverage tables, results inventory, dataset
+  manifests, atlas generators, inventory and verification modules, repository
+  tests, workflow notebook, README and current publication documentation,
+  manuscript, and archived status document.
+- **Contribution:** Each `gallery/` now contains exactly `fedd_mass_maps/` and
+  `seedredshift_mass_maps/`. Object-class directories were removed. Individual
+  filenames and coverage product kinds now use `fedd_mass_map` and
+  `seedredshift_mass_map`; the combined gallery figure is now named
+  `v*_all_object_fedd_mass_map_gallery.png`. Supporting modules were renamed to
+  `src/internal/fedd_mass_maps.py` and
+  `src/internal/seedredshift_mass_maps.py`.
+- **Scientific/technical effect:** None. All 708 retained per-object images
+  remain represented, with 46 panels in v1, 224 in v2, and 438 in v3. The
+  change affects paths and labels, not catalogue membership, numerical values,
+  model assumptions, rankings, or interpretations.
+- **Validation:** The atlas notebook rebuilt all panels and regenerated the
+  792-row result inventory plus the 84/262/476-artifact v1/v2/v3 manifests.
+  The manuscript and status PDFs were rebuilt, rendered in full, and visually
+  inspected without layout defects. Complete verification results are recorded
+  in the final repository assessment for this change.
+- **Recovery note:** Superseded paths and names remain recoverable from Git
+  history.
+- **Status:** Complete and verified locally; uncommitted.
+
 ### 2026-08-27 - Complete source-provenance improvements
 
 - **Objective:** Convert the source-quality review's provenance recommendations
@@ -1400,3 +1429,58 @@ For every future Codex contribution that changes repository files:
   removed file; the complete repository validation suite is rerun with this
   change before publication.
 - **Status:** Complete.
+
+### 2026-09-02 - Flatten galleries and remove individual growth tracks
+
+- **Objective:** Simplify every dataset gallery by removing the redundant
+  `per_object/` directory and the unneeded individual growth-track products.
+- **Files changed:**
+  - `.gitattributes` (added)
+  - `README.md`, `results/README.md`, `docs/current/v3-atlas.md`,
+    `docs/current/v3-notes.md`, `docs/current/v3-claim-audit.md`, and
+    `docs/publication/supplement/README.md` (modified)
+  - `scripts/03_generate_atlas.ipynb` (modified)
+  - `src/internal/atlas.py`, `src/internal/generate_atlas.py`,
+    `src/internal/seed_redshift_gallery.py`,
+    `src/internal/parameter_maps.py` (renamed from
+    `src/internal/growth_visuals.py`),
+    `src/internal/figures.py`, `src/internal/build_results_inventory.py`,
+    `src/internal/verify_versions.py`, and `src/internal/build_status_pdf.py`
+    (modified)
+  - `tests/test_repository_layout.py` and `tests/test_scientific_claims.py`
+    (modified)
+  - `results/v1/gallery/`, `results/v2/gallery/`, and `results/v3/gallery/`
+    (708 retained parameter/seed-redshift panels moved one level up; 354
+    individual growth-track panels deleted)
+  - `results/v1/tables/v1_growth_gallery_coverage.csv`,
+    `results/v2/tables/v2_growth_gallery_coverage.csv`, and
+    `results/v3/tables/v3_growth_gallery_coverage.csv` (deleted)
+  - `results/v1/tables/v1_all_object_visual_coverage.csv`,
+    `results/v2/tables/v2_all_object_visual_coverage.csv`,
+    `results/v3/tables/v3_all_object_visual_coverage.csv`,
+    `results/results_inventory.csv`, and all three dataset manifests under
+    `releases/` (regenerated)
+  - `paper/highz_accretion_atlas_v3.tex`,
+    `paper/highz_accretion_atlas_v3.pdf`,
+    `docs/archive/project-history/highz_accretion_atlas_status.tex`, and
+    `docs/archive/project-history/highz_accretion_atlas_status.pdf` (modified)
+- **Contribution:** Galleries now begin directly with object-class directories,
+  each containing only `parameter_maps/` and `seed_redshift_maps/`. Removed the
+  unused individual-track renderer and the redundant one-row-per-object growth
+  gallery table. The all-object growth-track figure remains as the sole growth
+  track visualization for each version. Canonical v3 gallery coverage is now
+  438 panels rather than 657, and the result inventory contains 792 artifacts.
+- **Scientific/technical effect:** No catalogue membership, source value,
+  ranking, uncertainty result, or scientific interpretation changed. This is a
+  product-layout reduction only.
+- **Validation:** Executed the updated atlas notebook with full panel rebuilds
+  for v1, v2, and v3, then executed the verification notebook. All 32 tests
+  pass; provenance covers 16 records and all 11 final-v3 source families; all
+  manifests, inventory rows, exact CSV reproduction, shared analysis, image
+  resolution, and strict nested dataset contracts verify. Both PDFs were
+  rebuilt, rendered in full, and visually inspected without layout defects.
+  Binary asset attributes keep Git's text-whitespace checks scoped to text
+  files.
+- **Recovery note:** Deleted individual panels and obsolete coverage tables
+  remain recoverable from Git history.
+- **Status:** Complete and verified locally; uncommitted.

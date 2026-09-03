@@ -6,7 +6,9 @@
 results/<version>/
 ├── figures/               paper-ready summaries and all-object atlases
 ├── tables/                rankings, follow-up priorities, uncertainty, compatibility, and audits
-└── gallery/per_object/    parameter, growth-track, and seed-redshift panels for every object
+└── gallery/
+    ├── fedd_mass_maps/             f_Edd versus seed-mass panels for every object
+    └── seedredshift_mass_maps/     seed-redshift versus seed-mass panels for every object
 ```
 
 v1 covers all 23 objects numerically; v2 covers all 112 numerically; v3
@@ -14,3 +16,6 @@ represents all 219 objects with 196 numerical products and 23 explicit
 no-inference panels. Obsolete software-release result trees are not part of the
 public repository contract; necessary assembly logic is isolated under
 `src/internal/compatibility/`.
+
+Individual growth-track panels are intentionally omitted. The single combined
+growth-track overview for each version remains under `figures/`.

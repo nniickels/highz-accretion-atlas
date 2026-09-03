@@ -24,12 +24,10 @@ def release_label(path: Path) -> str:
 
 def category(path: Path) -> tuple[str, str]:
     text = path.as_posix()
-    if "parameter_maps" in text:
-        return "figure", "per_object_parameter_maps"
-    if "seed_redshift_maps" in text:
-        return "figure", "per_object_seed_redshift_maps"
-    if "growth_tracks" in text:
-        return "figure", "per_object_growth_tracks"
+    if "gallery/fedd_mass_maps/" in text:
+        return "figure", "per_object_fedd_mass_maps"
+    if "gallery/seedredshift_mass_maps/" in text:
+        return "figure", "per_object_seedredshift_mass_maps"
     if path.suffix.lower() == ".png":
         return "figure", "standalone_figures"
     if path.suffix.lower() == ".csv":

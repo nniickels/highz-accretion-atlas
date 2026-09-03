@@ -484,7 +484,7 @@ def growth_parameter_grid(
 
     The returned arrays use ``np.meshgrid(..., indexing="xy")`` so rows map to
     ``f_edd_values`` and columns map to ``log_mseed_values``. This is the shape
-    expected by ``imshow``/``contour`` parameter maps.
+    expected by ``imshow``/``contour`` f_Edd/mass maps.
     """
     log_mseed_axis = _as_float_array(log_mseed_values, "log_mseed_values")
     f_edd_axis = _as_float_array(f_edd_values, "f_edd_values")

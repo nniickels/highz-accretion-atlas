@@ -195,14 +195,13 @@ def build() -> None:
         "and accretion assumptions.",
     ))
     story.extend([PageBreak(), h("From catalogue scale to individual objects"), p(
-        "Each of the 219 v3 objects has a parameter-map sheet, a growth-track panel, and a "
-        "seed-redshift panel. The "
+        "Each of the 219 v3 objects has an f_Edd-mass sheet and a seed-redshift-mass panel. The "
         "196 supported objects receive numerical products; the remaining 23 receive status "
         "panels explaining why no inference is made."
     )])
     story.extend(_figure(
-        "results/v3/gallery/per_object/broad_line_agn/parameter_maps/v3_parameter_map_hza-gn-38509.png",
-        "<b>Figure 6.</b> GN-38509 parameter-map sheet. Six spin/merger combinations show "
+        "results/v3/gallery/fedd_mass_maps/v3_fedd_mass_map_hza-gn-38509.png",
+        "<b>Figure 6.</b> GN-38509 f_Edd-mass sheet. Six spin/merger combinations show "
         "which seed and accretion choices reproduce the preferred mass.",
     ))
     story.extend([PageBreak(), h("Measurement choice and provenance"), p(
@@ -247,7 +246,7 @@ def build() -> None:
         "The final verification gate checks strict v1 < v2 < v3 measurement membership, "
         "catalogue and analysis cardinalities, the result inventory, canonical SHA-256 manifests, exact in-memory "
         "CSV reproduction, 10,000-draw products, compatibility coverage, image resolution, "
-        "and three per-object panels for every catalogue object."
+        "and two per-object gallery panels for every catalogue object."
     ), h("Literature boundary and next dataset"), p(
         "The canonical source-family review cutoff is 27 August 2026. v3 is final within its "
         "declared admitted-source scope, not an evergreen exhaustive census. Relevant sources "

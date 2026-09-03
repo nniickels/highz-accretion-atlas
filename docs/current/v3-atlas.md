@@ -26,19 +26,20 @@ because they are calculated from the same v3 catalogue.
 
 ## Complete supplement figures
 
-- `v3_all_object_parameter_map_gallery.png`: all 219 parameter panels.
+- `v3_all_object_fedd_mass_map_gallery.png`: all 219 $f_{Edd}$-mass panels.
 - `v3_all_object_compatibility_atlas.png`: object-by-object compatibility
   across all supported scenarios.
 - `v3_all_object_monte_carlo_uncertainty.png`: every object label and every
   supported 16th--84th percentile interval.
-- `results/v3/gallery/per_object/`: a parameter map, growth track, and
-  seed-redshift map for every object.
+- `results/v3/gallery/fedd_mass_maps/`: one $f_{Edd}$-mass map per object.
+- `results/v3/gallery/seedredshift_mass_maps/`: one seed-redshift-mass map per object.
 
-The gallery therefore contains 657 canonical per-object panels. Numerical
-seed-redshift maps solve for the lifetime-average Eddington fraction over seed
+The gallery therefore contains 438 canonical per-object panels. Numerical
+seed-redshift-mass maps solve for the lifetime-average Eddington fraction over seed
 mass and seed redshift using the baseline efficiency and merger assumptions;
 objects without a supported mass receive the same explicit no-inference
-treatment as the other gallery products.
+treatment as the $f_{Edd}$-mass maps. Growth tracks are provided only in the
+combined all-object figure.
 
 For the 23 objects without a supported canonical numerical black-hole mass,
 the visual atlas uses explicit no-inference panels. It does not invent masses,

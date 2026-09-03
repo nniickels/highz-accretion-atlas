@@ -22,7 +22,7 @@ $f_{\rm Edd}$ or the exponential growth rate. For ideal Kerr thin disks, the
 spin cases $a=-1,0,+1$ correspond to $\epsilon=0.038,0.057,0.423$
 (rounded), respectively.
 
-The spin-separated parameter maps additionally show an illustrative slim-disk
+The spin-separated $f_{Edd}$-mass maps additionally show an illustrative slim-disk
 coupling above Eddington. They retain the spin-dependent thin-disk efficiency
 for $f_{Edd}\leq1$ and use
 $\epsilon_{\rm eff}=\epsilon_{\rm spin}f_{Edd}/e^{f_{Edd}-1}$ for
@@ -57,7 +57,7 @@ Main-text products:
 - required seed-mass summaries for fixed accretion histories — `results/v3/tables/v3_required_mseed_by_growth_assumption.csv`
 - compatibility heatmap across seed/growth assumptions — `results/v3/figures/v3_compatibility_summary.png` and `results/v3/tables/v3_all_object_compatibility.csv`
 - uncertainty and systematics robustness plots — `results/v3/figures/v3_uncertainty_robustness.png`, `results/v3/figures/v3_monte_carlo_summary.png`, and `results/v3/figures/v3_measurement_sensitivity.png`
-- selected object-level parameter maps — `results/v3/gallery/per_object/<class>/parameter_maps/`
+- selected object-level $f_{Edd}$-mass maps — `results/v3/gallery/fedd_mass_maps/`
 - follow-up priority table or matrix — `results/v3/tables/v3_followup_priority.csv`
 
 Appendix or supplement products:
@@ -66,16 +66,18 @@ Appendix or supplement products:
 - full source registry — `data/source_family_registry.csv`, `data/source_provenance_registry.csv`, and `data/mass_method_registry.csv`
 - full processed catalogue tables — `data/processed/v3/` with identity products in `data/crossmatch/v3/`
 - full result tables — `results/v3/tables/`
-- full per-object parameter-map gallery — `results/v3/gallery/per_object/<class>/parameter_maps/`
-- full seed-redshift map gallery — `results/v3/gallery/per_object/<class>/seed_redshift_maps/`
+- full per-object $f_{Edd}$-mass map gallery — `results/v3/gallery/fedd_mass_maps/`
+- full seed-redshift-mass map gallery — `results/v3/gallery/seedredshift_mass_maps/`
 - validation checks — `results/v3/tables/v3_exclusion_audit.csv`, `results/v3/tables/v3_all_object_visual_coverage.csv`, and `results/v3/tables/v3_science_policy.csv`; executable gate in `scripts/04_verify.ipynb`
 - sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
 
-The canonical v3 visual collection covers all 219 objects with one parameter
-map, one growth-track panel, and one seed-redshift panel each under
-`results/v3/gallery/per_object/`. The 196 growth-eligible objects receive
-numerical panels; the other 23 receive explicit no-inference status panels.
+The canonical v3 gallery covers all 219 objects with one $f_{Edd}$-mass map in
+`results/v3/gallery/fedd_mass_maps/` and one seed-redshift-mass map in
+`results/v3/gallery/seedredshift_mass_maps/`. The 196
+growth-eligible objects receive numerical panels; the other 23 receive explicit
+no-inference status panels. Growth tracks are retained only as the combined
+catalogue-wide figure under `results/v3/figures/`.
 Catalogue-wide compatibility and Monte
 Carlo atlases retain every object label, while class-specific summaries avoid
 reporting a heterogeneous pooled demographic fraction. Start with

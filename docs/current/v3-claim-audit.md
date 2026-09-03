@@ -13,7 +13,7 @@
 | Source-caveat summary contains one row for each of 11 admitted source families | canonical caveat table and verifier | verified |
 | J1148+5251 is first in point and uncertainty navigation views | focused claim regression and canonical object ranking tables | verified |
 | Top eight uncertainty entries have stored probability 1 for required `f_Edd > 1` | focused claim regression and canonical uncertainty table | verified |
-| 657 per-object panels cover all 219 objects: 219 parameter, 219 growth-track, and 219 seed-redshift panels | focused claim regression, v3 dataset manifest, and visual-coverage verifier | verified |
+| 438 per-object panels cover all 219 objects: 219 $f_{Edd}$-mass and 219 seed-redshift-mass panels | focused claim regression, v3 dataset manifest, and visual-coverage verifier | verified |
 
 Interpretive claims are deliberately bounded: ranks are navigation/descriptive,
 the pooled catalogue is not demographic, and the growth model does not prove a

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import re
 import argparse
 from pathlib import Path
 
@@ -38,7 +37,6 @@ def configure(version: str) -> None:
         "class_aware_growth_pressure": FIGURES / f"{version}_class_aware_growth_pressure.png",
         "uncertainty_robustness": FIGURES / f"{version}_uncertainty_robustness.png",
         "measurement_sensitivity": FIGURES / f"{version}_measurement_sensitivity.png",
-        "gallery_coverage": TABLES / f"{version}_growth_gallery_coverage.csv",
     }
 
 
@@ -182,30 +180,6 @@ def plot_sensitivity(sensitivity: pd.DataFrame) -> None:
     _save(fig, OUTPUT_PATHS["measurement_sensitivity"])
 
 
-def build_gallery_coverage(objects: pd.DataFrame) -> pd.DataFrame:
-    rows = []
-    for _, obj in objects.sort_values("physical_object_id").iterrows():
-        object_id = obj["physical_object_id"]
-        eligible = bool(obj["growth_ranking_eligible_flag"])
-        group = re.sub(r"[^a-z0-9]+", "_", str(obj["object_class"]).lower()).strip("_")
-        stem = re.sub(r"[^a-z0-9]+", "-", str(object_id).lower()).strip("-")
-        base = Path("results") / VERSION / "gallery" / "per_object" / group
-        rows.append({
-            "science_release": f"{VERSION}-figures-and-gallery",
-            "input_catalogue_release": f"{VERSION}-dataset-catalogue",
-            "physical_object_id": object_id, "object_id": obj["object_id"],
-            "object_class": obj["object_class"], "growth_ranking_eligible_flag": eligible,
-            "growth_product_status": "numerical_growth_product" if eligible else "no_inference_status_panel",
-            "growth_product_status_reason": "eligible_canonical_numeric_mbh" if eligible else obj["growth_ranking_eligibility_reason"],
-            "parameter_map_path": (base / "parameter_maps" / f"{VERSION}_parameter_map_{stem}.png").as_posix(),
-            "growth_track_path": (base / "growth_tracks" / f"{VERSION}_growth_track_{stem}.png").as_posix(),
-        })
-    result = pd.DataFrame(rows)
-    if len(result) != len(objects):
-        raise ValueError(f"{VERSION} gallery coverage must contain every object")
-    return result
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("version", nargs="?", choices=["v1", "v2", "v3"], default="v3")
@@ -217,9 +191,6 @@ def main() -> None:
     plot_pressure(point)
     plot_uncertainty(uncertainty)
     plot_sensitivity(sensitivity)
-    coverage = build_gallery_coverage(objects)
-    OUTPUT_PATHS["gallery_coverage"].parent.mkdir(parents=True, exist_ok=True)
-    coverage.to_csv(OUTPUT_PATHS["gallery_coverage"], index=False)
     for path in OUTPUT_PATHS.values():
         print(f"Wrote {path.relative_to(ROOT)}")
 

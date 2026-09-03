@@ -7,7 +7,6 @@ panels.
 
 from __future__ import annotations
 
-import argparse
 import math
 import os
 import re
@@ -27,13 +26,12 @@ import numpy as np
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 
-from src.internal.growth_visuals import (
+from src.internal.fedd_mass_maps import (
     COMPATIBILITY_FEDD,
     MERGER_CASES,
     SEED_MODELS,
     SPIN_CASES,
-    plot_growth_track,
-    plot_parameter_sheet,
+    plot_fedd_mass_map,
 )
 from src.models import (
     predicted_log_mbh,
@@ -48,7 +46,6 @@ UNCERTAINTY = ROOT / "results/v3/tables/v3_object_uncertainty_ranking.csv"
 FIGURES = ROOT / "results/v3/figures"
 TABLES = ROOT / "results/v3/tables"
 GALLERY = ROOT / "results/v3/gallery"
-PER_OBJECT = GALLERY / "per_object"
 
 FIGURE_PATHS = {
     "catalogue_landscape": FIGURES / "v3_catalogue_growth_landscape.png",
@@ -57,7 +54,7 @@ FIGURE_PATHS = {
     "growth_tracks": FIGURES / "v3_all_object_growth_tracks.png",
     "compatibility_summary": FIGURES / "v3_compatibility_summary.png",
     "uncertainty_summary": FIGURES / "v3_monte_carlo_summary.png",
-    "parameter_gallery": FIGURES / "v3_all_object_parameter_map_gallery.png",
+    "fedd_mass_gallery": FIGURES / "v3_all_object_fedd_mass_map_gallery.png",
     "compatibility": FIGURES / "v3_all_object_compatibility_atlas.png",
     "uncertainty": FIGURES / "v3_all_object_monte_carlo_uncertainty.png",
 }
@@ -110,12 +107,9 @@ def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 def object_paths(obj: pd.Series) -> dict[str, Path]:
-    group = slug(obj["object_class"]).replace("-", "_")
     stem = slug(obj["physical_object_id"])
-    base = PER_OBJECT / group
     return {
-        "parameter_map": base / "parameter_maps" / f"{VERSION}_parameter_map_{stem}.png",
-        "growth_track": base / "growth_tracks" / f"{VERSION}_growth_track_{stem}.png",
+        "fedd_mass_map": GALLERY / "fedd_mass_maps" / f"{VERSION}_fedd_mass_map_{stem}.png",
     }
 
 
@@ -145,7 +139,7 @@ def status_panel(obj: pd.Series, product: str, output: Path) -> None:
     plt.close(fig)
 
 
-def materialize_per_object_panels(objects: pd.DataFrame, *, rebuild: bool) -> pd.DataFrame:
+def materialize_fedd_mass_maps(objects: pd.DataFrame, *, rebuild: bool) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
     for _, obj in objects.sort_values(["object_class", "redshift", "physical_object_id"]).iterrows():
         eligible = boolish(obj["growth_ranking_eligible_flag"])
@@ -154,10 +148,7 @@ def materialize_per_object_panels(objects: pd.DataFrame, *, rebuild: bool) -> pd
             output.parent.mkdir(parents=True, exist_ok=True)
             if rebuild or not output.exists():
                 if eligible:
-                    if kind == "parameter_map":
-                        plot_parameter_sheet(obj, output)
-                    else:
-                        plot_growth_track(obj, output)
+                    plot_fedd_mass_map(obj, output)
                 else:
                     status_panel(obj, kind, output)
             rows.append({
@@ -172,8 +163,8 @@ def materialize_per_object_panels(objects: pd.DataFrame, *, rebuild: bool) -> pd
                 "path": output.relative_to(ROOT).as_posix(),
             })
     coverage = pd.DataFrame(rows)
-    if len(coverage) != 2 * len(objects) or coverage["physical_object_id"].nunique() != len(objects):
-        raise AssertionError("Per-object coverage must contain two panels for every object")
+    if len(coverage) != len(objects) or coverage["physical_object_id"].nunique() != len(objects):
+        raise AssertionError("f_Edd/mass-map coverage must contain one panel for every object")
     return coverage
 
 
@@ -213,10 +204,9 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
     fig.savefig(output, dpi=300, facecolor="white")
     plt.close(fig)
 
-
-def compile_parameter_gallery(objects: pd.DataFrame, output: Path) -> None:
+def compile_fedd_mass_gallery(objects: pd.DataFrame, output: Path) -> None:
     ordered = objects.sort_values(["object_class", "redshift", "physical_object_id"])
-    paths = [object_paths(obj)["parameter_map"] for _, obj in ordered.iterrows()]
+    paths = [object_paths(obj)["fedd_mass_map"] for _, obj in ordered.iterrows()]
     columns, cell, gutter, header, footer = 6, (760, 490), 8, 90, 90
     rows = math.ceil(len(paths) / columns)
     width = columns * cell[0] + (columns - 1) * gutter
@@ -225,7 +215,7 @@ def compile_parameter_gallery(objects: pd.DataFrame, output: Path) -> None:
     draw = ImageDraw.Draw(canvas)
     title_font = ImageFont.load_default(size=30)
     body_font = ImageFont.load_default(size=20)
-    draw.text((20, 20), f"{VERSION} - complete {len(objects)}-object parameter-map gallery", fill="black", font=title_font)
+    draw.text((20, 20), f"{VERSION} - complete {len(objects)}-object f_Edd/mass-map gallery", fill="black", font=title_font)
     for index, path in enumerate(paths):
         with Image.open(path) as source:
             panel = source.convert("RGB")
@@ -400,29 +390,3 @@ def plot_uncertainty_summary(objects: pd.DataFrame, uncertainty: pd.DataFrame, o
     output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output, dpi=300, facecolor="white")
     plt.close(fig)
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--rebuild-panels", action="store_true", help="rewrite current per-object panels")
-    args = parser.parse_args()
-    objects, uncertainty = load_inputs()
-    coverage = materialize_per_object_panels(objects, rebuild=args.rebuild_panels)
-    compatibility = build_object_compatibility(objects)
-    TABLE_PATHS["coverage"].parent.mkdir(parents=True, exist_ok=True)
-    coverage.to_csv(TABLE_PATHS["coverage"], index=False)
-    compatibility.to_csv(TABLE_PATHS["compatibility"], index=False)
-    plot_all_object_growth_tracks(objects, FIGURE_PATHS["growth_tracks"])
-    compile_parameter_gallery(objects, FIGURE_PATHS["parameter_gallery"])
-    plot_compatibility_summary(objects, compatibility, FIGURE_PATHS["compatibility_summary"])
-    plot_compatibility_atlas(objects, compatibility, FIGURE_PATHS["compatibility"])
-    plot_uncertainty_summary(objects, uncertainty, FIGURE_PATHS["uncertainty_summary"])
-    plot_all_object_uncertainty(objects, uncertainty, FIGURE_PATHS["uncertainty"])
-    print(f"Generated the complete {VERSION} catalogue visual atlas")
-    print(f"  catalogue objects: {len(objects)}")
-    print(f"  numerical growth objects: {int(objects['growth_ranking_eligible_flag'].map(boolish).sum())}")
-    print(f"  explicit no-inference objects: {int((~objects['growth_ranking_eligible_flag'].map(boolish)).sum())}")
-
-
-if __name__ == "__main__":
-    main()

@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 REQUIRED_FIGURES = (
     "catalogue_growth_landscape", "class_aware_growth_pressure",
     "uncertainty_robustness", "measurement_sensitivity",
-    "all_object_growth_tracks", "all_object_parameter_map_gallery",
+    "all_object_growth_tracks", "all_object_fedd_mass_map_gallery",
     "compatibility_summary", "all_object_compatibility_atlas",
     "monte_carlo_summary", "all_object_monte_carlo_uncertainty",
 )
@@ -59,11 +59,16 @@ def verify_version(version: str) -> None:
         raise AssertionError(f"{version} baseline evaluation coverage mismatch")
     coverage = pd.read_csv(results / "tables" / f"{version}_all_object_visual_coverage.csv")
     if (
-        len(coverage) != 3 * len(objects)
+        len(coverage) != 2 * len(objects)
         or coverage["physical_object_id"].nunique() != len(objects)
-        or set(coverage["product_kind"]) != {"parameter_map", "growth_track", "seed_redshift_map"}
+        or set(coverage["product_kind"]) != {"fedd_mass_map", "seedredshift_mass_map"}
     ):
         raise AssertionError(f"{version} per-object visual coverage mismatch")
+    if coverage["path"].str.contains("/per_object/|/growth_tracks/", regex=True).any():
+        raise AssertionError(f"{version} gallery contains an obsolete intermediate or growth-track path")
+    gallery_dirs = {path.name for path in (results / "gallery").iterdir() if path.is_dir()}
+    if gallery_dirs != {"fedd_mass_maps", "seedredshift_mass_maps"}:
+        raise AssertionError(f"{version} gallery folders are not canonical: {sorted(gallery_dirs)}")
     if any(not (ROOT / path).is_file() for path in coverage["path"]):
         raise AssertionError(f"{version} has missing per-object panels")
     compatibility = pd.read_csv(results / "tables" / f"{version}_all_object_compatibility.csv")

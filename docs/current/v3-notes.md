@@ -27,7 +27,7 @@ disputed because its preferred full-data reanalysis is disputed.
 - 182/171 primary measurement/object rows
 - 48 explicit measurement/object science exclusions
 - six manuscript figures and four additional all-object/robustness figures
-- complete current parameter/growth/seed-redshift panels for all 219 objects
+- complete current $f_{Edd}$-mass and seed-redshift-mass panels for all 219 objects
 - three full all-object supplement atlases
 - 219-row follow-up matrix with 196 ranked and 23 explicitly unranked objects
 - 11-row source-family caveat summary

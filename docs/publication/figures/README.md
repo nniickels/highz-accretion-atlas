@@ -7,7 +7,7 @@ Canonical figures are in [`results/v3/figures/`](../../../results/v3/figures/):
 3. uncertainty robustness
 4. alternate-measurement sensitivity
 5. all-object growth tracks
-6. parameter-map gallery
+6. $f_{Edd}$-mass-map gallery
 7. compatibility summary and complete object atlas
 8. Monte Carlo summary and complete object uncertainty atlas
 

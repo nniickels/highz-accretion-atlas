@@ -62,13 +62,24 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertGreater(manuscript.stat().st_size, 1_000_000)
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
 
-    def test_complete_seed_redshift_galleries(self) -> None:
+    def test_complete_axis_named_galleries(self) -> None:
         expected = {"v1": 23, "v2": 112, "v3": 219}
         for version, count in expected.items():
-            paths = list((ROOT / "results" / version / "gallery" / "per_object").glob(
-                "*/seed_redshift_maps/*.png",
-            ))
-            self.assertEqual(len(paths), count, version)
+            gallery = ROOT / "results" / version / "gallery"
+            self.assertEqual(
+                {path.name for path in gallery.iterdir() if path.is_dir()},
+                {"fedd_mass_maps", "seedredshift_mass_maps"},
+                version,
+            )
+            self.assertEqual(len(list((gallery / "fedd_mass_maps").glob("*.png"))), count, version)
+            self.assertEqual(len(list((gallery / "seedredshift_mass_maps").glob("*.png"))), count, version)
+
+    def test_galleries_are_flat_and_have_no_individual_growth_tracks(self) -> None:
+        for version in ("v1", "v2", "v3"):
+            gallery = ROOT / "results" / version / "gallery"
+            self.assertFalse((gallery / "per_object").exists(), version)
+            self.assertEqual(list(gallery.rglob("growth_tracks")), [], version)
+            self.assertEqual(list(gallery.rglob("*_growth_track_*.png")), [], version)
 
     def test_followup_and_source_caveat_products(self) -> None:
         expected_objects = {"v1": 23, "v2": 112, "v3": 219}
