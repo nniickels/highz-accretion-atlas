@@ -26,8 +26,8 @@ class SourceProvenanceTests(unittest.TestCase):
         cls.registry = load_source_provenance_registry(REGISTRY_PATH)
 
     def test_registry_contract_and_current_catalogue_coverage(self) -> None:
-        self.assertEqual(len(self.registry), 13)
-        self.assertEqual(self.registry["source_key"].nunique(), 9)
+        self.assertEqual(len(self.registry), 20)
+        self.assertEqual(self.registry["source_key"].nunique(), 16)
         catalogue = pd.read_csv(CATALOGUE_PATH, low_memory=False)
         validate_catalogue_source_coverage(self.registry, catalogue)
 
@@ -40,8 +40,12 @@ class SourceProvenanceTests(unittest.TestCase):
 
     def test_preprints_have_review_schedule(self) -> None:
         preprints = self.registry[self.registry["publication_status"] == "preprint"]
-        self.assertEqual(set(preprints["provenance_id"]), {"davis26_primary", "hutchison25_coordinates", "zou26_reanalysis"})
-        self.assertTrue((preprints["status_review_due"] == "2026-11-27").all())
+        self.assertEqual(set(preprints["provenance_id"]), {"davis26_primary", "hutchison25_coordinates", "zou26_reanalysis", "skyfire26_primary"})
+        expected_due = {
+            "davis26_primary": "2026-11-27", "hutchison25_coordinates": "2026-11-27",
+            "zou26_reanalysis": "2026-11-27", "skyfire26_primary": "2026-12-03",
+        }
+        self.assertEqual(preprints.set_index("provenance_id")["status_review_due"].to_dict(), expected_due)
 
     def test_dataset_and_supporting_source_roles(self) -> None:
         rows = self.registry.set_index("provenance_id")

@@ -21,7 +21,7 @@ ARTIFACTS = {"data/source_provenance_registry.csv"}
 
 def verify_metadata(manifest: dict[str, object], registry: pd.DataFrame) -> None:
     expected = {
-        "release": "source-provenance-2026-08-27",
+        "release": "source-provenance-2026-09-03",
         "scope": "provenance registry for the JWST-identified catalogue",
         "registry_rows": len(registry),
         "catalogue_source_keys": registry["source_key"].nunique(),
@@ -49,7 +49,7 @@ def main() -> None:
     )
     if args.require_clean:
         require_clean_worktree(ROOT, "source provenance")
-    print("Verified 13 provenance records covering all 9 final-v3 source families")
+    print("Verified 20 provenance records covering all 16 final-v3 source families")
 
 
 if __name__ == "__main__":

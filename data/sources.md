@@ -8,7 +8,7 @@ controlled `publication_status`, `evidence_status`, and `source_role` fields
 separate publication maturity, scientific evidence strength, and actual use;
 these concepts must not be inferred from one another. Paper DOIs and dataset
 DOIs are separate fields. Exact source-archive hashes, extraction dates, the
-2026-08-27 status-verification date, and scheduled preprint reviews are
+2026-09-03 status-verification date, and scheduled preprint reviews are
 machine checked by `python -m src.internal.verify_source_provenance`.
 
 The supplement backfills the current exact Juodžbalis record as MNRAS 546,
@@ -20,9 +20,10 @@ the frozen rows retain `not_recorded_in_frozen_v1_source_layer`, and no frozen
 catalogue value is changed. The registry also records the Shen catalogue DOI
 `10.26093/cds/vizier.18730035` independently of the paper DOI.
 
-As verified on 2026-08-27, Davis `2602.23310v1`, Hutchison `2512.12509v1`,
-and Zou `2603.24893v1` remain preprints in their official arXiv records. Their
-registry rows require another status review by 2026-11-27. The Davis objects'
+As verified on 2026-09-03, Davis `2602.23310v1`, Hutchison `2512.12509v1`,
+Zou `2603.24893v1`, and Skyfire `2609.00112v1` remain preprints in their official
+arXiv records. The first three require another status review by 2026-11-27;
+Skyfire is due by 2026-12-03. The Davis objects'
 photometric-EELG parent selection remains context rather than evidence against
 the later broad-line detections; the UHZ1 reanalysis retains `disputed`
 evidence explicitly.
@@ -149,6 +150,43 @@ Detailed extraction and caveat notes are in
   shared science and figures. See
   `docs/source-notes/ren25-alpine-cristal-jwst-extraction-notes.md` and
   `docs/current/v3-catalogue-schema.md`.
+
+## v2 canonical-mass additions reviewed 2026-09-03
+
+- **[source_key: greene24_uncover_blagn] Greene et al. (2024), UNCOVER:** nine
+  unique, JWST/NIRSpec-confirmed broad-Balmer AGN with published virial masses
+  are admitted from Tables 1 and 3. One A2744-QSO1 image represents the multiply
+  imaged physical source. Published lensing magnifications and demagnified
+  masses are retained.
+- **[source_key: kocevski25_lrd_blagn] Kocevski et al. (2025), RUBIES:** six
+  unique `z >= 4` JWST broad-line LRDs with numerical dust-corrected virial
+  masses are admitted after coordinate/redshift overlap removal against the
+  existing Taylor ingestion.
+- **[source_key: skyfire26_ceers_blagn] Skyfire (2026), CEERS:** 22 unique
+  `z >= 4` JWST/NIRSpec broad-Halpha objects with numerical masses are admitted
+  from Table 3. The v1 preprint status and scheduled review remain explicit.
+- **[source_key: larson23_ceers1019] Larson et al. (2023):** CEERS 1019 is
+  admitted from its JWST/NIRSpec broad-Hbeta identification and published
+  single-epoch mass.
+- **[source_key: killi24_j0647_lrd_blagn] Killi et al. (2024):** the lensed
+  J0647-1045 LRD is admitted from its JWST/NIRSpec broad-Halpha identification
+  and published, magnification-corrected virial mass.
+- **[source_key: ubler24_zs7_offset_blagn] Uebler et al. (2024):** the
+  spatially offset broad-Hbeta Type-1 nucleus in the ZS7 merging system is
+  admitted with its published canonical virial mass.
+
+These additions contribute 40 unique physical objects to v2 and flow into v3.
+The Jones et al. compilation contributes no further unique object after this
+identity audit, so it is not duplicated as new catalogue membership; it remains
+a future alternate-measurement/reanalysis source.
+
+## v3 source: GN-z11 high-ionization-line candidate
+
+- **[source_key: maiolino24_gnz11_agn] Maiolino et al. (2024):** GN-z11 is a
+  JWST/NIRSpec-identified accretion candidate based on dense high-ionization and
+  broad permitted-line evidence. Its published UV single-epoch mass is retained
+  as a numerical secondary stratum, not folded into the primary Balmer-virial
+  comparison. This heterogeneous evidence type is v3-only.
 
 ## v3 source: UHZ1 X-ray evidence history
 

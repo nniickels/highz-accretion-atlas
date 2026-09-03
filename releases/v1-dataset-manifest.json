@@ -1,7 +1,7 @@
 {
   "dataset_version": "v1",
   "catalogue_release": "v1-dataset-catalogue",
-  "literature_cutoff": "2026-08-27",
+  "literature_cutoff": "2026-09-03",
   "expected_measurements": 23,
   "expected_objects": 23,
   "expected_hosts": 23,

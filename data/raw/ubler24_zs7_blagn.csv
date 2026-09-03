@@ -1,0 +1,2 @@
+measurement_id,object_id,ra_deg,dec_deg,redshift,log_mbh_msun,log_mbh_err_plus,log_mbh_err_minus,broad_line_species,broad_fwhm_km_s,log_lbol_erg_s,source_key
+ZS7_ubler24,ZS7,150.0990,2.3436,7.15,7.7,0.4,0.4,Hbeta,3660,44.9,ubler24_zs7_offset_blagn

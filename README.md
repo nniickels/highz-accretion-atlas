@@ -74,9 +74,9 @@ Appendix or supplement products:
 - sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
 
-The canonical v3 gallery covers all 133 objects with one $f_{Edd}$-mass map in
+The canonical v3 gallery covers all 174 objects with one $f_{Edd}$-mass map in
 `results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
-`results/v3/parameter_maps/seedredshift_mass_maps/`. The 112
+`results/v3/parameter_maps/seedredshift_mass_maps/`. The 153
 growth-eligible objects receive numerical panels; the other 21 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
@@ -103,8 +103,8 @@ propagation, comparison policy, and visual grammar.
 | Version | Dataset | Measurements | Objects | Hosts |
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES BLAGN catalogue | 23 | 23 | 23 |
-| v2 | v1 plus comparable BLAGN from Taylor, Matthee, Lin, Harikane, Davis/THRILS, and Ren | 119 | 112 | 111 |
-| v3 | v2 plus UHZ1 and the audited Scholtz set | 142 | 133 | 132 |
+| v2 | v1 plus comparable JWST BLAGN sources with canonical masses | 159 | 152 | 151 |
+| v3 | v2 plus heterogeneous JWST-identified candidates | 183 | 174 | 173 |
 
 For each version, canonical catalogues are under
 `data/processed/<version>/`, identity products are under

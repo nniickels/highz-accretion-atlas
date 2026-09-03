@@ -69,6 +69,7 @@ TABLE_PATHS = {
 
 COLORS = {
     "broad_line_agn": "#176B87",
+    "high_ionization_line_candidate": "#C45A23",
     "narrow_line_agn_candidate": "#6B5CA5",
     "xray_agn_candidate": "#777777",
 }
@@ -82,6 +83,7 @@ FULL_TRACK_STATUS_COLORS = {
 }
 LABELS = {
     "broad_line_agn": "Broad-line AGN",
+    "high_ionization_line_candidate": "High-ionization-line candidates",
     "narrow_line_agn_candidate": "Narrow-line candidates",
     "xray_agn_candidate": "X-ray candidates",
 }

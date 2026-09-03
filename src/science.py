@@ -320,8 +320,8 @@ def build_outputs(
             .reset_index()
             .assign(science_release=core.SCIENCE_RELEASE, input_catalogue_release=core.CATALOGUE_RELEASE)
         )
-    eligible_measurements = int(measurements["growth_ranking_eligible_flag"].astype(bool).sum())
-    eligible_objects = int(objects["growth_ranking_eligible_flag"].astype(bool).sum())
+    eligible_measurements = int(measurements["growth_ranking_eligible_flag"].map(_boolish).sum())
+    eligible_objects = int(objects["growth_ranking_eligible_flag"].map(_boolish).sum())
     expected = {
         "measurement_point_ranking": eligible_measurements,
         "object_point_ranking": eligible_objects,

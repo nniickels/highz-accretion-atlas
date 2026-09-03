@@ -11,7 +11,7 @@ from src.datasets import DATASET_SPECS
 
 ROOT = Path(__file__).resolve().parents[2]
 RELEASES = ROOT / "releases"
-LITERATURE_CUTOFF = "2026-08-27"
+LITERATURE_CUTOFF = "2026-09-03"
 
 
 def canonical_artifacts(version: str) -> list[Path]:

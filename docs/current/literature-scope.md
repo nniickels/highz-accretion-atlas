@@ -1,7 +1,7 @@
 # Literature scope and cutoff
 
 The current v1/v2/v3 source-family membership reflects the literature review
-completed on **2026-08-27**. The cutoff records the review date for the current
+completed on **2026-09-03**. The cutoff records the review date for the current
 catalogue state; it does not imply that v3 is an exhaustive census of every
 high-redshift accreting black-hole report published before that date.
 
@@ -16,7 +16,7 @@ A source enters a dataset only when the repository contains:
 - regression anchors proving row membership and published values.
 
 v1 contains the original JADES BLAGN source family. v2 adds the comparable
-JWST broad-line source families. v3 adds the UHZ1 and Scholtz heterogeneous
+JWST broad-line source families. v3 adds the UHZ1, Scholtz, and GN-z11 heterogeneous
 JWST-identified families. Ground-selected legacy quasar samples are outside
 the catalogue boundary. The authoritative included-source list is
 `data/source_provenance_registry.csv`.

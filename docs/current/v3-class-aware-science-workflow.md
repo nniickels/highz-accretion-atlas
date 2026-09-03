@@ -14,14 +14,14 @@ Supported interpretation scopes are:
 - a global navigation order with no cross-class scientific claim.
 
 Pooled demographic inference is forbidden. Statistical mass errors are sampled
-without combining them with method systematics. The 48-row exclusion audit is
-the union of 25 ineligible measurement rows and 23 ineligible object rows; all
+without combining them with method systematics. The 44-row exclusion audit is
+the union of 23 ineligible measurement rows and 21 ineligible object rows; all
 remain in the catalogue.
 
-`results/v3/tables/v3_followup_priority.csv` contains all 133 objects. Its 112
+`results/v3/tables/v3_followup_priority.csv` contains all 174 objects. Its 153
 growth-eligible rows receive both within-class and navigation-only ranks; the
-23 objects without a method-comparable canonical mass remain explicitly
-unranked. `v3_source_caveat_summary.csv` contains one row for each of the 11
+21 objects without a method-comparable canonical mass remain explicitly
+unranked. `v3_source_caveat_summary.csv` contains one row for each of the 16
 admitted source families.
 
 Reproduce with:

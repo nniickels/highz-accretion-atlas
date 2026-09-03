@@ -1,0 +1,10 @@
+measurement_id,object_id,ra_deg,dec_deg,redshift,lensing_mu,log_mbh_msun,log_mbh_err_plus,log_mbh_err_minus,broad_line_species,source_key
+UNCOVER4286_greene24,UNCOVER-4286,3.619202,-30.423270,5.84,1.62,8.0,0.3,0.3,Halpha,greene24_uncover_blagn
+UNCOVER13123_greene24,A2744-QSO1,3.579829,-30.401570,7.04,6.15,7.3,0.2,0.2,Halpha,greene24_uncover_blagn
+UNCOVER13821_greene24,UNCOVER-13821,3.620607,-30.399951,6.34,1.59,8.1,0.2,0.2,Halpha,greene24_uncover_blagn
+UNCOVER20466_greene24,UNCOVER-20466,3.640409,-30.386437,8.50,1.33,8.17,0.42,0.42,Hbeta,greene24_uncover_blagn
+UNCOVER23608_greene24,UNCOVER-23608,3.542815,-30.380646,5.80,2.07,7.5,0.2,0.2,Halpha,greene24_uncover_blagn
+UNCOVER35488_greene24,UNCOVER-35488,3.578984,-30.362598,6.26,3.38,7.4,0.2,0.2,Halpha,greene24_uncover_blagn
+UNCOVER38108_greene24,UNCOVER-38108,3.530009,-30.358013,4.96,1.59,8.4,0.5,0.5,Halpha,greene24_uncover_blagn
+UNCOVER41225_greene24,UNCOVER-41225,3.533994,-30.353308,6.76,1.50,7.7,0.4,0.4,Halpha,greene24_uncover_blagn
+UNCOVER45924_greene24,UNCOVER-45924,3.584758,-30.343630,4.46,1.59,8.9,0.1,0.1,Halpha,greene24_uncover_blagn

@@ -16,16 +16,16 @@
 \title{\textbf{The High-Redshift Accretion Atlas}\\
 \large Reproducible Catalogue and Complete Visual Growth Atlas, v3}
 \author{Nicole Jiang}
-\date{27 August 2026}
+\date{3 September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
 We present the v3 provenance-aware atlas of JWST-identified accreting black holes
-at $z\geq4$. The catalogue contains 142 literature measurements representing 133
-physical objects in 132 host systems. Its science layer uses 119 measurements
-and 112 preferred physical-object rows with canonical numeric black-hole masses;
+at $z\geq4$. The catalogue contains 183 literature measurements representing 174
+physical objects in 173 host systems. Its science layer uses 160 measurements
+and 153 preferred physical-object rows with canonical numeric black-hole masses;
 21 catalogue objects without such masses remain explicit exclusions. The atlas
 keeps heterogeneous evidence classes and mass methods separate, retains
 alternate measurements, and treats global ranks as navigation rather than
@@ -33,7 +33,7 @@ demographic inference. A full-source audit corrects the Scholtz et al. JADES
 narrow/high-ionization subset to 21 objects at $z\geq4$ and documents the
 paper/table count discrepancy while retaining all source history. Under the
 reference assumptions $z_{\rm seed}=30$, $\epsilon=0.1$, and no merger boost,
-GN-38509 has the highest point-estimate growth pressure. These diagnostics
+UNCOVER-20466 has the highest point-estimate growth pressure. These diagnostics
 measure pressure under stated assumptions; they do not identify a unique seed or
 accretion history.
 \end{abstract}
@@ -44,10 +44,12 @@ The atlas asks which JWST-identified objects place the strongest pressure on sim
 black-hole growth histories, and which measurements most affect that conclusion.
 It does not estimate a population mass function from the pooled catalogue. The
 input literature spans broad-line AGN selected by several JWST surveys
-\cite{juodzbalis2026,taylor2025,matthee2024,lin2024,harikane2023,davis2026},
+\cite{juodzbalis2026,taylor2025,matthee2024,lin2024,harikane2023,davis2026,
+greene2024,kocevski2025,skyfire2026,larson2023,killi2024,ubler2024},
 host-selected broad-line candidates \cite{ren2025}, an X-ray evidence history
 \cite{bogdan2024,zou2026}, and JADES narrow/high-ionization candidates
-\cite{scholtz2025}. Selection functions, evidence strength, and mass estimators
+\cite{scholtz2025}, and GN-z11 high-ionization-line evidence \cite{maiolino2024}.
+Selection functions, evidence strength, and mass estimators
 are therefore retained as analysis strata.
 
 \section{Catalogue construction and provenance}
@@ -83,16 +85,16 @@ catalogue contains 20 narrow-line candidates from this source.
 \toprule
 Product or subset & Rows / objects \\
 \midrule
-Measurements / physical objects / host systems & 142 / 133 / 132 \\
+Measurements / physical objects / host systems & 183 / 174 / 173 \\
 Source-local observables & 183 \\
-Growth-eligible measurements / objects & 119 / 112 \\
-Primary measurements / objects & 112 / 105 \\
-Broad-line eligible objects & 112 \\
+Growth-eligible measurements / objects & 160 / 153 \\
+Primary measurements / objects & 152 / 145 \\
+Broad-line eligible objects & 152 \\
 Catalogue-only physical objects & 21 \\
 Alternate-measurement sensitivity pairs & 7 \\
-Follow-up rows / ranked rows & 133 / 112 \\
-Source-family caveat rows & 9 \\
-Per-object $f_{\rm Edd}$--mass/seed-redshift--mass panels & 266 \\
+Follow-up rows / ranked rows & 174 / 153 \\
+Source-family caveat rows & 16 \\
+Per-object $f_{\rm Edd}$--mass/seed-redshift--mass panels & 348 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -100,9 +102,9 @@ Per-object $f_{\rm Edd}$--mass/seed-redshift--mass panels & 266 \\
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_catalogue_growth_landscape.png}
-\caption{Current catalogue landscape. Left: all 112 growth-eligible physical
+\caption{Current catalogue landscape. Left: all 153 growth-eligible physical
 objects in black-hole-mass--redshift space. Right: growth-product coverage for
-all 133 objects. The 21 catalogue-only objects remain available for provenance
+all 174 objects. The 21 catalogue-only objects remain available for provenance
 and evidence analyses but are not assigned numeric growth products.}
 \label{fig:landscape}
 \end{figure}
@@ -110,7 +112,7 @@ and evidence analyses but are not assigned numeric growth products.}
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_all_object_growth_tracks.png}
-\caption{Complete v3 growth-track view. All 112 objects with supported
+\caption{Complete v3 growth-track view. All 153 objects with supported
 canonical black-hole masses are plotted against reference tracks. The lower
 panel retains the redshift locations of all 21 catalogue-only objects for which
 a numerical growth history cannot be inferred. Thus every physical object is
@@ -163,7 +165,7 @@ estimates.}
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_compatibility_summary.png}
-\caption{Compatibility summary using every one of the 112 growth-computable
+\caption{Compatibility summary using every one of the 153 growth-computable
 objects. Panels retain object class and seed family while spanning spin, merger
 boost, and average accretion rate. Percentages are descriptive within-class
 fractions, not pooled demographic estimates. The complete object-by-object
@@ -173,9 +175,9 @@ matrix, including all 21 unavailable objects, is included in the supplement.}
 
 \section{Current results}
 
-GN-38509 has the highest point-estimate reference growth pressure, requiring
-$\fedd=1.065$ for a $10^2\,M_\odot$ seed. RUBIES-EGS-49140 leads the
-uncertainty-aware navigation view, with a median required $\fedd=1.016$.
+UNCOVER-20466 has the highest point-estimate reference growth pressure, requiring
+$\fedd=1.452$ for a $10^2\,M_\odot$ seed. It also leads the uncertainty-aware
+navigation view, with a median required $\fedd=1.453$.
 These results express tension with that reference
 history, not a claim of literally continuous super-Eddington accretion.
 
@@ -184,15 +186,15 @@ scopes. All outputs explicitly forbid pooled demographic inference without a
 selection-function and completeness model. The alternate-measurement table
 contains 7 comparisons; it shows how retained measurement choice changes
 $\log_{10}\mbh$ and required $\fedd$ while leaving the canonical measurement choice
-auditable. The follow-up matrix retains all 133 objects, ranks the 112
+auditable. The follow-up matrix retains all 174 objects, ranks the 153
 growth-eligible objects, and leaves the other 21 visibly unranked. A separate
-9-row caveat table gives one compact provenance and interpretation summary for
+16-row caveat table gives one compact provenance and interpretation summary for
 every admitted source family.
 
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_monte_carlo_summary.png}
-\caption{Complete Monte Carlo uncertainty summary. Every one of the 112
+\caption{Complete Monte Carlo uncertainty summary. Every one of the 153
 numerical posteriors is plotted; point size encodes the 16th--84th percentile
 width. The adjacent accounting panel retains all 21 catalogue-only objects.
 The full supplement atlas gives every object label and interval.}
@@ -224,7 +226,7 @@ internal compatibility code. Superseded release-era artifacts remain
 recoverable from Git history.
 
 The final figure layer provides paper-facing summaries and a complete current
-gallery. Every one of the 133 objects has an $f_{\rm Edd}$--mass panel and a
+gallery. Every one of the 174 objects has an $f_{\rm Edd}$--mass panel and a
 seed-redshift--mass panel under the final gallery path. For the 21
 unavailable objects these are
 explicit no-inference panels. Complete $f_{\rm Edd}$--mass, compatibility, and Monte
@@ -259,7 +261,7 @@ measurement would most change each object's physical interpretation.
 v3 is a complete, internally consistent research dataset: the current
 catalogue, class-aware science tables, paper figures, full gallery coverage,
 provenance correction, evidence policy, and automated verification all refer to
-the same dataset version. It provides reproducible observational triage across 133
+the same dataset version. It provides reproducible observational triage across 174
 JWST-identified objects while keeping unsupported demographic and formation-channel claims
 outside the scope of the data product.
 
@@ -273,10 +275,17 @@ outside the scope of the data product.
 \bibitem{davis2026} Davis, K. et al. 2026, arXiv:2602.23310v1.
 \bibitem{hutchison2025} Hutchison, T. A. et al. 2025, THRILS redshift catalogue, arXiv:2512.12509v1.
 \bibitem{ren2025} Ren, J. et al. 2025, \emph{MNRAS}, 544, 211--233, doi:10.1093/mnras/staf1709.
+\bibitem{greene2024} Greene, J. E. et al. 2024, \emph{ApJ}, 964, 39, doi:10.3847/1538-4357/ad1e5f.
+\bibitem{kocevski2025} Kocevski, D. D. et al. 2025, \emph{ApJ}, 986, 126, doi:10.3847/1538-4357/adbc7d.
+\bibitem{skyfire2026} Skyfire Collaboration 2026, arXiv:2609.00112v1.
+\bibitem{larson2023} Larson, R. L. et al. 2023, \emph{ApJL}, 953, L29, doi:10.3847/2041-8213/ace619.
+\bibitem{killi2024} Killi, M. et al. 2024, \emph{A\&A}, 691, A52, doi:10.1051/0004-6361/202348857.
+\bibitem{ubler2024} \"{U}bler, H. et al. 2024, \emph{MNRAS}, 531, 355, doi:10.1093/mnras/stae943.
 \bibitem{bogdan2024} Bogd\'an, \'A. et al. 2024, \emph{Nature Astronomy}, 8, 126, doi:10.1038/s41550-023-02111-9.
 \bibitem{goulding2023} Goulding, A. D. et al. 2023, \emph{ApJL}, 955, L24, doi:10.3847/2041-8213/acf7c5.
 \bibitem{zou2026} Zou, F. et al. 2026, UHZ1 full-data X-ray reanalysis, arXiv:2603.24893v1.
 \bibitem{scholtz2025} Scholtz, J. et al. 2025, \emph{A\&A}, 697, A175, doi:10.1051/0004-6361/202348804.
+\bibitem{maiolino2024} Maiolino, R. et al. 2024, \emph{Nature}, 627, 59--63, doi:10.1038/s41586-024-07052-5.
 \end{thebibliography}
 
 \end{document}

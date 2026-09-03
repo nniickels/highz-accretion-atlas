@@ -1,7 +1,7 @@
 # Dataset versioning
 
 Versions identify data additions, not code milestones or public releases.
-The canonical source-family review cutoff is 2026-08-27; see
+The canonical source-family review cutoff is 2026-09-03; see
 [`../current/literature-scope.md`](../current/literature-scope.md). "Final v3"
 means final within that declared admission scope, not an evergreen exhaustive
 census of the literature.
@@ -16,18 +16,19 @@ Accuracy fixes apply here unless they exist only for a later source/object type.
 
 ## v2 — expanded comparable BLAGN
 
-Adds Taylor CEERS/RUBIES, Matthee EIGER/FRESCO, Lin ASPIRE, Harikane NIRSpec,
-Davis/THRILS, and Ren ALPINE/CRISTAL candidates. These sources share the broad
-scientific workflow and therefore form one expansion: 119 measurements, 112
-objects, and 111 hosts.
+Adds the comparable JWST broad-line source families from Taylor, Matthee, Lin,
+Harikane, Davis/THRILS, Ren, Greene/UNCOVER, Kocevski/RUBIES, Skyfire/CEERS,
+Larson/CEERS 1019, Killi/J0647, and Uebler/ZS7. These sources share the v2
+object-type scope: 159 measurements, 152 objects, and 151 hosts.
 
 ## v3 — JWST-identified heterogeneous atlas
 
-Adds UHZ1's JWST/Chandra X-ray evidence history and the audited Scholtz JADES
-narrow-line candidates. Added code handles distinct object
+Adds UHZ1's JWST/Chandra X-ray evidence history, the audited Scholtz JADES
+narrow-line candidates, and GN-z11's high-ionization-line accretion evidence.
+Added code handles distinct object
 classes, evidence states, mass-comparability groups, missing/conditional masses,
-and explicit no-inference cases. v3 has 142 measurements, 133 objects, and 132
-hosts; 112 objects support numerical growth inference.
+and explicit no-inference cases. v3 has 183 measurements, 174 objects, and 173
+hosts; 153 objects support numerical growth inference.
 
 ## Invariants
 

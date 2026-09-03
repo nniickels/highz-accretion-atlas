@@ -54,6 +54,24 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(set(objects["source_key"]), set(V3_SOURCES))
         self.assertNotIn("luminous_quasar_comparison", set(objects["object_class"]))
 
+    def test_canonical_mass_additions_follow_version_scope(self) -> None:
+        v1 = pd.read_csv(ROOT / "data/processed/v1/v1_accreting_objects.csv")
+        v2 = pd.read_csv(ROOT / "data/processed/v2/v2_accreting_objects.csv")
+        v3 = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_objects.csv")
+        self.assertEqual(len(set(v2["physical_object_id"]) - set(v1["physical_object_id"])), 129)
+        new_source_keys = {
+            "greene24_uncover_blagn", "kocevski25_lrd_blagn",
+            "skyfire26_ceers_blagn", "larson23_ceers1019",
+            "killi24_j0647_lrd_blagn", "ubler24_zs7_offset_blagn",
+        }
+        additions = v2[v2["source_key"].isin(new_source_keys)]
+        self.assertEqual(len(additions), 40)
+        self.assertTrue(additions["growth_ranking_eligible_flag"].astype(bool).all())
+        self.assertNotIn("maiolino24_gnz11_agn", set(v2["source_key"]))
+        gnz11 = v3[v3["source_key"].eq("maiolino24_gnz11_agn")].squeeze()
+        self.assertEqual(gnz11["object_class"], "high_ionization_line_candidate")
+        self.assertFalse(bool(gnz11["primary_mass_comparison_flag"]))
+
     def test_scholtz_full_table_and_admitted_redshift_cut(self) -> None:
         full_table_path = RAW / "scholtz25_jades_table_sample_full.tex"
         full = parse_full_table_membership(full_table_path)
@@ -91,8 +109,8 @@ class V3ScientificClaimTests(unittest.TestCase):
         uncertainty_first = uncertainty.nsmallest(
             1, "rank_uncertainty_global_navigation"
         ).iloc[0]
-        self.assertEqual(point_first["object_id"], "GN-38509")
-        self.assertEqual(uncertainty_first["object_id"], "RUBIES-EGS-49140")
+        self.assertEqual(point_first["object_id"], "UNCOVER-20466")
+        self.assertEqual(uncertainty_first["object_id"], "UNCOVER-20466")
 
     def test_primary_alternate_and_complete_product_counts(self) -> None:
         measurement = pd.read_csv(TABLES / "v3_measurement_point_ranking.csv")
@@ -102,13 +120,13 @@ class V3ScientificClaimTests(unittest.TestCase):
         caveats = pd.read_csv(TABLES / "v3_source_caveat_summary.csv")
         coverage = pd.read_csv(TABLES / "v3_all_object_visual_coverage.csv")
 
-        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 112)
-        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 105)
+        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 152)
+        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 145)
         self.assertEqual(len(alternates), 7)
-        self.assertEqual((len(followup), len(caveats), len(coverage)), (133, 9, 266))
+        self.assertEqual((len(followup), len(caveats), len(coverage)), (174, 16, 348))
         self.assertEqual(
             coverage.groupby("product_kind").size().to_dict(),
-            {"fedd_mass_map": 133, "seedredshift_mass_map": 133},
+            {"fedd_mass_map": 174, "seedredshift_mass_map": 174},
         )
 
     def test_jades_8083_identity_merge_retains_one_preferred_measurement(self) -> None:

@@ -21,16 +21,16 @@ disputed because its preferred full-data reanalysis is disputed.
 
 ## Dataset scale
 
-- 142 measurements, 133 physical objects, 132 host systems
+- 183 measurements, 174 physical objects, 173 host systems
 - 183 source-local observables
-- 119/112 growth-eligible measurement/object rows
-- 182/171 primary measurement/object rows
-- 48 explicit measurement/object science exclusions
+- 160/153 growth-eligible measurement/object rows
+- 152/145 primary measurement/object ranking rows
+- 44 explicit measurement/object science exclusions
 - six manuscript figures and five additional all-object/robustness figures
-- complete current $f_{Edd}$-mass and seed-redshift-mass panels for all 133 objects
+- complete current $f_{Edd}$-mass and seed-redshift-mass panels for all 174 objects
 - three full all-object supplement atlases
-- 133-row follow-up matrix with 112 ranked and 21 explicitly unranked objects
-- 9-row source-family caveat summary
+- 174-row follow-up matrix with 153 ranked and 21 explicitly unranked objects
+- 16-row source-family caveat summary
 
 The v3 verification commands check these counts, schemas, figures, and
 manuscript references directly.

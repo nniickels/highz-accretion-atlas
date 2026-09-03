@@ -11,8 +11,8 @@ results/<version>/
     └── seedredshift_mass_maps/     seed-redshift versus seed-mass panels for every object
 ```
 
-v1 covers all 23 objects numerically; v2 covers all 112 numerically; v3
-represents all 133 objects with 112 numerical products and 21 explicit
+v1 covers all 23 objects numerically; v2 covers all 152 numerically; v3
+represents all 174 objects with 153 numerical products and 21 explicit
 no-inference panels. Obsolete software-release result trees are not part of the
 public repository contract; necessary assembly logic is isolated under
 `src/internal/compatibility/`.

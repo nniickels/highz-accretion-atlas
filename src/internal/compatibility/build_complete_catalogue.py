@@ -15,6 +15,7 @@ from src.internal.compatibility.v7_catalogue import finalize_v7_catalogues
 from src.internal.compatibility.v7_core_catalogue import build_v7_base_catalogues
 from src.internal.compatibility.v7_scholtz_catalogue import build_v7_scholtz_catalogues
 from src.internal.compatibility.v7_uhz1_catalogue import build_v7_uhz1_catalogues
+from src.internal.canonical_mass_additions import append_additions
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -27,6 +28,13 @@ INPUTS = {
     "scholtz_source": ROOT / "data/raw/scholtz25_jades_narrow_line_agn_zge4.csv",
     "scholtz_correction": ROOT / "data/raw/scholtz25_jades_narrow_line_agn_correction.csv",
     "scholtz_overrides": ROOT / "data/assembly/scholtz_identity_overrides.csv",
+    "greene_additions": ROOT / "data/raw/greene24_uncover_blagn_table3.csv",
+    "kocevski_additions": ROOT / "data/raw/kocevski25_lrd_blagn_table5_zge4_new.csv",
+    "skyfire_additions": ROOT / "data/raw/skyfire26_ceers_blagn_table3_zge4_mass.csv",
+    "ceers1019_addition": ROOT / "data/raw/larson23_ceers1019.csv",
+    "j0647_addition": ROOT / "data/raw/killi24_j0647_lrd.csv",
+    "zs7_addition": ROOT / "data/raw/ubler24_zs7_blagn.csv",
+    "gnz11_addition": ROOT / "data/raw/maiolino24_gnz11_agn.csv",
 }
 FULL_TABLE = ROOT / "data/raw/scholtz25_jades_table_sample_full.tex"
 
@@ -74,4 +82,10 @@ def build_outputs() -> dict[str, pd.DataFrame]:
         "literature_reference", "atlas_prior_candidate_count",
         "identity_disposition", "review_basis", "review_date",
     ])
+    addition_names = [
+        "greene_additions", "kocevski_additions", "skyfire_additions",
+        "ceers1019_addition", "j0647_addition", "zs7_addition", "gnz11_addition",
+    ]
+    additions = pd.concat([_read(name) for name in addition_names], ignore_index=True, sort=False)
+    final = append_additions(final, additions)
     return {name: _normalize_historical_labels(frame) for name, frame in final.items()}
