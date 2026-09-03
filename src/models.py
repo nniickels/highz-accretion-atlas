@@ -50,10 +50,10 @@ class SeedModel:
 
 
 SEED_MODELS: dict[str, SeedModel] = {
-    "light_popiii": SeedModel("light_popiii", 1.0, 2.0),
-    "intermediate_cluster": SeedModel("intermediate_cluster", 3.0, 4.0),
-    "heavy_dcbh": SeedModel("heavy_dcbh", 4.0, 6.0),
-    "pbh": SeedModel("pbh", 2.0, 6.0),
+    "light_seeds": SeedModel("light_seeds", 1.0, 2.0),
+    "intermediate_seeds": SeedModel("intermediate_seeds", 3.0, 4.0),
+    "heavy_seeds": SeedModel("heavy_seeds", 4.0, 6.0),
+    "pbh_origin_hypothesis": SeedModel("pbh_origin_hypothesis", 2.0, 6.0),
 }
 
 # ------------------------------ Validation helpers ---------------------------------------------
