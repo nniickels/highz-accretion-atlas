@@ -39,11 +39,16 @@ V2_SOURCES = V1_SOURCES | frozenset({
 V3_SOURCES = V2_SOURCES | frozenset({
     "uhz1_xray_evidence_history", "scholtz25_jades_narrow_line_agn",
     "maiolino24_gnz11_agn",
+    "chisholm24_gn42437_nev", "tang25_high_ionization",
+    "mazzolari24_ceers_nlagn", "meow26_miri_agn",
+    "lyu24_smiles_miri_agn", "napolitano25_ghz9",
+    "zhang25_narrow_line_lrds", "chavezortiz26_ghz2",
+    "mascia26_compact_blue_ble",
 })
 DATASET_SPECS = {
     "v1": DatasetSpec("v1", "Original JADES BLAGN catalogue", V1_SOURCES, 23, 23, 23),
     "v2": DatasetSpec("v2", "Expanded comparable BLAGN catalogue", V2_SOURCES, 159, 152, 151),
-    "v3": DatasetSpec("v3", "JWST-identified heterogeneous accretion atlas", V3_SOURCES, 183, 174, 173),
+    "v3": DatasetSpec("v3", "JWST-identified heterogeneous accretion atlas", V3_SOURCES, 258, 249, 248),
 }
 
 

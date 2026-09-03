@@ -43,8 +43,8 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(len(FULL_TRACK_EPSILON_CASES), 4)
         self.assertEqual([item[0] for item in FULL_TRACK_MERGER_CASES], [1.0, 2.0])
         self.assertEqual(FULL_TRACK_CURVE_COUNT, 72)
-        self.assertEqual(GROWTH_TRACK_REDSHIFT_LIMITS, (10.0, 3.0))
-        self.assertEqual(GROWTH_TRACK_AGE_TICKS.tolist(), list(range(10, 2, -1)))
+        self.assertEqual(GROWTH_TRACK_REDSHIFT_LIMITS, (12.0, 3.0))
+        self.assertEqual(GROWTH_TRACK_AGE_TICKS.tolist(), list(range(12, 2, -1)))
         self.assertEqual(GROWTH_TRACK_COLORS["broad_line_agn"], "#7B2CBF")
         self.assertEqual(FULL_TRACK_STATUS_COLORS["narrow_line_agn_candidate"], "#176B87")
         self.assertEqual(FULL_TRACK_STATUS_COLORS["xray_agn_candidate"], "#777777")
@@ -71,6 +71,59 @@ class V3ScientificClaimTests(unittest.TestCase):
         gnz11 = v3[v3["source_key"].eq("maiolino24_gnz11_agn")].squeeze()
         self.assertEqual(gnz11["object_class"], "high_ionization_line_candidate")
         self.assertFalse(bool(gnz11["primary_mass_comparison_flag"]))
+
+    def test_heterogeneous_expansion_adds_only_new_unplottable_v3_objects(self) -> None:
+        measurements = pd.read_csv(
+            ROOT / "data/processed/v3/v3_accreting_measurements.csv", low_memory=False,
+        )
+        expected = {
+            "chisholm24_gn42437_nev": 1, "tang25_high_ionization": 3,
+            "mazzolari24_ceers_nlagn": 25, "meow26_miri_agn": 12,
+            "lyu24_smiles_miri_agn": 19, "napolitano25_ghz9": 1,
+            "zhang25_narrow_line_lrds": 5, "chavezortiz26_ghz2": 1,
+            "mascia26_compact_blue_ble": 8,
+        }
+        added = measurements[measurements["source_key"].isin(expected)]
+        self.assertEqual(added.groupby("source_key").size().to_dict(), expected)
+        self.assertEqual(len(added), 75)
+        self.assertTrue(added["log_mbh_msun_std"].isna().all())
+        self.assertFalse(added["growth_ranking_eligible_flag"].astype(bool).any())
+        self.assertNotIn("GS_3073", set(added["object_id"]))
+
+    def test_recent_addition_metadata_reaches_canonical_and_long_form_tables(self) -> None:
+        measurements = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_measurements.csv")
+        observables = pd.read_csv(ROOT / "data/processed/v3/v3_source_observables.csv")
+        rows = measurements.set_index("measurement_id")
+        self.assertEqual(
+            rows.loc["RUBIESEGS61496_kocevski25", "mstar_method"],
+            "CIGALE v2022.1 hybrid galaxy+AGN SED fit",
+        )
+        self.assertEqual(
+            rows.loc["CEERS1019_larson23", "mstar_method"],
+            "NIRCam+MIRI photometric SED fit",
+        )
+        self.assertAlmostEqual(rows.loc["ZS7_ubler24", "edd_ratio_std"], 0.14)
+        self.assertAlmostEqual(rows.loc["ZS7_ubler24", "log_lbol_err_plus_std"], 0.1)
+        names = set(observables.loc[
+            observables["measurement_id"].eq("ZS7_ubler24"), "observable_name"
+        ])
+        self.assertEqual(names, {"log_mbh", "hbeta_broad_fwhm", "log_lbol", "edd_ratio"})
+
+    def test_published_values_have_method_metadata(self) -> None:
+        measurements = pd.read_csv(
+            ROOT / "data/processed/v3/v3_accreting_measurements.csv",
+            low_memory=False,
+        )
+        for value_field, method_field in [
+            ("log_mstar_msun_std", "mstar_method"),
+            ("log_lbol_erg_s_std", "lbol_method"),
+            ("edd_ratio_std", "edd_ratio_method"),
+        ]:
+            missing = measurements[value_field].notna() & measurements[method_field].isna()
+            self.assertFalse(
+                missing.any(),
+                f"{method_field} missing for {missing.sum()} rows with {value_field}",
+            )
 
     def test_scholtz_full_table_and_admitted_redshift_cut(self) -> None:
         full_table_path = RAW / "scholtz25_jades_table_sample_full.tex"
@@ -123,10 +176,10 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 152)
         self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 145)
         self.assertEqual(len(alternates), 7)
-        self.assertEqual((len(followup), len(caveats), len(coverage)), (174, 16, 348))
+        self.assertEqual((len(followup), len(caveats), len(coverage)), (249, 25, 498))
         self.assertEqual(
             coverage.groupby("product_kind").size().to_dict(),
-            {"fedd_mass_map": 174, "seedredshift_mass_map": 174},
+            {"fedd_mass_map": 249, "seedredshift_mass_map": 249},
         )
 
     def test_jades_8083_identity_merge_retains_one_preferred_measurement(self) -> None:

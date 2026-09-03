@@ -9,6 +9,7 @@ import pandas as pd
 
 from src.models import cosmic_time_gyr
 from src.internal.compatibility.v7_admission import validate_v7_admission
+from src.internal.compatibility.v7_admission import validate_v7_observables
 from src.internal.compatibility.v7_catalogue import _aggregate_objects_with_preferred_evidence
 from src.internal.compatibility.v7_core_catalogue import _build_host_systems, _build_strata, _set_eligibility
 
@@ -56,10 +57,10 @@ SOURCE_METADATA = {
     },
     "ubler24_zs7_offset_blagn": {
         "survey": "GA-NIFS", "field": "COSMOS", "table": "Table 2",
-        "version": "MNRAS 531, 355 (2024); arXiv:2403.03192",
+        "version": "MNRAS 531, 355 (2024); arXiv:2312.03589v2",
         "url": "https://doi.org/10.1093/mnras/stae943", "doi": "10.1093/mnras/stae943",
-        "archive": "https://arxiv.org/e-print/2403.03192v2",
-        "sha": "6a261a454ff65a3e001c4e85fbd2028521ee2d7f2e3018db402778664b2587ad",
+        "archive": "https://arxiv.org/e-print/2312.03589v2",
+        "sha": "830ecf743046d0f848e83e0905972b0a8c16d86ddbb1a92c3e61816057642344",
         "selection": "JWST/NIRSpec IFU spatially offset broad-Hbeta Type-1 AGN in ZS7",
     },
     "maiolino24_gnz11_agn": {
@@ -155,11 +156,24 @@ def build_additions(raw: pd.DataFrame, template_columns: list[str]) -> pd.DataFr
             row["log_mstar_err_minus_std"] = record.get("log_mstar_err")
             row["log_mstar_err_plus"] = record.get("log_mstar_err")
             row["log_mstar_err_minus"] = record.get("log_mstar_err")
+            row["mstar_method"] = record.get("mstar_method", "")
+            row["mstar_interpretation_tag"] = "source_reported_host_stellar_mass"
         if pd.notna(record.get("log_lbol_erg_s")):
             row["log_lbol_erg_s_std"] = record["log_lbol_erg_s"]
+            row["log_lbol_err_plus_std"] = record.get("log_lbol_err_plus")
+            row["log_lbol_err_minus_std"] = record.get("log_lbol_err_minus")
+            row["log_lbol_err_plus"] = record.get("log_lbol_err_plus")
+            row["log_lbol_err_minus"] = record.get("log_lbol_err_minus")
+            row["lbol_method"] = record.get("lbol_method", "")
+            row["lbol_interpretation_tag"] = "source_reported_bolometric_luminosity"
+        if pd.notna(record.get("edd_ratio_reported")):
+            row["edd_ratio_std"] = record["edd_ratio_reported"]
+            row["edd_ratio_err_std"] = record.get("edd_ratio_err")
+            row["log_edd_ratio_published"] = np.log10(record["edd_ratio_reported"])
+            row["edd_ratio_method"] = record.get("edd_ratio_method", "source_reported")
         row["missing_mstar_flag"] = pd.isna(row["log_mstar_msun_std"])
         row["missing_lbol_flag"] = pd.isna(row["log_lbol_erg_s_std"])
-        row["missing_edd_ratio_flag"] = True
+        row["missing_edd_ratio_flag"] = pd.isna(row["edd_ratio_std"])
         row["missing_lensing_flag"] = not is_lensed
         rows.append(row)
     additions = pd.DataFrame(rows, columns=template_columns)
@@ -174,6 +188,57 @@ def build_additions(raw: pd.DataFrame, template_columns: list[str]) -> pd.DataFr
     additions = _set_eligibility(additions)
     validate_v7_admission(additions)
     return additions
+
+
+def build_addition_observables(raw: pd.DataFrame) -> pd.DataFrame:
+    """Preserve the compact additions' published values in long form."""
+    rows: list[dict[str, object]] = []
+
+    def add(record: dict[str, object], name: str, field: str, unit: str,
+            *, err_plus: str | None = None, err_minus: str | None = None) -> None:
+        value = record.get(field)
+        if pd.isna(value):
+            return
+        plus = record.get(err_plus) if err_plus else np.nan
+        minus = record.get(err_minus) if err_minus else np.nan
+        has_errors = pd.notna(plus) and pd.notna(minus)
+        uncertainty_kind = "not_published"
+        if has_errors:
+            uncertainty_kind = (
+                "published_symmetric_1sigma"
+                if np.isclose(float(plus), float(minus)) else "published_asymmetric"
+            )
+        rows.append({
+            "observable_id": f"{record['measurement_id']}__{name}",
+            "measurement_id": record["measurement_id"],
+            "object_id": record["object_id"],
+            "observable_name": name,
+            "value": value,
+            "err_plus": plus,
+            "err_minus": minus,
+            "censoring": "detection",
+            "unit": unit,
+            "uncertainty_kind": uncertainty_kind,
+            "source_location": SOURCE_METADATA[str(record["source_key"])]["table"],
+        })
+
+    for record in raw.to_dict("records"):
+        add(record, "log_mbh", "log_mbh_msun", "log10(Msun)",
+            err_plus="log_mbh_err_plus", err_minus="log_mbh_err_minus")
+        line = record.get("broad_line_species")
+        if pd.notna(line):
+            add(record, f"{str(line).lower()}_broad_fwhm", "broad_fwhm_km_s", "km/s",
+                err_plus="broad_fwhm_err_plus", err_minus="broad_fwhm_err_minus")
+        add(record, "log_mstar", "log_mstar_msun", "log10(Msun)",
+            err_plus="log_mstar_err", err_minus="log_mstar_err")
+        add(record, "log_lbol", "log_lbol_erg_s", "log10(erg/s)",
+            err_plus="log_lbol_err_plus", err_minus="log_lbol_err_minus")
+        add(record, "edd_ratio", "edd_ratio_reported", "dimensionless",
+            err_plus="edd_ratio_err", err_minus="edd_ratio_err")
+        add(record, "lensing_mu", "lensing_mu", "dimensionless")
+    result = pd.DataFrame(rows)
+    validate_v7_observables(result, raw["measurement_id"])
+    return result
 
 
 def append_additions(complete: dict[str, pd.DataFrame], raw: pd.DataFrame) -> dict[str, pd.DataFrame]:
@@ -193,6 +258,11 @@ def append_additions(complete: dict[str, pd.DataFrame], raw: pd.DataFrame) -> di
     new_aliases["alias_kind"] = "source_object_id"
     aliases = pd.concat([aliases, new_aliases], ignore_index=True)
     strata = _build_strata(measurements, objects, catalogue_release="complete-catalogue")
+    observables = complete["observables"].copy()
+    observable_additions = build_addition_observables(raw)
+    observable_additions.insert(0, "catalogue_release", "complete-catalogue")
+    observables = pd.concat([observables, observable_additions], ignore_index=True, sort=False)
+    validate_v7_observables(observables, measurements["measurement_id"])
     result = dict(complete)
-    result.update({"measurements": measurements, "objects": objects, "host_systems": hosts, "measurement_object_links": links, "object_host_links": object_host_links, "aliases": aliases, "strata": strata})
+    result.update({"measurements": measurements, "objects": objects, "host_systems": hosts, "measurement_object_links": links, "object_host_links": object_host_links, "aliases": aliases, "observables": observables, "strata": strata})
     return result

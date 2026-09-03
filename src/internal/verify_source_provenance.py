@@ -49,7 +49,7 @@ def main() -> None:
     )
     if args.require_clean:
         require_clean_worktree(ROOT, "source provenance")
-    print("Verified 20 provenance records covering all 16 final-v3 source families")
+    print(f"Verified {len(registry)} provenance records covering all {registry['source_key'].nunique()} final-v3 source families")
 
 
 if __name__ == "__main__":

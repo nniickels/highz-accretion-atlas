@@ -8,7 +8,7 @@ independent objects:
 
 - Bogdán et al. (2024), Nature Astronomy 8, 126--133,
   DOI `10.1038/s41550-023-02111-9`, arXiv `2305.15458v2`.
-- Zou et al. (2026), submitted, arXiv `2603.24893v1`.
+- Zou et al. (2026), accepted by ApJ, arXiv `2603.24893v2`.
 
 Goulding et al. (2023), ApJL 955 L24, DOI
 `10.3847/2041-8213/acf7c5`, arXiv `2308.02750v3`, supplies the companion

@@ -2,7 +2,7 @@
 
 Versions identify data additions, not code milestones or public releases.
 The canonical source-family review cutoff is 2026-09-03; see
-[`../current/literature-scope.md`](../current/literature-scope.md). "Final v3"
+[`../reference/literature-scope.md`](../reference/literature-scope.md). "Final v3"
 means final within that declared admission scope, not an evergreen exhaustive
 census of the literature.
 
@@ -27,7 +27,7 @@ Adds UHZ1's JWST/Chandra X-ray evidence history, the audited Scholtz JADES
 narrow-line candidates, and GN-z11's high-ionization-line accretion evidence.
 Added code handles distinct object
 classes, evidence states, mass-comparability groups, missing/conditional masses,
-and explicit no-inference cases. v3 has 183 measurements, 174 objects, and 173
+and explicit no-inference cases. v3 has 258 measurements, 249 objects, and 248
 hosts; 153 objects support numerical growth inference.
 
 ## Invariants

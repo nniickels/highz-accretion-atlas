@@ -72,6 +72,7 @@ COLORS = {
     "high_ionization_line_candidate": "#C45A23",
     "narrow_line_agn_candidate": "#6B5CA5",
     "xray_agn_candidate": "#777777",
+    "photometric_agn_candidate": "#2A9D8F",
 }
 GROWTH_TRACK_COLORS = {
     **COLORS,
@@ -86,6 +87,7 @@ LABELS = {
     "high_ionization_line_candidate": "High-ionization-line candidates",
     "narrow_line_agn_candidate": "Narrow-line candidates",
     "xray_agn_candidate": "X-ray candidates",
+    "photometric_agn_candidate": "Photometric/SED candidates",
 }
 SEED_LABELS = {
     "light_seeds": "Light seeds\n($10^1$–$10^2\\,M_\\odot$)",
@@ -120,8 +122,8 @@ FULL_TRACK_CURVE_COUNT = (
     * len(FULL_TRACK_EPSILON_CASES)
     * len(FULL_TRACK_MERGER_CASES)
 )
-GROWTH_TRACK_REDSHIFT_LIMITS = (10.0, 3.0)
-GROWTH_TRACK_AGE_TICKS = np.arange(10.0, 2.0, -1.0)
+GROWTH_TRACK_REDSHIFT_LIMITS = (12.0, 3.0)
+GROWTH_TRACK_AGE_TICKS = np.arange(12.0, 2.0, -1.0)
 
 
 def boolish(value: object) -> bool:

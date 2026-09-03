@@ -1,7 +1,9 @@
-# Paper package
+# Manuscript draft
 
-`highz_accretion_atlas_v3.tex` is the final manuscript source. It references
-the canonical v3 figures in `results/v3/figures/`.
+The `paper/` folder contains the current working manuscript draft and is kept
+for reference while the catalogue and analysis continue to evolve.
+`highz_accretion_atlas_v3.tex` is the editable LaTeX source. It references the
+canonical v3 figures in `results/v3/figures/`.
 
 ```bash
 cd paper
@@ -15,5 +17,5 @@ Tectonic is an equivalent local option when `pdflatex` is unavailable:
 tectonic --keep-logs highz_accretion_atlas_v3.tex
 ```
 
-The final compiled manuscript is `highz_accretion_atlas_v3.pdf`. LaTeX
-intermediate files are ignored.
+The compiled draft is `highz_accretion_atlas_v3.pdf`. LaTeX intermediate files
+are ignored.

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+
 import numpy as np
 import pandas as pd
 
@@ -16,7 +18,7 @@ HOST_SYSTEM_ID = "HZS-UHZ1"
 EXPECTED_ARCHIVES = {
     "arXiv:2305.15458v2": "d1446d873c81c0ee83f7cc1c0648d85f8a93b0967eb5d14ef7b46d0564ab2e6c",
     "arXiv:2308.02750v3": "73628a4c4632871e6b3888b61f2e6cedf28ead1d1af7f45a20cac20f8988b729",
-    "arXiv:2603.24893v1": "2690ce8d6345a097ebc642232205d0337eabe76f582c661db815bff4912f77d4",
+    "arXiv:2603.24893v2": "04397db6d5e88983e650542bc6032735738edeb63c1310df15a215dcc68ed9ab",
 }
 
 
@@ -45,6 +47,16 @@ def validate_uhz1_sources(history: pd.DataFrame, miri: pd.DataFrame) -> tuple[pd
     ]
     clean = history.copy()
     clean[numeric] = clean[numeric].apply(pd.to_numeric, errors="raise")
+    for item in clean.itertuples(index=False):
+        versions = re.findall(r"arXiv:\d{4}\.\d{5}v\d+", item.source_paper_version)
+        if len(versions) != 1 or versions[0] not in EXPECTED_ARCHIVES:
+            raise ValueError(f"Unexpected UHZ1 source version: {item.source_paper_version}")
+        version = versions[0]
+        expected_url = f"https://arxiv.org/e-print/{version.removeprefix('arXiv:')}"
+        if item.source_archive_url != expected_url:
+            raise ValueError(f"UHZ1 archive URL does not match {version}")
+        if item.source_archive_sha256 != EXPECTED_ARCHIVES[version]:
+            raise ValueError(f"UHZ1 archive hash does not match {version}")
     if not np.allclose(clean["ra_deg"], 3.567066666666667) or not np.allclose(
         clean["dec_deg"], -30.377856944444446
     ):

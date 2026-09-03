@@ -26,8 +26,8 @@ class SourceProvenanceTests(unittest.TestCase):
         cls.registry = load_source_provenance_registry(REGISTRY_PATH)
 
     def test_registry_contract_and_current_catalogue_coverage(self) -> None:
-        self.assertEqual(len(self.registry), 20)
-        self.assertEqual(self.registry["source_key"].nunique(), 16)
+        self.assertEqual(len(self.registry), 29)
+        self.assertEqual(self.registry["source_key"].nunique(), 25)
         catalogue = pd.read_csv(CATALOGUE_PATH, low_memory=False)
         validate_catalogue_source_coverage(self.registry, catalogue)
 
@@ -38,14 +38,31 @@ class SourceProvenanceTests(unittest.TestCase):
         self.assertEqual(row["catalogue_extraction_date"], "not_recorded_in_frozen_v1_source_layer")
         self.assertEqual(row["catalogue_value_policy"], "supplement_only_frozen_rows_unchanged")
 
+    def test_zs7_is_pinned_to_the_matching_source_archive(self) -> None:
+        row = self.registry.set_index("provenance_id").loc["ubler24_primary"]
+        self.assertIn("arXiv:2312.03589v2", row["source_paper_version"])
+        self.assertEqual(row["source_archive_url"], "https://arxiv.org/e-print/2312.03589v2")
+        self.assertEqual(
+            row["source_archive_sha256"],
+            "830ecf743046d0f848e83e0905972b0a8c16d86ddbb1a92c3e61816057642344",
+        )
+
     def test_preprints_have_review_schedule(self) -> None:
         preprints = self.registry[self.registry["publication_status"] == "preprint"]
-        self.assertEqual(set(preprints["provenance_id"]), {"davis26_primary", "hutchison25_coordinates", "zou26_reanalysis", "skyfire26_primary"})
+        self.assertEqual(set(preprints["provenance_id"]), {
+            "davis26_primary", "hutchison25_coordinates", "skyfire26_primary",
+            "meow26_primary", "chavezortiz26_primary", "mascia26_primary",
+        })
         expected_due = {
             "davis26_primary": "2026-11-27", "hutchison25_coordinates": "2026-11-27",
-            "zou26_reanalysis": "2026-11-27", "skyfire26_primary": "2026-12-03",
+            "skyfire26_primary": "2026-12-03",
+            "meow26_primary": "2026-12-03", "chavezortiz26_primary": "2026-12-03",
+            "mascia26_primary": "2026-12-03",
         }
         self.assertEqual(preprints.set_index("provenance_id")["status_review_due"].to_dict(), expected_due)
+        zou = self.registry.set_index("provenance_id").loc["zou26_reanalysis"]
+        self.assertEqual(zou["publication_status"], "accepted")
+        self.assertEqual(zou["source_paper_version"], "arXiv:2603.24893v2 accepted by ApJ")
 
     def test_dataset_and_supporting_source_roles(self) -> None:
         rows = self.registry.set_index("provenance_id")

@@ -51,12 +51,14 @@ COLORS = {
     "high_ionization_line_candidate": "#C45A23",
     "narrow_line_agn_candidate": "#6B5CA5",
     "xray_agn_candidate": "#8A8A8A",
+    "photometric_agn_candidate": "#2A9D8F",
 }
 LABELS = {
     "broad_line_agn": "Broad-line AGN",
     "high_ionization_line_candidate": "High-ionization-line candidates",
     "narrow_line_agn_candidate": "Narrow-line candidates",
     "xray_agn_candidate": "X-ray candidates",
+    "photometric_agn_candidate": "Photometric/SED candidates",
 }
 
 

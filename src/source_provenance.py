@@ -17,10 +17,11 @@ REQUIRED_COLUMNS = (
     "status_review_due", "data_use", "catalogue_value_policy", "notes",
 )
 SOURCE_ROLES = {"primary_measurement", "coordinate_source", "context_source", "reanalysis"}
-PUBLICATION_STATUSES = {"peer_reviewed", "preprint", "data_release"}
-EVIDENCE_STATUSES = {"secure", "candidate", "disputed", "mixed", "not_applicable"}
+PUBLICATION_STATUSES = {"peer_reviewed", "accepted", "preprint", "data_release"}
+EVIDENCE_STATUSES = {"secure", "probable", "candidate", "disputed", "mixed", "not_applicable"}
 CATALOGUE_VALUE_POLICIES = {
     "frozen_catalogue_values_unchanged", "supplement_only_frozen_rows_unchanged",
+    "admitted_catalogue_values",
 }
 DATE_SENTINELS = {"not_recorded_in_frozen_v1_source_layer", "not_applicable"}
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")

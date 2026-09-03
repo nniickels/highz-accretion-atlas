@@ -1,7 +1,7 @@
-measurement_id,object_id,ra_deg,dec_deg,redshift,log_mbh_msun,log_mbh_err_plus,log_mbh_err_minus,log_mstar_msun,log_mstar_err,broad_line_species,broad_fwhm_km_s,source_key
-RUBIESEGS61496_kocevski25,RUBIES-EGS-61496,214.972445,52.962196,5.079,7.04,0.17,0.17,8.53,0.33,Halpha,1800,kocevski25_lrd_blagn
-RUBIESEGS55604_kocevski25,RUBIES-EGS-55604,214.983037,52.956006,6.986,9.31,0.10,0.10,10.10,0.22,Hbeta,4860,kocevski25_lrd_blagn
-RUBIESEGS927271_kocevski25,RUBIES-EGS-927271,215.078257,52.948504,6.786,6.97,0.18,0.18,8.85,0.37,Halpha,1410,kocevski25_lrd_blagn
-RUBIESUDS50716_kocevski25,RUBIES-UDS-50716,34.313132,-5.226765,6.170,7.52,0.11,0.11,8.35,0.26,Halpha,2280,kocevski25_lrd_blagn
-RUBIESUDS59971_kocevski25,RUBIES-UDS-59971,34.260537,-5.209120,5.365,6.83,0.20,0.20,8.31,0.27,Halpha,1540,kocevski25_lrd_blagn
-RUBIESUDS63166_kocevski25,RUBIES-UDS-63166,34.312143,-5.202546,6.518,7.82,0.17,0.17,8.24,0.41,Halpha,2200,kocevski25_lrd_blagn
+measurement_id,object_id,ra_deg,dec_deg,redshift,log_mbh_msun,log_mbh_err_plus,log_mbh_err_minus,log_mstar_msun,log_mstar_err,broad_line_species,broad_fwhm_km_s,source_key,mstar_method
+RUBIESEGS61496_kocevski25,RUBIES-EGS-61496,214.972445,52.962196,5.079,7.04,0.17,0.17,8.53,0.33,Halpha,1800,kocevski25_lrd_blagn,CIGALE v2022.1 hybrid galaxy+AGN SED fit
+RUBIESEGS55604_kocevski25,RUBIES-EGS-55604,214.983037,52.956006,6.986,9.31,0.1,0.1,10.1,0.22,Hbeta,4860,kocevski25_lrd_blagn,CIGALE v2022.1 hybrid galaxy+AGN SED fit
+RUBIESEGS927271_kocevski25,RUBIES-EGS-927271,215.078257,52.948504,6.786,6.97,0.18,0.18,8.85,0.37,Halpha,1410,kocevski25_lrd_blagn,CIGALE v2022.1 hybrid galaxy+AGN SED fit
+RUBIESUDS50716_kocevski25,RUBIES-UDS-50716,34.313132,-5.226765,6.17,7.52,0.11,0.11,8.35,0.26,Halpha,2280,kocevski25_lrd_blagn,CIGALE v2022.1 hybrid galaxy+AGN SED fit
+RUBIESUDS59971_kocevski25,RUBIES-UDS-59971,34.260537,-5.20912,5.365,6.83,0.2,0.2,8.31,0.27,Halpha,1540,kocevski25_lrd_blagn,CIGALE v2022.1 hybrid galaxy+AGN SED fit
+RUBIESUDS63166_kocevski25,RUBIES-UDS-63166,34.312143,-5.202546,6.518,7.82,0.17,0.17,8.24,0.41,Halpha,2200,kocevski25_lrd_blagn,CIGALE v2022.1 hybrid galaxy+AGN SED fit

@@ -14,7 +14,7 @@ mkdir -p /tmp/highz-atlas-notebooks
 
 The notebooks call tested Python implementation under `src/internal/`. See
 [`versioning.md`](versioning.md) and
-[`../current/literature-scope.md`](../current/literature-scope.md).
+[`../reference/literature-scope.md`](../reference/literature-scope.md).
 
 The package metadata describes the Python workflow code used inside this source
 repository, including the internal compatibility builders required for exact

@@ -16,6 +16,20 @@ Admission validation requires:
 7. exact measurement/object/host cardinalities and nested v1 < v2 < v3 membership;
 8. source-caveat and exclusion coverage in generated results.
 
-Canonical output fields are documented in
-[`../current/v3-catalogue-schema.md`](../current/v3-catalogue-schema.md).
 Assembly inputs are described in [`../../data/assembly/README.md`](../../data/assembly/README.md).
+
+## Canonical object aggregation
+
+The measurement schema is shared across v1, v2, and v3. The object table adds:
+
+- `all_measurement_evidence_statuses`
+- `all_measurement_evidence_status_bases`
+- `object_evidence_aggregation_policy`
+
+Exactly one preferred measurement per physical object controls the object-level
+`evidence_status` and `evidence_status_basis`. The history columns retain every
+distinct measurement-level value. Eligibility is recomputed from the preferred
+status and the numeric, method, identity, and lensing contracts above.
+
+Current row counts are release properties recorded in the dataset manifests,
+rather than part of this stable schema.

@@ -16,6 +16,7 @@ from src.internal.compatibility.v7_core_catalogue import build_v7_base_catalogue
 from src.internal.compatibility.v7_scholtz_catalogue import build_v7_scholtz_catalogues
 from src.internal.compatibility.v7_uhz1_catalogue import build_v7_uhz1_catalogues
 from src.internal.canonical_mass_additions import append_additions
+from src.internal.heterogeneous_v3_additions import append_heterogeneous_v3
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -35,6 +36,7 @@ INPUTS = {
     "j0647_addition": ROOT / "data/raw/killi24_j0647_lrd.csv",
     "zs7_addition": ROOT / "data/raw/ubler24_zs7_blagn.csv",
     "gnz11_addition": ROOT / "data/raw/maiolino24_gnz11_agn.csv",
+    "heterogeneous_v3_expansion": ROOT / "data/raw/v3_jwst_heterogeneous_expansion.csv",
 }
 FULL_TABLE = ROOT / "data/raw/scholtz25_jades_table_sample_full.tex"
 
@@ -88,4 +90,5 @@ def build_outputs() -> dict[str, pd.DataFrame]:
     ]
     additions = pd.concat([_read(name) for name in addition_names], ignore_index=True, sort=False)
     final = append_additions(final, additions)
+    final = append_heterogeneous_v3(final, _read("heterogeneous_v3_expansion"))
     return {name: _normalize_historical_labels(frame) for name, frame in final.items()}

@@ -21,9 +21,9 @@ catalogue value is changed. The registry also records the Shen catalogue DOI
 `10.26093/cds/vizier.18730035` independently of the paper DOI.
 
 As verified on 2026-09-03, Davis `2602.23310v1`, Hutchison `2512.12509v1`,
-Zou `2603.24893v1`, and Skyfire `2609.00112v1` remain preprints in their official
-arXiv records. The first three require another status review by 2026-11-27;
-Skyfire is due by 2026-12-03. The Davis objects'
+and Skyfire `2609.00112v1` remain preprints in their official arXiv records.
+Davis and Hutchison require another status review by 2026-11-27; Skyfire is
+due by 2026-12-03. Zou `2603.24893v2` is accepted by ApJ. The Davis objects'
 photometric-EELG parent selection remains context rather than evidence against
 the later broad-line detections; the UHZ1 reanalysis retains `disputed`
 evidence explicitly.
@@ -35,7 +35,7 @@ evidence explicitly.
 - **Object selection used here:** Type 1 (broad-line) AGN from JADES spectroscopy
 - **Values extracted:** z, MBH, Lbol, lambda_Edd, Mstar
 - **Extraction location:** Table 2 (AGN properties: coordinates, z, MBH, Lbol, lambda_Edd), Table 5 (host properties: Mstar)
-- **Method notes:** MBH from single-epoch virial estimators: Reines & Volonteri (2015) H-alpha for the main sample, with a source-stated 0.3 dex calibration uncertainty; Vestergaard & Peterson (2006) H-beta for the four high-redshift tentative candidates, for which this source does not state a numeric calibration systematic. Host Mstar follows the paper's adopted spectral-decomposition choice: BEAGLE by default, with CIGALE used when BEAGLE is unavailable or the host is significantly extended. This restores the paper-adopted CIGALE values for GS-200679, GS-20030333, and GS-164055 in the active v1 sample. The reviewed method mapping is maintained separately in `data/mass_method_registry.csv` and does not alter frozen catalogue values.
+- **Method notes:** MBH from single-epoch virial estimators: Reines & Volonteri (2015) H-alpha for the main sample, with a source-stated 0.3 dex calibration uncertainty; Vestergaard & Peterson (2006) H-beta for the four high-redshift tentative candidates, for which this source does not state a numeric calibration systematic. Eddington ratios are source-derived from the same bolometric luminosities and virial masses. Host Mstar follows the paper's adopted spectral-decomposition choice: BEAGLE by default, with CIGALE used when BEAGLE is unavailable or the host is significantly extended. This restores the paper-adopted CIGALE values for GS-200679, GS-20030333, and GS-164055 in the active v1 sample. The reviewed method mapping is maintained separately in `data/mass_method_registry.csv` and does not alter frozen catalogue values.
 - **Detection evidence:** `GS-20057765`, `GS-20030333`, `GS-164055`, and `GN-4685` are the paper's tentative broad-H-beta emitters. Their individual broad-H-beta detections are not formally significant; the four-object stack supports the broad component. The catalogue records this as `stack_supported_tentative_hbeta` and does not treat these rows as individually confirmed detections.
 - **Source consistency warning:** For GN-11836, Table 2 reports `log_mbh=6.06`, `log_lbol=44.11`, and `lambda_Edd=0.11`. The mass and luminosity imply `lambda_Edd` approximately 0.89, a -0.91 dex residual for the tabulated ratio. The catalogue preserves all three published values verbatim, flags the inconsistency structurally, and requires source clarification before choosing which value to revise.
 - **Columns standardized beyond paper tables:** `redshift_kind=spec` (NIRSpec spectroscopy), method fields encode the paper methodology (`single-epoch-virial-halpha` or `single-epoch-virial-hbeta`, BEAGLE or CIGALE host decomposition, Balmer-line bolometric correction), `agn_contam_flag=1` for this Type-1 AGN sample, and `lensing_mu` left blank because no magnification correction is reported for these sources.
@@ -99,6 +99,8 @@ Detailed extraction and caveat notes are in
   than 5, narrow forbidden lines, and rejection of outflow-only explanations;
   all final rows have Delta AIC greater than 20. MBH uses the Greene & Ho
   (2005) Halpha estimator and extinction-corrected broad-Halpha luminosity.
+  Eddington ratios are source values calculated as best-estimate bolometric
+  luminosity divided by the Eddington luminosity of that virial MBH.
   The source gives no numeric virial systematic, so none is inferred. Six host
   masses and four upper limits are preserved distinctly. The paper's typical
   `0.2 dex` host-mass systematic from its fixed SED-fitting prior is recorded
@@ -149,7 +151,7 @@ Detailed extraction and caveat notes are in
   canonical v2 and v3 products; its eligible probable row participates in the
   shared science and figures. See
   `docs/source-notes/ren25-alpine-cristal-jwst-extraction-notes.md` and
-  `docs/current/v3-catalogue-schema.md`.
+  `docs/reference/admission-schema.md`.
 
 ## v2 canonical-mass additions reviewed 2026-09-03
 
@@ -195,7 +197,7 @@ a future alternate-measurement/reanalysis source.
   interpretation and the Zou et al. (2026) full-data reanalysis as one physical
   object. Their source-archive SHA-256 values are
   `d1446d873c81c0ee83f7cc1c0648d85f8a93b0967eb5d14ef7b46d0564ab2e6c`
-  and `2690ce8d6345a097ebc642232205d0337eabe76f582c661db815bff4912f77d4`.
+  and `04397db6d5e88983e650542bc6032735738edeb63c1310df15a215dcc68ed9ab`.
   The companion Goulding et al. (2023) spectroscopy paper (ApJL 955 L24, DOI
   `10.3847/2041-8213/acf7c5`, arXiv `2308.02750v3`) archive hashes to
   `73628a4c4632871e6b3888b61f2e6cedf28ead1d1af7f45a20cac20f8988b729`.
@@ -205,22 +207,23 @@ a future alternate-measurement/reanalysis source.
 - The published `10^7--10^8 Msun` Eddington-assumed range is not converted to a
   canonical point mass. Both rows remain growth-ineligible. See
   `docs/source-notes/uhz1-xray-evidence-history-extraction-notes.md` and
-  `docs/current/v3-catalogue-schema.md`.
+  `docs/reference/admission-schema.md`.
 
 ## v3 source: Scholtz JADES narrow-line candidates
 
 - **[source_key: scholtz25_jades_narrow_line_agn] Scholtz et al. (2025),
-  A&A 697, A175:** all 20 entries at `z >= 4` from the paper's 41-row source
+  A&A 697, A175:** all 21 entries at `z >= 4` from the paper's 41-row source
   table. The prose reports 42 candidates; that unresolved discrepancy is
   retained as provenance rather than filled by inference.
 - Three S2-VO87 rows retain the paper's tentative asterisk and seven detected
   Ne IV, Ne V, or N V fluxes are stored as observables. JADES DR3 supplies
-  target coordinates.
+  target coordinates. Host masses use BEAGLE fits to the full corrected PRISM
+  spectra, as documented by the source.
 - JADES 8083 is linked to the existing broad-line physical object; the earlier
   numeric-mass measurement remains preferred. No new row has a numeric BH
   mass or enters growth ranking. See
   `docs/source-notes/scholtz25-jades-narrow-line-extraction-notes.md` and
-  `docs/current/v3-catalogue-schema.md`.
+  `docs/reference/admission-schema.md`.
 
 ## v3 Scholtz provenance correction
 
@@ -232,4 +235,4 @@ a future alternate-measurement/reanalysis source.
   so the combined v3 object-class view contains 20 narrow-line candidate
   objects contributed by this family.
 - The current dataset counts and evidence aggregation are documented in
-  `docs/current/v3-catalogue-schema.md` and `docs/current/v3-notes.md`.
+  `docs/reference/admission-schema.md` and `releases/v3-audit.md`.

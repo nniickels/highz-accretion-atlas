@@ -1,2 +1,2 @@
-measurement_id,object_id,ra_deg,dec_deg,redshift,log_mbh_msun,log_mbh_err_plus,log_mbh_err_minus,log_mstar_msun,broad_line_species,source_key
-CEERS1019_larson23,CEERS-1019,215.03539,52.89066,8.679,6.95,0.37,0.37,9.5,Hbeta,larson23_ceers1019
+measurement_id,object_id,ra_deg,dec_deg,redshift,log_mbh_msun,log_mbh_err_plus,log_mbh_err_minus,log_mstar_msun,broad_line_species,source_key,mstar_method,broad_fwhm_km_s,edd_ratio_reported,edd_ratio_err,edd_ratio_method
+CEERS1019_larson23,CEERS-1019,215.03539,52.89066,8.679,6.95,0.37,0.37,9.5,Hbeta,larson23_ceers1019,NIRCam+MIRI photometric SED fit,1200,1.2,0.5,source_derived_from_same_lbol_and_virial_mbh

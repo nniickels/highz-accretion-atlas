@@ -9,3 +9,6 @@ Former software-release manifests are intentionally excluded from the public
 tree. Their history remains in Git and in the append-only contribution ledger.
 Current contracts are defined in `docs/guides/versioning.md` and checked by
 `src.internal.verify_versions`.
+
+[`v3-audit.md`](v3-audit.md) records the manuscript claims, source-citation
+coverage, and release-specific evidence decisions checked for v3.

@@ -62,7 +62,7 @@ Main-text products:
 
 Appendix or supplement products:
 
-- full catalogue schema — `docs/current/v3-catalogue-schema.md`
+- full catalogue schema — `docs/reference/admission-schema.md`
 - full source registry — `data/source_family_registry.csv`, `data/source_provenance_registry.csv`, and `data/mass_method_registry.csv`
 - full processed catalogue tables — `data/processed/v3/` with identity products in `data/crossmatch/v3/`
 - full result tables — `results/v3/tables/`
@@ -74,7 +74,7 @@ Appendix or supplement products:
 - sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
 
-The canonical v3 gallery covers all 174 objects with one $f_{Edd}$-mass map in
+The canonical v3 gallery covers all 249 objects with one $f_{Edd}$-mass map in
 `results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
 `results/v3/parameter_maps/seedredshift_mass_maps/`. The 153
 growth-eligible objects receive numerical panels; the other 21 receive explicit
@@ -104,7 +104,7 @@ propagation, comparison policy, and visual grammar.
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES BLAGN catalogue | 23 | 23 | 23 |
 | v2 | v1 plus comparable JWST BLAGN sources with canonical masses | 159 | 152 | 151 |
-| v3 | v2 plus heterogeneous JWST-identified candidates | 183 | 174 | 173 |
+| v3 | v2 plus heterogeneous JWST-identified candidates | 258 | 249 | 248 |
 
 For each version, canonical catalogues are under
 `data/processed/<version>/`, identity products are under
@@ -149,18 +149,17 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 
 Full dataset generation commands are listed in the workflow above. The source
 review cutoff and explicit admission boundary are documented in
-`docs/current/literature-scope.md`; versioning details are in
+`docs/reference/literature-scope.md`; versioning details are in
 `docs/guides/versioning.md`.
 
 ## Repository map
 
-Folder-level guides keep current products distinct from the retained project
-record and obsolete material recoverable through Git history:
+Folder-level guides keep the data, results, documentation, releases, and code
+easy to navigate:
 
 - [`data/`](data/README.md): raw sources, processed catalogues, and identity products
 - [`results/`](results/README.md): science tables, figures, galleries, and inventory
-- [`docs/publication/`](docs/publication/README.md): curated paper-ready and supplement-ready products
-- [`docs/`](docs/README.md): current contracts, methods, source notes, and historical documentation
+- [`docs/`](docs/README.md): contracts, methods, guides, and source notes
 - [`releases/`](releases/README.md): exact dataset manifests and hashes
 - [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
 

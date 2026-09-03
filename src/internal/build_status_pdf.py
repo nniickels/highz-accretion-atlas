@@ -105,13 +105,13 @@ def build() -> None:
             "v1 is the complete analysis of the original 23-object JADES broad-line AGN "
             "catalogue; v2 applies the same analysis to 152 comparable broad-line AGN; "
             "and v3 is the final JWST-identified heterogeneous atlas within the "
-            "3 September 2026 source-family review cutoff. It contains 183 measurements, "
-            "174 physical objects, and 173 host systems."
+            "3 September 2026 source-family review cutoff. It contains 258 measurements, "
+            "249 physical objects, and 248 host systems."
         ),
         p(
             "All three datasets use the same corrected identity rules, cosmology, growth "
             "model, uncertainty propagation, comparison policy, and visual grammar. In "
-            "v3, 153 objects support numerical growth inference and 21 remain visible as "
+            "v3, 153 objects support numerical growth inference and 96 remain visible as "
             "explicit no-inference cases. Results are diagnostic comparisons under stated "
             "assumptions, not evidence for a unique seed or accretion history."
         ),
@@ -121,7 +121,7 @@ def build() -> None:
         ["Version", "Scope", "Measurements", "Objects", "Hosts", "Numeric"],
         ["v1", "Original JADES BLAGN", "23", "23", "23", "23"],
         ["v2", "Expanded comparable BLAGN", "159", "152", "151", "152"],
-        ["v3", "JWST-identified atlas", "183", "174", "173", "153"],
+        ["v3", "JWST-identified atlas", "258", "249", "248", "153"],
     ], colWidths=[0.55*inch, 2.55*inch, 0.82*inch, 0.65*inch, 0.58*inch, 0.62*inch])
     table.setStyle(TableStyle([
         ("BACKGROUND", (0,0), (-1,0), BLUE),
@@ -202,8 +202,8 @@ def build() -> None:
         "and accretion assumptions.",
     ))
     story.extend([PageBreak(), h("From catalogue scale to individual objects"), p(
-        "Each of the 174 v3 objects has an f_Edd-mass sheet and a seed-redshift-mass panel. The "
-        "153 supported objects receive numerical products; the remaining 21 receive status "
+        "Each of the 249 v3 objects has an f_Edd-mass sheet and a seed-redshift-mass panel. The "
+        "153 supported objects receive numerical products; the remaining 96 receive status "
         "panels explaining why no inference is made."
     )])
     story.extend(_figure(
@@ -215,7 +215,7 @@ def build() -> None:
         "Seven eligible alternate measurements are compared with preferred rows. Source "
         "keys, table locations, publication versions, archive records, uncertainties, identity "
         "decisions, and caveats remain available beside derived quantities. The follow-up "
-        "matrix retains all 174 objects (153 ranked; 21 explicitly unranked), and the source "
+        "matrix retains all 249 objects (153 ranked; 96 explicitly unranked), and the source "
         "caveat table covers all 16 admitted families."
     )])
     story.extend(_figure(
@@ -258,7 +258,7 @@ def build() -> None:
         "The canonical source-family review cutoff is 3 September 2026. v3 is final within its "
         "declared admitted-source scope, not an evergreen exhaustive census. Relevant sources "
         "that require new adapters or comparability policy are listed in "
-        "<font name='Courier'>docs/current/literature-scope.md</font> and will create a new "
+        "<font name='Courier'>docs/reference/literature-scope.md</font> and will create a new "
         "dataset version rather than mutate v3."
     ), h("Current status"), p(
         "The migration is structurally complete: v1/v2/v3 are the public datasets; canonical "

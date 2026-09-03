@@ -72,9 +72,9 @@ v3-dataset-catalogue,DC873321_oii3727_3730,DC873321_ren25,DC_873321,oii3727_3730
 v3-dataset-catalogue,UHZ1_bogdan24__hard_xray_significance_low,UHZ1_bogdan24,,hard_xray_significance_low,4.2,,,detection,sigma,not_published,"Nature Astronomy 8, 126-133 (2024); arXiv:2305.15458v2"
 v3-dataset-catalogue,UHZ1_bogdan24__hard_xray_significance_high,UHZ1_bogdan24,,hard_xray_significance_high,4.4,,,detection,sigma,not_published,"Nature Astronomy 8, 126-133 (2024); arXiv:2305.15458v2"
 v3-dataset-catalogue,UHZ1_bogdan24__lensing_mu,UHZ1_bogdan24,,lensing_mu,3.81,0.41,0.56,detection,dimensionless,published_asymmetric,"Nature Astronomy 8, 126-133 (2024); arXiv:2305.15458v2"
-v3-dataset-catalogue,UHZ1_zou26__hard_xray_significance_low,UHZ1_zou26,,hard_xray_significance_low,2.3,,,detection,sigma,not_published,"Zou et al. (2026), submitted; arXiv:2603.24893v1"
-v3-dataset-catalogue,UHZ1_zou26__hard_xray_significance_high,UHZ1_zou26,,hard_xray_significance_high,2.9,,,detection,sigma,not_published,"Zou et al. (2026), submitted; arXiv:2603.24893v1"
-v3-dataset-catalogue,UHZ1_zou26__lensing_mu,UHZ1_zou26,,lensing_mu,3.71,0.23,0.23,detection,dimensionless,published_asymmetric,"Zou et al. (2026), submitted; arXiv:2603.24893v1"
+v3-dataset-catalogue,UHZ1_zou26__hard_xray_significance_low,UHZ1_zou26,,hard_xray_significance_low,2.3,,,detection,sigma,not_published,"Zou et al. (2026), accepted by ApJ; arXiv:2603.24893v2"
+v3-dataset-catalogue,UHZ1_zou26__hard_xray_significance_high,UHZ1_zou26,,hard_xray_significance_high,2.9,,,detection,sigma,not_published,"Zou et al. (2026), accepted by ApJ; arXiv:2603.24893v2"
+v3-dataset-catalogue,UHZ1_zou26__lensing_mu,UHZ1_zou26,,lensing_mu,3.71,0.23,0.23,detection,dimensionless,published_asymmetric,"Zou et al. (2026), accepted by ApJ; arXiv:2603.24893v2"
 v3-dataset-catalogue,UHZ1_bogdan24__hard_xray_total_counts,UHZ1_bogdan24,,hard_xray_total_counts,42.0,,,detection,count,not_published,Bogdan et al. (2024) source text
 v3-dataset-catalogue,UHZ1_bogdan24__hard_xray_net_counts,UHZ1_bogdan24,,hard_xray_net_counts,20.6,,,detection,count,not_published,Bogdan et al. (2024) source text
 v3-dataset-catalogue,UHZ1_bogdan24__log_lx_intrinsic_2_10kev,UHZ1_bogdan24,,log_lx_intrinsic_2_10kev,44.27875360095283,,,detection,log10(erg/s),not_published,Bogdan et al. (2024) source text
@@ -182,3 +182,235 @@ v3-dataset-catalogue,scholtz25_00099671__log_mstar,scholtz25_00099671,,log_mstar
 v3-dataset-catalogue,scholtz25_00099671__sfr,scholtz25_00099671,,sfr,1.2,0.07,0.06,detection,Msun/yr,published_asymmetric,Scholtz et al. (2025) Table 1
 v3-dataset-catalogue,scholtz25_00099671__muv,scholtz25_00099671,,muv,-18.0,,,detection,AB mag,not_published,Scholtz et al. (2025) Table 1
 v3-dataset-catalogue,scholtz25_00099671__log_lbol,scholtz25_00099671,,log_lbol,42.9,,,detection,log10(erg/s),not_published,Scholtz et al. (2025) Table 1
+v3-dataset-catalogue,UNCOVER4286_greene24__log_mbh,UNCOVER4286_greene24,UNCOVER-4286,log_mbh,8.0,0.3,0.3,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER4286_greene24__lensing_mu,UNCOVER4286_greene24,UNCOVER-4286,lensing_mu,1.62,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER13123_greene24__log_mbh,UNCOVER13123_greene24,A2744-QSO1,log_mbh,7.3,0.2,0.2,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER13123_greene24__lensing_mu,UNCOVER13123_greene24,A2744-QSO1,lensing_mu,6.15,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER13821_greene24__log_mbh,UNCOVER13821_greene24,UNCOVER-13821,log_mbh,8.1,0.2,0.2,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER13821_greene24__lensing_mu,UNCOVER13821_greene24,UNCOVER-13821,lensing_mu,1.59,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER20466_greene24__log_mbh,UNCOVER20466_greene24,UNCOVER-20466,log_mbh,8.17,0.42,0.42,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER20466_greene24__lensing_mu,UNCOVER20466_greene24,UNCOVER-20466,lensing_mu,1.33,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER23608_greene24__log_mbh,UNCOVER23608_greene24,UNCOVER-23608,log_mbh,7.5,0.2,0.2,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER23608_greene24__lensing_mu,UNCOVER23608_greene24,UNCOVER-23608,lensing_mu,2.07,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER35488_greene24__log_mbh,UNCOVER35488_greene24,UNCOVER-35488,log_mbh,7.4,0.2,0.2,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER35488_greene24__lensing_mu,UNCOVER35488_greene24,UNCOVER-35488,lensing_mu,3.38,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER38108_greene24__log_mbh,UNCOVER38108_greene24,UNCOVER-38108,log_mbh,8.4,0.5,0.5,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER38108_greene24__lensing_mu,UNCOVER38108_greene24,UNCOVER-38108,lensing_mu,1.59,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER41225_greene24__log_mbh,UNCOVER41225_greene24,UNCOVER-41225,log_mbh,7.7,0.4,0.4,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER41225_greene24__lensing_mu,UNCOVER41225_greene24,UNCOVER-41225,lensing_mu,1.5,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER45924_greene24__log_mbh,UNCOVER45924_greene24,UNCOVER-45924,log_mbh,8.9,0.1,0.1,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 3
+v3-dataset-catalogue,UNCOVER45924_greene24__lensing_mu,UNCOVER45924_greene24,UNCOVER-45924,lensing_mu,1.59,,,detection,dimensionless,not_published,Tables 1 and 3
+v3-dataset-catalogue,RUBIESEGS61496_kocevski25__log_mbh,RUBIESEGS61496_kocevski25,RUBIES-EGS-61496,log_mbh,7.04,0.17,0.17,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS61496_kocevski25__halpha_broad_fwhm,RUBIESEGS61496_kocevski25,RUBIES-EGS-61496,halpha_broad_fwhm,1800.0,,,detection,km/s,not_published,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS61496_kocevski25__log_mstar,RUBIESEGS61496_kocevski25,RUBIES-EGS-61496,log_mstar,8.53,0.33,0.33,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS55604_kocevski25__log_mbh,RUBIESEGS55604_kocevski25,RUBIES-EGS-55604,log_mbh,9.31,0.1,0.1,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS55604_kocevski25__hbeta_broad_fwhm,RUBIESEGS55604_kocevski25,RUBIES-EGS-55604,hbeta_broad_fwhm,4860.0,,,detection,km/s,not_published,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS55604_kocevski25__log_mstar,RUBIESEGS55604_kocevski25,RUBIES-EGS-55604,log_mstar,10.1,0.22,0.22,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS927271_kocevski25__log_mbh,RUBIESEGS927271_kocevski25,RUBIES-EGS-927271,log_mbh,6.97,0.18,0.18,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS927271_kocevski25__halpha_broad_fwhm,RUBIESEGS927271_kocevski25,RUBIES-EGS-927271,halpha_broad_fwhm,1410.0,,,detection,km/s,not_published,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESEGS927271_kocevski25__log_mstar,RUBIESEGS927271_kocevski25,RUBIES-EGS-927271,log_mstar,8.85,0.37,0.37,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS50716_kocevski25__log_mbh,RUBIESUDS50716_kocevski25,RUBIES-UDS-50716,log_mbh,7.52,0.11,0.11,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS50716_kocevski25__halpha_broad_fwhm,RUBIESUDS50716_kocevski25,RUBIES-UDS-50716,halpha_broad_fwhm,2280.0,,,detection,km/s,not_published,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS50716_kocevski25__log_mstar,RUBIESUDS50716_kocevski25,RUBIES-UDS-50716,log_mstar,8.35,0.26,0.26,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS59971_kocevski25__log_mbh,RUBIESUDS59971_kocevski25,RUBIES-UDS-59971,log_mbh,6.83,0.2,0.2,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS59971_kocevski25__halpha_broad_fwhm,RUBIESUDS59971_kocevski25,RUBIES-UDS-59971,halpha_broad_fwhm,1540.0,,,detection,km/s,not_published,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS59971_kocevski25__log_mstar,RUBIESUDS59971_kocevski25,RUBIES-UDS-59971,log_mstar,8.31,0.27,0.27,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS63166_kocevski25__log_mbh,RUBIESUDS63166_kocevski25,RUBIES-UDS-63166,log_mbh,7.82,0.17,0.17,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS63166_kocevski25__halpha_broad_fwhm,RUBIESUDS63166_kocevski25,RUBIES-UDS-63166,halpha_broad_fwhm,2200.0,,,detection,km/s,not_published,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,RUBIESUDS63166_kocevski25__log_mstar,RUBIESUDS63166_kocevski25,RUBIES-UDS-63166,log_mstar,8.24,0.41,0.41,detection,log10(Msun),published_symmetric_1sigma,Table 5 canonical-mass z>=4 additions
+v3-dataset-catalogue,SKYFIRE299_skyfire26__log_mbh,SKYFIRE299_skyfire26,SKYFIRE-299,log_mbh,7.31,0.03,0.03,detection,log10(Msun),published_symmetric_1sigma,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE299_skyfire26__halpha_broad_fwhm,SKYFIRE299_skyfire26,SKYFIRE-299,halpha_broad_fwhm,1896.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE1090_skyfire26__log_mbh,SKYFIRE1090_skyfire26,SKYFIRE-1090,log_mbh,6.73,0.08,0.09,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE1090_skyfire26__halpha_broad_fwhm,SKYFIRE1090_skyfire26,SKYFIRE-1090,halpha_broad_fwhm,1141.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE1867_skyfire26__log_mbh,SKYFIRE1867_skyfire26,SKYFIRE-1867,log_mbh,6.94,0.11,0.12,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE1867_skyfire26__halpha_broad_fwhm,SKYFIRE1867_skyfire26,SKYFIRE-1867,halpha_broad_fwhm,1640.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE2086_skyfire26__log_mbh,SKYFIRE2086_skyfire26,SKYFIRE-2086,log_mbh,7.42,0.05,0.05,detection,log10(Msun),published_symmetric_1sigma,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE2086_skyfire26__halpha_broad_fwhm,SKYFIRE2086_skyfire26,SKYFIRE-2086,halpha_broad_fwhm,2111.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE3519_skyfire26__log_mbh,SKYFIRE3519_skyfire26,SKYFIRE-3519,log_mbh,7.17,0.06,0.07,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE3519_skyfire26__halpha_broad_fwhm,SKYFIRE3519_skyfire26,SKYFIRE-3519,halpha_broad_fwhm,1946.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE9382_skyfire26__log_mbh,SKYFIRE9382_skyfire26,SKYFIRE-9382,log_mbh,5.89,0.14,0.17,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE9382_skyfire26__halpha_broad_fwhm,SKYFIRE9382_skyfire26,SKYFIRE-9382,halpha_broad_fwhm,596.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE12630_skyfire26__log_mbh,SKYFIRE12630_skyfire26,SKYFIRE-12630,log_mbh,7.08,0.19,0.23,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE12630_skyfire26__halpha_broad_fwhm,SKYFIRE12630_skyfire26,SKYFIRE-12630,halpha_broad_fwhm,2215.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE17484_skyfire26__log_mbh,SKYFIRE17484_skyfire26,SKYFIRE-17484,log_mbh,6.78,0.11,0.13,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE17484_skyfire26__halpha_broad_fwhm,SKYFIRE17484_skyfire26,SKYFIRE-17484,halpha_broad_fwhm,1524.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE20952_skyfire26__log_mbh,SKYFIRE20952_skyfire26,SKYFIRE-20952,log_mbh,7.19,0.07,0.07,detection,log10(Msun),published_symmetric_1sigma,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE20952_skyfire26__halpha_broad_fwhm,SKYFIRE20952_skyfire26,SKYFIRE-20952,halpha_broad_fwhm,1882.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE21749_skyfire26__log_mbh,SKYFIRE21749_skyfire26,SKYFIRE-21749,log_mbh,7.22,0.04,0.04,detection,log10(Msun),published_symmetric_1sigma,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE21749_skyfire26__halpha_broad_fwhm,SKYFIRE21749_skyfire26,SKYFIRE-21749,halpha_broad_fwhm,1601.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE22814_skyfire26__log_mbh,SKYFIRE22814_skyfire26,SKYFIRE-22814,log_mbh,6.75,0.2,0.24,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE22814_skyfire26__halpha_broad_fwhm,SKYFIRE22814_skyfire26,SKYFIRE-22814,halpha_broad_fwhm,1299.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE23289_skyfire26__log_mbh,SKYFIRE23289_skyfire26,SKYFIRE-23289,log_mbh,7.51,0.03,0.03,detection,log10(Msun),published_symmetric_1sigma,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE23289_skyfire26__halpha_broad_fwhm,SKYFIRE23289_skyfire26,SKYFIRE-23289,halpha_broad_fwhm,2109.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE23961_skyfire26__log_mbh,SKYFIRE23961_skyfire26,SKYFIRE-23961,log_mbh,7.11,0.05,0.06,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE23961_skyfire26__halpha_broad_fwhm,SKYFIRE23961_skyfire26,SKYFIRE-23961,halpha_broad_fwhm,1702.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE25941_skyfire26__log_mbh,SKYFIRE25941_skyfire26,SKYFIRE-25941,log_mbh,6.81,0.2,0.25,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE25941_skyfire26__halpha_broad_fwhm,SKYFIRE25941_skyfire26,SKYFIRE-25941,halpha_broad_fwhm,1424.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE26079_skyfire26__log_mbh,SKYFIRE26079_skyfire26,SKYFIRE-26079,log_mbh,7.51,0.04,0.04,detection,log10(Msun),published_symmetric_1sigma,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE26079_skyfire26__halpha_broad_fwhm,SKYFIRE26079_skyfire26,SKYFIRE-26079,halpha_broad_fwhm,2182.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE30148_skyfire26__log_mbh,SKYFIRE30148_skyfire26,SKYFIRE-30148,log_mbh,7.1,0.07,0.08,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE30148_skyfire26__halpha_broad_fwhm,SKYFIRE30148_skyfire26,SKYFIRE-30148,halpha_broad_fwhm,1671.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE44039_skyfire26__log_mbh,SKYFIRE44039_skyfire26,SKYFIRE-44039,log_mbh,6.93,0.15,0.18,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE44039_skyfire26__halpha_broad_fwhm,SKYFIRE44039_skyfire26,SKYFIRE-44039,halpha_broad_fwhm,1641.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE83652_skyfire26__log_mbh,SKYFIRE83652_skyfire26,SKYFIRE-83652,log_mbh,6.6,0.1,0.12,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE83652_skyfire26__halpha_broad_fwhm,SKYFIRE83652_skyfire26,SKYFIRE-83652,halpha_broad_fwhm,1202.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE92141_skyfire26__log_mbh,SKYFIRE92141_skyfire26,SKYFIRE-92141,log_mbh,6.99,0.12,0.14,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE92141_skyfire26__halpha_broad_fwhm,SKYFIRE92141_skyfire26,SKYFIRE-92141,halpha_broad_fwhm,1897.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE504101_skyfire26__log_mbh,SKYFIRE504101_skyfire26,SKYFIRE-504101,log_mbh,7.27,0.08,0.09,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE504101_skyfire26__halpha_broad_fwhm,SKYFIRE504101_skyfire26,SKYFIRE-504101,halpha_broad_fwhm,2437.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE530722_skyfire26__log_mbh,SKYFIRE530722_skyfire26,SKYFIRE-530722,log_mbh,5.96,0.16,0.2,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE530722_skyfire26__halpha_broad_fwhm,SKYFIRE530722_skyfire26,SKYFIRE-530722,halpha_broad_fwhm,574.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE534080_skyfire26__log_mbh,SKYFIRE534080_skyfire26,SKYFIRE-534080,log_mbh,6.55,0.2,0.24,detection,log10(Msun),published_asymmetric,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,SKYFIRE534080_skyfire26__halpha_broad_fwhm,SKYFIRE534080_skyfire26,SKYFIRE-534080,halpha_broad_fwhm,1388.0,,,detection,km/s,not_published,Table 3 z>=4 rows with numerical black-hole masses
+v3-dataset-catalogue,CEERS1019_larson23__log_mbh,CEERS1019_larson23,CEERS-1019,log_mbh,6.95,0.37,0.37,detection,log10(Msun),published_symmetric_1sigma,Published CEERS 1019 measurements
+v3-dataset-catalogue,CEERS1019_larson23__hbeta_broad_fwhm,CEERS1019_larson23,CEERS-1019,hbeta_broad_fwhm,1200.0,,,detection,km/s,not_published,Published CEERS 1019 measurements
+v3-dataset-catalogue,CEERS1019_larson23__log_mstar,CEERS1019_larson23,CEERS-1019,log_mstar,9.5,,,detection,log10(Msun),not_published,Published CEERS 1019 measurements
+v3-dataset-catalogue,CEERS1019_larson23__edd_ratio,CEERS1019_larson23,CEERS-1019,edd_ratio,1.2,0.5,0.5,detection,dimensionless,published_symmetric_1sigma,Published CEERS 1019 measurements
+v3-dataset-catalogue,J06471045_killi24__log_mbh,J06471045_killi24,J0647-1045,log_mbh,8.9,0.03,0.03,detection,log10(Msun),published_symmetric_1sigma,Published J0647-1045 measurements
+v3-dataset-catalogue,J06471045_killi24__halpha_broad_fwhm,J06471045_killi24,J0647-1045,halpha_broad_fwhm,4300.0,,,detection,km/s,not_published,Published J0647-1045 measurements
+v3-dataset-catalogue,ZS7_ubler24__log_mbh,ZS7_ubler24,ZS7,log_mbh,7.7,0.4,0.4,detection,log10(Msun),published_symmetric_1sigma,Table 2
+v3-dataset-catalogue,ZS7_ubler24__hbeta_broad_fwhm,ZS7_ubler24,ZS7,hbeta_broad_fwhm,3660.0,300.0,300.0,detection,km/s,published_symmetric_1sigma,Table 2
+v3-dataset-catalogue,ZS7_ubler24__log_lbol,ZS7_ubler24,ZS7,log_lbol,44.9,0.1,0.1,detection,log10(erg/s),published_symmetric_1sigma,Table 2
+v3-dataset-catalogue,ZS7_ubler24__edd_ratio,ZS7_ubler24,ZS7,edd_ratio,0.14,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,GNZ11_maiolino24__log_mbh,GNZ11_maiolino24,GN-z11,log_mbh,6.2,0.3,0.3,detection,log10(Msun),published_symmetric_1sigma,Published GN-z11 black-hole measurement
+v3-dataset-catalogue,GN42437_chisholm24__log_mstar,GN42437_chisholm24,GN-42437,log_mstar,7.9,,,detection,log10(Msun),not_published,Table 1 and Section 5
+v3-dataset-catalogue,GN42437_chisholm24__log_mbh_context_low,GN42437_chisholm24,GN-42437,log_mbh_context_low,5.0,,,lower_limit,log10(Msun),limit,Table 1 and Section 5
+v3-dataset-catalogue,GN42437_chisholm24__log_mbh_context_high,GN42437_chisholm24,GN-42437,log_mbh_context_high,7.0,,,upper_limit,log10(Msun),limit,Table 1 and Section 5
+v3-dataset-catalogue,CEERS23_mazzolari24__log_mstar,CEERS23_mazzolari24,CEERS-23,log_mstar,9.17,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS23_mazzolari24__log_lbol,CEERS23_mazzolari24,CEERS-23,log_lbol,44.92,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS355_mazzolari24__log_mstar,CEERS355_mazzolari24,CEERS-355,log_mstar,8.37,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS355_mazzolari24__log_lbol,CEERS355_mazzolari24,CEERS-355,log_lbol,45.31,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS428_mazzolari24__log_mstar,CEERS428_mazzolari24,CEERS-428,log_mstar,8.06,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS496_mazzolari24__log_mstar,CEERS496_mazzolari24,CEERS-496,log_mstar,7.93,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS496_mazzolari24__log_lbol,CEERS496_mazzolari24,CEERS-496,log_lbol,43.93,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS613_mazzolari24__log_mstar,CEERS613_mazzolari24,CEERS-613,log_mstar,8.28,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS613_mazzolari24__log_lbol,CEERS613_mazzolari24,CEERS-613,log_lbol,44.78,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS669_mazzolari24__log_mstar,CEERS669_mazzolari24,CEERS-669,log_mstar,8.59,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS669_mazzolari24__log_lbol,CEERS669_mazzolari24,CEERS-669,log_lbol,45.22,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS689_mazzolari24__log_lbol,CEERS689_mazzolari24,CEERS-689,log_lbol,45.53,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1029_mazzolari24__log_mstar,CEERS1029_mazzolari24,CEERS-1029,log_mstar,9.86,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1029_mazzolari24__log_lbol,CEERS1029_mazzolari24,CEERS-1029,log_lbol,45.4,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1173_mazzolari24__log_mstar,CEERS1173_mazzolari24,CEERS-1173,log_mstar,8.97,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1173_mazzolari24__log_lbol,CEERS1173_mazzolari24,CEERS-1173,log_lbol,45.55,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1212_mazzolari24__log_mstar,CEERS1212_mazzolari24,CEERS-1212,log_mstar,9.22,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1212_mazzolari24__log_lbol,CEERS1212_mazzolari24,CEERS-1212,log_lbol,44.44,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1400_mazzolari24__log_mstar,CEERS1400_mazzolari24,CEERS-1400,log_mstar,8.19,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1477_mazzolari24__log_mstar,CEERS1477_mazzolari24,CEERS-1477,log_mstar,8.54,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1477_mazzolari24__log_lbol,CEERS1477_mazzolari24,CEERS-1477,log_lbol,45.8,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1536_mazzolari24__log_mstar,CEERS1536_mazzolari24,CEERS-1536,log_mstar,8.93,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1536_mazzolari24__log_lbol,CEERS1536_mazzolari24,CEERS-1536,log_lbol,45.41,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1539_mazzolari24__log_mstar,CEERS1539_mazzolari24,CEERS-1539,log_mstar,9.03,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1539_mazzolari24__log_lbol,CEERS1539_mazzolari24,CEERS-1539,log_lbol,45.71,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1561_mazzolari24__log_mstar,CEERS1561_mazzolari24,CEERS-1561,log_mstar,8.68,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1561_mazzolari24__log_lbol,CEERS1561_mazzolari24,CEERS-1561,log_lbol,45.45,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1605_mazzolari24__log_mstar,CEERS1605_mazzolari24,CEERS-1605,log_mstar,8.69,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1605_mazzolari24__log_lbol,CEERS1605_mazzolari24,CEERS-1605,log_lbol,45.07,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1658_mazzolari24__log_mstar,CEERS1658_mazzolari24,CEERS-1658,log_mstar,8.65,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1658_mazzolari24__log_lbol,CEERS1658_mazzolari24,CEERS-1658,log_lbol,44.95,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1732_mazzolari24__log_mstar,CEERS1732_mazzolari24,CEERS-1732,log_mstar,10.02,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1732_mazzolari24__log_lbol,CEERS1732_mazzolari24,CEERS-1732,log_lbol,45.28,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1746_mazzolari24__log_mstar,CEERS1746_mazzolari24,CEERS-1746,log_mstar,9.08,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1746_mazzolari24__log_lbol,CEERS1746_mazzolari24,CEERS-1746,log_lbol,45.32,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS1767_mazzolari24__log_mstar,CEERS1767_mazzolari24,CEERS-1767,log_mstar,9.28,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1836_mazzolari24__log_mstar,CEERS1836_mazzolari24,CEERS-1836,log_mstar,8.44,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS1836_mazzolari24__log_lbol,CEERS1836_mazzolari24,CEERS-1836,log_lbol,44.93,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS2168_mazzolari24__log_mstar,CEERS2168_mazzolari24,CEERS-2168,log_mstar,9.4,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS4210_mazzolari24__log_mstar,CEERS4210_mazzolari24,CEERS-4210,log_mstar,8.69,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS4210_mazzolari24__log_lbol,CEERS4210_mazzolari24,CEERS-4210,log_lbol,45.45,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,CEERS44804_mazzolari24__log_mstar,CEERS44804_mazzolari24,CEERS-44804,log_mstar,8.54,,,detection,log10(Msun),not_published,Table 3
+v3-dataset-catalogue,CEERS44804_mazzolari24__log_lbol,CEERS44804_mazzolari24,CEERS-44804,log_lbol,44.79,,,detection,log10(erg/s),not_published,Table 3
+v3-dataset-catalogue,GN8224_meow26__log_lbol,GN8224_meow26,GN-8224,log_lbol,46.23,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN8224_meow26__agn_fraction,GN8224_meow26,GN-8224,agn_fraction,0.66,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GN11419_meow26__log_lbol,GN11419_meow26,GN-11419,log_lbol,45.08,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN11419_meow26__agn_fraction,GN11419_meow26,GN-11419,agn_fraction,0.29,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GN13928_meow26__log_lbol,GN13928_meow26,GN-13928,log_lbol,46.43,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN13928_meow26__agn_fraction,GN13928_meow26,GN-13928,agn_fraction,0.65,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GN96071_meow26__log_lbol,GN96071_meow26,GN-96071,log_lbol,45.36,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN96071_meow26__agn_fraction,GN96071_meow26,GN-96071,agn_fraction,0.56,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GN102397_meow26__log_lbol,GN102397_meow26,GN-102397,log_lbol,45.54,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN102397_meow26__agn_fraction,GN102397_meow26,GN-102397,agn_fraction,0.56,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GN104946_meow26__log_lbol,GN104946_meow26,GN-104946,log_lbol,45.19,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN104946_meow26__agn_fraction,GN104946_meow26,GN-104946,agn_fraction,0.25,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GN903_meow26__log_lbol,GN903_meow26,GN-903,log_lbol,45.88,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN903_meow26__agn_fraction,GN903_meow26,GN-903,agn_fraction,0.66,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GN6404_meow26__log_lbol,GN6404_meow26,GN-6404,log_lbol,44.64,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GN6404_meow26__agn_fraction,GN6404_meow26,GN-6404,agn_fraction,0.12,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GS18381_meow26__log_lbol,GS18381_meow26,GS-18381,log_lbol,45.65,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GS18381_meow26__agn_fraction,GS18381_meow26,GS-18381,agn_fraction,0.44,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GS20329_meow26__log_lbol,GS20329_meow26,GS-20329,log_lbol,45.59,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GS20329_meow26__agn_fraction,GS20329_meow26,GS-20329,agn_fraction,0.97,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GS39981_meow26__log_lbol,GS39981_meow26,GS-39981,log_lbol,44.96,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GS39981_meow26__agn_fraction,GS39981_meow26,GS-39981,agn_fraction,0.31,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,GS185980_meow26__log_lbol,GS185980_meow26,GS-185980,log_lbol,45.73,,,detection,log10(erg/s),not_published,Table 1
+v3-dataset-catalogue,GS185980_meow26__agn_fraction,GS185980_meow26,GS-185980,agn_fraction,0.96,,,detection,dimensionless,not_published,Table 1
+v3-dataset-catalogue,SMILESMIRI195_lyu24__log_mstar,SMILESMIRI195_lyu24,SMILES-MIRI-195,log_mstar,8.64,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI195_lyu24__log_lbol,SMILESMIRI195_lyu24,SMILES-MIRI-195,log_lbol,43.14297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI239_lyu24__log_mstar,SMILESMIRI239_lyu24,SMILES-MIRI-239,log_mstar,11.61,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI239_lyu24__log_lbol,SMILESMIRI239_lyu24,SMILES-MIRI-239,log_lbol,45.4229719291048,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI728_lyu24__log_mstar,SMILESMIRI728_lyu24,SMILES-MIRI-728,log_mstar,9.09,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI728_lyu24__log_lbol,SMILESMIRI728_lyu24,SMILES-MIRI-728,log_lbol,42.60297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI1171_lyu24__log_mstar,SMILESMIRI1171_lyu24,SMILES-MIRI-1171,log_mstar,9.83,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI1171_lyu24__log_lbol,SMILESMIRI1171_lyu24,SMILES-MIRI-1171,log_lbol,42.662971929104806,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI1486_lyu24__log_mstar,SMILESMIRI1486_lyu24,SMILES-MIRI-1486,log_mstar,9.37,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI1486_lyu24__log_lbol,SMILESMIRI1486_lyu24,SMILES-MIRI-1486,log_lbol,43.10297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI1652_lyu24__log_mstar,SMILESMIRI1652_lyu24,SMILES-MIRI-1652,log_mstar,9.55,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI1652_lyu24__log_lbol,SMILESMIRI1652_lyu24,SMILES-MIRI-1652,log_lbol,42.25297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2041_lyu24__log_mstar,SMILESMIRI2041_lyu24,SMILES-MIRI-2041,log_mstar,9.32,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2041_lyu24__log_lbol,SMILESMIRI2041_lyu24,SMILES-MIRI-2041,log_lbol,43.22297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2100_lyu24__log_mstar,SMILESMIRI2100_lyu24,SMILES-MIRI-2100,log_mstar,7.56,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2100_lyu24__log_lbol,SMILESMIRI2100_lyu24,SMILES-MIRI-2100,log_lbol,42.99297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2202_lyu24__log_mstar,SMILESMIRI2202_lyu24,SMILES-MIRI-2202,log_mstar,8.74,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2202_lyu24__log_lbol,SMILESMIRI2202_lyu24,SMILES-MIRI-2202,log_lbol,42.80297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2241_lyu24__log_mstar,SMILESMIRI2241_lyu24,SMILES-MIRI-2241,log_mstar,7.98,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2241_lyu24__log_lbol,SMILESMIRI2241_lyu24,SMILES-MIRI-2241,log_lbol,42.702971929104805,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2265_lyu24__log_mstar,SMILESMIRI2265_lyu24,SMILES-MIRI-2265,log_mstar,7.8,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2265_lyu24__log_lbol,SMILESMIRI2265_lyu24,SMILES-MIRI-2265,log_lbol,42.48297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2360_lyu24__log_mstar,SMILESMIRI2360_lyu24,SMILES-MIRI-2360,log_mstar,9.95,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2360_lyu24__log_lbol,SMILESMIRI2360_lyu24,SMILES-MIRI-2360,log_lbol,44.44297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2394_lyu24__log_mstar,SMILESMIRI2394_lyu24,SMILES-MIRI-2394,log_mstar,8.72,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2394_lyu24__log_lbol,SMILESMIRI2394_lyu24,SMILES-MIRI-2394,log_lbol,43.0329719291048,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2452_lyu24__log_mstar,SMILESMIRI2452_lyu24,SMILES-MIRI-2452,log_mstar,9.08,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2452_lyu24__log_lbol,SMILESMIRI2452_lyu24,SMILES-MIRI-2452,log_lbol,42.83297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2634_lyu24__log_mstar,SMILESMIRI2634_lyu24,SMILES-MIRI-2634,log_mstar,9.62,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2634_lyu24__log_lbol,SMILESMIRI2634_lyu24,SMILES-MIRI-2634,log_lbol,42.94297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2743_lyu24__log_mstar,SMILESMIRI2743_lyu24,SMILES-MIRI-2743,log_mstar,9.43,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2743_lyu24__log_lbol,SMILESMIRI2743_lyu24,SMILES-MIRI-2743,log_lbol,43.97297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2759_lyu24__log_mstar,SMILESMIRI2759_lyu24,SMILES-MIRI-2759,log_mstar,8.95,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2759_lyu24__log_lbol,SMILESMIRI2759_lyu24,SMILES-MIRI-2759,log_lbol,44.162971929104806,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2832_lyu24__log_mstar,SMILESMIRI2832_lyu24,SMILES-MIRI-2832,log_mstar,8.53,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI2832_lyu24__log_lbol,SMILESMIRI2832_lyu24,SMILES-MIRI-2832,log_lbol,43.57297192910481,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI3010_lyu24__log_mstar,SMILESMIRI3010_lyu24,SMILES-MIRI-3010,log_mstar,8.52,,,detection,log10(Msun),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,SMILESMIRI3010_lyu24__log_lbol,SMILESMIRI3010_lyu24,SMILES-MIRI-3010,log_lbol,44.412971929104806,,,detection,log10(erg/s),not_published,Publisher machine-readable Table 2
+v3-dataset-catalogue,GHZ9_napolitano25__log_mbh_context,GHZ9_napolitano25,GHZ9,log_mbh_context,8.2041,,,detection,log10(Msun),not_published,Abstract and Sections 2-3
+v3-dataset-catalogue,DJA8219_zhang25__log_mbh_upper_limit,DJA8219_zhang25,DJA-8219,log_mbh_upper_limit,5.9,,,upper_limit,log10(Msun),limit,Tables 1 and 2
+v3-dataset-catalogue,DJA8219_zhang25__beta_uv,DJA8219_zhang25,DJA-8219,beta_uv,-1.64,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA8219_zhang25__beta_opt,DJA8219_zhang25,DJA-8219,beta_opt,0.2,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA12329_zhang25__log_mbh_upper_limit,DJA12329_zhang25,DJA-12329,log_mbh_upper_limit,6.0,,,upper_limit,log10(Msun),limit,Tables 1 and 2
+v3-dataset-catalogue,DJA12329_zhang25__beta_uv,DJA12329_zhang25,DJA-12329,beta_uv,-1.0,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA12329_zhang25__beta_opt,DJA12329_zhang25,DJA-12329,beta_opt,0.35,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA16321_zhang25__log_mbh_upper_limit,DJA16321_zhang25,DJA-16321,log_mbh_upper_limit,5.8,,,upper_limit,log10(Msun),limit,Tables 1 and 2
+v3-dataset-catalogue,DJA16321_zhang25__beta_uv,DJA16321_zhang25,DJA-16321,beta_uv,-1.49,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA16321_zhang25__beta_opt,DJA16321_zhang25,DJA-16321,beta_opt,1.51,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA20547_zhang25__log_mbh_upper_limit,DJA20547_zhang25,DJA-20547,log_mbh_upper_limit,5.6,,,upper_limit,log10(Msun),limit,Tables 1 and 2
+v3-dataset-catalogue,DJA20547_zhang25__beta_uv,DJA20547_zhang25,DJA-20547,beta_uv,-4.51,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA20547_zhang25__beta_opt,DJA20547_zhang25,DJA-20547,beta_opt,1.55,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA22015_zhang25__log_mbh_upper_limit,DJA22015_zhang25,DJA-22015,log_mbh_upper_limit,5.5,,,upper_limit,log10(Msun),limit,Tables 1 and 2
+v3-dataset-catalogue,DJA22015_zhang25__beta_uv,DJA22015_zhang25,DJA-22015,beta_uv,-0.84,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,DJA22015_zhang25__beta_opt,DJA22015_zhang25,DJA-22015,beta_opt,0.48,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GHZ2_chavezortiz26__log_mbh_context,GHZ2_chavezortiz26,GHZ2,log_mbh_context,7.19,,,detection,log10(Msun),not_published,Abstract and Sections 2-5
+v3-dataset-catalogue,abell2744greene820469688_mascia26__beta_uv,abell2744greene820469688_mascia26,abell2744-greene_8204_69688,beta_uv,-2.12,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,abell2744greene820469688_mascia26__beta_opt,abell2744greene820469688_mascia26,abell2744-greene_8204_69688,beta_opt,0.39,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,nexusobs3510510835_mascia26__beta_uv,nexusobs3510510835_mascia26,nexus-obs3_5105_10835,beta_uv,-1.63,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,nexusobs3510510835_mascia26__beta_opt,nexusobs3510510835_mascia26,nexus-obs3_5105_10835,beta_opt,-0.26,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,macs142312084103248_mascia26__beta_uv,macs142312084103248_mascia26,macs1423_1208_4103248,beta_uv,-1.55,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,macs142312084103248_mascia26__beta_opt,macs142312084103248_mascia26,macs1423_1208_4103248,beta_opt,0.32,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,jadesgdn198118138147_mascia26__beta_uv,jadesgdn198118138147_mascia26,jades-gdn198_1181_38147,beta_uv,-1.53,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,jadesgdn198118138147_mascia26__beta_opt,jadesgdn198118138147_mascia26,jades-gdn198_1181_38147,beta_opt,0.35,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,gtowideuds1212151259_mascia26__beta_uv,gtowideuds1212151259_mascia26,gto-wide-uds12_1215_1259,beta_uv,-1.91,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,gtowideuds1212151259_mascia26__beta_opt,gtowideuds1212151259_mascia26,gto-wide-uds12_1215_1259,beta_opt,-0.84,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,rubiesuds324233966096_mascia26__beta_uv,rubiesuds324233966096_mascia26,rubies-uds32_4233_966096,beta_uv,-2.04,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,rubiesuds324233966096_mascia26__beta_opt,rubiesuds324233966096_mascia26,rubies-uds32_4233_966096,beta_opt,0.05,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,caperscos07636835805_mascia26__beta_uv,caperscos07636835805_mascia26,capers-cos07_6368_35805,beta_uv,-2.06,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,caperscos07636835805_mascia26__beta_opt,caperscos07636835805_mascia26,capers-cos07_6368_35805,beta_opt,0.28,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,uncover256111254_mascia26__beta_uv,uncover256111254_mascia26,uncover_2561_11254,beta_uv,-2.24,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,uncover256111254_mascia26__beta_opt,uncover256111254_mascia26,uncover_2561_11254,beta_opt,-0.62,,,detection,dimensionless,not_published,Table 2

@@ -101,4 +101,4 @@ source discussion; the two `DC_848185` nuclei also carry the independent
 The source files and internal Ren adapter pass the canonical admission gate in
 memory. The seven measurements are included in v2 and v3, with their candidate
 evidence, shared-host scope, and conditional-mass semantics retained in the
-class-aware science products. See `docs/current/v3-catalogue-schema.md`.
+class-aware science products. See `docs/reference/admission-schema.md`.

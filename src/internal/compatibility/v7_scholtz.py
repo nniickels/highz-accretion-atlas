@@ -162,6 +162,7 @@ def build_scholtz_admission(
             "log_mstar_msun_std": raw["log_mstar_msun"],
             "log_mstar_err_plus_std": raw["log_mstar_err_plus"],
             "log_mstar_err_minus_std": raw["log_mstar_err_minus"],
+            "mstar_method": "BEAGLE_full_PRISM_spectral_SED_fit",
             "log_lbol_erg_s_std": raw["log_lbol_erg_s"],
             "lbol_method": "Halpha_or_Hbeta_narrow_line_bolometric_correction",
             "edd_ratio_consistency_flag": "not_evaluable",

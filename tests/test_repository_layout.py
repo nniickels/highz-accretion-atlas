@@ -63,7 +63,7 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
 
     def test_complete_axis_named_parameter_maps(self) -> None:
-        expected = {"v1": 23, "v2": 152, "v3": 174}
+        expected = {"v1": 23, "v2": 152, "v3": 249}
         for version, count in expected.items():
             parameter_maps = ROOT / "results" / version / "parameter_maps"
             self.assertEqual(
@@ -83,7 +83,7 @@ class RepositoryLayoutTests(unittest.TestCase):
             self.assertFalse((ROOT / "results" / version / "gallery").exists(), version)
 
     def test_followup_and_source_caveat_products(self) -> None:
-        expected_objects = {"v1": 23, "v2": 152, "v3": 174}
+        expected_objects = {"v1": 23, "v2": 152, "v3": 249}
         for version, count in expected_objects.items():
             tables = ROOT / "results" / version / "tables"
             followup = pd.read_csv(tables / f"{version}_followup_priority.csv")

@@ -4,16 +4,11 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-.venv/
+.venv
 
 # Local tool/runtime caches and historical working documents.
 .codex_tmp/
-docs/archive/*
-!docs/archive/README.md
-!docs/archive/project-history/
-!docs/archive/project-history/*.md
-!docs/archive/project-history/*.tex
-!docs/archive/project-history/*.pdf
+docs/archive/
 
 # Local LaTeX build intermediates; the final manuscript PDF is retained.
 paper/*.aux

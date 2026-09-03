@@ -11,3 +11,8 @@ types enter v3 only. Source
 versions, roles, DOIs, archive hashes, and extraction limitations are documented
 in [`../sources.md`](../sources.md) and
 [`../source_provenance_registry.csv`](../source_provenance_registry.csv).
+
+`v3_jwst_heterogeneous_expansion.csv` is the audited 75-row extraction used by
+the v3-only heterogeneous expansion. It excludes known aliases and overlaps;
+proxy masses, assumed-Eddington estimates, and upper limits remain contextual
+observables rather than canonical growth masses.

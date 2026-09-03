@@ -1,13 +1,12 @@
 # Prospective datasets for broader object and evidence coverage
 
-Reviewed 2026-09-03. This is a literature shortlist, not a source admission or
-an update to catalogue membership. Counts below are source counts before
-identity review unless explicitly stated otherwise.
+Reviewed and implemented 2026-09-03. The identity-audited rows are now admitted
+to v3; v1 and v2 membership is unchanged.
 
 This revision retains only datasets that contribute at least one demonstrated
 new, JWST-identified z >= 4 candidate after the screening completed here.
 
-The current v3 object table contains 174 objects: 152 broad-line AGN, 20
+The pre-expansion v3 object table contained 174 objects: 152 broad-line AGN, 20
 narrow-line candidates, GN-z11 as the sole high-ionization-class object, and
 UHZ1 as the sole X-ray-class object. The narrow-line family already contains
 high-ionization evidence. Consequently, the exclusive `object_class` counts
@@ -23,24 +22,46 @@ accretion/AGN identification, or were essential to associating another-band
 detection with the high-redshift galaxy. Merely receiving JWST follow-up does
 not qualify an AGN that was already identified from pre-JWST data.
 
+## Scope assignment
+
+“Plottable” below means eligible for the current numerical mass-growth analysis,
+which requires a source-published BH mass that can be used without assuming the
+same Eddington ratio being tested. Ranges, upper limits, and masses inferred from
+an assumed Eddington ratio remain useful contextual graphics but do not count as
+growth-plottable objects.
+
+No reviewed new-object catalogue qualifies for the **v2 scientific scope**.
+V2 is the comparable JWST broad-line AGN dataset; the prospective catalogues
+either lack object-level BH masses or add heterogeneous evidence or mass-method
+strata. Mascia's broad-line-emitter catalogue is not a v2 exception because it
+does not publish object-level BH masses and remains agnostic about the central
+engine.
+
+The appropriate additions all belong to the **v3 scientific scope**:
+
+| Source | Potential new objects relative to current v3 | New growth-plottable objects | Object type |
+| --- | ---: | ---: | --- |
+| Chisholm: GN-42437 | 1 | 0 | Narrow-line, very-high-ionization [Ne V] candidate |
+| Tang high-ionization survey | 3, including 2 tentative | 0 | Narrow high-ionization N V/[Ne IV]/[Ne V] candidates |
+| Mazzolari CEERS selection | 25 after 2 known overlaps | 0 | Narrow-line AGN candidates; 5 new rows carry high-ionization/He II selection evidence |
+| MEOW | 12 source-new rows after catalogue crossmatch | 0 | MIRI SED-selected obscured AGN and composite candidates |
+| SMILES | 19 JWST-only rows after catalogue crossmatch | 0 | MIRI SED-selected obscured AGN candidates |
+| GHZ9 | 1 | 0 | JWST-associated X-ray/UV AGN candidate |
+| Zhang narrow-line LRDs | 5 after catalogue crossmatch | 0 | Narrow-line little-red-dot candidates |
+| Chavez Ortiz: GHZ2 | 1 | 0 | Spectral/photometric-model AGN candidate |
+| Mascia compact blue emitters | 8 after coordinate-redshift and alias review of 20 rows | 0 | Compact blue broad-line-emitter candidates |
+
+The admitted rows sum to 75 new physical objects. Eight objects have some contextual mass constraint:
+GN-42437's method-dependent range, GHZ9's conditional estimate, five Zhang upper
+limits, and GHZ2's Eddington-ratio-dependent estimate. None is eligible as a new
+canonical point in the current growth calculations.
+
+These labels describe which existing scientific dataset each family extends:
+v2-scoped additions would flow into v3, while the families above extend v3 only.
+The user-authorized expansion is implemented directly in v3 while v1 and v2
+remain byte-reproducible through the shared build pipeline.
+
 ## Recommended sources
-
-| Source | Candidate contribution after screening | Published BH mass for new rows? | Mass-based visualization | Project version |
-| --- | --- | --- | --- | --- |
-| Chisholm: GN-42437 | 1 | Method-dependent log range, about 5–7 | Interval/caveat marker only; exclude from canonical growth plots initially | v4 |
-| Tang high-ionization survey | 3 prospective additions, including 2 tentative | No | No mass-axis or growth plot | v4 |
-| Mazzolari CEERS selection | Up to 25 after 2 known overlaps; coordinate audit required | No; stellar masses only | Catalogue/count and diagnostic plots only | v4 |
-| MEOW | 12 source-new rows before catalogue crossmatch | No | Catalogue/count, SED, and luminosity plots only | v4 |
-| SMILES | 19 JWST-only rows before catalogue crossmatch | No independent BH mass | Catalogue/count, SED, and luminosity plots only | v4 |
-| GHZ9 | 1 | Conditional luminosity/Eddington estimates | Conditional band or distinct marker; exclude as an independent growth anchor | v4 |
-| Zhang narrow-line LRDs | 5 before catalogue crossmatch | Conditional upper limits | Upper-limit arrows/bands; no measured mass points | v4 |
-| Chavez Ortiz: GHZ2 | 1 | Conditional estimate assuming Eddington ratio 0.5 | Distinct conditional marker; exclude as an independent growth anchor | v4 |
-
-All retained families would enter **v4** because the versioning policy requires
-new literature membership to create a new dataset version rather than mutate
-v3. “No” in the BH-mass column does not prevent catalogue visualizations; it
-prevents those rows from appearing as measured points in mass-dependent growth
-figures.
 
 ### 1. Chisholm et al. (2024): GN-42437
 
@@ -174,12 +195,27 @@ independent canonical mass or numerical growth anchor.
 
 [Primary preprint](https://arxiv.org/abs/2511.03035).
 
+### 9. Mascia et al. (2026): compact blue broad-line emitters
+
+**Priority: v3-scoped broad-line candidate phenotype.** The JWST/NIRSpec and
+NIRCam selection returns 20 compact blue broad-line emitters at 4 <= z <= 7.
+A coordinate-redshift and alias comparison to the pre-expansion v3 objects matches
+12 rows, including `GS_3073 = ZS7`, and leaves **8 new objects**. The paper publishes redshifts,
+coordinates, continuum slopes, compactness, Balmer decrements, and line
+measurements, but no object-level BH masses. Its photoionization discussion is
+deliberately agnostic about whether every central engine is an accreting BH, so
+new rows should be represented as broad-line-emitter candidates rather than
+canonical v2 broad-line AGN.
+
+[Primary preprint and Table 2](https://arxiv.org/html/2608.25021v1).
+
 ## Practical admission sequence
 
 Start with GN-42437 and Tang's object-level high-ionization measurements,
 then Mazzolari's z >= 4 subset. Follow with the JWST-identified rows from MEOW
 and SMILES, and with GHZ9. Treat narrow-line LRDs and GHZ2 as explicitly
-exploratory extensions.
+exploratory extensions. Treat the unmatched Mascia rows as a candidate
+phenotype batch, not as a v2 mass-bearing BLAGN family.
 
 For every admitted family, archive the exact source version, implement a
 deterministic extraction, preserve limits and method assumptions, and resolve

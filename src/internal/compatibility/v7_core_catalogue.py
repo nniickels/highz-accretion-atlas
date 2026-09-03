@@ -87,6 +87,16 @@ def adapt_v6_measurements(v6: pd.DataFrame) -> pd.DataFrame:
     result.loc[jades, "extraction_date"] = "not_recorded_in_frozen_v1_source_layer"
     result.loc[jades, "extraction_date_status"] = "not_recorded"
     result.loc[jades, "selection_criteria"] = JADES_SELECTION
+    result.loc[
+        jades & pd.to_numeric(result["edd_ratio_std"], errors="coerce").notna(),
+        "edd_ratio_method",
+    ] = "source_derived_from_same_lbol_and_virial_mbh"
+
+    harikane = result["source_key"].eq("harikane23_nirspec_blagn")
+    result.loc[
+        harikane & pd.to_numeric(result["edd_ratio_std"], errors="coerce").notna(),
+        "edd_ratio_method",
+    ] = "source_derived_from_same_lbol_and_virial_mbh"
 
     result["source_caveat_tags"] = result["source_caveat_tags"].fillna("")
     result["selection_channels"] = result["selection_channels"].fillna("broad_balmer_line")

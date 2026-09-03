@@ -102,6 +102,9 @@ V7_REQUIRED_FIELDS = [
     "lensing_mass_correction_status",
     "lensing_provenance",
     "mbh_method",
+    "mstar_method",
+    "lbol_method",
+    "edd_ratio_method",
     "log_mbh_msun_std",
     "log_mbh_err_plus",
     "log_mbh_err_minus",
@@ -295,6 +298,15 @@ def validate_v7_admission(catalogue: pd.DataFrame) -> None:
     mass = numeric["log_mbh_msun_std"].notna()
     if catalogue.loc[mass, "mbh_method"].map(_nonempty).eq(False).any():
         raise ValueError("Numeric masses require mbh_method")
+    stellar_mass = numeric["log_mstar_msun_std"].notna()
+    if catalogue.loc[stellar_mass, "mstar_method"].map(_nonempty).eq(False).any():
+        raise ValueError("Numeric stellar masses require mstar_method")
+    bolometric_luminosity = numeric["log_lbol_erg_s_std"].notna()
+    if catalogue.loc[bolometric_luminosity, "lbol_method"].map(_nonempty).eq(False).any():
+        raise ValueError("Numeric bolometric luminosities require lbol_method")
+    eddington_ratio = numeric["edd_ratio_std"].notna()
+    if catalogue.loc[eddington_ratio, "edd_ratio_method"].map(_nonempty).eq(False).any():
+        raise ValueError("Numeric Eddington ratios require edd_ratio_method")
     if catalogue.loc[mass, "mbh_statistical_uncertainty_kind"].map(_nonempty).eq(False).any():
         raise ValueError("Numeric masses require statistical-uncertainty semantics")
     if catalogue.loc[mass, "mass_comparability_group"].eq("no_numeric_mass").any():
