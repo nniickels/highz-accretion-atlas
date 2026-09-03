@@ -1513,3 +1513,21 @@ For every future Codex contribution that changes repository files:
   clipping, overlap, or illegible labels.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-02 - Simplify comprehensive growth-track title
+
+- **Objective:** Use the concise requested title for the comprehensive v3
+  all-object growth-track companion.
+- **Files changed:** Atlas generator, regenerated companion PNG, result
+  inventory, and v3 release manifest.
+- **Contribution:** Changed the displayed title to exactly
+  `v3: all-object growth tracks`. The full assumption grid remains documented
+  by the figure legend and repository documentation.
+- **Scientific/technical effect:** None. Curves, objects, uncertainties, axes,
+  and numerical products are unchanged.
+- **Validation:** Regenerated the 4500-by-3750 companion PNG, visually checked
+  the title and layout, and rebuilt the result inventory and v3 manifest. All
+  33 tests pass; provenance and all version, inventory, manifest, exact-CSV,
+  and dataset-growth checks pass.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

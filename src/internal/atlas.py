@@ -271,8 +271,7 @@ def plot_full_assumption_growth_tracks(objects: pd.DataFrame, output: Path) -> N
     ax.set(
         xlim=(12.2, 3.8), ylim=(4.5, 10.8), xlabel="Observed redshift",
         ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",
-        title=(f"{VERSION}: all-object growth tracks - full historical v1 assumption grid\n"
-               f"{FULL_TRACK_CURVE_COUNT} constant-efficiency curves at seed redshift 30"),
+        title=f"{VERSION}: all-object growth tracks",
     )
     ax.grid(alpha=0.2)
 
