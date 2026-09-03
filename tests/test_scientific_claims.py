@@ -39,14 +39,13 @@ class V3ScientificClaimTests(unittest.TestCase):
     def test_growth_track_uncertainty_filter_is_explicit_and_luminous_only(self) -> None:
         objects = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_objects.csv")
         excluded = high_uncertainty_luminous_quasars(objects)
-        self.assertEqual(HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX, 0.5)
-        self.assertEqual(len(excluded), 7)
+        self.assertEqual(HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX, 0.7)
+        self.assertEqual(len(excluded), 4)
         self.assertEqual(
             set(excluded["object_id"]),
-            {"J0300-2232", "J0221-0802", "J2307+0031", "J0033-0125",
-             "J2356+0023", "J1335+3533", "J2329-0403"},
+            {"J0300-2232", "J0221-0802", "J2307+0031", "J0033-0125"},
         )
-        self.assertTrue(excluded["max_mass_uncertainty_dex"].gt(0.5).all())
+        self.assertTrue(excluded["max_mass_uncertainty_dex"].gt(0.7).all())
 
     def test_scholtz_full_table_and_admitted_redshift_cut(self) -> None:
         full_table_path = RAW / "scholtz25_jades_table_sample_full.tex"

@@ -83,10 +83,10 @@ LABELS = {
     "xray_agn_candidate": "X-ray candidates",
 }
 SEED_LABELS = {
-    "light_popiii": "Light / Pop III",
-    "intermediate_cluster": "Intermediate / cluster",
-    "heavy_dcbh": "Heavy / DCBH",
-    "pbh": "Primordial black hole",
+    "light_popiii": "Light seeds\n($10^1$–$10^2\\,M_\\odot$)",
+    "intermediate_cluster": "Intermediate seeds\n($10^3$–$10^4\\,M_\\odot$)",
+    "heavy_dcbh": "Heavy seeds\n($10^4$–$10^6\\,M_\\odot$)",
+    "pbh": "PBH-origin hypothesis\n(assumed $10^2$–$10^6\\,M_\\odot$)",
 }
 
 FULL_TRACK_SEEDS = (
@@ -115,7 +115,7 @@ FULL_TRACK_CURVE_COUNT = (
     * len(FULL_TRACK_EPSILON_CASES)
     * len(FULL_TRACK_MERGER_CASES)
 )
-HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX = 0.5
+HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX = 0.7
 
 
 def high_uncertainty_luminous_quasars(objects: pd.DataFrame) -> pd.DataFrame:
@@ -135,7 +135,7 @@ def high_uncertainty_luminous_quasars(objects: pd.DataFrame) -> pd.DataFrame:
     excluded = objects.loc[mask, columns].copy()
     excluded["max_mass_uncertainty_dex"] = max_error.loc[mask]
     excluded["exclusion_threshold_dex"] = HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX
-    excluded["exclusion_reason"] = "luminous_quasar_mass_uncertainty_gt_0p5_dex"
+    excluded["exclusion_reason"] = "luminous_quasar_mass_uncertainty_gt_0p7_dex"
     return excluded.sort_values("max_mass_uncertainty_dex", ascending=False)
 
 
@@ -303,7 +303,7 @@ def plot_full_assumption_growth_tracks(
 
     title = f"{VERSION}: all-object growth tracks"
     if exclude_high_uncertainty_luminous_quasars:
-        title += "\nexcluding luminous quasars with mass uncertainty > 0.5 dex"
+        title += "\nexcluding luminous quasars with mass uncertainty > 0.7 dex"
     ax.set(
         xlim=(12.2, 3.8), ylim=(4.5, 10.8), xlabel="Observed redshift",
         ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",

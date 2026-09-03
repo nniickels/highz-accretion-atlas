@@ -19,12 +19,12 @@ catalogue strata. These are the canonical v3 files.
    against all 72 historical v1 reference curves: three seed masses crossed
    with three $f_{Edd}$ values, four constant efficiencies, and two merger boosts.
 3. `v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png` —
-   the same 72-curve view after excluding only the seven luminous quasars whose
-   maximum reported black-hole-mass uncertainty exceeds 0.5 dex. The excluded
+   the same 72-curve view after excluding only the four luminous quasars whose
+   maximum reported black-hole-mass uncertainty exceeds 0.7 dex. The excluded
    rows and criterion are recorded in `v3_growth_track_uncertainty_filter.csv`.
-3. `v3_compatibility_summary.png` — all 196 computable objects summarized
+4. `v3_compatibility_summary.png` — all 196 computable objects summarized
    by class, seed family, spin, merger boost, and accretion rate.
-4. `v3_monte_carlo_summary.png` — all 196 numerical posteriors plus an
+5. `v3_monte_carlo_summary.png` — all 196 numerical posteriors plus an
    explicit accounting of the other 23 catalogue objects.
 
 The existing catalogue landscape, class-aware pressure, and alternate-

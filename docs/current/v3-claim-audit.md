@@ -15,7 +15,7 @@
 | Top eight uncertainty entries have stored probability 1 for required `f_Edd > 1` | focused claim regression and canonical uncertainty table | verified |
 | 438 per-object panels cover all 219 objects: 219 $f_{Edd}$-mass and 219 seed-redshift-mass panels | focused claim regression, v3 dataset manifest, and visual-coverage verifier | verified |
 | Full-assumption v3 growth-track figure contains the historical v1 grid of 72 curves | focused assumption-grid regression and figure-resolution verifier | verified |
-| Uncertainty-filtered full-assumption view excludes exactly seven luminous quasars above the declared 0.5 dex mass-error threshold | focused selection regression, `v3_growth_track_uncertainty_filter.csv`, and figure-resolution verifier | verified |
+| Uncertainty-filtered full-assumption view excludes exactly four luminous quasars above the declared 0.7 dex mass-error threshold | focused selection regression, `v3_growth_track_uncertainty_filter.csv`, and figure-resolution verifier | verified |
 
 Interpretive claims are deliberately bounded: ranks are navigation/descriptive,
 the pooled catalogue is not demographic, and the growth model does not prove a

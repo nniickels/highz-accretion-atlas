@@ -22,6 +22,6 @@ growth-track overview for each version remains under `figures/`; v3 also has
 `v3_all_object_growth_tracks_full_assumptions.png`, which preserves the full
 historical v1 line grid as a separate companion figure. The additional
 `v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png` keeps
-the same 72 curves but excludes the seven luminous quasars with reported mass
-uncertainty above 0.5 dex. The exact selection is recorded in
+the same 72 curves but excludes the four luminous quasars with reported mass
+uncertainty above 0.7 dex. The exact selection is recorded in
 `v3/tables/v3_growth_track_uncertainty_filter.csv`.

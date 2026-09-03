@@ -9,7 +9,12 @@ from PIL import Image
 from src.datasets import DATASET_SPECS
 from src.internal.dataset_manifests import verify_manifest
 from src.internal.build_results_inventory import collect_inventory
-from src.internal.atlas import SEED_MODELS, SPIN_CASES, MERGER_CASES
+from src.internal.atlas import (
+    HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX,
+    MERGER_CASES,
+    SEED_MODELS,
+    SPIN_CASES,
+)
 from src.internal.process_catalogues import build_versions, output_paths
 from src.internal.reproduction import assert_csv_reproduction
 from src.science import DEFAULT_N_SAMPLES, DEFAULT_RANDOM_SEED, build_outputs
@@ -99,7 +104,12 @@ def verify_version(version: str) -> None:
                 if image.format != "PNG" or image.width < 3000 or image.height < 1800:
                     raise AssertionError(f"v3 full-assumption figure is not paper resolution: {path}")
         exclusions = pd.read_csv(results / "tables/v3_growth_track_uncertainty_filter.csv")
-        if len(exclusions) != 7 or not exclusions["max_mass_uncertainty_dex"].gt(0.5).all():
+        if (
+            len(exclusions) != 4
+            or not exclusions["max_mass_uncertainty_dex"].gt(
+                HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX
+            ).all()
+        ):
             raise AssertionError("v3 growth-track uncertainty filter is not reproducible")
 
 

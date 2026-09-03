@@ -1561,3 +1561,22 @@ For every future Codex contribution that changes repository files:
   PDFs were rebuilt and visually inspected without clipping or layout defects.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-02 - Raise filtered growth-track cutoff to 0.7 dex
+
+- **Objective:** Revise the luminous-quasar uncertainty filter from 0.5 dex to
+  the requested 0.7 dex threshold.
+- **Contribution:** The filtered companion now excludes four rather than seven
+  luminous quasars: J0300-2232, J0221-0802, J2307+0031, and J0033-0125. The
+  selection remains strictly greater than the threshold, so a measurement at
+  exactly 0.70 dex would remain included. Regenerated the audit CSV, figure,
+  inventory, v3 manifest, current documentation, manuscript, and status report.
+- **Scientific/technical effect:** Display-only selection change. The canonical
+  catalogue, unfiltered figure, rankings, model curves, and science tables are
+  unchanged.
+- **Validation:** All 34 tests, provenance checks, version checks, manifest and
+  inventory checks, exact CSV reproduction, and dataset nesting pass. Both
+  nine-page PDFs and the revised 4500-by-3750 PNG were rebuilt and visually
+  inspected without layout defects.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.
