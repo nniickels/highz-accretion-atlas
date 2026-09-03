@@ -132,11 +132,19 @@ unsupported object remains visible below with its class and redshift.}
 \label{fig:tracks}
 \end{figure}
 
-A separate comprehensive companion at
-\repo{results/v3/figures/v3\_all\_object\_growth\_tracks\_full\_assumptions.png}
-preserves the historical v1 grid: three seed masses crossed with three
+A separate
+\href{../../../results/v3/figures/v3_all_object_growth_tracks_full_assumptions.png}
+{comprehensive companion} preserves the historical v1 grid: three seed masses crossed with three
 $f_{\rm Edd}$ values, four constant efficiencies, and two merger boosts, for
 72 reference curves in total. It is an assumption comparison rather than a fit.
+An
+\href{../../../results/v3/figures/v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png}
+{uncertainty-filtered counterpart} keeps those curves but excludes the seven luminous quasars with a maximum
+reported black-hole-mass uncertainty above 0.5 dex. The reproducible selection
+is stored in the
+\href{../../../results/v3/tables/v3_growth_track_uncertainty_filter.csv}
+{filter audit table}; the
+canonical catalogue and rankings are unchanged.
 
 The shared model also includes three Kerr spin cases, an illustrative
 photon-trapping/slim-disk efficiency above Eddington, four seed families, and
@@ -257,9 +265,9 @@ use the identical panel definition at larger scale. For the 23 v3 objects
 without a supported mass, the same file locations contain carefully labelled
 status panels explaining why no numerical inference was made.
 
-\textbf{Where to browse.} The per-object products are under
-\repo{results/<version>/gallery/fedd\_mass\_maps/} and
-\repo{results/<version>/gallery/seedredshift\_mass\_maps/}.
+\textbf{Where to browse.} The per-object products are in the
+\repo{fedd\_mass\_maps/} and \repo{seedredshift\_mass\_maps/} subdirectories
+under \repo{results/<version>/gallery/}.
 Catalogue-wide galleries are in \repo{results/<version>/figures/}. The visual
 coverage CSV in the version's table directory links every object to both files
 and distinguishes numerical products from no-inference panels.
@@ -300,7 +308,8 @@ The shortest path through the repository is:
   \item \repo{src/science.py}: shared rankings, uncertainty, and duty cycles.
   \item \repo{results/v3/tables/}: complete numerical paper and audit products.
   \item \repo{results/v3/figures/}: paper-ready summaries and complete atlases.
-  \item \repo{results/v3/gallery/per\_object/}: the full visual supplement.
+  \item \repo{results/v3/gallery/fedd\_mass\_maps/} and
+  \repo{results/v3/gallery/seedredshift\_mass\_maps/}: the full visual supplement.
   \item \repo{scripts/04\_verify.ipynb}: public verification workflow.
   \item \repo{src/internal/verify\_versions.py}: manifests, result inventory,
   exact CSV reproduction, counts, nesting, samples, compatibility, image
@@ -326,7 +335,7 @@ mkdir -p /tmp/highz-atlas-notebooks
 The verification contract requires strict nested membership
 $\mathrm{v1}<\mathrm{v2}<\mathrm{v3}$, the expected 23/112/219 object counts,
 10,000 samples in Monte Carlo and duty-cycle products, complete compatibility
-tables, an exact result inventory, three visual panels per object, and
+tables, an exact result inventory, two visual panels per object, and
 publication-resolution PNGs. The
 broader regression suite and source-provenance and manuscript checks protect
 the ingestion details and final claims.

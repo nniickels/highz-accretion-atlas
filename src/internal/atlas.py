@@ -56,6 +56,9 @@ FIGURE_PATHS = {
     "measurement_sensitivity": FIGURES / "v3_measurement_sensitivity.png",
     "growth_tracks": FIGURES / "v3_all_object_growth_tracks.png",
     "full_assumption_growth_tracks": FIGURES / "v3_all_object_growth_tracks_full_assumptions.png",
+    "filtered_full_assumption_growth_tracks": (
+        FIGURES / "v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png"
+    ),
     "compatibility_summary": FIGURES / "v3_compatibility_summary.png",
     "uncertainty_summary": FIGURES / "v3_monte_carlo_summary.png",
     "fedd_mass_gallery": FIGURES / "v3_all_object_fedd_mass_map_gallery.png",
@@ -112,6 +115,28 @@ FULL_TRACK_CURVE_COUNT = (
     * len(FULL_TRACK_EPSILON_CASES)
     * len(FULL_TRACK_MERGER_CASES)
 )
+HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX = 0.5
+
+
+def high_uncertainty_luminous_quasars(objects: pd.DataFrame) -> pd.DataFrame:
+    """Return growth-eligible luminous quasars above the declared mass-error cut."""
+    max_error = objects[
+        ["log_mbh_err_minus_std", "log_mbh_err_plus_std"]
+    ].fillna(0.0).max(axis=1)
+    mask = (
+        objects["growth_ranking_eligible_flag"].map(boolish)
+        & objects["object_class"].eq("luminous_quasar_comparison")
+        & max_error.gt(HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX)
+    )
+    columns = [
+        "physical_object_id", "object_id", "source_key", "redshift",
+        "log_mbh_msun_std", "log_mbh_err_minus_std", "log_mbh_err_plus_std",
+    ]
+    excluded = objects.loc[mask, columns].copy()
+    excluded["max_mass_uncertainty_dex"] = max_error.loc[mask]
+    excluded["exclusion_threshold_dex"] = HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX
+    excluded["exclusion_reason"] = "luminous_quasar_mass_uncertainty_gt_0p5_dex"
+    return excluded.sort_values("max_mass_uncertainty_dex", ascending=False)
 
 
 def boolish(value: object) -> bool:
@@ -236,10 +261,18 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
     plt.close(fig)
 
 
-def plot_full_assumption_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
-    """Render the historical v1 72-curve assumption grid against all v3 objects."""
+def plot_full_assumption_growth_tracks(
+    objects: pd.DataFrame,
+    output: Path,
+    *,
+    exclude_high_uncertainty_luminous_quasars: bool = False,
+) -> None:
+    """Render the historical v1 72-curve grid against v3 catalogue objects."""
     eligible = objects[objects["growth_ranking_eligible_flag"].map(boolish)].copy()
     unavailable = objects[~objects["growth_ranking_eligible_flag"].map(boolish)].copy()
+    if exclude_high_uncertainty_luminous_quasars:
+        excluded_ids = set(high_uncertainty_luminous_quasars(objects)["physical_object_id"])
+        eligible = eligible.loc[~eligible["physical_object_id"].isin(excluded_ids)].copy()
     redshift = np.linspace(12.0, 4.0, 400)
     fig, (ax, status) = plt.subplots(
         2, 1, figsize=(15, 12.5), gridspec_kw={"height_ratios": [4.4, 1]},
@@ -268,10 +301,13 @@ def plot_full_assumption_growth_tracks(objects: pd.DataFrame, output: Path) -> N
             ecolor=COLORS[object_class], elinewidth=0.55, capsize=1.4, alpha=0.8,
         )
 
+    title = f"{VERSION}: all-object growth tracks"
+    if exclude_high_uncertainty_luminous_quasars:
+        title += "\nexcluding luminous quasars with mass uncertainty > 0.5 dex"
     ax.set(
         xlim=(12.2, 3.8), ylim=(4.5, 10.8), xlabel="Observed redshift",
         ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",
-        title=f"{VERSION}: all-object growth tracks",
+        title=title,
     )
     ax.grid(alpha=0.2)
 

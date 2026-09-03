@@ -70,6 +70,10 @@ Appendix or supplement products:
 - full seed-redshift-mass map gallery — `results/v3/gallery/seedredshift_mass_maps/`
 - comprehensive v3 growth-track grid preserving all historical v1 line
   combinations — `results/v3/figures/v3_all_object_growth_tracks_full_assumptions.png`
+- uncertainty-filtered version of that grid, excluding the seven luminous
+  quasars whose reported black-hole-mass uncertainty exceeds 0.5 dex —
+  `results/v3/figures/v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png`;
+  excluded rows are recorded in `results/v3/tables/v3_growth_track_uncertainty_filter.csv`
 - validation checks — `results/v3/tables/v3_exclusion_audit.csv`, `results/v3/tables/v3_all_object_visual_coverage.csv`, and `results/v3/tables/v3_science_policy.csv`; executable gate in `scripts/04_verify.ipynb`
 - sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
@@ -81,7 +85,10 @@ growth-eligible objects receive numerical panels; the other 23 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
 companion contains 72 curves spanning three seed masses, three $f_{Edd}$
-values, four efficiencies, and two merger boosts.
+values, four efficiencies, and two merger boosts. Its uncertainty-filtered
+counterpart applies the explicit 0.5 dex cut only to luminous quasars, removing
+seven extreme-error measurements while retaining every other numerical object
+and all 23 no-inference markers.
 Catalogue-wide compatibility and Monte
 Carlo atlases retain every object label, while class-specific summaries avoid
 reporting a heterogeneous pooled demographic fraction. Start with

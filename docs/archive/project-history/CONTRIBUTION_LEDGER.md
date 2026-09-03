@@ -1531,3 +1531,33 @@ For every future Codex contribution that changes repository files:
   and dataset-growth checks pass.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-02 - Add uncertainty-filtered v3 growth-track companion
+
+- **Objective:** Provide a readable copy of the comprehensive 72-curve v3
+  growth-track plot without the most uncertain luminous-quasar measurements,
+  while preserving the complete plot as the canonical unfiltered reference.
+- **Files changed:** Atlas generation and verification code, focused scientific
+  regression tests, README/current documentation, manuscript and status-report
+  sources/PDFs, result inventory, v3 manifest, the new filtered figure, and its
+  exclusion audit table.
+- **Contribution:** Added
+  `v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png`.
+  The reproducible display filter excludes only growth-eligible luminous
+  quasars whose maximum reported black-hole-mass uncertainty exceeds 0.5 dex.
+  It removes seven GNIRS50 objects (J0300-2232, J0221-0802, J2307+0031,
+  J0033-0125, J2356+0023, J1335+3533, and J2329-0403), leaving all other
+  numerical objects and all 23 no-inference markers. The exact rows are stored
+  in `v3_growth_track_uncertainty_filter.csv`.
+- **Scientific/technical effect:** This is a visualization sensitivity product
+  only. The canonical catalogue, unfiltered companion, model curves, rankings,
+  and numerical science tables remain unchanged. The archived status source
+  was also corrected to reference the flattened two-product gallery layout.
+- **Validation:** The public atlas notebook rebuilt all v1/v2/v3 products and
+  the public verification notebook passed. All 34 tests pass; provenance covers
+  all 11 v3 source families; manifests contain 84/262/479 artifacts; the result
+  inventory contains 795 artifacts; exact CSV reproduction, nesting, image
+  resolution, and the explicit seven-object selection verify. Both nine-page
+  PDFs were rebuilt and visually inspected without clipping or layout defects.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

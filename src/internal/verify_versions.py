@@ -90,10 +90,17 @@ def verify_version(version: str) -> None:
             if image.format != "PNG" or image.width < 3000 or image.height < 1800:
                 raise AssertionError(f"{version} figure is not paper resolution: {path}")
     if version == "v3":
-        path = results / "figures/v3_all_object_growth_tracks_full_assumptions.png"
-        with Image.open(path) as image:
-            if image.format != "PNG" or image.width < 3000 or image.height < 1800:
-                raise AssertionError(f"v3 full-assumption figure is not paper resolution: {path}")
+        for filename in (
+            "v3_all_object_growth_tracks_full_assumptions.png",
+            "v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png",
+        ):
+            path = results / "figures" / filename
+            with Image.open(path) as image:
+                if image.format != "PNG" or image.width < 3000 or image.height < 1800:
+                    raise AssertionError(f"v3 full-assumption figure is not paper resolution: {path}")
+        exclusions = pd.read_csv(results / "tables/v3_growth_track_uncertainty_filter.csv")
+        if len(exclusions) != 7 or not exclusions["max_mass_uncertainty_dex"].gt(0.5).all():
+            raise AssertionError("v3 growth-track uncertainty filter is not reproducible")
 
 
 def verify_nested_membership() -> None:
