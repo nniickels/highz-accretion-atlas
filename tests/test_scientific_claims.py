@@ -13,6 +13,7 @@ from src.internal.atlas import (
     FULL_TRACK_FEDD_STYLES,
     FULL_TRACK_MERGER_CASES,
     FULL_TRACK_SEEDS,
+    FULL_TRACK_STATUS_COLORS,
     GROWTH_TRACK_AGE_TICKS,
     GROWTH_TRACK_COLORS,
     GROWTH_TRACK_REDSHIFT_LIMITS,
@@ -47,6 +48,9 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(GROWTH_TRACK_AGE_TICKS.tolist(), list(range(10, 2, -1)))
         self.assertEqual(GROWTH_TRACK_COLORS["broad_line_agn"], "#7B2CBF")
         self.assertEqual(GROWTH_TRACK_COLORS["luminous_quasar_comparison"], "#E6B800")
+        self.assertEqual(FULL_TRACK_STATUS_COLORS["narrow_line_agn_candidate"], "#176B87")
+        self.assertEqual(FULL_TRACK_STATUS_COLORS["luminous_quasar_comparison"], "#B66A1E")
+        self.assertEqual(FULL_TRACK_STATUS_COLORS["xray_agn_candidate"], "#777777")
 
     def test_growth_track_uncertainty_filter_is_explicit_and_luminous_only(self) -> None:
         objects = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_objects.csv")

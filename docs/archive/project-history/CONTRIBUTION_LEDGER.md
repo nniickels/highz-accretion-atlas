@@ -1699,3 +1699,21 @@ For every future Codex contribution that changes repository files:
   checks, and PDF rebuild/inspection.
 - **Status:** Complete and verified locally; included in the accompanying
   repository commit.
+
+### 2026-09-03 - Align full-assumption no-mass candidate colors
+
+- **Objective:** Remove the remaining purple marks from the restored
+  full-assumption companions' no-numerical-mass panel.
+- **Contribution:** Verified that the 20 purple rows are narrow-line AGN
+  candidates rather than BLAGN, then changed their lower-panel marks to the
+  established BLAGN blue (`#176B87`) without altering their scientifically
+  correct label. The two massless luminous quasars remain orange and the one
+  X-ray candidate remains gray. Updated the regression anchor and documentation.
+- **Scientific/technical effect:** Visual encoding only. Catalogue classes,
+  data, model curves, numerical points, filter selection, axes, and scientific
+  claims are unchanged.
+- **Validation:** Regenerated and visually inspected both full-assumption
+  figures, then ran repository tests, provenance and version verification,
+  manifest checks, and PDF rebuild/inspection.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

@@ -81,6 +81,10 @@ GROWTH_TRACK_COLORS = {
     "broad_line_agn": "#7B2CBF",
     "luminous_quasar_comparison": "#E6B800",
 }
+FULL_TRACK_STATUS_COLORS = {
+    **COLORS,
+    "narrow_line_agn_candidate": COLORS["broad_line_agn"],
+}
 LABELS = {
     "broad_line_agn": "Broad-line AGN",
     "luminous_quasar_comparison": "Luminous quasars",
@@ -359,7 +363,7 @@ def plot_full_assumption_growth_tracks(
     status.set_ylim(-0.6, 3.6)
     for y, (object_class, group) in enumerate(unavailable.groupby("object_class", sort=True)):
         status.scatter(group["redshift"], np.full(len(group), y), marker="|", s=260,
-                       linewidths=2, color=COLORS[object_class])
+                       linewidths=2, color=FULL_TRACK_STATUS_COLORS[object_class])
     classes = list(unavailable.groupby("object_class", sort=True).groups)
     status.set_yticks(range(len(classes)), [LABELS[key] for key in classes])
     status.set_ylabel("No numerical mass", labelpad=12)

@@ -37,8 +37,10 @@ All combined growth-track figures use a common reversed observed-redshift axis
 from 10 to 3. Figure dimensions and subplot margins are unchanged, placing the
 observed catalogue points more centrally without changing any data or model.
 In the overview growth-track figures, broad-line AGN are purple and luminous
-quasars are yellow to maximize contrast. The two full-assumption companions retain
-their earlier blue/orange object palette and historical curve encodings.
+quasars are yellow to maximize contrast. The two full-assumption companions
+retain blue/orange numerical points and their historical curve encodings. In
+their no-mass lower panel, narrow-line candidates are blue, luminous quasars
+are orange, and the X-ray candidate is gray.
 
 ## Complete supplement figures
 
