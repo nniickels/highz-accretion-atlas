@@ -1,4 +1,4 @@
-"""Verify the current source-provenance supplement and its frozen hash."""
+"""Verify the current JWST-identified source-provenance registry and its hash."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ ARTIFACTS = {"data/source_provenance_registry.csv"}
 def verify_metadata(manifest: dict[str, object], registry: pd.DataFrame) -> None:
     expected = {
         "release": "source-provenance-2026-08-27",
-        "scope": "non-destructive supplement to frozen catalogue provenance",
+        "scope": "provenance registry for the JWST-identified catalogue",
         "registry_rows": len(registry),
         "catalogue_source_keys": registry["source_key"].nunique(),
         "preprint_records": int((registry["publication_status"] == "preprint").sum()),
@@ -49,7 +49,7 @@ def main() -> None:
     )
     if args.require_clean:
         require_clean_worktree(ROOT, "source provenance")
-    print("Verified 16 provenance records covering all 11 final-v3 source families")
+    print("Verified 13 provenance records covering all 9 final-v3 source families")
 
 
 if __name__ == "__main__":

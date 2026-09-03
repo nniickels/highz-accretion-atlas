@@ -1,10 +1,10 @@
 {
   "release": "source-provenance-2026-08-27",
-  "scope": "non-destructive supplement to frozen catalogue provenance",
-  "registry_rows": 16,
-  "catalogue_source_keys": 11,
+  "scope": "provenance registry for the JWST-identified catalogue",
+  "registry_rows": 13,
+  "catalogue_source_keys": 9,
   "preprint_records": 3,
   "artifacts": {
-    "data/source_provenance_registry.csv": "f631b2d909ce9370ad106c610f05eb549e947916ca07ccfdd1b83f8c38a4ab46"
+    "data/source_provenance_registry.csv": "e779d521dc8f56a28f7acb1d1e45ad0db619e75626c9d66b5c0b644ee6d1328e"
   }
 }

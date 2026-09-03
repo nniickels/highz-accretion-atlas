@@ -21,13 +21,13 @@ Davis/THRILS, and Ren ALPINE/CRISTAL candidates. These sources share the broad
 scientific workflow and therefore form one expansion: 119 measurements, 112
 objects, and 111 hosts.
 
-## v3 — final heterogeneous atlas
+## v3 — JWST-identified heterogeneous atlas
 
-Adds XQR-30 and GNIRS-50 luminous quasars, UHZ1's X-ray evidence history, and
-the audited Scholtz narrow-line candidates. Added code handles distinct object
+Adds UHZ1's JWST/Chandra X-ray evidence history and the audited Scholtz JADES
+narrow-line candidates. Added code handles distinct object
 classes, evidence states, mass-comparability groups, missing/conditional masses,
-and explicit no-inference cases. v3 has 234 measurements, 219 objects, and 218
-hosts; 196 objects support numerical growth inference.
+and explicit no-inference cases. v3 has 142 measurements, 133 objects, and 132
+hosts; 112 objects support numerical growth inference.
 
 ## Invariants
 

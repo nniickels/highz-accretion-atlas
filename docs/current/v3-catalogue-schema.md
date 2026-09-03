@@ -1,7 +1,7 @@
 # v3 catalogue schema
 
-v3 is the complete heterogeneous catalogue. It contains 234 measurements, 219
-physical objects, and 218 host systems.
+v3 is the complete JWST-identified heterogeneous catalogue. It contains 142
+measurements, 133 physical objects, and 132 host systems.
 
 The measurement schema is inherited unchanged. The object table adds:
 

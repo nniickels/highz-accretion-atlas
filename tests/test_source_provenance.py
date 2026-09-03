@@ -26,8 +26,8 @@ class SourceProvenanceTests(unittest.TestCase):
         cls.registry = load_source_provenance_registry(REGISTRY_PATH)
 
     def test_registry_contract_and_current_catalogue_coverage(self) -> None:
-        self.assertEqual(len(self.registry), 16)
-        self.assertEqual(self.registry["source_key"].nunique(), 11)
+        self.assertEqual(len(self.registry), 13)
+        self.assertEqual(self.registry["source_key"].nunique(), 9)
         catalogue = pd.read_csv(CATALOGUE_PATH, low_memory=False)
         validate_catalogue_source_coverage(self.registry, catalogue)
 
@@ -45,8 +45,6 @@ class SourceProvenanceTests(unittest.TestCase):
 
     def test_dataset_and_supporting_source_roles(self) -> None:
         rows = self.registry.set_index("provenance_id")
-        self.assertEqual(rows.loc["shen19_primary", "dataset_doi"], "10.26093/cds/vizier.18730035")
-        self.assertEqual(rows.loc["dodorico23_coordinates", "source_role"], "coordinate_source")
         self.assertEqual(rows.loc["goulding23_context", "source_role"], "context_source")
         self.assertEqual(rows.loc["bogdan23_primary", "evidence_status"], "candidate")
         self.assertEqual(rows.loc["scholtz25_primary", "evidence_status"], "candidate")

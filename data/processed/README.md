@@ -2,7 +2,7 @@
 
 - `v1/`: 23 original JADES BLAGN measurements and objects.
 - `v2/`: 119 comparable BLAGN measurements representing 112 objects.
-- `v3/`: final heterogeneous catalogue, 234 measurements and 219 objects.
+- `v3/`: final JWST-identified heterogeneous catalogue, 142 measurements and 133 objects.
 
 These are dataset scopes, not software releases. Each uses the same schema and
 contains measurement, object, host, observable, and strata tables. Use the

@@ -150,41 +150,6 @@ Detailed extraction and caveat notes are in
   `docs/source-notes/ren25-alpine-cristal-jwst-extraction-notes.md` and
   `docs/current/v3-catalogue-schema.md`.
 
-## v3 source: XQR-30 luminous quasars
-
-- **[source_key: xqr30_mazzucchelli23] Mazzucchelli et al. (2023), A&A
-  676 A71:** all 42 E-XQR-30 luminous quasars with MgII canonical masses and
-  CIV alternate observables. The mass-table arXiv `2306.16474v1` archive hash
-  is `412055cec92c368f711605822d806c949816695a451efee867904d2171fee53f`.
-- Coordinates and canonical aliases come from the complete 42-row E-XQR-30
-  table in D'Odorico et al. (2023), arXiv `2305.05053v1`, archive hash
-  `1cf315f5fd4cd9f0edebb840c254dcd6bee26e2a061ce9fc9ff5bc8f344d7c42`.
-- The 0.55 dex MgII scaling-relation systematic is separate from statistical
-  fit errors. Seven telluric caveats, the PSO J065+01 CIV low-S/N caveat, BAL
-  annotations, and uncorrected lensing for WISEA J0439+1634 are explicit.
-- The paper's 23 earlier-literature repeats are audited separately; none has a
-  coordinate/redshift candidate in the final catalogue. Four source-table Eddington-ratio
-  inconsistencies are preserved and machine-flagged rather than overwritten.
-  See `docs/source-notes/xqr30-extraction-notes.md`.
-
-## v3 source: GNIRS-50 luminous quasars
-
-- **[source_key: shen19_gnirs50] Shen et al. (2019), ApJ 873:35:** the
-  complete 50-quasar Gemini/GNIRS sample from CDS `J/ApJ/873/35`.
-- The source-fiducial mass uses MgII when available (29 rows), otherwise CIV
-  (20 rows); J0055+0146 has no accepted virial mass and remains explicit but
-  growth-ineligible. The source-stated 0.4 dex systematic is separate from
-  Monte Carlo spectral-fit errors.
-- Eight BAL and four radio-loud annotations are retained. Six measurements
-  share physical identities with XQR-30; three threshold matches and three
-  manual sub-arcsecond/name assertions are recorded in the reviewed registry.
-- CDS Table 1 and Table 3 hashes are respectively
-  `40ed1598d8c6d4d4a4aa580c578742f9e0334c26bb9dd762a9a0375231a7239f`
-  and `e1eae3266b9ccfc966303c6e389e9c16141678199924a67ab4c786fed3240323`;
-  arXiv `1809.05584v1` hashes to
-  `2b4376dc136873c4b8db0e5016568b9b1d4692042f6bb035e61fa8bd76b980ef`.
-  See `docs/source-notes/shen19-gnirs50-extraction-notes.md`.
-
 ## v3 source: UHZ1 X-ray evidence history
 
 - **[source_key: uhz1_xray_evidence_history] UHZ1 / UNCOVER-26185:** two

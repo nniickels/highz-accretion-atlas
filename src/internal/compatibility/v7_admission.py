@@ -18,7 +18,6 @@ OBJECT_CLASSES = {
     "xray_agn_candidate",
     "high_ionization_line_candidate",
     "photometric_agn_candidate",
-    "luminous_quasar_comparison",
 }
 EVIDENCE_STATUSES = {"secure", "probable", "candidate", "disputed"}
 SPECTROSCOPIC_TYPES = {
@@ -37,7 +36,6 @@ SELECTION_CHANNELS = {
     "xray",
     "photometric_sed",
     "high_ionization_line",
-    "luminous_quasar",
     "host_selected",
     "photometric_eelg_parent",
     "deep_g395m_broad_halpha",

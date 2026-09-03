@@ -10,7 +10,6 @@ from src.datasets import DATASET_SPECS
 from src.internal.dataset_manifests import verify_manifest
 from src.internal.build_results_inventory import collect_inventory
 from src.internal.atlas import (
-    HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX,
     MERGER_CASES,
     SEED_MODELS,
     SPIN_CASES,
@@ -46,7 +45,7 @@ def verify_version(version: str) -> None:
         raise AssertionError(f"{version} catalogue metadata mismatch")
 
     eligible = int(objects["growth_ranking_eligible_flag"].astype(bool).sum())
-    expected_eligible = {"v1": 23, "v2": 112, "v3": 196}[version]
+    expected_eligible = {"v1": 23, "v2": 112, "v3": 112}[version]
     if eligible != expected_eligible:
         raise AssertionError(f"{version} growth eligibility changed")
     uncertainty = pd.read_csv(results / "tables" / f"{version}_object_uncertainty_ranking.csv")
@@ -104,21 +103,12 @@ def verify_version(version: str) -> None:
     if version == "v3":
         for filename in (
             "v3_all_object_growth_tracks_full_assumptions.png",
-            "v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png",
             "v3_uncertainty_robustness_top5.png",
         ):
             path = results / "figures" / filename
             with Image.open(path) as image:
                 if image.format != "PNG" or image.width < 3000 or image.height < 1800:
                     raise AssertionError(f"v3 full-assumption figure is not paper resolution: {path}")
-        exclusions = pd.read_csv(results / "tables/v3_growth_track_uncertainty_filter.csv")
-        if (
-            len(exclusions) != 4
-            or not exclusions["max_mass_uncertainty_dex"].gt(
-                HIGH_UNCERTAINTY_LUMINOUS_QUASAR_THRESHOLD_DEX
-            ).all()
-        ):
-            raise AssertionError("v3 growth-track uncertainty filter is not reproducible")
 
 
 def verify_nested_membership() -> None:

@@ -48,7 +48,7 @@ def build_v7_scholtz_catalogues(
     validate_v7_admission(objects)
     hosts = _build_host_systems(measurements, catalogue_release=CATALOGUE_RELEASE)
     observed = (len(measurements), len(objects), len(hosts))
-    if observed != (233, 218, 217):
+    if observed != (141, 132, 131):
         raise ValueError(f"v7 cardinality mismatch: {observed}")
 
     links = measurements[[

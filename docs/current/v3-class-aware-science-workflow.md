@@ -18,7 +18,7 @@ without combining them with method systematics. The 48-row exclusion audit is
 the union of 25 ineligible measurement rows and 23 ineligible object rows; all
 remain in the catalogue.
 
-`results/v3/tables/v3_followup_priority.csv` contains all 219 objects. Its 196
+`results/v3/tables/v3_followup_priority.csv` contains all 133 objects. Its 112
 growth-eligible rows receive both within-class and navigation-only ranks; the
 23 objects without a method-comparable canonical mass remain explicitly
 unranked. `v3_source_caveat_summary.csv` contains one row for each of the 11

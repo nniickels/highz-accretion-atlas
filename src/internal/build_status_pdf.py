@@ -104,14 +104,14 @@ def build() -> None:
             "Versions identify nested scientific datasets rather than software releases. "
             "v1 is the complete analysis of the original 23-object JADES broad-line AGN "
             "catalogue; v2 applies the same analysis to 112 comparable broad-line AGN; "
-            "and v3 is the final heterogeneous atlas within the 27 August 2026 "
-            "source-family review cutoff. It contains 234 measurements, 219 physical "
-            "objects, and 218 host systems."
+            "and v3 is the final JWST-identified heterogeneous atlas within the "
+            "27 August 2026 source-family review cutoff. It contains 142 measurements, "
+            "133 physical objects, and 132 host systems."
         ),
         p(
             "All three datasets use the same corrected identity rules, cosmology, growth "
             "model, uncertainty propagation, comparison policy, and visual grammar. In "
-            "v3, 196 objects support numerical growth inference and 23 remain visible as "
+            "v3, 112 objects support numerical growth inference and 21 remain visible as "
             "explicit no-inference cases. Results are diagnostic comparisons under stated "
             "assumptions, not evidence for a unique seed or accretion history."
         ),
@@ -121,7 +121,7 @@ def build() -> None:
         ["Version", "Scope", "Measurements", "Objects", "Hosts", "Numeric"],
         ["v1", "Original JADES BLAGN", "23", "23", "23", "23"],
         ["v2", "Expanded comparable BLAGN", "119", "112", "111", "112"],
-        ["v3", "Heterogeneous admitted atlas", "234", "219", "218", "196"],
+        ["v3", "JWST-identified atlas", "142", "133", "132", "112"],
     ], colWidths=[0.55*inch, 2.55*inch, 0.82*inch, 0.65*inch, 0.58*inch, 0.62*inch])
     table.setStyle(TableStyle([
         ("BACKGROUND", (0,0), (-1,0), BLUE),
@@ -160,7 +160,7 @@ def build() -> None:
     )])
     story.extend(_figure(
         "results/v3/figures/v3_all_object_growth_tracks.png",
-        "<b>Figure 2.</b> All 196 supported masses appear against reference tracks; the lower "
+        "<b>Figure 2.</b> All 112 supported masses appear against reference tracks; the lower "
         "panel retains the redshifts and classes of all 23 no-inference objects.", width=7.0*inch,
     ))
     story.extend([p(
@@ -188,7 +188,7 @@ def build() -> None:
     )])
     story.extend(_figure(
         "results/v3/figures/v3_monte_carlo_summary.png",
-        "<b>Figure 4.</b> Monte Carlo pressure summary for all 196 numerical objects, with an "
+        "<b>Figure 4.</b> Monte Carlo pressure summary for all 112 numerical objects, with an "
         "explicit accounting of the 23 unavailable cases.",
     ))
     story.extend([PageBreak(), h("Compatibility across assumption families"), p(
@@ -202,8 +202,8 @@ def build() -> None:
         "and accretion assumptions.",
     ))
     story.extend([PageBreak(), h("From catalogue scale to individual objects"), p(
-        "Each of the 219 v3 objects has an f_Edd-mass sheet and a seed-redshift-mass panel. The "
-        "196 supported objects receive numerical products; the remaining 23 receive status "
+        "Each of the 133 v3 objects has an f_Edd-mass sheet and a seed-redshift-mass panel. The "
+        "112 supported objects receive numerical products; the remaining 21 receive status "
         "panels explaining why no inference is made."
     )])
     story.extend(_figure(
@@ -215,7 +215,7 @@ def build() -> None:
         "Thirteen eligible alternate measurements are compared with preferred rows. Source "
         "keys, table locations, publication versions, archive records, uncertainties, identity "
         "decisions, and caveats remain available beside derived quantities. The follow-up "
-        "matrix retains all 219 objects (196 ranked; 23 explicitly unranked), and the source "
+        "matrix retains all 133 objects (112 ranked; 21 explicitly unranked), and the source "
         "caveat table covers all 11 admitted families."
     )])
     story.extend(_figure(

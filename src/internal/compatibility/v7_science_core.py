@@ -17,7 +17,7 @@ from src.internal.uncertainty import (
     summarize_distribution,
 )
 from src import models
-from src.internal.compatibility.v7_gnirs_catalogue import CATALOGUE_RELEASE
+from src.internal.compatibility.v7_catalogue import CATALOGUE_RELEASE
 from src.internal.compatibility.v7_admission import validate_v7_admission
 
 
@@ -423,10 +423,10 @@ def verify_science_outputs(outputs: dict[str, pd.DataFrame], *, n_samples: int) 
     measurement_uncertainty = outputs["measurement_uncertainty_ranking"]
     object_uncertainty = outputs["object_uncertainty_ranking"]
     checks = {
-        "measurement_point_count": len(measurement_point) == 209,
-        "object_point_count": len(object_point) == 196,
-        "measurement_uncertainty_count": len(measurement_uncertainty) == 209,
-        "object_uncertainty_count": len(object_uncertainty) == 196,
+        "measurement_point_count": len(measurement_point) == 119,
+        "object_point_count": len(object_point) == 112,
+        "measurement_uncertainty_count": len(measurement_uncertainty) == 119,
+        "object_uncertainty_count": len(object_uncertainty) == 112,
         "measurement_ids_unique": measurement_point["measurement_id"].is_unique,
         "object_ids_unique": object_point["physical_object_id"].is_unique,
         "sample_count": measurement_uncertainty["n_samples"].eq(n_samples).all(),

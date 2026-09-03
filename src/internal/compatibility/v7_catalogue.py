@@ -113,15 +113,15 @@ def finalize_v7_catalogues(
     candidates["catalogue_release"] = CATALOGUE_RELEASE
     strata = _build_strata(measurements, objects, catalogue_release=CATALOGUE_RELEASE)
 
-    if (len(measurements), len(objects), len(hosts)) != (234, 219, 218):
+    if (len(measurements), len(objects), len(hosts)) != (142, 133, 132):
         raise ValueError("v7 cardinality changed unexpectedly")
     jades8083 = objects[objects["physical_object_id"].eq("HZA-GS-8083")].iloc[0]
     if jades8083["evidence_status"] != "secure" or not bool(
         jades8083["primary_growth_ranking_flag"]
     ):
         raise ValueError("v7 preferred-evidence policy failed for JADES 8083")
-    if objects["primary_growth_ranking_flag"].sum() != 171:
-        raise ValueError("v7 primary object count must be 171")
+    if objects["primary_growth_ranking_flag"].sum() != 105:
+        raise ValueError("v7 primary object count must be 105")
     if set(measurements.loc[measurements["source_key"].eq(SOURCE_KEY), "object_id"]) != set(
         complete_scholtz["object_id"]
     ):

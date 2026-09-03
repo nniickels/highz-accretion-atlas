@@ -12,7 +12,7 @@ results/<version>/
 ```
 
 v1 covers all 23 objects numerically; v2 covers all 112 numerically; v3
-represents all 219 objects with 196 numerical products and 23 explicit
+represents all 133 objects with 112 numerical products and 21 explicit
 no-inference panels. Obsolete software-release result trees are not part of the
 public repository contract; necessary assembly logic is isolated under
 `src/internal/compatibility/`.
@@ -20,12 +20,6 @@ public repository contract; necessary assembly logic is isolated under
 Individual growth-track panels are intentionally omitted. A combined
 growth-track overview for each version remains under `figures/`. All combined
 growth-track figures use the same observed-redshift range from 10 down to 3,
-with their existing figure dimensions and plot margins retained. The overview
-plots use purple for broad-line AGN and yellow for luminous quasars; v3 also has
+with their existing figure dimensions and plot margins retained. v3 also has
 `v3_all_object_growth_tracks_full_assumptions.png`, which preserves the full
 historical v1 curve and object-color encodings as a separate companion figure.
-The additional
-`v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png` keeps
-the same 72 curves but excludes the four luminous quasars with reported mass
-uncertainty above 0.7 dex. The exact selection is recorded in
-`v3/tables/v3_growth_track_uncertainty_filter.csv`.

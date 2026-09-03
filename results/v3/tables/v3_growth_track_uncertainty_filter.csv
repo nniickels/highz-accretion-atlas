@@ -1,5 +1,0 @@
-physical_object_id,object_id,source_key,redshift,log_mbh_msun_std,log_mbh_err_minus_std,log_mbh_err_plus_std,max_mass_uncertainty_dex,exclusion_threshold_dex,exclusion_reason
-HZA-GNIRS50-J0300-2232,J0300-2232,shen19_gnirs50,5.65156,8.6474,4.4584,4.4584,4.4584,0.7,luminous_quasar_mass_uncertainty_gt_0p7_dex
-HZA-GNIRS50-J0221-0802,J0221-0802,shen19_gnirs50,6.20015,8.6677,3.2213,3.2213,3.2213,0.7,luminous_quasar_mass_uncertainty_gt_0p7_dex
-HZA-GNIRS50-J2307-0031,J2307+0031,shen19_gnirs50,5.90021,8.1369,1.7905,1.7905,1.7905,0.7,luminous_quasar_mass_uncertainty_gt_0p7_dex
-HZA-GNIRS50-J0033-0125,J0033-0125,shen19_gnirs50,6.01884,9.5156,0.8746,0.8746,0.8746,0.7,luminous_quasar_mass_uncertainty_gt_0p7_dex

@@ -70,28 +70,20 @@ Appendix or supplement products:
 - full seed-redshift-mass map gallery — `results/v3/parameter_maps/seedredshift_mass_maps/`
 - comprehensive v3 growth-track grid preserving all historical v1 line
   combinations — `results/v3/figures/v3_all_object_growth_tracks_full_assumptions.png`
-- uncertainty-filtered version of that grid, excluding the four luminous
-  quasars whose reported black-hole-mass uncertainty exceeds 0.7 dex —
-  `results/v3/figures/v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png`;
-  excluded rows are recorded in `results/v3/tables/v3_growth_track_uncertainty_filter.csv`
 - validation checks — `results/v3/tables/v3_exclusion_audit.csv`, `results/v3/tables/v3_all_object_visual_coverage.csv`, and `results/v3/tables/v3_science_policy.csv`; executable gate in `scripts/04_verify.ipynb`
 - sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
 
-The canonical v3 gallery covers all 219 objects with one $f_{Edd}$-mass map in
+The canonical v3 gallery covers all 133 objects with one $f_{Edd}$-mass map in
 `results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
-`results/v3/parameter_maps/seedredshift_mass_maps/`. The 196
-growth-eligible objects receive numerical panels; the other 23 receive explicit
+`results/v3/parameter_maps/seedredshift_mass_maps/`. The 112
+growth-eligible objects receive numerical panels; the other 21 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
 companion contains 72 curves spanning three seed masses, three $f_{Edd}$
 values, four efficiencies, and two merger boosts. Seed mass is encoded by
 color, $f_{Edd}$ by line style, efficiency by line width, and merger boost by
-opacity. Its uncertainty-filtered
-counterpart applies the explicit 0.7 dex cut only to luminous quasars, removing
-four extreme-error measurements while retaining every other numerical object
-and all 23 no-inference markers.
-Catalogue-wide compatibility and Monte
+opacity. Catalogue-wide compatibility and Monte
 Carlo atlases retain every object label, while class-specific summaries avoid
 reporting a heterogeneous pooled demographic fraction. Start with
 `results/README.md` or the version manifests under `releases/`.
@@ -112,7 +104,7 @@ propagation, comparison policy, and visual grammar.
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES BLAGN catalogue | 23 | 23 | 23 |
 | v2 | v1 plus comparable BLAGN from Taylor, Matthee, Lin, Harikane, Davis/THRILS, and Ren | 119 | 112 | 111 |
-| v3 | v2 plus XQR-30, GNIRS-50, UHZ1, and the audited Scholtz set | 234 | 219 | 218 |
+| v3 | v2 plus UHZ1 and the audited Scholtz set | 142 | 133 | 132 |
 
 For each version, canonical catalogues are under
 `data/processed/<version>/`, identity products are under

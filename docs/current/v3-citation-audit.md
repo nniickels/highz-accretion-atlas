@@ -9,8 +9,6 @@ The manuscript cites every primary source family used in the current catalogue:
 - Harikane et al. (NIRSpec BLAGN)
 - Davis et al. (THRILS)
 - Ren et al. (ALPINE–CRISTAL–JWST candidates)
-- Mazzucchelli et al. (XQR-30)
-- Shen et al. (GNIRS-50)
 - Bogdán et al. and Zou et al. (UHZ1 evidence history)
 - Scholtz et al. (JADES narrow/high-ionization candidates)
 - Dayal (growth-model reference)
@@ -18,7 +16,6 @@ The manuscript cites every primary source family used in the current catalogue:
 It also cites the ancillary papers that contribute catalogue coordinates or
 source context:
 
-- D'Odorico et al. (E-XQR-30 coordinates and aliases)
 - Hutchison et al. (THRILS programme coordinates and redshifts)
 - Goulding et al. (UHZ1 spectroscopy and host context)
 

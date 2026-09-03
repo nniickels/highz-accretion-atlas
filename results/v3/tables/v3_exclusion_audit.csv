@@ -1,8 +1,6 @@
 science_release,input_catalogue_release,catalogue_view,measurement_id,physical_object_id,object_id,source_key,object_class,mass_comparability_group,growth_ranking_eligibility_reason,retained_in_catalogue_flag,excluded_from_science_rank_flag
-v3-shared-science,v3-dataset-catalogue,measurement,GNIRS50-J0055-0146_shen19,HZA-GNIRS50-J0055-0146,J0055+0146,shen19_gnirs50,luminous_quasar_comparison,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,UHZ1_bogdan24,HZA-UHZ1,UHZ1,uhz1_xray_evidence_history,xray_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,UHZ1_zou26,HZA-UHZ1,UHZ1 / UNCOVER-26185,uhz1_xray_evidence_history,xray_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
-v3-shared-science,v3-dataset-catalogue,measurement,XQR30-WISEA-J0439-1634_mazzucchelli23,HZA-XQR30-WISEA-J0439-1634,WISEA J0439+1634,xqr30_mazzucchelli23,luminous_quasar_comparison,virial_uv_single_epoch,lensing_correction_not_applied,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,scholtz25_00004902,HZA-JADES-NS-GS00004902,JADES-NS-GS00004902,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,scholtz25_00007762,HZA-JADES-NS-GS00007762,JADES-NS-GS00007762,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,scholtz25_00008083,HZA-GS-8083,JADES-NS-GS00008083,scholtz25_jades_narrow_line_agn,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
@@ -24,9 +22,7 @@ v3-shared-science,v3-dataset-catalogue,measurement,scholtz25_10013905,HZA-JADES-
 v3-shared-science,v3-dataset-catalogue,measurement,scholtz25_10015338,HZA-JADES-NS-GS10015338,JADES-NS-GS10015338,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,scholtz25_10056849,HZA-JADES-NS-GS10056849,JADES-NS-GS10056849,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,scholtz25_10058975,HZA-JADES-NS-GS10058975,JADES-NS-GS10058975,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
-v3-shared-science,v3-dataset-catalogue,physical_object,GNIRS50-J0055-0146_shen19,HZA-GNIRS50-J0055-0146,J0055+0146,shen19_gnirs50,luminous_quasar_comparison,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,UHZ1_zou26,HZA-UHZ1,UHZ1 / UNCOVER-26185,uhz1_xray_evidence_history,xray_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
-v3-shared-science,v3-dataset-catalogue,physical_object,XQR30-WISEA-J0439-1634_mazzucchelli23,HZA-XQR30-WISEA-J0439-1634,WISEA J0439+1634,xqr30_mazzucchelli23,luminous_quasar_comparison,virial_uv_single_epoch,lensing_correction_not_applied,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,scholtz25_00004902,HZA-JADES-NS-GS00004902,JADES-NS-GS00004902,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,scholtz25_00007762,HZA-JADES-NS-GS00007762,JADES-NS-GS00007762,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,scholtz25_00009422,HZA-JADES-NS-GS00009422,JADES-NS-GS00009422,scholtz25_jades_narrow_line_agn,narrow_line_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True

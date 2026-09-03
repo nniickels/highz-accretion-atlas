@@ -54,7 +54,7 @@ def build_v7_uhz1_catalogues(
     ).reset_index(drop=True)
     validate_v7_admission(objects)
     hosts = _build_host_systems(measurements, catalogue_release=CATALOGUE_RELEASE)
-    expected = (213, 199, 198)
+    expected = (121, 113, 112)
     observed = (len(measurements), len(objects), len(hosts))
     if observed != expected:
         raise ValueError(f"v7 cardinality mismatch: expected {expected}, found {observed}")

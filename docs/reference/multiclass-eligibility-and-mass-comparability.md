@@ -4,8 +4,8 @@ This is the active comparison contract for heterogeneous dataset v3. It keeps
 identity, evidence, phenotype, mass inference, and ranking eligibility as
 separate questions.
 
-Controlled object classes include broad-line AGN, luminous-quasar comparison
-objects, narrow/high-ionization-line candidates, and X-ray candidates. Lensing
+Controlled object classes include broad-line AGN, narrow/high-ionization-line
+candidates, and X-ray candidates. Lensing
 is a property, and `lrd` is a phenotype; neither is an object class.
 
 Mass-comparability groups distinguish Balmer and UV single-epoch virial masses,

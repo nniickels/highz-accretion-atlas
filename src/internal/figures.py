@@ -48,13 +48,11 @@ configure(VERSION)
 
 COLORS = {
     "broad_line_agn": "#176B87",
-    "luminous_quasar_comparison": "#B66A1E",
     "narrow_line_agn_candidate": "#6B5CA5",
     "xray_agn_candidate": "#8A8A8A",
 }
 LABELS = {
     "broad_line_agn": "Broad-line AGN",
-    "luminous_quasar_comparison": "Luminous quasars",
     "narrow_line_agn_candidate": "Narrow-line candidates",
     "xray_agn_candidate": "X-ray candidates",
 }

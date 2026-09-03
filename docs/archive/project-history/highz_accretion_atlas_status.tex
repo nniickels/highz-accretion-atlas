@@ -32,11 +32,12 @@ This document is a guided tour of the repository's most significant scientific
 products and the pipeline that produces them. Versions now identify nested
 datasets rather than software releases. v1 is the complete analysis of the
 original 23-object JADES broad-line AGN catalogue; v2 applies the same analysis
-to 112 comparable broad-line AGN; and v3 is the final heterogeneous atlas of
-234 measurements, 219 physical objects, and 218 host systems. Every version has
+to 112 comparable broad-line AGN; and v3 is the final JWST-identified
+heterogeneous atlas of 142 measurements, 133 physical objects, and 132 host
+systems. Every version has
 the same baseline evaluation, ranking, 10,000-sample Monte Carlo uncertainty,
-duty-cycle, compatibility, and visual products. In v3, 196 objects support
-numerical growth inference and 23 remain visible as explicit no-inference
+duty-cycle, compatibility, and visual products. In v3, 112 objects support
+numerical growth inference and 21 remain visible as explicit no-inference
 cases. The figures are diagnostic comparisons under stated assumptions, not
 evidence for a unique seed or accretion history.
 \end{abstract}
@@ -55,7 +56,7 @@ Version & Scope & Measurements & Objects & Hosts & Numeric objects \\
 \midrule
 v1 & Original JADES BLAGN & 23 & 23 & 23 & 23 \\
 v2 & Expanded comparable BLAGN & 119 & 112 & 111 & 112 \\
-v3 & Final heterogeneous atlas & 234 & 219 & 218 & 196 \\
+v3 & JWST-identified heterogeneous atlas & 142 & 133 & 132 & 112 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -92,7 +93,7 @@ an inferred mass.}
 
 The final object composition is 112 broad-line AGN, 86 luminous-quasar
 comparison objects, 20 narrow-line candidates, and one X-ray candidate. The
-catalogue contains 219 unique physical objects even though it retains 234
+catalogue contains 133 unique physical objects even though it retains 142
 measurements. This difference is scientifically useful: alternate measurements
 are preserved for sensitivity tests, while one documented preferred row drives
 each object-level result.
@@ -202,7 +203,7 @@ virial systematics; systematic shifts remain separately labelled envelopes.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.98\textwidth]{../../../results/v3/figures/v3_monte_carlo_summary.png}
-\caption{Monte Carlo summary for all 196 numerical v3 objects. Marker size
+\caption{Monte Carlo summary for all 112 numerical v3 objects. Marker size
 encodes interval width; the side panel accounts for the 23 objects that do not
 support a numerical posterior.}
 \label{fig:mc}
@@ -297,8 +298,8 @@ Every scientific row can be traced to a source key, table, paper version, URL,
 DOI/archive record, extraction status, method, and caveat. Identity decisions
 are separate tables rather than hidden string matching. Preferred measurements
 control object-level results, but all measurement-level evidence states and
-values remain available for audit. The follow-up matrix retains all 219
-objects, ranking 196 and leaving 23 explicitly unranked; the caveat summary
+values remain available for audit. The follow-up matrix retains all 133
+objects, ranking 112 and leaving 21 explicitly unranked; the caveat summary
 contains one row for each of the 11 admitted source families.
 
 \section{Repository tour and exact reproduction}
@@ -339,7 +340,7 @@ mkdir -p /tmp/highz-atlas-notebooks
 \end{verbatim}
 
 The verification contract requires strict nested membership
-$\mathrm{v1}<\mathrm{v2}<\mathrm{v3}$, the expected 23/112/219 object counts,
+$\mathrm{v1}<\mathrm{v2}<\mathrm{v3}$, the expected 23/112/133 object counts,
 10,000 samples in Monte Carlo and duty-cycle products, complete compatibility
 tables, an exact result inventory, two visual panels per object, and
 publication-resolution PNGs. The
