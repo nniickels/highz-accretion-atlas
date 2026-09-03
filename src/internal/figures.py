@@ -38,6 +38,10 @@ def configure(version: str) -> None:
         "uncertainty_robustness": FIGURES / f"{version}_uncertainty_robustness.png",
         "measurement_sensitivity": FIGURES / f"{version}_measurement_sensitivity.png",
     }
+    if version == "v3":
+        OUTPUT_PATHS["uncertainty_robustness_top5"] = (
+            FIGURES / "v3_uncertainty_robustness_top5.png"
+        )
 
 
 configure(VERSION)
@@ -148,6 +152,32 @@ def plot_uncertainty(uncertainty: pd.DataFrame) -> None:
     _save(fig, OUTPUT_PATHS["uncertainty_robustness"])
 
 
+def plot_uncertainty_top5(uncertainty: pd.DataFrame) -> None:
+    """Render a presentation-ready crop of the five strongest objects."""
+    top = uncertainty.nsmallest(5, "rank_uncertainty_global_navigation").sort_values(
+        "required_fedd_seed1e2_p50"
+    )
+    y = np.arange(len(top))
+    med = top["required_fedd_seed1e2_p50"].to_numpy()
+    lo = med - top["required_fedd_seed1e2_p16"].to_numpy()
+    hi = top["required_fedd_seed1e2_p84"].to_numpy() - med
+    fig, ax = plt.subplots(figsize=(12.5, 5.2), constrained_layout=True)
+    colors = [COLORS[value] for value in top["object_class"]]
+    for index, color in enumerate(colors):
+        ax.errorbar(med[index], y[index], xerr=[[lo[index]], [hi[index]]], fmt="none",
+                    ecolor=color, elinewidth=2.2, capsize=3.5)
+    ax.scatter(med, y, color=colors, s=68, zorder=3, edgecolor="white", linewidth=0.7)
+    ax.axvline(1.0, color="#9B2C2C", linestyle="--", linewidth=1.4,
+               label=r"Eddington-limited reference ($f_\mathrm{Edd}=1$)")
+    ax.set_yticks(y, top["object_id"].astype(str))
+    ax.set(
+        xlabel=r"Required $f_\mathrm{Edd}$ for a $10^2\,M_\odot$ seed (median and 16–84%)",
+        title="Highest uncertainty-aware growth pressure: top five objects",
+    )
+    ax.legend(frameon=False)
+    _save(fig, OUTPUT_PATHS["uncertainty_robustness_top5"])
+
+
 def plot_sensitivity(sensitivity: pd.DataFrame) -> None:
     ordered = sensitivity.sort_values(
         ["object_class", "physical_object_id", "alternate_measurement_id"]
@@ -190,6 +220,8 @@ def main() -> None:
     plot_catalogue_landscape(objects, point)
     plot_pressure(point)
     plot_uncertainty(uncertainty)
+    if args.version == "v3":
+        plot_uncertainty_top5(uncertainty)
     plot_sensitivity(sensitivity)
     for path in OUTPUT_PATHS.values():
         print(f"Wrote {path.relative_to(ROOT)}")

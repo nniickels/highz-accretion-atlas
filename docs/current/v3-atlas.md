@@ -28,6 +28,8 @@ catalogue strata. These are the canonical v3 files.
    by class, seed family, spin, merger boost, and accretion rate.
 5. `v3_monte_carlo_summary.png` — all 196 numerical posteriors plus an
    explicit accounting of the other 23 catalogue objects.
+6. `v3_uncertainty_robustness_top5.png` — a presentation-ready crop showing
+   the five objects with the strongest uncertainty-aware growth pressure.
 
 The existing catalogue landscape, class-aware pressure, and alternate-
 measurement sensitivity figures remain valid supporting main-text figures

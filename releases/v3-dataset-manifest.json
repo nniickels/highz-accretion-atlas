@@ -5,7 +5,7 @@
   "expected_measurements": 234,
   "expected_objects": 219,
   "expected_hosts": 218,
-  "artifact_count": 479,
+  "artifact_count": 480,
   "artifacts": {
     "data/crossmatch/v3/v3_external_literature_identity_audit.csv": "b6626b0b7ef13c7f7c940affc015705dcde84655724b405b8b259f7eda353eed",
     "data/crossmatch/v3/v3_measurement_object_links.csv": "36569087403e223a4c71064765fd503a9ea2fcc1fddc3b7d1206c1bc42d7e703",
@@ -29,6 +29,7 @@
     "results/v3/figures/v3_measurement_sensitivity.png": "7c15de93492c2f53e74c6d8b17dad6f9fd6db5e979f76deb9409c53813b7ad97",
     "results/v3/figures/v3_monte_carlo_summary.png": "7a4802404502285c7dd532e7fc64d44ea5cfeb01252a36dd2235c8c9a480b104",
     "results/v3/figures/v3_uncertainty_robustness.png": "fba9d19238c9ad5c7f5c5b21569bff7edeaa22c9d1428556c240c9a799102224",
+    "results/v3/figures/v3_uncertainty_robustness_top5.png": "7ade067d8bff1c0b4a87b94b8129522bae22f350803e35654cb054cbdf9609e2",
     "results/v3/parameter_maps/fedd_mass_maps/v3_fedd_mass_map_hza-ceers-00717.png": "1fc2ab2bd213978cd304f3b208bdd27653b05ef1666f9feab033151906b9820b",
     "results/v3/parameter_maps/fedd_mass_maps/v3_fedd_mass_map_hza-ceers-01236.png": "1bd74a9ef48459e21f1e2210d94b1f23257474e6f8e3d41e5f48d8d00b80e05b",
     "results/v3/parameter_maps/fedd_mass_maps/v3_fedd_mass_map_hza-ceers-01665.png": "6ac4b04a315df0603fc4deead373fd41b655e2e6ba2eb36db6cdc84bde80306e",

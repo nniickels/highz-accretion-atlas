@@ -105,6 +105,7 @@ def verify_version(version: str) -> None:
         for filename in (
             "v3_all_object_growth_tracks_full_assumptions.png",
             "v3_all_object_growth_tracks_full_assumptions_uncertainty_filtered.png",
+            "v3_uncertainty_robustness_top5.png",
         ):
             path = results / "figures" / filename
             with Image.open(path) as image:

@@ -56,7 +56,7 @@ Main-text products:
 - required $f_{Edd}$ summaries for fixed seed masses — `results/v3/tables/v3_required_fedd_by_seed_mass.csv`
 - required seed-mass summaries for fixed accretion histories — `results/v3/tables/v3_required_mseed_by_growth_assumption.csv`
 - compatibility heatmap across seed/growth assumptions — `results/v3/figures/v3_compatibility_summary.png` and `results/v3/tables/v3_all_object_compatibility.csv`
-- uncertainty and systematics robustness plots — `results/v3/figures/v3_uncertainty_robustness.png`, `results/v3/figures/v3_monte_carlo_summary.png`, and `results/v3/figures/v3_measurement_sensitivity.png`
+- uncertainty and systematics robustness plots — `results/v3/figures/v3_uncertainty_robustness.png`, its presentation-ready top-five crop `results/v3/figures/v3_uncertainty_robustness_top5.png`, `results/v3/figures/v3_monte_carlo_summary.png`, and `results/v3/figures/v3_measurement_sensitivity.png`
 - selected object-level $f_{Edd}$-mass maps — `results/v3/parameter_maps/fedd_mass_maps/`
 - follow-up priority table or matrix — `results/v3/tables/v3_followup_priority.csv`
 
