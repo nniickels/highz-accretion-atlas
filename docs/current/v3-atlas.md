@@ -15,9 +15,12 @@ catalogue strata. These are the canonical v3 files.
 
 1. `v3_all_object_growth_tracks.png` — all 196 numerical objects plus the
    redshift locations of all 23 catalogue-only objects.
-2. `v3_compatibility_summary.png` — all 196 computable objects summarized
+2. `v3_all_object_growth_tracks_full_assumptions.png` — the same v3 objects
+   against all 72 historical v1 reference curves: three seed masses crossed
+   with three $f_{Edd}$ values, four constant efficiencies, and two merger boosts.
+3. `v3_compatibility_summary.png` — all 196 computable objects summarized
    by class, seed family, spin, merger boost, and accretion rate.
-3. `v3_monte_carlo_summary.png` — all 196 numerical posteriors plus an
+4. `v3_monte_carlo_summary.png` — all 196 numerical posteriors plus an
    explicit accounting of the other 23 catalogue objects.
 
 The existing catalogue landscape, class-aware pressure, and alternate-
@@ -38,8 +41,8 @@ The gallery therefore contains 438 canonical per-object panels. Numerical
 seed-redshift-mass maps solve for the lifetime-average Eddington fraction over seed
 mass and seed redshift using the baseline efficiency and merger assumptions;
 objects without a supported mass receive the same explicit no-inference
-treatment as the $f_{Edd}$-mass maps. Growth tracks are provided only in the
-combined all-object figure.
+treatment as the $f_{Edd}$-mass maps. Growth tracks are provided only in
+combined all-object figures, never as individual gallery panels.
 
 For the 23 objects without a supported canonical numerical black-hole mass,
 the visual atlas uses explicit no-inference panels. It does not invent masses,

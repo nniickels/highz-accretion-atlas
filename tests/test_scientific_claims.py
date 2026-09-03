@@ -7,6 +7,14 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.internal.atlas import (
+    FULL_TRACK_CURVE_COUNT,
+    FULL_TRACK_EPSILON_CASES,
+    FULL_TRACK_FEDD_STYLES,
+    FULL_TRACK_MERGER_CASES,
+    FULL_TRACK_SEEDS,
+)
+
 from src.internal.compatibility.v7_scholtz import (
     parse_full_table_membership,
     validate_full_table_selection,
@@ -19,6 +27,13 @@ TABLES = ROOT / "results/v3/tables"
 
 
 class V3ScientificClaimTests(unittest.TestCase):
+    def test_full_growth_track_assumption_grid_matches_historical_v1(self) -> None:
+        self.assertEqual(len(FULL_TRACK_SEEDS), 3)
+        self.assertEqual([item[0] for item in FULL_TRACK_FEDD_STYLES], [0.3, 1.0, 2.0])
+        self.assertEqual(len(FULL_TRACK_EPSILON_CASES), 4)
+        self.assertEqual([item[0] for item in FULL_TRACK_MERGER_CASES], [1.0, 2.0])
+        self.assertEqual(FULL_TRACK_CURVE_COUNT, 72)
+
     def test_scholtz_full_table_and_admitted_redshift_cut(self) -> None:
         full_table_path = RAW / "scholtz25_jades_table_sample_full.tex"
         full = parse_full_table_membership(full_table_path)

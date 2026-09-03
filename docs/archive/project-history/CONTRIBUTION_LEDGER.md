@@ -1484,3 +1484,32 @@ For every future Codex contribution that changes repository files:
 - **Recovery note:** Deleted individual panels and obsolete coverage tables
   remain recoverable from Git history.
 - **Status:** Complete and verified locally; uncommitted.
+
+### 2026-09-02 - Add comprehensive v3 growth-track companion
+
+- **Objective:** Preserve the full reference-line vocabulary of the historical
+  v1 growth-track figure in a new v3 all-object product without replacing the
+  simpler canonical overview.
+- **Files changed:** Atlas generator and verifier, scientific regression tests,
+  current and publication documentation, manuscript and status sources/PDFs,
+  result inventory, v3 manifest, and
+  `results/v3/figures/v3_all_object_growth_tracks_full_assumptions.png`.
+- **Contribution:** Added a v3 companion containing 72 constant-efficiency
+  curves: three seed masses (`10^2`, `10^4`, and `10^5 M_sun`) crossed with
+  `f_Edd = 0.3, 1, 2`, four efficiencies (`0.100`, `0.038`, `0.057`, and
+  `0.423`), and merger boosts of one and two. Colour, line style, width, and
+  opacity preserve the historical v1 encoding. All 196 supported v3 objects
+  remain plotted with uncertainties, and the lower strip retains all 23
+  no-inference objects by class and redshift.
+- **Scientific/technical effect:** Adds an assumption-comparison visualization;
+  it does not change catalogue membership, numerical tables, rankings, model
+  equations, or the simpler v3 growth-track figure.
+- **Validation:** The public atlas notebook regenerated v1, v2, and v3 and the
+  verification notebook passed all 33 tests. The 72-curve Cartesian product is
+  regression-tested; the 4500-by-3750 PNG is resolution-checked; provenance,
+  exact CSV reproduction, strict dataset nesting, the 793-row result inventory,
+  and 84/262/477-artifact manifests verify. The figure and all 17 pages across
+  the rebuilt manuscript and status PDFs were visually inspected without
+  clipping, overlap, or illegible labels.
+- **Status:** Complete and verified locally; included in the accompanying
+  repository commit.

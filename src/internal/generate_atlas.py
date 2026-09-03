@@ -25,6 +25,10 @@ def configure(version: str) -> None:
         "compatibility": atlas.FIGURES / f"{version}_all_object_compatibility_atlas.png",
         "uncertainty": atlas.FIGURES / f"{version}_all_object_monte_carlo_uncertainty.png",
     }
+    if version == "v3":
+        atlas.FIGURE_PATHS["full_assumption_growth_tracks"] = (
+            atlas.FIGURES / "v3_all_object_growth_tracks_full_assumptions.png"
+        )
     atlas.TABLE_PATHS = {
         "coverage": atlas.TABLES / f"{version}_all_object_visual_coverage.csv",
         "compatibility": atlas.TABLES / f"{version}_all_object_compatibility.csv",
@@ -47,6 +51,10 @@ def main() -> None:
     coverage.to_csv(atlas.TABLE_PATHS["coverage"], index=False)
     compatibility.to_csv(atlas.TABLE_PATHS["compatibility"], index=False)
     atlas.plot_all_object_growth_tracks(objects, atlas.FIGURE_PATHS["growth_tracks"])
+    if args.version == "v3":
+        atlas.plot_full_assumption_growth_tracks(
+            objects, atlas.FIGURE_PATHS["full_assumption_growth_tracks"],
+        )
     atlas.compile_fedd_mass_gallery(objects, atlas.FIGURE_PATHS["fedd_mass_gallery"])
     atlas.plot_compatibility_summary(objects, compatibility, atlas.FIGURE_PATHS["compatibility_summary"])
     atlas.plot_compatibility_atlas(objects, compatibility, atlas.FIGURE_PATHS["compatibility"])

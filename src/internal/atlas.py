@@ -21,6 +21,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from matplotlib.colors import ListedColormap
 import numpy as np
 import pandas as pd
@@ -34,9 +35,11 @@ from src.internal.fedd_mass_maps import (
     plot_fedd_mass_map,
 )
 from src.models import (
+    cosmic_time_gyr,
     predicted_log_mbh,
     required_seed_mass_for_growth,
     slim_disk_effective_efficiency,
+    thin_disk_radiative_efficiency,
 )
 
 
@@ -52,6 +55,7 @@ FIGURE_PATHS = {
     "class_aware_pressure": FIGURES / "v3_class_aware_growth_pressure.png",
     "measurement_sensitivity": FIGURES / "v3_measurement_sensitivity.png",
     "growth_tracks": FIGURES / "v3_all_object_growth_tracks.png",
+    "full_assumption_growth_tracks": FIGURES / "v3_all_object_growth_tracks_full_assumptions.png",
     "compatibility_summary": FIGURES / "v3_compatibility_summary.png",
     "uncertainty_summary": FIGURES / "v3_monte_carlo_summary.png",
     "fedd_mass_gallery": FIGURES / "v3_all_object_fedd_mass_map_gallery.png",
@@ -81,6 +85,33 @@ SEED_LABELS = {
     "heavy_dcbh": "Heavy / DCBH",
     "pbh": "Primordial black hole",
 }
+
+FULL_TRACK_SEEDS = (
+    (2.0, r"$10^2\,M_\odot$", "#2F6B9A"),
+    (4.0, r"$10^4\,M_\odot$", "#3A8B5C"),
+    (5.0, r"$10^5\,M_\odot$", "#B66A1E"),
+)
+FULL_TRACK_FEDD_STYLES = (
+    (0.3, (0, (5, 3))),
+    (1.0, "-"),
+    (2.0, (0, (1, 1))),
+)
+FULL_TRACK_EPSILON_CASES = (
+    (0.1, r"$\epsilon=0.100$", 0.75),
+    (float(thin_disk_radiative_efficiency(-1.0)), r"$\epsilon=0.038$", 0.95),
+    (float(thin_disk_radiative_efficiency(0.0)), r"$\epsilon=0.057$", 1.15),
+    (float(thin_disk_radiative_efficiency(1.0)), r"$\epsilon=0.423$", 1.35),
+)
+FULL_TRACK_MERGER_CASES = (
+    (1.0, "no merger boost", 0.95),
+    (2.0, r"$B_{\rm merge}=2$", 0.45),
+)
+FULL_TRACK_CURVE_COUNT = (
+    len(FULL_TRACK_SEEDS)
+    * len(FULL_TRACK_FEDD_STYLES)
+    * len(FULL_TRACK_EPSILON_CASES)
+    * len(FULL_TRACK_MERGER_CASES)
+)
 
 
 def boolish(value: object) -> bool:
@@ -200,6 +231,107 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
     status.set_yticks(range(len(classes)), [f"{LABELS[key]} (no numerical mass)" for key in classes])
     status.set_xlabel(f"Redshift of all {len(unavailable)} catalogue-only objects")
     status.grid(axis="x", alpha=0.2)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output, dpi=300, facecolor="white")
+    plt.close(fig)
+
+
+def plot_full_assumption_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
+    """Render the historical v1 72-curve assumption grid against all v3 objects."""
+    eligible = objects[objects["growth_ranking_eligible_flag"].map(boolish)].copy()
+    unavailable = objects[~objects["growth_ranking_eligible_flag"].map(boolish)].copy()
+    redshift = np.linspace(12.0, 4.0, 400)
+    fig, (ax, status) = plt.subplots(
+        2, 1, figsize=(15, 12.5), gridspec_kw={"height_ratios": [4.4, 1]},
+    )
+    fig.subplots_adjust(left=0.14, right=0.985, bottom=0.20, top=0.87, hspace=0.16)
+
+    for log_seed, _, color in FULL_TRACK_SEEDS:
+        for fedd, linestyle in FULL_TRACK_FEDD_STYLES:
+            for epsilon, _, linewidth in FULL_TRACK_EPSILON_CASES:
+                for boost, _, alpha in FULL_TRACK_MERGER_CASES:
+                    ax.plot(
+                        redshift,
+                        predicted_log_mbh(log_seed, fedd, epsilon, 30.0, redshift,
+                                          merger_boost=boost),
+                        color=color, ls=linestyle, lw=linewidth, alpha=alpha,
+                    )
+
+    for object_class, group in eligible.groupby("object_class"):
+        yerr = np.vstack([
+            group["log_mbh_err_minus_std"].fillna(0.0).to_numpy(float),
+            group["log_mbh_err_plus_std"].fillna(0.0).to_numpy(float),
+        ])
+        ax.errorbar(
+            group["redshift"], group["log_mbh_msun_std"], yerr=yerr, fmt="o",
+            ms=4.2, mfc=COLORS[object_class], mec="white", mew=0.35,
+            ecolor=COLORS[object_class], elinewidth=0.55, capsize=1.4, alpha=0.8,
+        )
+
+    ax.set(
+        xlim=(12.2, 3.8), ylim=(4.5, 10.8), xlabel="Observed redshift",
+        ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",
+        title=(f"{VERSION}: all-object growth tracks - full historical v1 assumption grid\n"
+               f"{FULL_TRACK_CURVE_COUNT} constant-efficiency curves at seed redshift 30"),
+    )
+    ax.grid(alpha=0.2)
+
+    age_axis = ax.twiny()
+    age_axis.set_xlim(ax.get_xlim())
+    age_redshifts = np.array([12, 10, 8, 7, 6, 5, 4], dtype=float)
+    age_axis.set_xticks(age_redshifts)
+    age_axis.set_xticklabels([f"{age:.2f}" for age in cosmic_time_gyr(age_redshifts)])
+    age_axis.set_xlabel("Age of the Universe (Gyr)", labelpad=7)
+
+    seed_handles = [Line2D([0], [0], color=color, lw=2.2, label=label)
+                    for _, label, color in FULL_TRACK_SEEDS]
+    class_handles = [
+        Line2D([0], [0], marker="o", color="none", markerfacecolor=COLORS[key],
+               markeredgecolor="white", markersize=6,
+               label=f"{LABELS[key]} ({len(group)})")
+        for key, group in eligible.groupby("object_class")
+    ]
+    object_legend = ax.legend(
+        handles=seed_handles + class_handles, title="Seed mass and v3 objects",
+        loc="upper left", ncols=3, frameon=False, fontsize=8.5,
+    )
+    ax.add_artist(object_legend)
+
+    encoding_handles = [
+        Line2D([0], [0], color="#4A4A4A", lw=2.2, ls=linestyle,
+               label=rf"$f_{{\rm Edd}}={fedd:g}$")
+        for fedd, linestyle in FULL_TRACK_FEDD_STYLES
+    ] + [
+        Line2D([0], [0], color="#4A4A4A", lw=linewidth, label=label)
+        for _, label, linewidth in FULL_TRACK_EPSILON_CASES
+    ] + [
+        Line2D([0], [0], color="#4A4A4A", lw=2.2, alpha=alpha, label=label)
+        for _, label, alpha in FULL_TRACK_MERGER_CASES
+    ]
+
+    status.set_xlim(12.2, 3.8)
+    status.set_ylim(-0.6, 3.6)
+    for y, (object_class, group) in enumerate(unavailable.groupby("object_class", sort=True)):
+        status.scatter(group["redshift"], np.full(len(group), y), marker="|", s=260,
+                       linewidths=2, color=COLORS[object_class])
+    classes = list(unavailable.groupby("object_class", sort=True).groups)
+    status.set_yticks(range(len(classes)), [LABELS[key] for key in classes])
+    status.set_ylabel("No numerical mass", labelpad=12)
+    status.set_xlabel(f"Redshift of all {len(unavailable)} catalogue-only objects")
+    status.grid(axis="x", alpha=0.2)
+
+    fig.legend(
+        handles=encoding_handles,
+        title="Growth encoding; all 24 combinations are plotted for each seed mass",
+        loc="lower center", bbox_to_anchor=(0.55, 0.025), ncols=5,
+        frameon=False, fontsize=9, columnspacing=1.15,
+    )
+    fig.text(
+        0.55, 0.008,
+        "Line style encodes f_Edd; width encodes constant radiative efficiency; "
+        "opacity encodes merger boost.",
+        ha="center", fontsize=8,
+    )
     output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output, dpi=300, facecolor="white")
     plt.close(fig)

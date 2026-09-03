@@ -89,6 +89,11 @@ def verify_version(version: str) -> None:
         with Image.open(path) as image:
             if image.format != "PNG" or image.width < 3000 or image.height < 1800:
                 raise AssertionError(f"{version} figure is not paper resolution: {path}")
+    if version == "v3":
+        path = results / "figures/v3_all_object_growth_tracks_full_assumptions.png"
+        with Image.open(path) as image:
+            if image.format != "PNG" or image.width < 3000 or image.height < 1800:
+                raise AssertionError(f"v3 full-assumption figure is not paper resolution: {path}")
 
 
 def verify_nested_membership() -> None:

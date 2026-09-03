@@ -68,6 +68,8 @@ Appendix or supplement products:
 - full result tables — `results/v3/tables/`
 - full per-object $f_{Edd}$-mass map gallery — `results/v3/gallery/fedd_mass_maps/`
 - full seed-redshift-mass map gallery — `results/v3/gallery/seedredshift_mass_maps/`
+- comprehensive v3 growth-track grid preserving all historical v1 line
+  combinations — `results/v3/figures/v3_all_object_growth_tracks_full_assumptions.png`
 - validation checks — `results/v3/tables/v3_exclusion_audit.csv`, `results/v3/tables/v3_all_object_visual_coverage.csv`, and `results/v3/tables/v3_science_policy.csv`; executable gate in `scripts/04_verify.ipynb`
 - sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
@@ -76,8 +78,10 @@ The canonical v3 gallery covers all 219 objects with one $f_{Edd}$-mass map in
 `results/v3/gallery/fedd_mass_maps/` and one seed-redshift-mass map in
 `results/v3/gallery/seedredshift_mass_maps/`. The 196
 growth-eligible objects receive numerical panels; the other 23 receive explicit
-no-inference status panels. Growth tracks are retained only as the combined
-catalogue-wide figure under `results/v3/figures/`.
+no-inference status panels. Growth tracks are retained only as combined
+catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
+companion contains 72 curves spanning three seed masses, three $f_{Edd}$
+values, four efficiencies, and two merger boosts.
 Catalogue-wide compatibility and Monte
 Carlo atlases retain every object label, while class-specific summaries avoid
 reporting a heterogeneous pooled demographic fraction. Start with

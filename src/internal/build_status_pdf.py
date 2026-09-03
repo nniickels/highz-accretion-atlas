@@ -163,6 +163,13 @@ def build() -> None:
         "<b>Figure 2.</b> All 196 supported masses appear against reference tracks; the lower "
         "panel retains the redshifts and classes of all 23 no-inference objects.", width=7.0*inch,
     ))
+    story.extend([p(
+        "A separate full-assumption companion preserves the historical v1 grid: three seed "
+        "masses crossed with three Eddington fractions, four constant efficiencies, and two "
+        "merger boosts (72 curves). It is stored as "
+        "<font name='Courier'>results/v3/figures/"
+        "v3_all_object_growth_tracks_full_assumptions.png</font>."
+    )])
     story.extend([PageBreak(), h("Class-aware growth pressure"), p(
         "Global ranks are navigation aids only. Scientific comparisons are retained within "
         "object class and mass-comparability group, and pooled demographic inference is "
