@@ -83,4 +83,13 @@ class IndependentValidationTests(unittest.TestCase):
         self.assertEqual(len(point_only), 12)
         self.assertEqual(set(point_only.source_key), {'zhuang25_nexus_wfss'})
         self.assertTrue(point_only.log_mbh_err_plus_std.isna().all())
+        self.assertTrue(point_only.prob_required_fedd_seed1e2_gt_1.isna().all())
+        self.assertTrue(point_only.rank_uncertainty_global_navigation.isna().all())
         np.testing.assert_array_equal(point_only.required_fedd_seed1e2_p16, point_only.required_fedd_seed1e2_p84)
+
+    def test_nexus_luminosity_error_reaches_observables(self):
+        frame = pd.read_csv(ROOT / 'data/processed/v3/v3_source_observables.csv')
+        row = frame.loc[frame.observable_id.eq('NX21958_zhuang25__log_broad_line_luminosity')].iloc[0]
+        self.assertEqual(row.value, 42.45)
+        self.assertEqual(row.err_plus, .10)
+        self.assertEqual(row.err_minus, .10)
