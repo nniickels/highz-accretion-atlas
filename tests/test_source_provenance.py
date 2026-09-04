@@ -9,6 +9,8 @@ from pathlib import Path
 import pandas as pd
 
 from src.internal.verify_source_provenance import MANIFEST_PATH, verify_metadata
+from src.internal.verify_manual_extractions import load_and_verify_audit
+from src.selection_completeness import build_selection_summary, load_selection_registry
 from src.source_provenance import (
     load_source_provenance_registry, validate_catalogue_source_coverage,
     validate_source_provenance_registry,
@@ -54,7 +56,7 @@ class SourceProvenanceTests(unittest.TestCase):
             "meow26_primary", "chavezortiz26_primary", "mascia26_primary",
         })
         expected_due = {
-            "davis26_primary": "2026-11-27", "hutchison25_coordinates": "2026-11-27",
+            "davis26_primary": "2026-12-03", "hutchison25_coordinates": "2026-12-03",
             "skyfire26_primary": "2026-12-03",
             "meow26_primary": "2026-12-03", "chavezortiz26_primary": "2026-12-03",
             "mascia26_primary": "2026-12-03",
@@ -81,7 +83,36 @@ class SourceProvenanceTests(unittest.TestCase):
             validate_source_provenance_registry(broken)
 
     def test_manifest_metadata(self) -> None:
-        verify_metadata(json.loads(MANIFEST_PATH.read_text()), self.registry)
+        audit = load_and_verify_audit()
+        selection = load_selection_registry(ROOT / "data/selection_function_registry.csv")
+        verify_metadata(json.loads(MANIFEST_PATH.read_text()), self.registry, selection, audit)
+
+    def test_manual_extraction_and_selection_registries(self) -> None:
+        audit = load_and_verify_audit()
+        self.assertEqual(len(audit), 23)
+        selection = load_selection_registry(ROOT / "data/selection_function_registry.csv")
+        self.assertEqual(set(selection["source_key"]), set(self.registry["source_key"]))
+
+    def test_selection_summary_parses_serialized_boolean_flags(self) -> None:
+        measurements = pd.DataFrame({
+            "measurement_id": ["a", "b"],
+            "physical_object_id": ["a", "b"],
+            "source_key": ["juodzbalis25_jades_blagn"] * 2,
+            "growth_ranking_eligible_flag": ["True", "False"],
+        })
+        selection = load_selection_registry(ROOT / "data/selection_function_registry.csv")
+        summary = build_selection_summary(measurements, selection)
+        self.assertEqual(int(summary.loc[0, "growth_plottable_measurements"]), 1)
+        self.assertEqual(int(summary.loc[0, "growth_plottable_objects"]), 1)
+
+    def test_revised_ghz2_source_is_pinned_to_v2(self) -> None:
+        row = self.registry.set_index("provenance_id").loc["chavezortiz26_primary"]
+        self.assertEqual(row["source_paper_version"], "arXiv:2511.03035v2")
+        self.assertEqual(row["source_archive_url"], "https://arxiv.org/e-print/2511.03035v2")
+        self.assertEqual(
+            row["source_archive_sha256"],
+            "1e8def5725a3639afb6ba15e1f4e8b8b95e28f36501b7a974595f9f0b5c87c4a",
+        )
 
 
 if __name__ == "__main__":

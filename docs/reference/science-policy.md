@@ -4,7 +4,8 @@ The current science layer consumes only the canonical v3 measurement and
 physical-object tables. It produces separate point and 10,000-draw uncertainty
 rankings for both views, a class/method summary, a complete exclusion audit,
 alternate-measurement sensitivity, a class-aware observational follow-up
-matrix, a source-family caveat summary, and an executable science-policy table.
+matrix, a source-family caveat summary, a source-level selection/completeness
+summary, and an executable science-policy table.
 
 Supported interpretation scopes are:
 
@@ -13,7 +14,9 @@ Supported interpretation scopes are:
 - within object class and mass-comparability group (primary); and
 - a global navigation order with no cross-class scientific claim.
 
-Pooled demographic inference is forbidden. Statistical mass errors are sampled
+Pooled demographic inference is forbidden. The machine-readable selection
+registry leaves inverse weights unset unless a valid inclusion-probability model
+exists; none currently does. Statistical mass errors are sampled
 without combining them with method systematics. The 200-row exclusion audit is
 the union of 101 ineligible measurement rows and 99 ineligible object rows; all
 remain in the catalogue.

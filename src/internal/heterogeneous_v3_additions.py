@@ -28,7 +28,7 @@ SOURCE_METADATA = {
     "lyu24_smiles_miri_agn": ("ApJ 966, 229 (2024); arXiv:2310.12330v2", "https://doi.org/10.3847/1538-4357/ad3643", "10.3847/1538-4357/ad3643", "https://arxiv.org/e-print/2310.12330v2", "16d34d68edd1fbea66bd9c00938e440edac4d0c3606f49ccab1c9cca43da9d5d"),
     "napolitano25_ghz9": ("ApJ (2025); arXiv:2410.18763", "https://doi.org/10.3847/1538-4357/ade706", "10.3847/1538-4357/ade706", "https://arxiv.org/e-print/2410.18763", "744860e9ed4a4c9b25f00ccae1df29adf79546bf16b9d01694435901e99d6691"),
     "zhang25_narrow_line_lrds": ("arXiv:2506.04350v2", "https://arxiv.org/abs/2506.04350v2", "10.48550/arXiv.2506.04350", "https://arxiv.org/e-print/2506.04350v2", "003009915954c6eba18f137092bef56e5e4180c48ec5ba40b9a111dd74f0594b"),
-    "chavezortiz26_ghz2": ("arXiv:2511.03035", "https://arxiv.org/abs/2511.03035", "10.48550/arXiv.2511.03035", "https://arxiv.org/e-print/2511.03035", "1e8def5725a3639afb6ba15e1f4e8b8b95e28f36501b7a974595f9f0b5c87c4a"),
+    "chavezortiz26_ghz2": ("arXiv:2511.03035v2", "https://arxiv.org/abs/2511.03035v2", "10.48550/arXiv.2511.03035", "https://arxiv.org/e-print/2511.03035v2", "1e8def5725a3639afb6ba15e1f4e8b8b95e28f36501b7a974595f9f0b5c87c4a"),
     "mascia26_compact_blue_ble": ("arXiv:2608.25021v1", "https://arxiv.org/abs/2608.25021v1", "10.48550/arXiv.2608.25021", "https://arxiv.org/e-print/2608.25021v1", "0e63fcb489cfea4bc1bcf2a4dc6f39cb7be9fa202800ecd227203adaa8058c01"),
 }
 

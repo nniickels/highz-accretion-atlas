@@ -5,7 +5,7 @@
   "expected_measurements": 23,
   "expected_objects": 23,
   "expected_hosts": 23,
-  "artifact_count": 84,
+  "artifact_count": 85,
   "artifacts": {
     "data/crossmatch/v1/v1_external_literature_identity_audit.csv": "3591ba8f0fdfcdf762b200848fdfdc4270f4d913a57e26c49f31a154cdf92a91",
     "data/crossmatch/v1/v1_measurement_object_links.csv": "81045ef281ffe957b4ddf31b0ca40db7433bf6c800a7bcb3ff5f185cdbc221bb",
@@ -90,6 +90,7 @@
     "results/v1/tables/v1_required_mseed_by_growth_assumption.csv": "665e12e4ca920b52a70996d91f71bb324982afaa20330c79311862d076b7f9d2",
     "results/v1/tables/v1_sample_summary.csv": "3ee72901c342322b5b0fca329bebf65bacf9e6b6b4a06c3577d7e9d0e8d2553b",
     "results/v1/tables/v1_science_policy.csv": "de9bbbb9b9b8a3a78bbabb9a4822dd874d56498ddf3045ee7cd1f0b12270fafb",
+    "results/v1/tables/v1_selection_completeness_summary.csv": "7c2b1d4689e872ef224fe69a9a38872c47edf8a22852bdbec3dd833707d7ffc2",
     "results/v1/tables/v1_source_caveat_summary.csv": "09f118c6f44273ada3bd54451b1b2f5c83e25053c7613d84e9620f0d97b56cef"
   }
 }

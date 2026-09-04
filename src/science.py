@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -13,6 +14,7 @@ from src.internal.uncertainty import (
 from src import models
 from src.internal.compatibility import v7_science_core as core
 from src.datasets import DATASET_SPECS
+from src.selection_completeness import build_selection_summary, load_selection_registry
 
 
 DEFAULT_RANDOM_SEED = core.DEFAULT_RANDOM_SEED
@@ -290,6 +292,15 @@ def build_outputs(
             objects, object_point, outputs["object_uncertainty_ranking"],
         )
         outputs["source_caveat_summary"] = build_source_caveat_summary(measurements)
+        selection_registry = load_selection_registry(
+            Path(__file__).resolve().parents[1] / "data/selection_function_registry.csv"
+        )
+        outputs["selection_completeness_summary"] = build_selection_summary(
+            measurements, selection_registry,
+        ).assign(
+            science_release=core.SCIENCE_RELEASE,
+            input_catalogue_release=core.CATALOGUE_RELEASE,
+        )
         fedd_fields = {
             "1e2": "required_fedd_seed1e2",
             "1e4": "required_fedd_seed1e4",

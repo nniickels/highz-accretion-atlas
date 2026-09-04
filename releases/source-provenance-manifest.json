@@ -1,10 +1,14 @@
 {
   "release": "source-provenance-2026-09-03",
-  "scope": "provenance registry for the JWST-identified catalogue",
+  "scope": "provenance, extraction, and selection records for the JWST-identified catalogue",
   "registry_rows": 33,
   "catalogue_source_keys": 29,
   "preprint_records": 6,
+  "selection_registry_rows": 29,
+  "manual_extraction_artifacts": 23,
   "artifacts": {
-    "data/source_provenance_registry.csv": "68b66f689f51768fac8b6b06852e0f950df9f26545207760707cc95ee3735f16"
+    "data/manual_extraction_audit.csv": "e61d60c2e48301fcaee1af237949a6777c2dbf53af4ce5bb99171107348dcbc7",
+    "data/selection_function_registry.csv": "27467ac6831858ab3e80f3755f7a8f1cf28fd24f4a49ae65969ca2c7e3475f95",
+    "data/source_provenance_registry.csv": "7ff4124999cd70d68f905304ce4918d40c4c10c6ce584b0c1da508d8763726b1"
   }
 }

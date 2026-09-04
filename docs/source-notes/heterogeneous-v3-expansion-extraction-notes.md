@@ -198,7 +198,12 @@ BH mass assumes an Eddington ratio of 0.5 and has a much larger systematic
 uncertainty than its formal error. Store it as a conditional estimate, not an
 independent canonical mass or numerical growth anchor.
 
-[Primary preprint](https://arxiv.org/abs/2511.03035).
+The 6 August 2026 v2 source archive was rechecked on 3 September 2026. It
+retains the same archive SHA-256 as the previously downloaded unversioned
+archive and reports the context mass as log(MBH/Msun) = 7.20 +/- 0.04 at the
+assumed Eddington ratio, with about 1 dex systematic uncertainty.
+
+[Primary preprint v2](https://arxiv.org/abs/2511.03035v2).
 
 ### 9. Mascia et al. (2026): compact blue broad-line emitters
 

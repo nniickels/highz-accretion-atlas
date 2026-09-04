@@ -5,18 +5,18 @@
   "expected_measurements": 320,
   "expected_objects": 311,
   "expected_hosts": 310,
-  "artifact_count": 662,
+  "artifact_count": 663,
   "artifacts": {
     "data/crossmatch/v3/v3_external_literature_identity_audit.csv": "3591ba8f0fdfcdf762b200848fdfdc4270f4d913a57e26c49f31a154cdf92a91",
     "data/crossmatch/v3/v3_measurement_object_links.csv": "3b00bbc1ac01c6c182888e4f7269d846eaccd0d774da62e0d93be0128d245c73",
     "data/crossmatch/v3/v3_object_aliases.csv": "c72345457d414b01fd8933407e6b464acede0c4e2f9dd66b7e93d0040638d6cc",
     "data/crossmatch/v3/v3_object_host_links.csv": "340d68169bc8c41498009491856db0ac15f8367efafda14d8f8df721a38f291f",
     "data/crossmatch/v3/v3_reviewed_match_candidates.csv": "8498b1b275666d21c0a9d4606c5580303548d304303423dbd05d8c66950d1be3",
-    "data/processed/v3/v3_accreting_measurements.csv": "feb903f44ca82839770a6ea8608792c278530028c8ef5e36f3457049256e4f70",
-    "data/processed/v3/v3_accreting_objects.csv": "165707250867975b4cf683c0dcf5afbe70f8fbe212df16fcceec3b5062a089de",
+    "data/processed/v3/v3_accreting_measurements.csv": "99a2359ce0bdc705600d708d0037216068348907bcfb36fd42a263799723378e",
+    "data/processed/v3/v3_accreting_objects.csv": "7f0096f1ba13118e81652c968a99d578f163217ab27c27ae8b31a201ca1e31af",
     "data/processed/v3/v3_catalogue_strata.csv": "2b02f81fd6d86670c08166dda37c5b0bb3b2445706dc3d6f910a14c1dcbf7e78",
     "data/processed/v3/v3_host_systems.csv": "136c170e0115bca09058a4843d998d54c72ddabf0117791164f716eea07c3f28",
-    "data/processed/v3/v3_source_observables.csv": "b2d694aaf98b901c97dc00f42cb5447e6fd04f705f29ef8f5460b4555f4a37ad",
+    "data/processed/v3/v3_source_observables.csv": "639db37e89d487e1cd42e813b6e6312a443e9ab63d6324aabfc861d7a28bc2e2",
     "results/v3/figures/v3_all_object_compatibility_atlas.png": "cc7deb34b377ced092c9a4d1da1f14a285cdaa96de83b8b348fb099d59caae9f",
     "results/v3/figures/v3_all_object_fedd_mass_map_gallery.png": "80c90fdb75aaa1ca358bdd21e51126c30a236c3f9a183bcd51395dd30dd05d0a",
     "results/v3/figures/v3_all_object_growth_tracks.png": "984c8e73a34b85444f26e61d4ff5b7b66eecbaca511469968ea845f942227533",
@@ -668,6 +668,7 @@
     "results/v3/tables/v3_required_mseed_by_growth_assumption.csv": "73acf69eea916b9f7866b49f7acdc1a0575560facc46c22ec2582524a07d8e2a",
     "results/v3/tables/v3_sample_summary.csv": "2b42c79facc58c66a2e30ec02a86cd1b74a38811d6380b28b1a2513fe0d84003",
     "results/v3/tables/v3_science_policy.csv": "0b8d7dcc64720480647596c71cba9798be5babf5b8b93c3a82c98715f3ce1e64",
-    "results/v3/tables/v3_source_caveat_summary.csv": "161b0537c16b5b813ae973be0e0e9ef86efe7d352f92cf83f480b9f54dbe7e0c"
+    "results/v3/tables/v3_selection_completeness_summary.csv": "a4cb2c0143f02598f30eabb3e037df44658173632225d2d025d9768d961040a7",
+    "results/v3/tables/v3_source_caveat_summary.csv": "c96885c778bcf7f971c3a9eef4b50c89f3b0dfd92cd664211aeb1003a0cdf679"
   }
 }

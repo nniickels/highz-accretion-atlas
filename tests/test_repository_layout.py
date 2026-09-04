@@ -113,6 +113,10 @@ class RepositoryLayoutTests(unittest.TestCase):
             self.assertEqual(followup["physical_object_id"].nunique(), count, version)
             self.assertTrue(caveats["source_key"].is_unique, version)
             self.assertGreater(len(caveats), 0, version)
+            selection = pd.read_csv(tables / f"{version}_selection_completeness_summary.csv")
+            self.assertEqual(set(selection["source_key"]), set(caveats["source_key"]), version)
+            self.assertFalse(selection["pooled_demographic_inference_allowed"].astype(bool).any())
+            self.assertTrue(selection["catalogue_inverse_probability_weight"].isna().all())
 
 
 if __name__ == "__main__":

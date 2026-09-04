@@ -95,6 +95,15 @@ def verify_version(version: str) -> None:
     caveats = pd.read_csv(results / "tables" / f"{version}_source_caveat_summary.csv")
     if set(caveats["source_key"]) != set(measurements["source_key"]):
         raise AssertionError(f"{version} source-caveat coverage mismatch")
+    selection = pd.read_csv(
+        results / "tables" / f"{version}_selection_completeness_summary.csv"
+    )
+    if set(selection["source_key"]) != set(measurements["source_key"]):
+        raise AssertionError(f"{version} selection/completeness coverage mismatch")
+    if selection["pooled_demographic_inference_allowed"].astype(bool).any():
+        raise AssertionError(f"{version} unexpectedly enables pooled demographic inference")
+    if selection["catalogue_inverse_probability_weight"].notna().any():
+        raise AssertionError(f"{version} unexpectedly assigns inverse-probability weights")
     for stem in REQUIRED_FIGURES:
         path = results / "figures" / f"{version}_{stem}.png"
         with Image.open(path) as image:

@@ -169,6 +169,19 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(row["mass_comparability_group"], "no_numeric_mass")
         self.assertFalse(bool(row["growth_ranking_eligible_flag"]))
 
+    def test_ghz2_revised_context_mass_remains_conditional(self) -> None:
+        measurements = pd.read_csv(
+            ROOT / "data/processed/v3/v3_accreting_measurements.csv", low_memory=False,
+        )
+        row = measurements.loc[measurements["object_id"].eq("GHZ2")].squeeze()
+        self.assertTrue(pd.isna(row["log_mbh_msun_std"]))
+        self.assertFalse(bool(row["growth_ranking_eligible_flag"]))
+        observables = pd.read_csv(ROOT / "data/processed/v3/v3_source_observables.csv")
+        value = observables.loc[
+            observables["observable_id"].eq("GHZ2_chavezortiz26__log_mbh_context"), "value"
+        ].squeeze()
+        self.assertAlmostEqual(float(value), 7.20)
+
     def test_jwst_objects_lead_navigation_rankings(self) -> None:
         point = pd.read_csv(TABLES / "v3_object_point_ranking.csv")
         uncertainty = pd.read_csv(TABLES / "v3_object_uncertainty_ranking.csv")

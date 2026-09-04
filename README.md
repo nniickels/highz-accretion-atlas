@@ -73,6 +73,8 @@ Appendix or supplement products:
 - validation checks — `results/v3/tables/v3_exclusion_audit.csv`, `results/v3/tables/v3_all_object_visual_coverage.csv`, and `results/v3/tables/v3_science_policy.csv`; executable gate in `scripts/04_verify.ipynb`
 - sensitivity tests — `results/v3/tables/v3_alternate_measurement_sensitivity.csv` and `results/v3/figures/v3_measurement_sensitivity.png`
 - source-by-source caveats — `results/v3/tables/v3_source_caveat_summary.csv`
+- source-level selection/completeness audit — `data/selection_function_registry.csv` and `results/v3/tables/v3_selection_completeness_summary.csv`
+- immutable extraction audit — `data/manual_extraction_audit.csv`
 
 The canonical v3 gallery covers all 311 objects with one $f_{Edd}$-mass map in
 `results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
@@ -143,6 +145,7 @@ Run the complete regression and verification suite:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
+.venv/bin/python -m src.internal.verify_manual_extractions
 .venv/bin/python -m src.internal.verify_source_provenance
 .venv/bin/python -m src.internal.verify_versions
 ```

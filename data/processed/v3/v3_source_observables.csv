@@ -653,7 +653,7 @@ v3-dataset-catalogue,DJA20547_zhang25__beta_opt,DJA20547_zhang25,DJA-20547,beta_
 v3-dataset-catalogue,DJA22015_zhang25__log_mbh_upper_limit,DJA22015_zhang25,DJA-22015,log_mbh_upper_limit,5.5,,,upper_limit,log10(Msun),limit,Tables 1 and 2
 v3-dataset-catalogue,DJA22015_zhang25__beta_uv,DJA22015_zhang25,DJA-22015,beta_uv,-0.84,,,detection,dimensionless,not_published,Tables 1 and 2
 v3-dataset-catalogue,DJA22015_zhang25__beta_opt,DJA22015_zhang25,DJA-22015,beta_opt,0.48,,,detection,dimensionless,not_published,Tables 1 and 2
-v3-dataset-catalogue,GHZ2_chavezortiz26__log_mbh_context,GHZ2_chavezortiz26,GHZ2,log_mbh_context,7.19,,,detection,log10(Msun),not_published,Abstract and Sections 2-5
+v3-dataset-catalogue,GHZ2_chavezortiz26__log_mbh_context,GHZ2_chavezortiz26,GHZ2,log_mbh_context,7.2,,,detection,log10(Msun),not_published,Abstract and Sections 2-5
 v3-dataset-catalogue,abell2744greene820469688_mascia26__beta_uv,abell2744greene820469688_mascia26,abell2744-greene_8204_69688,beta_uv,-2.12,,,detection,dimensionless,not_published,Table 2
 v3-dataset-catalogue,abell2744greene820469688_mascia26__beta_opt,abell2744greene820469688_mascia26,abell2744-greene_8204_69688,beta_opt,0.39,,,detection,dimensionless,not_published,Table 2
 v3-dataset-catalogue,nexusobs3510510835_mascia26__beta_uv,nexusobs3510510835_mascia26,nexus-obs3_5105_10835,beta_uv,-1.63,,,detection,dimensionless,not_published,Table 2
