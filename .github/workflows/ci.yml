@@ -52,6 +52,11 @@ jobs:
               --ExecutePreprocessor.timeout=1800 \
               --output-dir="$executed_notebooks" "$notebook"
           done
+      - name: Measure failed image comparisons
+        if: failure()
+        run: |
+          python -m src.internal.report_image_differences "$GITHUB_WORKSPACE" \
+            "$RUNNER_TEMP/highz-atlas-notebook-workspace"
       - name: Install manuscript compiler
         run: |
           sudo apt-get update
