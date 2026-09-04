@@ -18,17 +18,22 @@ Accuracy fixes apply here unless they exist only for a later source/object type.
 
 Adds the comparable JWST broad-line source families from Taylor, Matthee, Lin,
 Harikane, Davis/THRILS, Ren, Greene/UNCOVER, Kocevski/RUBIES, Skyfire/CEERS,
-Larson/CEERS 1019, Killi/J0647, and Uebler/ZS7. These sources share the v2
-object-type scope: 159 measurements, 152 objects, and 151 hosts.
+Larson/CEERS 1019, Killi/J0647, Uebler/ZS7, Baccus, and Fei/GLIMPSE. These
+sources share the v2 object-type scope: 218 measurements, 211 objects, and 210
+hosts. Baccus cluster-field rows without source-published lensing corrections
+are excluded; Fei's GLIMPSE values include explicit magnification corrections.
 
 ## v3 — JWST-identified heterogeneous atlas
 
 Adds UHZ1's JWST/Chandra X-ray evidence history, the audited Scholtz JADES
-narrow-line candidates, and GN-z11's high-ionization-line accretion evidence.
+narrow-line candidates, GN-z11's high-ionization-line accretion evidence, and
+the wider heterogeneous source set documented in the extraction notes.
 Added code handles distinct object
 classes, evidence states, mass-comparability groups, missing/conditional masses,
-and explicit no-inference cases. v3 has 258 measurements, 249 objects, and 248
-hosts; 153 objects support numerical growth inference.
+and explicit no-inference cases. Source-level assignment governs membership: a
+heterogeneous catalogue belongs to v3 even when individual rows resemble v2
+objects. v3 has 320 measurements, 311 objects, and 310 hosts; 212 objects
+support numerical growth inference.
 
 ## Invariants
 

@@ -47,6 +47,7 @@ v3-shared-science,v3-dataset-catalogue,measurement,GS20025526_tang25,HZA-GS-2002
 v3-shared-science,v3-dataset-catalogue,measurement,GS20329_meow26,HZA-GS-20329,GS-20329,meow26_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,GS39981_meow26,HZA-GS-39981,GS-39981,meow26_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,GS81034_tang25,HZA-GS-81034,GS-81034,tang25_high_ionization,high_ionization_line_candidate,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,measurement,MoMBHstar1_naidu26,HZA-MOM-BH-1,MoM-BH*-1,naidu26_mom_bhstar1,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI1171_lyu24,HZA-SMILES-MIRI-1171,SMILES-MIRI-1171,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI1486_lyu24,HZA-SMILES-MIRI-1486,SMILES-MIRI-1486,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI1652_lyu24,HZA-SMILES-MIRI-1652,SMILES-MIRI-1652,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
@@ -68,6 +69,8 @@ v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI3010_lyu24,HZA-SMIL
 v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI728_lyu24,HZA-SMILES-MIRI-728,SMILES-MIRI-728,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,UHZ1_bogdan24,HZA-UHZ1,UHZ1,uhz1_xray_evidence_history,xray_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,UHZ1_zou26,HZA-UHZ1,UHZ1 / UNCOVER-26185,uhz1_xray_evidence_history,xray_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,measurement,UNCOVER10646c2_treiber25,HZA-UNCOVER-10646-2,UNCOVER-10646-2,treiber25_uncover_uv_emitters,high_ionization_line_candidate,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,measurement,UNCOVER47584_treiber25,HZA-UNCOVER-47584,UNCOVER-47584,treiber25_uncover_uv_emitters,high_ionization_line_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,abell2744greene820469688_mascia26,HZA-ABELL2744-GREENE-8204-69688,abell2744-greene_8204_69688,mascia26_compact_blue_ble,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,caperscos07636835805_mascia26,HZA-CAPERS-COS07-6368-35805,capers-cos07_6368_35805,mascia26_compact_blue_ble,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,gtowideuds1212151259_mascia26,HZA-GTO-WIDE-UDS12-1215-1259,gto-wide-uds12_1215_1259,mascia26_compact_blue_ble,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
@@ -145,6 +148,7 @@ v3-shared-science,v3-dataset-catalogue,physical_object,GS20025526_tang25,HZA-GS-
 v3-shared-science,v3-dataset-catalogue,physical_object,GS20329_meow26,HZA-GS-20329,GS-20329,meow26_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,GS39981_meow26,HZA-GS-39981,GS-39981,meow26_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,GS81034_tang25,HZA-GS-81034,GS-81034,tang25_high_ionization,high_ionization_line_candidate,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,physical_object,MoMBHstar1_naidu26,HZA-MOM-BH-1,MoM-BH*-1,naidu26_mom_bhstar1,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI1171_lyu24,HZA-SMILES-MIRI-1171,SMILES-MIRI-1171,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI1486_lyu24,HZA-SMILES-MIRI-1486,SMILES-MIRI-1486,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI1652_lyu24,HZA-SMILES-MIRI-1652,SMILES-MIRI-1652,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
@@ -165,6 +169,8 @@ v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI2832_lyu24,HZA-
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI3010_lyu24,HZA-SMILES-MIRI-3010,SMILES-MIRI-3010,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI728_lyu24,HZA-SMILES-MIRI-728,SMILES-MIRI-728,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,UHZ1_zou26,HZA-UHZ1,UHZ1 / UNCOVER-26185,uhz1_xray_evidence_history,xray_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,physical_object,UNCOVER10646c2_treiber25,HZA-UNCOVER-10646-2,UNCOVER-10646-2,treiber25_uncover_uv_emitters,high_ionization_line_candidate,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,physical_object,UNCOVER47584_treiber25,HZA-UNCOVER-47584,UNCOVER-47584,treiber25_uncover_uv_emitters,high_ionization_line_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,abell2744greene820469688_mascia26,HZA-ABELL2744-GREENE-8204-69688,abell2744-greene_8204_69688,mascia26_compact_blue_ble,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,caperscos07636835805_mascia26,HZA-CAPERS-COS07-6368-35805,capers-cos07_6368_35805,mascia26_compact_blue_ble,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,gtowideuds1212151259_mascia26,HZA-GTO-WIDE-UDS12-1215-1259,gto-wide-uds12_1215_1259,mascia26_compact_blue_ble,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True

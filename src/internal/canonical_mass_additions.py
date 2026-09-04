@@ -15,6 +15,26 @@ from src.internal.compatibility.v7_core_catalogue import _build_host_systems, _b
 
 
 SOURCE_METADATA = {
+    "baccus26_nirspec_blagn": {
+        "survey": "JWST/NIRSpec archival census", "field": "multi-field",
+        "table": "Table 1, z>=4 new non-cluster subset",
+        "version": "ApJ 1006, 165 (2026); arXiv:2512.03281v2",
+        "url": "https://doi.org/10.3847/1538-4357/ae7de7",
+        "doi": "10.3847/1538-4357/ae7de7",
+        "archive": "https://arxiv.org/e-print/2512.03281v2",
+        "sha": "b0e527296f6a71adb4782f0b57a416f494d33ec7c71a6afc6ee7db982659fa76",
+        "selection": "JWST/NIRSpec broad-Halpha catalogue objects at z>=4 that are new to the atlas and do not require an unreported cluster-lensing correction",
+    },
+    "fei26_glimpse_blagn": {
+        "survey": "GLIMPSE", "field": "Abell S1063",
+        "table": "Tables 1 and 2",
+        "version": "ApJ 1003, 244 (2026); arXiv:2509.20452v3",
+        "url": "https://doi.org/10.3847/1538-4357/ae6248",
+        "doi": "10.3847/1538-4357/ae6248",
+        "archive": "https://arxiv.org/e-print/2509.20452v3",
+        "sha": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+        "selection": "JWST/NIRSpec G395M broad-Halpha AGN at 4.5<z<7 with source-reported lensing corrections and numerical virial masses",
+    },
     "greene24_uncover_blagn": {
         "survey": "UNCOVER", "field": "Abell 2744", "table": "Tables 1 and 3",
         "version": "ApJ 964, 39 (2024); arXiv:2309.05714",
@@ -78,6 +98,14 @@ def _identifier(value: str) -> str:
     return re.sub(r"[^A-Z0-9]+", "-", value.upper()).strip("-")
 
 
+def _first_published(record: dict[str, object], *fields: str) -> object:
+    for field in fields:
+        value = record.get(field)
+        if pd.notna(value):
+            return value
+    return np.nan
+
+
 def build_additions(raw: pd.DataFrame, template_columns: list[str]) -> pd.DataFrame:
     """Translate compact source-native rows into the canonical admission schema."""
     rows: list[dict[str, object]] = []
@@ -87,7 +115,7 @@ def build_additions(raw: pd.DataFrame, template_columns: list[str]) -> pd.DataFr
         object_id = str(record["object_id"])
         line = record.get("broad_line_species")
         is_gnz11 = source_key == "maiolino24_gnz11_agn"
-        is_lensed = source_key == "greene24_uncover_blagn"
+        is_lensed = source_key in {"greene24_uncover_blagn", "fei26_glimpse_blagn"}
         method_line = str(line).lower() if pd.notna(line) else "uv-permitted-lines"
         mass_group = "virial_uv_single_epoch" if is_gnz11 else "virial_balmer_single_epoch"
         selection_channels = "high_ionization_line;broad_uv_line" if is_gnz11 else (
@@ -123,20 +151,34 @@ def build_additions(raw: pd.DataFrame, template_columns: list[str]) -> pd.DataFr
             "halpha_broad_fwhm_km_s": record.get("broad_fwhm_km_s") if line == "Halpha" else np.nan,
             "lrd_flag": True if source_key in {"greene24_uncover_blagn", "kocevski25_lrd_blagn", "killi24_j0647_lrd_blagn"} else np.nan,
             "lrd_definition": "source-classified compact red/LRD sample" if source_key in {"greene24_uncover_blagn", "kocevski25_lrd_blagn", "killi24_j0647_lrd_blagn"} else "not reported",
-            "log_mbh_systematic_dex": 0.5 if source_key in {"kocevski25_lrd_blagn", "skyfire26_ceers_blagn", "killi24_j0647_lrd_blagn"} else np.nan,
-            "mbh_systematic_kind": "single-epoch virial calibration scatter" if source_key in {"kocevski25_lrd_blagn", "skyfire26_ceers_blagn", "killi24_j0647_lrd_blagn"} else "",
+            "log_mbh_systematic_dex": (
+                0.3 if source_key == "fei26_glimpse_blagn" else
+                0.5 if source_key in {
+                    "baccus26_nirspec_blagn", "kocevski25_lrd_blagn",
+                    "skyfire26_ceers_blagn", "killi24_j0647_lrd_blagn",
+                } else np.nan
+            ),
+            "mbh_systematic_kind": "single-epoch virial calibration scatter" if source_key in {
+                "baccus26_nirspec_blagn", "fei26_glimpse_blagn",
+                "kocevski25_lrd_blagn", "skyfire26_ceers_blagn",
+                "killi24_j0647_lrd_blagn",
+            } else "",
             "mbh_systematic_applied_flag": False,
             "mbh_formal_uncertainty_kind": "published measurement uncertainty",
             "mbh_statistical_uncertainty_kind": "published measurement uncertainty",
-            "evidence_status": "probable" if is_gnz11 else "secure",
-            "evidence_status_basis": "published multi-diagnostic accreting-black-hole interpretation" if is_gnz11 else "published broad-line AGN identification",
-            "spectroscopic_type": "intermediate_or_ambiguous" if is_gnz11 else "type1_broad_line",
+            "evidence_status": _first_published(record, "evidence_status") if pd.notna(record.get("evidence_status")) else ("probable" if is_gnz11 else "secure"),
+            "evidence_status_basis": _first_published(record, "evidence_status_basis") if pd.notna(record.get("evidence_status_basis")) else ("published multi-diagnostic accreting-black-hole interpretation" if is_gnz11 else "published broad-line AGN identification"),
+            "spectroscopic_type": "intermediate_or_ambiguous" if is_gnz11 else ("type1_broad_line_candidate" if record.get("evidence_status") == "candidate" else "type1_broad_line"),
             "selection_channels": selection_channels,
             "phenotype_tags": "compact" if is_gnz11 else ("merger;dual_nucleus" if source_key == "ubler24_zs7_offset_blagn" else ("lrd;compact;red" if source_key in {"greene24_uncover_blagn", "kocevski25_lrd_blagn", "killi24_j0647_lrd_blagn"} else "")),
             "lensing_status": "lensed" if is_lensed else "not_reported",
             "lensing_mu": record.get("lensing_mu") if is_lensed else np.nan,
             "lensing_mass_correction_status": "applied" if is_lensed else "not_required",
-            "lensing_provenance": "UNCOVER v1.1 strong-lensing model; mass is demagnified" if is_lensed else "",
+            "lensing_provenance": (
+                "GLIMPSE source magnification; broad-Halpha flux and virial mass are demagnified"
+                if source_key == "fei26_glimpse_blagn" else
+                "UNCOVER v1.1 strong-lensing model; mass is demagnified" if is_lensed else ""
+            ),
             "mass_comparability_group": mass_group,
             "conditional_mass_flag": False, "conditional_mass_reason": "",
             "primary_mass_comparison_flag": not is_gnz11,
@@ -152,10 +194,10 @@ def build_additions(raw: pd.DataFrame, template_columns: list[str]) -> pd.DataFr
         })
         if pd.notna(record.get("log_mstar_msun")):
             row["log_mstar_msun_std"] = record["log_mstar_msun"]
-            row["log_mstar_err_plus_std"] = record.get("log_mstar_err")
-            row["log_mstar_err_minus_std"] = record.get("log_mstar_err")
-            row["log_mstar_err_plus"] = record.get("log_mstar_err")
-            row["log_mstar_err_minus"] = record.get("log_mstar_err")
+            row["log_mstar_err_plus_std"] = _first_published(record, "log_mstar_err_plus", "log_mstar_err")
+            row["log_mstar_err_minus_std"] = _first_published(record, "log_mstar_err_minus", "log_mstar_err")
+            row["log_mstar_err_plus"] = _first_published(record, "log_mstar_err_plus", "log_mstar_err")
+            row["log_mstar_err_minus"] = _first_published(record, "log_mstar_err_minus", "log_mstar_err")
             row["mstar_method"] = record.get("mstar_method", "")
             row["mstar_interpretation_tag"] = "source_reported_host_stellar_mass"
         if pd.notna(record.get("log_lbol_erg_s")):
@@ -168,7 +210,7 @@ def build_additions(raw: pd.DataFrame, template_columns: list[str]) -> pd.DataFr
             row["lbol_interpretation_tag"] = "source_reported_bolometric_luminosity"
         if pd.notna(record.get("edd_ratio_reported")):
             row["edd_ratio_std"] = record["edd_ratio_reported"]
-            row["edd_ratio_err_std"] = record.get("edd_ratio_err")
+            row["edd_ratio_err_std"] = _first_published(record, "edd_ratio_err_plus", "edd_ratio_err")
             row["log_edd_ratio_published"] = np.log10(record["edd_ratio_reported"])
             row["edd_ratio_method"] = record.get("edd_ratio_method", "source_reported")
         row["missing_mstar_flag"] = pd.isna(row["log_mstar_msun_std"])
@@ -230,11 +272,13 @@ def build_addition_observables(raw: pd.DataFrame) -> pd.DataFrame:
             add(record, f"{str(line).lower()}_broad_fwhm", "broad_fwhm_km_s", "km/s",
                 err_plus="broad_fwhm_err_plus", err_minus="broad_fwhm_err_minus")
         add(record, "log_mstar", "log_mstar_msun", "log10(Msun)",
-            err_plus="log_mstar_err", err_minus="log_mstar_err")
+            err_plus=("log_mstar_err_plus" if pd.notna(record.get("log_mstar_err_plus")) else "log_mstar_err"),
+            err_minus=("log_mstar_err_minus" if pd.notna(record.get("log_mstar_err_minus")) else "log_mstar_err"))
         add(record, "log_lbol", "log_lbol_erg_s", "log10(erg/s)",
             err_plus="log_lbol_err_plus", err_minus="log_lbol_err_minus")
         add(record, "edd_ratio", "edd_ratio_reported", "dimensionless",
-            err_plus="edd_ratio_err", err_minus="edd_ratio_err")
+            err_plus=("edd_ratio_err_plus" if pd.notna(record.get("edd_ratio_err_plus")) else "edd_ratio_err"),
+            err_minus=("edd_ratio_err_minus" if pd.notna(record.get("edd_ratio_err_minus")) else "edd_ratio_err"))
         add(record, "lensing_mu", "lensing_mu", "dimensionless")
     result = pd.DataFrame(rows)
     validate_v7_observables(result, raw["measurement_id"])

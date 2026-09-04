@@ -36,6 +36,8 @@ INPUTS = {
     "j0647_addition": ROOT / "data/raw/killi24_j0647_lrd.csv",
     "zs7_addition": ROOT / "data/raw/ubler24_zs7_blagn.csv",
     "gnz11_addition": ROOT / "data/raw/maiolino24_gnz11_agn.csv",
+    "baccus_additions": ROOT / "data/raw/baccus26_nirspec_blagn_table1_zge4_new.csv",
+    "glimpse_additions": ROOT / "data/raw/fei26_glimpse_blagn_tables1_2_new.csv",
     "heterogeneous_v3_expansion": ROOT / "data/raw/v3_jwst_heterogeneous_expansion.csv",
 }
 FULL_TABLE = ROOT / "data/raw/scholtz25_jades_table_sample_full.tex"
@@ -87,6 +89,7 @@ def build_outputs() -> dict[str, pd.DataFrame]:
     addition_names = [
         "greene_additions", "kocevski_additions", "skyfire_additions",
         "ceers1019_addition", "j0647_addition", "zs7_addition", "gnz11_addition",
+        "baccus_additions", "glimpse_additions",
     ]
     additions = pd.concat([_read(name) for name in addition_names], ignore_index=True, sort=False)
     final = append_additions(final, additions)

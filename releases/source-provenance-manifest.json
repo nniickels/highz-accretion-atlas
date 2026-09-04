@@ -1,10 +1,10 @@
 {
   "release": "source-provenance-2026-09-03",
   "scope": "provenance registry for the JWST-identified catalogue",
-  "registry_rows": 29,
-  "catalogue_source_keys": 25,
+  "registry_rows": 33,
+  "catalogue_source_keys": 29,
   "preprint_records": 6,
   "artifacts": {
-    "data/source_provenance_registry.csv": "3944c7927b12c2f2699e3757fe39148d7d81546c7818f53e731f7f50e5a8a768"
+    "data/source_provenance_registry.csv": "68b66f689f51768fac8b6b06852e0f950df9f26545207760707cc95ee3735f16"
   }
 }

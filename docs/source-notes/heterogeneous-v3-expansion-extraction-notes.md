@@ -1,7 +1,8 @@
 # Heterogeneous v3 expansion extraction notes
 
-Reviewed and implemented 2026-09-03. The identity-audited rows are now admitted
-to v3; v1 and v2 membership is unchanged.
+Reviewed and implemented 2026-09-03. The identity-audited rows documented here
+are admitted to v3 only. The separate same-class BLAGN expansion of v2 is
+documented in `baccus26-fei26-v2-expansion-extraction-notes.md`.
 
 This revision retains only datasets that contribute at least one demonstrated
 new, JWST-identified z >= 4 candidate after the screening completed here.
@@ -30,12 +31,13 @@ same Eddington ratio being tested. Ranges, upper limits, and masses inferred fro
 an assumed Eddington ratio remain useful contextual graphics but do not count as
 growth-plottable objects.
 
-No reviewed new-object catalogue qualifies for the **v2 scientific scope**.
-V2 is the comparable JWST broad-line AGN dataset; these additional catalogues
-either lack object-level BH masses or add heterogeneous evidence or mass-method
-strata. Mascia's broad-line-emitter catalogue is not a v2 exception because it
-does not publish object-level BH masses and remains agnostic about the central
-engine.
+None of the catalogues documented in this note qualifies for the **v2
+scientific scope**. V2 is the comparable JWST broad-line AGN dataset; these
+catalogues either lack object-level BH masses or add heterogeneous evidence or
+mass-method strata. Mascia's broad-line-emitter catalogue is not a v2 exception
+because it does not publish object-level BH masses and remains agnostic about
+the central engine. Dataset assignment is source-level: a heterogeneous source
+belongs to v3 even if one of its rows resembles a v2 object.
 
 The appropriate additions all belong to the **v3 scientific scope**:
 
@@ -50,16 +52,19 @@ The appropriate additions all belong to the **v3 scientific scope**:
 | Zhang narrow-line LRDs | 5 after catalogue crossmatch | 0 | Narrow-line little-red-dot candidates |
 | Chavez Ortiz: GHZ2 | 1 | 0 | Spectral/photometric-model AGN candidate |
 | Mascia compact blue emitters | 8 after coordinate-redshift and alias review of 20 rows | 0 | Compact blue broad-line-emitter candidates |
+| Treiber UNCOVER high-ionization sample | 2 new components after catalogue crossmatch | 0 | Narrow high-ionization-line candidates |
+| Naidu: MoM-BH*-1 | 1 | 0 | Gas-enshrouded broad-Hbeta accretor candidate |
 
-The admitted rows sum to 75 new physical objects. Eight objects have some contextual mass constraint:
+The admitted rows sum to 78 new physical objects. Nine objects have some contextual mass constraint:
 GN-42437's method-dependent range, GHZ9's conditional estimate, five Zhang upper
-limits, and GHZ2's Eddington-ratio-dependent estimate. None is eligible as a new
-canonical point in the current growth calculations.
+limits, GHZ2's Eddington-ratio-dependent estimate, and MoM-BH*-1's
+model/scattering-dependent range. None is eligible as a new canonical point in
+the current growth calculations.
 
 These labels describe which existing scientific dataset each family extends:
 v2-scoped additions would flow into v3, while the families above extend v3 only.
-The user-authorized expansion is implemented directly in v3 while v1 and v2
-remain byte-reproducible through the shared build pipeline.
+The user-authorized heterogeneous expansion is implemented directly in v3 and
+remains reproducible through the shared build pipeline.
 
 ## Admitted sources
 
@@ -209,6 +214,28 @@ canonical v2 broad-line AGN.
 
 [Primary preprint and Table 2](https://arxiv.org/html/2608.25021v1).
 
+### 10. Treiber et al. (2025): UNCOVER high-ionization candidates
+
+**Admission role: heterogeneous high-ionization source.** The source catalogue
+contains two components not already represented after object-level identity
+review: UNCOVER-47584 at z = 4.474 and component 2 of UNCOVER-10646 at z =
+8.511. Their NIRSpec high-ionization evidence is retained without inventing a
+black-hole mass. The catalogue is heterogeneous and therefore belongs to v3 at
+the source level.
+
+[Published article](https://doi.org/10.3847/1538-4357/adc38f);
+[source record](https://arxiv.org/abs/2409.12232).
+
+### 11. Naidu et al. (2026): MoM-BH*-1
+
+**Admission role: gas-enshrouded accretor candidate.** JWST spectroscopy
+identifies broad Hbeta in MoM-BH*-1 at z = 7.7569. Its quoted black-hole mass
+range depends on the source's obscuration and scattering model and remains a
+contextual constraint rather than a canonical growth mass. The heterogeneous
+source is therefore v3-only.
+
+[Published article](https://doi.org/10.1038/s41586-026-10846-4).
+
 ## Implemented admission decisions
 
 The admission includes GN-42437, Tang's object-level high-ionization
@@ -229,6 +256,7 @@ consistent redshifts and an explicit published alias link. The admitted table
 excludes reviewed aliases and overlaps rather than duplicating them.
 
 The catalogue stores high-ionization evidence as an overlapping selection
-channel, with sample size and mass availability explicit. These 75 mass-free
-additions broaden evidence coverage without changing the 153-object numerical
-growth sample.
+channel, with sample size and mass availability explicit. These 78 additions
+broaden evidence coverage; none adds a canonical numerical growth point. The
+separate v2 BLAGN expansion raises the shared v3 numerical sample to 212
+objects.

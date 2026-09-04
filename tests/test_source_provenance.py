@@ -26,8 +26,8 @@ class SourceProvenanceTests(unittest.TestCase):
         cls.registry = load_source_provenance_registry(REGISTRY_PATH)
 
     def test_registry_contract_and_current_catalogue_coverage(self) -> None:
-        self.assertEqual(len(self.registry), 29)
-        self.assertEqual(self.registry["source_key"].nunique(), 25)
+        self.assertEqual(len(self.registry), 33)
+        self.assertEqual(self.registry["source_key"].nunique(), 29)
         catalogue = pd.read_csv(CATALOGUE_PATH, low_memory=False)
         validate_catalogue_source_coverage(self.registry, catalogue)
 

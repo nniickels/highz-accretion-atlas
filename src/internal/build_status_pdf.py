@@ -97,21 +97,21 @@ def build() -> None:
         Spacer(1, 0.15 * inch),
         Paragraph("The High-Redshift Accretion Atlas", STYLES["TitleAtlas"]),
         Paragraph("A Tour of the Final Catalogue and Paper-Ready Results", STYLES["SubtitleAtlas"]),
-        Paragraph("Repository status document - 2 September 2026", STYLES["Caption"]),
+        Paragraph("Repository status document - 3 September 2026", STYLES["Caption"]),
         Spacer(1, 10),
         h("Executive summary"),
         p(
             "Versions identify nested scientific datasets rather than software releases. "
             "v1 is the complete analysis of the original 23-object JADES broad-line AGN "
-            "catalogue; v2 applies the same analysis to 152 comparable broad-line AGN; "
+            "catalogue; v2 applies the same analysis to 211 comparable broad-line AGN; "
             "and v3 is the final JWST-identified heterogeneous atlas within the "
-            "3 September 2026 source-family review cutoff. It contains 258 measurements, "
-            "249 physical objects, and 248 host systems."
+            "3 September 2026 source-family review cutoff. It contains 320 measurements, "
+            "311 physical objects, and 310 host systems."
         ),
         p(
             "All three datasets use the same corrected identity rules, cosmology, growth "
             "model, uncertainty propagation, comparison policy, and visual grammar. In "
-            "v3, 153 objects support numerical growth inference and 96 remain visible as "
+            "v3, 212 objects support numerical growth inference and 99 remain visible as "
             "explicit no-inference cases. Results are diagnostic comparisons under stated "
             "assumptions, not evidence for a unique seed or accretion history."
         ),
@@ -120,8 +120,8 @@ def build() -> None:
     table = Table([
         ["Version", "Scope", "Measurements", "Objects", "Hosts", "Numeric"],
         ["v1", "Original JADES BLAGN", "23", "23", "23", "23"],
-        ["v2", "Expanded comparable BLAGN", "159", "152", "151", "152"],
-        ["v3", "JWST-identified atlas", "258", "249", "248", "153"],
+        ["v2", "Expanded comparable BLAGN", "218", "211", "210", "211"],
+        ["v3", "JWST-identified atlas", "320", "311", "310", "212"],
     ], colWidths=[0.55*inch, 2.55*inch, 0.82*inch, 0.65*inch, 0.58*inch, 0.62*inch])
     table.setStyle(TableStyle([
         ("BACKGROUND", (0,0), (-1,0), BLUE),
@@ -160,8 +160,8 @@ def build() -> None:
     )])
     story.extend(_figure(
         "results/v3/figures/v3_all_object_growth_tracks.png",
-        "<b>Figure 2.</b> All 153 supported masses appear against reference tracks; the lower "
-        "panel retains the redshifts and classes of all 21 no-inference objects.", width=7.0*inch,
+        "<b>Figure 2.</b> All 212 supported masses appear against reference tracks; the lower "
+        "panel retains the redshifts and classes of all 99 no-inference objects.", width=7.0*inch,
     ))
     story.extend([p(
         "A separate full-assumption companion preserves the historical v1 grid: three seed "
@@ -188,8 +188,8 @@ def build() -> None:
     )])
     story.extend(_figure(
         "results/v3/figures/v3_monte_carlo_summary.png",
-        "<b>Figure 4.</b> Monte Carlo pressure summary for all 153 numerical objects, with an "
-        "explicit accounting of the 21 unavailable cases.",
+        "<b>Figure 4.</b> Monte Carlo pressure summary for all 212 numerical objects, with an "
+        "explicit accounting of the 99 unavailable cases.",
     ))
     story.extend([PageBreak(), h("Compatibility across assumption families"), p(
         "Compatibility is evaluated object by object across four seed families, three spin "
@@ -202,8 +202,8 @@ def build() -> None:
         "and accretion assumptions.",
     ))
     story.extend([PageBreak(), h("From catalogue scale to individual objects"), p(
-        "Each of the 249 v3 objects has an f_Edd-mass sheet and a seed-redshift-mass panel. The "
-        "153 supported objects receive numerical products; the remaining 96 receive status "
+        "Each of the 311 v3 objects has an f_Edd-mass sheet and a seed-redshift-mass panel. The "
+        "212 supported objects receive numerical products; the remaining 99 receive status "
         "panels explaining why no inference is made."
     )])
     story.extend(_figure(
@@ -215,8 +215,8 @@ def build() -> None:
         "Seven eligible alternate measurements are compared with preferred rows. Source "
         "keys, table locations, publication versions, archive records, uncertainties, identity "
         "decisions, and caveats remain available beside derived quantities. The follow-up "
-        "matrix retains all 249 objects (153 ranked; 96 explicitly unranked), and the source "
-        "caveat table covers all 16 admitted families."
+        "matrix retains all 311 objects (212 ranked; 99 explicitly unranked), and the source "
+        "caveat table covers all 29 admitted families."
     )])
     story.extend(_figure(
         "results/v3/figures/v3_measurement_sensitivity.png",

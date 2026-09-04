@@ -11,8 +11,8 @@ results/<version>/
     └── seedredshift_mass_maps/     seed-redshift versus seed-mass panels for every object
 ```
 
-v1 covers all 23 objects numerically; v2 covers all 152 numerically; v3
-represents all 249 objects with 153 numerical products and 96 explicit
+v1 covers all 23 objects numerically; v2 covers all 211 numerically; v3
+represents all 311 objects with 212 numerical products and 99 explicit
 no-inference panels. Obsolete software-release result trees are not part of the
 public repository contract; necessary assembly logic is isolated under
 `src/internal/compatibility/`.
@@ -27,8 +27,8 @@ historical v1 curve and object-color encodings as a separate companion figure.
 ## v3 catalogue and atlas
 
 Start with `data/processed/v3/v3_accreting_objects.csv`, which contains one
-preferred row for each physical object. Companion files contain all 258
-measurements, 415 source-native observables, 248 host systems, and catalogue
+preferred row for each physical object. Companion files contain all 320
+measurements, 675 source-native observables, 310 host systems, and catalogue
 strata.
 
 The main summary figures are:
@@ -42,7 +42,7 @@ The main summary figures are:
 The complete supplements are `v3_all_object_fedd_mass_map_gallery.png`,
 `v3_all_object_compatibility_atlas.png`, and
 `v3_all_object_monte_carlo_uncertainty.png`. The two parameter-map directories
-contain 498 canonical panels, one of each map type for every object. Objects
+contain 622 canonical panels, one of each map type for every object. Objects
 without a supported canonical numerical black-hole mass receive explicit
 no-inference panels; the pipeline does not invent masses or growth histories.
 

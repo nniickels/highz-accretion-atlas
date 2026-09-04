@@ -8,6 +8,7 @@
 - [`harikane23-nirspec-extraction-notes.md`](harikane23-nirspec-extraction-notes.md)
 - [`davis26-thrils-extraction-notes.md`](davis26-thrils-extraction-notes.md)
 - [`ren25-alpine-cristal-jwst-extraction-notes.md`](ren25-alpine-cristal-jwst-extraction-notes.md)
+- [`baccus26-fei26-v2-expansion-extraction-notes.md`](baccus26-fei26-v2-expansion-extraction-notes.md)
 - [`uhz1-xray-evidence-history-extraction-notes.md`](uhz1-xray-evidence-history-extraction-notes.md)
 - [`scholtz25-jades-narrow-line-extraction-notes.md`](scholtz25-jades-narrow-line-extraction-notes.md)
 - [`heterogeneous-v3-expansion-extraction-notes.md`](heterogeneous-v3-expansion-extraction-notes.md)

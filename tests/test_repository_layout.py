@@ -66,13 +66,13 @@ class RepositoryLayoutTests(unittest.TestCase):
     def test_manuscript_citations_have_bibliography_entries(self) -> None:
         manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
         expected = {
-            "bogdan2024", "chavezortiz2026", "chisholm2024", "davis2026",
+            "baccus2026", "bogdan2024", "chavezortiz2026", "chisholm2024", "davis2026",
             "dayal2024", "goulding2023", "greene2024", "harikane2023",
-            "hutchison2025", "juodzbalis2026", "killi2024", "kocevski2025",
+            "fei2026", "hutchison2025", "juodzbalis2026", "killi2024", "kocevski2025",
             "larson2023", "leung2026", "lin2024", "lyu2024", "maiolino2024",
-            "mascia2026", "matthee2024", "mazzolari2024", "napolitano2025",
+            "mascia2026", "matthee2024", "mazzolari2024", "naidu2026", "napolitano2025",
             "ren2025", "scholtz2025", "skyfire2026", "tang2025", "taylor2025",
-            "ubler2024", "zhang2026", "zou2026",
+            "treiber2025", "ubler2024", "zhang2026", "zou2026",
         }
         cited = {
             key.strip()
@@ -84,7 +84,7 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertEqual(bibliography, expected)
 
     def test_complete_axis_named_parameter_maps(self) -> None:
-        expected = {"v1": 23, "v2": 152, "v3": 249}
+        expected = {"v1": 23, "v2": 211, "v3": 311}
         for version, count in expected.items():
             parameter_maps = ROOT / "results" / version / "parameter_maps"
             self.assertEqual(
@@ -104,7 +104,7 @@ class RepositoryLayoutTests(unittest.TestCase):
             self.assertFalse((ROOT / "results" / version / "gallery").exists(), version)
 
     def test_followup_and_source_caveat_products(self) -> None:
-        expected_objects = {"v1": 23, "v2": 152, "v3": 249}
+        expected_objects = {"v1": 23, "v2": 211, "v3": 311}
         for version, count in expected_objects.items():
             tables = ROOT / "results" / version / "tables"
             followup = pd.read_csv(tables / f"{version}_followup_priority.csv")

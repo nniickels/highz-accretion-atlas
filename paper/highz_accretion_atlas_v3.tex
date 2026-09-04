@@ -23,10 +23,10 @@
 
 \begin{abstract}
 We present the v3 provenance-aware atlas of JWST-identified accreting black holes
-at $z\geq4$. The catalogue contains 258 literature measurements representing 249
-physical objects in 248 host systems. Its science layer uses 160 measurements
-and 153 preferred physical-object rows with canonical numeric black-hole masses;
-96 catalogue objects without such masses remain explicit exclusions. The atlas
+at $z\geq4$. The catalogue contains 320 literature measurements representing 311
+physical objects in 310 host systems. Its science layer uses 219 measurements
+and 212 preferred physical-object rows with canonical numeric black-hole masses;
+99 catalogue objects without such masses remain explicit exclusions. The atlas
 keeps heterogeneous evidence classes and mass methods separate, retains
 alternate measurements, and treats global ranks as navigation rather than
 demographic inference. A full-source audit corrects the Scholtz et al. JADES
@@ -45,7 +45,8 @@ black-hole growth histories, and which measurements most affect that conclusion.
 It does not estimate a population mass function from the pooled catalogue. The
 input literature spans broad-line AGN selected by several JWST surveys
 \cite{juodzbalis2026,taylor2025,matthee2024,lin2024,harikane2023,davis2026,
-greene2024,kocevski2025,skyfire2026,larson2023,killi2024,ubler2024},
+greene2024,kocevski2025,skyfire2026,larson2023,killi2024,ubler2024,
+baccus2026,fei2026},
 host-selected broad-line candidates \cite{ren2025}, an X-ray evidence history
 \cite{bogdan2024,zou2026}, and JADES narrow/high-ionization candidates
 \cite{scholtz2025}, and GN-z11 high-ionization-line evidence \cite{maiolino2024}.
@@ -53,7 +54,9 @@ The heterogeneous extension adds high-ionization and narrow-line candidates
 \cite{chisholm2024,tang2025,mazzolari2024,zhang2026,chavezortiz2026},
 MIRI SED-selected candidates \cite{leung2026,lyu2024}, the X-ray/UV source GHZ9
 \cite{napolitano2025}, and compact blue broad-line-emitter candidates
-\cite{mascia2026}.
+\cite{mascia2026}, additional UNCOVER high-ionization candidates
+\cite{treiber2025}, and the gas-enshrouded broad-Hbeta source MoM-BH*-1
+\cite{naidu2026}.
 Selection functions, evidence strength, and mass estimators
 are therefore retained as analysis strata.
 
@@ -83,10 +86,11 @@ bolometric observables, but no invented black-hole mass. The 21 candidates
 include one identity-linked broad-line object, so the current physical-object
 catalogue contains 20 narrow-line candidates from this source.
 
-The expanded heterogeneous layer contributes 75 identity-audited objects:
+The expanded heterogeneous layer contributes 78 identity-audited objects:
 GN-42437, three Tang high-ionization candidates, 25 CEERS narrow-line
 candidates, 12 MEOW and 19 SMILES MIRI-selected candidates, GHZ9, five
-narrow-line LRDs, GHZ2, and eight compact blue broad-line emitters. None has an
+narrow-line LRDs, GHZ2, eight compact blue broad-line emitters, two additional
+UNCOVER high-ionization components, and MoM-BH*-1. None has an
 unconditional source-published black-hole mass suitable for the current growth
 calculation. Method-dependent ranges, upper limits, and masses derived by
 assuming an Eddington ratio remain source-local contextual observables rather
@@ -99,16 +103,16 @@ than canonical growth anchors.
 \toprule
 Product or subset & Rows / objects \\
 \midrule
-Measurements / physical objects / host systems & 258 / 249 / 248 \\
-Source-local observables & 415 \\
-Growth-eligible measurements / objects & 160 / 153 \\
-Primary measurements / objects & 152 / 145 \\
-Broad-line eligible objects & 152 \\
-Catalogue-only physical objects & 96 \\
+Measurements / physical objects / host systems & 320 / 311 / 310 \\
+Source-local observables & 675 \\
+Growth-eligible measurements / objects & 219 / 212 \\
+Primary measurements / objects & 209 / 202 \\
+Broad-line eligible objects & 211 \\
+Catalogue-only physical objects & 99 \\
 Alternate-measurement sensitivity pairs & 7 \\
-Follow-up rows / ranked rows & 249 / 153 \\
-Source-family caveat rows & 25 \\
-Per-object $f_{\rm Edd}$--mass/seed-redshift--mass panels & 498 \\
+Follow-up rows / ranked rows & 311 / 212 \\
+Source-family caveat rows & 29 \\
+Per-object $f_{\rm Edd}$--mass/seed-redshift--mass panels & 622 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -116,9 +120,9 @@ Per-object $f_{\rm Edd}$--mass/seed-redshift--mass panels & 498 \\
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_catalogue_growth_landscape.png}
-\caption{Current catalogue landscape. Left: all 153 growth-eligible physical
+\caption{Current catalogue landscape. Left: all 212 growth-eligible physical
 objects in black-hole-mass--redshift space. Right: growth-product coverage for
-all 249 objects. The 96 catalogue-only objects remain available for provenance
+all 311 objects. The 99 catalogue-only objects remain available for provenance
 and evidence analyses but are not assigned numeric growth products.}
 \label{fig:landscape}
 \end{figure}
@@ -126,9 +130,9 @@ and evidence analyses but are not assigned numeric growth products.}
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_all_object_growth_tracks.png}
-\caption{Complete v3 growth-track view. All 153 objects with supported
+\caption{Complete v3 growth-track view. All 212 objects with supported
 canonical black-hole masses are plotted against reference tracks. The lower
-panel retains the redshift locations of all 96 catalogue-only objects for which
+panel retains the redshift locations of all 99 catalogue-only objects for which
 a numerical growth history cannot be inferred. Thus every physical object is
 visible without assigning unsupported masses. The common reversed redshift
 axis spans $z=12$ to $z=3$, centering the observed sample while retaining the
@@ -179,11 +183,11 @@ estimates.}
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_compatibility_summary.png}
-\caption{Compatibility summary using every one of the 153 growth-computable
+\caption{Compatibility summary using every one of the 212 growth-computable
 objects. Panels retain object class and seed family while spanning spin, merger
 boost, and average accretion rate. Percentages are descriptive within-class
 fractions, not pooled demographic estimates. The complete object-by-object
-matrix, including all 96 unavailable objects, is included in the supplement.}
+matrix, including all 99 unavailable objects, is included in the supplement.}
 \label{fig:compatibility}
 \end{figure}
 
@@ -200,17 +204,17 @@ scopes. All outputs explicitly forbid pooled demographic inference without a
 selection-function and completeness model. The alternate-measurement table
 contains 7 comparisons; it shows how retained measurement choice changes
 $\log_{10}\mbh$ and required $\fedd$ while leaving the canonical measurement choice
-auditable. The follow-up matrix retains all 249 objects, ranks the 153
-growth-eligible objects, and leaves the other 96 visibly unranked. A separate
-25-row caveat table gives one compact provenance and interpretation summary for
+auditable. The follow-up matrix retains all 311 objects, ranks the 212
+growth-eligible objects, and leaves the other 99 visibly unranked. A separate
+29-row caveat table gives one compact provenance and interpretation summary for
 every admitted source family.
 
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_monte_carlo_summary.png}
-\caption{Complete Monte Carlo uncertainty summary. Every one of the 153
+\caption{Complete Monte Carlo uncertainty summary. Every one of the 212
 numerical posteriors is plotted; point size encodes the 16th--84th percentile
-width. The adjacent accounting panel retains all 96 catalogue-only objects.
+width. The adjacent accounting panel retains all 99 catalogue-only objects.
 The full supplement atlas gives every object label and interval.}
 \label{fig:uncertainty}
 \end{figure}
@@ -240,8 +244,8 @@ internal compatibility code. Superseded release-era artifacts remain
 recoverable from Git history.
 
 The final figure layer provides paper-facing summaries and a complete current
-gallery. Every one of the 249 objects has an $f_{\rm Edd}$--mass panel and a
-seed-redshift--mass panel under the final gallery path. For the 96
+gallery. Every one of the 311 objects has an $f_{\rm Edd}$--mass panel and a
+seed-redshift--mass panel under the final gallery path. For the 99
 unavailable objects these are
 explicit no-inference panels. Complete $f_{\rm Edd}$--mass, compatibility, and Monte
 Carlo atlas figures preserve every object label for close zooming. Growth
@@ -276,7 +280,7 @@ measurement would most change each object's physical interpretation.
 v3 is a complete, internally consistent research dataset: the current
 catalogue, class-aware science tables, paper figures, full gallery coverage,
 provenance correction, evidence policy, and automated verification all refer to
-the same dataset version. It provides reproducible observational triage across 249
+the same dataset version. It provides reproducible observational triage across 311
 JWST-identified objects while keeping unsupported demographic and formation-channel claims
 outside the scope of the data product.
 
@@ -296,6 +300,8 @@ outside the scope of the data product.
 \bibitem{larson2023} Larson, R. L. et al. 2023, \emph{ApJL}, 953, L29, doi:10.3847/2041-8213/ace619.
 \bibitem{killi2024} Killi, M. et al. 2024, \emph{A\&A}, 691, A52, doi:10.1051/0004-6361/202348857.
 \bibitem{ubler2024} \"{U}bler, H. et al. 2024, \emph{MNRAS}, 531, 355, doi:10.1093/mnras/stae943.
+\bibitem{baccus2026} Baccus, C. et al. 2026, \emph{ApJ}, 1006, 165, doi:10.3847/1538-4357/ae7de7.
+\bibitem{fei2026} Fei, Q. et al. 2026, \emph{ApJ}, 1003, 244, doi:10.3847/1538-4357/ae6248.
 \bibitem{bogdan2024} Bogd\'an, \'A. et al. 2024, \emph{Nature Astronomy}, 8, 126, doi:10.1038/s41550-023-02111-9.
 \bibitem{goulding2023} Goulding, A. D. et al. 2023, \emph{ApJL}, 955, L24, doi:10.3847/2041-8213/acf7c5.
 \bibitem{zou2026} Zou, F. et al. 2026, UHZ1 full-data X-ray reanalysis, accepted by \emph{ApJ}, arXiv:2603.24893v2.
@@ -310,6 +316,8 @@ outside the scope of the data product.
 \bibitem{zhang2026} Zhang, Z. et al. 2026, accepted by \emph{ApJ}, arXiv:2506.04350v2.
 \bibitem{chavezortiz2026} Chavez Ortiz, O. A. et al. 2025, revised 2026, arXiv:2511.03035v2.
 \bibitem{mascia2026} Mascia, S. et al. 2026, submitted to \emph{A\&A}, arXiv:2608.25021v1.
+\bibitem{treiber2025} Treiber, H. et al. 2025, \emph{ApJ}, 984, 93, doi:10.3847/1538-4357/adc38f.
+\bibitem{naidu2026} Naidu, R. P. et al. 2026, \emph{Nature}, 656, 329--333, doi:10.1038/s41586-026-10846-4.
 \end{thebibliography}
 
 \end{document}

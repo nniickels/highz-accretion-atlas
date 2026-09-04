@@ -19,6 +19,8 @@ from src.internal.compatibility.v7_core_catalogue import _build_host_systems, _b
 
 
 SOURCE_METADATA = {
+    "treiber25_uncover_uv_emitters": ("ApJ 984, 93 (2025); arXiv:2409.12232v2", "https://doi.org/10.3847/1538-4357/adc38f", "10.3847/1538-4357/adc38f", "https://arxiv.org/e-print/2409.12232v2", "6b7b99e05ecf1e96b979c75b558d9c7208ba9f270698f4ee51c85d7a1b3b4d31"),
+    "naidu26_mom_bhstar1": ("Nature 656, 329-333 (2026)", "https://doi.org/10.1038/s41586-026-10846-4", "10.1038/s41586-026-10846-4", "https://www.nature.com/articles/s41586-026-10846-4.pdf", "6145f8339ed2723fb2a1f2f068e8c5e429d54cdec3790d2702f791094eb4807c"),
     "chisholm24_gn42437_nev": ("MNRAS (2024); arXiv:2402.18643v1", "https://doi.org/10.1093/mnras/stae2199", "10.1093/mnras/stae2199", "https://arxiv.org/e-print/2402.18643v1", "ab98563fce8a805b69cee20b9f4e96bdb138e7028126cb2f4c09da3d0ce1d088"),
     "tang25_high_ionization": ("arXiv:2505.06359v2", "https://arxiv.org/abs/2505.06359v2", "10.48550/arXiv.2505.06359", "https://arxiv.org/e-print/2505.06359v2", "e983d2c0ebbba4a152af847de1331ce5adc1ae7d9653abffa2a4f5dfeb689b07"),
     "mazzolari24_ceers_nlagn": ("A&A 691, A338 (2024); arXiv:2408.15615v3", "https://arxiv.org/abs/2408.15615v3", "10.1051/0004-6361/202451860", "https://arxiv.org/e-print/2408.15615v3", "d0da56ea146d2caef47e37377c90bfe4ea27b6a72d91b6736b9592d80a48487c"),

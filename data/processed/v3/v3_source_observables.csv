@@ -273,6 +273,262 @@ v3-dataset-catalogue,ZS7_ubler24__hbeta_broad_fwhm,ZS7_ubler24,ZS7,hbeta_broad_f
 v3-dataset-catalogue,ZS7_ubler24__log_lbol,ZS7_ubler24,ZS7,log_lbol,44.9,0.1,0.1,detection,log10(erg/s),published_symmetric_1sigma,Table 2
 v3-dataset-catalogue,ZS7_ubler24__edd_ratio,ZS7_ubler24,ZS7,edd_ratio,0.14,,,detection,dimensionless,not_published,Table 2
 v3-dataset-catalogue,GNZ11_maiolino24__log_mbh,GNZ11_maiolino24,GN-z11,log_mbh,6.2,0.3,0.3,detection,log10(Msun),published_symmetric_1sigma,Published GN-z11 black-hole measurement
+v3-dataset-catalogue,VALENTINO3567262_baccus26__log_mbh,VALENTINO3567262_baccus26,VALENTINO_3567_262,log_mbh,7.72,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO3567262_baccus26__halpha_broad_fwhm,VALENTINO3567262_baccus26,VALENTINO_3567_262,halpha_broad_fwhm,4540.0,10.0,200.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO3567262_baccus26__log_lbol,VALENTINO3567262_baccus26,VALENTINO_3567_262,log_lbol,44.5,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO3567262_baccus26__edd_ratio,VALENTINO3567262_baccus26,VALENTINO_3567_262,edd_ratio,0.0457,0.0007,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118010013268_baccus26__log_mbh,JADES118010013268_baccus26,JADES_1180_10013268,log_mbh,5.81,0.0287,0.0425,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118010013268_baccus26__halpha_broad_fwhm,JADES118010013268_baccus26,JADES_1180_10013268,halpha_broad_fwhm,1240.0,440.0,180.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118010013268_baccus26__log_lbol,JADES118010013268_baccus26,JADES_1180_10013268,log_lbol,43.7,0.0139,0.013,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118010013268_baccus26__edd_ratio,JADES118010013268_baccus26,JADES_1180_10013268,edd_ratio,0.5783,0.0292,0.03,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914927605_baccus26__log_mbh,AURORA1914927605_baccus26,AURORA_1914_927605,log_mbh,6.32,0.0131,0.0162,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914927605_baccus26__halpha_broad_fwhm,AURORA1914927605_baccus26,AURORA_1914_927605,halpha_broad_fwhm,1500.0,130.0,110.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914927605_baccus26__log_lbol,AURORA1914927605_baccus26,AURORA_1914_927605,log_lbol,44.2,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914927605_baccus26__edd_ratio,AURORA1914927605_baccus26,AURORA_1914_927605,edd_ratio,0.6152,0.0113,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233119559_baccus26__log_mbh,RUBIES4233119559_baccus26,RUBIES_4233_119559,log_mbh,6.39,0.05,0.0477,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233119559_baccus26__halpha_broad_fwhm,RUBIES4233119559_baccus26,RUBIES_4233_119559,halpha_broad_fwhm,1690.0,220.0,210.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233119559_baccus26__log_lbol,RUBIES4233119559_baccus26,RUBIES_4233_119559,log_lbol,43.8,0.0261,0.0321,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233119559_baccus26__edd_ratio,RUBIES4233119559_baccus26,RUBIES_4233_119559,edd_ratio,0.225,0.0103,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354342268_baccus26__log_mbh,EXCELS354342268_baccus26,EXCELS_3543_42268,log_mbh,6.86,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354342268_baccus26__halpha_broad_fwhm,EXCELS354342268_baccus26,EXCELS_3543_42268,halpha_broad_fwhm,2220.0,60.0,60.0,detection,km/s,published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354342268_baccus26__log_lbol,EXCELS354342268_baccus26,EXCELS_3543_42268,log_lbol,44.3,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354342268_baccus26__edd_ratio,EXCELS354342268_baccus26,EXCELS_3543_42268,edd_ratio,0.2326,0.0018,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN26743761_baccus26__log_mbh,GDN26743761_baccus26,GDN_2674_3761,log_mbh,5.91,0.0326,0.0404,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN26743761_baccus26__halpha_broad_fwhm,GDN26743761_baccus26,GDN_2674_3761,halpha_broad_fwhm,1430.0,350.0,310.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN26743761_baccus26__log_lbol,GDN26743761_baccus26,GDN_2674_3761,log_lbol,43.8,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN26743761_baccus26__edd_ratio,GDN26743761_baccus26,GDN_2674_3761,edd_ratio,0.6491,0.0364,0.04,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354389922_baccus26__log_mbh,EXCELS354389922_baccus26,EXCELS_3543_89922,log_mbh,5.93,0.0203,0.0182,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354389922_baccus26__halpha_broad_fwhm,EXCELS354389922_baccus26,EXCELS_3543_89922,halpha_broad_fwhm,880.0,80.0,60.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354389922_baccus26__log_lbol,EXCELS354389922_baccus26,EXCELS_3543_89922,log_lbol,44.4,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EXCELS354389922_baccus26__edd_ratio,EXCELS354389922_baccus26,EXCELS_3543_89922,edd_ratio,2.458,0.0864,0.07,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118172127_baccus26__log_mbh,JADES118172127_baccus26,JADES_1181_72127,log_mbh,6.7,0.0254,0.0384,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118172127_baccus26__halpha_broad_fwhm,JADES118172127_baccus26,JADES_1181_72127,halpha_broad_fwhm,2250.0,270.0,210.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118172127_baccus26__log_lbol,JADES118172127_baccus26,JADES_1181_72127,log_lbol,43.9,0.0144,0.0182,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118172127_baccus26__edd_ratio,JADES118172127_baccus26,JADES_1181_72127,edd_ratio,0.1414,0.0041,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423341683_baccus26__log_mbh,RUBIES423341683_baccus26,RUBIES_4233_41683,log_mbh,5.75,0.0341,0.061,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423341683_baccus26__halpha_broad_fwhm,RUBIES423341683_baccus26,RUBIES_4233_41683,halpha_broad_fwhm,1080.0,350.0,200.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423341683_baccus26__log_lbol,RUBIES423341683_baccus26,RUBIES_4233_41683,log_lbol,44.0,0.018,0.0243,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423341683_baccus26__edd_ratio,RUBIES423341683_baccus26,RUBIES_4233_41683,edd_ratio,1.3537,0.08,0.1,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476237583_baccus26__log_mbh,GDN476237583_baccus26,GDN_4762_37583,log_mbh,6.03,0.0287,0.0276,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476237583_baccus26__halpha_broad_fwhm,GDN476237583_baccus26,GDN_4762_37583,halpha_broad_fwhm,1100.0,170.0,140.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476237583_baccus26__log_lbol,GDN476237583_baccus26,GDN_4762_37583,log_lbol,44.4,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476237583_baccus26__edd_ratio,GDN476237583_baccus26,GDN_4762_37583,edd_ratio,1.8828,0.1364,0.09,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423354059_baccus26__log_mbh,RUBIES423354059_baccus26,RUBIES_4233_54059,log_mbh,5.59,0.048,0.0591,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423354059_baccus26__halpha_broad_fwhm,RUBIES423354059_baccus26,RUBIES_4233_54059,halpha_broad_fwhm,1030.0,350.0,170.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423354059_baccus26__log_lbol,RUBIES423354059_baccus26,RUBIES_4233_54059,log_lbol,44.0,0.0212,0.0145,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423354059_baccus26__edd_ratio,RUBIES423354059_baccus26,RUBIES_4233_54059,edd_ratio,2.0645,0.2173,0.14,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914928583_baccus26__log_mbh,AURORA1914928583_baccus26,AURORA_1914_928583,log_mbh,6.86,0.01,0.0113,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914928583_baccus26__halpha_broad_fwhm,AURORA1914928583_baccus26,AURORA_1914_928583,halpha_broad_fwhm,2350.0,180.0,130.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914928583_baccus26__log_lbol,AURORA1914928583_baccus26,AURORA_1914_928583,log_lbol,44.3,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914928583_baccus26__edd_ratio,AURORA1914928583_baccus26,AURORA_1914_928583,edd_ratio,0.2463,0.0031,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118128746_baccus26__log_mbh,JADES118128746_baccus26,JADES_1181_28746,log_mbh,5.51,0.0296,0.0379,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118128746_baccus26__halpha_broad_fwhm,JADES118128746_baccus26,JADES_1181_28746,halpha_broad_fwhm,860.0,280.0,130.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118128746_baccus26__log_lbol,JADES118128746_baccus26,JADES_1181_28746,log_lbol,43.9,0.0158,0.0116,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118128746_baccus26__edd_ratio,JADES118128746_baccus26,JADES_1181_28746,edd_ratio,2.0495,0.1509,0.11,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118016375_baccus26__log_mbh,JADES118016375_baccus26,JADES_1180_16375,log_mbh,6.21,0.0446,0.0561,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118016375_baccus26__halpha_broad_fwhm,JADES118016375_baccus26,JADES_1180_16375,halpha_broad_fwhm,1380.0,400.0,420.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118016375_baccus26__log_lbol,JADES118016375_baccus26,JADES_1180_16375,log_lbol,44.6,0.01,0.0136,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118016375_baccus26__edd_ratio,JADES118016375_baccus26,JADES_1180_16375,edd_ratio,1.8975,0.1722,0.17,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA19148769_baccus26__log_mbh,AURORA19148769_baccus26,AURORA_1914_8769,log_mbh,6.39,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA19148769_baccus26__halpha_broad_fwhm,AURORA19148769_baccus26,AURORA_1914_8769,halpha_broad_fwhm,1630.0,100.0,80.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA19148769_baccus26__log_lbol,AURORA19148769_baccus26,AURORA_1914_8769,log_lbol,44.2,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA19148769_baccus26__edd_ratio,AURORA19148769_baccus26,AURORA_1914_8769,edd_ratio,0.5263,0.0064,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12151472_baccus26__log_mbh,GTO12151472_baccus26,GTO_1215_1472,log_mbh,8.02,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12151472_baccus26__halpha_broad_fwhm,GTO12151472_baccus26,GTO_1215_1472,halpha_broad_fwhm,3280.0,50.0,50.0,detection,km/s,published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12151472_baccus26__log_lbol,GTO12151472_baccus26,GTO_1215_1472,log_lbol,45.4,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12151472_baccus26__edd_ratio,GTO12151472_baccus26,GTO_1215_1472,edd_ratio,0.1949,0.001,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12156001_baccus26__log_mbh,GTO12156001_baccus26,GTO_1215_6001,log_mbh,6.38,0.0207,0.03,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12156001_baccus26__halpha_broad_fwhm,GTO12156001_baccus26,GTO_1215_6001,halpha_broad_fwhm,1150.0,590.0,250.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12156001_baccus26__log_lbol,GTO12156001_baccus26,GTO_1215_6001,log_lbol,44.9,0.0196,0.0124,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12156001_baccus26__edd_ratio,GTO12156001_baccus26,GTO_1215_6001,edd_ratio,2.6247,0.0935,0.08,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356751909_baccus26__log_mbh,VALENTINO356751909_baccus26,VALENTINO_3567_51909,log_mbh,7.49,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356751909_baccus26__halpha_broad_fwhm,VALENTINO356751909_baccus26,VALENTINO_3567_51909,halpha_broad_fwhm,2700.0,30.0,30.0,detection,km/s,published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356751909_baccus26__log_lbol,VALENTINO356751909_baccus26,VALENTINO_3567_51909,log_lbol,44.9,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356751909_baccus26__edd_ratio,VALENTINO356751909_baccus26,VALENTINO_3567_51909,edd_ratio,0.2067,0.0009,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12133848_baccus26__log_mbh,GTO12133848_baccus26,GTO_1213_3848,log_mbh,6.82,0.046,0.0535,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12133848_baccus26__halpha_broad_fwhm,GTO12133848_baccus26,GTO_1213_3848,halpha_broad_fwhm,1680.0,390.0,340.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12133848_baccus26__log_lbol,GTO12133848_baccus26,GTO_1213_3848,log_lbol,44.5,0.0418,0.0217,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12133848_baccus26__edd_ratio,GTO12133848_baccus26,GTO_1213_3848,edd_ratio,0.3552,0.0265,0.03,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDS12109515_baccus26__log_mbh,GDS12109515_baccus26,GDS_1210_9515,log_mbh,5.59,0.0196,0.025,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDS12109515_baccus26__halpha_broad_fwhm,GDS12109515_baccus26,GDS_1210_9515,halpha_broad_fwhm,1090.0,370.0,120.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDS12109515_baccus26__log_lbol,GDS12109515_baccus26,GDS_1210_9515,log_lbol,44.0,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDS12109515_baccus26__edd_ratio,GDS12109515_baccus26,GDS_1210_9515,edd_ratio,1.9821,0.0588,0.06,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12154446_baccus26__log_mbh,GTO12154446_baccus26,GTO_1215_4446,log_mbh,7.33,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12154446_baccus26__halpha_broad_fwhm,GTO12154446_baccus26,GTO_1215_4446,halpha_broad_fwhm,2350.0,120.0,120.0,detection,km/s,published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12154446_baccus26__log_lbol,GTO12154446_baccus26,GTO_1215_4446,log_lbol,44.9,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GTO12154446_baccus26__edd_ratio,GTO12154446_baccus26,GTO_1215_4446,edd_ratio,0.2679,0.003,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GOODSN12112066_baccus26__log_mbh,GOODSN12112066_baccus26,GOODSN_1211_2066,log_mbh,6.57,0.0419,0.0472,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GOODSN12112066_baccus26__halpha_broad_fwhm,GOODSN12112066_baccus26,GOODSN_1211_2066,halpha_broad_fwhm,1740.0,440.0,350.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GOODSN12112066_baccus26__log_lbol,GOODSN12112066_baccus26,GOODSN_1211_2066,log_lbol,44.5,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GOODSN12112066_baccus26__edd_ratio,GOODSN12112066_baccus26,GOODSN_1211_2066,edd_ratio,0.6392,0.0405,0.03,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342658_baccus26__log_mbh,RUBIES423342658_baccus26,RUBIES_4233_42658,log_mbh,6.56,0.0224,0.0215,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342658_baccus26__halpha_broad_fwhm,RUBIES423342658_baccus26,RUBIES_4233_42658,halpha_broad_fwhm,1680.0,260.0,210.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342658_baccus26__log_lbol,RUBIES423342658_baccus26,RUBIES_4233_42658,log_lbol,44.3,0.0105,0.0101,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342658_baccus26__edd_ratio,RUBIES423342658_baccus26,RUBIES_4233_42658,edd_ratio,0.4024,0.0093,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410671365_baccus26__log_mbh,EGS410671365_baccus26,EGS_4106_71365,log_mbh,5.79,0.0267,0.0299,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410671365_baccus26__halpha_broad_fwhm,EGS410671365_baccus26,EGS_4106_71365,halpha_broad_fwhm,1010.0,200.0,100.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410671365_baccus26__log_lbol,EGS410671365_baccus26,EGS_4106_71365,log_lbol,43.8,0.0176,0.0193,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410671365_baccus26__edd_ratio,EGS410671365_baccus26,EGS_4106_71365,edd_ratio,0.7263,0.0295,0.03,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423348449_baccus26__log_mbh,RUBIES423348449_baccus26,RUBIES_4233_48449,log_mbh,5.59,0.068,0.114,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423348449_baccus26__halpha_broad_fwhm,RUBIES423348449_baccus26,RUBIES_4233_48449,halpha_broad_fwhm,1030.0,300.0,230.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423348449_baccus26__log_lbol,RUBIES423348449_baccus26,RUBIES_4233_48449,log_lbol,43.9,0.0195,0.0328,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423348449_baccus26__edd_ratio,RUBIES423348449_baccus26,RUBIES_4233_48449,edd_ratio,1.4932,0.1966,0.2,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO35671552_baccus26__log_mbh,VALENTINO35671552_baccus26,VALENTINO_3567_1552,log_mbh,7.2,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO35671552_baccus26__halpha_broad_fwhm,VALENTINO35671552_baccus26,VALENTINO_3567_1552,halpha_broad_fwhm,2640.0,100.0,80.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO35671552_baccus26__log_lbol,VALENTINO35671552_baccus26,VALENTINO_3567_1552,log_lbol,44.5,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO35671552_baccus26__edd_ratio,VALENTINO35671552_baccus26,VALENTINO_3567_1552,edd_ratio,0.1546,0.0013,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118139353_baccus26__log_mbh,JADES118139353_baccus26,JADES_1181_39353,log_mbh,5.96,0.0322,0.0454,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118139353_baccus26__halpha_broad_fwhm,JADES118139353_baccus26,JADES_1181_39353,halpha_broad_fwhm,1180.0,660.0,190.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118139353_baccus26__log_lbol,JADES118139353_baccus26,JADES_1181_39353,log_lbol,43.9,0.0205,0.0344,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118139353_baccus26__edd_ratio,JADES118139353_baccus26,JADES_1181_39353,edd_ratio,0.625,0.0294,0.04,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118168797_baccus26__log_mbh,JADES118168797_baccus26,JADES_1181_68797,log_mbh,7.82,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118168797_baccus26__halpha_broad_fwhm,JADES118168797_baccus26,JADES_1181_68797,halpha_broad_fwhm,3250.0,60.0,30.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118168797_baccus26__log_lbol,JADES118168797_baccus26,JADES_1181_68797,log_lbol,45.2,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118168797_baccus26__edd_ratio,JADES118168797_baccus26,JADES_1181_68797,edd_ratio,0.185,0.0007,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233166271_baccus26__log_mbh,RUBIES4233166271_baccus26,RUBIES_4233_166271,log_mbh,6.4,0.0438,0.0444,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233166271_baccus26__halpha_broad_fwhm,RUBIES4233166271_baccus26,RUBIES_4233_166271,halpha_broad_fwhm,1610.0,390.0,360.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233166271_baccus26__log_lbol,RUBIES4233166271_baccus26,RUBIES_4233_166271,log_lbol,44.0,0.034,0.0301,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233166271_baccus26__edd_ratio,RUBIES4233166271_baccus26,RUBIES_4233_166271,edd_ratio,0.2796,0.0181,0.02,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356744330_baccus26__log_mbh,VALENTINO356744330_baccus26,VALENTINO_3567_44330,log_mbh,6.63,0.0241,0.028,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356744330_baccus26__halpha_broad_fwhm,VALENTINO356744330_baccus26,VALENTINO_3567_44330,halpha_broad_fwhm,1830.0,670.0,390.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356744330_baccus26__log_lbol,VALENTINO356744330_baccus26,VALENTINO_3567_44330,log_lbol,44.2,0.0394,0.0541,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,VALENTINO356744330_baccus26__edd_ratio,VALENTINO356744330_baccus26,VALENTINO_3567_44330,edd_ratio,0.2703,0.0227,0.02,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267414_baccus26__log_mbh,GDN267414_baccus26,GDN_2674_14,log_mbh,7.69,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267414_baccus26__halpha_broad_fwhm,GDN267414_baccus26,GDN_2674_14,halpha_broad_fwhm,3520.0,60.0,60.0,detection,km/s,published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267414_baccus26__log_lbol,GDN267414_baccus26,GDN_2674_14,log_lbol,44.8,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267414_baccus26__edd_ratio,GDN267414_baccus26,GDN_2674_14,edd_ratio,0.1092,0.0006,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118178773_baccus26__log_mbh,JADES118178773_baccus26,JADES_1181_78773,log_mbh,5.78,0.0156,0.0282,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118178773_baccus26__halpha_broad_fwhm,JADES118178773_baccus26,JADES_1181_78773,halpha_broad_fwhm,890.0,220.0,100.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118178773_baccus26__log_lbol,JADES118178773_baccus26,JADES_1181_78773,log_lbol,44.5,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,JADES118178773_baccus26__edd_ratio,JADES118178773_baccus26,JADES_1181_78773,edd_ratio,4.6524,0.1701,0.24,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267432_baccus26__log_mbh,GDN267432_baccus26,GDN_2674_32,log_mbh,6.51,0.0188,0.0184,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267432_baccus26__halpha_broad_fwhm,GDN267432_baccus26,GDN_2674_32,halpha_broad_fwhm,1790.0,220.0,190.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267432_baccus26__log_lbol,GDN267432_baccus26,GDN_2674_32,log_lbol,44.4,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN267432_baccus26__edd_ratio,GDN267432_baccus26,GDN_2674_32,edd_ratio,0.5579,0.0193,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233148866_baccus26__log_mbh,RUBIES4233148866_baccus26,RUBIES_4233_148866,log_mbh,6.37,0.0242,0.0296,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233148866_baccus26__halpha_broad_fwhm,RUBIES4233148866_baccus26,RUBIES_4233_148866,halpha_broad_fwhm,1410.0,230.0,160.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233148866_baccus26__log_lbol,RUBIES4233148866_baccus26,RUBIES_4233_148866,log_lbol,44.1,0.0165,0.0171,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233148866_baccus26__edd_ratio,RUBIES4233148866_baccus26,RUBIES_4233_148866,edd_ratio,0.4639,0.0157,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423317604_baccus26__log_mbh,RUBIES423317604_baccus26,RUBIES_4233_17604,log_mbh,6.19,0.023,0.0239,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423317604_baccus26__halpha_broad_fwhm,RUBIES423317604_baccus26,RUBIES_4233_17604,halpha_broad_fwhm,1260.0,150.0,110.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423317604_baccus26__log_lbol,RUBIES423317604_baccus26,RUBIES_4233_17604,log_lbol,44.0,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423317604_baccus26__edd_ratio,RUBIES423317604_baccus26,RUBIES_4233_17604,edd_ratio,0.5719,0.0123,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN2674934_baccus26__log_mbh,GDN2674934_baccus26,GDN_2674_934,log_mbh,6.41,0.0164,0.022,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN2674934_baccus26__halpha_broad_fwhm,GDN2674934_baccus26,GDN_2674_934,halpha_broad_fwhm,1670.0,160.0,130.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN2674934_baccus26__log_lbol,GDN2674934_baccus26,GDN_2674_934,log_lbol,44.3,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN2674934_baccus26__edd_ratio,GDN2674934_baccus26,GDN_2674_934,edd_ratio,0.5731,0.016,0.02,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633253190_baccus26__log_mbh,J022633253190_baccus26,J0226_3325_3190,log_mbh,6.19,0.0347,0.0468,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633253190_baccus26__halpha_broad_fwhm,J022633253190_baccus26,J0226_3325_3190,halpha_broad_fwhm,1280.0,370.0,250.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633253190_baccus26__log_lbol,J022633253190_baccus26,J0226_3325_3190,log_lbol,44.1,0.0211,0.0308,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633253190_baccus26__edd_ratio,J022633253190_baccus26,J0226_3325_3190,edd_ratio,0.5884,0.0293,0.04,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423324210_baccus26__log_mbh,RUBIES423324210_baccus26,RUBIES_4233_24210,log_mbh,6.22,0.039,0.049,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423324210_baccus26__halpha_broad_fwhm,RUBIES423324210_baccus26,RUBIES_4233_24210,halpha_broad_fwhm,1250.0,590.0,340.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423324210_baccus26__log_lbol,RUBIES423324210_baccus26,RUBIES_4233_24210,log_lbol,44.3,0.0144,0.0196,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423324210_baccus26__edd_ratio,RUBIES423324210_baccus26,RUBIES_4233_24210,edd_ratio,0.9811,0.0499,0.05,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0226332510867_baccus26__log_mbh,J0226332510867_baccus26,J0226_3325_10867,log_mbh,6.73,0.0519,0.0595,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0226332510867_baccus26__halpha_broad_fwhm,J0226332510867_baccus26,J0226_3325_10867,halpha_broad_fwhm,2150.0,710.0,480.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0226332510867_baccus26__log_lbol,J0226332510867_baccus26,J0226_3325_10867,log_lbol,44.2,0.0226,0.0254,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0226332510867_baccus26__edd_ratio,J0226332510867_baccus26,J0226_3325_10867,edd_ratio,0.2086,0.0122,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633259556_baccus26__log_mbh,J022633259556_baccus26,J0226_3325_9556,log_mbh,6.78,0.0375,0.0366,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633259556_baccus26__halpha_broad_fwhm,J022633259556_baccus26,J0226_3325_9556,halpha_broad_fwhm,1960.0,470.0,360.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633259556_baccus26__log_lbol,J022633259556_baccus26,J0226_3325_9556,log_lbol,44.3,0.0203,0.0165,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633259556_baccus26__edd_ratio,J022633259556_baccus26,J0226_3325_9556,edd_ratio,0.2515,0.0113,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633256699_baccus26__log_mbh,J022633256699_baccus26,J0226_3325_6699,log_mbh,8.3,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633256699_baccus26__halpha_broad_fwhm,J022633256699_baccus26,J0226_3325_6699,halpha_broad_fwhm,3400.0,70.0,40.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633256699_baccus26__log_lbol,J022633256699_baccus26,J0226_3325_6699,log_lbol,45.8,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J022633256699_baccus26__edd_ratio,J022633256699_baccus26,J0226_3325_6699,edd_ratio,0.2542,0.0011,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202812910_baccus26__log_mbh,J0910202812910_baccus26,J0910_2028_12910,log_mbh,8.58,0.01,0.01,detection,log10(Msun),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202812910_baccus26__halpha_broad_fwhm,J0910202812910_baccus26,J0910_2028_12910,halpha_broad_fwhm,4280.0,40.0,30.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202812910_baccus26__log_lbol,J0910202812910_baccus26,J0910_2028_12910,log_lbol,45.9,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202812910_baccus26__edd_ratio,J0910202812910_baccus26,J0910_2028_12910,edd_ratio,0.1742,0.0006,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202814306_baccus26__log_mbh,J0910202814306_baccus26,J0910_2028_14306,log_mbh,6.03,0.0421,0.0664,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202814306_baccus26__halpha_broad_fwhm,J0910202814306_baccus26,J0910_2028_14306,halpha_broad_fwhm,1140.0,440.0,180.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202814306_baccus26__log_lbol,J0910202814306_baccus26,J0910_2028_14306,log_lbol,44.1,0.022,0.0192,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,J0910202814306_baccus26__edd_ratio,J0910202814306_baccus26,J0910_2028_14306,edd_ratio,0.887,0.0482,0.05,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410647962_baccus26__log_mbh,EGS410647962_baccus26,EGS_4106_47962,log_mbh,6.89,0.029,0.0333,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410647962_baccus26__halpha_broad_fwhm,EGS410647962_baccus26,EGS_4106_47962,halpha_broad_fwhm,2430.0,200.0,160.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410647962_baccus26__log_lbol,EGS410647962_baccus26,EGS_4106_47962,log_lbol,44.4,0.01,0.0111,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,EGS410647962_baccus26__edd_ratio,EGS410647962_baccus26,EGS_4106_47962,edd_ratio,0.236,0.0042,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914100182_baccus26__log_mbh,AURORA1914100182_baccus26,AURORA_1914_100182,log_mbh,6.4,0.0415,0.0622,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914100182_baccus26__halpha_broad_fwhm,AURORA1914100182_baccus26,AURORA_1914_100182,halpha_broad_fwhm,1660.0,470.0,340.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914100182_baccus26__log_lbol,AURORA1914100182_baccus26,AURORA_1914_100182,log_lbol,44.4,0.01,0.0101,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,AURORA1914100182_baccus26__edd_ratio,AURORA1914100182_baccus26,AURORA_1914_100182,edd_ratio,0.8687,0.0706,0.08,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233925921_baccus26__log_mbh,RUBIES4233925921_baccus26,RUBIES_4233_925921,log_mbh,7.45,0.0281,0.0306,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233925921_baccus26__halpha_broad_fwhm,RUBIES4233925921_baccus26,RUBIES_4233_925921,halpha_broad_fwhm,3220.0,640.0,450.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233925921_baccus26__log_lbol,RUBIES4233925921_baccus26,RUBIES_4233_925921,log_lbol,44.6,0.0107,0.0114,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES4233925921_baccus26__edd_ratio,RUBIES4233925921_baccus26,RUBIES_4233_925921,edd_ratio,0.1144,0.0037,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,BLUEJAY181019945_baccus26__log_mbh,BLUEJAY181019945_baccus26,BLUEJAY_1810_19945,log_mbh,6.95,0.0294,0.0357,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,BLUEJAY181019945_baccus26__halpha_broad_fwhm,BLUEJAY181019945_baccus26,BLUEJAY_1810_19945,halpha_broad_fwhm,2140.0,320.0,270.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,BLUEJAY181019945_baccus26__log_lbol,BLUEJAY181019945_baccus26,BLUEJAY_1810_19945,log_lbol,44.6,0.01,0.0121,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,BLUEJAY181019945_baccus26__edd_ratio,BLUEJAY181019945_baccus26,BLUEJAY_1810_19945,edd_ratio,0.3739,0.0105,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342803_baccus26__log_mbh,RUBIES423342803_baccus26,RUBIES_4233_42803,log_mbh,7.36,0.0482,0.0528,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342803_baccus26__halpha_broad_fwhm,RUBIES423342803_baccus26,RUBIES_4233_42803,halpha_broad_fwhm,3260.0,780.0,760.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342803_baccus26__log_lbol,RUBIES423342803_baccus26,RUBIES_4233_42803,log_lbol,44.4,0.0188,0.024,detection,log10(erg/s),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,RUBIES423342803_baccus26__edd_ratio,RUBIES423342803_baccus26,RUBIES_4233_42803,edd_ratio,0.0923,0.0051,0.01,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476233609_baccus26__log_mbh,GDN476233609_baccus26,GDN_4762_33609,log_mbh,7.39,0.0218,0.0242,detection,log10(Msun),published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476233609_baccus26__halpha_broad_fwhm,GDN476233609_baccus26,GDN_4762_33609,halpha_broad_fwhm,2790.0,260.0,240.0,detection,km/s,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476233609_baccus26__log_lbol,GDN476233609_baccus26,GDN_4762_33609,log_lbol,44.8,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GDN476233609_baccus26__edd_ratio,GDN476233609_baccus26,GDN_4762_33609,edd_ratio,0.1897,0.0028,0.0,detection,dimensionless,published_asymmetric,"Table 1, z>=4 new non-cluster subset"
+v3-dataset-catalogue,GLIMPSE13131_fei26__log_mbh,GLIMPSE13131_fei26,GLIMPSE-13131,log_mbh,5.86,0.07,0.04,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE13131_fei26__halpha_broad_fwhm,GLIMPSE13131_fei26,GLIMPSE-13131,halpha_broad_fwhm,659.6,58.3,25.0,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE13131_fei26__log_mstar,GLIMPSE13131_fei26,GLIMPSE-13131,log_mstar,8.77,0.27,0.9,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE13131_fei26__log_lbol,GLIMPSE13131_fei26,GLIMPSE-13131,log_lbol,44.29,0.05,0.05,detection,log10(erg/s),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE13131_fei26__edd_ratio,GLIMPSE13131_fei26,GLIMPSE-13131,edd_ratio,1.8,0.22,0.21,detection,dimensionless,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE13131_fei26__lensing_mu,GLIMPSE13131_fei26,GLIMPSE-13131,lensing_mu,1.3,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE5536_fei26__log_mbh,GLIMPSE5536_fei26,GLIMPSE-5536,log_mbh,6.6,0.05,0.06,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE5536_fei26__halpha_broad_fwhm,GLIMPSE5536_fei26,GLIMPSE-5536,halpha_broad_fwhm,1352.3,75.9,77.2,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE5536_fei26__log_mstar,GLIMPSE5536_fei26,GLIMPSE-5536,log_mstar,9.74,0.03,0.03,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE5536_fei26__log_lbol,GLIMPSE5536_fei26,GLIMPSE-5536,log_lbol,44.46,0.02,0.02,detection,log10(erg/s),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE5536_fei26__edd_ratio,GLIMPSE5536_fei26,GLIMPSE-5536,edd_ratio,0.48,0.02,0.02,detection,dimensionless,published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE5536_fei26__lensing_mu,GLIMPSE5536_fei26,GLIMPSE-5536,lensing_mu,1.2,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE11026_fei26__log_mbh,GLIMPSE11026_fei26,GLIMPSE-11026,log_mbh,6.81,0.04,0.04,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE11026_fei26__halpha_broad_fwhm,GLIMPSE11026_fei26,GLIMPSE-11026,halpha_broad_fwhm,1815.5,86.0,79.8,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE11026_fei26__log_mstar,GLIMPSE11026_fei26,GLIMPSE-11026,log_mstar,7.81,0.15,0.23,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE11026_fei26__log_lbol,GLIMPSE11026_fei26,GLIMPSE-11026,log_lbol,44.37,0.01,0.01,detection,log10(erg/s),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE11026_fei26__edd_ratio,GLIMPSE11026_fei26,GLIMPSE-11026,edd_ratio,0.24,0.01,0.01,detection,dimensionless,published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE11026_fei26__lensing_mu,GLIMPSE11026_fei26,GLIMPSE-11026,lensing_mu,1.8,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE46938_fei26__log_mbh,GLIMPSE46938_fei26,GLIMPSE-46938,log_mbh,6.09,0.25,0.23,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE46938_fei26__halpha_broad_fwhm,GLIMPSE46938_fei26,GLIMPSE-46938,halpha_broad_fwhm,954.7,271.0,205.4,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE46938_fei26__log_mstar,GLIMPSE46938_fei26,GLIMPSE-46938,log_mstar,7.45,0.29,1.3,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE46938_fei26__log_lbol,GLIMPSE46938_fei26,GLIMPSE-46938,log_lbol,44.15,0.05,0.05,detection,log10(erg/s),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE46938_fei26__edd_ratio,GLIMPSE46938_fei26,GLIMPSE-46938,edd_ratio,0.77,0.09,0.08,detection,dimensionless,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE46938_fei26__lensing_mu,GLIMPSE46938_fei26,GLIMPSE-46938,lensing_mu,1.5,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE55241_fei26__log_mbh,GLIMPSE55241_fei26,GLIMPSE-55241,log_mbh,5.55,0.09,0.06,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE55241_fei26__halpha_broad_fwhm,GLIMPSE55241_fei26,GLIMPSE-55241,halpha_broad_fwhm,1452.0,135.0,86.0,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE55241_fei26__log_mstar,GLIMPSE55241_fei26,GLIMPSE-55241,log_mstar,6.6,0.08,0.1,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE55241_fei26__log_lbol,GLIMPSE55241_fei26,GLIMPSE-55241,log_lbol,42.71,0.04,0.05,detection,log10(erg/s),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE55241_fei26__edd_ratio,GLIMPSE55241_fei26,GLIMPSE-55241,edd_ratio,0.1,0.01,0.01,detection,dimensionless,published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE55241_fei26__lensing_mu,GLIMPSE55241_fei26,GLIMPSE-55241,lensing_mu,23.6,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE12248_fei26__log_mbh,GLIMPSE12248_fei26,GLIMPSE-12248,log_mbh,6.24,0.11,0.11,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE12248_fei26__halpha_broad_fwhm,GLIMPSE12248_fei26,GLIMPSE-12248,halpha_broad_fwhm,1226.1,152.3,135.7,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE12248_fei26__log_mstar,GLIMPSE12248_fei26,GLIMPSE-12248,log_mstar,7.93,0.19,0.33,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE12248_fei26__log_lbol,GLIMPSE12248_fei26,GLIMPSE-12248,log_lbol,44.02,0.04,0.04,detection,log10(erg/s),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE12248_fei26__edd_ratio,GLIMPSE12248_fei26,GLIMPSE-12248,edd_ratio,0.4,0.04,0.04,detection,dimensionless,published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE12248_fei26__lensing_mu,GLIMPSE12248_fei26,GLIMPSE-12248,lensing_mu,1.4,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE41299_fei26__log_mbh,GLIMPSE41299_fei26,GLIMPSE-41299,log_mbh,5.79,0.17,0.15,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE41299_fei26__halpha_broad_fwhm,GLIMPSE41299_fei26,GLIMPSE-41299,halpha_broad_fwhm,648.9,127.4,92.8,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE41299_fei26__log_mstar,GLIMPSE41299_fei26,GLIMPSE-41299,log_mstar,7.61,0.16,0.26,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE41299_fei26__log_lbol,GLIMPSE41299_fei26,GLIMPSE-41299,log_lbol,44.21,0.05,0.06,detection,log10(erg/s),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE41299_fei26__edd_ratio,GLIMPSE41299_fei26,GLIMPSE-41299,edd_ratio,1.77,0.22,0.21,detection,dimensionless,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE41299_fei26__lensing_mu,GLIMPSE41299_fei26,GLIMPSE-41299,lensing_mu,1.6,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE39803_fei26__log_mbh,GLIMPSE39803_fei26,GLIMPSE-39803,log_mbh,6.92,0.02,0.02,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE39803_fei26__halpha_broad_fwhm,GLIMPSE39803_fei26,GLIMPSE-39803,halpha_broad_fwhm,2369.4,53.9,66.8,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE39803_fei26__log_mstar,GLIMPSE39803_fei26,GLIMPSE-39803,log_mstar,7.71,0.25,0.66,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE39803_fei26__log_lbol,GLIMPSE39803_fei26,GLIMPSE-39803,log_lbol,44.17,0.02,0.02,detection,log10(erg/s),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE39803_fei26__edd_ratio,GLIMPSE39803_fei26,GLIMPSE-39803,edd_ratio,0.12,0.0,0.01,detection,dimensionless,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE39803_fei26__lensing_mu,GLIMPSE39803_fei26,GLIMPSE-39803,lensing_mu,4.0,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE38548_fei26__log_mbh,GLIMPSE38548_fei26,GLIMPSE-38548,log_mbh,6.32,0.26,0.41,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE38548_fei26__halpha_broad_fwhm,GLIMPSE38548_fei26,GLIMPSE-38548,halpha_broad_fwhm,1425.0,385.8,476.2,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE38548_fei26__log_mstar,GLIMPSE38548_fei26,GLIMPSE-38548,log_mstar,7.66,0.57,0.57,detection,log10(Msun),published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE38548_fei26__log_lbol,GLIMPSE38548_fei26,GLIMPSE-38548,log_lbol,43.96,0.1,0.13,detection,log10(erg/s),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE38548_fei26__edd_ratio,GLIMPSE38548_fei26,GLIMPSE-38548,edd_ratio,0.29,0.07,0.07,detection,dimensionless,published_symmetric_1sigma,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE38548_fei26__lensing_mu,GLIMPSE38548_fei26,GLIMPSE-38548,lensing_mu,1.3,,,detection,dimensionless,not_published,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE7404_fei26__log_mbh,GLIMPSE7404_fei26,GLIMPSE-7404,log_mbh,6.13,0.27,0.25,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE7404_fei26__halpha_broad_fwhm,GLIMPSE7404_fei26,GLIMPSE-7404,halpha_broad_fwhm,1482.1,478.3,357.6,detection,km/s,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE7404_fei26__log_mstar,GLIMPSE7404_fei26,GLIMPSE-7404,log_mstar,8.24,0.19,0.34,detection,log10(Msun),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE7404_fei26__log_lbol,GLIMPSE7404_fei26,GLIMPSE-7404,log_lbol,43.6,0.09,0.11,detection,log10(erg/s),published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE7404_fei26__edd_ratio,GLIMPSE7404_fei26,GLIMPSE-7404,edd_ratio,0.2,0.05,0.04,detection,dimensionless,published_asymmetric,Tables 1 and 2
+v3-dataset-catalogue,GLIMPSE7404_fei26__lensing_mu,GLIMPSE7404_fei26,GLIMPSE-7404,lensing_mu,1.2,,,detection,dimensionless,not_published,Tables 1 and 2
 v3-dataset-catalogue,GN42437_chisholm24__log_mstar,GN42437_chisholm24,GN-42437,log_mstar,7.9,,,detection,log10(Msun),not_published,Table 1 and Section 5
 v3-dataset-catalogue,GN42437_chisholm24__log_mbh_context_low,GN42437_chisholm24,GN-42437,log_mbh_context_low,5.0,,,lower_limit,log10(Msun),limit,Table 1 and Section 5
 v3-dataset-catalogue,GN42437_chisholm24__log_mbh_context_high,GN42437_chisholm24,GN-42437,log_mbh_context_high,7.0,,,upper_limit,log10(Msun),limit,Table 1 and Section 5
@@ -414,3 +670,7 @@ v3-dataset-catalogue,caperscos07636835805_mascia26__beta_uv,caperscos07636835805
 v3-dataset-catalogue,caperscos07636835805_mascia26__beta_opt,caperscos07636835805_mascia26,capers-cos07_6368_35805,beta_opt,0.28,,,detection,dimensionless,not_published,Table 2
 v3-dataset-catalogue,uncover256111254_mascia26__beta_uv,uncover256111254_mascia26,uncover_2561_11254,beta_uv,-2.24,,,detection,dimensionless,not_published,Table 2
 v3-dataset-catalogue,uncover256111254_mascia26__beta_opt,uncover256111254_mascia26,uncover_2561_11254,beta_opt,-0.62,,,detection,dimensionless,not_published,Table 2
+v3-dataset-catalogue,UNCOVER47584_treiber25__log_mstar,UNCOVER47584_treiber25,UNCOVER-47584,log_mstar,9.4,,,detection,log10(Msun),not_published,Tables 1 and 2; Appendix B
+v3-dataset-catalogue,UNCOVER10646c2_treiber25__log_mstar,UNCOVER10646c2_treiber25,UNCOVER-10646-2,log_mstar,9.06,,,detection,log10(Msun),not_published,Tables 1 and 2; Appendix B
+v3-dataset-catalogue,MoMBHstar1_naidu26__log_mbh_context_low,MoMBHstar1_naidu26,MoM-BH*-1,log_mbh_context_low,7.7,,,lower_limit,log10(Msun),limit,Main text and Extended Data Tables 1 and 4
+v3-dataset-catalogue,MoMBHstar1_naidu26__log_mbh_context_high,MoMBHstar1_naidu26,MoM-BH*-1,log_mbh_context_high,8.3,,,upper_limit,log10(Msun),limit,Main text and Extended Data Tables 1 and 4

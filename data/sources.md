@@ -182,6 +182,28 @@ The Jones et al. compilation contributes no further unique object after this
 identity audit, so it is not duplicated as new catalogue membership; it remains
 a future alternate-measurement/reanalysis source.
 
+## v2 Baccus and Fei canonical-mass expansion reviewed 2026-09-03
+
+- **[source_key: baccus26_nirspec_blagn] Baccus et al. (2026):** 49 new,
+  non-cluster-field `z >= 4` JWST/NIRSpec broad-line AGN are admitted from
+  Table 1 with published single-epoch virial masses. The complete source screen
+  finds 111 qualifying rows representing 107 physical objects, of which 45 are
+  already represented. Thirteen additional GLIMPSE/MACS cluster-field objects
+  are excluded because this source does not publish or apply lensing
+  magnifications. The source-payload SHA-256 is
+  `b0e527296f6a71adb4782f0b57a416f494d33ec7c71a6afc6ee7db982659fa76`.
+- **[source_key: fei26_glimpse_blagn] Fei et al. (2026):** all ten GLIMPSE
+  JWST/NIRSpec broad-line objects are admitted with the source's explicit
+  magnification corrections and published virial masses. Eight are secure and
+  two are tentative candidates. The source-payload SHA-256 is
+  `c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1`.
+
+Together these sources add 59 new physical objects to v2 and v3, all with
+numerical masses suitable for uncertainty-aware growth visualization. The Jin
+et al. J0226 dataset contributes zero new physical objects after Baccus and is
+therefore not added. See
+`docs/source-notes/baccus26-fei26-v2-expansion-extraction-notes.md`.
+
 ## v3 source: GN-z11 high-ionization-line candidate
 
 - **[source_key: maiolino24_gnz11_agn] Maiolino et al. (2024):** GN-z11 is a
@@ -239,7 +261,7 @@ a future alternate-measurement/reanalysis source.
 
 ## v3 heterogeneous evidence expansion reviewed 2026-09-03
 
-The following nine source families contribute 75 identity-audited objects to
+The following eleven source families contribute 78 identity-audited objects to
 v3 only. None publishes an unconditional black-hole mass suitable for the
 current growth calculation; proxy ranges, upper limits, and masses based on an
 assumed Eddington ratio remain contextual observables.
@@ -281,6 +303,13 @@ assumed Eddington ratio remain contextual observables.
   compact blue broad-line emitters remain `candidate` because the source allows
   AGN and stellar central-engine interpretations and publishes no object-level
   BH masses.
+- **[source_key: treiber25_uncover_uv_emitters] Treiber et al. (2025):**
+  two new UNCOVER components are admitted from JWST/NIRSpec high-ionization
+  evidence after catalogue crossmatching. Neither has a canonical BH mass.
+- **[source_key: naidu26_mom_bhstar1] Naidu et al. (2026):** MoM-BH*-1 is
+  admitted as a gas-enshrouded broad-Hbeta accretor candidate at `z=7.7569`.
+  Its model/scattering-dependent mass range remains contextual rather than a
+  canonical growth mass.
 
 Row selection, source-table locations, methods, alias exclusions, and evidence
 decisions are documented in

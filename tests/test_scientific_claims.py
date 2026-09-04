@@ -58,15 +58,29 @@ class V3ScientificClaimTests(unittest.TestCase):
         v1 = pd.read_csv(ROOT / "data/processed/v1/v1_accreting_objects.csv")
         v2 = pd.read_csv(ROOT / "data/processed/v2/v2_accreting_objects.csv")
         v3 = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_objects.csv")
-        self.assertEqual(len(set(v2["physical_object_id"]) - set(v1["physical_object_id"])), 129)
+        self.assertEqual(len(set(v2["physical_object_id"]) - set(v1["physical_object_id"])), 188)
         new_source_keys = {
             "greene24_uncover_blagn", "kocevski25_lrd_blagn",
             "skyfire26_ceers_blagn", "larson23_ceers1019",
             "killi24_j0647_lrd_blagn", "ubler24_zs7_offset_blagn",
+            "baccus26_nirspec_blagn", "fei26_glimpse_blagn",
         }
         additions = v2[v2["source_key"].isin(new_source_keys)]
-        self.assertEqual(len(additions), 40)
+        self.assertEqual(len(additions), 99)
         self.assertTrue(additions["growth_ranking_eligible_flag"].astype(bool).all())
+        expanded = v2[v2["source_key"].isin({
+            "baccus26_nirspec_blagn", "fei26_glimpse_blagn",
+        })]
+        self.assertEqual(
+            expanded.groupby("source_key").size().to_dict(),
+            {"baccus26_nirspec_blagn": 49, "fei26_glimpse_blagn": 10},
+        )
+        baccus = expanded[expanded["source_key"].eq("baccus26_nirspec_blagn")]
+        self.assertFalse(baccus["object_id"].str.startswith(("GLIMPSE", "MACS0416", "MACS1149")).any())
+        fei = expanded[expanded["source_key"].eq("fei26_glimpse_blagn")]
+        self.assertTrue(fei["lensing_status"].eq("lensed").all())
+        self.assertTrue(fei["lensing_mass_correction_status"].eq("applied").all())
+        self.assertEqual(fei["evidence_status"].value_counts().to_dict(), {"secure": 8, "candidate": 2})
         self.assertNotIn("maiolino24_gnz11_agn", set(v2["source_key"]))
         gnz11 = v3[v3["source_key"].eq("maiolino24_gnz11_agn")].squeeze()
         self.assertEqual(gnz11["object_class"], "high_ionization_line_candidate")
@@ -82,10 +96,11 @@ class V3ScientificClaimTests(unittest.TestCase):
             "lyu24_smiles_miri_agn": 19, "napolitano25_ghz9": 1,
             "zhang25_narrow_line_lrds": 5, "chavezortiz26_ghz2": 1,
             "mascia26_compact_blue_ble": 8,
+            "treiber25_uncover_uv_emitters": 2, "naidu26_mom_bhstar1": 1,
         }
         added = measurements[measurements["source_key"].isin(expected)]
         self.assertEqual(added.groupby("source_key").size().to_dict(), expected)
-        self.assertEqual(len(added), 75)
+        self.assertEqual(len(added), 78)
         self.assertTrue(added["log_mbh_msun_std"].isna().all())
         self.assertFalse(added["growth_ranking_eligible_flag"].astype(bool).any())
         self.assertNotIn("GS_3073", set(added["object_id"]))
@@ -173,13 +188,13 @@ class V3ScientificClaimTests(unittest.TestCase):
         caveats = pd.read_csv(TABLES / "v3_source_caveat_summary.csv")
         coverage = pd.read_csv(TABLES / "v3_all_object_visual_coverage.csv")
 
-        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 152)
-        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 145)
+        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 209)
+        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 202)
         self.assertEqual(len(alternates), 7)
-        self.assertEqual((len(followup), len(caveats), len(coverage)), (249, 25, 498))
+        self.assertEqual((len(followup), len(caveats), len(coverage)), (311, 29, 622))
         self.assertEqual(
             coverage.groupby("product_kind").size().to_dict(),
-            {"fedd_mass_map": 249, "seedredshift_mass_map": 249},
+            {"fedd_mass_map": 311, "seedredshift_mass_map": 311},
         )
 
     def test_jades_8083_identity_merge_retains_one_preferred_measurement(self) -> None:
