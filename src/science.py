@@ -200,6 +200,9 @@ def build_accretion_history(
         uncertainty = resolve_mbh_uncertainty(
             obj["log_mbh_err_plus_std"], obj["log_mbh_err_minus_std"],
         )
+        has_reported_error = (
+            uncertainty.mode != "point_estimate_no_reported_mbh_error"
+        )
         masses = asymmetric_normal_samples(
             obj["log_mbh_msun_std"], obj["log_mbh_err_plus_std"],
             obj["log_mbh_err_minus_std"], n_samples=n_samples, rng=rng,
@@ -239,7 +242,9 @@ def build_accretion_history(
                 "required_lifetime_average_fedd_point": required_point,
                 "required_duty_cycle_point": duty_point,
                 **summarize_distribution(duty, prefix="required_duty_cycle"),
-                "prob_required_duty_cycle_gt_1": float(np.mean(duty > 1.0)),
+                "prob_required_duty_cycle_gt_1": (
+                    float(np.mean(duty > 1.0)) if has_reported_error else np.nan
+                ),
                 "fixed_burst_scenario_feasible_point": duty_point <= 1.0,
                 "reported_current_fedd": current,
                 "current_fedd_comparison_eligible_flag": current_ok,
@@ -249,8 +254,11 @@ def build_accretion_history(
                 "current_fedd_is_instantaneous_not_history": True,
                 "n_samples": n_samples,
                 "random_seed": random_seed,
-                "reported_statistical_errors_sampled": True,
-                "statistical_error_model": "split_normal_in_log_mbh",
+                "reported_statistical_errors_sampled": has_reported_error,
+                "statistical_error_model": (
+                    "split_normal_in_log_mbh" if has_reported_error
+                    else "point_estimate_no_statistical_distribution"
+                ),
                 "log_mbh_sigma_plus_used": uncertainty.sigma_plus,
                 "log_mbh_sigma_minus_used": uncertainty.sigma_minus,
                 "systematic_combined_with_statistical_error": False,

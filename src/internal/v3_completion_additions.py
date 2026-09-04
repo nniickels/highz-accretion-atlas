@@ -180,7 +180,7 @@ def build_observables(raw: pd.DataFrame) -> pd.DataFrame:
     errors = {
         "log_mbh_msun": ("log_mbh_err_plus", "log_mbh_err_minus"),
         "broad_fwhm_km_s": ("broad_fwhm_err_plus", "broad_fwhm_err_minus"),
-        "log_line_luminosity": (None, None),
+        "log_line_luminosity": ("log_line_luminosity_err_plus", "log_line_luminosity_err_minus"),
         "line_luminosity_1e42": ("line_luminosity_err_plus", "line_luminosity_err_minus"),
         "f444w_mag": ("f444w_err", "f444w_err"), "muv": ("muv_err_plus", "muv_err_minus"),
         "beta_opt": ("beta_opt_err", "beta_opt_err"), "beta_uv": ("beta_uv_err", "beta_uv_err"),

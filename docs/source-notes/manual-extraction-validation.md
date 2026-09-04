@@ -1,6 +1,6 @@
 # Manual extraction validation
 
-Reviewed 2026-09-03. `data/manual_extraction_audit.csv` inventories all 25
+Reviewed 2026-09-03 and amended 2026-09-04. `data/manual_extraction_audit.csv` inventories all 25
 row-level CSV inputs plus the source-native Scholtz TeX table. Each record pins
 the checked-in bytes, expected parsed row count, source-family membership, and
 the source-table locator described in the extraction notes.
@@ -10,6 +10,13 @@ audit. The verifier fails on changed bytes, row counts, duplicate measurement
 identifiers, source-family drift, or a changed 41-row Scholtz parse. These gates
 complement the source-archive hashes in the provenance registry and the
 source-specific scientific anchors in the test suite.
+
+These integrity checks cannot establish original transcription accuracy. A
+fresh independent comparison on 2026-09-04 adds 865 checks across 53 rows from
+four families; see [`../../data/validation/README.md`](../../data/validation/README.md).
+It restored omitted NEXUS log-line-luminosity errors in the raw extraction and
+source observables. This is a documented extraction correction, with no change
+to object membership or growth masses.
 
 The audit does not turn a published proxy, upper limit, or assumed-Eddington
 mass into a canonical mass. Evidence and interpretation remain controlled by

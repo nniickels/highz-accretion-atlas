@@ -1,5 +1,5 @@
 {
-  "release": "source-provenance-2026-09-03",
+  "release": "source-provenance-2026-09-04",
   "scope": "provenance, extraction, and selection records for the JWST-identified catalogue",
   "registry_rows": 36,
   "catalogue_source_keys": 32,
@@ -7,7 +7,7 @@
   "selection_registry_rows": 32,
   "manual_extraction_artifacts": 26,
   "artifacts": {
-    "data/manual_extraction_audit.csv": "c1ba9fb0390040c24655c31308e1dfa6cf2934e55d9f184c5f0e218be21c750b",
+    "data/manual_extraction_audit.csv": "7e12aadfb1300d3fd14920c16eaeb391691ec2c2245f444314efe11f094c7655",
     "data/selection_function_registry.csv": "dbe12ff48a5dd7428210b85998c58e0c253a128e0af4449e2a63ae51934f204f",
     "data/source_provenance_registry.csv": "711d7fda7de6459fdaf8c19b69a21e8cb4b283f7d9c998a8e29127474a63c4e7"
   }

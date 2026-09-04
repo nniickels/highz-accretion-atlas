@@ -35,7 +35,7 @@ def manifest_metadata(
 ) -> dict[str, object]:
     """Return the release metadata derived from the validated registries."""
     return {
-        "release": "source-provenance-2026-09-03",
+        "release": "source-provenance-2026-09-04",
         "scope": "provenance, extraction, and selection records for the JWST-identified catalogue",
         "registry_rows": len(registry),
         "catalogue_source_keys": registry["source_key"].nunique(),

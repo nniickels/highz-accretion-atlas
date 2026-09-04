@@ -14,12 +14,23 @@
 | UNCOVER-20466 leads both point and uncertainty navigation views | focused claim regression and canonical object ranking tables | verified |
 | 680 per-object panels cover all 340 objects: 340 $f_{Edd}$-mass and 340 seed-redshift-mass panels | focused claim regression, v3 dataset manifest, and visual-coverage verifier | verified |
 | Full-assumption v3 growth-track figure contains the historical v1 grid of 72 curves | focused assumption-grid regression and figure-resolution verifier | verified |
-| Every combined growth-track figure uses the common observed-redshift range 12 to 3 without changing figure dimensions or margins | focused axis-range regression and generated figures | verified |
+| Every combined growth-track figure uses the common observed-redshift range 13 to 3, including GHZ2 at z=12.34 | axis-range and catalogue-coverage regressions and generated figures | verified |
 | Overview growth-track object colors encode broad-line AGN in purple; the full-assumption companion uses blue numerical points with blue/gray no-mass groups | focused palette regression and generated figures | verified |
 
 Interpretive claims are deliberately bounded: ranks are navigation/descriptive,
 the pooled catalogue is not demographic, and the growth model does not prove a
 unique seed or accretion history.
+
+The 2026-09-04 correction separates composite navigation rank from descending
+required Eddington ratio in the manuscript. GS-20057765 is third in the latter;
+COSMOS3D-13852 is fourth (third by composite score). Twelve NEXUS point estimates
+without statistical errors have no probabilities or uncertainty ranks and are
+visually distinguished. The compatibility efficiency prescription is explicit.
+
+Independent source validation covers 865 comparisons across 53 rows in four
+families, plus numerical age/growth checks; see `data/validation/README.md`.
+It does not certify all-source accuracy. The NEXUS extraction correction adds
+published luminosity errors without changing membership or mass estimates.
 
 ## Release-specific evidence decisions
 

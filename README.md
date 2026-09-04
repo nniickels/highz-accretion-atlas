@@ -47,7 +47,12 @@ For each object, the pipeline computes the cosmic time available between $z_{see
 
 
 
-## Intended Paper Products
+## Manuscript and Paper Products
+
+The complete first manuscript draft is available as
+[`paper/highz_accretion_atlas_v3.pdf`](paper/highz_accretion_atlas_v3.pdf),
+with its editable LaTeX source beside it. It reflects the frozen 340-object v3
+catalogue and the current canonical results.
 
 Main-text products:
 
@@ -146,6 +151,7 @@ Run the complete regression and verification suite:
 ```bash
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 .venv/bin/python -m src.internal.verify_manual_extractions
+.venv/bin/python -m src.internal.verify_primary_source_values
 .venv/bin/python -m src.internal.verify_source_provenance
 .venv/bin/python -m src.internal.verify_versions
 ```

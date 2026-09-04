@@ -19,6 +19,10 @@ missing; the source's typical 0.5 dex virial uncertainty is stored separately
 as an unapplied method systematic. The three starred broad-line classifications
 have no published mass and remain candidate, growth-ineligible rows.
 
+An independent Table 1 re-read on 2026-09-04 restored omitted statistical errors
+on log broad-line luminosity for all 12 detections. These are now retained in
+the raw table and long-form observables. No BH mass or ranking changed.
+
 NX10835 is the same object as the previously admitted Mascia identifier
 `nexus-obs3_5105_10835`: the positions differ by 0.066 arcsec and the redshifts
 by 0.001. The NEXUS mass-bearing measurement becomes preferred without deleting

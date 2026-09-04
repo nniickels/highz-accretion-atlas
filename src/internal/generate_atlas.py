@@ -7,6 +7,7 @@ import argparse
 import pandas as pd
 
 from src.internal import atlas
+from src.internal.fedd_mass_maps import configure_style
 from src.internal.seedredshift_mass_maps import materialize as materialize_seedredshift_mass
 
 
@@ -41,6 +42,8 @@ def main() -> None:
     parser.add_argument("--rebuild-panels", action="store_true")
     args = parser.parse_args()
     configure(args.version)
+    # Cached and rebuilt panel runs must establish the same matplotlib state.
+    configure_style()
     objects, uncertainty = atlas.load_inputs()
     coverage = pd.concat([
         atlas.materialize_fedd_mass_maps(objects, rebuild=args.rebuild_panels),

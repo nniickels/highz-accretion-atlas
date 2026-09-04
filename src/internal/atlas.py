@@ -122,8 +122,8 @@ FULL_TRACK_CURVE_COUNT = (
     * len(FULL_TRACK_EPSILON_CASES)
     * len(FULL_TRACK_MERGER_CASES)
 )
-GROWTH_TRACK_REDSHIFT_LIMITS = (12.0, 3.0)
-GROWTH_TRACK_AGE_TICKS = np.arange(12.0, 2.0, -1.0)
+GROWTH_TRACK_REDSHIFT_LIMITS = (13.0, 3.0)
+GROWTH_TRACK_AGE_TICKS = np.arange(13.0, 2.0, -1.0)
 
 
 def boolish(value: object) -> bool:
@@ -237,7 +237,7 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
     ax.legend(ncol=3, frameon=False, fontsize=9)
 
     status.set_xlim(*GROWTH_TRACK_REDSHIFT_LIMITS)
-    status.set_ylim(-0.6, 3.6)
+    status.set_ylim(-0.6, unavailable["object_class"].nunique() - 0.4)
     for y, (object_class, group) in enumerate(unavailable.groupby("object_class", sort=True)):
         status.scatter(group["redshift"], np.full(len(group), y), marker="|", s=260,
                        linewidths=2, color=GROWTH_TRACK_COLORS[object_class])
@@ -494,10 +494,16 @@ def plot_all_object_uncertainty(objects: pd.DataFrame, uncertainty: pd.DataFrame
     for object_class, group in joined.groupby("object_class", sort=False):
         idx = group.index.to_numpy()
         valid = np.isfinite(med[idx])
-        ax.errorbar(med[idx][valid], y[idx][valid], xerr=np.vstack([lo[idx][valid], hi[idx][valid]]),
+        point_only = group["mbh_uncertainty_mode"].eq("point_estimate_no_reported_mbh_error").to_numpy()
+        sampled = valid & ~point_only
+        ax.errorbar(med[idx][sampled], y[idx][sampled], xerr=np.vstack([lo[idx][sampled], hi[idx][sampled]]),
                     fmt="o", ms=3.8, elinewidth=1, capsize=1.5,
                     color=COLORS[object_class], ecolor=COLORS[object_class],
-                    label=f"{LABELS[object_class]} ({valid.sum()} numerical)")
+                    label=f"{LABELS[object_class]} ({sampled.sum()} with statistical errors)")
+        if point_only.any():
+            ax.scatter(med[idx][point_only], y[idx][point_only], marker="D", s=24,
+                       facecolors="none", edgecolors=COLORS[object_class],
+                       label=f"Point estimates only ({point_only.sum()}; no statistical error)")
         if (~valid).any():
             ax.scatter(np.full((~valid).sum(), -0.08), y[idx][~valid], marker="x", s=28,
                        color=COLORS[object_class], label=f"{LABELS[object_class]} unavailable")
@@ -519,15 +525,24 @@ def plot_all_object_uncertainty(objects: pd.DataFrame, uncertainty: pd.DataFrame
 def plot_uncertainty_summary(objects: pd.DataFrame, uncertainty: pd.DataFrame, output: Path) -> None:
     fig, (ax, status) = plt.subplots(1, 2, figsize=(15, 6.8),
                                      gridspec_kw={"width_ratios": [3.5, 1]}, constrained_layout=True)
-    for object_class, group in uncertainty.groupby("object_class"):
+    point_only = uncertainty["mbh_uncertainty_mode"].eq("point_estimate_no_reported_mbh_error")
+    for object_class, group in uncertainty.loc[~point_only].groupby("object_class"):
         width = group["required_fedd_seed1e2_p84"] - group["required_fedd_seed1e2_p16"]
         ax.scatter(group["required_fedd_seed1e2_p50"], group["prob_required_fedd_seed1e2_gt_1"],
                    s=22 + 80 * np.clip(width, 0, 1), alpha=0.7, color=COLORS[object_class],
                    edgecolor="white", linewidth=0.35, label=f"{LABELS[object_class]} ({len(group)})")
+    if point_only.any():
+        points = uncertainty.loc[point_only]
+        ax.scatter(points["required_fedd_seed1e2_p50"], np.full(len(points), -0.10),
+                   marker="D", s=32, facecolors="none", edgecolors="#555555",
+                   label=f"Point only ({len(points)}; probability unavailable)")
+        ax.set_yticks([-0.10, 0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                      ["No error", "0", "0.2", "0.4", "0.6", "0.8", "1.0"])
+        ax.axhline(-0.05, color="#999999", lw=0.6, ls=":")
     ax.axvline(1, color="#8B1A1A", ls="--", lw=1.1)
     ax.set(xlabel=r"Median required $f_{\rm Edd}$ for a $10^2\,M_\odot$ seed",
            ylabel=r"Monte Carlo $P(f_{\rm Edd,required}>1)$",
-           title=f"All {len(uncertainty)} numerical Monte Carlo posteriors")
+           title=f"{int((~point_only).sum())} statistical-error summaries; {int(point_only.sum())} point estimates")
     ax.grid(alpha=0.2)
     ax.legend(frameon=False)
     unavailable = objects[~objects["growth_ranking_eligible_flag"].map(boolish)]

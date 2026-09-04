@@ -43,8 +43,8 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(len(FULL_TRACK_EPSILON_CASES), 4)
         self.assertEqual([item[0] for item in FULL_TRACK_MERGER_CASES], [1.0, 2.0])
         self.assertEqual(FULL_TRACK_CURVE_COUNT, 72)
-        self.assertEqual(GROWTH_TRACK_REDSHIFT_LIMITS, (12.0, 3.0))
-        self.assertEqual(GROWTH_TRACK_AGE_TICKS.tolist(), list(range(12, 2, -1)))
+        self.assertEqual(GROWTH_TRACK_REDSHIFT_LIMITS, (13.0, 3.0))
+        self.assertEqual(GROWTH_TRACK_AGE_TICKS.tolist(), list(range(13, 2, -1)))
         self.assertEqual(GROWTH_TRACK_COLORS["broad_line_agn"], "#7B2CBF")
         self.assertEqual(FULL_TRACK_STATUS_COLORS["narrow_line_agn_candidate"], "#176B87")
         self.assertEqual(FULL_TRACK_STATUS_COLORS["xray_agn_candidate"], "#777777")
@@ -224,6 +224,26 @@ class V3ScientificClaimTests(unittest.TestCase):
         ).iloc[0]
         self.assertEqual(point_first["object_id"], "UNCOVER-20466")
         self.assertEqual(uncertainty_first["object_id"], "UNCOVER-20466")
+
+    def test_no_error_masses_are_not_presented_as_posteriors(self) -> None:
+        uncertainty = pd.read_csv(TABLES / "v3_object_uncertainty_ranking.csv")
+        point_only = uncertainty["mbh_uncertainty_mode"].eq(
+            "point_estimate_no_reported_mbh_error"
+        )
+        self.assertEqual(int(point_only.sum()), 12)
+        self.assertEqual(
+            set(uncertainty.loc[point_only, "source_key"]),
+            {"zhuang25_nexus_wfss"},
+        )
+        self.assertFalse(
+            uncertainty.loc[point_only, "reported_statistical_errors_sampled"].astype(bool).any()
+        )
+        self.assertTrue(
+            uncertainty.loc[point_only, "prob_required_fedd_seed1e2_gt_1"].isna().all()
+        )
+        self.assertTrue(
+            uncertainty.loc[point_only, "rank_uncertainty_global_navigation"].isna().all()
+        )
 
     def test_primary_alternate_and_complete_product_counts(self) -> None:
         measurement = pd.read_csv(TABLES / "v3_measurement_point_ranking.csv")

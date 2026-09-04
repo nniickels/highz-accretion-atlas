@@ -206,21 +206,31 @@ def build_uncertainty_ranking(
         )
         required_fedd = _required_fedd(masses, float(source["redshift"]), 2.0)
         required_mseed = _required_mseed(masses, float(source["redshift"]), 0.3)
+        has_reported_error = spec.mode != "point_estimate_no_reported_mbh_error"
         rows.append({
             **{field: source.get(field, np.nan) for field in metadata},
             "n_samples": int(n_samples),
             "random_seed": int(random_seed),
-            "reported_statistical_errors_sampled": True,
-            "statistical_error_model": "split_normal_in_log_mbh",
+            "reported_statistical_errors_sampled": has_reported_error,
+            "statistical_error_model": (
+                "split_normal_in_log_mbh" if has_reported_error
+                else "point_estimate_no_statistical_distribution"
+            ),
             "log_mbh_sigma_plus_used": spec.sigma_plus,
             "log_mbh_sigma_minus_used": spec.sigma_minus,
             "mbh_uncertainty_mode": spec.mode,
             "systematic_combined_with_statistical_error": False,
             **summarize_distribution(required_fedd, prefix="required_fedd_seed1e2"),
-            "prob_required_fedd_seed1e2_gt_1": float(np.mean(required_fedd > 1.0)),
+            "prob_required_fedd_seed1e2_gt_1": (
+                float(np.mean(required_fedd > 1.0)) if has_reported_error else np.nan
+            ),
             **summarize_distribution(required_mseed, prefix="required_log_mseed_fedd0p3"),
-            "prob_required_log_mseed_fedd0p3_gt_1e5": float(np.mean(required_mseed > 5.0)),
-            "prob_required_log_mseed_fedd0p3_gt_1e6": float(np.mean(required_mseed > 6.0)),
+            "prob_required_log_mseed_fedd0p3_gt_1e5": (
+                float(np.mean(required_mseed > 5.0)) if has_reported_error else np.nan
+            ),
+            "prob_required_log_mseed_fedd0p3_gt_1e6": (
+                float(np.mean(required_mseed > 6.0)) if has_reported_error else np.nan
+            ),
         })
     result = pd.DataFrame(rows)
     probability = pd.concat([
@@ -233,11 +243,19 @@ def build_uncertainty_ranking(
         [probability.ge(0.5), probability.ge(0.16)],
         ["likely_high_pressure", "possible_high_pressure"], default="lower_pressure",
     )
+    point_only = result["mbh_uncertainty_mode"].eq(
+        "point_estimate_no_reported_mbh_error"
+    )
+    result.loc[point_only, "uncertainty_pressure_tier"] = (
+        "point_estimate_only_no_statistical_error"
+    )
     # Ranking helper expects this deterministic tie-break field.
     result["required_fedd_seed1e2"] = result["required_fedd_seed1e2_p50"]
     result = _add_ranks(
         result, score="uncertainty_pressure_score_0_100", prefix="rank_uncertainty",
     )
+    rank_columns = [column for column in result if column.startswith("rank_uncertainty")]
+    result.loc[point_only, rank_columns] = pd.NA
     return result.sort_values(
         ["rank_uncertainty_global_navigation", "ranking_id"],
     ).reset_index(drop=True)
