@@ -45,7 +45,7 @@ def verify_version(version: str) -> None:
         raise AssertionError(f"{version} catalogue metadata mismatch")
 
     eligible = int(objects["growth_ranking_eligible_flag"].astype(bool).sum())
-    expected_eligible = {"v1": 23, "v2": 211, "v3": 212}[version]
+    expected_eligible = {"v1": 23, "v2": 211, "v3": 237}[version]
     if eligible != expected_eligible:
         raise AssertionError(f"{version} growth eligibility changed")
     uncertainty = pd.read_csv(results / "tables" / f"{version}_object_uncertainty_ranking.csv")

@@ -105,6 +105,38 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertFalse(added["growth_ranking_eligible_flag"].astype(bool).any())
         self.assertNotIn("GS_3073", set(added["object_id"]))
 
+    def test_final_v3_completion_adds_new_jwst_objects_and_resolves_nx10835(self) -> None:
+        measurements = pd.read_csv(
+            ROOT / "data/processed/v3/v3_accreting_measurements.csv", low_memory=False,
+        )
+        objects = pd.read_csv(
+            ROOT / "data/processed/v3/v3_accreting_objects.csv", low_memory=False,
+        )
+        expected = {
+            "zhuang25_nexus_wfss": 15,
+            "lin25_cosmos3d_blagn": 13,
+            "napolitano25_seven_wonders": 2,
+        }
+        added = measurements[measurements["source_key"].isin(expected)]
+        self.assertEqual(added.groupby("source_key").size().to_dict(), expected)
+        self.assertEqual(
+            added.groupby("source_key")["log_mbh_msun_std"].count().to_dict(),
+            {
+                "zhuang25_nexus_wfss": 12,
+                "lin25_cosmos3d_blagn": 13,
+                "napolitano25_seven_wonders": 0,
+            },
+        )
+        self.assertEqual((len(measurements), len(objects)), (350, 340))
+        self.assertEqual(int(objects["growth_ranking_eligible_flag"].astype(bool).sum()), 237)
+        nx = measurements[measurements["physical_object_id"].eq("HZA-NEXUS-OBS3-5105-10835")]
+        self.assertEqual(len(nx), 2)
+        self.assertEqual(int(nx["preferred_measurement_flag"].astype(bool).sum()), 1)
+        self.assertEqual(
+            nx.loc[nx["preferred_measurement_flag"].astype(bool), "source_key"].item(),
+            "zhuang25_nexus_wfss",
+        )
+
     def test_recent_addition_metadata_reaches_canonical_and_long_form_tables(self) -> None:
         measurements = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_measurements.csv")
         observables = pd.read_csv(ROOT / "data/processed/v3/v3_source_observables.csv")
@@ -201,13 +233,13 @@ class V3ScientificClaimTests(unittest.TestCase):
         caveats = pd.read_csv(TABLES / "v3_source_caveat_summary.csv")
         coverage = pd.read_csv(TABLES / "v3_all_object_visual_coverage.csv")
 
-        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 209)
-        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 202)
+        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 234)
+        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 227)
         self.assertEqual(len(alternates), 7)
-        self.assertEqual((len(followup), len(caveats), len(coverage)), (311, 29, 622))
+        self.assertEqual((len(followup), len(caveats), len(coverage)), (340, 32, 680))
         self.assertEqual(
             coverage.groupby("product_kind").size().to_dict(),
-            {"fedd_mass_map": 311, "seedredshift_mass_map": 311},
+            {"fedd_mass_map": 340, "seedredshift_mass_map": 340},
         )
 
     def test_jades_8083_identity_merge_retains_one_preferred_measurement(self) -> None:

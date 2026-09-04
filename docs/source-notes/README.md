@@ -4,6 +4,7 @@
 
 - [`manual-extraction-validation.md`](manual-extraction-validation.md)
 - [`preprint-status-review-2026-09-03.md`](preprint-status-review-2026-09-03.md)
+- [`v3-completion-extraction-notes.md`](v3-completion-extraction-notes.md)
 - [`taylor24-ceers-rubies-extraction-notes.md`](taylor24-ceers-rubies-extraction-notes.md)
 - [`matthee23-eiger-fresco-extraction-notes.md`](matthee23-eiger-fresco-extraction-notes.md)
 - [`lin24-aspire-extraction-notes.md`](lin24-aspire-extraction-notes.md)

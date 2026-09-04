@@ -73,6 +73,7 @@ class RepositoryLayoutTests(unittest.TestCase):
             "mascia2026", "matthee2024", "mazzolari2024", "naidu2026", "napolitano2025",
             "ren2025", "scholtz2025", "skyfire2026", "tang2025", "taylor2025",
             "treiber2025", "ubler2024", "zhang2026", "zou2026",
+            "zhuang2025", "lin2025", "napolitano2024",
         }
         cited = {
             key.strip()
@@ -84,7 +85,7 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertEqual(bibliography, expected)
 
     def test_complete_axis_named_parameter_maps(self) -> None:
-        expected = {"v1": 23, "v2": 211, "v3": 311}
+        expected = {"v1": 23, "v2": 211, "v3": 340}
         for version, count in expected.items():
             parameter_maps = ROOT / "results" / version / "parameter_maps"
             self.assertEqual(
@@ -104,7 +105,7 @@ class RepositoryLayoutTests(unittest.TestCase):
             self.assertFalse((ROOT / "results" / version / "gallery").exists(), version)
 
     def test_followup_and_source_caveat_products(self) -> None:
-        expected_objects = {"v1": 23, "v2": 211, "v3": 311}
+        expected_objects = {"v1": 23, "v2": 211, "v3": 340}
         for version, count in expected_objects.items():
             tables = ROOT / "results" / version / "tables"
             followup = pd.read_csv(tables / f"{version}_followup_priority.csv")

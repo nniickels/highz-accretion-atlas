@@ -22,3 +22,10 @@ corrections.
 the v3-only heterogeneous expansion. It excludes known aliases and overlaps;
 proxy masses, assumed-Eddington estimates, and upper limits remain contextual
 observables rather than canonical growth masses.
+
+The final v3 completion is preserved in three source-native extracts:
+`zhuang25_nexus_wfss_table1_zge4.csv`,
+`lin25_cosmos3d_blagn_table1.csv`, and
+`napolitano25_seven_wonders_agn_candidates.csv`. They are assigned only to v3.
+NEXUS and COSMOS-3D retain their published Balmer virial masses; GHZ4 and GHZ7
+remain massless high-ionization candidates.

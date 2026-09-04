@@ -1,6 +1,6 @@
 object_class,n_objects,n_growth_eligible,median_redshift,median_log_mbh,science_release,input_catalogue_release
-broad_line_agn,220,211,5.1631,7.17,v3-shared-science,v3-dataset-catalogue
-high_ionization_line_candidate,8,1,8.23085,6.2,v3-shared-science,v3-dataset-catalogue
+broad_line_agn,247,236,5.137,7.1850000000000005,v3-shared-science,v3-dataset-catalogue
+high_ionization_line_candidate,10,1,8.6138,6.2,v3-shared-science,v3-dataset-catalogue
 narrow_line_agn_candidate,50,0,5.364,,v3-shared-science,v3-dataset-catalogue
 photometric_agn_candidate,31,0,5.162,,v3-shared-science,v3-dataset-catalogue
 xray_agn_candidate,2,0,10.099499999999999,,v3-shared-science,v3-dataset-catalogue

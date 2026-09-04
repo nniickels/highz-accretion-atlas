@@ -263,5 +263,6 @@ excludes reviewed aliases and overlaps rather than duplicating them.
 The catalogue stores high-ionization evidence as an overlapping selection
 channel, with sample size and mass availability explicit. These 78 additions
 broaden evidence coverage; none adds a canonical numerical growth point. The
-separate v2 BLAGN expansion raises the shared v3 numerical sample to 212
-objects.
+separate v2 BLAGN expansion initially raised the shared v3 numerical sample to
+212 objects. The later final-completion sources documented separately raise it
+to 237 objects.

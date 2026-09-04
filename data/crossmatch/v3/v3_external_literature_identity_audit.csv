@@ -1,1 +1,2 @@
 catalogue_release,measurement_id,object_id,literature_alias,literature_reference,atlas_prior_candidate_count,identity_disposition,review_basis,review_date
+v3-dataset-catalogue,NX10835_zhuang25,NX10835,nexus-obs3_5105_10835,Zhuang et al. 2025 Table 1; Mascia et al. 2026 Table 2,1,same_physical_object,published alias plus 0.066 arcsec separation and delta-z=0.001,2026-09-03

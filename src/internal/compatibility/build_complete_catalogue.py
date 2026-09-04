@@ -17,6 +17,7 @@ from src.internal.compatibility.v7_scholtz_catalogue import build_v7_scholtz_cat
 from src.internal.compatibility.v7_uhz1_catalogue import build_v7_uhz1_catalogues
 from src.internal.canonical_mass_additions import append_additions
 from src.internal.heterogeneous_v3_additions import append_heterogeneous_v3
+from src.internal.v3_completion_additions import append_v3_completion
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -39,6 +40,9 @@ INPUTS = {
     "baccus_additions": ROOT / "data/raw/baccus26_nirspec_blagn_table1_zge4_new.csv",
     "glimpse_additions": ROOT / "data/raw/fei26_glimpse_blagn_tables1_2_new.csv",
     "heterogeneous_v3_expansion": ROOT / "data/raw/v3_jwst_heterogeneous_expansion.csv",
+    "nexus_v3_completion": ROOT / "data/raw/zhuang25_nexus_wfss_table1_zge4.csv",
+    "cosmos3d_v3_completion": ROOT / "data/raw/lin25_cosmos3d_blagn_table1.csv",
+    "seven_wonders_v3_completion": ROOT / "data/raw/napolitano25_seven_wonders_agn_candidates.csv",
 }
 FULL_TABLE = ROOT / "data/raw/scholtz25_jades_table_sample_full.tex"
 
@@ -94,4 +98,9 @@ def build_outputs() -> dict[str, pd.DataFrame]:
     additions = pd.concat([_read(name) for name in addition_names], ignore_index=True, sort=False)
     final = append_additions(final, additions)
     final = append_heterogeneous_v3(final, _read("heterogeneous_v3_expansion"))
+    completion = pd.concat([
+        _read("nexus_v3_completion"), _read("cosmos3d_v3_completion"),
+        _read("seven_wonders_v3_completion"),
+    ], ignore_index=True, sort=False)
+    final = append_v3_completion(final, completion)
     return {name: _normalize_historical_labels(frame) for name, frame in final.items()}

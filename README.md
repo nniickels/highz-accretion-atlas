@@ -76,10 +76,10 @@ Appendix or supplement products:
 - source-level selection/completeness audit — `data/selection_function_registry.csv` and `results/v3/tables/v3_selection_completeness_summary.csv`
 - immutable extraction audit — `data/manual_extraction_audit.csv`
 
-The canonical v3 gallery covers all 311 objects with one $f_{Edd}$-mass map in
+The canonical v3 gallery covers all 340 objects with one $f_{Edd}$-mass map in
 `results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
-`results/v3/parameter_maps/seedredshift_mass_maps/`. The 212
-growth-eligible objects receive numerical panels; the other 99 receive explicit
+`results/v3/parameter_maps/seedredshift_mass_maps/`. The 237
+growth-eligible objects receive numerical panels; the other 103 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
 companion contains 72 curves spanning three seed masses, three $f_{Edd}$
@@ -106,7 +106,7 @@ propagation, comparison policy, and visual grammar.
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES BLAGN catalogue | 23 | 23 | 23 |
 | v2 | v1 plus comparable JWST BLAGN sources with canonical masses | 218 | 211 | 210 |
-| v3 | v2 plus heterogeneous JWST-identified candidates | 320 | 311 | 310 |
+| v3 | v2 plus heterogeneous JWST-identified candidates | 350 | 340 | 339 |
 
 For each version, canonical catalogues are under
 `data/processed/<version>/`, identity products are under

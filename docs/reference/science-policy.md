@@ -17,14 +17,14 @@ Supported interpretation scopes are:
 Pooled demographic inference is forbidden. The machine-readable selection
 registry leaves inverse weights unset unless a valid inclusion-probability model
 exists; none currently does. Statistical mass errors are sampled
-without combining them with method systematics. The 200-row exclusion audit is
-the union of 101 ineligible measurement rows and 99 ineligible object rows; all
+without combining them with method systematics. The 209-row exclusion audit is
+the union of 106 ineligible measurement rows and 103 ineligible object rows; all
 remain in the catalogue.
 
-`results/v3/tables/v3_followup_priority.csv` contains all 311 objects. Its 212
+`results/v3/tables/v3_followup_priority.csv` contains all 340 objects. Its 237
 growth-eligible rows receive both within-class and navigation-only ranks; the
-99 objects without a method-comparable canonical mass remain explicitly
-unranked. `v3_source_caveat_summary.csv` contains one row for each of the 29
+103 objects without a method-comparable canonical mass remain explicitly
+unranked. `v3_source_caveat_summary.csv` contains one row for each of the 32
 admitted source families.
 
 Reproduce with:

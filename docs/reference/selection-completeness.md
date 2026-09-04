@@ -23,6 +23,11 @@ The strongest current source-local constraints are:
   threshold, followed by colour and compactness cuts.
 - MEOW and SMILES: source-local selection and luminosity-function analyses that
   are not transferable as weights for the heterogeneous atlas union.
+- NEXUS WFSS: a 100 arcmin2 footprint and Halpha wavelength-coverage correction
+  that explicitly excludes sensitivity and broad-line detectability.
+- COSMOS-3D: object-specific injection/recovery completeness for its 127
+  arcmin2 luminosity-function analysis; these values do not define weights for
+  the cross-survey atlas.
 
 Any future demographic analysis must add a validated per-object or per-cell
 inclusion model, preserve each source's parent population and footprint, model

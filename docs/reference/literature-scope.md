@@ -38,5 +38,5 @@ types. Publication-status
 corrections and provenance metadata may be updated without changing source-native
 values.
 
-The final pre-freeze admission queue and projected counts are maintained in
+The implemented final admission record and counts are maintained in
 [`catalogue-completion-plan.md`](catalogue-completion-plan.md).

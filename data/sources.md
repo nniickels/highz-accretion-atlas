@@ -316,3 +316,25 @@ decisions are documented in
 `docs/source-notes/heterogeneous-v3-expansion-extraction-notes.md`. Exact source
 versions, DOIs, archive hashes, and review dates are machine-readable in
 `data/source_provenance_registry.csv`.
+
+## Final v3 completion reviewed 2026-09-03
+
+- **[source_key: zhuang25_nexus_wfss] Zhuang et al. (2025), NEXUS:** all 15
+  Table 1 objects at `z>=4` are admitted from the JWST/NIRCam WFSS broad-line
+  sample. Twelve have published Halpha virial masses. NX10835 resolves to the
+  existing massless Mascia candidate, leaving 14 new objects and 11 new
+  plottable objects while making that existing object plottable.
+- **[source_key: lin25_cosmos3d_blagn] Lin et al. (2025), COSMOS-3D:** all 13
+  JWST/NIRCam grism broad-Halpha/Hbeta AGN are new and retain their published
+  virial masses and asymmetric statistical errors. The directional 1--2 dex
+  scattering-bias warning remains a caveat rather than a fabricated symmetric
+  uncertainty.
+- **[source_key: napolitano25_seven_wonders] Napolitano et al. (2025):** GHZ4
+  and GHZ7 enter as massless high-ionization candidates. GHZ4 retains its
+  tentative-redshift status; GHZ7 retains its [NeV] and UV diagnostic evidence.
+  GHZ9 is already represented by the later dedicated analysis.
+
+These source-level heterogeneous datasets are assigned only to v3. Together
+they add 29 physical objects and 25 growth-plottable objects, producing the
+final 340-object, 237-plottable-object catalogue. Extraction and identity
+details are in `docs/source-notes/v3-completion-extraction-notes.md`.

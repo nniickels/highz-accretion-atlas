@@ -1,14 +1,14 @@
 # Data guide
 
 Start with the final v3 object catalogue at
-`processed/v3/v3_accreting_objects.csv` (311 physical objects). Use
-`v3_accreting_measurements.csv` for all 320 literature measurements. The
-catalogue contains 310 host systems; source-observable, strata, and identity
+`processed/v3/v3_accreting_objects.csv` (340 physical objects). Use
+`v3_accreting_measurements.csv` for all 350 literature measurements. The
+catalogue contains 339 host systems; source-observable, strata, and identity
 tables use the same v3 prefix.
 
 v1 is the original complete 23-object JADES analysis dataset. v2 is the
 expanded comparable BLAGN dataset (218 measurements / 211 objects). v3 adds
-JWST-identified heterogeneous comparison and candidate sources (320 / 311).
+JWST-identified heterogeneous comparison and candidate sources (350 / 340).
 
 Raw files retain descriptive source names and publication versions.
 `assembly/` contains the frozen BLAGN foundation and reviewed identity inputs

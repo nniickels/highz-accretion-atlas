@@ -5,6 +5,7 @@ __pycache__/
 .coverage
 htmlcov/
 .venv
+*.egg-info/
 
 # Local tool/runtime caches and historical working documents.
 .codex_tmp/

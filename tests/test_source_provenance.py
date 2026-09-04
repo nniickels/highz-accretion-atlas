@@ -28,8 +28,8 @@ class SourceProvenanceTests(unittest.TestCase):
         cls.registry = load_source_provenance_registry(REGISTRY_PATH)
 
     def test_registry_contract_and_current_catalogue_coverage(self) -> None:
-        self.assertEqual(len(self.registry), 33)
-        self.assertEqual(self.registry["source_key"].nunique(), 29)
+        self.assertEqual(len(self.registry), 36)
+        self.assertEqual(self.registry["source_key"].nunique(), 32)
         catalogue = pd.read_csv(CATALOGUE_PATH, low_memory=False)
         validate_catalogue_source_coverage(self.registry, catalogue)
 
@@ -54,12 +54,13 @@ class SourceProvenanceTests(unittest.TestCase):
         self.assertEqual(set(preprints["provenance_id"]), {
             "davis26_primary", "hutchison25_coordinates", "skyfire26_primary",
             "meow26_primary", "chavezortiz26_primary", "mascia26_primary",
+            "zhuang25_primary",
         })
         expected_due = {
             "davis26_primary": "2026-12-03", "hutchison25_coordinates": "2026-12-03",
             "skyfire26_primary": "2026-12-03",
             "meow26_primary": "2026-12-03", "chavezortiz26_primary": "2026-12-03",
-            "mascia26_primary": "2026-12-03",
+            "mascia26_primary": "2026-12-03", "zhuang25_primary": "2026-12-03",
         }
         self.assertEqual(preprints.set_index("provenance_id")["status_review_due"].to_dict(), expected_due)
         zou = self.registry.set_index("provenance_id").loc["zou26_reanalysis"]
@@ -89,7 +90,7 @@ class SourceProvenanceTests(unittest.TestCase):
 
     def test_manual_extraction_and_selection_registries(self) -> None:
         audit = load_and_verify_audit()
-        self.assertEqual(len(audit), 23)
+        self.assertEqual(len(audit), 26)
         selection = load_selection_registry(ROOT / "data/selection_function_registry.csv")
         self.assertEqual(set(selection["source_key"]), set(self.registry["source_key"]))
 

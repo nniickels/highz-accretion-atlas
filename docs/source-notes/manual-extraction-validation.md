@@ -1,6 +1,6 @@
 # Manual extraction validation
 
-Reviewed 2026-09-03. `data/manual_extraction_audit.csv` inventories all 22
+Reviewed 2026-09-03. `data/manual_extraction_audit.csv` inventories all 25
 row-level CSV inputs plus the source-native Scholtz TeX table. Each record pins
 the checked-in bytes, expected parsed row count, source-family membership, and
 the source-table locator described in the extraction notes.

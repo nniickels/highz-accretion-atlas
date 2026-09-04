@@ -32,7 +32,9 @@ Added code handles distinct object
 classes, evidence states, mass-comparability groups, missing/conditional masses,
 and explicit no-inference cases. Source-level assignment governs membership: a
 heterogeneous catalogue belongs to v3 even when individual rows resemble v2
-objects. v3 has 320 measurements, 311 objects, and 310 hosts; 212 objects
+objects. The final completion adds the heterogeneous NEXUS WFSS and COSMOS-3D
+samples plus the GHZ4/GHZ7 high-ionization candidates. v3 has 350 measurements,
+340 objects, and 339 hosts; 237 objects
 support numerical growth inference.
 
 ## Invariants
