@@ -57,6 +57,8 @@ jobs:
           sudo apt-get install --yes texlive-latex-base texlive-latex-extra texlive-fonts-recommended
       - name: Compile manuscript
         working-directory: paper
+        env:
+          SOURCE_DATE_EPOCH: "1788393600"
         run: |
           pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
           pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex

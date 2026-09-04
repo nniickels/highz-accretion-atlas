@@ -7,15 +7,16 @@ canonical v3 figures in `results/v3/figures/`.
 
 ```bash
 cd paper
-pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
-pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
+SOURCE_DATE_EPOCH=1788393600 pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
+SOURCE_DATE_EPOCH=1788393600 pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
 ```
 
 Tectonic is an equivalent local option when `pdflatex` is unavailable:
 
 ```bash
-tectonic --keep-logs highz_accretion_atlas_v3.tex
+SOURCE_DATE_EPOCH=1788393600 tectonic --keep-logs highz_accretion_atlas_v3.tex
 ```
 
 The compiled draft is `highz_accretion_atlas_v3.pdf`. LaTeX intermediate files
-are ignored.
+are ignored. The fixed epoch is 2026-09-03 00:00:00 UTC and makes repeat builds
+with the same compiler byte-reproducible.
