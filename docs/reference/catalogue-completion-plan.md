@@ -8,16 +8,19 @@ duplicates, conditional masses, or generic objects merely observed by JWST.
 The table applies the existing rules: a source must be JWST-essential to the
 identification, publish reproducible object-level rows, add physical objects
 after coordinate/redshift/alias review, and preserve published mass semantics.
-Heterogeneous catalogues belong to v3 at source level even when some rows have
-broad lines.
+Each source receives one admission version. Heterogeneous catalogues belong to
+v3 at source level even when some rows have broad lines. All three sources below
+are JWST-identified: JWST spectroscopy or JWST spectrophotometry is essential to
+the source identification and classification, rather than merely following up a
+previously identified object.
 
-| Priority source | New objects | New plottable objects | Object types | Version | Decision |
-| --- | ---: | ---: | --- | --- | --- |
-| [Zhuang et al., NEXUS WFSS](https://arxiv.org/abs/2505.20393v1) | 14 | 11 | Broad-line AGN; LRD; one luminous quasar-like AGN | v2 and v3 | Add. Fifteen z>=4 rows contain 12 masses; NX10835 is already a massless Mascia candidate, so the source also makes that existing object plottable. |
-| [Lin et al., COSMOS-3D](https://arxiv.org/abs/2504.08039v2) | 13 | 13 | Broad-Halpha/Hbeta AGN; LRD; blue quasar-like AGN | v2 and v3 | Add after final alias audit. All 13 source rows are at z>=5 and publish virial masses. |
-| [Napolitano et al., GLASS “Seven wonders”](https://arxiv.org/abs/2410.10967) | 2 | 0 | High-ionization-line AGN candidates | v3 | Add GHZ4 and GHZ7; GHZ9 is already present. This is the small high-ionization extension that adds a new extreme-redshift diagnostic sample. |
+| Priority source | New objects | New plottable objects | Object types | Admission version | JWST identification basis | Decision |
+| --- | ---: | ---: | --- | --- | --- | --- |
+| [Zhuang et al., NEXUS WFSS](https://arxiv.org/abs/2505.20393v1) | 14 | 11 | Broad-line AGN; LRD; one luminous quasar-like AGN | v3 | JWST/NIRCam WFSS line identification and classification | Add. Fifteen z>=4 rows contain 12 masses; NX10835 is already a massless Mascia candidate, so the source also makes that existing object plottable. |
+| [Lin et al., COSMOS-3D](https://arxiv.org/abs/2504.08039v2) | 13 | 13 | Broad-Halpha/Hbeta AGN; LRD; blue quasar-like AGN | v3 | JWST/NIRCam grism broad-line identification and classification | Add after final alias audit. All 13 source rows are at z>=5 and publish virial masses. |
+| [Napolitano et al., GLASS “Seven wonders”](https://arxiv.org/abs/2410.10967) | 2 | 0 | High-ionization-line AGN candidates | v3 | JWST photometry and NIRSpec high-ionization-line identification | Add GHZ4 and GHZ7; GHZ9 is already present. This is the small high-ionization extension that adds a new extreme-redshift diagnostic sample. |
 
-Projected catalogue after these batches: **340 objects**. The plottable count
+Projected v3 catalogue after these batches: **340 objects**. The plottable count
 becomes **237** because the NEXUS mass table adds 11 new mass-bearing objects
 and upgrades one existing object, while COSMOS-3D adds 13.
 
