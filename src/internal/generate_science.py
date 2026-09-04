@@ -31,6 +31,9 @@ def main() -> None:
             version, measurements, objects,
             n_samples=args.n_samples, random_seed=args.seed,
         )
+        if version == "v3":
+            from src.internal.assess_baccus_revision import build_revision_outputs
+            outputs.update(build_revision_outputs(objects, n_samples=args.n_samples, random_seed=args.seed))
         destination = ROOT / "results" / version / "tables"
         destination.mkdir(parents=True, exist_ok=True)
         for name, frame in outputs.items():

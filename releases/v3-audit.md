@@ -24,10 +24,10 @@ unique seed or accretion history.
 The 2026-09-04 correction separates composite navigation rank from descending
 required Eddington ratio in the manuscript. GS-20057765 is third in the latter;
 COSMOS3D-13852 is fourth (third by composite score). Twelve NEXUS point estimates
-without statistical errors have no probabilities or uncertainty ranks and are
+without reported mass errors have no probabilities or uncertainty ranks and are
 visually distinguished. The compatibility efficiency prescription is explicit.
 
-Independent source validation covers 1,309 field comparisons across all 32
+Independent source validation covers 2,041 field comparisons across all 32
 families, plus numerical age/growth checks; see `data/validation/README.md`.
 It does not certify all-source accuracy. The NEXUS extraction correction adds
 published luminosity errors without changing membership or mass estimates.
@@ -75,3 +75,7 @@ Dayal for the growth model. The manuscript's 36 citation keys and 36
 bibliography entries match exactly.
 The versioned JADES DR3 GOODS-S prism catalogue supplies Scholtz-row coordinates
 and is identified in the manuscript and extraction notes.
+
+The completed numerical-mass audit checks all 244 measurement rows and 732
+mass/error fields. It corrects Killi's logarithmic asymmetric errors against
+the final published abstract. Other observables retain representative coverage.

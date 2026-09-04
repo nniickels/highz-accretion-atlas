@@ -19,3 +19,7 @@
 Admission policy is documented under
 [`../reference/`](../reference/README.md). Canonical citations and limitations
 live in [`../../data/sources.md`](../../data/sources.md).
+
+The [mass/error and publication-version audit](mass-error-and-publication-revision-audit.md)
+records complete numerical-mass validation, the Killi correction, and the
+Baccus revision sensitivity results.

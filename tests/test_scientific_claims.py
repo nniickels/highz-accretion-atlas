@@ -236,7 +236,7 @@ class V3ScientificClaimTests(unittest.TestCase):
             {"zhuang25_nexus_wfss"},
         )
         self.assertFalse(
-            uncertainty.loc[point_only, "reported_statistical_errors_sampled"].astype(bool).any()
+            uncertainty.loc[point_only, "reported_mass_errors_sampled"].astype(bool).any()
         )
         self.assertTrue(
             uncertainty.loc[point_only, "prob_required_fedd_seed1e2_gt_1"].isna().all()

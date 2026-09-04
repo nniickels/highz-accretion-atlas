@@ -153,6 +153,9 @@ def verify_reproduction() -> None:
             n_samples=DEFAULT_N_SAMPLES,
             random_seed=DEFAULT_RANDOM_SEED,
         )
+        if version == "v3":
+            from src.internal.assess_baccus_revision import build_revision_outputs
+            science_outputs.update(build_revision_outputs(objects))
         table_dir = ROOT / "results" / version / "tables"
         previous_version = atlas.VERSION
         try:

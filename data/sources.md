@@ -348,3 +348,7 @@ These source-level heterogeneous datasets are assigned only to v3. Together
 they add 29 physical objects and 25 growth-plottable objects, producing the
 final 340-object, 237-plottable-object catalogue. Extraction and identity
 details are in `docs/source-notes/v3-completion-extraction-notes.md`.
+
+The [mass/error and publication-version audit](../docs/source-notes/mass-error-and-publication-revision-audit.md)
+records complete numerical-mass validation, the Killi correction, and the
+Baccus revision sensitivity results.

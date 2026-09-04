@@ -499,11 +499,11 @@ def plot_all_object_uncertainty(objects: pd.DataFrame, uncertainty: pd.DataFrame
         ax.errorbar(med[idx][sampled], y[idx][sampled], xerr=np.vstack([lo[idx][sampled], hi[idx][sampled]]),
                     fmt="o", ms=3.8, elinewidth=1, capsize=1.5,
                     color=COLORS[object_class], ecolor=COLORS[object_class],
-                    label=f"{LABELS[object_class]} ({sampled.sum()} with statistical errors)")
+                    label=f"{LABELS[object_class]} ({sampled.sum()} with reported mass errors)")
         if point_only.any():
             ax.scatter(med[idx][point_only], y[idx][point_only], marker="D", s=24,
                        facecolors="none", edgecolors=COLORS[object_class],
-                       label=f"Point estimates only ({point_only.sum()}; no statistical error)")
+                       label=f"Point estimates only ({point_only.sum()}; no reported mass error)")
         if (~valid).any():
             ax.scatter(np.full((~valid).sum(), -0.08), y[idx][~valid], marker="x", s=28,
                        color=COLORS[object_class], label=f"{LABELS[object_class]} unavailable")
@@ -542,7 +542,7 @@ def plot_uncertainty_summary(objects: pd.DataFrame, uncertainty: pd.DataFrame, o
     ax.axvline(1, color="#8B1A1A", ls="--", lw=1.1)
     ax.set(xlabel=r"Median required $f_{\rm Edd}$ for a $10^2\,M_\odot$ seed",
            ylabel=r"Monte Carlo $P(f_{\rm Edd,required}>1)$",
-           title=f"{int((~point_only).sum())} statistical-error summaries; {int(point_only.sum())} point estimates")
+           title=f"{int((~point_only).sum())} reported-error summaries; {int(point_only.sum())} point estimates")
     ax.grid(alpha=0.2)
     ax.legend(frameon=False)
     unavailable = objects[~objects["growth_ranking_eligible_flag"].map(boolish)]

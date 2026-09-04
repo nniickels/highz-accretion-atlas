@@ -11,7 +11,7 @@ Canonical measurements separate:
 - `evidence_status`: `secure`, `probable`, `candidate`, or `disputed`;
 - selection channels and phenotype tags;
 - lensing status and correction provenance;
-- mass method, statistical uncertainty, and method systematic;
+- mass method, reported uncertainty, and method systematic;
 - mass-comparability group and growth-ranking eligibility.
 
 Exactly one preferred measurement controls each physical object's canonical

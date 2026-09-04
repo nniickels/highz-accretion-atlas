@@ -73,7 +73,32 @@ def verify_primary_source_values() -> int:
         failures.append(f"Source-family coverage differs: missing={sorted(required-covered)}, unexpected={sorted(covered-required)}")
     if failures:
         raise AssertionError("Primary-source mismatches:\n" + "\n".join(failures))
-    return len(reference["checks"]) + anchor_count
+    return len(reference["checks"]) + anchor_count + verify_complete_mass_values()
+
+
+def verify_complete_mass_values() -> int:
+    """Require independent expectations for every numerical mass and both errors."""
+    fixture = json.loads((ROOT / "data/validation/complete_mass_checks.json").read_text())
+    catalogue = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_measurements.csv")
+    catalogue = catalogue.loc[catalogue.log_mbh_msun_std.notna()].set_index("measurement_id")
+    checks = fixture["checks"]
+    ids = [row["measurement_id"] for row in checks]
+    if len(ids) != len(set(ids)) or set(ids) != set(catalogue.index):
+        raise AssertionError("Complete mass audit must cover each numerical measurement exactly once")
+    fields = {"log_mbh_msun_std", "log_mbh_err_plus_std", "log_mbh_err_minus_std"}
+    registry = pd.read_csv(ROOT / "data/source_provenance_registry.csv").query('source_role == "primary_measurement"').set_index("source_key")
+    for check in checks:
+        row = catalogue.loc[check["measurement_id"]]
+        if check["source_key"] != row.source_key or set(check["expected"]) != fields:
+            raise AssertionError("Complete mass audit has wrong source or incomplete error fields")
+        if check["source_archive_sha256"] != registry.loc[row.source_key, "source_archive_sha256"]:
+            raise AssertionError("Complete mass audit source version differs from registry")
+        for field, expected in check["expected"].items():
+            actual = row[field]
+            matches = pd.isna(actual) if expected is None else pd.notna(actual) and np.isclose(actual, expected, rtol=0, atol=1e-8)
+            if not matches:
+                raise AssertionError(f"{check['measurement_id']} / {field}: {actual} differs from independent source value {expected}")
+    return len(checks) * len(fields)
 
 
 def main() -> None:

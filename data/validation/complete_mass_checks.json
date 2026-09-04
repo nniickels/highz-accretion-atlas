@@ -1,0 +1,3812 @@
+{
+  "review_date": "2026-09-04",
+  "scope": "All admitted numerical mass measurements and both quoted errors; missing errors are checked as missing. This does not certify other catalogue observables or reconstruct source posteriors.",
+  "checks": [
+    {
+      "measurement_id": "GDN476233609_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GDN_4762_33609}} & 189.083488 & 62.202579 & 7.1883 & ${2790}^{+260}_{-240}$ & ${7.39}^{+0.0218}_{-0.0242}$ & ${44.8}^{+0.010}_{-0.010}$ & $0.1897^{+0.0028}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.39,
+        "log_mbh_err_plus_std": 0.0218,
+        "log_mbh_err_minus_std": 0.0242
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES423342803_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_42803}} & 214.929524 & 52.887919 & 7.1522 & ${3260}^{+780}_{-760}$ & ${7.36}^{+0.0482}_{-0.0528}$ & ${44.4}^{+0.0188}_{-0.024}$ & $0.0923^{+0.0051}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.36,
+        "log_mbh_err_plus_std": 0.0482,
+        "log_mbh_err_minus_std": 0.0528
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "BLUEJAY181019945_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{BLUEJAY_1810_19945}} & 150.090563 & 2.381598 & 6.9894 & ${2140}^{+320}_{-270}$ & ${6.95}^{+0.0294}_{-0.0357}$ & ${44.6}^{+0.010}_{-0.0121}$ & $0.3739^{+0.0105}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.95,
+        "log_mbh_err_plus_std": 0.0294,
+        "log_mbh_err_minus_std": 0.0357
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES4233925921_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_925921}} & 215.075054 & 52.943828 & 6.9448 & ${3220}^{+640}_{-450}$ & ${7.45}^{+0.0281}_{-0.0306}$ & ${44.6}^{+0.0107}_{-0.0114}$ & $0.1144^{+0.0037}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.45,
+        "log_mbh_err_plus_std": 0.0281,
+        "log_mbh_err_minus_std": 0.0306
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "AURORA1914100182_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_100182}} & 189.177221 & 62.291510 & 6.7325 & ${1660}^{+470}_{-340}$ & ${6.4}^{+0.0415}_{-0.0622}$ & ${44.4}^{+0.010}_{-0.0101}$ & $0.8687^{+0.0706}_{-0.08}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.4,
+        "log_mbh_err_plus_std": 0.0415,
+        "log_mbh_err_minus_std": 0.0622
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "EGS410647962_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{EGS_4106_47962}} & 214.892479 & 52.856891 & 6.7273 & ${2430}^{+200}_{-160}$ & ${6.89}^{+0.029}_{-0.0333}$ & ${44.4}^{+0.010}_{-0.0111}$ & $0.2360^{+0.0042}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.89,
+        "log_mbh_err_plus_std": 0.029,
+        "log_mbh_err_minus_std": 0.0333
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "J0910202814306_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{J0910_2028_14306}} & 137.716790 & -4.214624 & 6.6334 & ${1140}^{+440}_{-180}$ & ${6.03}^{+0.0421}_{-0.0664}$ & ${44.1}^{+0.022}_{-0.0192}$ & $0.8870^{+0.0482}_{-0.05}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.03,
+        "log_mbh_err_plus_std": 0.0421,
+        "log_mbh_err_minus_std": 0.0664
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "J0910202812910_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{J0910_2028_12910}} & 137.727212 & -4.235207 & 6.6214 & ${4280}^{+40}_{-30}$ & ${8.58}^{+0.010}_{-0.010}$ & ${45.9}^{+0.010}_{-0.010}$ & $0.1742^{+0.0006}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.58,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "J022633256699_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_6699}} & 36.507805 & 3.049793 & 6.5405 & ${3400}^{+70}_{-40}$ & ${8.3}^{+0.010}_{-0.010}$ & ${45.8}^{+0.010}_{-0.010}$ & $0.2542^{+0.0011}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.3,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "J022633259556_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_9556}} & 36.495420 & 3.040207 & 6.5391 & ${1960}^{+470}_{-360}$ & ${6.78}^{+0.0375}_{-0.0366}$ & ${44.3}^{+0.0203}_{-0.0165}$ & $0.2515^{+0.0113}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.78,
+        "log_mbh_err_plus_std": 0.0375,
+        "log_mbh_err_minus_std": 0.0366
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "J0226332510867_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_10867}} & 36.475139 & 3.081380 & 6.5341 & ${2150}^{+710}_{-480}$ & ${6.73}^{+0.0519}_{-0.0595}$ & ${44.2}^{+0.0226}_{-0.0254}$ & $0.2086^{+0.0122}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.73,
+        "log_mbh_err_plus_std": 0.0519,
+        "log_mbh_err_minus_std": 0.0595
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES423324210_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_24210}} & 215.066445 & 52.941877 & 6.2712 & ${1250}^{+590}_{-340}$ & ${6.22}^{+0.039}_{-0.049}$ & ${44.3}^{+0.0144}_{-0.0196}$ & $0.9811^{+0.0499}_{-0.05}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.22,
+        "log_mbh_err_plus_std": 0.039,
+        "log_mbh_err_minus_std": 0.049
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "J022633253190_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_3190}} & 36.527690 & 3.041660 & 5.7345 & ${1280}^{+370}_{-250}$ & ${6.19}^{+0.0347}_{-0.0468}$ & ${44.1}^{+0.0211}_{-0.0308}$ & $0.5884^{+0.0293}_{-0.04}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.19,
+        "log_mbh_err_plus_std": 0.0347,
+        "log_mbh_err_minus_std": 0.0468
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GDN2674934_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_934}} & 189.261346 & 62.231967 & 5.5362 & ${1670}^{+160}_{-130}$ & ${6.41}^{+0.0164}_{-0.022}$ & ${44.3}^{+0.010}_{-0.010}$ & $0.5731^{+0.0160}_{-0.02}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.41,
+        "log_mbh_err_plus_std": 0.0164,
+        "log_mbh_err_minus_std": 0.022
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES423317604_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_17604}} & 34.311488 & -5.290996 & 5.5002 & ${1260}^{+150}_{-110}$ & ${6.19}^{+0.023}_{-0.0239}$ & ${44.0}^{+0.010}_{-0.010}$ & $0.5719^{+0.0123}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.19,
+        "log_mbh_err_plus_std": 0.023,
+        "log_mbh_err_minus_std": 0.0239
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES4233148866_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_148866}} & 34.326433 & -5.137382 & 5.2226 & ${1410}^{+230}_{-160}$ & ${6.37}^{+0.0242}_{-0.0296}$ & ${44.1}^{+0.0165}_{-0.0171}$ & $0.4639^{+0.0157}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.37,
+        "log_mbh_err_plus_std": 0.0242,
+        "log_mbh_err_minus_std": 0.0296
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GDN267432_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_32}} & 189.265470 & 62.199359 & 5.2197 & ${1790}^{+220}_{-190}$ & ${6.51}^{+0.0188}_{-0.0184}$ & ${44.4}^{+0.010}_{-0.010}$ & $0.5579^{+0.0193}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.51,
+        "log_mbh_err_plus_std": 0.0188,
+        "log_mbh_err_minus_std": 0.0184
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "JADES118178773_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_78773}} & 189.202942 & 62.204654 & 5.1876 & ${890}^{+220}_{-100}$ & ${5.78}^{+0.0156}_{-0.0282}$ & ${44.5}^{+0.010}_{-0.010}$ & $4.6524^{+0.1701}_{-0.24}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.78,
+        "log_mbh_err_plus_std": 0.0156,
+        "log_mbh_err_minus_std": 0.0282
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GDN267414_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_14}} & 189.199812 & 62.161474 & 5.1800 & ${3520}^{+60}_{-60}$ & ${7.69}^{+0.010}_{-0.010}$ & ${44.8}^{+0.010}_{-0.010}$ & $0.1092^{+0.0006}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.69,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "VALENTINO356744330_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_44330}} & 150.076721 & 2.350921 & 5.1308 & ${1830}^{+670}_{-390}$ & ${6.63}^{+0.0241}_{-0.028}$ & ${44.2}^{+0.0394}_{-0.0541}$ & $0.2703^{+0.0227}_{-0.02}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.63,
+        "log_mbh_err_plus_std": 0.0241,
+        "log_mbh_err_minus_std": 0.028
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES4233166271_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_166271}} & 34.353256 & -5.112267 & 5.0758 & ${1610}^{+390}_{-360}$ & ${6.4}^{+0.0438}_{-0.0444}$ & ${44.0}^{+0.034}_{-0.0301}$ & $0.2796^{+0.0181}_{-0.02}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.4,
+        "log_mbh_err_plus_std": 0.0438,
+        "log_mbh_err_minus_std": 0.0444
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "JADES118168797_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_68797}} & 189.229137 & 62.146190 & 5.0397 & ${3250}^{+60}_{-30}$ & ${7.82}^{+0.010}_{-0.010}$ & ${45.2}^{+0.010}_{-0.010}$ & $0.1850^{+0.0007}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.82,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "JADES118139353_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_39353}} & 189.293952 & 62.153091 & 4.8475 & ${1180}^{+660}_{-190}$ & ${5.96}^{+0.0322}_{-0.0454}$ & ${43.9}^{+0.0205}_{-0.0344}$ & $0.6250^{+0.0294}_{-0.04}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.96,
+        "log_mbh_err_plus_std": 0.0322,
+        "log_mbh_err_minus_std": 0.0454
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "VALENTINO35671552_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_1552}} & 149.412489 & 2.018099 & 4.8376 & ${2640}^{+100}_{-80}$ & ${7.2}^{+0.010}_{-0.010}$ & ${44.5}^{+0.010}_{-0.010}$ & $0.1546^{+0.0013}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.2,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES423348449_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_48449}} & 34.231608 & -5.230873 & 4.8174 & ${1030}^{+300}_{-230}$ & ${5.59}^{+0.068}_{-0.114}$ & ${43.9}^{+0.0195}_{-0.0328}$ & $1.4932^{+0.1966}_{-0.20}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.59,
+        "log_mbh_err_plus_std": 0.068,
+        "log_mbh_err_minus_std": 0.114
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "EGS410671365_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{EGS_4106_71365}} & 214.895545 & 52.906722 & 4.8004 & ${1010}^{+200}_{-100}$ & ${5.79}^{+0.0267}_{-0.0299}$ & ${43.8}^{+0.0176}_{-0.0193}$ & $0.7263^{+0.0295}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.79,
+        "log_mbh_err_plus_std": 0.0267,
+        "log_mbh_err_minus_std": 0.0299
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES423342658_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_42658}} & 34.401816 & -5.250166 & 4.7100 & ${1680}^{+260}_{-210}$ & ${6.56}^{+0.0224}_{-0.0215}$ & ${44.3}^{+0.0105}_{-0.0101}$ & $0.4024^{+0.0093}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.56,
+        "log_mbh_err_plus_std": 0.0224,
+        "log_mbh_err_minus_std": 0.0215
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GOODSN12112066_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GOODSN_1211_2066}} & 189.238138 & 62.136970 & 4.7017 & ${1740}^{+440}_{-350}$ & ${6.57}^{+0.0419}_{-0.0472}$ & ${44.5}^{+0.010}_{-0.010}$ & $0.6392^{+0.0405}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.57,
+        "log_mbh_err_plus_std": 0.0419,
+        "log_mbh_err_minus_std": 0.0472
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GTO12154446_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GTO_1215_4446}} & 34.270712 & -5.217671 & 4.6867 & ${2350}^{+120}_{-120}$ & ${7.33}^{+0.010}_{-0.010}$ & ${44.9}^{+0.010}_{-0.010}$ & $0.2679^{+0.0030}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.33,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GDS12109515_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GDS_1210_9515}} & 53.132843 & -27.801854 & 4.6477 & ${1090}^{+370}_{-120}$ & ${5.59}^{+0.0196}_{-0.025}$ & ${44.0}^{+0.010}_{-0.010}$ & $1.9821^{+0.0588}_{-0.06}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.59,
+        "log_mbh_err_plus_std": 0.0196,
+        "log_mbh_err_minus_std": 0.025
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GTO12133848_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GTO_1213_3848}} & 215.034109 & 52.984404 & 4.6348 & ${1680}^{+390}_{-340}$ & ${6.82}^{+0.046}_{-0.0535}$ & ${44.5}^{+0.0418}_{-0.0217}$ & $0.3552^{+0.0265}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.82,
+        "log_mbh_err_plus_std": 0.046,
+        "log_mbh_err_minus_std": 0.0535
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "VALENTINO356751909_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_51909}} & 34.454931 & -5.132708 & 4.6262 & ${2700}^{+30}_{-30}$ & ${7.49}^{+0.010}_{-0.010}$ & ${44.9}^{+0.010}_{-0.010}$ & $0.2067^{+0.0009}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.49,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GTO12156001_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GTO_1215_6001}} & 34.364248 & -5.197730 & 4.5825 & ${1150}^{+590}_{-250}$ & ${6.38}^{+0.0207}_{-0.03}$ & ${44.9}^{+0.0196}_{-0.0124}$ & $2.6247^{+0.0935}_{-0.08}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.38,
+        "log_mbh_err_plus_std": 0.0207,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GTO12151472_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GTO_1215_1472}} & 34.337315 & -5.143674 & 4.5563 & ${3280}^{+50}_{-50}$ & ${8.02}^{+0.010}_{-0.010}$ & ${45.4}^{+0.010}_{-0.010}$ & $0.1949^{+0.0010}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.02,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "AURORA19148769_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_8769}} & 150.175130 & 2.268880 & 4.5302 & ${1630}^{+100}_{-80}$ & ${6.39}^{+0.010}_{-0.010}$ & ${44.2}^{+0.010}_{-0.010}$ & $0.5263^{+0.0064}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.39,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "JADES118016375_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{JADES_1180_16375}} & 53.095744 & -27.774815 & 4.4374 & ${1380}^{+400}_{-420}$ & ${6.21}^{+0.0446}_{-0.0561}$ & ${44.6}^{+0.010}_{-0.0136}$ & $1.8975^{+0.1722}_{-0.17}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.21,
+        "log_mbh_err_plus_std": 0.0446,
+        "log_mbh_err_minus_std": 0.0561
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "JADES118128746_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_28746}} & 189.176078 & 62.256325 & 4.4126 & ${860}^{+280}_{-130}$ & ${5.51}^{+0.0296}_{-0.0379}$ & ${43.9}^{+0.0158}_{-0.0116}$ & $2.0495^{+0.1509}_{-0.11}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.51,
+        "log_mbh_err_plus_std": 0.0296,
+        "log_mbh_err_minus_std": 0.0379
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "AURORA1914928583_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_928583}} & 189.124835 & 62.275492 & 4.3807 & ${2350}^{+180}_{-130}$ & ${6.86}^{+0.010}_{-0.0113}$ & ${44.3}^{+0.010}_{-0.010}$ & $0.2463^{+0.0031}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.86,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.0113
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES423354059_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_54059}} & 34.280915 & -5.220847 & 4.3567 & ${1030}^{+350}_{-170}$ & ${5.59}^{+0.048}_{-0.0591}$ & ${44.0}^{+0.0212}_{-0.0145}$ & $2.0645^{+0.2173}_{-0.14}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.59,
+        "log_mbh_err_plus_std": 0.048,
+        "log_mbh_err_minus_std": 0.0591
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GDN476237583_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GDN_4762_37583}} & 189.096767 & 62.209854 & 4.3359 & ${1100}^{+170}_{-140}$ & ${6.03}^{+0.0287}_{-0.0276}$ & ${44.4}^{+0.010}_{-0.010}$ & $1.8828^{+0.1364}_{-0.09}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.03,
+        "log_mbh_err_plus_std": 0.0287,
+        "log_mbh_err_minus_std": 0.0276
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES423341683_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_41683}} & 214.839934 & 52.820067 & 4.2792 & ${1080}^{+350}_{-200}$ & ${5.75}^{+0.0341}_{-0.061}$ & ${44.0}^{+0.018}_{-0.0243}$ & $1.3537^{+0.0800}_{-0.10}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.75,
+        "log_mbh_err_plus_std": 0.0341,
+        "log_mbh_err_minus_std": 0.061
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "JADES118172127_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_72127}} & 189.265718 & 62.168393 & 4.1438 & ${2250}^{+270}_{-210}$ & ${6.7}^{+0.0254}_{-0.0384}$ & ${43.9}^{+0.0144}_{-0.0182}$ & $0.1414^{+0.0041}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.7,
+        "log_mbh_err_plus_std": 0.0254,
+        "log_mbh_err_minus_std": 0.0384
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "EXCELS354389922_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{EXCELS_3543_89922}} & 34.255946 & -5.177851 & 4.1427 & ${880}^{+80}_{-60}$ & ${5.93}^{+0.0203}_{-0.0182}$ & ${44.4}^{+0.010}_{-0.010}$ & $2.4580^{+0.0864}_{-0.07}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.93,
+        "log_mbh_err_plus_std": 0.0203,
+        "log_mbh_err_minus_std": 0.0182
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "GDN26743761_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_3761}} & 189.259528 & 62.172083 & 4.1393 & ${1430}^{+350}_{-310}$ & ${5.91}^{+0.0326}_{-0.0404}$ & ${43.8}^{+0.010}_{-0.010}$ & $0.6491^{+0.0364}_{-0.04}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.91,
+        "log_mbh_err_plus_std": 0.0326,
+        "log_mbh_err_minus_std": 0.0404
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "EXCELS354342268_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{EXCELS_3543_42268}} & 34.297511 & -5.257169 & 4.1204 & ${2220}^{+60}_{-60}$ & ${6.86}^{+0.010}_{-0.010}$ & ${44.3}^{+0.010}_{-0.010}$ & $0.2326^{+0.0018}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.86,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "RUBIES4233119559_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_119559}} & 34.304860 & -5.177419 & 4.0885 & ${1690}^{+220}_{-210}$ & ${6.39}^{+0.05}_{-0.0477}$ & ${43.8}^{+0.0261}_{-0.0321}$ & $0.2250^{+0.0103}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.39,
+        "log_mbh_err_plus_std": 0.05,
+        "log_mbh_err_minus_std": 0.0477
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "AURORA1914927605_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_927605}} & 189.151830 & 62.272228 & 4.0472 & ${1500}^{+130}_{-110}$ & ${6.32}^{+0.0131}_{-0.0162}$ & ${44.2}^{+0.010}_{-0.010}$ & $0.6152^{+0.0113}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.32,
+        "log_mbh_err_plus_std": 0.0131,
+        "log_mbh_err_minus_std": 0.0162
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "JADES118010013268_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{JADES_1180_10013268}} & 53.201828 & -27.820880 & 4.0395 & ${1240}^{+440}_{-180}$ & ${5.81}^{+0.0287}_{-0.0425}$ & ${43.7}^{+0.0139}_{-0.013}$ & $0.5783^{+0.0292}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.81,
+        "log_mbh_err_plus_std": 0.0287,
+        "log_mbh_err_minus_std": 0.0425
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "VALENTINO3567262_baccus26",
+      "source_key": "baccus26_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_262}} & 34.298697 & -4.989901 & 4.0116 & ${4540}^{+10}_{-200}$ & ${7.72}^{+0.010}_{-0.010}$ & ${44.5}^{+0.010}_{-0.010}$ & $0.0457^{+0.0007}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.72,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in ObjectsTable.tex"
+    },
+    {
+      "measurement_id": "THRILS25501_davis26",
+      "source_key": "davis26_thrils_blagn",
+      "source_url": "https://arxiv.org/e-print/2602.23310v1",
+      "source_archive_sha256": "13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b",
+      "source_member": "main.tex",
+      "evidence": "6.55 & 6.57 & 25501 & $0.69 \\pm 0.40$ & $0.93 \\pm 0.06$ & 16205 & $6.59 \\pm 0.21$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.59,
+        "log_mbh_err_plus_std": 0.21,
+        "log_mbh_err_minus_std": 0.21
+      },
+      "note": "",
+      "source_member_sha256": "3c4735227cb0bd8ff73a9323421959f9a6889c476b067a3e8698a02a5bead620",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "THRILS101567_davis26",
+      "source_key": "davis26_thrils_blagn",
+      "source_url": "https://arxiv.org/e-print/2602.23310v1",
+      "source_archive_sha256": "13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b",
+      "source_member": "main.tex",
+      "evidence": "7.48 & 5.33 & 101567 & $0.28 \\pm 0.10$ & $0.33 \\pm 0.02$ & 27384 & $6.55 \\pm 0.17$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.55,
+        "log_mbh_err_plus_std": 0.17,
+        "log_mbh_err_minus_std": 0.17
+      },
+      "note": "",
+      "source_member_sha256": "3c4735227cb0bd8ff73a9323421959f9a6889c476b067a3e8698a02a5bead620",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "THRILS40467_davis26",
+      "source_key": "davis26_thrils_blagn",
+      "source_url": "https://arxiv.org/e-print/2602.23310v1",
+      "source_archive_sha256": "13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b",
+      "source_member": "main.tex",
+      "evidence": "5.29 & 5.27 & 40467 & $1.87 \\pm 0.08$ & $2.62 \\pm 0.03$ & 13539 & $7.12 \\pm 0.02$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.12,
+        "log_mbh_err_plus_std": 0.02,
+        "log_mbh_err_minus_std": 0.02
+      },
+      "note": "",
+      "source_member_sha256": "3c4735227cb0bd8ff73a9323421959f9a6889c476b067a3e8698a02a5bead620",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "THRILS44774_davis26",
+      "source_key": "davis26_thrils_blagn",
+      "source_url": "https://arxiv.org/e-print/2602.23310v1",
+      "source_archive_sha256": "13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b",
+      "source_member": "main.tex",
+      "evidence": "5.17 & 5.11 & 44774 & $1.18 \\pm 0.15$ & $0.90 \\pm 0.03$ & 29781 & $6.76 \\pm 0.06$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.76,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "3c4735227cb0bd8ff73a9323421959f9a6889c476b067a3e8698a02a5bead620",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "THRILS49400_davis26",
+      "source_key": "davis26_thrils_blagn",
+      "source_url": "https://arxiv.org/e-print/2602.23310v1",
+      "source_archive_sha256": "13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b",
+      "source_member": "main.tex",
+      "evidence": "5.17 & 5.11 & 49400 & $2.73 \\pm 0.16$ & $1.74 \\pm 0.04$ & 51622 & $7.26 \\pm 0.03$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.26,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "",
+      "source_member_sha256": "3c4735227cb0bd8ff73a9323421959f9a6889c476b067a3e8698a02a5bead620",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "THRILS24975_davis26",
+      "source_key": "davis26_thrils_blagn",
+      "source_url": "https://arxiv.org/e-print/2602.23310v1",
+      "source_archive_sha256": "13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b",
+      "source_member": "main.tex",
+      "evidence": "0.70 & 4.40 & 24975 & $0.51 \\pm 0.12$ & $3.13 \\pm 0.03$ & 16788 & $6.69 \\pm 0.06$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.69,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "3c4735227cb0bd8ff73a9323421959f9a6889c476b067a3e8698a02a5bead620",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE41299_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "41299 & $648.9_{-92.8}^{+127.4}$ & $109.3_{-13.1}^{+13.4}$ & $41.79_{-0.06}^{+0.05}$ & $43.20_{-0.06}^{+0.05}$ & $44.21_{-0.06}^{+0.05}$ & $5.79_{-0.15}^{+0.17}$ & $1.77_{-0.21}^{+0.22}$ & $7.61_{-0.26}^{+0.16}$ &7.97 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.79,
+        "log_mbh_err_plus_std": 0.17,
+        "log_mbh_err_minus_std": 0.15
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE46938_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "46938 & $954.7_{-205.4}^{+271.0}$ & $93.5_{-9.2}^{+11.0}$ & $41.72_{-0.05}^{+0.05}$ & $43.14_{-0.05}^{+0.05}$ & $44.15_{-0.05}^{+0.05}$ & $6.09_{-0.23}^{+0.25}$ & $0.77_{-0.08}^{+0.09}$ & $7.45_{-1.30}^{+0.29}$ & 7.84\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.09,
+        "log_mbh_err_plus_std": 0.25,
+        "log_mbh_err_minus_std": 0.23
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE38548_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "38548$^a$ & $1425.0_{-476.2}^{+385.8}$ & $62.8_{-15.9}^{+15.9}$ & $41.50_{-0.13}^{+0.10}$ & $42.95_{-0.13}^{+0.10}$ & $43.96_{-0.13}^{+0.10}$ & $6.32_{-0.41}^{+0.26}$ & $0.29_{-0.07}^{+0.07}$ & $7.66_{-0.57}^{+0.57}$ & 8.29\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.32,
+        "log_mbh_err_plus_std": 0.26,
+        "log_mbh_err_minus_std": 0.41
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE5536_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "5536$^a$& $1352.3_{-77.2}^{+75.9}$ & $264.3_{-12.8}^{+11.6}$ & $42.08_{-0.02}^{+0.02}$ & $43.45_{-0.02}^{+0.02}$ & $44.46_{-0.02}^{+0.02}$ & $6.60_{-0.06}^{+0.05}$ & $0.48_{-0.02}^{+0.02}$ & $9.74_{-0.03}^{+0.03}$ & 7.20\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.6,
+        "log_mbh_err_plus_std": 0.05,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE12248_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "12248$^a$ & $1226.1_{-135.7}^{+152.3}$ & $85.7_{-7.5}^{+7.8}$ & $41.57_{-0.04}^{+0.04}$ & $43.01_{-0.04}^{+0.04}$ & $44.02_{-0.04}^{+0.04}$ & $6.24_{-0.11}^{+0.11}$ & $0.40_{-0.04}^{+0.04}$ & $7.93_{-0.33}^{+0.19}$ & 7.62\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.24,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE39803_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "39803 & $2369.4_{-66.8}^{+53.9}$ & $128.4_{-5.6}^{+5.3}$ & $41.75_{-0.02}^{+0.02}$ & $43.16_{-0.02}^{+0.02}$ & $44.17_{-0.02}^{+0.02}$ & $6.92_{-0.02}^{+0.02}$ & $0.12_{-0.01}^{+0.00}$ & $7.71_{-0.66}^{+0.25}$ & 7.56\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.92,
+        "log_mbh_err_plus_std": 0.02,
+        "log_mbh_err_minus_std": 0.02
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE11026_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "11026$^a$& $1815.5_{-79.8}^{+86.0}$ & $228.6_{-7.5}^{+7.4}$ & $41.97_{-0.01}^{+0.01}$ & $43.36_{-0.01}^{+0.01}$ & $44.37_{-0.01}^{+0.01}$ & $6.81_{-0.04}^{+0.04}$ & $0.24_{-0.01}^{+0.01}$ & $7.81_{-0.23}^{+0.15}$ & 7.79\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.81,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE13131_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "13131 & $659.6_{-25.0}^{+58.3}$ & $221.3_{-26.0}^{+26.9}$ & $41.88_{-0.05}^{+0.05}$ & $43.28_{-0.05}^{+0.05}$ & $44.29_{-0.05}^{+0.05}$ & $5.86_{-0.04}^{+0.07}$ & $1.80_{-0.21}^{+0.22}$ & $8.77_{-0.90}^{+0.27}$ & 8.16\\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.86,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE55241_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "55241 & $1452.0_{-86.0}^{+135.0}$ & $3.3_{-0.3}^{+0.3}$ & $40.05_{-0.05}^{+0.04}$ & $41.69_{-0.05}^{+0.04}$ & $42.71_{-0.05}^{+0.04}$ & $5.55_{-0.06}^{+0.09}$ & $0.10_{-0.01}^{+0.01}$ & $6.60_{-0.10}^{+0.08}$ & 6.73\\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.55,
+        "log_mbh_err_plus_std": 0.09,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "GLIMPSE7404_fei26",
+      "source_key": "fei26_glimpse_blagn",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "evidence": "7404 & $1482.1_{-357.6}^{+478.3}$ & $51.7_{-11.6}^{+12.0}$ & $41.09_{-0.11}^{+0.09}$ & $42.59_{-0.11}^{+0.09}$ & $43.60_{-0.11}^{+0.09}$ & $6.13_{-0.25}^{+0.27}$ & $0.20_{-0.04}^{+0.05}$ & $8.24_{-0.34}^{+0.19}$ & 6.46\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.13,
+        "log_mbh_err_plus_std": 0.27,
+        "log_mbh_err_minus_std": 0.25
+      },
+      "note": "",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "Quoted source row / mass column in ms_v0.tex"
+    },
+    {
+      "measurement_id": "UNCOVER20466_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "20466$^b$ & 203$\\pm$154 & 3439$\\pm$413 & 2.3$\\pm$0.2 & 4817 & 410 & 43.8 & 8.17$\\pm$0.42 & 45.8$^{+0.3}_{-0.1}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.17,
+        "log_mbh_err_plus_std": 0.42,
+        "log_mbh_err_minus_std": 0.42
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER13123_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "13123$^a$ & \\nodata & 2670$\\pm$170 & 5.0$\\pm$0.45 & \\nodata & \\nodata & 42.7 & 7.3$\\pm$0.2 & 45.0$\\pm$0.1 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.3,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER41225_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "41225 & 510$\\pm$30 & 2000$\\pm$600 & 4.7$\\pm$0.3 & 539 & 435 & 43.5 & 7.7$\\pm$0.4 & 45.3$\\pm$0.5 & \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.7,
+        "log_mbh_err_plus_std": 0.4,
+        "log_mbh_err_minus_std": 0.4
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER13821_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "13821 & 790$\\pm$10 & 3100$\\pm$710 & 17.4$\\pm$0.8 & 461 & 248 & 43.3 & 8.1$\\pm$0.2 & 45.4$\\pm$0.2 & \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.1,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER35488_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "35488 & 90$\\pm$10 & 1900$\\pm$210 & 10.9$\\pm$2.1 & 1123 & 976 & 42.8 & 7.4$\\pm$0.2 & 44.8$\\pm$0.4 & \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.4,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER4286_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "4286 & 800$\\pm$10 & 2900$\\pm$1040 & 13.7$\\pm$0.4 & 807 & 361 & 43.4 & 8.0$\\pm$0.3 & 45.4$\\pm$0.3 & \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.0,
+        "log_mbh_err_plus_std": 0.3,
+        "log_mbh_err_minus_std": 0.3
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER23608_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "23608 & 70$\\pm$10 & 2900$\\pm$340 & 2.4$\\pm$0.2 & 409 & 341 & 42.3 & 7.5$\\pm$0.2 & 44.2$\\pm$0.4 & \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.5,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER38108_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "38108 & 800$\\pm$10 & 4100$\\pm$1980 & 14.3$\\pm$0.5 & 671 & 215 & 43.4 & 8.4$\\pm$0.5 & 45.3$\\pm$0.5 & \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.4,
+        "log_mbh_err_plus_std": 0.5,
+        "log_mbh_err_minus_std": 0.5
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "UNCOVER45924_greene24",
+      "source_key": "greene24_uncover_blagn",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "evidence": "45924 & 70$\\pm$10 & 4500$\\pm$40 & 383.4$\\pm$0.4 & 1621505 & 90681 & 44.0 & 8.9$\\pm$0.1 & 46.4$\\pm$0.2 & \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.9,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": "",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "Quoted source row / mass column in paper.tex"
+    },
+    {
+      "measurement_id": "CEERS00717_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_00717 & $1.2^{+0.3}_{-0.2}\\times10^{42}$& $0.57^{+0.17}_{-0.11}$& $6279^{+805}_{-881}$& $9.8^{+4.4}_{-3.2}\\times10^{7}$& $7.1^{+51.8}_{-4.3}\\times10^{44}$& $0.06^{+0.63}_{-0.04}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.99122608,
+        "log_mbh_err_plus_std": 0.16106227,
+        "log_mbh_err_minus_std": 0.17168214
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "CEERS00397_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_00397 & $2.6^{+0.8}_{-0.4}\\times10^{42}$& $0.19^{+0.07}_{-0.05}$& $1739^{+359}_{-317}$& $1.0^{+0.8}_{-0.5}\\times10^{7}$& $2.8^{+14.2}_{-2.2}\\times10^{45}$& $2.02^{+20.68}_{-1.80}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.0,
+        "log_mbh_err_plus_std": 0.25527251,
+        "log_mbh_err_minus_std": 0.30103
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "CEERS00672_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_00672 & $1.8^{+0.2}_{-0.2}\\times10^{43}$& $1.95^{+0.45}_{-0.40}$& $2208^{+277}_{-241}$& $5.0^{+1.7}_{-1.3}\\times10^{7}$& $4.3^{+0.4}_{-1.4}\\times10^{45}$& $0.65^{+0.31}_{-0.33}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.69897,
+        "log_mbh_err_plus_std": 0.1271048,
+        "log_mbh_err_minus_std": 0.13076828
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "CEERS00746_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_00746 & $6.8^{+0.4}_{-0.4}\\times10^{43}$& $5.06^{+1.10}_{-1.26}$& $1660^{+157}_{-162}$& $5.8^{+1.5}_{-1.3}\\times10^{7}$& $1.1^{+0.1}_{-0.2}\\times10^{46}$& $1.47^{+0.60}_{-0.52}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.76342799,
+        "log_mbh_err_plus_std": 0.09989487,
+        "log_mbh_err_minus_std": 0.11021548
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "CEERS02782_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_02782 & $7.6^{+0.8}_{-0.7}\\times10^{42}$& $0.85^{+0.14}_{-0.10}$& $2534^{+260}_{-266}$& $4.2^{+1.2}_{-1.0}\\times10^{7}$& $2.8^{+2.3}_{-1.4}\\times10^{45}$& $0.51^{+0.71}_{-0.32}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.62324929,
+        "log_mbh_err_plus_std": 0.10914447,
+        "log_mbh_err_minus_std": 0.11809931
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "GLASS150029_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "GLASS\\_150029 & $8.2^{+0.7}_{-0.5}\\times10^{41}$& $0.22^{+0.02}_{-0.01}$& $1429^{+10}_{-67}$& $3.7^{+0.2}_{-0.3}\\times10^{6}$& $9.1^{+13.8}_{-7.1}\\times10^{44}$& $1.89^{+3.31}_{-1.49}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.56820172,
+        "log_mbh_err_plus_std": 0.02286288,
+        "log_mbh_err_minus_std": 0.03672281
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "CEERS01236_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_01236 & $4.8^{+1.1}_{-0.8}\\times10^{41}$& $2.39^{+1.12}_{-0.59}$& $3521^{+649}_{-485}$& $1.8^{+1.0}_{-0.6}\\times10^{7}$& $1.8^{+2.6}_{-0.5}\\times10^{44}$& $0.08^{+0.20}_{-0.04}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.25527251,
+        "log_mbh_err_plus_std": 0.19188553,
+        "log_mbh_err_minus_std": 0.17609126
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "CEERS01665_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_01665 & $6.8^{+0.9}_{-0.6}\\times10^{42}$& $0.28^{+0.05}_{-0.05}$& $1794^{+282}_{-171}$& $1.9^{+0.8}_{-0.5}\\times10^{7}$& $4.8^{+7.2}_{-3.6}\\times10^{45}$& $1.93^{+4.61}_{-1.59}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.2787536,
+        "log_mbh_err_plus_std": 0.15261016,
+        "log_mbh_err_minus_std": 0.13262557
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "CEERS01244_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "CEERS\\_01244 & $7.7^{+0.2}_{-0.2}\\times10^{42}$& $2.51^{+0.17}_{-0.22}$& $2228^{+75}_{-52}$& $3.2^{+0.3}_{-0.2}\\times10^{7}$& $1.9^{+3.8}_{-0.6}\\times10^{45}$& $0.46^{+1.04}_{-0.16}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.50514998,
+        "log_mbh_err_plus_std": 0.03891807,
+        "log_mbh_err_minus_std": 0.02802872
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "GLASS160133_harikane23",
+      "source_key": "harikane23_nirspec_blagn",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "evidence": "GLASS\\_160133 & $1.2^{+0.1}_{-0.1}\\times10^{42}$& $0.26^{+0.02}_{-0.01}$& $1028^{+19}_{-13}$& $2.3^{+0.1}_{-0.1}\\times10^{6}$& $1.1^{+6.1}_{-0.9}\\times10^{45}$& $3.68^{+21.21}_{-2.84}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.36172784,
+        "log_mbh_err_plus_std": 0.01848341,
+        "log_mbh_err_minus_std": 0.01930516
+      },
+      "note": "Linear mass and bounds converted independently with log10; rounded to eight decimal places.",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "Quoted source row / mass column in ms_jwst_blagn_v1.tex"
+    },
+    {
+      "measurement_id": "GS20057765_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.33,
+        "log_mbh_err_plus_std": 0.62,
+        "log_mbh_err_minus_std": 0.7
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS20030333_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.42,
+        "log_mbh_err_plus_std": 0.65,
+        "log_mbh_err_minus_std": 0.48
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN4685_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.36,
+        "log_mbh_err_plus_std": 0.45,
+        "log_mbh_err_minus_std": 0.42
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS164055_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.63,
+        "log_mbh_err_plus_std": 0.59,
+        "log_mbh_err_minus_std": 0.66
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN954_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.7,
+        "log_mbh_err_plus_std": 0.31,
+        "log_mbh_err_minus_std": 0.32
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN38509_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.57,
+        "log_mbh_err_plus_std": 0.37,
+        "log_mbh_err_minus_std": 0.38
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS210600_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.41,
+        "log_mbh_err_plus_std": 0.33,
+        "log_mbh_err_minus_std": 0.34
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS30148179_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.12,
+        "log_mbh_err_plus_std": 0.34,
+        "log_mbh_err_minus_std": 0.35
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS10013704_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.44,
+        "log_mbh_err_plus_std": 0.31,
+        "log_mbh_err_minus_std": 0.31
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN61888_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.04,
+        "log_mbh_err_plus_std": 0.33,
+        "log_mbh_err_minus_std": 0.32
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN1093_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.14,
+        "log_mbh_err_plus_std": 0.34,
+        "log_mbh_err_minus_std": 0.33
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS204851_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.68,
+        "log_mbh_err_plus_std": 0.32,
+        "log_mbh_err_minus_std": 0.31
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN77652_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.62,
+        "log_mbh_err_plus_std": 0.34,
+        "log_mbh_err_minus_std": 0.32
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN62309_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.29,
+        "log_mbh_err_plus_std": 0.36,
+        "log_mbh_err_minus_std": 0.33
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS159717_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.44,
+        "log_mbh_err_plus_std": 0.3,
+        "log_mbh_err_minus_std": 0.3
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS38562_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.51,
+        "log_mbh_err_plus_std": 0.3,
+        "log_mbh_err_minus_std": 0.31
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS8083_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.1,
+        "log_mbh_err_plus_std": 0.31,
+        "log_mbh_err_minus_std": 0.31
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS172975_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.25,
+        "log_mbh_err_plus_std": 0.32,
+        "log_mbh_err_minus_std": 0.32
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN20621_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.05,
+        "log_mbh_err_plus_std": 0.35,
+        "log_mbh_err_minus_std": 0.34
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GS200679_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.19,
+        "log_mbh_err_plus_std": 0.6,
+        "log_mbh_err_minus_std": 0.3
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN53757_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.33,
+        "log_mbh_err_plus_std": 0.31,
+        "log_mbh_err_minus_std": 0.31
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN11836_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.06,
+        "log_mbh_err_plus_std": 0.32,
+        "log_mbh_err_minus_std": 0.32
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GN73488_juodzbalis25",
+      "source_key": "juodzbalis25_jades_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.03551v2",
+      "source_archive_sha256": "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.83,
+        "log_mbh_err_plus_std": 0.3,
+        "log_mbh_err_minus_std": 0.3
+      },
+      "note": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "RUBIESEGS55604_kocevski25",
+      "source_key": "kocevski25_lrd_blagn",
+      "source_url": "https://arxiv.org/e-print/2404.03576v3",
+      "source_archive_sha256": "d305676588e2dca634d350f11e20b69568e736de990faae0b681ed0b08ab5b69",
+      "source_member": "main.arxiv.tex",
+      "evidence": "CEERS 7902 & RUBIES-CEERS 55604 & 214.983037 & 52.956006 & 6.986 & \\Hb & $4860\\pm480$ & $8.36\\pm0.10$ & $9.31\\pm0.10$ & 3.4 & $10.10\\pm0.22$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 9.31,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": "",
+      "source_member_sha256": "745d1337f5441a2c93a885a82c523bd59e91089076f7d62174ff503469f613cd",
+      "locator": "Quoted source row / mass column in main.arxiv.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS927271_kocevski25",
+      "source_key": "kocevski25_lrd_blagn",
+      "source_url": "https://arxiv.org/e-print/2404.03576v3",
+      "source_archive_sha256": "d305676588e2dca634d350f11e20b69568e736de990faae0b681ed0b08ab5b69",
+      "source_member": "main.arxiv.tex",
+      "evidence": "CEERS 20496 & RUBIES-CEERS 927271 & 215.078257 & 52.948504 & 6.786 & \\Ha & $1410\\pm200 $ & $6.45\\pm0.18$ & $6.97\\pm0.18$ & 2.9 & $8.85\\pm0.37$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.97,
+        "log_mbh_err_plus_std": 0.18,
+        "log_mbh_err_minus_std": 0.18
+      },
+      "note": "",
+      "source_member_sha256": "745d1337f5441a2c93a885a82c523bd59e91089076f7d62174ff503469f613cd",
+      "locator": "Quoted source row / mass column in main.arxiv.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS63166_kocevski25",
+      "source_key": "kocevski25_lrd_blagn",
+      "source_url": "https://arxiv.org/e-print/2404.03576v3",
+      "source_archive_sha256": "d305676588e2dca634d350f11e20b69568e736de990faae0b681ed0b08ab5b69",
+      "source_member": "main.arxiv.tex",
+      "evidence": "PRIMER-UDS 119639 & RUBIES-UDS 63166 & 34.312143 & -5.202546 & 6.518 & \\Ha & $2200\\pm400$ & $7.09\\pm0.17$ & $7.82\\pm0.17$ & 4.0 & $8.24\\pm0.41$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.82,
+        "log_mbh_err_plus_std": 0.17,
+        "log_mbh_err_minus_std": 0.17
+      },
+      "note": "",
+      "source_member_sha256": "745d1337f5441a2c93a885a82c523bd59e91089076f7d62174ff503469f613cd",
+      "locator": "Quoted source row / mass column in main.arxiv.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS50716_kocevski25",
+      "source_key": "kocevski25_lrd_blagn",
+      "source_url": "https://arxiv.org/e-print/2404.03576v3",
+      "source_archive_sha256": "d305676588e2dca634d350f11e20b69568e736de990faae0b681ed0b08ab5b69",
+      "source_member": "main.arxiv.tex",
+      "evidence": "PRIMER-UDS 29881 & RUBIES-UDS 50716 & 34.313132 & -5.226765 & 6.170 & \\Ha & $2280\\pm220$ & $6.98\\pm0.11$ & $7.52\\pm0.11$ & 3.0 & $8.35\\pm0.26$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.52,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "745d1337f5441a2c93a885a82c523bd59e91089076f7d62174ff503469f613cd",
+      "locator": "Quoted source row / mass column in main.arxiv.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS59971_kocevski25",
+      "source_key": "kocevski25_lrd_blagn",
+      "source_url": "https://arxiv.org/e-print/2404.03576v3",
+      "source_archive_sha256": "d305676588e2dca634d350f11e20b69568e736de990faae0b681ed0b08ab5b69",
+      "source_member": "main.arxiv.tex",
+      "evidence": "PRIMER-UDS 116251 & RUBIES-UDS 59971 & 34.260537 & -5.209120 & 5.365 & \\Ha & $1540\\pm280$ & $6.44\\pm0.20$ & $6.83\\pm0.20$ & 2.2 & $8.31\\pm0.27$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.83,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "745d1337f5441a2c93a885a82c523bd59e91089076f7d62174ff503469f613cd",
+      "locator": "Quoted source row / mass column in main.arxiv.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS61496_kocevski25",
+      "source_key": "kocevski25_lrd_blagn",
+      "source_url": "https://arxiv.org/e-print/2404.03576v3",
+      "source_archive_sha256": "d305676588e2dca634d350f11e20b69568e736de990faae0b681ed0b08ab5b69",
+      "source_member": "main.arxiv.tex",
+      "evidence": "CEERS 5760 & RUBIES-CEERS 61496 & 214.972445 & 52.962196 & 5.079 & \\Ha & $1800\\pm300$ & $6.72\\pm0.17$ & $7.04\\pm0.17$ & 1.8 & $8.53\\pm0.33$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.04,
+        "log_mbh_err_plus_std": 0.17,
+        "log_mbh_err_minus_std": 0.17
+      },
+      "note": "",
+      "source_member_sha256": "745d1337f5441a2c93a885a82c523bd59e91089076f7d62174ff503469f613cd",
+      "locator": "Quoted source row / mass column in main.arxiv.tex"
+    },
+    {
+      "measurement_id": "CEERS1019_larson23",
+      "source_key": "larson23_ceers1019",
+      "source_url": "https://arxiv.org/e-print/2303.08918v2",
+      "source_archive_sha256": "aedc3f7bfb3064564e8ba1787c4a69747250d080b5917d7db3c702c50f8d9f18",
+      "source_member": "pdf-plain.txt (text extracted from pinned PDF with pypdf)",
+      "evidence": "Abstract: z = 8.679; log(MBH/Msun) = 6.95 +/- 0.37.",
+      "expected": {
+        "log_mbh_msun_std": 6.95,
+        "log_mbh_err_plus_std": 0.37,
+        "log_mbh_err_minus_std": 0.37
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "locator": "Quoted source row / mass column in pdf-plain.txt (text extracted from pinned PDF with pypdf)"
+    },
+    {
+      "measurement_id": "J0229M0808BHAE2_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0229M0808-BHAE-2 & $-20.07\\pm0.04$ & $-1.79\\pm0.15$ & $-1.32\\pm0.32$ & $7.72 \\pm 0.15$ & $45.04^{+0.05}_{-0.06}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.72,
+        "log_mbh_err_plus_std": 0.15,
+        "log_mbh_err_minus_std": 0.15
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J2002M3013BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J2002M3013-BHAE-1 & $-20.86\\pm0.03$ & $-1.77\\pm0.12$ & $-1.45\\pm0.46$ & $7.71 \\pm 0.08$ & $45.40^{+0.03}_{-0.03}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.71,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J2132P1217BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J2132P1217-BHAE-1 & $-19.53\\pm0.09$ & $-1.46\\pm0.31$ & $-0.51\\pm0.27$ & $7.11 \\pm 0.12$ & $44.93^{+0.04}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.11,
+        "log_mbh_err_plus_std": 0.12,
+        "log_mbh_err_minus_std": 0.12
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J0910M0414BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0910M0414-BHAE-1 & $-18.98\\pm0.13$ & $-1.74\\pm0.40$ & $-0.70\\pm1.18$ & $7.94 \\pm 0.13$ & $45.21^{+0.05}_{-0.05}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.94,
+        "log_mbh_err_plus_std": 0.13,
+        "log_mbh_err_minus_std": 0.13
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J1526M2050BHAE3_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J1526M2050-BHAE-3 & $-17.15\\pm0.27$ & $-0.75\\pm0.79$ & $1.23\\pm0.62$ & $7.43 \\pm 0.31$ & $44.59^{+0.11}_{-0.15}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.43,
+        "log_mbh_err_plus_std": 0.31,
+        "log_mbh_err_minus_std": 0.31
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J1526M2050BHAE2_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J1526M2050-BHAE-2 & $-18.43\\pm0.27$ & $-2.32\\pm0.93$ & $1.19\\pm0.96$ & $8.07 \\pm 0.12$ & $45.09^{+0.04}_{-0.05}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.07,
+        "log_mbh_err_plus_std": 0.12,
+        "log_mbh_err_minus_std": 0.12
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J0923P0402BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0923P0402-BHAE-1 & $-18.62\\pm0.13$ & $-1.04\\pm0.41$ & $1.73\\pm0.61$ & $7.87 \\pm 0.09$ & $45.55^{+0.11}_{-0.14}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.87,
+        "log_mbh_err_plus_std": 0.09,
+        "log_mbh_err_minus_std": 0.09
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J2232P2930BHAE3_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J2232P2930-BHAE-3 & $-18.08\\pm0.17$ & $-1.20\\pm0.47$ & $0.54\\pm0.39$ & $7.31 \\pm 0.22$ & $44.71^{+0.07}_{-0.08}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.31,
+        "log_mbh_err_plus_std": 0.22,
+        "log_mbh_err_minus_std": 0.22
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J2232P2930BHAE2_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J2232P2930-BHAE-2 & $-18.37\\pm0.10$ & $-1.79\\pm0.27$ & $-0.06\\pm0.43$ & $6.78 \\pm 0.13$ & $44.63^{+0.04}_{-0.05}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.78,
+        "log_mbh_err_plus_std": 0.13,
+        "log_mbh_err_minus_std": 0.13
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J0229M0808BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0229M0808-BHAE-1 & $-19.15\\pm0.10$ & $-1.47\\pm0.23$ & $0.10\\pm0.18$ & $7.31 \\pm 0.12$ & $44.81^{+0.04}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.31,
+        "log_mbh_err_plus_std": 0.12,
+        "log_mbh_err_minus_std": 0.12
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J0109M3047BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0109M3047-BHAE-1 & $-17.21\\pm0.31$ & $-0.07\\pm0.74$ & $1.08\\pm0.32$ & $7.86 \\pm 0.11$ & $45.00^{+0.04}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.86,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J0218P0007BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0218P0007-BHAE-1 & $-17.39\\pm0.30$ & $0.05\\pm0.69$ & $1.08\\pm0.16$ & $7.55 \\pm 0.08$ & $44.98^{+0.03}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.55,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J1526M2050BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J1526M2050-BHAE-1 & $-18.04\\pm0.15$ & $-0.13\\pm0.35$ & $0.87\\pm0.26$ & $7.85 \\pm 0.10$ & $45.22^{+0.03}_{-0.03}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.85,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J2232P2930BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J2232P2930-BHAE-1 & $-18.15\\pm0.15$ & $1.17\\pm0.32$ & $-0.47\\pm0.25$ & $7.85 \\pm 0.12$ & $45.28^{+0.04}_{-0.05}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.85,
+        "log_mbh_err_plus_std": 0.12,
+        "log_mbh_err_minus_std": 0.12
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J0430M1445BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0430M1445-BHAE-1 & $-17.68\\pm0.18$ & $0.35\\pm0.38$ & $1.19\\pm0.24$ & $7.72 \\pm 0.04$ & $45.57^{+0.06}_{-0.07}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.72,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "J0224M4711BHAE1_lin24",
+      "source_key": "lin24_aspire_blagn",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "evidence": "J0224M4711-BHAE-1 & $-17.43\\pm0.19$ & $-0.00\\pm0.40$ & $0.54\\pm0.17$ & $7.23 \\pm 0.24$ & $44.59^{+0.08}_{-0.09}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.23,
+        "log_mbh_err_plus_std": 0.24,
+        "log_mbh_err_minus_std": 0.24
+      },
+      "note": "",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "Quoted source row / mass column in tab3.tex"
+    },
+    {
+      "measurement_id": "COSMOS3D13852_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.6,
+        "log_mbh_err_plus_std": 0.35,
+        "log_mbh_err_minus_std": 0.33
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D18221_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.07,
+        "log_mbh_err_plus_std": 0.26,
+        "log_mbh_err_minus_std": 0.25
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D19661_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.12,
+        "log_mbh_err_plus_std": 0.29,
+        "log_mbh_err_minus_std": 0.27
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D23756_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.99,
+        "log_mbh_err_plus_std": 0.25,
+        "log_mbh_err_minus_std": 0.24
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D17455_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.03,
+        "log_mbh_err_plus_std": 0.26,
+        "log_mbh_err_minus_std": 0.25
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D23915_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.94,
+        "log_mbh_err_plus_std": 0.23,
+        "log_mbh_err_minus_std": 0.21
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D16912_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.83,
+        "log_mbh_err_plus_std": 0.28,
+        "log_mbh_err_minus_std": 0.27
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D25997_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.86,
+        "log_mbh_err_plus_std": 0.25,
+        "log_mbh_err_minus_std": 0.23
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D12739_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.45,
+        "log_mbh_err_plus_std": 0.25,
+        "log_mbh_err_minus_std": 0.24
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D20938_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.09,
+        "log_mbh_err_plus_std": 0.45,
+        "log_mbh_err_minus_std": 0.38
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D24359_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.58,
+        "log_mbh_err_plus_std": 0.39,
+        "log_mbh_err_minus_std": 0.35
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D27974_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.53,
+        "log_mbh_err_plus_std": 0.19,
+        "log_mbh_err_minus_std": 0.18
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "COSMOS3D3878_lin25",
+      "source_key": "lin25_cosmos3d_blagn",
+      "source_url": "https://arxiv.org/e-print/2504.08039v2",
+      "source_archive_sha256": "3a056a22de95bf81524433d955905d15f65176e16e138fd00128826e5fa5bb52",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.21,
+        "log_mbh_err_plus_std": 0.26,
+        "log_mbh_err_minus_std": 0.25
+      },
+      "note": "https://arxiv.org/html/2504.08039v2",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "GNZ11_maiolino24",
+      "source_key": "maiolino24_gnz11_agn",
+      "source_url": "https://arxiv.org/e-print/2305.12492",
+      "source_archive_sha256": "54f9fff8eeb6cd36569fed43520a8de2aefebb393b37f4401a6d8cd8758ee2fe",
+      "source_member": "gnz11_arXiv_rev_v2.tex",
+      "evidence": "mass of $\\rm \\log{(M_{BH}/M_{\\odot})}=6.2\\pm 0.3$, accreting at about 5 times the Eddington rate.",
+      "expected": {
+        "log_mbh_msun_std": 6.2,
+        "log_mbh_err_plus_std": 0.3,
+        "log_mbh_err_minus_std": 0.3
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "source_member_sha256": "b6d1e598cf67da92f038fe27d1667f75d49237f0d8cfc3ee50b8e9dcd9bd49ae",
+      "locator": "Quoted source row / mass column in gnz11_arXiv_rev_v2.tex"
+    },
+    {
+      "measurement_id": "GOODSN9771_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-N-9771 & $8.55\\pm0.03$ & $ 65.8 \\pm 1.6 $ & $-19.5\\pm0.1$ & $ -0.61^{+0.13}_{-0.13} $ & $ 0.76^{+0.31}_{-0.36} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.55,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "GOODSS13971_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-S-13971 & $7.49\\pm0.25$ & $ 5.5 \\pm 1.2 $ & $-19.4\\pm0.1$ & $ -2.07^{+0.09}_{-0.09} $ & $ 1.45^{+0.14}_{-0.14} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.49,
+        "log_mbh_err_plus_std": 0.25,
+        "log_mbh_err_minus_std": 0.25
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "GOODSN16813_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-N-16813 & $7.55\\pm0.12$ & $ 9.1 \\pm 1.0 $ & $-19.7\\pm0.1$ & $ -2.19^{+0.12}_{-0.13} $ & $ -0.60^{+0.23}_{-0.23} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.55,
+        "log_mbh_err_plus_std": 0.12,
+        "log_mbh_err_minus_std": 0.12
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "GOODSN12839_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-N-12839 & $8.01\\pm0.06$ & $ 31.2 \\pm 1.2 $ & $-19.0\\pm0.1$ & $ -1.64^{+0.19}_{-0.18} $ & $ 1.92^{+0.24}_{-0.22} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.01,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "GOODSN13733_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-N-13733 & $7.49\\pm0.10$ & $ 5.2 \\pm 0.3 $ & $-17.9\\pm0.2$ & $ -1.59^{+0.55}_{-0.48} $ & $ 1.23^{+0.41}_{-0.32} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.49,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "GOODSN4014_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-N-4014 & $7.58\\pm0.08$ & $ 9.3 \\pm 0.5 $ & $-18.0\\pm0.2$ & $ -2.04^{+0.70}_{-0.93} $ & $ 2.00^{+1.12}_{-0.82} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.58,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "GOODSN14409_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-N-14409 & $7.21\\pm0.14$ & $ 7.4 \\pm 0.9 $ & $-18.3\\pm0.1$ & $ -2.26^{+0.37}_{-0.36} $ & $ 0.09^{+0.40}_{-0.37} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.21,
+        "log_mbh_err_plus_std": 0.14,
+        "log_mbh_err_minus_std": 0.14
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "GOODSN15498_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "GOODS-N-15498 & $7.71\\pm0.11$ & $ 10.4 \\pm 1.9 $ & $-17.7\\pm0.2$ & $ -1.63^{+0.50}_{-0.44} $ & $ 2.75^{+0.38}_{-0.34} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.71,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J01484214_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J0148-4214 & $7.32\\pm0.10$ & $ 5.9 \\pm 0.4 $ & $-20.0\\pm0.1$ & $ -1.71^{+0.14}_{-0.13} $ & $ -0.83^{+0.13}_{-0.11} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.32,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J114818404_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J1148-18404 & $7.79\\pm0.14$ & $ 6.9 \\pm 1.4 $ & $-17.5\\pm0.1$ & $ -0.20^{+0.43}_{-0.35} $ & $ 2.73^{+0.17}_{-0.15} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.79,
+        "log_mbh_err_plus_std": 0.14,
+        "log_mbh_err_minus_std": 0.14
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J11207546_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J1120-7546 & $7.56\\pm0.11$ & $ 13.8 \\pm 1.6 $ & $-17.6\\pm0.3$ & $ -0.41^{+0.94}_{-0.68} $ & $ 1.59^{+0.27}_{-0.27} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.56,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J010015157_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J0100-15157 & $7.35\\pm0.08$ & $ 6.5 \\pm 0.6 $ & $-20.2\\pm0.1$ & $ -1.87^{+0.14}_{-0.14} $ & $ -2.34^{+0.19}_{-0.24} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.35,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J01002017_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J0100-2017 & $7.44\\pm0.11$ & $ 6.7 \\pm 0.8 $ & $-19.3\\pm0.1$ & $ -1.57^{+0.19}_{-0.18} $ & $ -1.01^{+0.17}_{-0.17} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.44,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J112014389_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J1120-14389 & $7.65\\pm0.07$ & $ 8.4 \\pm 0.8 $ & $-19.1\\pm0.1$ & $ -1.58^{+0.19}_{-0.19} $ & $ 0.62^{+0.13}_{-0.13} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.65,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.07
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J010012446_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J0100-12446 & $7.46\\pm0.06$ & $ 12.9 \\pm 0.6 $ & $-19.0\\pm0.1$ & $ -0.92^{+0.21}_{-0.20} $ & $ -0.20^{+0.14}_{-0.14} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.46,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J014812884_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J0148-12884 & $6.91\\pm0.15$ & $ 5.0 \\pm 0.6 $ & $-19.5\\pm0.1$ & $ -1.65^{+0.17}_{-0.16} $ & $ -0.59^{+0.12}_{-0.14} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.91,
+        "log_mbh_err_plus_std": 0.15,
+        "log_mbh_err_minus_std": 0.15
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J010016221_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J0100-16221 & $7.53\\pm0.07$ & $ 7.1 \\pm 0.6 $ & $-18.9\\pm0.1$ & $ -1.42^{+0.19}_{-0.19} $ & $ -0.50^{+0.14}_{-0.14} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.53,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.07
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J11487111_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J1148-7111 & $7.92\\pm0.10$ & $ 10.8 \\pm 0.8 $ & $-18.6\\pm0.1$ & $ -1.00^{+0.31}_{-0.28} $ & $ 0.25^{+0.18}_{-0.17} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.92,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J114821787_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J1148-21787 & $7.59\\pm0.18$ & $ 6.7 \\pm 1.6 $ & $-19.2\\pm0.1$ & $ -1.85^{+0.23}_{-0.23} $ & $ -0.42^{+0.17}_{-0.16} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.59,
+        "log_mbh_err_plus_std": 0.18,
+        "log_mbh_err_minus_std": 0.18
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "J0148976_matthee23",
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "evidence": "J0148-976 & $7.11\\pm0.18$ & $ 5.2 \\pm 0.7 $ & $-19.1\\pm0.1$ & $ -1.44^{+0.18}_{-0.18} $ & $ -1.52^{+0.19}_{-0.17} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.11,
+        "log_mbh_err_plus_std": 0.18,
+        "log_mbh_err_minus_std": 0.18
+      },
+      "note": "",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "Quoted source row / mass column in ms.tex"
+    },
+    {
+      "measurement_id": "DC536534_ren25",
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "evidence": "DC\\_536534 & 149.9718537 & 2.1181852 & 5.6886 & $11.69 \\pm 1.43$ & $2812 \\pm 157$ & $10.36_{-0.12}^{+0.11}$ & $7.78 \\pm 0.06$ & $44.88 \\pm 0.05$ & $-1.01$ & 0.24 & 0.98 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.78,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "Quoted source row / mass column in PaperDrafts_MN.tex"
+    },
+    {
+      "measurement_id": "DC417567_ren25",
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "evidence": "DC\\_417567 & 150.5170078 & 1.9289283 & 5.6700 & $1.69 \\pm 0.42$ & $596 \\pm 60$ & $9.81_{-0.11}^{+0.18}$ & $6.00 \\pm 0.10$ & $44.15 \\pm 0.09$ & $0.05$ & 0.00 & 0.00 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.0,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": "",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "Quoted source row / mass column in PaperDrafts_MN.tex"
+    },
+    {
+      "measurement_id": "DC519281_ren25",
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "evidence": "DC\\_519281 & 149.7537227 & 2.0910165 & 5.5759 & $4.40 \\pm 0.35$ & $1110 \\pm 132$ & $9.87_{-0.16}^{+0.13}$ & $6.74 \\pm 0.11$ & $44.49 \\pm 0.03$ & $-0.35$ & 0.08 & 0.32 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.74,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "Quoted source row / mass column in PaperDrafts_MN.tex"
+    },
+    {
+      "measurement_id": "DC683613_ren25",
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "evidence": "DC\\_683613 & 150.0392432 & 2.3372033 & 5.5420 & $0.80 \\pm 0.14$ & $678 \\pm 112$ & $10.17_{-0.15}^{+0.14}$ & $5.95 \\pm 0.15$ & $43.84 \\pm 0.07$ & $-0.21$ & 0.00 & 0.00 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.95,
+        "log_mbh_err_plus_std": 0.15,
+        "log_mbh_err_minus_std": 0.15
+      },
+      "note": "",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "Quoted source row / mass column in PaperDrafts_MN.tex"
+    },
+    {
+      "measurement_id": "DC848185a_ren25",
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "evidence": "DC\\_848185\\_a & 150.0895382 & 2.5865496 & 5.2931 & $1.25 \\pm 0.20$ & $1618 \\pm 417$ & $10.37_{-0.19}^{+0.08}$ & $6.80 \\pm 0.23$ & $43.97 \\pm 0.06$ & $-0.93$ & 0.07 & 0.29 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.8,
+        "log_mbh_err_plus_std": 0.23,
+        "log_mbh_err_minus_std": 0.23
+      },
+      "note": "",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "Quoted source row / mass column in PaperDrafts_MN.tex"
+    },
+    {
+      "measurement_id": "DC848185b_ren25",
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "evidence": "DC\\_848185\\_b & 150.0896631 & 2.5863339 & 5.2931 & $2.11 \\pm 0.33$ & $955 \\pm 206$ & $10.37_{-0.19}^{+0.08}$ & $6.43 \\pm 0.20$ & $44.17 \\pm 0.06$ & $-0.36$ & 0.20 & 0.81 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.43,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "Quoted source row / mass column in PaperDrafts_MN.tex"
+    },
+    {
+      "measurement_id": "DC873321_ren25",
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "evidence": "DC\\_873321 & 150.0169147 & 2.6266375 & 5.1542 & $4.27 \\pm 0.61$ & $986 \\pm 231$ & $9.97_{-0.16}^{+0.13}$ & $6.59 \\pm 0.21$ & $44.41 \\pm 0.05$ & $-0.28$ & 0.15 & 0.62 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.59,
+        "log_mbh_err_plus_std": 0.21,
+        "log_mbh_err_minus_std": 0.21
+      },
+      "note": "",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "Quoted source row / mass column in PaperDrafts_MN.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE30148_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "30148 & 214.931119 & 52.808158 & 6.5491 & $ 1671\\pm 119 $ & $ 2.96\\pm 0.17 $ & $7.10^{+0.07}_{-0.08}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.1,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE1090_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "1090 & 214.912510 & 52.949436 & 6.2290 & $ 1141\\pm 94 $ & $ 2.83\\pm 0.16 $ & $6.73^{+0.08}_{-0.09}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.73,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.09
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE92141_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "92141 & 214.896761 & 52.875796 & 6.1365 & $ 1897\\pm 217 $ & $ 1.13\\pm 0.15 $ & $6.99^{+0.12}_{-0.14}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.99,
+        "log_mbh_err_plus_std": 0.12,
+        "log_mbh_err_minus_std": 0.14
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE25941_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "25941 & 214.934979 & 52.829364 & 5.9469 & $ 1424\\pm 329 $ & $ 1.73\\pm 0.14 $ & $6.81^{+0.20}_{-0.25}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.81,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.25
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE23289_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "23289 & 214.894556 & 52.812162 & 5.9343 & $ 2109\\pm 68 $ & $ 9.69\\pm 0.18 $ & $7.51^{+0.03}_{-0.03}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.51,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE44039_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "44039 & 214.822229 & 52.750196 & 5.9128 & $ 1641\\pm 271 $ & $ 1.76\\pm 0.13 $ & $6.93^{+0.15}_{-0.18}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.93,
+        "log_mbh_err_plus_std": 0.15,
+        "log_mbh_err_minus_std": 0.18
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE21749_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "21749 & 214.876034 & 52.806109 & 5.7958 & $ 1601\\pm 70 $ & $ 8.20\\pm 0.19 $ & $7.22^{+0.04}_{-0.04}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.22,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE83652_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "83652 & 214.871873 & 52.880432 & 5.6669 & $ 1202\\pm 128 $ & $ 1.50\\pm 0.11 $ & $6.60^{+0.10}_{-0.12}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.6,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.12
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE299_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "299 & 214.805753 & 52.878045 & 5.6229 & $ 1896\\pm 63 $ & $ 6.63\\pm 0.15 $ & $7.31^{+0.03}_{-0.03}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.31,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE2086_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "2086 & 214.858256 & 52.905539 & 5.4806 & $ 2111\\pm 97 $ & $ 7.70\\pm 0.28 $ & $7.42^{+0.05}_{-0.05}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.42,
+        "log_mbh_err_plus_std": 0.05,
+        "log_mbh_err_minus_std": 0.05
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE1867_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "1867 & 214.817678 & 52.877856 & 5.4457 & $ 1640\\pm 185 $ & $ 2.23\\pm 0.14 $ & $6.94^{+0.11}_{-0.12}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.94,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.12
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE20952_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "20952 & 214.880185 & 52.812566 & 5.2802 & $ 1882\\pm 123 $ & $ 4.42\\pm 0.20 $ & $7.19^{+0.07}_{-0.07}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.19,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.07
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE534080_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "534080 & 214.949994 & 52.855774 & 5.2761 & $ 1388\\pm 271 $ & $ 0.72\\pm 0.15 $ & $6.55^{+0.20}_{-0.24}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.55,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.24
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE22814_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "22814 & 214.943538 & 52.849030 & 5.2413 & $ 1299\\pm 269 $ & $ 2.70\\pm 0.42 $ & $6.75^{+0.20}_{-0.24}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.75,
+        "log_mbh_err_plus_std": 0.2,
+        "log_mbh_err_minus_std": 0.24
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE12630_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "12630 & 214.869654 & 52.855608 & 5.1033 & $ 2215\\pm 443 $ & $ 1.35\\pm 0.17 $ & $7.08^{+0.19}_{-0.23}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.08,
+        "log_mbh_err_plus_std": 0.19,
+        "log_mbh_err_minus_std": 0.23
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE3519_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "3519 & 214.925759 & 52.945659 & 5.0885 & $ 1946\\pm 126 $ & $ 3.84\\pm 0.15 $ & $7.17^{+0.06}_{-0.07}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.17,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.07
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE9382_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "9382 & 214.926772 & 52.914039 & 5.0730 & $ 596\\pm 79 $ & $ 1.30\\pm 0.22 $ & $5.89^{+0.14}_{-0.17}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.89,
+        "log_mbh_err_plus_std": 0.14,
+        "log_mbh_err_minus_std": 0.17
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE17484_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "17484 & 214.799323 & 52.774004 & 5.0334 & $ 1524\\pm 186 $ & $ 1.67\\pm 0.10 $ & $6.78^{+0.11}_{-0.13}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.78,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.13
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE26079_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "26079 & 214.955188 & 52.843018 & 5.0015 & $ 2182\\pm 84 $ & $ 12.45\\pm 0.32 $ & $7.51^{+0.04}_{-0.04}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.51,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE23961_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "23961 & 214.899699 & 52.812840 & 5.0000 & $ 1702\\pm 92 $ & $ 5.14\\pm 0.18 $ & $7.11^{+0.05}_{-0.06}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.11,
+        "log_mbh_err_plus_std": 0.05,
+        "log_mbh_err_minus_std": 0.06
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE504101_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "504101 & 214.947772 & 52.836333 & 4.8814 & $ 2437\\pm 192 $ & $ 2.49\\pm 0.15 $ & $7.27^{+0.08}_{-0.09}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.27,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.09
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "SKYFIRE530722_skyfire26",
+      "source_key": "skyfire26_ceers_blagn",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "evidence": "530722 & 214.871720 & 52.914307 & 4.3569 & $ 574\\pm 67 $ & $ 3.09\\pm 1.09 $ & $5.96^{+0.16}_{-0.20}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.96,
+        "log_mbh_err_plus_std": 0.16,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS807469_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-807469 & 34.376139 & -5.310366 & 6.778 & 7.72$^{+0.48}_{-0.44}$ & 2.18$^{+0.46}_{-0.37}$ & 5.53$^{+0.37}_{-0.39}$ & 2044$^{+329}_{-218}$ & 7.43$^{+0.13}_{-0.11}$",
+      "expected": {
+        "log_mbh_msun_std": 7.43,
+        "log_mbh_err_plus_std": 0.13,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS49140_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-49140\\textsuperscript{\\textdagger}\\textsuperscript{\\textdaggerdbl} & 214.892248 & 52.877410 & 6.685 & 116.81$^{+2.52}_{-3.23}$ & 4.94$^{+1.96}_{-2.27}$ & 111.71$^{+1.61}_{-1.65}$ & 2613$^{+48}_{-39}$ & 8.26$^{+0.02}_{-0.01}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.26,
+        "log_mbh_err_plus_std": 0.02,
+        "log_mbh_err_minus_std": 0.01
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS174752_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-174752 & 34.205808 & -5.100500 & 6.039 & 14.82$^{+0.49}_{-0.50}$ & 8.54$^{+0.30}_{-0.30}$ & 6.28$^{+0.45}_{-0.44}$ & 1741$^{+140}_{-136}$ & 7.26$^{+0.08}_{-0.08}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.26,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "CEERS397_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "CEERS-397 & 214.836197 & 52.882693 & 6.000 & 21.75$^{+2.40}_{-1.20}$ & 16.82$^{+0.44}_{-0.42}$ & 4.88$^{+2.48}_{-1.15}$ & 2727$^{+484}_{-413}$ & 7.60$^{+0.23}_{-0.18}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.6,
+        "log_mbh_err_plus_std": 0.23,
+        "log_mbh_err_minus_std": 0.18
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS139709_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-139709\\textsuperscript{\\textdagger} & 34.296002 & -5.149895 & 5.685 & 39.47$^{+1.75}_{-1.66}$ & 11.11$^{+1.23}_{-1.15}$ & 28.37$^{+1.59}_{-1.55}$ & 2552$^{+205}_{-189}$ & 7.88$^{+0.07}_{-0.07}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.88,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.07
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS37124_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-37124\\textsuperscript{\\textdagger} & 214.990977 & 52.916524 & 5.682 & 9.94$^{+0.53}_{-0.55}$ & 1.93$^{+0.92}_{-0.74}$ & 7.98$^{+0.66}_{-0.73}$ & 1566$^{+246}_{-192}$ & 7.18$^{+0.12}_{-0.11}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.18,
+        "log_mbh_err_plus_std": 0.12,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS47509_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-47509\\textsuperscript{\\textdagger} & 34.264602 & -5.232586 & 5.673 & 22.92$^{+0.81}_{-0.83}$ & 9.05$^{+0.61}_{-0.62}$ & 13.87$^{+0.76}_{-0.80}$ & 2063$^{+157}_{-145}$ & 7.54$^{+0.07}_{-0.07}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.54,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.07
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS19521_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-19521 & 34.383672 & -5.287732 & 5.669 & 11.29$^{+1.46}_{-1.38}$ & 5.46$^{+0.47}_{-0.49}$ & 5.84$^{+1.33}_{-1.18}$ & 1682$^{+400}_{-368}$ & 7.18$^{+0.22}_{-0.26}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.18,
+        "log_mbh_err_plus_std": 0.22,
+        "log_mbh_err_minus_std": 0.26
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "CEERS672_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "CEERS-672\\textsuperscript{\\textdagger} & 214.889677 & 52.832977 & 5.666 & 2.41$^{+0.39}_{-0.27}$ & 0.99$^{+0.19}_{-0.20}$ & 1.45$^{+0.32}_{-0.28}$ & 1433$^{+507}_{-345}$ & 6.75$^{+0.29}_{-0.26}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.75,
+        "log_mbh_err_plus_std": 0.29,
+        "log_mbh_err_minus_std": 0.26
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "CEERS746_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "CEERS-746\\textsuperscript{\\textdagger} & 214.809142 & 52.868484 & 5.623 & 6.59$^{+0.53}_{-0.49}$ & 1.93$^{+0.46}_{-0.43}$ & 4.68$^{+0.55}_{-0.59}$ & 2021$^{+366}_{-289}$ & 7.29$^{+0.16}_{-0.14}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.29,
+        "log_mbh_err_plus_std": 0.16,
+        "log_mbh_err_minus_std": 0.14
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS172350_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-172350\\textsuperscript{\\textdagger} & 34.368951 & -5.103941 & 5.580 & 33.19$^{+0.84}_{-0.79}$ & 5.59$^{+0.68}_{-0.69}$ & 27.61$^{+0.92}_{-0.85}$ & 2068$^{+92}_{-78}$ & 7.68$^{+0.04}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.68,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS29813_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-29813\\textsuperscript{\\textdagger} & 34.453355 & -5.270717 & 5.440 & 12.06$^{+0.55}_{-0.52}$ & 4.64$^{+0.35}_{-0.33}$ & 7.43$^{+0.55}_{-0.56}$ & 2047$^{+207}_{-188}$ & 7.39$^{+0.09}_{-0.09}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.39,
+        "log_mbh_err_plus_std": 0.09,
+        "log_mbh_err_minus_std": 0.09
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS60935_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-60935\\textsuperscript{\\textdagger} & 214.923373 & 52.925593 & 5.287 & 22.82$^{+0.56}_{-0.59}$ & 6.84$^{+0.56}_{-0.60}$ & 16.02$^{+0.64}_{-0.72}$ & 2144$^{+108}_{-108}$ & 7.57$^{+0.04}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.57,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS926125_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-926125\\textsuperscript{\\textdagger} & 215.137081 & 52.988554 & 5.284 & 14.45$^{+0.41}_{-0.43}$ & 4.46$^{+0.33}_{-0.31}$ & 9.98$^{+0.46}_{-0.48}$ & 1888$^{+97}_{-92}$ & 7.36$^{+0.05}_{-0.05}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.36,
+        "log_mbh_err_plus_std": 0.05,
+        "log_mbh_err_minus_std": 0.05
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS970351_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-970351\\textsuperscript{\\textdagger} & 34.261900 & -5.105205 & 5.282 & 6.27$^{+0.73}_{-0.69}$ & 1.05$^{+0.38}_{-0.35}$ & 5.21$^{+0.73}_{-0.68}$ & 1657$^{+316}_{-265}$ & 7.11$^{+0.17}_{-0.17}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.11,
+        "log_mbh_err_plus_std": 0.17,
+        "log_mbh_err_minus_std": 0.17
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS42046_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-42046\\textsuperscript{\\textdagger}\\textsuperscript{\\textdaggerdbl} & 214.795368 & 52.788847 & 5.276 & 190.13$^{+4.61}_{-6.61}$ & 80.88$^{+4.61}_{-7.26}$ & 109.59$^{+2.10}_{-2.10}$ & 3146$^{+75}_{-67}$ & 8.30$^{+0.02}_{-0.02}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.3,
+        "log_mbh_err_plus_std": 0.02,
+        "log_mbh_err_minus_std": 0.02
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS13872_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-13872 & 215.132933 & 52.970705 & 5.262 & 7.67$^{+0.48}_{-0.49}$ & 4.45$^{+0.44}_{-0.64}$ & 3.31$^{+0.45}_{-0.48}$ & 1223$^{+355}_{-345}$ & 6.74$^{+0.23}_{-0.28}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.74,
+        "log_mbh_err_plus_std": 0.23,
+        "log_mbh_err_minus_std": 0.28
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "CEERS2782_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "CEERS-2782 & 214.823453 & 52.830281 & 5.240 & 26.41$^{+1.13}_{-1.18}$ & 14.47$^{+1.03}_{-1.03}$ & 11.95$^{+1.22}_{-1.19}$ & 1462$^{+239}_{-190}$ & 7.16$^{+0.14}_{-0.13}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.16,
+        "log_mbh_err_plus_std": 0.14,
+        "log_mbh_err_minus_std": 0.13
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS50052_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-50052 & 214.823454 & 52.830277 & 5.240 & 37.85$^{+0.63}_{-0.66}$ & 20.07$^{+0.51}_{-0.51}$ & 17.78$^{+0.55}_{-0.56}$ & 2129$^{+82}_{-78}$ & 7.58$^{+0.03}_{-0.03}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.58,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS17146_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-17146 & 214.949482 & 52.845415 & 5.000 & 36.80$^{+1.38}_{-1.29}$ & 21.82$^{+4.59}_{-5.21}$ & 15.01$^{+4.61}_{-3.90}$ & 763$^{+306}_{-150}$ & 6.60$^{+0.25}_{-0.15}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.6,
+        "log_mbh_err_plus_std": 0.25,
+        "log_mbh_err_minus_std": 0.15
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS46985_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-46985 & 214.805654 & 52.809497 & 4.963 & 16.06$^{+1.15}_{-0.93}$ & 9.46$^{+0.53}_{-0.59}$ & 6.67$^{+0.77}_{-0.65}$ & 1290$^{+307}_{-247}$ & 6.90$^{+0.21}_{-0.20}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.9,
+        "log_mbh_err_plus_std": 0.21,
+        "log_mbh_err_minus_std": 0.2
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS42232_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-42232\\textsuperscript{\\textdagger} & 214.886792 & 52.855381 & 4.954 & 23.59$^{+0.67}_{-0.68}$ & 4.48$^{+0.49}_{-0.53}$ & 19.14$^{+0.82}_{-0.86}$ & 2375$^{+96}_{-90}$ & 7.67$^{+0.04}_{-0.03}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.67,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS6411_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-6411 & 215.109185 & 52.939770 & 4.880 & 7.26$^{+0.31}_{-0.26}$ & 4.96$^{+0.24}_{-0.23}$ & 2.32$^{+0.28}_{-0.27}$ & 1046$^{+191}_{-163}$ & 6.49$^{+0.16}_{-0.16}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.49,
+        "log_mbh_err_plus_std": 0.16,
+        "log_mbh_err_minus_std": 0.16
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS45599_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-45599 & 214.831103 & 52.824124 & 4.862 & 7.57$^{+0.35}_{-0.35}$ & 4.68$^{+0.29}_{-0.30}$ & 2.90$^{+0.35}_{-0.34}$ & 1498$^{+228}_{-203}$ & 6.86$^{+0.13}_{-0.13}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.86,
+        "log_mbh_err_plus_std": 0.13,
+        "log_mbh_err_minus_std": 0.13
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS182791_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-182791 & 34.213813 & -5.087050 & 4.718 & 40.12$^{+0.89}_{-0.84}$ & 8.20$^{+0.65}_{-0.61}$ & 31.91$^{+1.12}_{-1.08}$ & 3350$^{+132}_{-116}$ & 8.06$^{+0.03}_{-0.03}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.06,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS19484_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-19484\\textsuperscript{\\textdagger} & 34.232426 & -5.280654 & 4.656 & 3.76$^{+0.32}_{-0.29}$ & 1.73$^{+0.36}_{-0.41}$ & 2.06$^{+0.39}_{-0.41}$ & 1278$^{+321}_{-288}$ & 6.62$^{+0.19}_{-0.22}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.62,
+        "log_mbh_err_plus_std": 0.19,
+        "log_mbh_err_minus_std": 0.22
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS29489_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-29489\\textsuperscript{\\textdagger} & 215.022071 & 52.920786 & 4.543 & 13.48$^{+0.74}_{-0.74}$ & 2.21$^{+0.63}_{-0.74}$ & 11.32$^{+0.78}_{-0.79}$ & 2055$^{+198}_{-185}$ & 7.39$^{+0.08}_{-0.09}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.39,
+        "log_mbh_err_plus_std": 0.08,
+        "log_mbh_err_minus_std": 0.09
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "CEERS1244_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "CEERS-1244 & 215.240652 & 53.036041 & 4.478 & 50.54$^{+0.83}_{-0.82}$ & 16.55$^{+0.71}_{-0.70}$ & 34.02$^{+0.98}_{-1.05}$ & 2619$^{+81}_{-73}$ & 7.82$^{+0.03}_{-0.02}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.82,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.02
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS48507_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-48507 & 34.284578 & -5.230702 & 4.468 & 19.68$^{+0.30}_{-0.30}$ & 11.22$^{+0.60}_{-0.63}$ & 8.47$^{+0.60}_{-0.62}$ & 762$^{+39}_{-37}$ & 6.43$^{+0.04}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.43,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS63139_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-63139 & 34.230848 & -5.202607 & 4.435 & 5.45$^{+0.26}_{-0.24}$ & 2.53$^{+0.27}_{-0.25}$ & 2.92$^{+0.34}_{-0.37}$ & 1107$^{+111}_{-96}$ & 6.55$^{+0.09}_{-0.09}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.55,
+        "log_mbh_err_plus_std": 0.09,
+        "log_mbh_err_minus_std": 0.09
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS35974_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-35974 & 34.331644 & -5.260593 & 4.367 & 41.29$^{+0.77}_{-0.76}$ & 33.18$^{+1.09}_{-1.16}$ & 8.16$^{+1.10}_{-1.11}$ & 1179$^{+133}_{-141}$ & 6.80$^{+0.09}_{-0.11}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.8,
+        "log_mbh_err_plus_std": 0.09,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS143683_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-143683 & 34.316389 & -5.144678 & 4.226 & 15.94$^{+0.56}_{-0.55}$ & 11.95$^{+0.51}_{-0.58}$ & 4.05$^{+0.47}_{-0.51}$ & 1426$^{+268}_{-271}$ & 6.81$^{+0.16}_{-0.19}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.81,
+        "log_mbh_err_plus_std": 0.16,
+        "log_mbh_err_minus_std": 0.19
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESEGS28812_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-EGS-28812\\textsuperscript{\\textdaggerdbl} & 214.924149 & 52.849050 & 4.222 & 17.59$^{+1.11}_{-0.96}$ & 7.24$^{+1.38}_{-1.22}$ & 10.37$^{+0.65}_{-0.65}$ & 2098$^{+120}_{-117}$ & 7.35$^{+0.04}_{-0.04}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.35,
+        "log_mbh_err_plus_std": 0.04,
+        "log_mbh_err_minus_std": 0.04
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS119957_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-119957\\textsuperscript{\\textdagger} & 34.268908 & -5.176722 & 4.149 & 12.83$^{+0.39}_{-0.39}$ & 4.23$^{+0.39}_{-0.36}$ & 8.61$^{+0.44}_{-0.48}$ & 1845$^{+121}_{-114}$ & 7.19$^{+0.06}_{-0.05}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.19,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.05
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS31747_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-31747\\textsuperscript{\\textdagger} & 34.223757 & -5.260245 & 4.130 & 16.16$^{+0.45}_{-0.51}$ & 4.85$^{+0.52}_{-0.58}$ & 11.32$^{+0.63}_{-0.70}$ & 1688$^{+93}_{-92}$ & 7.17$^{+0.05}_{-0.05}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.17,
+        "log_mbh_err_plus_std": 0.05,
+        "log_mbh_err_minus_std": 0.05
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS155916_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-155916 & 34.317031 & -5.127611 & 4.098 & 7.93$^{+0.88}_{-0.95}$ & 0.16$^{+0.30}_{-0.12}$ & 7.72$^{+0.94}_{-1.09}$ & 1646$^{+190}_{-189}$ & 7.06$^{+0.11}_{-0.13}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.06,
+        "log_mbh_err_plus_std": 0.11,
+        "log_mbh_err_minus_std": 0.13
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "RUBIESUDS30969_taylor24",
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "evidence": "RUBIES-UDS-30969 & 34.296356 & -5.268672 & 4.000 & 51.14$^{+0.79}_{-0.75}$ & 40.29$^{+1.34}_{-1.54}$ & 10.92$^{+1.44}_{-1.37}$ & 1079$^{+103}_{-107}$ & 6.74$^{+0.07}_{-0.08}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 6.74,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": "",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "Quoted source row / mass column in main.tex"
+    },
+    {
+      "measurement_id": "ZS7_ubler24",
+      "source_key": "ubler24_zs7_offset_blagn",
+      "source_url": "https://arxiv.org/e-print/2312.03589v2",
+      "source_archive_sha256": "830ecf743046d0f848e83e0905972b0a8c16d86ddbb1a92c3e61816057642344",
+      "source_member": "COS_ZS7_accepted.tex",
+      "evidence": "Section 5: log(M_BH/Msun)=7.7 +/- 0.4; 0.4 dex calibration scatter included in the published error budget.",
+      "expected": {
+        "log_mbh_msun_std": 7.7,
+        "log_mbh_err_plus_std": 0.4,
+        "log_mbh_err_minus_std": 0.4
+      },
+      "note": "Independent primary-family fixture, now included in complete numerical mass coverage.",
+      "source_member_sha256": "d0c5e87505fad81c98c4bda94af18e761447df0faadb09f7c4ffdd2f93e9898d",
+      "locator": "Quoted source row / mass column in COS_ZS7_accepted.tex"
+    },
+    {
+      "measurement_id": "NX12349_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.56,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX12300_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.59,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX32030_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.28,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX26545_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.94,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX10835_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.78,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX26913_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.8,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX23192_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.37,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX23770_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.44,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX15499_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 7.13,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX21246_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.07,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX5732_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 8.03,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "NX21958_zhuang25",
+      "source_key": "zhuang25_nexus_wfss",
+      "source_url": "https://arxiv.org/e-print/2505.20393v1",
+      "source_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
+      "source_member": "primary_source_checks.json",
+      "evidence": "Independently retrieved HTML table cells in primary_source_checks.json",
+      "expected": {
+        "log_mbh_msun_std": 6.94,
+        "log_mbh_err_plus_std": null,
+        "log_mbh_err_minus_std": null
+      },
+      "note": "https://arxiv.org/html/2505.20393v1",
+      "locator": "Quoted source row / mass column in primary_source_checks.json"
+    },
+    {
+      "measurement_id": "J06471045_killi24",
+      "source_key": "killi24_j0647_lrd_blagn",
+      "source_url": "https://api.crossref.org/works/10.1051/0004-6361/202348857",
+      "source_archive_sha256": "61127a43e9f46a6d9935e58d3928fa2f06c09977c6c14b33d9a5a1a97901118b",
+      "source_member": "killi-published-crossref.json",
+      "source_member_sha256": "61127a43e9f46a6d9935e58d3928fa2f06c09977c6c14b33d9a5a1a97901118b",
+      "locator": "message.abstract, final single-epoch Halpha mass",
+      "evidence": "M_BH=8(+0.5,-0.4) x 10^8 Msun; z=4.5319 +/- 0.0001",
+      "expected": {
+        "log_mbh_msun_std": 8.90308999,
+        "log_mbh_err_plus_std": 0.02632894,
+        "log_mbh_err_minus_std": 0.02227639
+      },
+      "note": "Published linear central mass and both bounds converted with log10, rounded to eight decimals."
+    }
+  ]
+}

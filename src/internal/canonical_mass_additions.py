@@ -69,10 +69,10 @@ SOURCE_METADATA = {
     },
     "killi24_j0647_lrd_blagn": {
         "survey": "JWST GO-1433", "field": "MACS J0647", "table": "Published J0647-1045 measurements",
-        "version": "A&A 691, A52 (2024); arXiv:2312.03065",
+        "version": "A&A 691, A52 (2024); publisher-deposited final abstract",
         "url": "https://doi.org/10.1051/0004-6361/202348857", "doi": "10.1051/0004-6361/202348857",
-        "archive": "https://arxiv.org/e-print/2312.03065",
-        "sha": "09ebbff37380c784ba957221a7466cc378dab247cf930ddd5c031aca11d2bd3a",
+        "archive": "https://api.crossref.org/works/10.1051/0004-6361/202348857",
+        "sha": "61127a43e9f46a6d9935e58d3928fa2f06c09977c6c14b33d9a5a1a97901118b",
         "selection": "JWST/NIRSpec PRISM broad-Halpha LRD with a published numerical virial mass",
     },
     "ubler24_zs7_offset_blagn": {

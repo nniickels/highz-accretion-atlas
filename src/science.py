@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 
 from src.internal.uncertainty import (
+    reported_error_scope,
     asymmetric_normal_samples, resolve_mbh_uncertainty, summarize_distribution,
 )
 from src import models
@@ -254,14 +255,17 @@ def build_accretion_history(
                 "current_fedd_is_instantaneous_not_history": True,
                 "n_samples": n_samples,
                 "random_seed": random_seed,
-                "reported_statistical_errors_sampled": has_reported_error,
-                "statistical_error_model": (
+                "reported_mass_errors_sampled": has_reported_error,
+                "reported_mass_error_scope": reported_error_scope(
+                    str(obj["source_key"]), has_reported_error,
+                ),
+                "reported_mass_error_model": (
                     "split_normal_in_log_mbh" if has_reported_error
-                    else "point_estimate_no_statistical_distribution"
+                    else "point_estimate_no_reported_error_distribution"
                 ),
                 "log_mbh_sigma_plus_used": uncertainty.sigma_plus,
                 "log_mbh_sigma_minus_used": uncertainty.sigma_minus,
-                "systematic_combined_with_statistical_error": False,
+                "additional_systematic_scatter_added": False,
             })
     return pd.DataFrame(rows)
 

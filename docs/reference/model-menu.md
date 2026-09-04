@@ -16,7 +16,7 @@ Implemented comparisons include:
 - thin/slim-disk effective efficiencies across three spin cases;
 - merger boosts of one and two in the visual atlas;
 - two-state duty-cycle sensitivities with burst `f_Edd` of 1, 2, or 3;
-- source-reported statistical mass uncertainty and separately stated method
+- source-reported mass uncertainty and separately stated method
   systematics;
 - alternate-measurement sensitivity.
 

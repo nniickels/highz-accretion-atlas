@@ -75,3 +75,7 @@ The deterministic raw inputs are
 `data/raw/fei26_glimpse_blagn_tables1_2_new.csv`. Source versions, checksums,
 roles, and review dates are also recorded in
 `data/source_provenance_registry.csv`.
+
+The subsequent [publication-version sensitivity test](mass-error-and-publication-revision-audit.md)
+compares the revised Baccus table with all 49 frozen objects. Headline growth
+counts and the top five are unchanged in both tested membership treatments.

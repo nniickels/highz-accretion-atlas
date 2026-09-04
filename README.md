@@ -189,5 +189,6 @@ currently represented by catalogue rows:
 
 Reproduction compares regenerated CSV values and PNG pixels with an independent
 baseline before refreshing hashes; see [reproduction and intentional updates](docs/guides/reproducibility.md).
-Independent source fixtures cover all 32 families with 1,309 field checks;
-this is representative coverage, not an exhaustive audit of all fields.
+Independent source fixtures cover all 32 families with 2,041 field checks;
+all 244 numerical masses and both error bounds are independently checked.
+Other observable fields retain representative coverage.

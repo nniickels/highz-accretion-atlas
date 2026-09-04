@@ -308,7 +308,7 @@ def validate_v7_admission(catalogue: pd.DataFrame) -> None:
     if catalogue.loc[eddington_ratio, "edd_ratio_method"].map(_nonempty).eq(False).any():
         raise ValueError("Numeric Eddington ratios require edd_ratio_method")
     if catalogue.loc[mass, "mbh_statistical_uncertainty_kind"].map(_nonempty).eq(False).any():
-        raise ValueError("Numeric masses require statistical-uncertainty semantics")
+        raise ValueError("Numeric masses require source-reported uncertainty semantics")
     if catalogue.loc[mass, "mass_comparability_group"].eq("no_numeric_mass").any():
         raise ValueError("Numeric masses cannot use no_numeric_mass")
     if catalogue.loc[~mass, "mass_comparability_group"].ne("no_numeric_mass").any():
@@ -320,7 +320,7 @@ def validate_v7_admission(catalogue: pd.DataFrame) -> None:
         lambda value: _strict_bool(value, "mbh_systematic_applied_flag")
     )
     if (systematic & applied_systematic).any():
-        raise ValueError("v7 admission requires calibration systematics separate from statistical errors")
+        raise ValueError("v7 admission forbids adding separate calibration scatter to reported mass errors")
     if (applied_systematic & ~systematic).any():
         raise ValueError("A mass systematic cannot be applied when no numeric systematic is recorded")
     if (systematic & ~mass).any():

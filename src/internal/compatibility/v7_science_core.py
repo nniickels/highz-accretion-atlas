@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 
 from src.internal.uncertainty import (
+    reported_error_scope,
     asymmetric_normal_samples,
     resolve_mbh_uncertainty,
     summarize_distribution,
@@ -148,7 +149,7 @@ def build_point_ranking(catalogue: pd.DataFrame) -> pd.DataFrame:
     result.loc[available, "required_log_mseed_fedd0p3_systematic_high"] = _required_mseed(
         mass[available] + systematic[available], redshift[available], 0.3,
     )
-    result["systematic_combined_with_statistical_error"] = False
+    result["additional_systematic_scatter_added"] = False
     result["global_rank_policy"] = "navigation_only_no_cross_class_science_claim"
     result["demographic_inference_allowed"] = False
     result["current_edd_ratio_comparison_status"] = np.select(
@@ -185,7 +186,7 @@ def build_uncertainty_ranking(
     n_samples: int = DEFAULT_N_SAMPLES,
     random_seed: int = DEFAULT_RANDOM_SEED,
 ) -> pd.DataFrame:
-    """Sample reported statistical mass errors without folding in systematics."""
+    """Sample source-reported mass errors without adding separate systematics."""
     rows = []
     metadata = [
         "science_release", "input_catalogue_release", "catalogue_view", "ranking_id",
@@ -211,15 +212,18 @@ def build_uncertainty_ranking(
             **{field: source.get(field, np.nan) for field in metadata},
             "n_samples": int(n_samples),
             "random_seed": int(random_seed),
-            "reported_statistical_errors_sampled": has_reported_error,
-            "statistical_error_model": (
+            "reported_mass_errors_sampled": has_reported_error,
+            "reported_mass_error_scope": reported_error_scope(
+                str(source["source_key"]), has_reported_error,
+            ),
+            "reported_mass_error_model": (
                 "split_normal_in_log_mbh" if has_reported_error
-                else "point_estimate_no_statistical_distribution"
+                else "point_estimate_no_reported_error_distribution"
             ),
             "log_mbh_sigma_plus_used": spec.sigma_plus,
             "log_mbh_sigma_minus_used": spec.sigma_minus,
             "mbh_uncertainty_mode": spec.mode,
-            "systematic_combined_with_statistical_error": False,
+            "additional_systematic_scatter_added": False,
             **summarize_distribution(required_fedd, prefix="required_fedd_seed1e2"),
             "prob_required_fedd_seed1e2_gt_1": (
                 float(np.mean(required_fedd > 1.0)) if has_reported_error else np.nan
@@ -247,7 +251,7 @@ def build_uncertainty_ranking(
         "point_estimate_no_reported_mbh_error"
     )
     result.loc[point_only, "uncertainty_pressure_tier"] = (
-        "point_estimate_only_no_statistical_error"
+        "point_estimate_only_no_reported_mass_error"
     )
     # Ranking helper expects this deterministic tie-break field.
     result["required_fedd_seed1e2"] = result["required_fedd_seed1e2_p50"]

@@ -16,8 +16,10 @@ Supported interpretation scopes are:
 
 Pooled demographic inference is forbidden. The machine-readable selection
 registry leaves inverse weights unset unless a valid inclusion-probability model
-exists; none currently does. Statistical mass errors are sampled
-without combining them with method systematics. The 209-row exclusion audit is
+exists; none currently does. Source-reported mass errors are sampled
+without adding separate method systematics. ZS7's published 0.4-dex error
+already includes calibration scatter and is retained once. Other reported
+errors are not assumed to have purely statistical components. The 209-row exclusion audit is
 the union of 106 ineligible measurement rows and 103 ineligible object rows; all
 remain in the catalogue.
 
@@ -28,7 +30,7 @@ manuscript formula). The manuscript top-five table sorts by
 `required_fedd_seed1e2`: GS-20057765 is third; COSMOS3D-13852 is fourth but third
 in composite navigation order.
 
-Twelve NEXUS masses have no reported statistical errors. Their repeated point
+Twelve NEXUS masses have no reported mass errors. Their repeated point
 values in the uncertainty CSVs have `mbh_uncertainty_mode` equal to
 `point_estimate_no_reported_mbh_error`. Probabilities and uncertainty ranks are
 unavailable; zero-width intervals are not statistical certainty. Summary plots put these objects in a

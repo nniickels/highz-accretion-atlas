@@ -20,3 +20,6 @@ The suite covers:
 CI additionally executes source-provenance verification, in-memory v1/v2/v3
 catalogue/science/compatibility reproduction, and the full notebook workflow
 with independent CSV and PNG comparisons before refreshing hashes.
+
+`test_mass_review.py` checks complete numerical-mass coverage, Killi's linear
+bounds, ZS7's included calibration scatter, and Baccus revision scenarios.

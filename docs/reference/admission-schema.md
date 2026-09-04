@@ -10,7 +10,7 @@ Admission validation requires:
 1. unique measurement IDs and exactly one preferred measurement per object;
 2. controlled evidence, class, lensing, and mass-comparability values;
 3. nonempty bases for candidate, disputed, conditional, or excluded rows;
-4. separate statistical and method-systematic uncertainty fields;
+4. source-reported error and additional method-systematic fields;
 5. reviewed identity decisions for candidate cross-source matches;
 6. source-local observables with measurement-level provenance;
 7. exact measurement/object/host cardinalities and nested v1 < v2 < v3 membership;

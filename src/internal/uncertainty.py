@@ -66,3 +66,12 @@ def summarize_distribution(values: np.ndarray, *, prefix: str) -> dict[str, floa
         f"{prefix}_p84": float(p84),
         f"{prefix}_p95": float(p95),
     }
+
+
+def reported_error_scope(source_key: str, has_reported_error: bool) -> str:
+    """Describe retained source errors; no statistical-only assumption is made."""
+    if not has_reported_error:
+        return "not_reported"
+    if source_key == "ubler24_zs7_offset_blagn":
+        return "includes_source_calibration_scatter"
+    return "as_published_components_not_decomposed"

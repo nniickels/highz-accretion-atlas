@@ -132,17 +132,17 @@
     {
       "source_key": "killi24_j0647_lrd_blagn",
       "measurement_id": "J06471045_killi24",
-      "source_url": "https://arxiv.org/e-print/2312.03065",
-      "source_archive_sha256": "09ebbff37380c784ba957221a7466cc378dab247cf930ddd5c031aca11d2bd3a",
-      "source_member": "main.tex",
-      "source_member_sha256": "7f612e324cd688822076ae89fa9772da75522ca09ca8fe5cd6a54a1d5e117173",
-      "locator": "RA=101.933406, Dec=70.198268,",
-      "evidence": "\\caption[\\lrd F115W image]{RGB image (created using the F115W, F277W, and F444W NIRCam filters) of \\lrd, with the NIRSpec slits (magenta rectangles) overlaid. The image is centered on the coordinates of the source at RA=101.933406, Dec=70.198268, and is 2\\,arcsec on a side.}",
+      "source_url": "https://api.crossref.org/works/10.1051/0004-6361/202348857",
+      "source_archive_sha256": "61127a43e9f46a6d9935e58d3928fa2f06c09977c6c14b33d9a5a1a97901118b",
+      "source_member": "killi-published-crossref.json",
+      "source_member_sha256": "61127a43e9f46a6d9935e58d3928fa2f06c09977c6c14b33d9a5a1a97901118b",
+      "locator": "message.abstract",
+      "evidence": "Published redshift z=4.5319 +/- 0.0001; central mass 8e8 Msun",
       "expected": {
-        "ra_deg": 101.933406,
-        "dec_deg": 70.198268
+        "redshift": 4.5319,
+        "log_mbh_msun_std": 8.90308999
       },
-      "note": "Coordinates agree between preprint and publication. The pinned preprint differs from the published redshift and formal mass errors; this anchor does not certify those fields."
+      "note": "Final publisher-deposited abstract supersedes preprint numerical values; complete_mass_checks.json checks both asymmetric errors."
     },
     {
       "source_key": "kocevski25_lrd_blagn",

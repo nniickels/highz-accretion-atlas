@@ -153,7 +153,7 @@ v2-dataset-catalogue,CEERS1019_larson23__log_mbh,CEERS1019_larson23,CEERS-1019,l
 v2-dataset-catalogue,CEERS1019_larson23__hbeta_broad_fwhm,CEERS1019_larson23,CEERS-1019,hbeta_broad_fwhm,1200.0,,,detection,km/s,not_published,Published CEERS 1019 measurements
 v2-dataset-catalogue,CEERS1019_larson23__log_mstar,CEERS1019_larson23,CEERS-1019,log_mstar,9.5,,,detection,log10(Msun),not_published,Published CEERS 1019 measurements
 v2-dataset-catalogue,CEERS1019_larson23__edd_ratio,CEERS1019_larson23,CEERS-1019,edd_ratio,1.2,0.5,0.5,detection,dimensionless,published_symmetric_1sigma,Published CEERS 1019 measurements
-v2-dataset-catalogue,J06471045_killi24__log_mbh,J06471045_killi24,J0647-1045,log_mbh,8.9,0.03,0.03,detection,log10(Msun),published_symmetric_1sigma,Published J0647-1045 measurements
+v2-dataset-catalogue,J06471045_killi24__log_mbh,J06471045_killi24,J0647-1045,log_mbh,8.90308999,0.02632894,0.02227639,detection,log10(Msun),published_asymmetric,Published J0647-1045 measurements
 v2-dataset-catalogue,J06471045_killi24__halpha_broad_fwhm,J06471045_killi24,J0647-1045,halpha_broad_fwhm,4300.0,,,detection,km/s,not_published,Published J0647-1045 measurements
 v2-dataset-catalogue,ZS7_ubler24__log_mbh,ZS7_ubler24,ZS7,log_mbh,7.7,0.4,0.4,detection,log10(Msun),published_symmetric_1sigma,Table 2
 v2-dataset-catalogue,ZS7_ubler24__hbeta_broad_fwhm,ZS7_ubler24,ZS7,hbeta_broad_fwhm,3660.0,300.0,300.0,detection,km/s,published_symmetric_1sigma,Table 2

@@ -1,0 +1,4 @@
+scenario,numerical_objects,matched_baccus_objects,unmatched_baccus_objects,point_required_fedd_gt_1,median_required_fedd_gt_1,p16_required_fedd_gt_1,p84_required_fedd_gt_1,prob_required_fedd_gt_1_ge_095,top5_required_fedd,n_samples,random_seed,interpretation
+frozen_v1_measurements,237,44,5,14,14,10,15,8,UNCOVER-20466;GN-z11;GS-20057765;COSMOS3D-13852;RUBIES-EGS-55604,10000,20260808,measurement-version sensitivity at fixed evidence/method taxonomy; not demographic inference
+published_values_keep_unmatched,237,44,5,14,14,10,15,8,UNCOVER-20466;GN-z11;GS-20057765;COSMOS3D-13852;RUBIES-EGS-55604,10000,20260808,measurement-version sensitivity at fixed evidence/method taxonomy; not demographic inference
+published_values_omit_unmatched,232,44,5,14,14,10,15,8,UNCOVER-20466;GN-z11;GS-20057765;COSMOS3D-13852;RUBIES-EGS-55604,10000,20260808,measurement-version sensitivity at fixed evidence/method taxonomy; not demographic inference

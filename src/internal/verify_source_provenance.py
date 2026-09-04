@@ -27,6 +27,9 @@ ARTIFACTS = {
     "data/manual_extraction_audit.csv",
     "data/validation/primary_source_checks.json",
     "data/validation/primary_family_anchors.json",
+    "data/validation/complete_mass_checks.json",
+    "data/validation/source_inputs/killi-published-crossref.json",
+    "data/validation/source_inputs/baccus_published_table1.txt",
 }
 
 

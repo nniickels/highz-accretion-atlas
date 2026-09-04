@@ -29,7 +29,7 @@ objects in 339 host systems and 32 source families. Of these, 237 objects have a
 canonical, method-comparable numerical black-hole mass and enter the growth
 analysis; the remaining 103 are retained as explicit no-inference records. We
 compare each eligible object with an analytic exponential-growth model, propagate
-published asymmetric statistical mass errors with 10,000 deterministic Monte
+published asymmetric mass errors with 10,000 deterministic Monte
 Carlo draws, and preserve mass-method systematics as separate envelopes. Under
 the reference assumptions $z_{\rm seed}=30$, radiative efficiency
 $\epsilon=0.1$, no merger boost, and a $10^2\,M_\odot$ seed, 14 objects require
@@ -102,9 +102,9 @@ Each measurement carries stable measurement, physical-object, and host-system
 identifiers. Source-native values, adopted standardized values, uncertainty
 semantics, table locations, URLs, DOI or archive versions, archive SHA-256
 hashes where available, extraction dates, and caveat tags are retained. The
-manual-extraction audit covers 26 immutable row-level artifacts, while the
-provenance registry contains 36 records covering all 32 admitted source
-families. Auxiliary coordinate and contextual sources are attributed separately
+manual-extraction audit covers 26 hash-pinned extraction artifacts, while the
+provenance registry contains 38 records covering all 32 admitted source
+families. Independent checks cover all 244 numerical masses and both error fields. Auxiliary coordinate and contextual sources are attributed separately
 to the THRILS catalogue \cite{hutchison2025}, the UHZ1 spectroscopy paper
 \cite{goulding2023}, and the versioned JADES DR3 GOODS-S prism catalogue.
 
@@ -214,21 +214,27 @@ from the baseline required-$\fedd$ ranking.
 
 \subsection{Uncertainty and ranking policy}
 
-Published asymmetric statistical uncertainties in $\log_{10}\mbh$ are
+Published asymmetric mass uncertainties in $\log_{10}\mbh$ are
 propagated with 10,000 deterministic split-side draws per measurement and per
-preferred object. If a source gives no statistical error, the atlas does not
+preferred object. If a source gives no reported mass error, the atlas does not
 invent one. In particular, the twelve mass-bearing NEXUS objects have no
-published statistical mass errors. Their repeated point values yield zero-width
+published mass errors. Their repeated point values yield zero-width
 stored intervals; probabilities and uncertainty ranks are left unavailable,
 not interpreted as certainty. They are marked separately in uncertainty figures. The other
-225 objects have reported statistical errors. Split-side sampling assigns half
+225 objects have reported mass errors. Split-side sampling assigns half
 the probability to each side of the reported central value, using the respective
 error as the scale of a half-normal distribution; it approximates quoted
 intervals rather than reconstructing source posteriors.
-Reported virial-calibration or method-scale systematics are stored
-and, where possible, mapped to separate sensitivity envelopes; they are not
-combined with statistical errors as though they were independent Gaussian
-terms.
+Source-reported errors are retained as quoted and are not assumed to be
+purely statistical. For ZS7, the published 0.4-dex error already includes
+virial-calibration scatter. No additional scatter is added to that error.
+Separately reported method-scale systematics are stored and, where possible,
+mapped to sensitivity envelopes; the atlas does not assume that these terms
+are independent Gaussian errors.
+
+The final published Killi mass $8^{+0.5}_{-0.4}\times10^8M_\odot$
+is converted by transforming both linear bounds, giving
+$\log_{10}(M/M_\odot)=8.90309^{+0.02633}_{-0.02228}$.
 
 The primary scientific comparison is within object class and mass-comparability
 group. Global point and uncertainty ranks are retained only for navigation.
@@ -283,7 +289,7 @@ $\fedd$ values, independent of the composite score.
 \begin{table}[ht]
 \centering
 \caption{Highest point-estimate required $\fedd$ for a $10^2\,M_\odot$ seed under
-the reference assumptions. Intervals propagate published statistical mass
+the reference assumptions. Intervals propagate published mass
 errors only.}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
@@ -299,26 +305,37 @@ RUBIES-EGS-55604 & 6.986 & 9.31 & 1.267 & 1.250--1.284 \\
 \label{tab:top}
 \end{table}
 
-\subsection{Robustness to reported statistical uncertainty}
+\subsection{Robustness to reported mass uncertainty}
 
 The Monte Carlo results preserve the point-estimate conclusion for the strongest
 objects. Fourteen objects have median required $\fedd>1$, ten remain above unity
 at the 16th percentile, and 15 cross unity by the 84th percentile. Eight objects
 have $P(\fedd>1)\geq0.95$. These probabilities are conditional on the reported
-statistical errors and the reference growth assumptions; they do not include a
-shared virial-calibration uncertainty or uncertainty in seed redshift,
+source-reported errors and the reference growth assumptions; they do not add a
+common virial-calibration uncertainty or uncertainty in seed redshift,
 radiative efficiency, and merger history.
 
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_monte_carlo_summary.png}
-\caption{Uncertainty summary for 225 objects with reported statistical errors
+\caption{Uncertainty summary for 225 objects with reported mass errors
 and 12 point estimates without mass errors, shown as open diamonds on the
 ``No error'' row. Point size encodes the 16th--84th percentile width for sampled
 objects. The accounting panel retains all
 103 catalogue-only objects.}
 \label{fig:uncertainty}
 \end{figure}
+
+A separate publication-version check replaces the frozen Baccus v1
+measurements for 44 exact-ID, position-confirmed counterparts with the
+published Table~1 values. Five frozen objects lack a published-table
+counterpart. Both retaining and omitting those five objects preserve the
+headline uncertainty counts above and the top five by required $\fedd$.
+The 32 changed central masses shift by $-0.10$ to $+0.04$ dex. This is a
+measurement-version sensitivity test with fixed evidence/method taxonomy;
+it does not constitute a new admission of the complete published sample.
+The object-level comparison and three-scenario summary are distributed
+with the v3 science tables.
 
 \subsection{Model compatibility and measurement choice}
 
@@ -368,7 +385,7 @@ trade-offs for each object rather than collapse them into a single formation
 label.
 
 The most useful targets are therefore those whose placement is both demanding
-and stable to published statistical uncertainty. Independent mass measurements,
+and stable to published mass uncertainty. Independent mass measurements,
 better separation of broad-line-region kinematics from scattering or outflows,
 and constraints on obscuration and lensing can change the physical
 interpretation more than another evaluation of the same analytic formula. The
