@@ -25,6 +25,8 @@ ARTIFACTS = {
     "data/source_provenance_registry.csv",
     "data/selection_function_registry.csv",
     "data/manual_extraction_audit.csv",
+    "data/validation/primary_source_checks.json",
+    "data/validation/primary_family_anchors.json",
 }
 
 
@@ -50,7 +52,7 @@ def build_manifest(
     selection: pd.DataFrame,
     audit: pd.DataFrame,
 ) -> dict[str, object]:
-    """Build the deterministic manifest for the three evidence registries."""
+    """Build the deterministic manifest for the evidence registries and independent source fixtures."""
     manifest = manifest_metadata(registry, selection, audit)
     manifest["artifacts"] = {
         relative: hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()

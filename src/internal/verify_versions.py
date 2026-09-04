@@ -9,6 +9,7 @@ from PIL import Image
 from src.datasets import DATASET_SPECS
 from src.internal.dataset_manifests import verify_manifest
 from src.internal.build_results_inventory import collect_inventory
+from src.internal import atlas
 from src.internal.atlas import (
     MERGER_CASES,
     SEED_MODELS,
@@ -153,6 +154,15 @@ def verify_reproduction() -> None:
             random_seed=DEFAULT_RANDOM_SEED,
         )
         table_dir = ROOT / "results" / version / "tables"
+        previous_version = atlas.VERSION
+        try:
+            atlas.VERSION = version
+            assert_csv_reproduction(
+                table_dir / f"{version}_all_object_compatibility.csv",
+                atlas.build_object_compatibility(objects),
+            )
+        finally:
+            atlas.VERSION = previous_version
         for name, frame in science_outputs.items():
             assert_csv_reproduction(table_dir / f"{version}_{name}.csv", frame)
 

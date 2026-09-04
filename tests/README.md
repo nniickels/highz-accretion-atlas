@@ -15,5 +15,8 @@ The suite covers:
 - `test_scientific_claims.py`: headline v3 catalogue, correction, ranking, and coverage claims
 - `test_independent_validation.py`: primary-source values, independent numerical integration, manuscript ranking, and missing-error handling
 
-CI additionally executes source-provenance verification and exact in-memory
-v1/v2/v3 catalogue and science reproduction.
+- `test_reproduction_gate.py`: changed scientific values, rendered pixels, and missing artifacts are rejected
+
+CI additionally executes source-provenance verification, in-memory v1/v2/v3
+catalogue/science/compatibility reproduction, and the full notebook workflow
+with independent CSV and PNG comparisons before refreshing hashes.

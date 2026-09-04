@@ -1,0 +1,1516 @@
+{
+  "scope": "Independent regression anchors for the 28 families not covered by the four-table fixture, including all 49 admitted Baccus rows. Representative anchors are not an exhaustive field-by-field audit.",
+  "review_date": "2026-09-04",
+  "anchors": [
+    {
+      "source_key": "chisholm24_gn42437_nev",
+      "measurement_id": "GN42437_chisholm24",
+      "source_url": "https://arxiv.org/e-print/2402.18643v1",
+      "source_archive_sha256": "ab98563fce8a805b69cee20b9f4e96bdb138e7028126cb2f4c09da3d0ce1d088",
+      "source_member": "example.tex",
+      "source_member_sha256": "260230b67e87dfa68ecf77190688503a991c28922edde810c528130c2efcc404",
+      "locator": "$z_\\text{spec}",
+      "evidence": "\\caption{Galaxy properties of GN~42437 derived from the HST+\\textit{JWST} photometry and spectra. The right ascension and declination are the coordinates of GN~42437 in the MSA configuration file. The spectroscopic redshift, $z_\\text{spec}$, was measured as the median redshift of the H$\\alpha$, [\\ion{O}{iii}]~5008~\\AA, [\\ion{O}{iii}]~4960~\\AA, and [\\ion{Ne}{iii}]~3970~\\AA\\ emission lines. The stellar mass (log($M_\\ast$)) was calculated from the \\textsc{bagpipes} SED model fitting using both the imaging and spectra (\\autoref{properties}) and the star formation rate (SFR) was determined using the H$\\alpha$ emission line and the \\citet{kennicutt2012} prescription. The dynamical mass (M$_{\\rm dyn}$) was calculated using the intrinsic H$\\alpha$ line width and the size of the galaxy in the F444W image that traces the H$\\alpha$ (see \\autoref{kinematics}). The absolute UV magnitude ($M_{\\rm UV}$) was measured from the HST imaging \\citep{finkelstein15}.}",
+      "expected": {
+        "redshift": 5.58724,
+        "ra_deg": 189.17219,
+        "dec_deg": 62.30564
+      },
+      "note": "Table 1: coordinates and spectroscopic redshift; no virial mass asserted."
+    },
+    {
+      "source_key": "davis26_thrils_blagn",
+      "measurement_id": "THRILS25501_davis26",
+      "source_url": "https://arxiv.org/e-print/2602.23310v1",
+      "source_archive_sha256": "13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b",
+      "source_member": "main.tex",
+      "source_member_sha256": "3c4735227cb0bd8ff73a9323421959f9a6889c476b067a3e8698a02a5bead620",
+      "locator": "6.55 & 6.57 & 25501",
+      "evidence": "6.55 & 6.57 & 25501 & $0.69 \\pm 0.40$ & $0.93 \\pm 0.06$ & 16205 & $6.59 \\pm 0.21$ \\\\",
+      "expected": {
+        "redshift": 6.57,
+        "log_mbh_msun_std": 6.59,
+        "log_mbh_err_plus_std": 0.21,
+        "log_mbh_err_minus_std": 0.21
+      },
+      "note": ""
+    },
+    {
+      "source_key": "fei26_glimpse_blagn",
+      "measurement_id": "GLIMPSE41299_fei26",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "41299 & $648.9",
+      "evidence": "41299 & $648.9_{-92.8}^{+127.4}$ & $109.3_{-13.1}^{+13.4}$ & $41.79_{-0.06}^{+0.05}$ & $43.20_{-0.06}^{+0.05}$ & $44.21_{-0.06}^{+0.05}$ & $5.79_{-0.15}^{+0.17}$ & $1.77_{-0.21}^{+0.22}$ & $7.61_{-0.26}^{+0.16}$ &7.97 \\\\",
+      "expected": {
+        "log_mbh_msun_std": 5.79,
+        "log_mbh_err_plus_std": 0.17,
+        "log_mbh_err_minus_std": 0.15
+      },
+      "note": "Table 2 demagnified mass and its asymmetric errors."
+    },
+    {
+      "source_key": "fei26_glimpse_blagn",
+      "measurement_id": "GLIMPSE41299_fei26",
+      "source_url": "https://arxiv.org/e-print/2509.20452v3",
+      "source_archive_sha256": "c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1",
+      "source_member": "ms_v0.tex",
+      "source_member_sha256": "9019bcb3fb363d09dd1e2ef216c157d8ae73711638ce021a22aed9460adad319",
+      "locator": "41299  & 6.865",
+      "evidence": "41299 & 6.865 & 342.229431 & -44.538002 & 1.6 & -18.70 & 11.06 & -46.05 \\\\",
+      "expected": {
+        "redshift": 6.865,
+        "ra_deg": 342.229431,
+        "dec_deg": -44.538002,
+        "lensing_mu": 1.6
+      },
+      "note": ""
+    },
+    {
+      "source_key": "greene24_uncover_blagn",
+      "measurement_id": "UNCOVER20466_greene24",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "20466$^b$ & 203",
+      "evidence": "20466$^b$ & 203$\\pm$154 & 3439$\\pm$413 & 2.3$\\pm$0.2 & 4817 & 410 & 43.8 & 8.17$\\pm$0.42 & 45.8$^{+0.3}_{-0.1}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.17,
+        "log_mbh_err_plus_std": 0.42,
+        "log_mbh_err_minus_std": 0.42
+      },
+      "note": "Table 3; published error is retained, not relabelled as an independent calibration estimate."
+    },
+    {
+      "source_key": "greene24_uncover_blagn",
+      "measurement_id": "UNCOVER20466_greene24",
+      "source_url": "https://arxiv.org/e-print/2309.05714",
+      "source_archive_sha256": "85b361410e913c3c4f103b65cba079490d989c423dfa66d82c26d3c0c972dffe",
+      "source_member": "paper.tex",
+      "source_member_sha256": "f1414c636bdc2614075a3f8b969cca6df4b04a7e5bdc4313906d9d958f8e7455",
+      "locator": "20466 & 3.640409",
+      "evidence": "20466 & 3.640409 & $-$30.386437 & 8.50$\\pm$0.00 & 1.33 & 1.31 & 1.34 & 26.2 & 1.92 & 0.72 & 1 &2 &2.7 \\\\",
+      "expected": {
+        "redshift": 8.5,
+        "ra_deg": 3.640409,
+        "dec_deg": -30.386437,
+        "lensing_mu": 1.33
+      },
+      "note": ""
+    },
+    {
+      "source_key": "harikane23_nirspec_blagn",
+      "measurement_id": "CEERS00717_harikane23",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "CEERS\\_00717 & $1.2",
+      "evidence": "CEERS\\_00717 & $1.2^{+0.3}_{-0.2}\\times10^{42}$& $0.57^{+0.17}_{-0.11}$& $6279^{+805}_{-881}$& $9.8^{+4.4}_{-3.2}\\times10^{7}$& $7.1^{+51.8}_{-4.3}\\times10^{44}$& $0.06^{+0.63}_{-0.04}$\\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.99122608
+      },
+      "note": "Table 3 linear mass 9.8e7 Msun transformed with log10, rounded to eight decimal places as in the frozen extraction."
+    },
+    {
+      "source_key": "harikane23_nirspec_blagn",
+      "measurement_id": "CEERS00717_harikane23",
+      "source_url": "https://arxiv.org/e-print/2303.11946v3",
+      "source_archive_sha256": "02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4",
+      "source_member": "ms_jwst_blagn_v1.tex",
+      "source_member_sha256": "f8f50d7afa8b5f96a4a4d9d841a92f6c64fb5d21060fc2e273f01eaf95b96241",
+      "locator": "CEERS\\_00717 & 14:20",
+      "evidence": "CEERS\\_00717 & 14:20:19.54 & $+$52:58:19.9 & $6.936$ & $-21.49^{+0.12}_{-0.12}$ & $7.87^{+0.17}_{-0.18}$ & 0.00 & 6.1 & \\redc{23.9}\\\\",
+      "expected": {
+        "redshift": 6.936
+      },
+      "note": ""
+    },
+    {
+      "source_key": "killi24_j0647_lrd_blagn",
+      "measurement_id": "J06471045_killi24",
+      "source_url": "https://arxiv.org/e-print/2312.03065",
+      "source_archive_sha256": "09ebbff37380c784ba957221a7466cc378dab247cf930ddd5c031aca11d2bd3a",
+      "source_member": "main.tex",
+      "source_member_sha256": "7f612e324cd688822076ae89fa9772da75522ca09ca8fe5cd6a54a1d5e117173",
+      "locator": "RA=101.933406, Dec=70.198268,",
+      "evidence": "\\caption[\\lrd F115W image]{RGB image (created using the F115W, F277W, and F444W NIRCam filters) of \\lrd, with the NIRSpec slits (magenta rectangles) overlaid. The image is centered on the coordinates of the source at RA=101.933406, Dec=70.198268, and is 2\\,arcsec on a side.}",
+      "expected": {
+        "ra_deg": 101.933406,
+        "dec_deg": 70.198268
+      },
+      "note": "Coordinates agree between preprint and publication. The pinned preprint differs from the published redshift and formal mass errors; this anchor does not certify those fields."
+    },
+    {
+      "source_key": "kocevski25_lrd_blagn",
+      "measurement_id": "RUBIESEGS55604_kocevski25",
+      "source_url": "https://arxiv.org/e-print/2404.03576v3",
+      "source_archive_sha256": "d305676588e2dca634d350f11e20b69568e736de990faae0b681ed0b08ab5b69",
+      "source_member": "main.arxiv.tex",
+      "source_member_sha256": "745d1337f5441a2c93a885a82c523bd59e91089076f7d62174ff503469f613cd",
+      "locator": "CEERS 7902 & RUBIES-CEERS 55604",
+      "evidence": "CEERS 7902 & RUBIES-CEERS 55604 & 214.983037 & 52.956006 & 6.986 & \\Hb & $4860\\pm480$ & $8.36\\pm0.10$ & $9.31\\pm0.10$ & 3.4 & $10.10\\pm0.22$ \\\\",
+      "expected": {
+        "redshift": 6.986,
+        "ra_deg": 214.983037,
+        "dec_deg": 52.956006,
+        "log_mbh_msun_std": 9.31,
+        "log_mbh_err_plus_std": 0.1,
+        "log_mbh_err_minus_std": 0.1
+      },
+      "note": ""
+    },
+    {
+      "source_key": "larson23_ceers1019",
+      "measurement_id": "CEERS1019_larson23",
+      "source_url": "https://arxiv.org/e-print/2303.08918v2",
+      "source_archive_sha256": "aedc3f7bfb3064564e8ba1787c4a69747250d080b5917d7db3c702c50f8d9f18",
+      "source_member": "pdf-plain.txt (text extracted from pinned PDF with pypdf)",
+      "source_member_sha256": "a8bc9b3fcb4ab2fb615e995e6ebee3fb5c346349e34d22648bc33e19a67e1e3b",
+      "locator": "6.95",
+      "evidence": "Abstract: z = 8.679; log(MBH/Msun) = 6.95 +/- 0.37.",
+      "expected": {
+        "redshift": 8.679,
+        "log_mbh_msun_std": 6.95,
+        "log_mbh_err_plus_std": 0.37,
+        "log_mbh_err_minus_std": 0.37
+      },
+      "note": "Published PDF abstract and Table 1."
+    },
+    {
+      "source_key": "lin24_aspire_blagn",
+      "measurement_id": "J0229M0808BHAE2_lin24",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab1.tex",
+      "source_member_sha256": "c865b0f4b84262fc2932c6286e3a4b70723ea5519403c97167a9a6de96cb6c56",
+      "locator": "J0229M0808-BHAE-2",
+      "evidence": "J0229M0808-BHAE-2 & $37.3964$ & $-8.1954$ & 5.0369$\\pm$0.0002 & 25.074$\\pm$0.018 \\\\",
+      "expected": {
+        "redshift": 5.0369,
+        "ra_deg": 37.3964,
+        "dec_deg": -8.1954
+      },
+      "note": ""
+    },
+    {
+      "source_key": "lin24_aspire_blagn",
+      "measurement_id": "J0229M0808BHAE2_lin24",
+      "source_url": "https://arxiv.org/e-print/2407.17570v1",
+      "source_archive_sha256": "fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd",
+      "source_member": "tab3.tex",
+      "source_member_sha256": "f5cbad77311124e7858b23b3606c296e551daab10576053a78c5c887ba1f780e",
+      "locator": "J0229M0808-BHAE-2",
+      "evidence": "J0229M0808-BHAE-2 & $-20.07\\pm0.04$ & $-1.79\\pm0.15$ & $-1.32\\pm0.32$ & $7.72 \\pm 0.15$ & $45.04^{+0.05}_{-0.06}$ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 7.72,
+        "log_mbh_err_plus_std": 0.15,
+        "log_mbh_err_minus_std": 0.15,
+        "log_lbol_erg_s_std": 45.04
+      },
+      "note": ""
+    },
+    {
+      "source_key": "maiolino24_gnz11_agn",
+      "measurement_id": "GNZ11_maiolino24",
+      "source_url": "https://arxiv.org/e-print/2305.12492",
+      "source_archive_sha256": "54f9fff8eeb6cd36569fed43520a8de2aefebb393b37f4401a6d8cd8758ee2fe",
+      "source_member": "gnz11_arXiv_rev_v2.tex",
+      "source_member_sha256": "b6d1e598cf67da92f038fe27d1667f75d49237f0d8cfc3ee50b8e9dcd9bd49ae",
+      "locator": "mass of $\\rm \\log",
+      "evidence": "mass of $\\rm \\log{(M_{BH}/M_{\\odot})}=6.2\\pm 0.3$, accreting at about 5 times the Eddington rate.",
+      "expected": {
+        "log_mbh_msun_std": 6.2,
+        "log_mbh_err_plus_std": 0.3,
+        "log_mbh_err_minus_std": 0.3
+      },
+      "note": ""
+    },
+    {
+      "source_key": "maiolino24_gnz11_agn",
+      "measurement_id": "GNZ11_maiolino24",
+      "source_url": "https://arxiv.org/e-print/2305.12492",
+      "source_archive_sha256": "54f9fff8eeb6cd36569fed43520a8de2aefebb393b37f4401a6d8cd8758ee2fe",
+      "source_member": "gnz11_arXiv_rev_v2.tex",
+      "source_member_sha256": "b6d1e598cf67da92f038fe27d1667f75d49237f0d8cfc3ee50b8e9dcd9bd49ae",
+      "locator": "Dashed lines indicate",
+      "evidence": "\\caption{Zoom in of the spectra of GN-z11 around specific spectral features of interest, along with their single/multiple Gaussian models (see Methods). Dashed lines indicate the rest-frame wavelengths of the lines at z=10.603.",
+      "expected": {
+        "redshift": 10.603
+      },
+      "note": ""
+    },
+    {
+      "source_key": "mascia26_compact_blue_ble",
+      "measurement_id": "uncover256111254_mascia26",
+      "source_url": "https://arxiv.org/e-print/2608.25021v1",
+      "source_archive_sha256": "0e63fcb489cfea4bc1bcf2a4dc6f39cb7be9fa202800ecd227203adaa8058c01",
+      "source_member": "main.tex",
+      "source_member_sha256": "c4b7727540833000db3f2ae902f1e733f06be3de873adc72a7262aa601c0ecf6",
+      "locator": "uncover\\_2561\\_11254       &",
+      "evidence": "uncover\\_2561\\_11254 & $6.877$ & $3.5804$ & $-30.4050$ & $-2.24 \\pm 0.03$ & $-0.62 \\pm 0.44$ & $0.94$ & $4.25$ & $1.70$ & $1.14$ \\\\",
+      "expected": {
+        "redshift": 6.877,
+        "ra_deg": 3.5804,
+        "dec_deg": -30.405
+      },
+      "note": ""
+    },
+    {
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "measurement_id": "GOODSN9771_matthee23",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "GOODS-N-9771  & 12:37",
+      "evidence": "GOODS-N-9771 & 12:37:07.44 & +62:14:50.31 & 5.538 \\\\",
+      "expected": {
+        "redshift": 5.538
+      },
+      "note": ""
+    },
+    {
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "measurement_id": "GOODSN9771_matthee23",
+      "source_url": "https://arxiv.org/e-print/2306.05448v3",
+      "source_archive_sha256": "b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190",
+      "source_member": "ms.tex",
+      "source_member_sha256": "995e2efd5572f30de4710363eece5978eebcedd0cfe0f0a8edca2377a4f9fde9",
+      "locator": "GOODS-N-9771 & $8.55",
+      "evidence": "GOODS-N-9771 & $8.55\\pm0.03$ & $ 65.8 \\pm 1.6 $ & $-19.5\\pm0.1$ & $ -0.61^{+0.13}_{-0.13} $ & $ 0.76^{+0.31}_{-0.36} $ \\\\",
+      "expected": {
+        "log_mbh_msun_std": 8.55,
+        "log_mbh_err_plus_std": 0.03,
+        "log_mbh_err_minus_std": 0.03
+      },
+      "note": ""
+    },
+    {
+      "source_key": "mazzolari24_ceers_nlagn",
+      "measurement_id": "CEERS23_mazzolari24",
+      "source_url": "https://arxiv.org/e-print/2408.15615v3",
+      "source_archive_sha256": "d0da56ea146d2caef47e37377c90bfe4ea27b6a72d91b6736b9592d80a48487c",
+      "source_member": "aa51860-24corr.tex",
+      "source_member_sha256": "a00daad332a1816a893ee7fe17a26c495c88f76b5c134a82ff8f708e27916016",
+      "locator": "CEERS-23* &",
+      "evidence": "CEERS-23* & 8.8802 & N5 & 44.92 ([OIII]) & x & 9.17 & 36 & \\\\",
+      "expected": {
+        "redshift": 8.8802,
+        "log_lbol_erg_s_std": 44.92,
+        "log_mstar_msun_std": 9.17
+      },
+      "note": ""
+    },
+    {
+      "source_key": "meow26_miri_agn",
+      "measurement_id": "GN903_meow26",
+      "source_url": "https://arxiv.org/e-print/2607.02666v1",
+      "source_archive_sha256": "9d1ac3b960b74594929da14c89f2a85737f508ff5e083ea6828b14cab36264b5",
+      "source_member": "tab_sample.tex",
+      "source_member_sha256": "83e4084ba290903deb4c553d6f3c7552d17ac74d3dad27f6baae2a74e28f2d30",
+      "locator": "GN-903 &",
+      "evidence": "GN-903 & 189.198327 & 62.297038 & 7.0337 & Y & $45.88 \\pm 0.33$ & $0.66 \\pm 0.20$ & \\nodata \\\\",
+      "expected": {
+        "redshift": 7.0337,
+        "ra_deg": 189.198327,
+        "dec_deg": 62.297038,
+        "log_lbol_erg_s_std": 45.88
+      },
+      "note": ""
+    },
+    {
+      "source_key": "naidu26_mom_bhstar1",
+      "measurement_id": "MoMBHstar1_naidu26",
+      "source_url": "https://www.nature.com/articles/s41586-026-10846-4.pdf",
+      "source_archive_sha256": "6145f8339ed2723fb2a1f2f068e8c5e429d54cdec3790d2702f791094eb4807c",
+      "source_member": "pdf-plain.txt (text extracted from pinned PDF with pypdf)",
+      "source_member_sha256": "44038294087cbf8338e84c7483fee7fe9f92704e45bbc5a5f549346554768872",
+      "locator": "zspec = 7.7569",
+      "evidence": "zspec = 7.7569 \u00b1 0.013",
+      "expected": {
+        "redshift": 7.7569
+      },
+      "note": "Figure 1 spectroscopic redshift. Its gas-envelope mass interpretation is not a comparable single-epoch virial mass."
+    },
+    {
+      "source_key": "napolitano25_ghz9",
+      "measurement_id": "GHZ9_napolitano25",
+      "source_url": "https://arxiv.org/e-print/2410.18763",
+      "source_archive_sha256": "744860e9ed4a4c9b25f00ccae1df29adf79546bf16b9d01694435901e99d6691",
+      "source_member": "main.tex",
+      "source_member_sha256": "938057294261326d331791aabeb32326f4375c4af677f769f9933ce26af7d3ae",
+      "locator": "We present James Webb Space Telescope",
+      "evidence": "Abstract: GHZ9 at z=10.145 +/- 0.010.",
+      "expected": {
+        "redshift": 10.145
+      },
+      "note": "The X-ray mass depends on the assumed Eddington fraction; retained as context, not canonical mass."
+    },
+    {
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "measurement_id": "DC536534_ren25",
+      "source_url": "https://arxiv.org/e-print/2509.02027v2",
+      "source_archive_sha256": "c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca",
+      "source_member": "PaperDrafts_MN.tex",
+      "source_member_sha256": "b486779d2471a325697b56138e818e85d2297da0615d974c87599216669aa2e4",
+      "locator": "DC\\_536534 & 149.9718537",
+      "evidence": "DC\\_536534 & 149.9718537 & 2.1181852 & 5.6886 & $11.69 \\pm 1.43$ & $2812 \\pm 157$ & $10.36_{-0.12}^{+0.11}$ & $7.78 \\pm 0.06$ & $44.88 \\pm 0.05$ & $-1.01$ & 0.24 & 0.98 \\\\",
+      "expected": {
+        "redshift": 5.6886,
+        "ra_deg": 149.9718537,
+        "dec_deg": 2.1181852,
+        "log_mbh_msun_std": 7.78,
+        "log_mbh_err_plus_std": 0.06,
+        "log_mbh_err_minus_std": 0.06,
+        "log_lbol_erg_s_std": 44.88
+      },
+      "note": ""
+    },
+    {
+      "source_key": "scholtz25_jades_narrow_line_agn",
+      "measurement_id": "scholtz25_10058975",
+      "source_url": "https://arxiv.org/e-print/2311.18731v4",
+      "source_archive_sha256": "1754f005be9e77cc619e52c42b9d47f27fa66fd4d0e80cfd0406afdeca463624",
+      "source_member": "Table_sample.tex",
+      "source_member_sha256": "1f7a752b3c22306b558762a721dea302c74628c88240aba3512b36273768eb2f",
+      "locator": "JADES-NS-GS10058975&",
+      "evidence": "JADES-NS-GS10058975& 1210 & 9.437&High ion \\& HeII$\\lambda1640$& 8.1$^{0.03}_{0.03}$& 6.6$^{0.20}_{-0.20}$& -20.3& 44.4&\\\\",
+      "expected": {
+        "redshift": 9.437,
+        "log_lbol_erg_s_std": 44.4
+      },
+      "note": "Source row values; no canonical virial mass is inferred from this narrow-line classification."
+    },
+    {
+      "source_key": "skyfire26_ceers_blagn",
+      "measurement_id": "SKYFIRE30148_skyfire26",
+      "source_url": "https://arxiv.org/e-print/2609.00112v1",
+      "source_archive_sha256": "51ee2f02d36b8d07bf778fd739a231c2f7780a7465e4fbf41adb6e57779d8d1c",
+      "source_member": "main.tex",
+      "source_member_sha256": "d092617aeb3e1b928a7f730559df37972a2227d37d83b3e0a6da1c450338367c",
+      "locator": "30148  &",
+      "evidence": "30148 & 214.931119 & 52.808158 & 6.5491 & $ 1671\\pm 119 $ & $ 2.96\\pm 0.17 $ & $7.10^{+0.07}_{-0.08}$ & $ {\\rm H}\\alpha $ \\\\",
+      "expected": {
+        "redshift": 6.5491,
+        "ra_deg": 214.931119,
+        "dec_deg": 52.808158,
+        "log_mbh_msun_std": 7.1,
+        "log_mbh_err_plus_std": 0.07,
+        "log_mbh_err_minus_std": 0.08
+      },
+      "note": ""
+    },
+    {
+      "source_key": "tang25_high_ionization",
+      "measurement_id": "CEERS1025_tang25",
+      "source_url": "https://arxiv.org/e-print/2505.06359v2",
+      "source_archive_sha256": "e983d2c0ebbba4a152af847de1331ce5adc1ae7d9653abffa2a4f5dfeb689b07",
+      "source_member": "NIRSpec_high_ionization_lines.tex",
+      "source_member_sha256": "2df88b805c7427c9bf7587c6eec29de6e10c5d65feb1b5a4da20c94c54e81778",
+      "locator": "$z_{\\rm sys}$ & $8.7166$",
+      "evidence": "$z_{\\rm sys}$ & $8.7166$ & $6.9827$ \\\\",
+      "expected": {
+        "redshift": 8.7166
+      },
+      "note": "First column of Table 1 is CEERS-1025."
+    },
+    {
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "measurement_id": "RUBIESUDS807469_taylor24",
+      "source_url": "https://arxiv.org/e-print/2409.06772v2",
+      "source_archive_sha256": "50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0",
+      "source_member": "main.tex",
+      "source_member_sha256": "06e6ae8808fe68639350d877729c791ebf4c440b8773094585e3f1e8c584ac56",
+      "locator": "RUBIES-UDS-807469 &",
+      "evidence": "RUBIES-UDS-807469 & 34.376139 & -5.310366 & 6.778 & 7.72$^{+0.48}_{-0.44}$ & 2.18$^{+0.46}_{-0.37}$ & 5.53$^{+0.37}_{-0.39}$ & 2044$^{+329}_{-218}$ & 7.43$^{+0.13}_{-0.11}$",
+      "expected": {
+        "redshift": 6.778,
+        "ra_deg": 34.376139,
+        "dec_deg": -5.310366,
+        "log_mbh_msun_std": 7.43,
+        "log_mbh_err_plus_std": 0.13,
+        "log_mbh_err_minus_std": 0.11
+      },
+      "note": ""
+    },
+    {
+      "source_key": "ubler24_zs7_offset_blagn",
+      "measurement_id": "ZS7_ubler24",
+      "source_url": "https://arxiv.org/e-print/2312.03589v2",
+      "source_archive_sha256": "830ecf743046d0f848e83e0905972b0a8c16d86ddbb1a92c3e61816057642344",
+      "source_member": "COS_ZS7_accepted.tex",
+      "source_member_sha256": "d0c5e87505fad81c98c4bda94af18e761447df0faadb09f7c4ffdd2f93e9898d",
+      "locator": "we find a black hole mass of",
+      "evidence": "Section 5: log(M_BH/Msun)=7.7 +/- 0.4; 0.4 dex calibration scatter included in the published error budget.",
+      "expected": {
+        "log_mbh_msun_std": 7.7,
+        "log_mbh_err_plus_std": 0.4,
+        "log_mbh_err_minus_std": 0.4
+      },
+      "note": "Published uncertainty already includes calibration scatter; do not add another 0.4 dex in quadrature."
+    },
+    {
+      "source_key": "uhz1_xray_evidence_history",
+      "measurement_id": "UHZ1_bogdan24",
+      "source_url": "https://arxiv.org/e-print/2305.15458v2",
+      "source_archive_sha256": "d1446d873c81c0ee83f7cc1c0648d85f8a93b0967eb5d14ef7b46d0564ab2e6c",
+      "source_member": "main.tex",
+      "source_member_sha256": "78f599794d5ca3143b91fce2f546ac8977079e21e35e8ce5e2ac4942e000f115",
+      "locator": "z\\approx10.3",
+      "evidence": "Abstract: z approximately 10.3; M_BH approximately 1e7--1e8 Msun assuming accretion at the Eddington limit.",
+      "expected": {
+        "redshift": 10.3,
+        "log_mbh_msun_std": null
+      },
+      "note": "Conditional X-ray mass excluded from canonical growth inference."
+    },
+    {
+      "source_key": "zhang25_narrow_line_lrds",
+      "measurement_id": "DJA8219_zhang25",
+      "source_url": "https://arxiv.org/e-print/2506.04350v2",
+      "source_archive_sha256": "003009915954c6eba18f137092bef56e5e4180c48ec5ba40b9a111dd74f0594b",
+      "source_member": "ms.tex",
+      "source_member_sha256": "b01b586ac620811bab57f63ee27683559eff250d3ad9b820aa44cf10b90dae92",
+      "locator": "8219       &",
+      "evidence": "8219 & 215.078259 & 52.948497 & 6.785 & $-1.64$ & 0.20 & 72.6 & 42.9 & $136\\pm36$ & $16.4\\pm2.9$ & $109.3\\pm19.1$ & $3.2\\pm0.8$ & $196\\pm22$ \\\\",
+      "expected": {
+        "redshift": 6.785,
+        "ra_deg": 215.078259,
+        "dec_deg": 52.948497
+      },
+      "note": ""
+    },
+    {
+      "source_key": "chavezortiz26_ghz2",
+      "measurement_id": "GHZ2_chavezortiz26",
+      "source_url": "https://arxiv.org/e-print/2511.03035v2",
+      "source_archive_sha256": "1e8def5725a3639afb6ba15e1f4e8b8b95e28f36501b7a974595f9f0b5c87c4a",
+      "source_member": "main.tex",
+      "source_member_sha256": "f4770473181f1c6de1316ee7052a1d64fee40460252c3b567bad9e9606a19f1b",
+      "locator": "\\title{Significant Evidence",
+      "evidence": "\\title{Significant Evidence of an AGN Contribution in GHZ2 at $z =$ 12.34}",
+      "expected": {
+        "redshift": 12.34
+      },
+      "note": ""
+    },
+    {
+      "source_key": "lyu24_smiles_miri_agn",
+      "measurement_id": "SMILESMIRI2832_lyu24",
+      "source_url": "https://content.cld.iop.org/journals/0004-637X/966/2/229/revision1/apjad3643t2_mrt.txt",
+      "source_archive_sha256": "16d34d68edd1fbea66bd9c00938e440edac4d0c3606f49ccab1c9cca43da9d5d",
+      "source_member": "smiles-publisher.txt",
+      "source_member_sha256": "c7ef14b795da5c271ab1b236e03f5e72232ed3dd85b64bf73e3dfe9958721b9e",
+      "locator": "2832 53.1835182",
+      "evidence": "2832 53.1835182 -27.770134 8.38 z_fresco highz 9.99 8.53 oxxxxxxx",
+      "expected": {
+        "redshift": 8.38,
+        "ra_deg": 53.1835182,
+        "dec_deg": -27.770134,
+        "log_mstar_msun_std": 8.53
+      },
+      "note": "Publisher machine-readable table; hash refers to table bytes in source_member_sha256. Component identity remains governed by reviewed catalogue policy."
+    },
+    {
+      "source_key": "treiber25_uncover_uv_emitters",
+      "measurement_id": "UNCOVER10646c2_treiber25",
+      "source_url": "https://content.cld.iop.org/journals/0004-637X/984/1/93/revision1/apjadc38ft1_mrt.txt",
+      "source_archive_sha256": "6b7b99e05ecf1e96b979c75b558d9c7208ba9f270698f4ee51c85d7a1b3b4d31",
+      "source_member": "treiber-publisher.txt",
+      "source_member_sha256": "9db2702bfc0d3314ad47335a6d48e2560d41215da39c7c5b6fc0333cdae27e84",
+      "locator": "10646 3.636960",
+      "evidence": "10646 3.636960 -30.406362 8.511 1.39 24.11 0.01 9.6 0.2 0.2 -8.0 0.0 0.1 0.08 0.00 0.00 0.94 0.01 0.01",
+      "expected": {
+        "redshift": 8.511,
+        "ra_deg": 3.63696,
+        "dec_deg": -30.406362,
+        "lensing_mu": 1.39
+      },
+      "note": "Publisher machine-readable table; hash refers to table bytes in source_member_sha256. Component identity remains governed by reviewed catalogue policy."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "VALENTINO3567262_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "VALENTINO_3567_262",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_262}} & 34.298697 & -4.989901 & 4.0116 & ${4540}^{+10}_{-200}$ & ${7.72}^{+0.010}_{-0.010}$ & ${44.5}^{+0.010}_{-0.010}$ & $0.0457^{+0.0007}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.298697,
+        "dec_deg": -4.989901,
+        "redshift": 4.0116,
+        "log_mbh_msun_std": 7.72,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 44.5
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "JADES118010013268_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "JADES_1180_10013268",
+      "evidence": "\\texttt{\\detokenize{JADES_1180_10013268}} & 53.201828 & -27.820880 & 4.0395 & ${1240}^{+440}_{-180}$ & ${5.81}^{+0.0287}_{-0.0425}$ & ${43.7}^{+0.0139}_{-0.013}$ & $0.5783^{+0.0292}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 53.201828,
+        "dec_deg": -27.82088,
+        "redshift": 4.0395,
+        "log_mbh_msun_std": 5.81,
+        "log_mbh_err_plus_std": 0.0287,
+        "log_mbh_err_minus_std": 0.0425,
+        "log_lbol_erg_s_std": 43.7
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "AURORA1914927605_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "AURORA_1914_927605",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_927605}} & 189.151830 & 62.272228 & 4.0472 & ${1500}^{+130}_{-110}$ & ${6.32}^{+0.0131}_{-0.0162}$ & ${44.2}^{+0.010}_{-0.010}$ & $0.6152^{+0.0113}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.15183,
+        "dec_deg": 62.272228,
+        "redshift": 4.0472,
+        "log_mbh_msun_std": 6.32,
+        "log_mbh_err_plus_std": 0.0131,
+        "log_mbh_err_minus_std": 0.0162,
+        "log_lbol_erg_s_std": 44.2
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES4233119559_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_119559",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_119559}} & 34.304860 & -5.177419 & 4.0885 & ${1690}^{+220}_{-210}$ & ${6.39}^{+0.05}_{-0.0477}$ & ${43.8}^{+0.0261}_{-0.0321}$ & $0.2250^{+0.0103}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.30486,
+        "dec_deg": -5.177419,
+        "redshift": 4.0885,
+        "log_mbh_msun_std": 6.39,
+        "log_mbh_err_plus_std": 0.05,
+        "log_mbh_err_minus_std": 0.0477,
+        "log_lbol_erg_s_std": 43.8
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "EXCELS354342268_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "EXCELS_3543_42268",
+      "evidence": "\\texttt{\\detokenize{EXCELS_3543_42268}} & 34.297511 & -5.257169 & 4.1204 & ${2220}^{+60}_{-60}$ & ${6.86}^{+0.010}_{-0.010}$ & ${44.3}^{+0.010}_{-0.010}$ & $0.2326^{+0.0018}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.297511,
+        "dec_deg": -5.257169,
+        "redshift": 4.1204,
+        "log_mbh_msun_std": 6.86,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 44.3
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GDN26743761_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GDN_2674_3761",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_3761}} & 189.259528 & 62.172083 & 4.1393 & ${1430}^{+350}_{-310}$ & ${5.91}^{+0.0326}_{-0.0404}$ & ${43.8}^{+0.010}_{-0.010}$ & $0.6491^{+0.0364}_{-0.04}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.259528,
+        "dec_deg": 62.172083,
+        "redshift": 4.1393,
+        "log_mbh_msun_std": 5.91,
+        "log_mbh_err_plus_std": 0.0326,
+        "log_mbh_err_minus_std": 0.0404,
+        "log_lbol_erg_s_std": 43.8
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "EXCELS354389922_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "EXCELS_3543_89922",
+      "evidence": "\\texttt{\\detokenize{EXCELS_3543_89922}} & 34.255946 & -5.177851 & 4.1427 & ${880}^{+80}_{-60}$ & ${5.93}^{+0.0203}_{-0.0182}$ & ${44.4}^{+0.010}_{-0.010}$ & $2.4580^{+0.0864}_{-0.07}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.255946,
+        "dec_deg": -5.177851,
+        "redshift": 4.1427,
+        "log_mbh_msun_std": 5.93,
+        "log_mbh_err_plus_std": 0.0203,
+        "log_mbh_err_minus_std": 0.0182,
+        "log_lbol_erg_s_std": 44.4
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "JADES118172127_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "JADES_1181_72127",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_72127}} & 189.265718 & 62.168393 & 4.1438 & ${2250}^{+270}_{-210}$ & ${6.7}^{+0.0254}_{-0.0384}$ & ${43.9}^{+0.0144}_{-0.0182}$ & $0.1414^{+0.0041}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.265718,
+        "dec_deg": 62.168393,
+        "redshift": 4.1438,
+        "log_mbh_msun_std": 6.7,
+        "log_mbh_err_plus_std": 0.0254,
+        "log_mbh_err_minus_std": 0.0384,
+        "log_lbol_erg_s_std": 43.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES423341683_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_41683",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_41683}} & 214.839934 & 52.820067 & 4.2792 & ${1080}^{+350}_{-200}$ & ${5.75}^{+0.0341}_{-0.061}$ & ${44.0}^{+0.018}_{-0.0243}$ & $1.3537^{+0.0800}_{-0.10}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 214.839934,
+        "dec_deg": 52.820067,
+        "redshift": 4.2792,
+        "log_mbh_msun_std": 5.75,
+        "log_mbh_err_plus_std": 0.0341,
+        "log_mbh_err_minus_std": 0.061,
+        "log_lbol_erg_s_std": 44.0
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GDN476237583_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GDN_4762_37583",
+      "evidence": "\\texttt{\\detokenize{GDN_4762_37583}} & 189.096767 & 62.209854 & 4.3359 & ${1100}^{+170}_{-140}$ & ${6.03}^{+0.0287}_{-0.0276}$ & ${44.4}^{+0.010}_{-0.010}$ & $1.8828^{+0.1364}_{-0.09}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.096767,
+        "dec_deg": 62.209854,
+        "redshift": 4.3359,
+        "log_mbh_msun_std": 6.03,
+        "log_mbh_err_plus_std": 0.0287,
+        "log_mbh_err_minus_std": 0.0276,
+        "log_lbol_erg_s_std": 44.4
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES423354059_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_54059",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_54059}} & 34.280915 & -5.220847 & 4.3567 & ${1030}^{+350}_{-170}$ & ${5.59}^{+0.048}_{-0.0591}$ & ${44.0}^{+0.0212}_{-0.0145}$ & $2.0645^{+0.2173}_{-0.14}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.280915,
+        "dec_deg": -5.220847,
+        "redshift": 4.3567,
+        "log_mbh_msun_std": 5.59,
+        "log_mbh_err_plus_std": 0.048,
+        "log_mbh_err_minus_std": 0.0591,
+        "log_lbol_erg_s_std": 44.0
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "AURORA1914928583_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "AURORA_1914_928583",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_928583}} & 189.124835 & 62.275492 & 4.3807 & ${2350}^{+180}_{-130}$ & ${6.86}^{+0.010}_{-0.0113}$ & ${44.3}^{+0.010}_{-0.010}$ & $0.2463^{+0.0031}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.124835,
+        "dec_deg": 62.275492,
+        "redshift": 4.3807,
+        "log_mbh_msun_std": 6.86,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.0113,
+        "log_lbol_erg_s_std": 44.3
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "JADES118128746_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "JADES_1181_28746",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_28746}} & 189.176078 & 62.256325 & 4.4126 & ${860}^{+280}_{-130}$ & ${5.51}^{+0.0296}_{-0.0379}$ & ${43.9}^{+0.0158}_{-0.0116}$ & $2.0495^{+0.1509}_{-0.11}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.176078,
+        "dec_deg": 62.256325,
+        "redshift": 4.4126,
+        "log_mbh_msun_std": 5.51,
+        "log_mbh_err_plus_std": 0.0296,
+        "log_mbh_err_minus_std": 0.0379,
+        "log_lbol_erg_s_std": 43.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "JADES118016375_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "JADES_1180_16375",
+      "evidence": "\\texttt{\\detokenize{JADES_1180_16375}} & 53.095744 & -27.774815 & 4.4374 & ${1380}^{+400}_{-420}$ & ${6.21}^{+0.0446}_{-0.0561}$ & ${44.6}^{+0.010}_{-0.0136}$ & $1.8975^{+0.1722}_{-0.17}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 53.095744,
+        "dec_deg": -27.774815,
+        "redshift": 4.4374,
+        "log_mbh_msun_std": 6.21,
+        "log_mbh_err_plus_std": 0.0446,
+        "log_mbh_err_minus_std": 0.0561,
+        "log_lbol_erg_s_std": 44.6
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "AURORA19148769_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "AURORA_1914_8769",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_8769}} & 150.175130 & 2.268880 & 4.5302 & ${1630}^{+100}_{-80}$ & ${6.39}^{+0.010}_{-0.010}$ & ${44.2}^{+0.010}_{-0.010}$ & $0.5263^{+0.0064}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 150.17513,
+        "dec_deg": 2.26888,
+        "redshift": 4.5302,
+        "log_mbh_msun_std": 6.39,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 44.2
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GTO12151472_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GTO_1215_1472",
+      "evidence": "\\texttt{\\detokenize{GTO_1215_1472}} & 34.337315 & -5.143674 & 4.5563 & ${3280}^{+50}_{-50}$ & ${8.02}^{+0.010}_{-0.010}$ & ${45.4}^{+0.010}_{-0.010}$ & $0.1949^{+0.0010}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.337315,
+        "dec_deg": -5.143674,
+        "redshift": 4.5563,
+        "log_mbh_msun_std": 8.02,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 45.4
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GTO12156001_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GTO_1215_6001",
+      "evidence": "\\texttt{\\detokenize{GTO_1215_6001}} & 34.364248 & -5.197730 & 4.5825 & ${1150}^{+590}_{-250}$ & ${6.38}^{+0.0207}_{-0.03}$ & ${44.9}^{+0.0196}_{-0.0124}$ & $2.6247^{+0.0935}_{-0.08}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.364248,
+        "dec_deg": -5.19773,
+        "redshift": 4.5825,
+        "log_mbh_msun_std": 6.38,
+        "log_mbh_err_plus_std": 0.0207,
+        "log_mbh_err_minus_std": 0.03,
+        "log_lbol_erg_s_std": 44.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "VALENTINO356751909_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "VALENTINO_3567_51909",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_51909}} & 34.454931 & -5.132708 & 4.6262 & ${2700}^{+30}_{-30}$ & ${7.49}^{+0.010}_{-0.010}$ & ${44.9}^{+0.010}_{-0.010}$ & $0.2067^{+0.0009}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.454931,
+        "dec_deg": -5.132708,
+        "redshift": 4.6262,
+        "log_mbh_msun_std": 7.49,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 44.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GTO12133848_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GTO_1213_3848",
+      "evidence": "\\texttt{\\detokenize{GTO_1213_3848}} & 215.034109 & 52.984404 & 4.6348 & ${1680}^{+390}_{-340}$ & ${6.82}^{+0.046}_{-0.0535}$ & ${44.5}^{+0.0418}_{-0.0217}$ & $0.3552^{+0.0265}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 215.034109,
+        "dec_deg": 52.984404,
+        "redshift": 4.6348,
+        "log_mbh_msun_std": 6.82,
+        "log_mbh_err_plus_std": 0.046,
+        "log_mbh_err_minus_std": 0.0535,
+        "log_lbol_erg_s_std": 44.5
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GDS12109515_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GDS_1210_9515",
+      "evidence": "\\texttt{\\detokenize{GDS_1210_9515}} & 53.132843 & -27.801854 & 4.6477 & ${1090}^{+370}_{-120}$ & ${5.59}^{+0.0196}_{-0.025}$ & ${44.0}^{+0.010}_{-0.010}$ & $1.9821^{+0.0588}_{-0.06}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 53.132843,
+        "dec_deg": -27.801854,
+        "redshift": 4.6477,
+        "log_mbh_msun_std": 5.59,
+        "log_mbh_err_plus_std": 0.0196,
+        "log_mbh_err_minus_std": 0.025,
+        "log_lbol_erg_s_std": 44.0
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GTO12154446_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GTO_1215_4446",
+      "evidence": "\\texttt{\\detokenize{GTO_1215_4446}} & 34.270712 & -5.217671 & 4.6867 & ${2350}^{+120}_{-120}$ & ${7.33}^{+0.010}_{-0.010}$ & ${44.9}^{+0.010}_{-0.010}$ & $0.2679^{+0.0030}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.270712,
+        "dec_deg": -5.217671,
+        "redshift": 4.6867,
+        "log_mbh_msun_std": 7.33,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 44.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GOODSN12112066_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GOODSN_1211_2066",
+      "evidence": "\\texttt{\\detokenize{GOODSN_1211_2066}} & 189.238138 & 62.136970 & 4.7017 & ${1740}^{+440}_{-350}$ & ${6.57}^{+0.0419}_{-0.0472}$ & ${44.5}^{+0.010}_{-0.010}$ & $0.6392^{+0.0405}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.238138,
+        "dec_deg": 62.13697,
+        "redshift": 4.7017,
+        "log_mbh_msun_std": 6.57,
+        "log_mbh_err_plus_std": 0.0419,
+        "log_mbh_err_minus_std": 0.0472,
+        "log_lbol_erg_s_std": 44.5
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES423342658_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_42658",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_42658}} & 34.401816 & -5.250166 & 4.7100 & ${1680}^{+260}_{-210}$ & ${6.56}^{+0.0224}_{-0.0215}$ & ${44.3}^{+0.0105}_{-0.0101}$ & $0.4024^{+0.0093}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.401816,
+        "dec_deg": -5.250166,
+        "redshift": 4.71,
+        "log_mbh_msun_std": 6.56,
+        "log_mbh_err_plus_std": 0.0224,
+        "log_mbh_err_minus_std": 0.0215,
+        "log_lbol_erg_s_std": 44.3
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "EGS410671365_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "EGS_4106_71365",
+      "evidence": "\\texttt{\\detokenize{EGS_4106_71365}} & 214.895545 & 52.906722 & 4.8004 & ${1010}^{+200}_{-100}$ & ${5.79}^{+0.0267}_{-0.0299}$ & ${43.8}^{+0.0176}_{-0.0193}$ & $0.7263^{+0.0295}_{-0.03}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 214.895545,
+        "dec_deg": 52.906722,
+        "redshift": 4.8004,
+        "log_mbh_msun_std": 5.79,
+        "log_mbh_err_plus_std": 0.0267,
+        "log_mbh_err_minus_std": 0.0299,
+        "log_lbol_erg_s_std": 43.8
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES423348449_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_48449",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_48449}} & 34.231608 & -5.230873 & 4.8174 & ${1030}^{+300}_{-230}$ & ${5.59}^{+0.068}_{-0.114}$ & ${43.9}^{+0.0195}_{-0.0328}$ & $1.4932^{+0.1966}_{-0.20}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.231608,
+        "dec_deg": -5.230873,
+        "redshift": 4.8174,
+        "log_mbh_msun_std": 5.59,
+        "log_mbh_err_plus_std": 0.068,
+        "log_mbh_err_minus_std": 0.114,
+        "log_lbol_erg_s_std": 43.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "VALENTINO35671552_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "VALENTINO_3567_1552",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_1552}} & 149.412489 & 2.018099 & 4.8376 & ${2640}^{+100}_{-80}$ & ${7.2}^{+0.010}_{-0.010}$ & ${44.5}^{+0.010}_{-0.010}$ & $0.1546^{+0.0013}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 149.412489,
+        "dec_deg": 2.018099,
+        "redshift": 4.8376,
+        "log_mbh_msun_std": 7.2,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 44.5
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "JADES118139353_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "JADES_1181_39353",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_39353}} & 189.293952 & 62.153091 & 4.8475 & ${1180}^{+660}_{-190}$ & ${5.96}^{+0.0322}_{-0.0454}$ & ${43.9}^{+0.0205}_{-0.0344}$ & $0.6250^{+0.0294}_{-0.04}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.293952,
+        "dec_deg": 62.153091,
+        "redshift": 4.8475,
+        "log_mbh_msun_std": 5.96,
+        "log_mbh_err_plus_std": 0.0322,
+        "log_mbh_err_minus_std": 0.0454,
+        "log_lbol_erg_s_std": 43.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "JADES118168797_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "JADES_1181_68797",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_68797}} & 189.229137 & 62.146190 & 5.0397 & ${3250}^{+60}_{-30}$ & ${7.82}^{+0.010}_{-0.010}$ & ${45.2}^{+0.010}_{-0.010}$ & $0.1850^{+0.0007}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.229137,
+        "dec_deg": 62.14619,
+        "redshift": 5.0397,
+        "log_mbh_msun_std": 7.82,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 45.2
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES4233166271_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_166271",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_166271}} & 34.353256 & -5.112267 & 5.0758 & ${1610}^{+390}_{-360}$ & ${6.4}^{+0.0438}_{-0.0444}$ & ${44.0}^{+0.034}_{-0.0301}$ & $0.2796^{+0.0181}_{-0.02}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.353256,
+        "dec_deg": -5.112267,
+        "redshift": 5.0758,
+        "log_mbh_msun_std": 6.4,
+        "log_mbh_err_plus_std": 0.0438,
+        "log_mbh_err_minus_std": 0.0444,
+        "log_lbol_erg_s_std": 44.0
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "VALENTINO356744330_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "VALENTINO_3567_44330",
+      "evidence": "\\texttt{\\detokenize{VALENTINO_3567_44330}} & 150.076721 & 2.350921 & 5.1308 & ${1830}^{+670}_{-390}$ & ${6.63}^{+0.0241}_{-0.028}$ & ${44.2}^{+0.0394}_{-0.0541}$ & $0.2703^{+0.0227}_{-0.02}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 150.076721,
+        "dec_deg": 2.350921,
+        "redshift": 5.1308,
+        "log_mbh_msun_std": 6.63,
+        "log_mbh_err_plus_std": 0.0241,
+        "log_mbh_err_minus_std": 0.028,
+        "log_lbol_erg_s_std": 44.2
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GDN267414_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GDN_2674_14",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_14}} & 189.199812 & 62.161474 & 5.1800 & ${3520}^{+60}_{-60}$ & ${7.69}^{+0.010}_{-0.010}$ & ${44.8}^{+0.010}_{-0.010}$ & $0.1092^{+0.0006}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.199812,
+        "dec_deg": 62.161474,
+        "redshift": 5.18,
+        "log_mbh_msun_std": 7.69,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 44.8
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "JADES118178773_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "JADES_1181_78773",
+      "evidence": "\\texttt{\\detokenize{JADES_1181_78773}} & 189.202942 & 62.204654 & 5.1876 & ${890}^{+220}_{-100}$ & ${5.78}^{+0.0156}_{-0.0282}$ & ${44.5}^{+0.010}_{-0.010}$ & $4.6524^{+0.1701}_{-0.24}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.202942,
+        "dec_deg": 62.204654,
+        "redshift": 5.1876,
+        "log_mbh_msun_std": 5.78,
+        "log_mbh_err_plus_std": 0.0156,
+        "log_mbh_err_minus_std": 0.0282,
+        "log_lbol_erg_s_std": 44.5
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GDN267432_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GDN_2674_32",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_32}} & 189.265470 & 62.199359 & 5.2197 & ${1790}^{+220}_{-190}$ & ${6.51}^{+0.0188}_{-0.0184}$ & ${44.4}^{+0.010}_{-0.010}$ & $0.5579^{+0.0193}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.26547,
+        "dec_deg": 62.199359,
+        "redshift": 5.2197,
+        "log_mbh_msun_std": 6.51,
+        "log_mbh_err_plus_std": 0.0188,
+        "log_mbh_err_minus_std": 0.0184,
+        "log_lbol_erg_s_std": 44.4
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES4233148866_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_148866",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_148866}} & 34.326433 & -5.137382 & 5.2226 & ${1410}^{+230}_{-160}$ & ${6.37}^{+0.0242}_{-0.0296}$ & ${44.1}^{+0.0165}_{-0.0171}$ & $0.4639^{+0.0157}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.326433,
+        "dec_deg": -5.137382,
+        "redshift": 5.2226,
+        "log_mbh_msun_std": 6.37,
+        "log_mbh_err_plus_std": 0.0242,
+        "log_mbh_err_minus_std": 0.0296,
+        "log_lbol_erg_s_std": 44.1
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES423317604_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_17604",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_17604}} & 34.311488 & -5.290996 & 5.5002 & ${1260}^{+150}_{-110}$ & ${6.19}^{+0.023}_{-0.0239}$ & ${44.0}^{+0.010}_{-0.010}$ & $0.5719^{+0.0123}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 34.311488,
+        "dec_deg": -5.290996,
+        "redshift": 5.5002,
+        "log_mbh_msun_std": 6.19,
+        "log_mbh_err_plus_std": 0.023,
+        "log_mbh_err_minus_std": 0.0239,
+        "log_lbol_erg_s_std": 44.0
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GDN2674934_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GDN_2674_934",
+      "evidence": "\\texttt{\\detokenize{GDN_2674_934}} & 189.261346 & 62.231967 & 5.5362 & ${1670}^{+160}_{-130}$ & ${6.41}^{+0.0164}_{-0.022}$ & ${44.3}^{+0.010}_{-0.010}$ & $0.5731^{+0.0160}_{-0.02}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.261346,
+        "dec_deg": 62.231967,
+        "redshift": 5.5362,
+        "log_mbh_msun_std": 6.41,
+        "log_mbh_err_plus_std": 0.0164,
+        "log_mbh_err_minus_std": 0.022,
+        "log_lbol_erg_s_std": 44.3
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "J022633253190_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "J0226_3325_3190",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_3190}} & 36.527690 & 3.041660 & 5.7345 & ${1280}^{+370}_{-250}$ & ${6.19}^{+0.0347}_{-0.0468}$ & ${44.1}^{+0.0211}_{-0.0308}$ & $0.5884^{+0.0293}_{-0.04}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 36.52769,
+        "dec_deg": 3.04166,
+        "redshift": 5.7345,
+        "log_mbh_msun_std": 6.19,
+        "log_mbh_err_plus_std": 0.0347,
+        "log_mbh_err_minus_std": 0.0468,
+        "log_lbol_erg_s_std": 44.1
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES423324210_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_24210",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_24210}} & 215.066445 & 52.941877 & 6.2712 & ${1250}^{+590}_{-340}$ & ${6.22}^{+0.039}_{-0.049}$ & ${44.3}^{+0.0144}_{-0.0196}$ & $0.9811^{+0.0499}_{-0.05}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 215.066445,
+        "dec_deg": 52.941877,
+        "redshift": 6.2712,
+        "log_mbh_msun_std": 6.22,
+        "log_mbh_err_plus_std": 0.039,
+        "log_mbh_err_minus_std": 0.049,
+        "log_lbol_erg_s_std": 44.3
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "J0226332510867_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "J0226_3325_10867",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_10867}} & 36.475139 & 3.081380 & 6.5341 & ${2150}^{+710}_{-480}$ & ${6.73}^{+0.0519}_{-0.0595}$ & ${44.2}^{+0.0226}_{-0.0254}$ & $0.2086^{+0.0122}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 36.475139,
+        "dec_deg": 3.08138,
+        "redshift": 6.5341,
+        "log_mbh_msun_std": 6.73,
+        "log_mbh_err_plus_std": 0.0519,
+        "log_mbh_err_minus_std": 0.0595,
+        "log_lbol_erg_s_std": 44.2
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "J022633259556_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "J0226_3325_9556",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_9556}} & 36.495420 & 3.040207 & 6.5391 & ${1960}^{+470}_{-360}$ & ${6.78}^{+0.0375}_{-0.0366}$ & ${44.3}^{+0.0203}_{-0.0165}$ & $0.2515^{+0.0113}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 36.49542,
+        "dec_deg": 3.040207,
+        "redshift": 6.5391,
+        "log_mbh_msun_std": 6.78,
+        "log_mbh_err_plus_std": 0.0375,
+        "log_mbh_err_minus_std": 0.0366,
+        "log_lbol_erg_s_std": 44.3
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "J022633256699_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "J0226_3325_6699",
+      "evidence": "\\texttt{\\detokenize{J0226_3325_6699}} & 36.507805 & 3.049793 & 6.5405 & ${3400}^{+70}_{-40}$ & ${8.3}^{+0.010}_{-0.010}$ & ${45.8}^{+0.010}_{-0.010}$ & $0.2542^{+0.0011}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 36.507805,
+        "dec_deg": 3.049793,
+        "redshift": 6.5405,
+        "log_mbh_msun_std": 8.3,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 45.8
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "J0910202812910_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "J0910_2028_12910",
+      "evidence": "\\texttt{\\detokenize{J0910_2028_12910}} & 137.727212 & -4.235207 & 6.6214 & ${4280}^{+40}_{-30}$ & ${8.58}^{+0.010}_{-0.010}$ & ${45.9}^{+0.010}_{-0.010}$ & $0.1742^{+0.0006}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 137.727212,
+        "dec_deg": -4.235207,
+        "redshift": 6.6214,
+        "log_mbh_msun_std": 8.58,
+        "log_mbh_err_plus_std": 0.01,
+        "log_mbh_err_minus_std": 0.01,
+        "log_lbol_erg_s_std": 45.9
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "J0910202814306_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "J0910_2028_14306",
+      "evidence": "\\texttt{\\detokenize{J0910_2028_14306}} & 137.716790 & -4.214624 & 6.6334 & ${1140}^{+440}_{-180}$ & ${6.03}^{+0.0421}_{-0.0664}$ & ${44.1}^{+0.022}_{-0.0192}$ & $0.8870^{+0.0482}_{-0.05}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 137.71679,
+        "dec_deg": -4.214624,
+        "redshift": 6.6334,
+        "log_mbh_msun_std": 6.03,
+        "log_mbh_err_plus_std": 0.0421,
+        "log_mbh_err_minus_std": 0.0664,
+        "log_lbol_erg_s_std": 44.1
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "EGS410647962_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "EGS_4106_47962",
+      "evidence": "\\texttt{\\detokenize{EGS_4106_47962}} & 214.892479 & 52.856891 & 6.7273 & ${2430}^{+200}_{-160}$ & ${6.89}^{+0.029}_{-0.0333}$ & ${44.4}^{+0.010}_{-0.0111}$ & $0.2360^{+0.0042}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 214.892479,
+        "dec_deg": 52.856891,
+        "redshift": 6.7273,
+        "log_mbh_msun_std": 6.89,
+        "log_mbh_err_plus_std": 0.029,
+        "log_mbh_err_minus_std": 0.0333,
+        "log_lbol_erg_s_std": 44.4
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "AURORA1914100182_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "AURORA_1914_100182",
+      "evidence": "\\texttt{\\detokenize{AURORA_1914_100182}} & 189.177221 & 62.291510 & 6.7325 & ${1660}^{+470}_{-340}$ & ${6.4}^{+0.0415}_{-0.0622}$ & ${44.4}^{+0.010}_{-0.0101}$ & $0.8687^{+0.0706}_{-0.08}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.177221,
+        "dec_deg": 62.29151,
+        "redshift": 6.7325,
+        "log_mbh_msun_std": 6.4,
+        "log_mbh_err_plus_std": 0.0415,
+        "log_mbh_err_minus_std": 0.0622,
+        "log_lbol_erg_s_std": 44.4
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES4233925921_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_925921",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_925921}} & 215.075054 & 52.943828 & 6.9448 & ${3220}^{+640}_{-450}$ & ${7.45}^{+0.0281}_{-0.0306}$ & ${44.6}^{+0.0107}_{-0.0114}$ & $0.1144^{+0.0037}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 215.075054,
+        "dec_deg": 52.943828,
+        "redshift": 6.9448,
+        "log_mbh_msun_std": 7.45,
+        "log_mbh_err_plus_std": 0.0281,
+        "log_mbh_err_minus_std": 0.0306,
+        "log_lbol_erg_s_std": 44.6
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "BLUEJAY181019945_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "BLUEJAY_1810_19945",
+      "evidence": "\\texttt{\\detokenize{BLUEJAY_1810_19945}} & 150.090563 & 2.381598 & 6.9894 & ${2140}^{+320}_{-270}$ & ${6.95}^{+0.0294}_{-0.0357}$ & ${44.6}^{+0.010}_{-0.0121}$ & $0.3739^{+0.0105}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 150.090563,
+        "dec_deg": 2.381598,
+        "redshift": 6.9894,
+        "log_mbh_msun_std": 6.95,
+        "log_mbh_err_plus_std": 0.0294,
+        "log_mbh_err_minus_std": 0.0357,
+        "log_lbol_erg_s_std": 44.6
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "RUBIES423342803_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "RUBIES_4233_42803",
+      "evidence": "\\texttt{\\detokenize{RUBIES_4233_42803}} & 214.929524 & 52.887919 & 7.1522 & ${3260}^{+780}_{-760}$ & ${7.36}^{+0.0482}_{-0.0528}$ & ${44.4}^{+0.0188}_{-0.024}$ & $0.0923^{+0.0051}_{-0.010}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 214.929524,
+        "dec_deg": 52.887919,
+        "redshift": 7.1522,
+        "log_mbh_msun_std": 7.36,
+        "log_mbh_err_plus_std": 0.0482,
+        "log_mbh_err_minus_std": 0.0528,
+        "log_lbol_erg_s_std": 44.4
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "measurement_id": "GDN476233609_baccus26",
+      "source_url": "https://arxiv.org/e-print/2512.03281v1",
+      "source_archive_sha256": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
+      "source_member": "ObjectsTable.tex",
+      "source_member_sha256": "406d02b3b62ac77c99ac59d40076422140e84ca33844b672ede35bbca1cca840",
+      "locator": "GDN_4762_33609",
+      "evidence": "\\texttt{\\detokenize{GDN_4762_33609}} & 189.083488 & 62.202579 & 7.1883 & ${2790}^{+260}_{-240}$ & ${7.39}^{+0.0218}_{-0.0242}$ & ${44.8}^{+0.010}_{-0.010}$ & $0.1897^{+0.0028}_{-0.00}$ & G395M \\\\",
+      "expected": {
+        "ra_deg": 189.083488,
+        "dec_deg": 62.202579,
+        "redshift": 7.1883,
+        "log_mbh_msun_std": 7.39,
+        "log_mbh_err_plus_std": 0.0218,
+        "log_mbh_err_minus_std": 0.0242,
+        "log_lbol_erg_s_std": 44.8
+      },
+      "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    }
+  ]
+}

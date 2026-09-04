@@ -27,7 +27,7 @@ COSMOS3D-13852 is fourth (third by composite score). Twelve NEXUS point estimate
 without statistical errors have no probabilities or uncertainty ranks and are
 visually distinguished. The compatibility efficiency prescription is explicit.
 
-Independent source validation covers 865 comparisons across 53 rows in four
+Independent source validation covers 1,309 field comparisons across all 32
 families, plus numerical age/growth checks; see `data/validation/README.md`.
 It does not certify all-source accuracy. The NEXUS extraction correction adds
 published luminosity errors without changing membership or mass estimates.

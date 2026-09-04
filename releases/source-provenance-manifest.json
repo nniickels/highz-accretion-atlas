@@ -7,8 +7,10 @@
   "selection_registry_rows": 32,
   "manual_extraction_artifacts": 26,
   "artifacts": {
-    "data/manual_extraction_audit.csv": "7e12aadfb1300d3fd14920c16eaeb391691ec2c2245f444314efe11f094c7655",
+    "data/manual_extraction_audit.csv": "9c6b8790f55f83f38f7f8568b98d2624dd90b798f5f435b2b9c056ca244ba941",
     "data/selection_function_registry.csv": "dbe12ff48a5dd7428210b85998c58e0c253a128e0af4449e2a63ae51934f204f",
-    "data/source_provenance_registry.csv": "711d7fda7de6459fdaf8c19b69a21e8cb4b283f7d9c998a8e29127474a63c4e7"
+    "data/source_provenance_registry.csv": "3f4c7e38ca68f429fdec314f1103e67f9a46e7015a6ef52f255527d3c3258177",
+    "data/validation/primary_family_anchors.json": "e13276a4dc5eb1da9ebb8a5e2134dce2a03e78ef5bf2dda193f1c6f701e919cc",
+    "data/validation/primary_source_checks.json": "019859b948c5797137fb2f04699d96f401c2b7f481463096b6736bd979cba1b7"
   }
 }

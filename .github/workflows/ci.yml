@@ -40,6 +40,7 @@ jobs:
       - name: Execute the complete public notebook workflow
         env:
           PYTHONDONTWRITEBYTECODE: "1"
+          HIGHZ_BASELINE_ROOT: ${{ github.workspace }}
         run: |
           notebook_workspace="$RUNNER_TEMP/highz-atlas-notebook-workspace"
           executed_notebooks="$RUNNER_TEMP/highz-atlas-executed-notebooks"

@@ -35,9 +35,16 @@ published FWHM below 1000 km/s; they are retained as `probable` because the
 source itself includes them in its BLAGN compilation, while the caveat remains
 machine-readable.
 
-Primary record: [Baccus et al. (2026)](https://arxiv.org/abs/2512.03281v2),
+Primary record: [Baccus et al. (2026)](https://arxiv.org/abs/2512.03281v1),
 DOI `10.3847/1538-4357/ae7de7`. The archived source payload has SHA-256
-`b0e527296f6a71adb4782f0b57a416f494d33ec7c71a6afc6ee7db982659fa76`.
+`f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a`.
+
+The frozen Baccus measurements and screen refer to arXiv v1 Table 1. The
+2026-09-04 independent audit checked coordinates, redshifts, masses, mass
+uncertainties, and bolometric luminosities for all 49 admitted rows. The final
+publication (v2) revises the table; its publication status must not be confused
+with the measurement version. Adopting revised values needs a documented
+reanalysis. This correction changes provenance, not catalogue numbers.
 
 ## Fei et al. (2026)
 

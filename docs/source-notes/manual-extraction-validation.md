@@ -12,8 +12,8 @@ complement the source-archive hashes in the provenance registry and the
 source-specific scientific anchors in the test suite.
 
 These integrity checks cannot establish original transcription accuracy. A
-fresh independent comparison on 2026-09-04 adds 865 checks across 53 rows from
-four families; see [`../../data/validation/README.md`](../../data/validation/README.md).
+fresh independent comparison on 2026-09-04 provides 1,309 field checks covering all 32 families, including complete
+selected tables and representative anchors for the remaining sources; see [`../../data/validation/README.md`](../../data/validation/README.md).
 It restored omitted NEXUS log-line-luminosity errors in the raw extraction and
 source observables. This is a documented extraction correction, with no change
 to object membership or growth masses.

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import re
+import json
+from unittest.mock import patch
 import unittest
 from pathlib import Path
 
@@ -19,7 +21,29 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class IndependentValidationTests(unittest.TestCase):
     def test_primary_source_table_values(self):
-        self.assertGreater(verify_primary_source_values(), 800)
+        self.assertEqual(verify_primary_source_values(), 1309)
+
+    def test_missing_source_family_anchor_is_rejected(self):
+        loads = json.loads
+        def omit_family(text):
+            parsed = loads(text)
+            if "anchors" in parsed:
+                parsed["anchors"] = [a for a in parsed["anchors"] if a["source_key"] != "ubler24_zs7_offset_blagn"]
+            return parsed
+        with patch("src.internal.verify_primary_source_values.json.loads", side_effect=omit_family):
+            with self.assertRaisesRegex(AssertionError, "Source-family coverage differs"):
+                verify_primary_source_values()
+
+    def test_wrong_measurement_source_version_is_rejected(self):
+        loads = json.loads
+        def change_version(text):
+            parsed = loads(text)
+            if "anchors" in parsed:
+                parsed["anchors"][0]["source_archive_sha256"] = "0" * 64
+            return parsed
+        with patch("src.internal.verify_primary_source_values.json.loads", side_effect=change_version):
+            with self.assertRaisesRegex(AssertionError, "registered measurement version"):
+                verify_primary_source_values()
 
     def test_cosmic_age_against_numerical_friedmann_integral(self):
         # Integrate dt = da/[a H(a)] using a=x^2, independently of arcsinh.

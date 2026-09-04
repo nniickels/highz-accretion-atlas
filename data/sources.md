@@ -170,9 +170,11 @@ Detailed extraction and caveat notes are in
 - **[source_key: larson23_ceers1019] Larson et al. (2023):** CEERS 1019 is
   admitted from its JWST/NIRSpec broad-Hbeta identification and published
   single-epoch mass.
-- **[source_key: killi24_j0647_lrd_blagn] Killi et al. (2024):** the lensed
-  J0647-1045 LRD is admitted from its JWST/NIRSpec broad-Halpha identification
-  and published, magnification-corrected virial mass.
+- **[source_key: killi24_j0647_lrd_blagn] Killi et al. (2024):** J0647-1045
+  LRD is admitted from its JWST/NIRSpec broad-Halpha identification and published
+  virial mass. Killi et al. (2024), Section 2.1, apply no magnification correction:
+  the object lies on the outskirts of the lensing field and the expected
+  magnification is small. The catalogue retains that source assumption.
 - **[source_key: ubler24_zs7_offset_blagn] Uebler et al. (2024):** the
   spatially offset broad-Hbeta Type-1 nucleus in the ZS7 merging system is
   admitted with its published canonical virial mass.
@@ -191,12 +193,20 @@ a future alternate-measurement/reanalysis source.
   already represented. Thirteen additional GLIMPSE/MACS cluster-field objects
   are excluded because this source does not publish or apply lensing
   magnifications. The source-payload SHA-256 is
-  `b0e527296f6a71adb4782f0b57a416f494d33ec7c71a6afc6ee7db982659fa76`.
+  `f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a`.
+
 - **[source_key: fei26_glimpse_blagn] Fei et al. (2026):** all ten GLIMPSE
   JWST/NIRSpec broad-line objects are admitted with the source's explicit
   magnification corrections and published virial masses. Eight are secure and
   two are tentative candidates. The source-payload SHA-256 is
   `c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1`.
+
+The frozen Baccus measurements and screen refer to arXiv v1 Table 1. The
+2026-09-04 independent audit checked coordinates, redshifts, masses, mass
+uncertainties, and bolometric luminosities for all 49 admitted rows. The final
+publication (v2) revises the table; its publication status must not be confused
+with the measurement version. Adopting revised values needs a documented
+reanalysis. This correction changes provenance, not catalogue numbers.
 
 Together these sources add 59 new physical objects to v2 and v3, all with
 numerical masses suitable for uncertainty-aware growth visualization. The Jin

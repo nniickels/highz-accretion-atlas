@@ -186,3 +186,8 @@ currently represented by catalogue rows:
 6. Adamo, A., Atek, Hakim., Bagley, M., et al. 2025, [arXiv:2405.21054](https://arxiv.org/abs/2405.21054)
 7. Dayal, P. & Ferrara, A. 2018, [arXiv:1809.09136](https://arxiv.org/abs/1809.09136)
 8. Stark, D., Topping, M., Endsley, R., et al. 2025, [arXiv:2501.17078](https://arxiv.org/abs/2501.17078)
+
+Reproduction compares regenerated CSV values and PNG pixels with an independent
+baseline before refreshing hashes; see [reproduction and intentional updates](docs/guides/reproducibility.md).
+Independent source fixtures cover all 32 families with 1,309 field checks;
+this is representative coverage, not an exhaustive audit of all fields.

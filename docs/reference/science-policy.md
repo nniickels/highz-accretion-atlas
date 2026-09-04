@@ -1,7 +1,7 @@
 # Class-aware science policy
 
-The current science layer consumes only the canonical v3 measurement and
-physical-object tables. It produces separate point and 10,000-draw uncertainty
+The shared science layer consumes the canonical measurement and physical-object
+tables for each of v1, v2, and v3. The counts below describe v3. It produces separate point and 10,000-draw uncertainty
 rankings for both views, a class/method summary, a complete exclusion audit,
 alternate-measurement sensitivity, a class-aware observational follow-up
 matrix, a source-family caveat summary, a source-level selection/completeness

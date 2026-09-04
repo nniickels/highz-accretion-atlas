@@ -18,11 +18,11 @@ SOURCE_METADATA = {
     "baccus26_nirspec_blagn": {
         "survey": "JWST/NIRSpec archival census", "field": "multi-field",
         "table": "Table 1, z>=4 new non-cluster subset",
-        "version": "ApJ 1006, 165 (2026); arXiv:2512.03281v2",
+        "version": "ApJ 1006, 165 (2026); measurement values: arXiv:2512.03281v1",
         "url": "https://doi.org/10.3847/1538-4357/ae7de7",
         "doi": "10.3847/1538-4357/ae7de7",
-        "archive": "https://arxiv.org/e-print/2512.03281v2",
-        "sha": "b0e527296f6a71adb4782f0b57a416f494d33ec7c71a6afc6ee7db982659fa76",
+        "archive": "https://arxiv.org/e-print/2512.03281v1",
+        "sha": "f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a",
         "selection": "JWST/NIRSpec broad-Halpha catalogue objects at z>=4 that are new to the atlas and do not require an unreported cluster-lensing correction",
     },
     "fei26_glimpse_blagn": {

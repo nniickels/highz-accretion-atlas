@@ -31,12 +31,14 @@ outside the catalogue boundary. The authoritative included-source list is
 | Baccus GLIMPSE, MACS0416, and MACS1149 cluster-field rows without published magnifications | source-local exclusions | Thirteen otherwise-new Baccus objects lack source-published lensing corrections. Three GLIMPSE objects enter independently through Fei with explicit corrections; the remaining ten are not admitted as comparable mass points. |
 | Prospective sources listed in the README references | background only | They do not contribute catalogue rows unless separately admitted under the rules above. |
 
-Future literature additions are assigned by scientific scope: comparable JWST
-broad-line AGN extend v2 and therefore flow into v3, while heterogeneous source
-datasets extend v3 only even when some individual members resemble v2 object
-types. Publication-status
-corrections and provenance metadata may be updated without changing source-native
-values.
+The v1/v2/v3 membership is frozen at this cutoff. New source families or new
+measurements require a new dataset version; their scientific scope and nesting
+must be declared when that version is defined. The v2/v3 source assignments
+above describe the existing frozen datasets, not permission to expand them.
+Accuracy fixes, publication-status corrections, and provenance updates apply to
+every affected existing version. Any correction to an extracted value must be
+documented against the primary source and accompanied by regenerated products
+and explicitly reviewed manifests.
 
 The implemented final admission record and counts are maintained in
 [`catalogue-completion-plan.md`](catalogue-completion-plan.md).
