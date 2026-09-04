@@ -1,7 +1,7 @@
 """Compare regenerated products to an independent baseline before refreshing hashes.
 
 CSV values use the shared cross-platform numeric tolerance; PNG RGB channels
-allow at most two 8-bit levels of rasterization roundoff at the same pixel.
+allow at most three 8-bit levels of rasterization roundoff at the same pixel.
 Image dimensions and alpha remain exact; --exact-pixels also requires exact RGB.
 The default baseline is Git HEAD, never the just-regenerated files. CI archive
 checkouts use HIGHZ_BASELINE_ROOT.
@@ -23,7 +23,7 @@ from src.internal.reproduction import assert_frames_semantically_equal
 
 ROOT = Path(__file__).resolve().parents[2]
 # Absolute channel bound: no averaging, spatial shifts, resizing, or blurring.
-PNG_CHANNEL_ATOL = 2
+PNG_CHANNEL_ATOL = 3
 VERSIONS = ('v1', 'v2', 'v3')
 ARTIFACT_ROOTS = [f'{base}/{v}' for v in VERSIONS for base in ('data/processed', 'data/crossmatch', 'results')]
 

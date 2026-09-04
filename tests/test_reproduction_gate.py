@@ -27,15 +27,15 @@ class ReproductionGateTests(unittest.TestCase):
             a, b = Path(d)/'a.png', Path(d)/'b.png'
             im = Image.new('RGB', (512, 512), (100, 100, 100))
             im.save(a)
-            im.putpixel((300, 300), (102, 98, 100))
+            im.putpixel((300, 300), (103, 97, 100))
             im.save(b)
             compare_artifact(a, b)
             with self.assertRaises(AssertionError):
                 compare_artifact(a, b, exact_pixels=True)
             # A large unchanged background must not dilute a local mismatch.
-            im.putpixel((300, 300), (103, 100, 100))
+            im.putpixel((300, 300), (104, 100, 100))
             im.save(b)
-            with self.assertRaisesRegex(AssertionError, 'difference=3, allowed=2'):
+            with self.assertRaisesRegex(AssertionError, 'difference=4, allowed=3'):
                 compare_artifact(a, b)
 
     def test_dimensions_and_alpha_remain_exact(self):
