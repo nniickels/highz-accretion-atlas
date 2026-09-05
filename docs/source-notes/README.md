@@ -23,3 +23,6 @@ live in [`../../data/sources.md`](../../data/sources.md).
 The [mass/error and publication-version audit](mass-error-and-publication-revision-audit.md)
 records complete numerical-mass validation, the Killi correction, and the
 Baccus revision sensitivity results.
+
+- [Redshift and identity audit](redshift-identity-audit.md): complete admitted
+  central-redshift/available-coordinate checks and open identity groups.

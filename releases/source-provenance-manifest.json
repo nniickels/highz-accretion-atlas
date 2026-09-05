@@ -9,10 +9,11 @@
   "artifacts": {
     "data/manual_extraction_audit.csv": "745bfcd5fddb4e2cc04cbafe38588a781411e61c806dac0405dc3433cbf1e8e8",
     "data/selection_function_registry.csv": "dbe12ff48a5dd7428210b85998c58e0c253a128e0af4449e2a63ae51934f204f",
-    "data/source_provenance_registry.csv": "0495309ad39e2b6ceb63fa5944f991e8c7a34a5b42a98d518da12a3e725dcc47",
+    "data/source_provenance_registry.csv": "8ce61caca2fb142b1535dcf8fceaa33100d889f1fa664cac0bce83fdee136e15",
     "data/validation/complete_mass_checks.json": "a013a20aa1904db76139d1bdd9540a0439d7e6f6f6d739d1a9424f88cdaf4da2",
     "data/validation/primary_family_anchors.json": "0bdceb3f59a5b42fc17f1c79e3bd6951c4811a4af6a31510af3466d80028cd40",
     "data/validation/primary_source_checks.json": "019859b948c5797137fb2f04699d96f401c2b7f481463096b6736bd979cba1b7",
+    "data/validation/redshift_identity_checks.json": "ad74c56aee26b3b78b36452ca91e558c2fcebda4984eff7412cb4fe01223ac41",
     "data/validation/source_inputs/baccus_published_table1.txt": "f8900548fcaea7bbf083d26e03abdc4af449f4681fb65142baac66dc7dfa1c24",
     "data/validation/source_inputs/killi-published-crossref.json": "61127a43e9f46a6d9935e58d3928fa2f06c09977c6c14b33d9a5a1a97901118b"
   }

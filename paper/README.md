@@ -1,5 +1,9 @@
 # Manuscript draft
 
+**Scientific hold:** the [identity audit](../docs/source-notes/redshift-identity-audit.md)
+found three duplicate groups and two unresolved close-neighbour groups. Object
+counts and affected summaries need reconciliation before submission.
+
 The `paper/` folder contains the current working manuscript draft and is kept
 for reference while the catalogue and analysis continue to evolve.
 `highz_accretion_atlas_v3.tex` is the editable LaTeX source. It references the

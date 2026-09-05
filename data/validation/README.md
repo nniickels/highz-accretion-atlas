@@ -44,11 +44,15 @@ covariance, or make the heterogeneous sample complete or unbiased.
 
 ## Remaining coverage and completion criteria
 
-The mass/error audit is complete for the admitted numerical measurements. The
-remaining non-mass audit is **partial**, not a completed task or an intrinsic
-impossibility. Redshifts, coordinates/identities, luminosities and their errors,
-Eddington ratios, host masses, magnifications, line measurements, censoring, and
-evidence classifications do not yet have exhaustive independent cell coverage.
+The mass/error audit is complete for admitted numerical measurements. The
+[redshift/identity audit](../../docs/source-notes/redshift-identity-audit.md) now
+checks all 350 central redshifts and all 323 available coordinate pairs, plus
+31 mixed-sample redshift-type labels, in a separate 1,027-field fixture.
+It exposes five open identity groups; numerical agreement does not settle these
+scientific decisions. Twenty-seven rows lack coordinates. Redshift errors and
+spectral reliability are not exhaustively audited. Other fields, including
+luminosities, Eddington ratios, host masses, magnifications, line measurements,
+censoring and evidence classifications, retain partial independent coverage.
 Some are checked in the four-table fixture or family anchors; a family anchor
 does not certify all fields or every row in that family. Hash agreement and
 regeneration establish consistency with stored inputs, not source correctness.
@@ -62,8 +66,13 @@ coverage. Do not generate expected values from the pipeline being tested.
 
 Exhaustive non-mass validation remains recommended before relying on those
 fields for a new scientific claim. The current manuscript's growth diagnostics
-are driven by mass and redshift, so extending redshift/identity checks is the
+are driven by mass and redshift, so resolving the documented identity groups is the
 first priority, followed by fields used in follow-up and host comparisons.
 Until then, describe the atlas as reproducible with complete numerical-mass
-checks and representative checks of other fields; do not claim all catalogue
+and central-redshift/available-coordinate checks, with representative checks of
+other fields; do not claim all catalogue
 values or scientific interpretations have been independently validated.
+
+Run `python -m src.internal.verify_redshift_identity` for source checks and the
+open-group report. Add `--require-resolved` for the publication gate, which remains
+unsatisfied until those groups are scientifically reconciled.

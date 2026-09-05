@@ -210,7 +210,11 @@ assumed Eddington ratio, with about 1 dex systematic uncertainty.
 **Admission role: v3-scoped broad-line candidate phenotype.** The JWST/NIRSpec and
 NIRCam selection returns 20 compact blue broad-line emitters at 4 <= z <= 7.
 A coordinate-redshift and alias comparison to the pre-expansion v3 objects matches
-12 rows, including `GS_3073 = ZS7`, and leaves **8 new objects**. The paper publishes redshifts,
+11 rows and leaves **8 new objects** after excluding the separately identified
+`GS_3073` under the pre-JWST identification scope rule. The earlier statement
+`GS_3073 = ZS7` was incorrect: their positions and redshifts differ. Mascia cites
+Grazian (2020) for GS-3073's pre-JWST AGN identification. See the
+[redshift/identity audit](redshift-identity-audit.md). The paper publishes redshifts,
 coordinates, continuum slopes, compactness, Balmer decrements, and line
 measurements, but no object-level BH masses. Its photoionization discussion is
 deliberately agnostic about whether every central engine is an accreting BH, so

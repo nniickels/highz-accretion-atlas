@@ -48,3 +48,7 @@ plottable-object counts unchanged.
 
 Literature membership is frozen after these three batches. Later discoveries
 require a new dataset version.
+
+> Audit update (2026-09-05): this is a historical completion record. The
+> [identity audit](../source-notes/redshift-identity-audit.md) finds three duplicate
+> groups and two unresolved neighbours, so the stored object count is provisional.

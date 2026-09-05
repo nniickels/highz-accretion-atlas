@@ -3,6 +3,11 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
 
+**Identity audit status:** all admitted redshifts and available coordinates
+pass independent source checks, but three duplicate groups and two close-neighbour
+groups need reconciliation. The stored 340-object count is provisional; see the
+[identity audit](docs/source-notes/redshift-identity-audit.md).
+
 ## Background
 The James Webb Space Telescope pushes observational cosmology into the first few billion years of cosmic history, and it has revealed massive accreting objects that are hard to explain due to the limited time for them to grow. It follows that one of the biggest questions cosmologists are asking right now is: “How did these objects get so big, so fast?” My research project aims to contribute to this question by creating a standardized cross-paper catalogue of these objects and then testing what scenarios could have theoretically formed each one. Either they started from a sufficiently massive seed, accreted continuously for a long enough time, formed very early, or some combination of these conditions. This is explored and visualized with parameter-space maps and growth tracks based on the analytic black hole growth equation used in [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html).
 
@@ -191,7 +196,9 @@ Reproduction compares regenerated CSV values and PNG pixels with an independent
 baseline before refreshing hashes; see [reproduction and intentional updates](docs/guides/reproducibility.md).
 Independent source fixtures cover all 32 families with 2,041 field checks;
 all 244 numerical masses and both error bounds are independently checked.
-Other observable fields retain representative coverage. See the
+The separate redshift/identity fixture checks all central redshifts and available
+coordinates but reports five unresolved identity groups. Other observable fields
+retain representative coverage. See the
 [validation scope and extension requirements](data/validation/README.md) and
 [scientific limits](docs/reference/science-policy.md); passing CI does not imply
 a complete source audit or permit population-demographic claims.

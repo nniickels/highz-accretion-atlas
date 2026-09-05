@@ -42,3 +42,10 @@ The catalogue, baseline science outputs and figure data are unchanged. New tests
 check the added subset and efficiency claims; the draft PDF is rebuilt and
 visually reviewed. Journal selection, affiliations, funding acknowledgements and
 a permanent release/archive identifier still need author input before submission.
+
+## Subsequent identity audit
+
+The [5 September audit](../docs/source-notes/redshift-identity-audit.md) supersedes
+the earlier redshift/identity coverage assessment: all central redshifts and
+available coordinates are checked, but five scientific identity groups remain
+open. Unique-object counts and affected interpretations require reconciliation.

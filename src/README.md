@@ -26,3 +26,8 @@ complete catalogue from `data/assembly/`, and `v7_science_core.py`, the shared
 ranking and uncertainty implementation called by `science.py`. Its historical
 `v7_*` names are implementation history, not public dataset versions or supported
 user entry points. Public workflow commands remain the numbered notebooks.
+
+`internal/verify_redshift_identity.py` checks complete admitted redshift/coordinate
+coverage and all close identity pairs. Its report distinguishes source-value
+agreement from unresolved astrophysical identities; `--require-resolved` is the
+publication identity gate.

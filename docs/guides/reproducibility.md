@@ -45,3 +45,10 @@ catalogue, science, and per-object compatibility values. To verify regenerated
 figures as well, run the complete notebook workflow; comparing stored files
 without regeneration only checks baseline agreement. Source-value verification
 has its separate, explicitly bounded scope in `data/validation/README.md`.
+
+## Scientific identity gate
+
+`python -m src.internal.verify_redshift_identity` verifies source fields and reports
+open identity cases. `--require-resolved` is a separate publication gate; it
+currently fails for five groups. Reproduction success does not resolve them.
+See the [audit record](../source-notes/redshift-identity-audit.md).

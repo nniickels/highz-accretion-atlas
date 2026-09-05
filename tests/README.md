@@ -26,3 +26,7 @@ bounds, ZS7's included calibration scatter, and Baccus revision scenarios.
 
 `test_manuscript_methods.py` checks primary-subset claims and independently
 verifies the stated efficiency sensitivity against canonical results.
+
+`test_redshift_identity.py` tests complete redshift/coordinate coverage, source
+version pinning, rejection of altered source values and omitted identity pairs,
+and the publication gate for unresolved identities.

@@ -99,3 +99,11 @@ Compatibility requires the exact fixed-history seed to lie within an inclusive
 scenario interval; falling below its lower edge means overgrowth for that
 history, not exclusion of the seed family at every possible duty cycle. PBH
 labels are mass-range scenarios, not a primordial-abundance calculation.
+
+## Current identity audit status
+
+The [redshift/identity audit](../source-notes/redshift-identity-audit.md) checks all
+admitted central redshifts and available coordinates but identifies three duplicate
+groups and two unresolved close neighbours. The 340 stored object IDs are not yet
+a validated unique-object census. Resolve these cases and regenerate affected
+counts before submission. The explicit publication identity gate remains open.

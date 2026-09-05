@@ -33,6 +33,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m src.internal.verify_source_provenance
+      - name: Audit redshift source values and report unresolved identities
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m src.internal.verify_redshift_identity
       - name: Verify v1/v2/v3 dataset and result contracts
         env:
           PYTHONDONTWRITEBYTECODE: "1"
