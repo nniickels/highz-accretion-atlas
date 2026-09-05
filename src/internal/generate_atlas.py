@@ -30,6 +30,9 @@ def configure(version: str) -> None:
         atlas.FIGURE_PATHS["full_assumption_growth_tracks"] = (
             atlas.FIGURES / "v3_all_object_growth_tracks_full_assumptions.png"
         )
+        atlas.FIGURE_PATHS["full_assumption_growth_tracks_zseed3400"] = (
+            atlas.FIGURES / "v3_all_object_growth_tracks_full_assumptions_zseed3400.png"
+        )
     atlas.TABLE_PATHS = {
         "coverage": atlas.TABLES / f"{version}_all_object_visual_coverage.csv",
         "compatibility": atlas.TABLES / f"{version}_all_object_compatibility.csv",
@@ -57,6 +60,10 @@ def main() -> None:
     if args.version == "v3":
         atlas.plot_full_assumption_growth_tracks(
             objects, atlas.FIGURE_PATHS["full_assumption_growth_tracks"],
+        )
+        atlas.plot_full_assumption_growth_tracks(
+            objects, atlas.FIGURE_PATHS["full_assumption_growth_tracks_zseed3400"],
+            z_seed=3400.0,
         )
     atlas.compile_fedd_mass_gallery(objects, atlas.FIGURE_PATHS["fedd_mass_gallery"])
     atlas.plot_compatibility_summary(objects, compatibility, atlas.FIGURE_PATHS["compatibility_summary"])

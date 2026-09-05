@@ -113,6 +113,7 @@ def verify_version(version: str) -> None:
     if version == "v3":
         for filename in (
             "v3_all_object_growth_tracks_full_assumptions.png",
+            "v3_all_object_growth_tracks_full_assumptions_zseed3400.png",
             "v3_uncertainty_robustness_top5.png",
         ):
             path = results / "figures" / filename

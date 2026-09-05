@@ -19,10 +19,17 @@ public repository contract; necessary assembly logic is isolated under
 
 Individual growth-track panels are intentionally omitted. A combined
 growth-track overview for each version remains under `figures/`. All combined
-growth-track figures use the same observed-redshift range from 12 down to 3,
+growth-track figures use the same observed-redshift range from 13 down to 3,
 with their existing figure dimensions and plot margins retained. v3 also has
 `v3_all_object_growth_tracks_full_assumptions.png`, which preserves the full
 historical v1 curve and object-color encodings as a separate companion figure.
+Its seed redshift is 30. The additional
+`v3_all_object_growth_tracks_full_assumptions_zseed3400.png` changes only seed
+redshift to 3400, preserving all 72 parameter combinations and identical axes.
+Both use the adopted matter+Lambda age relation: radiation is neglected, so
+the early-seed comparison is an extrapolation, not a physical seed-formation
+model. Curves outside the shared mass-axis limits are clipped. Regeneration
+through the atlas notebook produces both figures.
 
 ## v3 catalogue and atlas
 
@@ -35,6 +42,7 @@ The main summary figures are:
 
 - `v3_all_object_growth_tracks.png`
 - `v3_all_object_growth_tracks_full_assumptions.png`
+- `v3_all_object_growth_tracks_full_assumptions_zseed3400.png`
 - `v3_compatibility_summary.png`
 - `v3_monte_carlo_summary.png`
 - `v3_uncertainty_robustness_top5.png`

@@ -5,7 +5,7 @@
   "expected_measurements": 350,
   "expected_objects": 340,
   "expected_hosts": 339,
-  "artifact_count": 723,
+  "artifact_count": 724,
   "artifacts": {
     "data/crossmatch/v3/v3_external_literature_identity_audit.csv": "f8690e09573491ad054a35ca69d61551bae514f79c16bc295c06f290e62a4346",
     "data/crossmatch/v3/v3_measurement_object_links.csv": "bfbebb6393362476b34d9761222b9ed5c5f5d65b8e43c681effd8941468c0ba5",
@@ -21,6 +21,7 @@
     "results/v3/figures/v3_all_object_fedd_mass_map_gallery.png": "47efb1823f0a9cbebc57b9916e68d5f4231f90d901235b7ef578cf1091ca7c67",
     "results/v3/figures/v3_all_object_growth_tracks.png": "dac1ac9fb15560d84401cb08f75f3f5b49c53e4263ec5b494fefce3805b7d48e",
     "results/v3/figures/v3_all_object_growth_tracks_full_assumptions.png": "af7c00ab91915eae1711c9345cc4c966f22bab3d4a52d6b1766566b26f608ff5",
+    "results/v3/figures/v3_all_object_growth_tracks_full_assumptions_zseed3400.png": "d1f420cd4913f29dbd695cc387a6aab1e9239d32a745bf974e28336cc71195e7",
     "results/v3/figures/v3_all_object_monte_carlo_uncertainty.png": "dc367f9a4dd5612dd9fafbc940c338edecabcd49a02db91a15465745bdc85b33",
     "results/v3/figures/v3_catalogue_growth_landscape.png": "7f1f98a39ed294ea365303fe7cc244aeba74ca36718556a4bad74a14873f72fb",
     "results/v3/figures/v3_class_aware_growth_pressure.png": "100a519e6c367a28a48f0742f76562c744eb2f871973a2a1e6948ffc024b36a7",

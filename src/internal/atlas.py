@@ -56,6 +56,7 @@ FIGURE_PATHS = {
     "measurement_sensitivity": FIGURES / "v3_measurement_sensitivity.png",
     "growth_tracks": FIGURES / "v3_all_object_growth_tracks.png",
     "full_assumption_growth_tracks": FIGURES / "v3_all_object_growth_tracks_full_assumptions.png",
+    "full_assumption_growth_tracks_zseed3400": FIGURES / "v3_all_object_growth_tracks_full_assumptions_zseed3400.png",
     "compatibility_summary": FIGURES / "v3_compatibility_summary.png",
     "uncertainty_summary": FIGURES / "v3_monte_carlo_summary.png",
     "fedd_mass_gallery": FIGURES / "v3_all_object_fedd_mass_map_gallery.png",
@@ -253,8 +254,10 @@ def plot_all_object_growth_tracks(objects: pd.DataFrame, output: Path) -> None:
 def plot_full_assumption_growth_tracks(
     objects: pd.DataFrame,
     output: Path,
+    *,
+    z_seed: float = 30.0,
 ) -> None:
-    """Render the historical v1 72-curve grid against v3 catalogue objects."""
+    """Render the 72-curve grid; retain the adopted matter+Lambda cosmology."""
     eligible = objects[objects["growth_ranking_eligible_flag"].map(boolish)].copy()
     unavailable = objects[~objects["growth_ranking_eligible_flag"].map(boolish)].copy()
     redshift = np.linspace(
@@ -271,7 +274,7 @@ def plot_full_assumption_growth_tracks(
                 for boost, _, alpha in FULL_TRACK_MERGER_CASES:
                     ax.plot(
                         redshift,
-                        predicted_log_mbh(log_seed, fedd, epsilon, 30.0, redshift,
+                        predicted_log_mbh(log_seed, fedd, epsilon, z_seed, redshift,
                                           merger_boost=boost),
                         color=color, ls=linestyle, lw=linewidth, alpha=alpha,
                     )
@@ -288,6 +291,8 @@ def plot_full_assumption_growth_tracks(
         )
 
     title = f"{VERSION}: all-object growth tracks"
+    if z_seed != 30.0:
+        title += f" — seed redshift {z_seed:g} (comparison with baseline 30)"
     ax.set(
         xlim=GROWTH_TRACK_REDSHIFT_LIMITS, ylim=(4.5, 10.8), xlabel="Observed redshift",
         ylabel=r"Canonical $\log_{10}(M_{\rm BH}/M_\odot)$",
@@ -351,6 +356,13 @@ def plot_full_assumption_growth_tracks(
         "opacity encodes merger boost.",
         ha="center", fontsize=8,
     )
+    if z_seed != 30.0:
+        fig.text(
+            0.55, 0.14,
+            "Same matter+Lambda cosmology; radiation neglected. "
+            "Early-seed extrapolation, not a physical seed-formation model.",
+            ha="center", fontsize=9,
+        )
     output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output, dpi=300, facecolor="white")
     plt.close(fig)
