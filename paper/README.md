@@ -20,3 +20,6 @@ SOURCE_DATE_EPOCH=1788393600 tectonic --keep-logs highz_accretion_atlas_v3.tex
 The compiled draft is `highz_accretion_atlas_v3.pdf`. LaTeX intermediate files
 are ignored. The fixed epoch is 2026-09-03 00:00:00 UTC and makes repeat builds
 with the same compiler byte-reproducible.
+
+The [scientific/editorial pass record](scientific-editorial-review.md) lists
+checked claims, corrections, and remaining submission work.

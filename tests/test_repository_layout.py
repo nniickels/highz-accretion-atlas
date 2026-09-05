@@ -87,7 +87,7 @@ class RepositoryLayoutTests(unittest.TestCase):
             "mascia2026", "matthee2024", "mazzolari2024", "naidu2026", "napolitano2025",
             "ren2025", "scholtz2025", "skyfire2026", "tang2025", "taylor2025",
             "treiber2025", "ubler2024", "zhang2026", "zou2026",
-            "zhuang2025", "lin2025", "napolitano2024",
+            "zhuang2025", "lin2025", "napolitano2024", "juodzbalis_direct2025", "bardeen1972",
         }
         cited = {
             key.strip()

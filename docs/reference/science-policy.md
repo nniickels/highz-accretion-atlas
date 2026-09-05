@@ -80,3 +80,22 @@ average parameters. The ideal-spin endpoints and photon-trapping coupling are
 illustrative assumptions, and the age expression is a flat matter-plus-Lambda
 approximation without radiation. Passing numerical integration tests validates
 implementation of those equations, not their adequacy for every physical model.
+
+## Interpretation checks added in the scientific/editorial pass
+
+The 237-object exploratory set and the 227-object primary set are distinct.
+The primary set has 12 point requirements above unity, eight at p16, and six
+with reported-error P(f_Edd>1)>=0.95. GN-z11 is outside that primary subset;
+its UV estimator must not be presented as interchangeable with Balmer masses.
+
+The reference 14-object point tail is conditional on epsilon=0.1. Keeping all
+other reference assumptions fixed and using the implemented ideal non-spinning
+efficiency 1-sqrt(8/9)=0.05719 multiplies requirements by 0.54594, lowers the
+largest to 0.793, and leaves zero point requirements above unity. This is a
+parameter sensitivity, not a spin measurement or a claim of unique histories.
+`tests/test_manuscript_methods.py` checks this via independent algebraic scaling.
+
+Compatibility requires the exact fixed-history seed to lie within an inclusive
+scenario interval; falling below its lower edge means overgrowth for that
+history, not exclusion of the seed family at every possible duty cycle. PBH
+labels are mass-range scenarios, not a primordial-abundance calculation.

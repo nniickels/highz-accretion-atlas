@@ -23,3 +23,6 @@ with independent CSV and PNG comparisons before refreshing hashes.
 
 `test_mass_review.py` checks complete numerical-mass coverage, Killi's linear
 bounds, ZS7's included calibration scatter, and Baccus revision scenarios.
+
+`test_manuscript_methods.py` checks primary-subset claims and independently
+verifies the stated efficiency sensitivity against canonical results.
