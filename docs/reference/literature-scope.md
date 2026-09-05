@@ -42,3 +42,24 @@ and explicitly reviewed manifests.
 
 The implemented final admission record and counts are maintained in
 [`catalogue-completion-plan.md`](catalogue-completion-plan.md).
+
+## Deferred A2744-QSO1 measurement: next-version work
+
+This is an implementable extension, deliberately deferred to preserve frozen
+measurement membership. The existing physical object remains represented;
+deferral is not a missing object or a correction to its older source extraction.
+Before admitting the direct estimate:
+
+1. Build a source-specific adapter from the pinned source, preserving the
+   preferred MOKA3D estimate separately from the inclination-free lower limit.
+2. Add direct-mass method metadata, uncertainty/censoring semantics, and an
+   explicitly reviewed link to the existing A2744-QSO1 identity.
+3. Define next-version measurement membership and the preferred-measurement
+   policy; test the changes to ranks and growth diagnostics against the frozen
+   result without double-counting the physical object.
+4. Add independent source-value fixtures, regenerate the new version's products,
+   and review manifests and manuscript claims together.
+
+A complete publication re-admission for Baccus would similarly require review
+of new rows and classification/selection changes. The existing published-value
+sensitivity test is already implemented; it is not that full re-admission.

@@ -63,6 +63,20 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertGreater(manuscript.stat().st_size, 1_000_000)
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
 
+    def test_manuscript_artifact_counts_match_release_products(self) -> None:
+        manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
+        for version in ("v1", "v2", "v3"):
+            manifest = json.loads((ROOT / f"releases/{version}-dataset-manifest.json").read_text())
+            actual = re.search(rf"([\d,]+) {version} artifacts", manuscript)
+            if actual is None:
+                actual = re.search(rf"([\d,]+) {version}\b", manuscript)
+            self.assertIsNotNone(actual, version)
+            self.assertEqual(int(actual.group(1).replace(",", "")), manifest["artifact_count"])
+        actual = re.search(r"result inventory contains ([\d,]+) artifacts", manuscript)
+        self.assertIsNotNone(actual)
+        inventory = pd.read_csv(ROOT / "results/results_inventory.csv")
+        self.assertEqual(int(actual.group(1).replace(",", "")), len(inventory))
+
     def test_manuscript_citations_have_bibliography_entries(self) -> None:
         manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
         expected = {

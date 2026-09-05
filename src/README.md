@@ -21,7 +21,8 @@ release number.
 inventory, extraction, and verification helpers called by the notebooks in
 `scripts/`.
 
-`internal/compatibility/` contains only the retained source-admission builders
-needed to reconstruct the complete catalogue from the frozen assembly inputs in
-`data/assembly/`. Their historical `v7_*` names are implementation history, not
-public dataset versions or supported user entry points.
+`internal/compatibility/` retains source-admission builders that reconstruct the
+complete catalogue from `data/assembly/`, and `v7_science_core.py`, the shared
+ranking and uncertainty implementation called by `science.py`. Its historical
+`v7_*` names are implementation history, not public dataset versions or supported
+user entry points. Public workflow commands remain the numbered notebooks.

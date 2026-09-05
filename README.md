@@ -132,9 +132,9 @@ mkdir -p /tmp/highz-atlas-notebooks
 .venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/04_verify.ipynb
 ```
 
-Only the historical source-admission builders required for exact reconstruction
-remain under `src/internal/compatibility/`; they do not define public dataset
-versions or write legacy output trees.
+Historical source-admission builders and the shared ranking/uncertainty core
+remain under `src/internal/compatibility/`; their names do not define public
+dataset versions or write legacy output trees.
 
 ## Getting Started
 
@@ -191,4 +191,7 @@ Reproduction compares regenerated CSV values and PNG pixels with an independent
 baseline before refreshing hashes; see [reproduction and intentional updates](docs/guides/reproducibility.md).
 Independent source fixtures cover all 32 families with 2,041 field checks;
 all 244 numerical masses and both error bounds are independently checked.
-Other observable fields retain representative coverage.
+Other observable fields retain representative coverage. See the
+[validation scope and extension requirements](data/validation/README.md) and
+[scientific limits](docs/reference/science-policy.md); passing CI does not imply
+a complete source audit or permit population-demographic claims.

@@ -60,3 +60,23 @@ mkdir -p /tmp/highz-atlas-notebooks
 .venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/01_generate_science.ipynb
 .venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/04_verify.ipynb
 ```
+
+## Scientific limits and what would change them
+
+The frozen atlas supports descriptive, within-class comparisons and conditional
+growth calculations. These limits do not prevent manuscript development, but
+must accompany interpretation of the results:
+
+| Limit | Current interpretation | Requirement for an extension |
+| --- | --- | --- |
+| Fixed growth assumptions | Reported-error probabilities hold at the stated seed mass/redshift, efficiency, merger factor and cosmology; they are not model-marginalized probabilities or probabilities of a seed origin. | Define justified parameter distributions and correlations, then propagate them jointly. Existing scenario maps illustrate sensitivity; they do not marginalize it. |
+| Approximate mass-error distributions | Equal-side half-normal draws reproduce quoted scales approximately, not full source posteriors. Method envelopes remain separate; twelve objects lack reported errors. | Obtain posterior information or justify and test alternative error models, including shared calibration effects. Never turn absent errors into certainty. |
+| Heterogeneous selection | Counts and navigation ranks describe the admitted sample; population fractions, number densities and seed-channel frequencies are unsupported. | Validate source-specific inclusion probabilities and parent populations, account for survey overlap, and only then enable the demographic gate. Missing selection information cannot be repaired by assigning arbitrary weights. |
+| Partial non-mass source audit | Reproduction is verified, but not every source field or identity has been independently re-read. | Extend the fixtures under the criteria in `data/validation/README.md`, prioritizing redshifts and identities. |
+| Frozen measurement membership | Known new measurements, including the A2744-QSO1 direct-mass result, are not silently substituted into v1/v2/v3. | Follow the next-version admission work in `literature-scope.md`; distinguish new measurements from corrections to existing extracted values. |
+
+The growth law also compresses time-dependent feedback and accretion into
+average parameters. The ideal-spin endpoints and photon-trapping coupling are
+illustrative assumptions, and the age expression is a flat matter-plus-Lambda
+approximation without radiation. Passing numerical integration tests validates
+implementation of those equations, not their adequacy for every physical model.

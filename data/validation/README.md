@@ -41,3 +41,29 @@ uses the explicitly pinned v1 measurement table.
 This audit validates transcription and conversion of numerical mass/error
 fields. It does not establish estimator validity, reconstruct posterior
 covariance, or make the heterogeneous sample complete or unbiased.
+
+## Remaining coverage and completion criteria
+
+The mass/error audit is complete for the admitted numerical measurements. The
+remaining non-mass audit is **partial**, not a completed task or an intrinsic
+impossibility. Redshifts, coordinates/identities, luminosities and their errors,
+Eddington ratios, host masses, magnifications, line measurements, censoring, and
+evidence classifications do not yet have exhaustive independent cell coverage.
+Some are checked in the four-table fixture or family anchors; a family anchor
+does not certify all fields or every row in that family. Hash agreement and
+regeneration establish consistency with stored inputs, not source correctness.
+
+To extend coverage, retrieve each pinned source version, review its table or
+text locator independently, record source-native values and conversions, and
+check both the raw extraction and its canonical destination. Keep limits,
+conditional estimates and missing values distinct from detections. Add fixtures
+with row identifiers and source hashes, plus tests rejecting missing expected
+coverage. Do not generate expected values from the pipeline being tested.
+
+Exhaustive non-mass validation remains recommended before relying on those
+fields for a new scientific claim. The current manuscript's growth diagnostics
+are driven by mass and redshift, so extending redshift/identity checks is the
+first priority, followed by fields used in follow-up and host comparisons.
+Until then, describe the atlas as reproducible with complete numerical-mass
+checks and representative checks of other fields; do not claim all catalogue
+values or scientific interpretations have been independently validated.

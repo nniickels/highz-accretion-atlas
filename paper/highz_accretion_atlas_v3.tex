@@ -310,7 +310,7 @@ RUBIES-EGS-55604 & 6.986 & 9.31 & 1.267 & 1.250--1.284 \\
 The Monte Carlo results preserve the point-estimate conclusion for the strongest
 objects. Fourteen objects have median required $\fedd>1$, ten remain above unity
 at the 16th percentile, and 15 cross unity by the 84th percentile. Eight objects
-have $P(\fedd>1)\geq0.95$. These probabilities are conditional on the reported
+have $P(\fedd>1)\geq0.95$. These probabilities are conditional on the
 source-reported errors and the reference growth assumptions; they do not add a
 common virial-calibration uncertainty or uncertainty in seed redshift,
 radiative efficiency, and merger history.
@@ -412,23 +412,41 @@ reported across papers. Some identities in crowded or lensed fields may
 ultimately benefit from probabilistic crossmatching. Finally, Eq.~\ref{eq:growth}
 compresses time-dependent accretion, feedback, mergers, and radiative-state
 changes into effective parameters. Its outputs should be read as conditional
-comparisons, not reconstructed histories.
+comparisons, not reconstructed histories. Reported-error probabilities condition
+on fixed growth parameters; marginalization requires justified parameter
+distributions and correlations, not just scenario maps. They are not seed-origin
+probabilities. The age relation neglects radiation.
+
+All admitted numerical mass/error fields have independent source checks;
+other fields, including redshifts and identities, retain representative coverage.
+Extending these two audits is the first priority for further growth claims.
+Demographic inference requires source-specific inclusion models and overlap
+corrections. The documented A2744-QSO1 direct-mass measurement awaits a new
+dataset version under the frozen-membership policy.
 
 \section{Reproducibility and data products}
 
 The repository pins the direct Python 3.12 dependencies and provides five
 ordered notebooks that materialize catalogues, generate science tables, render
 figures, build the complete atlas, and verify the release. Canonical manifests
-record SHA-256 hashes for 85 v1, 461 v2, and 721 v3 artifacts. Verification
+record SHA-256 hashes for 85 v1, 461 v2, and 723 v3 artifacts. Verification
 checks strict nested version membership, catalogue cardinalities, exact in-memory
 CSV reproduction, 10,000-draw uncertainty products, compatibility coverage,
-figure resolution, and both parameter-map panels for every object. The current
-result inventory contains 1,237 artifacts.
+figure resolution, and both parameter-map panels for every object. Regenerated
+CSV values are compared with an independent committed baseline using the
+specified numerical tolerances. PNG dimensions and transparency must agree
+exactly; each RGB channel permits at most three levels of difference on the
+0--255 scale, based on the measured cross-platform rasterization differences.
+No image resizing, alignment or averaging is used to accept a mismatch. The current
+result inventory contains 1,239 artifacts.
 
-Independent source-cell checks additionally compare 865 values across 53
-admitted rows from the JADES, NEXUS, COSMOS-3D, and Seven Wonders tables.
-They recovered previously omitted NEXUS line-luminosity errors, now preserved
-in the source observables without changing masses or ranks. Numerical quadrature
+Independent source-cell verification performs 2,041 comparisons across
+three overlapping fixtures: 865 checks across 53 admitted rows from JADES,
+NEXUS, COSMOS-3D and Seven Wonders; 444 family-anchor checks; and 732 checks
+covering all 244 numerical masses and both error fields. This is a comparison
+count, not a count of unique cells. Other source fields retain representative
+coverage. These checks recovered omitted NEXUS line-luminosity errors, now
+preserved in source observables without changing masses or ranks. Numerical quadrature
 of the Friedmann age integral and Runge--Kutta growth integration using physical
 constants provide checks independent of the production closed-form functions.
 This supplements reproducibility; it is not an exhaustive independent re-audit
@@ -468,6 +486,7 @@ follow-up tied to which observation would most change each object's growth
 interpretation.
 
 \begin{thebibliography}{99}
+\setlength{\itemsep}{2pt}
 \bibitem{dayal2024} Dayal, P. 2024, \emph{A\&A}, 690, A182, doi:10.1051/0004-6361/202451481.
 \bibitem{juodzbalis2026} Juod\v{z}balis, I. et al. 2026, \emph{MNRAS}, 546, stag086, doi:10.1093/mnras/stag086.
 \bibitem{taylor2025} Taylor, A. J. et al. 2025, \emph{ApJ}, 986, 165, doi:10.3847/1538-4357/add15b.
