@@ -88,6 +88,124 @@ SED-selected candidates \cite{leung2026,lyu2024}, GHZ9
 additional UNCOVER candidates \cite{treiber2025}, MoM-BH*-1
 \cite{naidu2026}, and GHZ4/GHZ7 \cite{napolitano2024}.
 
+\subsection{Theoretical framework}
+\label{sec:theory}
+
+The growth constraints follow from the relation between accretion luminosity,
+retained mass, and available cosmic time. For electron-scattering opacity in
+ionized hydrogen, the Eddington luminosity and luminosity-based Eddington ratio
+are
+\begin{equation}
+L_{\rm Edd}=\frac{4\pi G\mbh m_p c}{\sigma_T},\qquad
+\fedd=\frac{L_{\rm bol}}{L_{\rm Edd}},\qquad
+t_{\rm Edd}=\frac{\mbh c^2}{L_{\rm Edd}}
+=\frac{c\sigma_T}{4\pi Gm_p}\simeq0.45\ {\rm Gyr}.
+\label{eq:eddington}
+\end{equation}
+Here $G$, $c$, $m_p$, and $\sigma_T$ denote the gravitational constant,
+speed of light, proton mass, and Thomson cross section. With radiative
+efficiency $0<\epsilon<1$ and rest-mass inflow rate $\dot M_{\rm in}$,
+\begin{equation}
+L_{\rm bol}=\epsilon\dot M_{\rm in}c^2,\qquad
+\dot\mbh=(1-\epsilon)\dot M_{\rm in}
+=\frac{1-\epsilon}{\epsilon}\frac{\fedd}{t_{\rm Edd}}\mbh.
+\label{eq:massgrowth}
+\end{equation}
+The inflow rate is defined at the radiating flow; additional mass loss before
+that point is not modelled. At fixed efficiency, define
+\begin{equation}
+\Delta t=t(z_{\rm obs})-t(z_{\rm seed})>0,\qquad
+\overline{\fedd}=\frac{1}{\Delta t}
+\int_{t(z_{\rm seed})}^{t(z_{\rm obs})}\fedd(t)\,dt.
+\label{eq:average}
+\end{equation}
+The analytic growth relation adopted by Dayal \cite{dayal2024} then becomes
+\begin{equation}
+\mbh(t_{\rm obs})=B_{\rm merge}\mseed
+\exp\!\left[\frac{1-\epsilon}{\epsilon}
+\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}}\right],\qquad
+t_{\rm efold}=\frac{\epsilon}{1-\epsilon}
+\frac{t_{\rm Edd}}{\fedd}.
+\label{eq:growth}
+\end{equation}
+The e-folding time assumes constant positive $\fedd$; it is 0.05 Gyr at
+$\epsilon=0.1$ and $\fedd=1$. The dimensionless $B_{\rm merge}$ represents an
+effective multiplicative merger boost, not a resolved merger history.
+
+Cosmic ages use the flat matter-plus-Lambda relation
+\begin{equation}
+t(z)=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
+\operatorname{asinh}\!\left[\sqrt{\frac{\Omega_\Lambda}{\Omega_m}}
+(1+z)^{-3/2}\right],
+\label{eq:cosmictime}
+\end{equation}
+with $H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m=0.315$, and
+$\Omega_\Lambda=0.685$. The Hubble constant is converted to inverse time;
+ages and growth intervals are in Gyr. Radiation is neglected. In particular,
+the supplementary $z_{\rm seed}=3400$ comparison extrapolates this age relation
+and is not a radiation-era seed-formation calculation.
+
+Two inversions provide the principal growth diagnostics:
+\begin{align}
+\overline{\fedd}_{\rm req}
+&=\max\!\left[0,\frac{\epsilon}{1-\epsilon}
+\frac{t_{\rm Edd}}{\Delta t}
+\ln\!\left(\frac{\mbh}{B_{\rm merge}\mseed}\right)\right],
+\label{eq:required-rate}\\
+\log_{10}\!\left(\frac{M_{\rm seed,req}}{M_\odot}\right)
+&=\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)-\log_{10}B_{\rm merge}
+-\frac{1-\epsilon}{\epsilon}
+\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
+\label{eq:required-seed}
+\end{align}
+In Eq.~\ref{eq:required-seed}, $M_{\rm seed,req}$ denotes the required seed
+mass. The zero floor in Eq.~\ref{eq:required-rate} follows the implementation:
+if the boosted seed already exceeds the observed mass, no positive accretion
+is required, but this does not make that fixed history an exact mass match.
+
+For a two-state history with the same efficiency in both states,
+\begin{equation}
+\overline{\fedd}=D f_{\rm burst}+(1-D)f_{\rm quiet},\qquad
+D_{\rm req}=\frac{\overline{\fedd}_{\rm req}-f_{\rm quiet}}
+{f_{\rm burst}-f_{\rm quiet}}.
+\label{eq:dutycycle}
+\end{equation}
+Here $D$ is the active-state time fraction, $f_{\rm burst}>f_{\rm quiet}\geq0$,
+and the diagnostic requires $\overline{\fedd}_{\rm req}\geq f_{\rm quiet}$.
+Values $D_{\rm req}>1$ identify an infeasible specified two-state history and
+are retained. An average growth requirement is not an instantaneous Eddington
+ratio or a uniquely measured duty cycle.
+
+For the illustrative spin-dependent maps, the ideal Kerr thin-disk efficiency
+is the ISCO binding efficiency \cite{bardeen1972}:
+\begin{align}
+\epsilon_a&=1-\sqrt{1-\frac{2}{3r_{\rm ISCO}}},\\
+r_{\rm ISCO}&=3+Z_2-\operatorname{sgn}(a)
+\sqrt{(3-Z_1)(3+Z_1+2Z_2)},\\
+Z_1&=1+(1-a^2)^{1/3}\big[(1+a)^{1/3}+(1-a)^{1/3}\big],\qquad
+Z_2=\sqrt{3a^2+Z_1^2}.
+\label{eq:spin}
+\end{align}
+The dimensionless spin is $a=cJ/(G\mbh^2)$, where $J$ is the signed angular
+momentum relative to the disk, and $r_{\rm ISCO}$ is in units of $G\mbh/c^2$.
+The ideal efficiencies at $a=-1,0,+1$ are approximately 0.038, 0.057, and
+0.423, respectively, neglecting photon capture and stress at the ISCO.
+Above unity, the maps adopt a phenomenological luminosity ansatz,
+\begin{equation}
+\fedd=1+\ln\dot m,\qquad
+\dot m=\frac{\dot M_{\rm in}}{L_{\rm Edd}/(\epsilon_a c^2)},\qquad
+\epsilon_{\rm eff}=\begin{cases}
+\epsilon_a,&\fedd\leq1,\\
+\epsilon_a\fedd\exp(1-\fedd),&\fedd>1.
+\end{cases}
+\label{eq:effective-efficiency}
+\end{equation}
+The logarithmic luminosity ansatz applies only on the super-Eddington branch.
+This is an illustrative parameter-scan prescription, not a relativistic
+slim-disk or spin-evolution calculation. If efficiency varies with time, the
+integrated growth depends on $\int [(1-\epsilon(t))/\epsilon(t)]\fedd(t)\,dt$;
+it cannot in general be represented by separately averaged efficiency and rate.
+
 \section{Catalogue construction}
 
 \subsection{Scope and versioning}
@@ -190,62 +308,20 @@ analysis without unsupported numerical growth products.}
 
 \subsection{Reference model}
 
-We use the analytic exponential-growth relation adopted by Dayal
-\cite{dayal2024},
-\begin{equation}
-\mbh(t_{\rm obs})=\mseed\exp\left[\fedd
-\left(\frac{1-\epsilon}{\epsilon}\right)
-\frac{t(z_{\rm obs})-t(z_{\rm seed})}{t_{\rm Edd}}\right]B_{\rm merge},
-\label{eq:growth}
-\end{equation}
-where $t_{\rm Edd}\simeq0.45$ Gyr, $\epsilon$ is a constant radiative
-efficiency, and $B_{\rm merge}$ is an effective multiplicative merger boost.
-For every eligible object we invert Eq.~\ref{eq:growth} to obtain the required
-lifetime-average $\fedd$ at fixed seed mass and the required seed mass at fixed
-$\fedd$. The reference ranking uses $z_{\rm seed}=30$, $\epsilon=0.1$,
-$B_{\rm merge}=1$, and $\mseed=10^2\,M_\odot$.
-
-Cosmic ages use the flat matter-plus-Lambda relation
-\begin{equation}
-t(z)=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
-\operatorname{asinh}\!\left[\sqrt{\frac{\Omega_\Lambda}{\Omega_m}}
-(1+z)^{-3/2}\right],
-\end{equation}
-with $H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m=0.315$ and
-$\Omega_\Lambda=0.685$. The Hubble constant is converted to inverse time;
-ages and growth intervals are expressed in Gyr. These are the atlas's adopted
-parameters, not a fit to this catalogue. We define $\fedd=L_{\rm bol}/L_{\rm Edd}$
-and use $t_{\rm Edd}=c\sigma_T/(4\pi Gm_p)\simeq0.45$ Gyr.
-
-These parameters summarize a growth history rather than reconstruct it. In
-particular, the lifetime-average $\fedd$ is not the object's currently observed
-Eddington ratio. For fixed efficiency, the exponent depends on the time integral of $\fedd$;
-its average includes inactive intervals. It does not establish a duty cycle.
+We apply the relations in Section~\ref{sec:theory} to each eligible object.
+The reference ranking uses $z_{\rm seed}=30$, $\epsilon=0.1$,
+$B_{\rm merge}=1$, and $\mseed=10^2\,M_\odot$. Required average rates and
+seed masses follow Eqs.~\ref{eq:required-rate} and \ref{eq:required-seed}.
+We call the derived requirement \emph{growth pressure}: it measures how
+demanding a specified history is, conditional on the published mass and model.
 A single merger factor and fixed efficiency do not resolve feedback cycles,
-changing accretion states, or stochastic mergers. We therefore call the derived quantity \emph{growth
-pressure}: it measures how demanding a specified history is, conditional on the
-published mass and the reference model.
+changing accretion states, or stochastic mergers.
 
-The spin-dependent $\fedd$--seed-mass maps and compatibility matrices use a
-different, illustrative efficiency prescription. For $\fedd\leq1$ they use
-the ideal Kerr thin-disk efficiency $\epsilon_a=1-E_{\rm ISCO}(a)$, approximately
-0.038, 0.057, and 0.423 for dimensionless spin $a=-1,0,+1$
-\cite{bardeen1972}. These are ideal zero-torque ISCO binding efficiencies,
-neglecting photon capture. Above unity they use
-\begin{equation}
-\epsilon_{\rm eff}=\epsilon_a\fedd\exp(1-\fedd).
-\end{equation}
-This follows algebraically from the adopted phenomenological luminosity ansatz
-$L/L_{\rm Edd}=1+\ln\dot m$, with
-\begin{equation}
-\dot m=\frac{\dot M}{L_{\rm Edd}/(\epsilon_a c^2)}.
-\end{equation}
-It is a parameter-scan
-prescription, not a relativistic slim-disk or spin-evolution calculation.
-The baseline rankings, duty-cycle diagnostics, and seed-redshift--mass maps
-retain $\epsilon=0.1$; growth tracks retain their stated constant efficiencies.
-Thus compatibility above unity is conditional on a different efficiency model
-from the baseline required-$\fedd$ ranking.
+The spin-dependent $\fedd$--seed-mass maps and compatibility matrices use
+Eq.~\ref{eq:effective-efficiency}. The baseline rankings, duty-cycle diagnostics,
+and seed-redshift--mass maps retain $\epsilon=0.1$; growth tracks retain their
+stated constant efficiencies. Thus compatibility above unity is conditional on
+a different efficiency model from the baseline required-$\fedd$ ranking.
 
 \subsection{Uncertainty and ranking policy}
 
