@@ -77,3 +77,22 @@ is the author's proposed diagnostic, not a source-reported observation plan.
 The independent notebook-03 baseline gate covers these CSVs and LaTeX fragments.
 Notebook-04 recomputation is an additional internal-consistency check, not a
 replacement for comparison with the original reviewed baseline.
+
+## Joint publication revision and identity exclusions
+
+`publication_baccus_revision_comparison.csv` and
+`publication_baccus_revision_summary.csv` rerun the published Baccus Table 1
+substitution on each conservative manuscript sample. All six open-identity
+records are removed before matching, substitution and uncertainty propagation.
+The same 44 exact-ID, position-confirmed matches remain; four unmatched records
+remain because the fifth was already identity-excluded. Scenarios retain frozen
+values, replace published values while retaining unmatched records, or replace
+published values and omit unmatched records. Evidence/method flags and growth
+parameters remain fixed; quoted-error draws use the standard seed and count.
+
+The generated `baccus_revision_rows.tex` reports 224/224/220 primary and
+234/234/230 exploratory objects. All scenarios preserve primary 12/8/6 and
+exploratory 14/10/8 point/p16/P>=0.95 counts and each sample's top-five ordering.
+Comparison rows appear once per sample: the primary sample is nested in the
+exploratory sample, so these are not independent objects to pool. The original
+full-catalogue revision products in `results/v3/tables/` remain unchanged.

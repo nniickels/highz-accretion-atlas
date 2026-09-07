@@ -6,6 +6,30 @@ import pandas as pd
 from src.internal.publication_selection import ROOT, POLICY, build_publication_outputs, verify_publication_selection
 
 class PublicationSelectionTests(unittest.TestCase):
+    def test_joint_publication_revision_excludes_identities_and_recomputes_masses(self):
+        import numpy as np
+        from src import models
+        outputs = build_publication_outputs()
+        summary = outputs['publication_baccus_revision_summary']
+        detail = outputs['publication_baccus_revision_comparison']
+        excluded = outputs['publication_object_selection'].query('excluded_identity_flag')
+        self.assertFalse(set(detail.physical_object_id) & set(excluded.physical_object_id))
+        for sample, sizes, counts in [('primary', [224,224,220], [12,8,6]),
+                                      ('exploratory', [234,234,230], [14,10,8])]:
+            rows = summary.loc[summary['sample'].eq(sample)]
+            self.assertEqual(rows.numerical_objects.tolist(), sizes)
+            self.assertTrue(rows.matched_baccus_objects.eq(44).all())
+            self.assertTrue(rows.unmatched_baccus_objects.eq(4).all())
+            self.assertEqual(rows.top5_required_fedd.nunique(), 1)
+            self.assertEqual(rows[['point_required_fedd_gt_1', 'p16_required_fedd_gt_1',
+                                   'prob_required_fedd_gt_1_ge_095']].values.tolist(), [counts]*3)
+        matched = detail.loc[detail.match_status.eq('exact_id')]
+        expected = models.required_fedd_for_seed(2, matched.published_log_mbh_msun_std,
+                                                .1, 30, matched.published_redshift)
+        np.testing.assert_allclose(matched.published_values_keep_unmatched_required_fedd_seed1e2,
+                                   expected, rtol=1e-12)
+        self.assertTrue(matched.delta_log_mbh_dex.ne(0).any())
+
     def test_exclusions_preserve_headlines_without_claiming_resolved_identities(self):
         result = verify_publication_selection()
         self.assertEqual(result['scientific_identity_status'], 'open')

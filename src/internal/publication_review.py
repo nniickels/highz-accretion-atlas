@@ -97,6 +97,15 @@ def review_tex(outputs):
         rf'The direct estimate lies just below unity at the point value, but its interval crosses the threshold; '
         rf'the conditional exceedance probability is {new.probability_gt_1:.3f}. '
         rf'Rounding the point requirement to 1.000 does not indicate exact equality.'+'\n')
-    return {'target_rows':'\n'.join(rows)+'\n', 'target_actions':'\n'.join(actions)+'\n',
+    revision_rows = []
+    labels = {'frozen_v1_measurements': 'Frozen values',
+              'published_values_keep_unmatched': 'Published; retain unmatched',
+              'published_values_omit_unmatched': 'Published; omit unmatched'}
+    for r in outputs['publication_baccus_revision_summary'].itertuples():
+        revision_rows.append(
+            f'{r.sample.capitalize()} & {labels[r.scenario]} & {r.numerical_objects} & '
+            f'{r.point_required_fedd_gt_1}/{r.p16_required_fedd_gt_1}/{r.prob_required_fedd_gt_1_ge_095} \\\\')
+    return {'baccus_revision_rows':'\n'.join(revision_rows)+'\n',
+            'target_rows':'\n'.join(rows)+'\n', 'target_actions':'\n'.join(actions)+'\n',
             'source_rows':'\n'.join(inventory)+'\n', 'matched_rows':'\n'.join(matched)+'\n',
             'direct_result':direct_text}

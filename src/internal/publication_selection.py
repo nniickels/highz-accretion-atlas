@@ -78,7 +78,15 @@ def build_publication_outputs(root=ROOT, policy=None):
     from src.internal.publication_systematics import build_mass_offset_outputs
     offsets = build_mass_offset_outputs(selection, errors)
     from src.internal.publication_review import build_review_outputs
+    from src.internal.assess_baccus_revision import build_revision_outputs
+    revision = {}
+    for sample in ('primary', 'exploratory'):
+        ids = selection.loc[selection[f'publication_{sample}_flag'], 'physical_object_id']
+        products = build_revision_outputs(objects.loc[objects.physical_object_id.isin(ids)].copy())
+        for name, frame in products.items():
+            revision.setdefault(name, []).append(frame.assign(sample=sample))
     return {'publication_object_selection': selection, 'identity_exclusion_sensitivity': pd.DataFrame(rows),
+            **{f'publication_{name}': pd.concat(frames, ignore_index=True) for name, frames in revision.items()},
             **offsets, **build_review_outputs(root, selection, offsets['mass_offset_object_sensitivity'])}
 
 

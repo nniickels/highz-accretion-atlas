@@ -136,3 +136,26 @@ contracts pass. The rebuilt 21-page PDF has no LaTeX layout/citation warnings
 and all pages were visually inspected, including a second inspection after
 final flow adjustments. The pre-existing open identity gate remains explicitly
 reported and is not treated as resolved by this revision.
+
+## Joint revision sensitivity and presentation — 7 September 2026
+
+Applied the published Baccus redshift/mass/error substitutions after all
+manuscript identity exclusions, separately for primary and exploratory samples.
+The 44 position-confirmed exact matches remain. Of five unmatched frozen records,
+one is already identity-excluded; retaining or omitting the other four yields
+224/220 primary and 234/230 exploratory objects. Recomputed quoted-error results
+preserve primary 12/8/6 and exploratory 14/10/8 threshold counts and each sample's
+top-five ordering. Generated per-object CSVs, six-scenario summary and LaTeX
+rows are integrated into the publication generation and verification entry points.
+This closes the previously separate-test limitation without changing canonical
+catalogue membership or claiming identity resolution.
+
+Moved the detailed catalogue accounting table to the source appendix, removed
+the repeated discussion of mass-free evidence, and condensed repeated inference
+caveats while retaining their full methodological definitions and limitations.
+The new combined-test table keeps the sensitivity result explicit in the text.
+
+Validation: all 93 unit tests pass, including the joint-sample regression and
+analytic revised-mass check. Publication CSVs and generated TeX fragments verify;
+v1/v2/v3 catalogue/science reproduction, manifests and inventory checks pass.
+The revised 21-page PDF compiles without warnings and was visually inspected.

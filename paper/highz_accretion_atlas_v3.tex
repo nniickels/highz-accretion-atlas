@@ -79,9 +79,7 @@ plausible scenarios, which depend primarily on uncertain assumptions, and where
 improved observations would most strengthen the constraints. This approach
 treats the catalogue as a means of testing possible growth histories, rather
 than assuming that every high-redshift black hole presents the same assembly
-problem. The constraints apply to individual objects under stated assumptions;
-we do not estimate a pooled mass function, occurrence rate, or formation-channel
-fraction.
+problem. The constraints apply to individual objects under stated assumptions.
 
 Analytic seed-growth comparisons already establish the trade-off between seed
 mass and sustained accretion. For example, Dayal \cite{dayal2024} considered
@@ -287,24 +285,6 @@ additional exploratory objects. The accounting panel also records 98 retained
 objects without masses and all six identity exclusions, without plotting excluded
 measurements. Figures use the publication selection or explicitly labelled subsets of it.
 
-\begin{table}[ht]
-\centering
-\caption{v3 scale and analysis subsets.}
-\begin{tabular}{@{}lr@{}}
-\toprule
-Product or subset & Rows or objects \\
-\midrule
-Measurements / provisional objects / hosts & 350 / 338 / 337 \\
-Growth-eligible measurements / objects & 244 / 237 \\
-Method-eligible primary measurements / objects & 234 / 227 \\
-Manuscript primary / exploratory objects & 224 / 234 \\
-Identity-excluded object records & 6 \\
-Catalogue-only object records & 101 \\
-\bottomrule
-\end{tabular}
-\label{tab:scale}
-\end{table}
-
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.99\textwidth]{figures/landscape.png}
@@ -325,8 +305,6 @@ $B_{\rm merge}=1$, and $\mseed=10^2\,M_\odot$. Required average rates and
 seed masses follow Eqs.~\ref{eq:required-rate} and \ref{eq:required-seed}.
 We call the derived requirement \emph{growth pressure}: it measures how
 demanding a specified history is, conditional on the published mass and model.
-A single merger factor and fixed efficiency do not resolve feedback cycles,
-changing accretion states, or stochastic mergers.
 
 The spin-dependent $\fedd$--seed-mass maps and compatibility matrices use
 Eq.~\ref{eq:effective-efficiency}. The baseline rankings, duty-cycle diagnostics,
@@ -462,11 +440,8 @@ Within the primary sample, eight objects remain above unity at the 16th
 percentile and six have $P(\fedd>1)\geq0.95$, compared with 12 above unity
 at their point estimates. In the exploratory sample, 14 objects have median
 required $\fedd>1$, ten remain above unity at the 16th percentile, and 15
-cross unity by the 84th percentile; eight have $P(\fedd>1)\geq0.95$. These probabilities are conditional on the
-source-reported errors and the reference growth assumptions; they do not add a
-common virial-calibration uncertainty or uncertainty in seed redshift,
-radiative efficiency, and merger history. These are descriptive counts
-within the stated subsets, not population fractions.
+cross unity by the 84th percentile; eight have $P(\fedd>1)\geq0.95$. These probabilities use the reported-error model in
+Section~\ref{sec:uncertainty} and the fixed reference growth assumptions.
 Figure~\ref{fig:uncertainty} resolves the primary threshold objects by name.
 The remaining sample includes 12 primary objects without quoted mass errors;
 they enter point counts but have no assigned probability. The full sample has
@@ -519,20 +494,38 @@ $+0.5$ & 19 / 16 / 13 & 21 / 18 / 15 \\
 \label{tab:massoffset}
 \end{table}
 
-A separate full-catalogue publication-version check, performed on the original
-227/237-object method-defined samples before the manuscript identity exclusions,
-replaces the frozen Baccus v1
-measurements for 44 exact-ID, position-confirmed counterparts with the
-published Table~1 values. Five frozen objects lack a published-table
-counterpart. Both retaining and omitting those five objects preserve the
-original full-catalogue uncertainty counts and top five by required $\fedd$.
-It is not a joint test of revised Baccus masses and the manuscript identity
-exclusions; the latter are assessed separately below.
-The 32 changed central masses shift by $-0.10$ to $+0.04$ dex. This is a
-measurement-version sensitivity test with fixed evidence/method taxonomy;
-it does not constitute a new admission of the complete published sample.
-The object-level comparison and three-scenario summary are distributed
-with the v3 science tables.
+We jointly test publication-version sensitivity and the manuscript identity
+exclusions by replacing redshifts, masses, and quoted errors for 44 exact-ID,
+position-confirmed Baccus counterparts with the published Table~1 values
+\cite{baccus2026}. Of five unmatched frozen records, one is already excluded
+by the identity policy; the remaining four are either retained or omitted.
+All six identity exclusions remain in force, and the evidence/method taxonomy
+and growth parameters are fixed. We recompute reported-error probabilities
+with the same identifier-seeded sampling scheme.
+
+Both treatments preserve the primary 12/8/6 and exploratory 14/10/8 threshold
+counts and each sample's top-five ordering (Table~\ref{tab:baccusjoint}).
+Omitting unmatched records reduces the samples to 220 and 230 objects.
+The 32 changed central masses shift by $-0.10$ to $+0.04$ dex.
+This combined check supports the stated threshold results under the tested
+publication update; it does not admit the complete published sample or resolve
+the excluded identities. Object-level comparisons accompany the analysis.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Joint Baccus publication-update and identity-exclusion test.
+Every row excludes all open identity groups. Counts denote point requirements
+above unity, 16th percentiles above unity, and conditional $P\geq0.95$,
+respectively. Frozen values define the manuscript baseline.}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Sample & Measurement treatment & Objects & Counts \\
+\midrule
+\tableinput{analysis/baccus_revision_rows.tex}
+\bottomrule
+\end{tabular}
+\label{tab:baccusjoint}
+\end{table}
 
 \subsection{Model compatibility and measurement choice}
 
@@ -630,9 +623,7 @@ the second changes only to our adopted mass and redshift; the third changes
 only the starting redshift to 30. Thus this is a controlled input comparison,
 not an exact reproduction of the earlier paper or a complete crossmatch.
 For these examples the earlier starting time lowers the requirement, whereas
-measurement updates have smaller effects. The added value of the present
-analysis lies in source-aware uncertainty and target selection, not a change
-to the exponential growth law.
+measurement updates have smaller effects.
 
 \begin{table}[htbp]
 \centering
@@ -776,17 +767,6 @@ method-comparable mass would determine whether this apparent timing constraint
 survives the measurement assumptions. These examples distinguish sensitivity
 to the available growth time from sensitivity to mass methodology.
 
-\subsection{Value of the heterogeneous evidence layer}
-
-The 101 objects without eligible masses remain within project scope because the catalogue is a
-cross-paper evidence atlas as well as a growth calculator. Narrow-line,
-high-ionization, X-ray, and SED-selected candidates trace discovery channels that
-a mass-only broad-line catalogue would omit. They can be compared in redshift,
-evidence, survey, and follow-up need, but they are excluded from numerical growth
-claims until a suitable mass exists. This separation lets the atlas retain
-potentially important early accretors without converting qualitative evidence or
-model-dependent context into artificial precision.
-
 \subsection{Limitations}
 \label{sec:limits}
 
@@ -840,9 +820,9 @@ assigned; the repository and Git baseline provide the current access and
 version identification.
 
 Five ordered notebooks reproduce the catalogue, science products, figures,
-and atlas using pinned dependencies. The verification notebook compares
-regenerated numerical and raster products with stored baselines and checks
-manuscript table fragments against their generated analysis. Independent
+and atlas using pinned dependencies. Reproduction checks compare regenerated
+numerical products, figures, and manuscript table fragments with an independent
+stored baseline, then verify their internal consistency. Independent
 cosmic-age quadrature and growth integration supplement the regression checks.
 The source-family inventory in Appendix~\ref{app:sources} links measurements,
 methods, selection channels, and major caveats. Full identifiers, source-native
@@ -879,6 +859,24 @@ a universal ordering or a measurement of formation-channel frequencies.
 \appendix
 \section{Source-family inventory}
 \label{app:sources}
+
+\begin{table}[ht]
+\centering
+\caption{v3 scale and analysis subsets.}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Product or subset & Rows or objects \\
+\midrule
+Measurements / provisional objects / hosts & 350 / 338 / 337 \\
+Growth-eligible measurements / objects & 244 / 237 \\
+Method-eligible primary measurements / objects & 234 / 227 \\
+Manuscript primary / exploratory objects & 224 / 234 \\
+Identity-excluded object records & 6 \\
+Catalogue-only object records & 101 \\
+\bottomrule
+\end{tabular}
+\label{tab:scale}
+\end{table}
 
 The full catalogue contains 247 broad-line AGN, 49 narrow-line candidates,
 30 photometric candidates, ten high-ionization candidates, and two X-ray
