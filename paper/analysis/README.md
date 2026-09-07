@@ -73,3 +73,7 @@ Editorial source summaries and proposed observational tests are recorded in
 `../review_inputs.json`, with external source URLs and locators. Full source
 selection and caveat tags remain in the CSV companion. The observation column
 is the author's proposed diagnostic, not a source-reported observation plan.
+
+The independent notebook-03 baseline gate covers these CSVs and LaTeX fragments.
+Notebook-04 recomputation is an additional internal-consistency check, not a
+replacement for comparison with the original reviewed baseline.

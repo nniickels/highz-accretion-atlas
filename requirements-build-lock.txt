@@ -1,0 +1,2 @@
+# Explicit backend for source/wheel builds (Python 3.12).
+setuptools==84.0.0

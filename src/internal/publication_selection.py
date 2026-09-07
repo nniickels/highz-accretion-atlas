@@ -6,13 +6,13 @@ additional to, and never replaces, verify_redshift_identity --require-resolved.
 """
 from __future__ import annotations
 import argparse
-import io
 import json
 from pathlib import Path
 import numpy as np
 import pandas as pd
 from src import models
 from src.internal.verify_redshift_identity import verify_redshift_identity
+from src.internal.reproduction import assert_csv_reproduction
 
 ROOT = Path(__file__).resolve().parents[2]
 POLICY = Path('paper/identity_exclusions.json')
@@ -87,10 +87,7 @@ def verify_publication_selection(root=ROOT):
     outputs = build_publication_outputs(root)
     for name, expected in outputs.items():
         path = root/DESTINATION/f'{name}.csv'
-        actual = pd.read_csv(path, keep_default_na=False)
-        # Round-trip expected CSV too, so empty and missing cells have identical semantics.
-        reference = pd.read_csv(io.StringIO(expected.to_csv(index=False)), keep_default_na=False)
-        pd.testing.assert_frame_equal(actual, reference, check_exact=False, rtol=1e-12, atol=1e-12)
+        assert_csv_reproduction(path, expected)
     from src.internal.publication_review import review_tex
     for name, expected in review_tex(outputs).items():
         if (root/DESTINATION/f'{name}.tex').read_text() != expected:

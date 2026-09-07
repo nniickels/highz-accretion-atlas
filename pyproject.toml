@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "highz-accretion-atlas"
 # Internal package placeholder; public v1/v2/v3 labels are dataset versions.

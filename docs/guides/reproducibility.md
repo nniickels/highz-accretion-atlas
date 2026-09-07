@@ -65,3 +65,47 @@ results. Updated counts, identity metadata and summary images are intentional
 changes against the prior commit; refreshed manifests describe this reviewed
 revision. Regeneration must reproduce this revision in an independent workspace.
 Three unresolved identities remain subject to the separate publication gate.
+
+## Manuscript reproduction and clean builds
+
+The independent baseline comparison includes generated `paper/analysis/*.csv`,
+`paper/analysis/*.tex`, and `paper/figures/*.png`, as well as the canonical dataset
+products. CSVs use the shared numerical tolerance; generated LaTeX fragments
+must match byte for byte; figures use the same per-channel bound and exact alpha
+as the atlas. Source README files and the compiler-dependent manuscript PDF are
+outside this artifact set. Missing or unexpected manuscript outputs fail the
+comparison. Comparing a workspace with itself, including through a symlink,
+is rejected by the comparison API as well as the command line.
+
+CI removes these generated outputs **only in its disposable archive workspace**
+before executing notebooks 00--04. The original checkout remains the independent
+baseline. This ensures inherited output files cannot hide an incomplete rebuild.
+The manuscript is then compiled from that regenerated workspace, with three
+LaTeX passes and a check for unresolved references or table-width changes. A
+successful compilation in the original checkout would not verify regenerated
+manuscript inputs. PDF bytes are not compared between Tectonic and pdfLaTeX.
+
+`requirements-lock.txt` pins the numerical/rendering dependency closure, including
+Matplotlib's font and layout dependencies. The notebook lock pins its direct
+Jupyter dependencies; it is not a complete transitive lock of the notebook UI.
+`requirements-build-lock.txt` pins the explicitly declared setuptools backend.
+For the same package build used by CI, install both runtime and build requirements:
+
+```bash
+.venv/bin/python -m pip install -r requirements-notebook-lock.txt -r requirements-build-lock.txt
+SOURCE_DATE_EPOCH=1788393600 .venv/bin/python -m pip wheel . --no-deps --no-build-isolation --wheel-dir=/tmp/highz-wheels
+```
+
+These changes strengthen what a passing reproduction run establishes; they do
+not close the separate scientific identity audit or alter the adopted masses.
+
+Validation on 7 September 2026 used a disposable archive of manuscript commit
+`664a985`, overlaid with these reproduction fixes. All 1,285 generated artifacts
+were removed before notebooks 00--04 ran; the independent comparison of the
+regenerated outputs passed. The final notebook passed all 92 tests, source-value
+and provenance checks, manuscript checks, and v1/v2/v3 contracts. Rebuilding the
+PDF with the same Tectonic compiler and epoch produced the exact committed bytes
+(SHA-256 `61cae8a6e779b18794515dea1e4275432167d924643746ce81ac569f5a69bee1`).
+Two builds with the pinned setuptools backend and epoch produced identical
+wheels. This is local macOS/Python 3.12 validation; Linux CI executes the updated
+workflow independently and uses pdfLaTeX for compilation.

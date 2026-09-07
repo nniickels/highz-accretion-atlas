@@ -151,11 +151,11 @@ dataset versions or write legacy output trees.
 ## Getting Started
 
 The project requires Python 3.12. Create a repository-local virtual environment
-and install the pinned project requirements:
+and install the pinned project requirements (including the explicit build backend):
 
 ```bash
 python3.12 -m venv .venv
-.venv/bin/python -m pip install --requirement requirements-notebook-lock.txt
+.venv/bin/python -m pip install --requirement requirements-notebook-lock.txt --requirement requirements-build-lock.txt
 ```
 
 Run the complete regression and verification suite:

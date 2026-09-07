@@ -26,6 +26,19 @@ ROOT = Path(__file__).resolve().parents[2]
 PNG_CHANNEL_ATOL = 3
 VERSIONS = ('v1', 'v2', 'v3')
 ARTIFACT_ROOTS = [f'{base}/{v}' for v in VERSIONS for base in ('data/processed', 'data/crossmatch', 'results')]
+MANUSCRIPT_ROOTS = {'paper/analysis': {'.csv', '.tex'}, 'paper/figures': {'.png'}}
+ARTIFACT_ROOTS += list(MANUSCRIPT_ROOTS)
+
+
+def artifact_paths(root: Path) -> set[str]:
+    """Inventory generated outputs, excluding source docs and the compiler-specific PDF."""
+    return {
+        path.relative_to(root).as_posix()
+        for part in ARTIFACT_ROOTS
+        for path in (root / part).rglob('*')
+        if path.is_file() and path.name != '.DS_Store'
+        and (part not in MANUSCRIPT_ROOTS or path.suffix in MANUSCRIPT_ROOTS[part])
+    }
 
 
 def compare_artifact(expected: Path, actual: Path, *, exact_pixels: bool = False) -> None:
@@ -75,9 +88,9 @@ def git_baseline(root: Path):
 
 
 def verify_against(baseline: Path, generated: Path, *, exact_pixels: bool = False) -> int:
-    def paths(root):
-        return {p.relative_to(root).as_posix() for part in ARTIFACT_ROOTS for p in (root / part).rglob('*') if p.is_file() and p.name != '.DS_Store'}
-    expected, actual = paths(baseline), paths(generated)
+    if baseline.resolve() == generated.resolve():
+        raise ValueError('Baseline must be independent of the generated worktree')
+    expected, actual = artifact_paths(baseline), artifact_paths(generated)
     if not expected or expected != actual:
         raise AssertionError(f'Artifact membership differs: missing={sorted(expected-actual)[:5]}, unexpected={sorted(actual-expected)[:5]}')
     for name in sorted(expected):

@@ -16,9 +16,12 @@ jobs:
           cache-dependency-path: |
             requirements-lock.txt
             requirements-notebook-lock.txt
+            requirements-build-lock.txt
       - name: Install pinned dependencies
-        run: python -m pip install --requirement requirements-notebook-lock.txt
+        run: python -m pip install --requirement requirements-notebook-lock.txt --requirement requirements-build-lock.txt
       - name: Build and import the Python package
+        env:
+          SOURCE_DATE_EPOCH: "1788393600"
         run: |
           mkdir -p "$RUNNER_TEMP/wheel"
           python -m pip wheel . --no-deps --no-build-isolation --wheel-dir "$RUNNER_TEMP/wheel"
@@ -51,6 +54,14 @@ jobs:
           mkdir -p "$notebook_workspace" "$executed_notebooks"
           git archive HEAD | tar -x -C "$notebook_workspace"
           cd "$notebook_workspace"
+          # Regenerate from inputs in this disposable archive, not inherited outputs.
+          python - <<'PY'
+          from pathlib import Path
+          from src.internal.verify_regenerated_artifacts import artifact_paths
+          root = Path.cwd()
+          for name in artifact_paths(root):
+              (root / name).unlink()
+          PY
           for notebook in scripts/0[0-4]_*.ipynb; do
             python -m jupyter nbconvert --to notebook --execute \
               --ExecutePreprocessor.timeout=1800 \
@@ -66,10 +77,21 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes texlive-latex-base texlive-latex-extra texlive-fonts-recommended
       - name: Compile manuscript
-        working-directory: paper
+        working-directory: ${{ runner.temp }}/highz-atlas-notebook-workspace/paper
         env:
           SOURCE_DATE_EPOCH: "1788393600"
         run: |
-          pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
-          pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
+          rm -f highz_accretion_atlas_v3.pdf
+          for pass in 1 2 3; do
+            pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
+          done
+          python - <<'PYCODE'
+          from pathlib import Path
+          log = Path('highz_accretion_atlas_v3.log').read_text()
+          unresolved = ('undefined references', 'undefined citations',
+                        'Label(s) may have changed', 'Rerun to get',
+                        'Table widths have changed')
+          if any(message in log for message in unresolved):
+              raise SystemExit('Manuscript references or table widths did not converge')
+          PYCODE
           test -s highz_accretion_atlas_v3.pdf

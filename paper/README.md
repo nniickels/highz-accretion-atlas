@@ -31,6 +31,7 @@ publication-sample figures in `paper/figures/`.
 cd paper
 SOURCE_DATE_EPOCH=1788393600 pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
 SOURCE_DATE_EPOCH=1788393600 pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
+SOURCE_DATE_EPOCH=1788393600 pdflatex -interaction=nonstopmode -halt-on-error highz_accretion_atlas_v3.tex
 ```
 
 Tectonic is an equivalent local option when `pdflatex` is unavailable:
@@ -61,3 +62,9 @@ The reference catalogue is identified by Git commit
 `a40a0d28c6c8d0b7e0c98aea089629903c34f7be`; this manuscript revision is recorded
 by its own Git commit. No archival DOI has been assigned. Journal formatting,
 affiliation, acknowledgements and archival deposition remain submission tasks.
+
+Notebook 03 compares the generated manuscript CSVs, LaTeX fragments and six
+figures against the independent baseline before refreshing dataset manifests.
+Notebook 04 additionally checks internal consistency. CI deletes generated
+products in its disposable workspace before reproduction and compiles this
+manuscript from the regenerated inputs, not the baseline checkout.
