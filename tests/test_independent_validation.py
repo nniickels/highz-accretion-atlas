@@ -92,7 +92,8 @@ class IndependentValidationTests(unittest.TestCase):
         rows = re.findall(r'^([^&\n]+) & ([\d.]+) & ([\d.]+) & ([\d.]+) & ([\d.]+)--([\d.]+)', table, re.M)
         point = pd.read_csv(ROOT / 'results/v3/tables/v3_object_point_ranking.csv')
         uncertainty = pd.read_csv(ROOT / 'results/v3/tables/v3_object_uncertainty_ranking.csv')
-        expected = point.nlargest(5, 'required_fedd_seed1e2').merge(
+        expected = point.loc[point.primary_growth_ranking_flag].nlargest(
+            5, 'required_fedd_seed1e2').merge(
             uncertainty[['physical_object_id', 'required_fedd_seed1e2_p16', 'required_fedd_seed1e2_p84']],
             on='physical_object_id', validate='one_to_one',
         )

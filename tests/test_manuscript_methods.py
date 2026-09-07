@@ -32,3 +32,17 @@ class ManuscriptMethodTests(unittest.TestCase):
         self.assertEqual(int((actual>1).sum()), 0)
         self.assertEqual(f'{actual.max():.3f}', '0.793')
         self.assertEqual(f'{factor:.5f}', '0.54594')
+
+    def test_seed_and_start_time_sensitivity_counts(self):
+        point = pd.read_csv(ROOT/'results/v3/tables/v3_object_point_ranking.csv')
+        primary = point.primary_growth_ranking_flag.to_numpy()
+        for seed, zseed, expected in [(3, 30, (4, 5)), (5, 30, (0, 0)),
+                                      (2, 20, (22, 24))]:
+            required = models.required_fedd_for_seed(
+                seed, point.log_mbh_msun_std, .1, zseed, point.redshift)
+            self.assertEqual((int((required[primary] > 1).sum()),
+                              int((required > 1).sum())), expected)
+        delayed = models.required_fedd_for_seed(
+            2, point.log_mbh_msun_std, .1, 20, point.redshift)
+        self.assertEqual(point.iloc[int(np.argmax(delayed))].object_id, 'GN-z11')
+        self.assertEqual(f'{delayed.max():.3f}', '1.880')

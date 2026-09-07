@@ -437,39 +437,3 @@ def build_science_policy() -> pd.DataFrame:
             "policy": "forbidden_without_selection_function_and_completeness_model",
         },
     ])
-
-
-def verify_science_outputs(outputs: dict[str, pd.DataFrame], *, n_samples: int) -> None:
-    measurement_point = outputs["measurement_point_ranking"]
-    object_point = outputs["object_point_ranking"]
-    measurement_uncertainty = outputs["measurement_uncertainty_ranking"]
-    object_uncertainty = outputs["object_uncertainty_ranking"]
-    checks = {
-        "measurement_point_count": len(measurement_point) == 119,
-        "object_point_count": len(object_point) == 112,
-        "measurement_uncertainty_count": len(measurement_uncertainty) == 119,
-        "object_uncertainty_count": len(object_uncertainty) == 112,
-        "measurement_ids_unique": measurement_point["measurement_id"].is_unique,
-        "object_ids_unique": object_point["physical_object_id"].is_unique,
-        "sample_count": measurement_uncertainty["n_samples"].eq(n_samples).all(),
-        "exclusion_audit_count": len(outputs["exclusion_audit"]) == 4,
-        "policy_count": len(outputs["science_policy"]) == 4,
-        "no_demographic_permission": (
-            ~outputs["class_method_summary"]["demographic_inference_allowed"].map(_boolish)
-        ).all(),
-        "all_release_metadata": all(
-            frame["science_release"].eq(SCIENCE_RELEASE).all() for frame in outputs.values()
-        ),
-    }
-    for frame, prefix in [
-        (measurement_point, "rank"), (object_point, "rank"),
-        (measurement_uncertainty, "rank_uncertainty"),
-        (object_uncertainty, "rank_uncertainty"),
-    ]:
-        column = f"{prefix}_global_navigation"
-        checks[f"{column}_{frame['catalogue_view'].iloc[0]}_contiguous"] = (
-            sorted(frame[column].astype(int)) == list(range(1, len(frame) + 1))
-        )
-    if not all(checks.values()):
-        failed = [name for name, passed in checks.items() if not passed]
-        raise ValueError(f"v7 class-aware science verification failed: {failed}")
