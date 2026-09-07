@@ -62,8 +62,9 @@ For each object, the pipeline computes the cosmic time available between $z_{see
 
 The complete first manuscript draft is available as
 [`paper/highz_accretion_atlas_v3.pdf`](paper/highz_accretion_atlas_v3.pdf),
-with its editable LaTeX source beside it. It reflects the frozen 338-object v3
-catalogue and the current canonical results.
+with its editable LaTeX source beside it. It uses the frozen 338-object v3 catalogue with conservative 224/234-object
+inference samples. The revised draft adds source-aware target assessments and
+explicitly separate literature/direct-mass comparisons; see `paper/analysis/`.
 
 Main-text products:
 

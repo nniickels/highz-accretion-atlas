@@ -12,7 +12,7 @@ from PIL import Image
 from src import models
 from src.internal.publication_selection import ROOT, build_publication_outputs
 
-NAMES = ('landscape', 'growth_tracks', 'uncertainty', 'compatibility', 'measurement_sensitivity')
+NAMES = ('landscape', 'growth_tracks', 'uncertainty', 'compatibility', 'measurement_sensitivity', 'growth_boundaries')
 PRIMARY, SECONDARY = '#176B87', '#B66A1E'
 
 
@@ -68,20 +68,37 @@ def render_figures(root=ROOT, destination=None):
                         label=rf'$M_{{\rm seed}}=10^{seed}M_\odot$, $\bar f={rate:g}$')
         masses(ax);ax.set(xlim=(13,3),ylim=(4.5,10.8),title='Growth tracks and publication samples')
         ax.legend(ncol=3,fontsize=8,frameon=False);save(fig,'growth_tracks')
-        fig,ax=plt.subplots(figsize=(10.5,5.2),constrained_layout=True)
-        point_only=uncertainty.mbh_uncertainty_mode.eq('point_estimate_no_reported_mbh_error')
-        for is_primary,label,color,marker in [(True,'Primary',PRIMARY,'o'),(False,'Exploratory only',SECONDARY,'^')]:
-            g=uncertainty.loc[uncertainty.physical_object_id.isin(primary).eq(is_primary)&~point_only]
-            width=g.required_fedd_seed1e2_p84-g.required_fedd_seed1e2_p16
-            ax.scatter(g.required_fedd_seed1e2_p50,g.prob_required_fedd_seed1e2_gt_1,s=22+80*np.clip(width,0,1),color=color,marker=marker,alpha=.75,label=f'{label}, reported errors ({len(g)})')
-        g=uncertainty.loc[point_only]
-        ax.scatter(g.required_fedd_seed1e2_p50,np.full(len(g),-.1),marker='D',facecolors='none',edgecolors=PRIMARY,label=f'Primary, no reported errors ({len(g)})')
-        ax.set_yticks([-.1,0,.25,.5,.75,1],['No error','0','0.25','0.50','0.75','1'])
-        ax.axvline(1,color='#777',ls='--',lw=1);ax.axhline(-.05,color='#aaa',ls=':',lw=.7)
-        ax.set(xlabel=r'Median required $\bar f_{\rm Edd}$ ($10^2M_\odot$ seed)',ylabel=r'Conditional $P(\bar f_{\rm Edd,req}>1)$',title=f'Publication uncertainty: {len(uncertainty)-len(g)} sampled, {len(g)} point-only')
-        ax.grid(alpha=.15);ax.legend(frameon=False,fontsize=9);save(fig,'uncertainty')
+        fig,ax=plt.subplots(figsize=(9,6.5),constrained_layout=True)
+        tail_ids = point.loc[point.physical_object_id.isin(primary) & point.required_fedd_seed1e2.gt(1), 'physical_object_id']
+        g = uncertainty.loc[uncertainty.physical_object_id.isin(tail_ids)].copy()
+        g = g.sort_values('required_fedd_seed1e2_p50',ascending=False)
+        offset = build_publication_outputs(root)['mass_offset_object_sensitivity']
+        lower = offset.loc[offset.mass_offset_dex.eq(-.5)].set_index('physical_object_id')
+        y=np.arange(len(g))
+        mid=g.required_fedd_seed1e2_p50.to_numpy()
+        ax.errorbar(mid,y,xerr=np.array([mid-g.required_fedd_seed1e2_p16,g.required_fedd_seed1e2_p84-mid]),fmt='o',color=PRIMARY,capsize=3,label='Reported-error median and 16th--84th interval')
+        ax.scatter(lower.loc[g.physical_object_id,'required_fedd'],y,marker='D',color=SECONDARY,s=28,label='Point requirement after -0.5 dex mass shift')
+        ax.set_yticks(y,g.object_id,fontsize=10);ax.invert_yaxis()
+        ax.axvline(1,color='#555',ls='--',lw=1)
+        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$',title='Twelve primary objects above the reference threshold')
+        ax.grid(axis='x',alpha=.2);ax.legend(loc='lower right',fontsize=9,frameon=False)
+        save(fig,'uncertainty')
+        fig,axes=plt.subplots(1,2,figsize=(10,4.5),constrained_layout=True,sharey=True)
+        seeds=np.linspace(1,6,250)
+        for name,color,ls in [('UNCOVER-20466',PRIMARY,'-'),('COSMOS3D-13852','#874194','-'),('RUBIES-EGS-55604','#49834c','-'),('GS-20057765','#555555',':'),('GN-z11',SECONDARY,'--')]:
+            obj=point.loc[point.object_id.eq(name)].iloc[0]
+            for ax,zseed in zip(axes,[30,20]):
+                # Solve f_req=1 at fixed seed, start time and B=1 for efficiency.
+                a=(models.cosmic_time_gyr(obj.redshift)-models.cosmic_time_gyr(zseed))/(.45*np.log(10)*(obj.log_mbh_msun_std-seeds))
+                ax.plot(seeds,a/(1+a),color=color,ls=ls,label=name)
+                ax.set(xlabel=r'$\log_{10}(M_{\rm seed}/M_\odot)$',title=rf'$z_{{\rm seed}}={zseed}$',ylim=(.035,.19))
+                ax.axhline(.1,color='#aaa',lw=.7);ax.axhline(1-np.sqrt(8/9),color='#aaa',ls=':',lw=.7)
+                ax.grid(alpha=.15)
+        axes[0].set_ylabel(r'Maximum fixed efficiency for $\overline{f}_{\rm Edd}\leq1$')
+        axes[0].legend(fontsize=8,frameon=False,loc='upper left')
+        save(fig,'growth_boundaries')
         seed_names=list(compatibility.seed_model.drop_duplicates())
-        fig,axes=plt.subplots(2,len(seed_names),figsize=(12,6),constrained_layout=True,squeeze=False)
+        fig,axes=plt.subplots(len(seed_names),2,figsize=(10,9),constrained_layout=True,squeeze=False)
         for row,(ids,label) in enumerate([(primary,f'Primary ({len(primary)})'),(set(point.physical_object_id),f'Exploratory incl. primary ({len(point)})')]):
             for col,seed in enumerate(seed_names):
                 g=compatibility.loc[compatibility.physical_object_id.isin(ids)&compatibility.seed_model.eq(seed)]
@@ -89,27 +106,33 @@ def render_figures(root=ROOT, destination=None):
                 spin_order=sorted(pivot.index,key=lambda x: 0 if 'minus1' in x else 2 if 'plus1' in x else 1)
                 columns=sorted(pivot.columns,key=lambda x: (x[0]=='merger_boost_x2',x[1]))
                 pivot=pivot.reindex(index=spin_order,columns=columns)
-                ax=axes[row,col];im=ax.imshow(pivot.to_numpy(float),vmin=0,vmax=1,cmap='viridis',aspect='auto')
+                ax=axes[col,row];im=ax.imshow(pivot.to_numpy(float),vmin=0,vmax=1,cmap='viridis',aspect='auto')
                 for y in range(len(pivot)):
                     for x in range(len(pivot.columns)):
-                        v=pivot.iloc[y,x];ax.text(x,y,f'{v:.0%}',ha='center',va='center',fontsize=7,color='white' if v<.6 else 'black')
-                ax.set_title('PBH-labelled mass range' if 'pbh' in seed else seed.replace('_',' ').capitalize(),fontsize=10)
-                ax.set_xticks(range(len(pivot.columns)),[f'B={2 if b=="merger_boost_x2" else 1}\nf={f:g}' for b,f in pivot.columns],fontsize=7)
+                        v=pivot.iloc[y,x];ax.text(x,y,f'{v:.0%}',ha='center',va='center',fontsize=9,color='white' if v<.6 else 'black')
+                title = r'$10^2$--$10^6$ solar masses' if 'pbh' in seed else seed.replace('_',' ').capitalize()
+                ax.set_title(title + (' - ' + label if col==0 else ''),fontsize=10)
+                ax.set_xticks(range(len(pivot.columns)),[f'B={2 if b=="merger_boost_x2" else 1}\nf={f:g}' for b,f in pivot.columns],fontsize=8)
                 ax.set_yticks(range(len(pivot)),['a=-1' if 'minus1' in x else 'a=+1' if 'plus1' in x else 'a=0' for x in pivot.index],fontsize=9)
-                if col==0:ax.set_ylabel(label)
+                ax.set_ylabel('Spin')
         fig.colorbar(im,ax=axes.ravel().tolist(),shrink=.85,label='Descriptive compatible fraction')
         fig.suptitle('Compatibility by publication sample (not population frequencies)')
         save(fig,'compatibility')
-        fig,ax=plt.subplots(figsize=(10.5,4.8),constrained_layout=True)
+        fig,ax=plt.subplots(figsize=(9,4.8),constrained_layout=True)
         labels=[]
-        for i,(_,row) in enumerate(sensitivity.iterrows(),1):
-            x=row.delta_log_mbh_alternate_minus_default;y=row.delta_required_fedd_alternate_minus_default
-            ax.scatter(x,y,color=PRIMARY,s=35);ax.annotate(str(i),(x,y),xytext=(5,4),textcoords='offset points',fontsize=8)
-            labels.append(f'{i}. {row.alternate_measurement_id}')
-        ax.axhline(0,color='#aaa',lw=.7);ax.axvline(0,color='#aaa',lw=.7)
-        ax.set(xlabel=r'Alternate minus preferred $\log_{10}M_{\rm BH}$ (dex)',ylabel=r'Alternate minus preferred required $\bar f_{\rm Edd}$',title=f'Publication measurement sensitivity: {len(sensitivity)} pairs, {sensitivity.physical_object_id.nunique()} objects')
-        ax.text(1.02,.98,'\n'.join(labels),transform=ax.transAxes,va='top',fontsize=8)
-        ax.grid(alpha=.15);save(fig,'measurement_sensitivity')
+        for i,(_,row) in enumerate(sensitivity.iterrows()):
+            preferred=row.default_required_fedd_seed1e2;alternate=row.alternate_required_fedd_seed1e2
+            ax.plot([preferred,alternate],[i,i],color='#aaa',lw=2)
+            ax.scatter(preferred,i,color=PRIMARY,s=35,label='Preferred' if i==0 else None)
+            ax.scatter(alternate,i,color=SECONDARY,marker='D',s=30,label='Alternate' if i==0 else None)
+            obj=point.loc[point.physical_object_id.eq(row.physical_object_id),'object_id'].iloc[0]
+            labels.append(f'{obj} (pair {i+1})')
+        ax.set_yticks(range(len(labels)),labels);ax.invert_yaxis()
+        ax.axvline(1,color='#555',ls='--',lw=1)
+        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$',title='Preferred and alternate masses: seven comparisons',xlim=(0,1.05))
+        ax.legend(frameon=False,loc='lower right');ax.grid(axis='x',alpha=.15)
+        save(fig,'measurement_sensitivity')
+
 
 
 def verify_figures(root=ROOT):
@@ -120,7 +143,7 @@ def verify_figures(root=ROOT):
                 if a.size!=b.size:raise AssertionError(f'{name}: figure dimensions differ')
                 if np.abs(np.asarray(a.convert('RGBA')).astype(int)-np.asarray(b.convert('RGBA')).astype(int)).max()>3:
                     raise AssertionError(f'{name}: publication figure pixels differ')
-    print('Verified five publication figures against the conservative sample mask')
+    print(f'Verified {len(NAMES)} publication figures against the conservative sample mask')
 
 
 def main():

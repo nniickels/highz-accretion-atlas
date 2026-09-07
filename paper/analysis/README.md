@@ -42,3 +42,34 @@ test does not infer calibration bias, model heterogeneous estimator correlations
 or marginalize over systematic uncertainty. The amplitude benchmark is motivated
 by the approximately 0.5-dex single-epoch accuracy scale discussed in
 [Shen (2013)](https://arxiv.org/abs/1302.2643), not a common JWST calibration prior.
+
+## Source-aware target and literature comparisons
+
+The publication-selection command also writes/verifies these manuscript-only
+products and their `*.tex` table fragments:
+
+- `target_robustness.csv`: all twelve primary point requirements above unity,
+  quoted mass errors, source/method/lensing metadata, reference and -0.5 dex
+  probabilities, and source-linked caveats with proposed observations. Additional
+  -1 and -2 dex point values support the directional COSMOS-3D scattering check;
+  they are scenarios, not inferred corrections.
+- `source_inventory.csv`: all 32 families with admitted measurement counts,
+  eligible mass-measurement counts, and preferred primary-object counts after
+  exclusions. Columns sum to 350, 244 and 224; they count different units.
+- `matched_literature_comparison.csv`: four explicit named matches to Dayal
+  (2024), Table 1 in arXiv:2407.07162v2. It holds the atlas cosmology, efficiency,
+  seed mass and merger factor fixed, first changes mass/redshift inputs at
+  z_seed=25, then changes only z_seed to 30. It is not a full crossmatch or an
+  exact reproduction of Dayal's cosmology/results.
+- `external_direct_mass_comparison.csv`: A2744-QSO1's adopted virial mass versus
+  the external 7.7 +/- 0.3 dex MOKA3D dynamical estimate in arXiv:2508.21748v2
+  (p. 3 and Methods p. 11). The inclination-free lower limit is not substituted
+  for this estimate. Symmetric normal log-mass errors use exact quantiles and
+  an exact normal tail, independently of Monte Carlo sampling. The redshift
+  and growth assumptions are held fixed. This comparison is not added to the
+  primary counts or canonical measurement registry.
+
+Editorial source summaries and proposed observational tests are recorded in
+`../review_inputs.json`, with external source URLs and locators. Full source
+selection and caveat tags remain in the CSV companion. The observation column
+is the author's proposed diagnostic, not a source-reported observation plan.

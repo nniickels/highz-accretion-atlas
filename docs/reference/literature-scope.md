@@ -63,3 +63,9 @@ Before admitting the direct estimate:
 A complete publication re-admission for Baccus would similarly require review
 of new rows and classification/selection changes. The existing published-value
 sensitivity test is already implemented; it is not that full re-admission.
+
+The manuscript now evaluates the deferred A2744-QSO1 direct estimate as an
+explicitly external, fixed-assumption comparison (`paper/analysis/`). This does
+not admit or replace a canonical row. Its near-unity requirement and interval
+crossing the threshold are discussed in the draft, so frozen membership does
+not prevent evaluating the scientific implication of this measurement.

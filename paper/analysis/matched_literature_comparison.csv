@@ -1,0 +1,5 @@
+object_id,source_id,source_url,locator,earlier_redshift,earlier_log_mass,current_redshift,current_log_mass,earlier_inputs_z25,current_inputs_z25,current_inputs_z30,delta_measurement,delta_start_time
+GN-z11,GN-z11,https://arxiv.org/html/2407.07162v2,"Table 1; rows 6, 8, 10, 24; unambiguous named matches only",10.6,6.2,10.603,6.2,1.5774085835530423,1.5782801555274883,1.4367242290706101,0.0008715719744460948,-0.1415559264568782
+A2744-QSO1,13123,https://arxiv.org/html/2407.07162v2,"Table 1; rows 6, 8, 10, 24; unambiguous named matches only",7.04,7.3,7.04,7.3,0.9742535582095496,0.9742535582095496,0.9294569388960372,0.0,-0.04479661931351242
+UNCOVER-20466,20466,https://arxiv.org/html/2407.07162v2,"Table 1; rows 6, 8, 10, 24; unambiguous named matches only",8.5,8.14,8.5,8.17,1.540189774227324,1.5477151314303892,1.452204136497696,0.0075253572030651306,-0.0955109949326931
+CEERS-00717,CEERS 00717,https://arxiv.org/html/2407.07162v2,"Table 1; rows 6, 8, 10, 24; unambiguous named matches only",6.93,7.99,6.936,7.99122608,1.0740433967702836,1.0757281201353601,1.0273631809780568,0.0016847233650765236,-0.04836493915730333

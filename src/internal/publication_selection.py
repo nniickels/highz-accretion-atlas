@@ -76,8 +76,10 @@ def build_publication_outputs(root=ROOT, policy=None):
                     probability_ge_095=int(e.prob_required_fedd_seed1e2_gt_1.ge(.95).sum()) if scenario == 'reference' else np.nan,
                     top_five=';'.join(subset.iloc[np.argsort(-required, kind='stable')[:5]].object_id)))
     from src.internal.publication_systematics import build_mass_offset_outputs
+    offsets = build_mass_offset_outputs(selection, errors)
+    from src.internal.publication_review import build_review_outputs
     return {'publication_object_selection': selection, 'identity_exclusion_sensitivity': pd.DataFrame(rows),
-            **build_mass_offset_outputs(selection, errors)}
+            **offsets, **build_review_outputs(root, selection, offsets['mass_offset_object_sensitivity'])}
 
 
 def verify_publication_selection(root=ROOT):
@@ -89,6 +91,10 @@ def verify_publication_selection(root=ROOT):
         # Round-trip expected CSV too, so empty and missing cells have identical semantics.
         reference = pd.read_csv(io.StringIO(expected.to_csv(index=False)), keep_default_na=False)
         pd.testing.assert_frame_equal(actual, reference, check_exact=False, rtol=1e-12, atol=1e-12)
+    from src.internal.publication_review import review_tex
+    for name, expected in review_tex(outputs).items():
+        if (root/DESTINATION/f'{name}.tex').read_text() != expected:
+            raise AssertionError(f'{name}: manuscript table differs from analysis')
     selected = outputs['publication_object_selection']
     if selected.loc[selected.excluded_identity_flag, ['publication_primary_flag', 'publication_exploratory_flag']].any().any():
         raise AssertionError('An unresolved identity leaked into publication inference')
@@ -106,6 +112,9 @@ def write_publication_outputs(root=ROOT):
     (root/DESTINATION).mkdir(parents=True, exist_ok=True)
     for name, frame in outputs.items():
         frame.to_csv(root/DESTINATION/f'{name}.csv', index=False)
+    from src.internal.publication_review import review_tex
+    for name, content in review_tex(outputs).items():
+        (root/DESTINATION/f'{name}.tex').write_text(content)
 
 
 def main():

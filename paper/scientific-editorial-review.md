@@ -89,3 +89,50 @@ The draft foregrounds these conditional results; class, provenance and release
 bookkeeping is consolidated in appendices. The figure-path documentation is
 corrected. Source-specific mass calibration and external scientific review
 remain beyond this stress test.
+
+## Source-aware manuscript revision — 7 September 2026
+
+Implemented the manuscript assessment against catalogue baseline
+`a40a0d28c6c8d0b7e0c98aea089629903c34f7be`:
+
+- Reframed the title, abstract, introduction and conclusions around named
+  observational tests, with the full twelve-object primary threshold set.
+- Added generated source/mass/error/offset tables and source-linked caveats with
+  proposed observations. UNCOVER-20466, COSMOS3D-13852 and RUBIES-EGS-55604 retain
+  P>=0.95 after -0.5 dex. This is explicitly not estimator-independent robustness:
+  the source-motivated -1/-2 dex COSMOS-3D check gives 1.115/0.916, and the
+  narrow formal error on J0910_2028_12910 excludes its larger calibration scale.
+- Added a controlled four-object comparison with Dayal (2024), Table 1 in
+  arXiv:2407.07162v2. With the atlas cosmology fixed, it separates adopted
+  mass/redshift changes from seeding at 25 versus 30. It is not a complete
+  crossmatch or a reconstruction of the earlier population calculation.
+- Evaluated the pinned A2744-QSO1 MOKA3D estimate (arXiv:2508.21748v2, p. 3 and
+  Methods p. 11) as an external comparison, with exact normal error propagation.
+  **Correction to the preliminary review expectation:** the 7.7 +/- 0.3 dex
+  estimate gives f=0.9996 (rounded 1.000), interval 0.947--1.052 and conditional
+  P=0.497. It is borderline, not securely below the threshold. The adopted 7.3
+  +/- 0.2 dex virial estimate gives 0.929 and interval 0.895--0.964. No catalogue
+  row or headline sample count is changed by this external comparison.
+- Replaced crowded uncertainty and alternate-measurement scatterplots with
+  named interval and paired-value plots; added fixed-efficiency seed boundaries.
+  Moved the full compatibility grid and Kerr algebra to the appendix, renamed
+  the broad mass interval, and cited the motivation for logarithmic luminosity
+  growth while preserving the distinction from a physical wind/slim-disk model.
+- Added a generated 32-family inventory and a repository/version availability
+  statement; removed artifact-count prose and shortened internal version history.
+  No permanent archival DOI is claimed.
+
+The new comparisons and their LaTeX fragments are generated and verified by the
+existing notebook publication-selection entry points. External inputs and
+editorial assessments are explicit in `paper/review_inputs.json`. New tests
+check named survivors, source-count units, controlled comparison differences,
+and the borderline direct-mass result; manuscript structural tests now read
+included table fragments rather than requiring the obsolete five-row layout.
+
+Validation: all 87 unit tests pass; publication selection and generated-table
+verification pass; all six manuscript figures reproduce within the declared
+pixel tolerance; v1/v2/v3 manifests, CSV reproduction and shared analysis
+contracts pass. The rebuilt 21-page PDF has no LaTeX layout/citation warnings
+and all pages were visually inspected, including a second inspection after
+final flow adjustments. The pre-existing open identity gate remains explicitly
+reported and is not treated as resolved by this revision.

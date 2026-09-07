@@ -16,7 +16,7 @@ and inclusion/exclusion sensitivity tables with:
 ```
 
 The second command verifies without rewriting; it is also part of notebook 04.
-The five manuscript figures in `paper/figures/` use the conservative publication
+The six manuscript figures in `paper/figures/` use the conservative publication
 samples. Notebook 02 regenerates them and notebook 04 compares regenerated
 pixels (maximum channel difference 3, identical dimensions). The original
 full-catalogue figures remain in `results/v3/figures/`.
@@ -45,3 +45,19 @@ with the same compiler byte-reproducible.
 
 The [scientific/editorial pass record](scientific-editorial-review.md) lists
 checked claims, corrections, and remaining submission work.
+
+## Scientific revision following manuscript assessment
+
+The revised draft foregrounds the twelve primary reference-threshold objects,
+source-specific estimator caveats and proposed observations. Generated LaTeX
+fragments under `analysis/` keep manuscript tables synchronized with the numerical
+outputs. The four-object Dayal input comparison and A2744-QSO1 dynamical-mass
+comparison are external manuscript analyses; neither admits a new canonical
+measurement nor changes frozen v3 membership. Inputs and locators are in
+`review_inputs.json`. The direct estimate places A2744-QSO1 near unity with
+an interval crossing the threshold, rather than securely below it.
+
+The reference catalogue is identified by Git commit
+`a40a0d28c6c8d0b7e0c98aea089629903c34f7be`; this manuscript revision is recorded
+by its own Git commit. No archival DOI has been assigned. Journal formatting,
+affiliation, acknowledgements and archival deposition remain submission tasks.

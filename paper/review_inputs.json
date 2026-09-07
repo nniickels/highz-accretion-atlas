@@ -1,0 +1,350 @@
+{
+  "scope": "Manuscript-only comparisons; no new canonical measurement admission.",
+  "sources": [
+    {
+      "source_key": "baccus26_nirspec_blagn",
+      "label": "Baccus",
+      "citation": "baccus2026",
+      "mass_summary": "Balmer",
+      "channel_summary": "NIRSpec broad lines",
+      "caveat_summary": "Frozen preprint masses; calibration"
+    },
+    {
+      "source_key": "chavezortiz26_ghz2",
+      "label": "Chavez Ortiz",
+      "citation": "chavezortiz2026",
+      "mass_summary": "Context",
+      "channel_summary": "UV/optical diagnostics",
+      "caveat_summary": "Model-dependent mass"
+    },
+    {
+      "source_key": "chisholm24_gn42437_nev",
+      "label": "Chisholm",
+      "citation": "chisholm2024",
+      "mass_summary": "None",
+      "channel_summary": "High-ionization lines",
+      "caveat_summary": "No canonical mass"
+    },
+    {
+      "source_key": "davis26_thrils_blagn",
+      "label": "Davis / THRILS",
+      "citation": "davis2026",
+      "mass_summary": "Balmer",
+      "channel_summary": "EELG-selected spectroscopy",
+      "caveat_summary": "Virial calibration"
+    },
+    {
+      "source_key": "fei26_glimpse_blagn",
+      "label": "Fei / GLIMPSE",
+      "citation": "fei2026",
+      "mass_summary": "Balmer",
+      "channel_summary": "Lensed broad lines",
+      "caveat_summary": "Lensing corrections"
+    },
+    {
+      "source_key": "greene24_uncover_blagn",
+      "label": "Greene / UNCOVER",
+      "citation": "greene2024",
+      "mass_summary": "Balmer",
+      "channel_summary": "Lensed broad lines",
+      "caveat_summary": "Lens model; BLR interpretation"
+    },
+    {
+      "source_key": "harikane23_nirspec_blagn",
+      "label": "Harikane",
+      "citation": "harikane2023",
+      "mass_summary": "Balmer",
+      "channel_summary": "NIRSpec broad lines",
+      "caveat_summary": "Local virial calibration"
+    },
+    {
+      "source_key": "juodzbalis25_jades_blagn",
+      "label": "Juodzbalis / JADES",
+      "citation": "juodzbalis2026",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Balmer lines",
+      "caveat_summary": "Extinction; calibration"
+    },
+    {
+      "source_key": "killi24_j0647_lrd_blagn",
+      "label": "Killi",
+      "citation": "killi2024",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Halpha",
+      "caveat_summary": "Linear mass-error conversion"
+    },
+    {
+      "source_key": "kocevski25_lrd_blagn",
+      "label": "Kocevski / LRDs",
+      "citation": "kocevski2025",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Balmer lines",
+      "caveat_summary": "Dust correction; calibration"
+    },
+    {
+      "source_key": "larson23_ceers1019",
+      "label": "Larson / CEERS-1019",
+      "citation": "larson2023",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Hbeta",
+      "caveat_summary": "Broad-component significance"
+    },
+    {
+      "source_key": "lin24_aspire_blagn",
+      "label": "Lin / ASPIRE",
+      "citation": "lin2024",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Halpha",
+      "caveat_summary": "Virial calibration"
+    },
+    {
+      "source_key": "lin25_cosmos3d_blagn",
+      "label": "Lin / COSMOS-3D",
+      "citation": "lin2025",
+      "mass_summary": "Balmer",
+      "channel_summary": "NIRCam grism broad lines",
+      "caveat_summary": "Possible scattering bias"
+    },
+    {
+      "source_key": "lyu24_smiles_miri_agn",
+      "label": "Lyu / SMILES",
+      "citation": "lyu2024",
+      "mass_summary": "None",
+      "channel_summary": "MIRI SED selection",
+      "caveat_summary": "SED-dependent AGN identification"
+    },
+    {
+      "source_key": "maiolino24_gnz11_agn",
+      "label": "Maiolino / GN-z11",
+      "citation": "maiolino2024",
+      "mass_summary": "UV",
+      "channel_summary": "UV lines",
+      "caveat_summary": "UV estimator outside primary"
+    },
+    {
+      "source_key": "mascia26_compact_blue_ble",
+      "label": "Mascia",
+      "citation": "mascia2026",
+      "mass_summary": "None",
+      "channel_summary": "Compact blue broad emitters",
+      "caveat_summary": "No canonical mass"
+    },
+    {
+      "source_key": "matthee23_eiger_fresco_blagn",
+      "label": "Matthee / EIGER-FRESCO",
+      "citation": "matthee2024",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Halpha",
+      "caveat_summary": "Dust; virial calibration"
+    },
+    {
+      "source_key": "mazzolari24_ceers_nlagn",
+      "label": "Mazzolari",
+      "citation": "mazzolari2024",
+      "mass_summary": "None",
+      "channel_summary": "Narrow-line diagnostics",
+      "caveat_summary": "Star-formation overlap"
+    },
+    {
+      "source_key": "meow26_miri_agn",
+      "label": "Leung / MEOW",
+      "citation": "leung2026",
+      "mass_summary": "None",
+      "channel_summary": "MIRI SED selection",
+      "caveat_summary": "SED-dependent AGN fraction"
+    },
+    {
+      "source_key": "naidu26_mom_bhstar1",
+      "label": "Naidu / MoM-BH*-1",
+      "citation": "naidu2026",
+      "mass_summary": "Context",
+      "channel_summary": "Broad Hbeta / SED",
+      "caveat_summary": "Scattering; stellar alternative"
+    },
+    {
+      "source_key": "napolitano25_ghz9",
+      "label": "Napolitano / GHZ9",
+      "citation": "napolitano2025",
+      "mass_summary": "Context",
+      "channel_summary": "UV lines / X-ray evidence",
+      "caveat_summary": "Mass assumes Eddington rate"
+    },
+    {
+      "source_key": "napolitano25_seven_wonders",
+      "label": "Napolitano / GHZ4,7",
+      "citation": "napolitano2024",
+      "mass_summary": "None",
+      "channel_summary": "Narrow / high-ionization lines",
+      "caveat_summary": "Tentative diagnostics"
+    },
+    {
+      "source_key": "ren25_alpine_cristal_jwst_blagn_candidates",
+      "label": "Ren / ALPINE-CRISTAL",
+      "citation": "ren2025",
+      "mass_summary": "Balmer",
+      "channel_summary": "Host-selected broad Halpha",
+      "caveat_summary": "Conditional BLR interpretations"
+    },
+    {
+      "source_key": "scholtz25_jades_narrow_line_agn",
+      "label": "Scholtz / JADES",
+      "citation": "scholtz2025",
+      "mass_summary": "None",
+      "channel_summary": "Narrow / high-ionization lines",
+      "caveat_summary": "Tentative classifications"
+    },
+    {
+      "source_key": "skyfire26_ceers_blagn",
+      "label": "Skyfire / CEERS",
+      "citation": "skyfire2026",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Halpha",
+      "caveat_summary": "Virial calibration"
+    },
+    {
+      "source_key": "tang25_high_ionization",
+      "label": "Tang",
+      "citation": "tang2025",
+      "mass_summary": "None",
+      "channel_summary": "High-ionization lines",
+      "caveat_summary": "Ionizing-source ambiguity"
+    },
+    {
+      "source_key": "taylor24_ceers_rubies_blagn",
+      "label": "Taylor / CEERS-RUBIES",
+      "citation": "taylor2025",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Halpha",
+      "caveat_summary": "Slit loss; dust; calibration"
+    },
+    {
+      "source_key": "treiber25_uncover_uv_emitters",
+      "label": "Treiber / UNCOVER",
+      "citation": "treiber2025",
+      "mass_summary": "None",
+      "channel_summary": "UV-line diagnostics",
+      "caveat_summary": "Stellar alternatives"
+    },
+    {
+      "source_key": "ubler24_zs7_offset_blagn",
+      "label": "Ubler / ZS7",
+      "citation": "ubler2024",
+      "mass_summary": "Balmer",
+      "channel_summary": "Offset broad Hbeta",
+      "caveat_summary": "Error includes calibration scatter"
+    },
+    {
+      "source_key": "uhz1_xray_evidence_history",
+      "label": "Bogdan / Zou / UHZ1",
+      "citation": "bogdan2024,zou2026",
+      "mass_summary": "Context",
+      "channel_summary": "X-rays / SED",
+      "caveat_summary": "Later detection disputed"
+    },
+    {
+      "source_key": "zhang25_narrow_line_lrds",
+      "label": "Zhang / LRDs",
+      "citation": "zhang2026",
+      "mass_summary": "Limit",
+      "channel_summary": "Narrow lines / SED",
+      "caveat_summary": "Mass upper limits"
+    },
+    {
+      "source_key": "zhuang25_nexus_wfss",
+      "label": "Zhuang / NEXUS",
+      "citation": "zhuang2025",
+      "mass_summary": "Balmer",
+      "channel_summary": "NIRCam WFSS broad lines",
+      "caveat_summary": "Twelve masses lack errors"
+    }
+  ],
+  "targets": {
+    "UNCOVER-20466": {
+      "caveat": "Hbeta; demagnified mass; lens model and BLR assumptions remain.",
+      "proposed_observation": "Independent lens model and broad-line profile constraints."
+    },
+    "GS-20057765": {
+      "caveat": "Hbeta; quoted errors; extinction and calibration not fully quantified.",
+      "proposed_observation": "Deeper line profiles and an extinction constraint."
+    },
+    "COSMOS3D-13852": {
+      "caveat": "Hbeta; source warns of possible 1--2 dex scattering bias.",
+      "proposed_observation": "Separate scattering wings from virial broadening."
+    },
+    "RUBIES-EGS-55604": {
+      "caveat": "Hbeta; dust-corrected mass; separate 0.5 dex calibration scale.",
+      "proposed_observation": "Test dust correction and broad-line kinematics."
+    },
+    "CEERS-1019": {
+      "caveat": "Hbeta; broad component has comparatively low significance.",
+      "proposed_observation": "Confirm the broad component with deeper spectroscopy."
+    },
+    "GS-20030333": {
+      "caveat": "Hbeta; broad quoted errors; extinction/calibration caveats.",
+      "proposed_observation": "Improve line profile and extinction constraints."
+    },
+    "GS-164055": {
+      "caveat": "Hbeta; reported interval straddles the reference threshold.",
+      "proposed_observation": "Reduce mass uncertainty with deeper spectroscopy."
+    },
+    "GN-38509": {
+      "caveat": "Halpha; separate 0.3 dex calibration scale.",
+      "proposed_observation": "Independent estimator or calibration constraint."
+    },
+    "J0910_2028_12910": {
+      "caveat": "Halpha; 0.01 dex formal error excludes 0.5 dex mass scale.",
+      "proposed_observation": "Independent mass calibration; smaller fit errors alone are insufficient."
+    },
+    "CEERS-00717": {
+      "caveat": "Halpha; local calibration; no numeric systematic supplied.",
+      "proposed_observation": "Cross-check the virial estimator and line decomposition."
+    },
+    "ZS7": {
+      "caveat": "Hbeta; quoted 0.4 dex already includes calibration scatter.",
+      "proposed_observation": "Spatially separate nuclear kinematics and interacting components."
+    },
+    "GN-4685": {
+      "caveat": "Hbeta; reported interval straddles the reference threshold.",
+      "proposed_observation": "Improve line profile and extinction constraints."
+    }
+  },
+  "dayal_comparison": {
+    "source_url": "https://arxiv.org/html/2407.07162v2",
+    "locator": "Table 1; rows 6, 8, 10, 24; unambiguous named matches only",
+    "rows": [
+      {
+        "object_id": "GN-z11",
+        "source_id": "GN-z11",
+        "redshift": 10.6,
+        "log_mass": 6.2
+      },
+      {
+        "object_id": "A2744-QSO1",
+        "source_id": "13123",
+        "redshift": 7.04,
+        "log_mass": 7.3
+      },
+      {
+        "object_id": "UNCOVER-20466",
+        "source_id": "20466",
+        "redshift": 8.5,
+        "log_mass": 8.14
+      },
+      {
+        "object_id": "CEERS-00717",
+        "source_id": "CEERS 00717",
+        "redshift": 6.93,
+        "log_mass": 7.99
+      }
+    ]
+  },
+  "direct_mass": {
+    "object_id": "A2744-QSO1",
+    "log_mass": 7.7,
+    "sigma_dex": 0.3,
+    "source_url": "https://arxiv.org/pdf/2508.21748v2",
+    "locator": "p. 3 and Methods p. 11: MOKA3D point mass, inclination 52 +/- 2 degrees",
+    "method": "MOKA3D dynamical point-mass model",
+    "caveat": "Inclination and lens reconstruction dependent; not the inclination-free lower limit."
+  }
+}

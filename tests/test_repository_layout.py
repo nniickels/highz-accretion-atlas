@@ -63,19 +63,12 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertGreater(manuscript.stat().st_size, 1_000_000)
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
 
-    def test_manuscript_artifact_counts_match_release_products(self) -> None:
+    def test_manuscript_links_versioned_data_and_generated_tables(self) -> None:
         manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
-        for version in ("v1", "v2", "v3"):
-            manifest = json.loads((ROOT / f"releases/{version}-dataset-manifest.json").read_text())
-            actual = re.search(rf"([\d,]+) {version} artifacts", manuscript)
-            if actual is None:
-                actual = re.search(rf"([\d,]+) {version}\b", manuscript)
-            self.assertIsNotNone(actual, version)
-            self.assertEqual(int(actual.group(1).replace(",", "")), manifest["artifact_count"])
-        actual = re.search(r"result inventory contains ([\d,]+) artifacts", manuscript)
-        self.assertIsNotNone(actual)
-        inventory = pd.read_csv(ROOT / "results/results_inventory.csv")
-        self.assertEqual(int(actual.group(1).replace(",", "")), len(inventory))
+        self.assertIn("https://github.com/nniickels/highz-accretion-atlas", manuscript)
+        self.assertIn("a40a0d28c6c8d0b7e0c98aea089629903c34f7be", manuscript)
+        for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
+            self.assertTrue((ROOT / 'paper' / fragment).is_file(), fragment)
 
     def test_manuscript_citations_have_bibliography_entries(self) -> None:
         manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
@@ -87,8 +80,11 @@ class RepositoryLayoutTests(unittest.TestCase):
             "mascia2026", "matthee2024", "mazzolari2024", "naidu2026", "napolitano2025",
             "ren2025", "scholtz2025", "skyfire2026", "tang2025", "taylor2025",
             "treiber2025", "ubler2024", "zhang2026", "zou2026",
-            "zhuang2025", "lin2025", "napolitano2024", "juodzbalis_direct2025", "bardeen1972",
+            "zhuang2025", "lin2025", "napolitano2024", "juodzbalis_direct2025", "bardeen1972", "poutanen2007",
         }
+        # Citations in generated table fragments are part of the manuscript.
+        for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
+            manuscript += (ROOT / 'paper' / fragment).read_text()
         cited = {
             key.strip()
             for group in re.findall(r"\\cite\{([^}]+)\}", manuscript)

@@ -3,17 +3,22 @@
 \usepackage{amsmath,amssymb,booktabs,graphicx,microtype,xcolor}
 \usepackage[hidelinks]{hyperref}
 \usepackage[font=small,labelfont=bf]{caption}
-\usepackage{enumitem}
+\usepackage{enumitem,longtable,array}
 \definecolor{atlasblue}{HTML}{176B87}
 \hypersetup{colorlinks=true,linkcolor=atlasblue,citecolor=atlasblue,urlcolor=atlasblue}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.75}
 \setlist[itemize]{leftmargin=1.3em,itemsep=2pt,topsep=3pt}
 \newcommand{\fedd}{f_{\mathrm{Edd}}}
 \newcommand{\mbh}{M_{\mathrm{BH}}}
 \newcommand{\mseed}{M_{\mathrm{seed}}}
+\newcommand{\tableinput}[1]{\csname @@input\endcsname #1 }
 
-\title{\textbf{Constraining Black Hole Growth in the JWST Era}}
+\title{\textbf{An Assumption-Tracked Atlas of Early Black-Hole Growth Constraints from JWST}}
 \author{Nicole Jiang}
 \date{Draft: 7 September 2026}
 
@@ -21,38 +26,28 @@
 \maketitle
 
 \begin{abstract}
-\textbf{Aims.} We assess which JWST-identified accreting black holes and
-candidates at $z\geq4$ place meaningful constraints on early growth histories,
-and how these constraints depend on seed formation, radiative efficiency,
-and reported mass uncertainty.
-
-\textbf{Methods.} We compile a provenance-aware catalogue containing 350
-literature measurements across 32 source families.
-After excluding all six records associated with three unresolved identity
-groups, our primary comparison uses 224 objects with comparable mass methods
-and accepted evidence classifications; the exploratory comparison includes
-234 numerical objects. We propagate published asymmetric mass
-errors using 10,000 deterministic Monte Carlo draws and preserve mass-method
-systematics as separate envelopes. We compare fixed seed, formation-redshift,
-and efficiency scenarios, and test fixed virial-mass offsets of $\pm0.3$ and
-$\pm0.5$ dex without treating these offsets as additional random scatter.
-
-\textbf{Results.} Under the reference assumptions $z_{\rm seed}=30$,
-$\epsilon=0.1$, no merger boost, and a $10^2\,M_\odot$ seed, 12 primary-sample
-objects require a lifetime-average $\fedd>1$ at their point estimates. Eight
-remain above unity at the 16th percentile, and six have
-$P(\fedd>1)\geq0.95$. The corresponding exploratory counts are 14, ten, and eight.
-UNCOVER-20466 has the highest required average rate, with median
-$\fedd=1.453$ and a 16th--84th percentile interval of 1.354--1.549.
-A $-0.5$-dex mass shift reduces the primary 12/8/6 counts to 6/4/3;
-a $+0.5$-dex shift raises them to 19/16/13.
-Increasing the seed mass to $10^3\,M_\odot$ reduces the primary count above
-unity to four; delaying seeding to $z_{\rm seed}=20$ increases it to 22.
-At the ideal non-spinning thin-disk efficiency $\epsilon=0.05719$, no point
-estimate in either sample requires $\fedd>1$ under otherwise unchanged assumptions. The
-inferred growth requirements are therefore conditional on the adopted model;
-heterogeneous selection functions and mass estimators preclude interpreting
-global rankings as demographic measurements.
+\textbf{Aims.} We identify which JWST black-hole candidates provide useful tests
+of early growth and which mass or growth assumptions control their interpretation.
+\textbf{Methods.} We compile 350 literature measurements from 32 source families
+at $z\geq4$. Excluding unresolved identities gives 224 primary objects with
+comparable mass methods and 234 objects in an inclusive exploratory sample.
+We propagate quoted mass errors, test coherent mass-scale shifts, and compare
+fixed seed, formation-time, and efficiency assumptions.
+\textbf{Results.} For a $10^2M_\odot$ seed formed at $z=30$, radiative efficiency
+$\epsilon=0.1$, and no merger boost, 12 primary objects require a lifetime-average
+Eddington ratio above unity; six retain conditional probability at least 0.95
+under their reported errors. UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604
+retain this probability threshold after a $-0.5$ dex mass shift, although
+source-specific lensing, scattering, and calibration assumptions remain relevant.
+The most demanding object changes from UNCOVER-20466 to the exploratory object
+GN-z11 when seeding is delayed to $z=20$. Lowering the fixed efficiency to 0.05719
+removes every point-estimate requirement above unity. A separate A2744-QSO1
+dynamical-mass comparison moves its requirement close to unity, with an error
+interval crossing the threshold.
+\textbf{Conclusions.} The atlas supplies source-linked targets for testing mass
+estimators and growth assumptions. Its constraints do not identify unique
+formation channels, and its heterogeneous membership does not support pooled
+demographic inference.
 
 \smallskip
 \noindent\textbf{Key words.} black hole physics -- accretion, accretion disks --
@@ -94,9 +89,14 @@ light and heavy seeds at $z_{\rm seed}=25$ and explored a primordial-seeding
 interpretation. Here we use this established growth framework to assess how
 object-level constraints change when published masses, measurement methods,
 and growth assumptions are treated consistently across a larger evidence atlas.
-The contribution is a traceable comparison of which constraints persist under
-reported mass uncertainty and which disappear when assumptions change; we do
-not infer a primordial abundance or introduce a new growth mechanism.
+The added scientific product is an object-by-object distinction between
+requirements that survive quoted errors, those that survive a mass-scale
+perturbation, and those whose interpretation depends on a specific estimator.
+We report the complete primary threshold set with source-linked caveats and
+proposed observations, isolate measurement and starting-time effects in a
+matched literature comparison, and evaluate an independent dynamical estimate
+outside the frozen catalogue. These comparisons make the catalogue useful for
+selecting observational tests of growth assumptions.
 Survey studies provide a complementary perspective: the JADES broad-line census
 \cite{juodzbalis2026} measures current accretion and host scaling relations,
 while the narrow-line census \cite{scholtz2025} broadens the evidence for
@@ -194,52 +194,23 @@ Values $D_{\rm req}>1$ identify an infeasible specified two-state history and
 are retained. An average growth requirement is not an instantaneous Eddington
 ratio or a uniquely measured duty cycle.
 
-For the illustrative spin-dependent maps, the ideal Kerr thin-disk efficiency
-is the ISCO binding efficiency \cite{bardeen1972}:
-\begin{align}
-\epsilon_a&=1-\sqrt{1-\frac{2}{3r_{\rm ISCO}}},\\
-r_{\rm ISCO}&=3+Z_2-\operatorname{sgn}(a)
-\sqrt{(3-Z_1)(3+Z_1+2Z_2)},\\
-Z_1&=1+(1-a^2)^{1/3}\big[(1+a)^{1/3}+(1-a)^{1/3}\big],\qquad
-Z_2=\sqrt{3a^2+Z_1^2}.
-\label{eq:spin}
-\end{align}
-The dimensionless spin is $a=cJ/(G\mbh^2)$, where $J$ is the signed angular
-momentum relative to the disk, and $r_{\rm ISCO}$ is in units of $G\mbh/c^2$.
-The ideal efficiencies at $a=-1,0,+1$ are approximately 0.038, 0.057, and
-0.423, respectively, neglecting photon capture and stress at the ISCO.
-Above unity, the maps adopt a phenomenological luminosity ansatz,
-\begin{equation}
-\fedd=1+\ln\dot m,\qquad
-\dot m=\frac{\dot M_{\rm in}}{L_{\rm Edd}/(\epsilon_a c^2)},\qquad
-\epsilon_{\rm eff}=\begin{cases}
-\epsilon_a,&\fedd\leq1,\\
-\epsilon_a\fedd\exp(1-\fedd),&\fedd>1.
-\end{cases}
-\label{eq:effective-efficiency}
-\end{equation}
-The logarithmic luminosity ansatz applies only on the super-Eddington branch.
-This is an illustrative parameter-scan prescription, not a relativistic
-slim-disk or spin-evolution calculation. If efficiency varies with time, the
-integrated growth depends on $\int [(1-\epsilon(t))/\epsilon(t)]\fedd(t)\,dt$;
-it cannot in general be represented by separately averaged efficiency and rate.
+The main comparisons use fixed efficiencies. The supplementary spin-dependent
+maps use the ideal Kerr binding efficiencies 0.038, 0.057, and 0.423 for
+$a=-1,0,+1$, respectively \cite{bardeen1972}. Their supercritical extension
+and the ISCO algebra are specified in Appendix~\ref{app:efficiency}; they are
+illustrative constant-state scenarios rather than spin-evolution models.
 
 \section{Catalogue construction}
 
 \subsection{Scope and versioning}
 
-The catalogue uses scientific dataset versions rather than software releases.
-v1 is the original 23-object JADES broad-line catalogue. v2 expands the same
-mass-comparable analysis to 211 JWST broad-line objects. v3 retains all v2
-objects and adds heterogeneous JWST-identified evidence classes. A source enters
-only one admission version; an internally heterogeneous source is assigned in
-full to v3. The fixed scope requires $z\geq4$ and identification or candidate
-classification from JWST data. Objects merely followed up by JWST after a
-non-JWST discovery are outside the admission rule.
-
-Source-family and measurement membership is frozen at the review cutoff of
-3 September 2026; corrections to admitted measurements apply across affected
-versions, while new measurements require a declared subsequent version.
+The scope requires $z\geq4$ and identification or candidate classification
+from JWST data. Objects merely followed up by JWST after a non-JWST discovery
+are outside the admission rule. The declared 32-source membership was frozen
+at the review cutoff of 3 September 2026; it is not an exhaustive census of
+all discoveries before that date. Source-native measurements are retained,
+with corrections documented against the source. The repository records the
+nested v1/v2/v3 datasets; this paper analyses v3.
 
 The catalogue retains 350 measurements represented by 338 provisional object
 records in 337 host systems. Numerical comparisons use the conservative samples
@@ -314,8 +285,7 @@ with the manuscript analysis products.
 Figure~\ref{fig:landscape} distinguishes the 224 primary objects from the ten
 additional exploratory objects. The accounting panel also records 98 retained
 objects without masses and all six identity exclusions, without plotting excluded
-measurements. Every manuscript figure uses the publication selection; original
-full-catalogue figures remain available in the repository.
+measurements. Figures use the publication selection or explicitly labelled subsets of it.
 
 \begin{table}[ht]
 \centering
@@ -368,6 +338,7 @@ to show the mass and time scales. Primary and exploratory-only objects are disti
 reference histories, not fits to individual objects.
 
 \subsection{Uncertainty and ranking policy}
+\label{sec:uncertainty}
 
 Published asymmetric mass uncertainties in $\log_{10}\mbh$ are
 propagated with 10,000 deterministic split-side draws per measurement and per
@@ -416,16 +387,16 @@ requirement directly. The separate heuristic navigation score and tie policy
 are specified in Appendix~\ref{app:navigation}; they do not define the
 scientific conclusions.
 Compatibility is also calculated object by object across four seed families,
-three spin/efficiency cases, two merger cases, and three average accretion rates.
+three spin/efficiency cases, two merger cases, and three constant accretion rates.
 For fixed $z_{\rm seed}=30$, $\epsilon$, $B_{\rm merge}$ and $\fedd$, a cell is
 compatible precisely when the required $\log_{10}(M_{\rm seed}/M_\odot)$ lies
 inside the inclusive seed interval: $[1,2]$ (light), $[3,4]$ (intermediate),
-$[4,6]$ (heavy), or $[2,6]$ (PBH-labelled). These are overlapping scenario
+$[4,6]$ (heavy), or $[2,6]$ (broad mass interval). These are overlapping scenario
 ranges, not probability priors. A required seed below the interval indicates
 that this fixed history would overgrow the observed mass; it does not exclude
-the seed family under a shorter duty cycle. The PBH label specifies only a
-mass range at the common starting redshift, not primordial formation physics
-or a PBH abundance constraint.
+the seed family under a shorter duty cycle. The broad interval specifies a mass range at the common starting redshift;
+it has no formation-channel interpretation. The legacy machine-readable
+key is retained for reproducibility and is documented in the supplement.
 The source-level selection registry leaves inverse-probability weights unset
 because no common inclusion-probability model spans the 32 source families.
 Consequently, compatibility fractions are descriptive summaries of the admitted
@@ -460,26 +431,28 @@ cross-method diagnostic, not a claim of equivalent mass-estimator reliability.
 UNCOVER-20466 has the largest required average rate in both samples. Its
 point-estimate required $\fedd$ is 1.452, and its Monte Carlo median is 1.453
 with a 16th--84th percentile interval of 1.354--1.549.
-Table~\ref{tab:top} reports the five largest primary-sample point requirements.
-GN-z11 is discussed separately as an exploratory cross-method comparison.
+Table~\ref{tab:top} reports all 12 primary point requirements above unity,
+including the six that meet the conditional probability threshold. Ordering by
+point requirement differs from ordering by quoted-error probability.
 
-\begin{table}[ht]
+\begin{table}[htbp]
 \centering
-\caption{Highest point-estimate required $\fedd$ for a $10^2\,M_\odot$ seed under
-the reference assumptions. Intervals propagate published mass
-errors only. All five objects belong to the 224-object manuscript primary subset;
-GN-z11 is excluded from this comparison.}
-\begin{tabular}{@{}lrrrr@{}}
+\caption{Complete primary reference-threshold set, ordered by point requirement.
+Masses and errors are in $\log_{10}(M/M_\odot)$; all estimators are single-epoch
+virial. $f_0$ is the reference point requirement, $f_{16}$ its reported-error
+16th percentile, and $P_0=P(\overline{\fedd}_{\rm req}>1)$.
+$f_-$ and $P_-$ apply the fixed $-0.5$ dex offset. Rounded probabilities above
+0.999 do not imply physical certainty. Source-specific caveats and proposed
+observations are in Table~\ref{tab:actions}.}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrrrrr@{}}
 \toprule
-Object & $z$ & $\log_{10}(\mbh/M_\odot)$ & Required $\fedd$ & 16th--84th percentile \\
+Object & Line/source & Log mass & $f_0$ & $f_{16}$ & $P_0$ & $f_-$ & $P_-$ \\
 \midrule
-UNCOVER-20466 & 8.500 & 8.17 & 1.452 & 1.354--1.549 \\
-GS-20057765 & 8.913 & 7.33 & 1.355 & 1.177--1.513 \\
-COSMOS3D-13852 & 7.646 & 8.60 & 1.314 & 1.247--1.384 \\
-RUBIES-EGS-55604 & 6.986 & 9.31 & 1.267 & 1.250--1.284 \\
-CEERS-1019 & 8.679 & 6.95 & 1.205 & 1.115--1.293 \\
+\tableinput{analysis/target_rows.tex}
 \bottomrule
 \end{tabular}
+\endgroup
 \label{tab:top}
 \end{table}
 
@@ -494,19 +467,19 @@ source-reported errors and the reference growth assumptions; they do not add a
 common virial-calibration uncertainty or uncertainty in seed redshift,
 radiative efficiency, and merger history. These are descriptive counts
 within the stated subsets, not population fractions.
-Figure~\ref{fig:uncertainty} displays the exploratory error distribution and
-separates missing-error cases from sampled intervals. Most objects lie below
-the reference threshold; the primary-sample counts above are calculated with
-the additional evidence and method cuts.
+Figure~\ref{fig:uncertainty} resolves the primary threshold objects by name.
+The remaining sample includes 12 primary objects without quoted mass errors;
+they enter point counts but have no assigned probability. The full sample has
+212 primary and 222 exploratory objects with reported errors.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{figures/uncertainty.png}
-\caption{Publication-sample uncertainty. Circles show 212 primary objects with
-reported errors; triangles show ten exploratory-only objects with reported
-errors. Twelve primary objects without reported errors appear as open diamonds
-on the ``No error'' row, with no probability assigned. Point size for sampled
-objects encodes the 16th--84th percentile width.}
+\includegraphics[width=0.95\textwidth]{figures/uncertainty.png}
+\caption{The 12 primary objects whose reference point requirements exceed unity.
+Circles and bars show reported-error medians and 16th--84th percentile intervals;
+diamonds show point requirements after a $-0.5$ dex mass shift. The vertical
+line is the reference threshold. The selected objects all have reported errors;
+these intervals do not include additional estimator systematics.}
 \label{fig:uncertainty}
 \end{figure}
 
@@ -519,7 +492,11 @@ Positive shifts increase all three counts. Thus some reference-history tension
 survives even the negative 0.5-dex stress test, but the size of that tail is
 not robust to mass calibration. This does not remove the efficiency degeneracy:
 the lower-efficiency scenario below is a separate change to the growth model.
-The archived object-level results identify membership changes at every offset.
+The three primary objects retaining $P\geq0.95$ at $-0.5$ dex are
+UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604 (Table~\ref{tab:top}).
+This selects candidates for estimator tests rather than three established
+super-Eddington growth histories. In particular, a larger directional scattering
+bias remains possible for COSMOS3D-13852, as discussed below.
 
 \begin{table}[htbp]
 \centering
@@ -602,13 +579,26 @@ $P\geq0.95$ counts. The primary reference median changes from 0.574 to 0.578.
 Thus the reported early-growth tail does not depend on retaining the unresolved
 groups, although catalogue-wide uniqueness remains unsettled.
 
-Figure~\ref{fig:compatibility} compares the scenario grid for the primary
-sample and the full 234-object exploratory sample. The latter includes the
-primary objects; the rows are not independent samples. Its dependence on spin/efficiency, merger boost, and seed
-interval illustrates why compatibility cannot be attributed to seed mass alone.
-These cells use the efficiency prescription of Eq.~\ref{eq:effective-efficiency};
-they should not be read as extensions of the fixed-$\epsilon=0.1$ reference
-ranking. Unavailable masses are excluded from numerical compatibility fractions.
+Figure~\ref{fig:boundaries} expresses the degeneracy for five named targets:
+for each seed mass it shows the largest fixed efficiency allowing
+$\overline{\fedd}_{\rm req}\leq1$. The curves solve Eq.~\ref{eq:required-rate}
+with $B_{\rm merge}=1$ and the adopted point masses; efficiencies below each
+curve permit the threshold, but do not guarantee a sustainable fuel supply.
+Comparing $z_{\rm seed}=30$ and 20 exposes the greater timing sensitivity of
+GN-z11. The full constant-state compatibility grid is retained in
+Appendix~\ref{app:efficiency}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.99\textwidth]{figures/growth_boundaries.png}
+\caption{Seed-mass--efficiency boundaries for Eddington-limited average growth
+at two starting redshifts. Each curve uses an adopted point mass and no merger
+boost. Below a curve the required average is at most unity. Horizontal guides
+mark $\epsilon=0.1$ (solid grey) and $1-\sqrt{8/9}$ (dotted grey).
+GN-z11 (dashed) is exploratory; the other objects are primary.
+These are fixed-efficiency comparisons without probability weights.}
+\label{fig:boundaries}
+\end{figure}
 
 Figure~\ref{fig:sensitivity} shows seven alternate-measurement comparisons
 across six objects; CEERS-2782 contributes two alternatives. Alternate-minus-
@@ -622,24 +612,65 @@ cases, and records still requiring a suitable mass.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{figures/compatibility.png}
-\caption{Compatibility in the 224-object primary sample (top) and the
-234-object exploratory sample including it (bottom), after identity exclusions.
-Each cell is a descriptive compatible fraction within the labelled sample,
-not a completeness-corrected population frequency. Spin/efficiency cases use
-Eq.~\ref{eq:effective-efficiency}; seed intervals and merger boosts are fixed
-scenario definitions, not inferred formation channels.}
-\label{fig:compatibility}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.99\textwidth]{figures/measurement_sensitivity.png}
-\caption{Seven alternate-measurement comparisons across six publication-primary objects. Numbered points
-are keyed to stable object and measurement identifiers.}
+\includegraphics[width=0.95\textwidth]{figures/measurement_sensitivity.png}
+\caption{Preferred (circles) and alternate (diamonds) point requirements for
+seven measurement pairs across six primary objects. Pair numbers follow the
+released alternate-measurement table, which supplies stable measurement IDs;
+RUBIES-EGS-50052 (CEERS-2782) has two alternatives. All pairs remain below the reference threshold.}
 \label{fig:sensitivity}
 \end{figure}
+
+\subsection{Separating measurement and starting-time changes}
+
+Table~\ref{tab:matched} isolates two effects for four unambiguous named matches
+to Dayal's Table~1 \cite{dayal2024}. All columns use our cosmology,
+$\epsilon=0.1$, $M_{\rm seed}=10^2M_\odot$, and $B_{\rm merge}=1$.
+The first uses that table's mass and redshift at $z_{\rm seed}=25$;
+the second changes only to our adopted mass and redshift; the third changes
+only the starting redshift to 30. Thus this is a controlled input comparison,
+not an exact reproduction of the earlier paper or a complete crossmatch.
+For these examples the earlier starting time lowers the requirement, whereas
+measurement updates have smaller effects. The added value of the present
+analysis lies in source-aware uncertainty and target selection, not a change
+to the exponential growth law.
+
+\begin{table}[htbp]
+\centering
+\caption{Controlled comparison for four named literature matches. Columns give
+required average $\fedd$; the first two share $z_{\rm seed}=25$.
+The external inputs and source locators are released with the analysis.}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Object & Earlier inputs, 25 & Adopted inputs, 25 & Adopted inputs, 30 \\
+\midrule
+\tableinput{analysis/matched_rows.tex}
+\bottomrule
+\end{tabular}
+\label{tab:matched}
+\end{table}
+
+\subsection{External dynamical-mass check: A2744-QSO1}
+\label{sec:direct}
+
+The frozen primary catalogue adopts $\log_{10}(M/M_\odot)=7.3\pm0.2$
+for A2744-QSO1 from Greene et al.\ \cite{greene2024}. We separately evaluate
+the MOKA3D point-mass estimate $7.7\pm0.3$ in the pinned preprint
+\cite{juodzbalis_direct2025}. This is an external sensitivity comparison;
+it neither replaces the preferred row nor changes primary membership.
+Both estimates use the adopted $z=7.04$ and the reference growth assumptions.
+The direct estimate is conditional on the lens reconstruction and fitted
+inclination; its inclination-free lower-limit counterpart is not sampled as
+a symmetric measurement.
+
+\input{analysis/direct_result.tex}
+The comparison supplies independent dynamical evidence relevant to this
+object's virial interpretation, and moves it from a sub-threshold reference case to one whose quoted-error
+interval straddles unity. Agreement for this object does not
+calibrate the full primary sample. A future dataset may admit the direct
+measurement with its own method classification and identity link.
+
 \section{Discussion}
+
 
 \subsection{What the high-pressure tail establishes}
 
@@ -666,13 +697,12 @@ unity. This sensitivity calculation does not infer actual spins or growth
 histories; it shows why the reference tail cannot establish a model-independent
 need for super-Eddington accretion.
 
-The seed--accretion trade-off agrees qualitatively with Dayal's analytic
-comparison \cite{dayal2024}. A numerical comparison of object counts would
-require identical membership, mass choices, and starting redshift; our reference
-uses $z_{\rm seed}=30$ rather than 25. The added result here is the measured
-change in threshold membership and object ordering across explicit scenarios,
-with primary and exploratory evidence kept separate. This supports targeted
-observational tests rather than selection of a unique formation channel.
+The matched comparison in Table~\ref{tab:matched} separates revised inputs
+from available growth time. The broader atlas adds a different observational
+question: which of the reference-threshold objects should be tested first,
+and for which mass assumption? Table~\ref{tab:actions} answers this question
+without treating a high probability under a narrow formal error as an
+independent validation of the estimator.
 
 The most useful targets are therefore those whose placement is both demanding
 and stable to published mass uncertainty. Independent mass measurements,
@@ -681,6 +711,45 @@ and constraints on obscuration and lensing can change the physical
 interpretation more than another evaluation of the same analytic formula. The
 follow-up matrix makes that distinction explicit, but its heuristic ordering is
 not a calibrated calculation of expected information gain.
+
+\subsection{Estimator credibility and observational tests}
+\label{sec:credibility}
+
+Survival of the $-0.5$ dex test is meaningful only relative to that perturbation.
+UNCOVER-20466 uses a demagnified H$\beta$ mass and still requires checks of the
+lens model and broad-line interpretation \cite{greene2024}. RUBIES-EGS-55604
+uses a dust-corrected H$\beta$ mass with a separately recorded 0.5 dex virial
+calibration scale \cite{kocevski2025}. COSMOS3D-13852 also uses H$\beta$, but
+its source discusses possible 1--2 dex overestimates from scattering
+\cite{lin2025}. Applying those directional offsets to this object's point mass
+alone gives reference requirements of 1.115 and 0.916, respectively.
+These are illustrative source-motivated perturbations, not inferred corrections
+or a probability distribution. The common 0.5 dex experiment does not bracket
+that caveat.
+
+Conversely, J0910\_2028\_12910 has a quoted 0.01 dex mass error and a reference
+requirement of 1.053. Its sampled probability exceeds 0.999, but the separately
+recorded 0.5 dex mass scale is far larger than the formal error \cite{baccus2026}.
+It drops below unity in the negative-offset experiment. ZS7 illustrates a
+third error meaning: its quoted 0.4 dex already includes calibration scatter
+\cite{ubler2024}. These objects cannot be ranked by quoted-error probability
+as though the errors expressed identical physical uncertainty.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Source-linked interpretation of the complete primary threshold set.
+Caveats summarize the source records cited in Table~\ref{tab:top}; proposed
+observations are our assessment of the measurement that would most directly
+test the stated limitation, not scheduled or guaranteed feasible programmes.}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
+\toprule
+Object & Mass-estimator caveat & Proposed observation \\
+\midrule
+\tableinput{analysis/target_actions.tex}
+\bottomrule
+\end{tabular}
+\label{tab:actions}
+\end{table}
 
 \subsection{Contrasting object-level constraints}
 
@@ -754,60 +823,58 @@ observables are not exhaustively validated. Resolving the three groups is requir
 claiming a final unique-object census. The literature
 cutoff is 3 September 2026; catalogue completeness refers to the declared source
 membership, not every JWST discovery.
-The A2744-QSO1 direct-mass measurement \cite{juodzbalis_direct2025} awaits a new
-dataset version under the frozen-membership policy.
+The external A2744-QSO1 comparison in Section~\ref{sec:direct} evaluates a
+pre-cutoff dynamical measurement without silently changing frozen membership.
 
-\section{Reproducibility and data products}
+\section{Data and code availability}
 
-The repository provides pinned direct Python dependencies, five ordered
-notebooks, versioned catalogues, and hash manifests. Reproduction checks compare
-regenerated numerical tables and figures against committed baselines with
-explicit numerical and raster tolerances. Independent quadrature of the cosmic
-age integral and Runge--Kutta growth integration supplement these comparisons.
-The release includes per-object parameter maps, alternate-measurement checks,
-and source-linked follow-up information; implementation details and artifact
-inventories are documented in the repository.
+The catalogue, source registries, code, and manuscript analysis are available at
+\url{https://github.com/nniickels/highz-accretion-atlas}. The frozen v3 catalogue
+baseline is identified by Git commit
+\href{https://github.com/nniickels/highz-accretion-atlas/tree/a40a0d28c6c8d0b7e0c98aea089629903c34f7be}{\texttt{a40a0d2}};
+version manifests under \texttt{releases/} record the dataset artifact hashes.
+The revised manuscript's source-linked comparisons and generated tables are in
+\texttt{paper/analysis/}, with explicit external inputs in
+\texttt{paper/review\_inputs.json}. A permanent archival DOI has not yet been
+assigned; the repository and Git baseline provide the current access and
+version identification.
 
-The source checks establish agreement with published values, not the physical
-validity of every estimator or the uniqueness of every target.
-A separate manuscript exclusion check verifies that every open group is
-fully withheld from both inference samples and reproduces the stored selection
-and sensitivity tables, including the fixed mass-offset experiment. It runs in
-the public verification notebook. The
-stricter full-catalogue identity-resolution gate still reports the three groups
-in Section~\ref{sec:limits}; the exclusion check does not replace it.
+Five ordered notebooks reproduce the catalogue, science products, figures,
+and atlas using pinned dependencies. The verification notebook compares
+regenerated numerical and raster products with stored baselines and checks
+manuscript table fragments against their generated analysis. Independent
+cosmic-age quadrature and growth integration supplement the regression checks.
+The source-family inventory in Appendix~\ref{app:sources} links measurements,
+methods, selection channels, and major caveats. Full identifiers, source-native
+observables, alternative measurements, and per-object maps remain available.
+
+Source agreement does not establish estimator validity or astrophysical
+uniqueness. The manuscript exclusion check verifies that all open identity
+groups are withheld; the separate full-catalogue identity gate remains open
+for the three groups listed in Section~\ref{sec:limits}.
 
 \section{Conclusions}
 
-We have constructed a reproducible atlas with 338 provisional object records of JWST-identified accreting
-black-hole objects and candidates at $z\geq4$. The main results are:
+The atlas provides a reproducible, source-linked comparison of early
+black-hole growth requirements. Its principal results are:
 \begin{itemize}
-\item 237 objects have a numerically eligible mass and 101 remain explicit
-no-inference records;
-\item after excluding the ambiguous identities, the primary 224-object sample has, under the light-seed reference history,
-12 point requirements above $\fedd=1$, eight above unity at the 16th percentile,
-and six with $P(\fedd>1)\geq0.95$; the exploratory counts are 14, ten, and eight;
-\item a coherent $-0.5$-dex mass shift leaves primary counts of 6/4/3,
-whereas $+0.5$ dex yields 19/16/13: the exact tail size depends on the mass scale;
-\item increasing the seed mass to $10^3M_\odot$ reduces the primary point count
-to four, while delaying seeding to $z=20$ increases it to 22; object ordering
-also depends on the assumed starting time;
-\item model compatibility is conditional on seed, efficiency, merger, and
-accretion assumptions, and the heterogeneous catalogue cannot support pooled
-demographic inference; lowering the fixed efficiency to the ideal non-spinning
-value removes all point-estimate requirements above unity; and
-\item complete provenance, identity history, uncertainty semantics, source
-caveats, follow-up priorities, and per-object visual products remain linked to
-the same frozen v3 dataset.
+\item The conservative 224-object primary sample contains 12 reference point
+requirements above unity and six with conditional $P\geq0.95$ under quoted errors.
+\item UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604 retain the probability
+threshold after a $-0.5$ dex mass shift. Their distinct lensing, scattering,
+and calibration caveats identify different observational tests.
+\item Seed formation time changes both threshold membership and the most
+demanding object; lowering the fixed efficiency to 0.05719 removes all point
+requirements above unity. These are constraints on combinations of assumptions.
+\item The external A2744-QSO1 dynamical estimate increases its reference
+requirement from 0.929 to approximately unity, with an error interval spanning
+the threshold. Independent mass information can change the growth interpretation
+even without adding a new object.
 \end{itemize}
-
-The manuscript results are unchanged in threshold membership and top-object
-ordering when the open identity groups are excluded. Final catalogue-wide
-object counts still require the identity work specified in
-Section~\ref{sec:limits}. Within the present scope, the scientific priority is
-independent mass information for objects whose growth constraints are both
-demanding and sensitive to the assumptions, rather than a single global ranking
-of the heterogeneous catalogue.
+The threshold results survive exclusion of the known ambiguous identities;
+the full catalogue's unique-object census remains provisional. The useful
+outcome is a set of named observational tests with explicit assumptions, not
+a universal ordering or a measurement of formation-channel frequencies.
 
 \appendix
 \section{Source-family inventory}
@@ -819,27 +886,31 @@ candidates. Preferred-row evidence labels comprise 214 secure, 41 probable,
 82 candidate, and one disputed classification. These full-catalogue counts
 precede the manuscript exclusions.
 
-The manual-extraction audit covers 26 hash-pinned extraction artifacts, while
-the provenance registry contains 38 records covering all 32 admitted source
-families. Source locations, URLs, DOI or archive versions, archive hashes where
-available, extraction dates, and caveat tags accompany the measurements.
-Auxiliary coordinates and context are attributed to THRILS
-\cite{hutchison2025}, the UHZ1 spectroscopy paper \cite{goulding2023}, and the
-versioned JADES DR3 GOODS-S prism catalogue in the repository registry.
+Table~\ref{tab:sources} gives every admitted source family. Counts distinguish
+measurements from preferred objects and avoid attributing one shared physical
+object independently to multiple sources. Auxiliary coordinates are attributed in the registry to THRILS
+\cite{hutchison2025}, UHZ1 spectroscopy \cite{goulding2023}, and the versioned
+JADES DR3 GOODS-S prism catalogue. The machine-readable companion retains
+full selection-channel and caveat tags alongside source URLs. ``Context'' and
+``Limit'' denote values retained outside numerical growth inference.
 
-The input literature spans JWST broad-line samples
-\cite{juodzbalis2026,taylor2025,matthee2024,lin2024,harikane2023,davis2026,
-greene2024,kocevski2025,skyfire2026,larson2023,killi2024,ubler2024,
-baccus2026,fei2026,zhuang2025,lin2025}, host-selected broad-line candidates
-\cite{ren2025}, an X-ray evidence history \cite{bogdan2024,zou2026}, JADES
-narrow/high-ionization candidates \cite{scholtz2025}, and GN-z11
-high-ionization evidence \cite{maiolino2024}. Heterogeneous additions include
-high-ionization and narrow-line candidates
-\cite{chisholm2024,tang2025,mazzolari2024,zhang2026,chavezortiz2026}, MIRI
-SED-selected candidates \cite{leung2026,lyu2024}, GHZ9
-\cite{napolitano2025}, compact blue broad-line emitters \cite{mascia2026},
-additional UNCOVER candidates \cite{treiber2025}, MoM-BH*-1
-\cite{naidu2026}, and GHZ4/GHZ7 \cite{napolitano2024}.
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}rp{0.10\textwidth}>{\raggedright\arraybackslash}p{0.43\textwidth}@{}}
+\caption{Source-family inventory. Counts are admitted measurements / eligible
+mass measurements / preferred primary objects after identity exclusion (M/G/P).
+The columns sum to 350/244/224; G includes alternatives, whereas P counts each
+selected object once. ``Balmer'' denotes single-epoch virial masses.}
+\label{tab:sources}\\
+\toprule Source & M/G/P & Mass & Selection channel; principal caveat \\\midrule
+\endfirsthead
+\multicolumn{4}{l}{Table~\ref{tab:sources} continued}\\
+\toprule Source & M/G/P & Mass & Selection channel; principal caveat \\\midrule
+\endhead
+\bottomrule\endfoot
+\tableinput{analysis/source_rows.tex}
+\end{longtable}
+\endgroup
 
 \subsection{Source-admission checks}
 \label{app:admission}
@@ -872,20 +943,72 @@ $\log_{10}(M_{\rm seed}/M_\odot)$ at $\fedd=0.3$. This heuristic combines
 two growth diagnostics and a redshift term; it is not a probability. Ties use
 decreasing $f_2$, decreasing redshift, then stable identifier. The manuscript's
 required-$\fedd$ table is instead ordered directly by $f_2$.
-\section{Release inventory}
+\section{Supplementary efficiency and compatibility scenarios}
+\label{app:efficiency}
 
-The release also retains 810 source-local observables, seven alternate-measurement
-pairs, 32 source-family caveat rows, and 676 per-object parameter-map panels.
-Canonical manifests record SHA-256 hashes for 85 v1, 461 v2, and 720 v3 artifacts.
-The current result inventory contains 1,236 artifacts. These inventories have
-different scopes: version manifests include dataset products as well as results.
-The repository records their individual entries and verification tolerances.
+For the illustrative spin-dependent maps, the ideal Kerr thin-disk efficiency
+is the ISCO binding efficiency \cite{bardeen1972}:
+\begin{align}
+\epsilon_a&=1-\sqrt{1-\frac{2}{3r_{\rm ISCO}}},\\
+r_{\rm ISCO}&=3+Z_2-\operatorname{sgn}(a)
+\sqrt{(3-Z_1)(3+Z_1+2Z_2)},\\
+Z_1&=1+(1-a^2)^{1/3}\big[(1+a)^{1/3}+(1-a)^{1/3}\big],\qquad
+Z_2=\sqrt{3a^2+Z_1^2}.
+\label{eq:spin}
+\end{align}
+The dimensionless spin is $a=cJ/(G\mbh^2)$, where $J$ is the signed angular
+momentum relative to the disk, and $r_{\rm ISCO}$ is in units of $G\mbh/c^2$.
+The ideal efficiencies at $a=-1,0,+1$ are approximately 0.038, 0.057, and
+0.423, respectively, neglecting photon capture and stress at the ISCO.
+Logarithmic luminosity growth at supercritical inflow is motivated by
+advection and wind models \cite{poutanen2007}. Our unit-coefficient relation
+is a phenomenological ansatz, not a fit to those models or a treatment of
+radial mass loss. Above unity, the maps adopt
+\begin{equation}
+\fedd=1+\ln\dot m,\qquad
+\dot m=\frac{\dot M_{\rm in}}{L_{\rm Edd}/(\epsilon_a c^2)},\qquad
+\epsilon_{\rm eff}=\begin{cases}
+\epsilon_a,&\fedd\leq1,\\
+\epsilon_a\fedd\exp(1-\fedd),&\fedd>1.
+\end{cases}
+\label{eq:effective-efficiency}
+\end{equation}
+The logarithmic luminosity ansatz applies only on the super-Eddington branch.
+Each compatibility cell holds both the rate and its effective efficiency
+constant over the interval. Thus the cell cannot represent a variable history
+merely by substituting its average luminosity ratio. This is an illustrative
+parameter-scan prescription, not a relativistic
+slim-disk or spin-evolution calculation. If efficiency varies with time, the
+integrated growth depends on $\int [(1-\epsilon(t))/\epsilon(t)]\fedd(t)\,dt$;
+it cannot in general be represented by separately averaged efficiency and rate.
+
+Figure~\ref{fig:compatibility} gives the full scenario grid. The broad
+$10^2$--$10^6M_\odot$ interval retains the legacy code key
+\nolinkurl{pbh_origin_hypothesis} solely for artifact compatibility; it models
+no primordial formation process. The descriptive fractions use point masses
+and the inclusive interval criterion in Section~\ref{sec:uncertainty}, without error integration.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.99\textwidth]{figures/compatibility.png}
+\caption{Supplementary constant-state compatibility fractions in the primary
+sample (left) and the inclusive exploratory sample (right). These samples
+are nested. Each column specifies merger multiplier $B$ and fixed luminosity
+ratio $f$; rows specify ideal spin-dependent efficiency, with the supercritical
+prescription above. Seed intervals overlap and carry no probability weights.
+The broad mass interval has no formation-channel interpretation.}
+\label{fig:compatibility}
+\end{figure}
+\clearpage
 
 \begin{thebibliography}{99}
 \setlength{\itemsep}{2pt}
 \bibitem{shen2013} Shen, Y. 2013, The Mass of Quasars, arXiv:1302.2643v1.
 \bibitem{bardeen1972} Bardeen, J. M., Press, W. H., \& Teukolsky, S. A. 1972,
 \emph{ApJ}, 178, 347--369, doi:10.1086/151796.
+\bibitem{poutanen2007} Poutanen, J., Lipunova, G., Fabrika, S., Butkevich, A. G.,
+\& Abolmasov, P. 2007, \emph{MNRAS}, 377, 1187--1194,
+doi:10.1111/j.1365-2966.2007.11668.x.
 \bibitem{dayal2024} Dayal, P. 2024, \emph{A\&A}, 690, A182, doi:10.1051/0004-6361/202451481.
 \bibitem{juodzbalis2026} Juod\v{z}balis, I. et al. 2026, \emph{MNRAS}, 546, stag086, doi:10.1093/mnras/stag086.
 \bibitem{taylor2025} Taylor, A. J. et al. 2025, \emph{ApJ}, 986, 165, doi:10.3847/1538-4357/add15b.

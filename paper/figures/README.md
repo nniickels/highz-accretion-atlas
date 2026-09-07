@@ -12,3 +12,11 @@ The measurement-sensitivity figure retains seven pairs across six primary object
 Images are 300 dpi. Verification requires identical dimensions and a maximum
 RGBA-channel difference of three, without resizing or alignment. Canonical
 full-catalogue figures in `results/v3/figures/` are unchanged.
+
+The six manuscript figures comprise the landscape and reference tracks,
+a labelled interval plot of the twelve primary threshold objects, paired
+preferred/alternate requirements, fixed-efficiency seed boundaries for five
+named targets, and the supplementary compatibility grid. The broad 10^2--10^6
+solar-mass column is labelled by its interval, with the legacy PBH key retained
+only in the canonical machine-readable data. Boundary curves solve f_req=1
+with B=1; they are not probability contours or spin-evolution tracks.
