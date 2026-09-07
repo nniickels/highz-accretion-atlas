@@ -225,6 +225,9 @@ def main() -> None:
     if args.version == "v3":
         plot_uncertainty_top5(uncertainty)
     plot_sensitivity(sensitivity)
+    if args.version == "v3":
+        from src.internal.publication_figures import render_figures
+        render_figures(ROOT)
     for path in OUTPUT_PATHS.values():
         print(f"Wrote {path.relative_to(ROOT)}")
 

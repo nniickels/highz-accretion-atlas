@@ -165,3 +165,8 @@ but no decisive target crosswalk or aperture/segmentation reconciliation. The
 retains the separate program/target labels; that alone does not settle identity.
 The remaining astrophysical questions above are deferred to evidence-backed
 readmission. No source value, matching threshold, or audit disposition is changed.
+
+The subsequent manuscript-figure pass replaces the contextual full-catalogue
+plots in the draft with dedicated publication-sample figures. Original catalogue
+figures remain available separately; manuscript figures do not plot the excluded
+measurements. The coverage panel records the exclusions only as a separate count.

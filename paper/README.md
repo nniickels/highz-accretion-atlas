@@ -16,8 +16,10 @@ and inclusion/exclusion sensitivity tables with:
 ```
 
 The second command verifies without rewriting; it is also part of notebook 04.
-The five manuscript figures retain full-catalogue scope for context, clearly
-stated in the draft; numerical claims use the conservative manuscript samples.
+The five manuscript figures in `paper/figures/` use the conservative publication
+samples. Notebook 02 regenerates them and notebook 04 compares regenerated
+pixels (maximum channel difference 3, identical dimensions). The original
+full-catalogue figures remain in `results/v3/figures/`.
 
 
 The `paper/` folder contains the current working manuscript draft and is kept

@@ -45,3 +45,17 @@ class PublicationSelectionTests(unittest.TestCase):
         with patch('src.internal.publication_selection.pd.read_csv', side_effect=changed):
             with self.assertRaises(AssertionError):
                 verify_publication_selection()
+
+    def test_figure_inputs_use_publication_samples_and_valid_probabilities(self):
+        from src.internal.publication_figures import load_plot_inputs
+        selection, primary, point, errors, compatibility, sensitivity = load_plot_inputs()
+        excluded = set(selection.loc[selection.excluded_identity_flag, 'physical_object_id'])
+        self.assertEqual((len(primary), len(point)), (224, 234))
+        for frame in (point, errors, compatibility, sensitivity):
+            self.assertFalse(set(frame.physical_object_id) & excluded)
+        point_only = errors.mbh_uncertainty_mode.eq('point_estimate_no_reported_mbh_error')
+        self.assertEqual(int(point_only.sum()), 12)
+        self.assertTrue(set(errors.loc[point_only, 'physical_object_id']) <= primary)
+        self.assertTrue(errors.loc[point_only, 'prob_required_fedd_seed1e2_gt_1'].isna().all())
+        self.assertEqual(set(compatibility.physical_object_id), set(point.physical_object_id))
+        self.assertTrue(set(sensitivity.physical_object_id) <= primary)

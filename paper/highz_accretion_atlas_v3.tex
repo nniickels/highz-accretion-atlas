@@ -316,13 +316,11 @@ records are duplicates or that their physical identities are resolved.
 The explicit exclusion registry and complete per-object selection are supplied
 with the manuscript analysis products.
 
-Figure~\ref{fig:landscape} shows the broader numerical sample alongside records
-without masses. Its coverage panel explains why evidence-catalogue size exceeds
-the number of growth constraints; it is not the selection diagram for the
-224-object manuscript primary sample. All five figures retain the frozen
-catalogue scope, including the excluded records, for context. Numerical claims
-in the text and Tables~\ref{tab:top}--\ref{tab:scenarios} use the exclusion
-samples unless explicitly identified as catalogue sensitivity comparisons.
+Figure~\ref{fig:landscape} distinguishes the 224 primary objects from the ten
+additional exploratory objects. The accounting panel also records 98 retained
+objects without masses and all six identity exclusions, without plotting excluded
+measurements. Every manuscript figure uses the publication selection; original
+full-catalogue figures remain available in the repository.
 
 \begin{table}[ht]
 \centering
@@ -348,11 +346,11 @@ Per-object parameter-map panels & 676 \\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_catalogue_growth_landscape.png}
-\caption{Catalogue landscape. Left: the 237 growth-eligible object records in
-black-hole-mass--redshift space. Right: product coverage for all 338 objects.
-The 101 catalogue-only objects remain available for provenance and evidence
-analysis without unsupported numerical growth products.}
+\includegraphics[width=0.99\textwidth]{figures/landscape.png}
+\caption{Manuscript selection. Left: 224 primary objects (circles) and ten
+exploratory-only objects (triangles). Right: mutually exclusive record counts,
+including 98 retained without masses and six identity exclusions. The exploratory
+numerical sample contains the primary sample and has 234 objects.}
 \label{fig:landscape}
 \end{figure}
 
@@ -375,8 +373,8 @@ and seed-redshift--mass maps retain $\epsilon=0.1$; growth tracks retain their
 stated constant efficiencies. Thus compatibility above unity is conditional on
 a different efficiency model from the baseline required-$\fedd$ ranking.
 Figure~\ref{fig:allgrowth} places the exploratory masses against reference tracks
-to show the mass and time scales. It is a contextual comparison, not a fit to
-individual histories or a visualization restricted to the primary sample.
+to show the mass and time scales. Primary and exploratory-only objects are distinguished; the tracks are
+reference histories, not fits to individual objects.
 
 \subsection{Uncertainty and ranking policy}
 
@@ -431,11 +429,12 @@ objects, not population frequencies.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_all_object_growth_tracks.png}
-\caption{All-object growth-track view. The upper panel compares the 237
-supported masses with reference tracks; the lower panel retains the redshift and
-class of all 101 no-mass objects. The reversed redshift axis spans $z=13$ to
-$z=3$.}
+\includegraphics[width=0.99\textwidth]{figures/growth_tracks.png}
+\caption{Reference growth tracks with the 224 primary and ten exploratory-only
+objects. Tracks use $z_{\rm seed}=30$, $\epsilon=0.1$, $B_{\rm merge}=1$,
+three seed masses and two average Eddington ratios. No excluded identities or
+mass-free records enter the plotted mass comparison; the reversed redshift
+axis spans $z=13$ to $z=3$.}
 \label{fig:allgrowth}
 \end{figure}
 
@@ -498,20 +497,24 @@ the additional evidence and method cuts.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_monte_carlo_summary.png}
-\caption{Full-catalogue exploratory uncertainty summary for 225 objects with reported mass errors
-and 12 point estimates without mass errors, shown as open diamonds on the
-``No error'' row. Point size encodes the 16th--84th percentile width for sampled
-objects. The accounting panel retains all
-101 catalogue-only objects.}
+\includegraphics[width=0.99\textwidth]{figures/uncertainty.png}
+\caption{Publication-sample uncertainty. Circles show 212 primary objects with
+reported errors; triangles show ten exploratory-only objects with reported
+errors. Twelve primary objects without reported errors appear as open diamonds
+on the ``No error'' row, with no probability assigned. Point size for sampled
+objects encodes the 16th--84th percentile width.}
 \label{fig:uncertainty}
 \end{figure}
 
-A separate publication-version check replaces the frozen Baccus v1
+A separate full-catalogue publication-version check, performed on the original
+227/237-object method-defined samples before the manuscript identity exclusions,
+replaces the frozen Baccus v1
 measurements for 44 exact-ID, position-confirmed counterparts with the
 published Table~1 values. Five frozen objects lack a published-table
 counterpart. Both retaining and omitting those five objects preserve the
-headline uncertainty counts above and the top five by required $\fedd$.
+original full-catalogue uncertainty counts and top five by required $\fedd$.
+It is not a joint test of revised Baccus masses and the manuscript identity
+exclusions; the latter are assessed separately below.
 The 32 changed central masses shift by $-0.10$ to $+0.04$ dex. This is a
 measurement-version sensitivity test with fixed evidence/method taxonomy;
 it does not constitute a new admission of the complete published sample.
@@ -563,8 +566,9 @@ $P\geq0.95$ counts. The primary reference median changes from 0.574 to 0.578.
 Thus the reported early-growth tail does not depend on retaining the unresolved
 groups, although catalogue-wide uniqueness remains unsettled.
 
-Figure~\ref{fig:compatibility} shows the full exploratory scenario grid by
-admitted class. Its dependence on spin/efficiency, merger boost, and seed
+Figure~\ref{fig:compatibility} compares the scenario grid for the primary
+sample and the full 234-object exploratory sample. The latter includes the
+primary objects; the rows are not independent samples. Its dependence on spin/efficiency, merger boost, and seed
 interval illustrates why compatibility cannot be attributed to seed mass alone.
 These cells use the efficiency prescription of Eq.~\ref{eq:effective-efficiency};
 they should not be read as extensions of the fixed-$\epsilon=0.1$ reference
@@ -582,17 +586,20 @@ cases, and records still requiring a suitable mass.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_compatibility_summary.png}
-\caption{Full-catalogue exploratory descriptive compatibility across seed families, spin/efficiency cases,
-merger boosts, and average accretion rates. Percentages are within admitted
-classes and are not completeness-corrected demographic estimates.}
+\includegraphics[width=0.99\textwidth]{figures/compatibility.png}
+\caption{Compatibility in the 224-object primary sample (top) and the
+234-object exploratory sample including it (bottom), after identity exclusions.
+Each cell is a descriptive compatible fraction within the labelled sample,
+not a completeness-corrected population frequency. Spin/efficiency cases use
+Eq.~\ref{eq:effective-efficiency}; seed intervals and merger boosts are fixed
+scenario definitions, not inferred formation channels.}
 \label{fig:compatibility}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_measurement_sensitivity.png}
-\caption{Seven alternate-measurement comparisons across six objects. Numbered points
+\includegraphics[width=0.99\textwidth]{figures/measurement_sensitivity.png}
+\caption{Seven alternate-measurement comparisons across six publication-primary objects. Numbered points
 are keyed to stable object and measurement identifiers.}
 \label{fig:sensitivity}
 \end{figure}
