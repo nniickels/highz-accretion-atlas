@@ -40,6 +40,9 @@ def main() -> None:
             path = destination / f"{version}_{name}.csv"
             frame.to_csv(path, index=False)
             print(f"Wrote {len(frame):4d} rows: {path.relative_to(ROOT)}")
+        if version == "v3":
+            from src.internal.publication_selection import write_publication_outputs
+            write_publication_outputs(ROOT)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,22 @@
+# Conservative manuscript analysis
+
+Generated from canonical v3 tables and `paper/identity_exclusions.json` by
+`src.internal.publication_selection`. Notebook 01 writes these products;
+notebook 04 verifies their reproduction without rewriting.
+
+- `publication_object_selection.csv`: all 338 provisional catalogue records,
+  with explicit open-group, exclusion, primary and exploratory selection flags.
+  Six records are excluded, including three mass-bearing records.
+- `identity_exclusion_sensitivity.csv`: original and exclusion-sample counts,
+  distribution summaries and top-five order for each of five scenarios. Reference
+  p16 and P>=0.95 counts are included; blank entries for other scenarios mean
+  not evaluated, not zero probability.
+
+The 224/234 primary/exploratory samples exclude known open groups. This does not
+assert exhaustive astrophysical uniqueness, demographic completeness, or resolved
+identities. Original catalogue flags and all source measurements are unchanged.
+
+Rebuild: `python -m src.internal.publication_selection --write`.
+Check: `python -m src.internal.publication_selection`.
+The stricter `python -m src.internal.verify_redshift_identity --require-resolved`
+still fails on three groups and is not bypassed by this check.

@@ -29,10 +29,11 @@ and reported mass uncertainty.
 \textbf{Methods.} We compile a provenance-aware catalogue containing 350
 literature measurements across 32 source families, represented by 338
 object records in 337 host systems pending final identity reconciliation.
-Our primary comparison uses 227 objects with comparable mass methods and
-accepted evidence classifications; an exploratory analysis includes all 237
-objects with eligible numerical masses. The other 101 remain explicit
-no-inference records. We propagate published asymmetric mass
+After excluding all six records associated with three unresolved identity
+groups, our primary comparison uses 224 objects with comparable mass methods
+and accepted evidence classifications; the exploratory comparison includes
+234 numerical objects. The full catalogue retains all 237 mass-bearing records
+and 101 records without eligible masses. We propagate published asymmetric mass
 errors using 10,000 deterministic Monte Carlo draws and preserve mass-method
 systematics as separate envelopes. We compare fixed seed, formation-redshift,
 and efficiency scenarios using a reproducible catalogue workflow.
@@ -240,8 +241,8 @@ Source-family and measurement membership is frozen at the review cutoff of
 versions, while new measurements require a declared subsequent version.
 
 The v3 catalogue has 350 measurement rows, 338 provisional object records, and
-337 provisional host records. All object-level sample sizes below inherit the
-three open identity groups described in Section~\ref{sec:limits}. It contains 247 broad-line AGN, 49 narrow-line candidates, 30
+337 provisional host records. Catalogue counts remain provisional. The manuscript inference samples exclude
+the affected records as specified below and in Section~\ref{sec:limits}. It contains 247 broad-line AGN, 49 narrow-line candidates, 30
 photometric candidates, ten high-ionization candidates, and two X-ray
 candidates. Preferred object-level evidence comprises 214 secure, 41 probable,
 82 candidate, and one disputed classification. These labels describe the source
@@ -269,19 +270,9 @@ replacement is justified. For example, the CEERS-2782 group uses RUBIES-EGS-5005
 because the source adopts its higher-signal-to-noise spectrum over the slit-loss
 measurement; NX10835 uses the newly available numerical NEXUS mass. UHZ1 uses
 the later full-dataset evidence assessment and remains outside numerical growth
-inference. The measurement--object link table records each decision and reason. The final completion illustrates this policy: 15 NEXUS
-NIRCam/WFSS measurements \cite{zhuang2025}, 13 COSMOS-3D NIRCam-grism
-measurements \cite{lin2025}, and GHZ4/GHZ7 \cite{napolitano2024} add 30
-measurements but 29 object records. NEXUS source NX10835 lies 0.066 arcsec from
-an existing Mascia identifier at consistent redshift, so the new mass-bearing
-measurement becomes preferred for the same object.
-
-The Scholtz et al. source audit provides another cardinality check. The paper
-reports 42 objects, whereas its source-native table contains 41 rows. Exactly 21
-table rows satisfy $z\geq4$; all are admitted. One is identity-linked to a
-broad-line object, yielding 20 distinct narrow-line candidates from that source.
-JADES-NS-GS00099671 is retained with its published host and bolometric
-observables but without an invented black-hole mass.
+inference. The measurement--object link table records each decision and reason.
+Additional source-admission checks are summarized in
+Appendix~\ref{app:admission}.
 
 \subsection{Mass comparability and analysis subsets}
 
@@ -302,10 +293,11 @@ use Balmer-line single-epoch virial masses and one uses a UV single-epoch virial
 mass. Their redshifts span 4.000--10.603 with median 5.110; standardized
 $\log_{10}(\mbh/M_\odot)$ spans 5.51--9.31 with median 7.18. The 101 objects
 without an eligible mass remain visible throughout the catalogue and atlas.
-The stricter primary subset has 234 measurements and 227 preferred objects:
+Before the independent identity exclusions, the method-defined primary subset
+has 234 measurements and 227 preferred objects:
 an eligible preferred row must have secure or probable evidence, no conditional
 mass flag, and an affirmative primary-mass-comparison flag. In this release,
-all 227 primary objects use Balmer-line single-epoch virial masses. Of the ten
+all 227 method-eligible primary objects use Balmer-line single-epoch virial masses. Of the ten
 exploratory objects excluded from the primary sample, nine have candidate
 evidence (seven also have conditional broad-line interpretations), and GN-z11
 has a UV estimator outside the primary method group. Missing reported errors
@@ -313,10 +305,24 @@ do not remove an otherwise eligible point estimate; they prevent probability
 inference. These cuts define a method stratum, not identical calibration or
 uniform observational selection.
 
+For manuscript inference we conservatively exclude every object record linked
+to any of the three open identity groups: six records linked to seven admitted
+measurements. Three excluded records have numerical masses (GDS\_1210\_9515,
+GS-8083, and GS-10013704); all three otherwise pass the primary method cuts.
+This yields 224 primary and 234 exploratory numerical objects. The other three
+excluded records already lack numerical masses. All source measurements and
+original catalogue flags remain available; exclusion does not assert that the
+records are duplicates or that their physical identities are resolved.
+The explicit exclusion registry and complete per-object selection are supplied
+with the manuscript analysis products.
+
 Figure~\ref{fig:landscape} shows the broader numerical sample alongside records
 without masses. Its coverage panel explains why evidence-catalogue size exceeds
 the number of growth constraints; it is not the selection diagram for the
-227-object primary sample.
+224-object manuscript primary sample. All five figures retain the frozen
+catalogue scope, including the excluded records, for context. Numerical claims
+in the text and Tables~\ref{tab:top}--\ref{tab:scenarios} use the exclusion
+samples unless explicitly identified as catalogue sensitivity comparisons.
 
 \begin{table}[ht]
 \centering
@@ -328,7 +334,9 @@ Product or subset & Rows or objects \\
 Measurements / provisional objects / hosts & 350 / 338 / 337 \\
 Source-local observables & 810 \\
 Growth-eligible measurements / objects & 244 / 237 \\
-Primary-analysis measurements / objects & 234 / 227 \\
+Method-eligible primary measurements / objects & 234 / 227 \\
+Manuscript primary / exploratory objects & 224 / 234 \\
+Identity-excluded object records & 6 \\
 Catalogue-only object records & 101 \\
 Alternate-measurement sensitivity pairs & 7 \\
 Source-family caveat rows & 32 \\
@@ -338,7 +346,7 @@ Per-object parameter-map panels & 676 \\
 \label{tab:scale}
 \end{table}
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_catalogue_growth_landscape.png}
 \caption{Catalogue landscape. Left: the 237 growth-eligible object records in
@@ -379,7 +387,8 @@ invent one. In particular, the twelve mass-bearing NEXUS objects have no
 published mass errors. Their repeated point values yield zero-width
 stored intervals; probabilities and uncertainty ranks are left unavailable,
 not interpreted as certainty. They are marked separately in uncertainty figures. The other
-225 objects have reported mass errors. Split-side sampling assigns half
+225 objects have reported mass errors in the full numerical catalogue; 222
+remain in the manuscript exploratory sample after identity exclusion. Split-side sampling assigns half
 the probability to each side of the reported central value, using the respective
 error as the scale of a half-normal distribution; it approximates quoted
 intervals rather than reconstructing source posteriors. Redshifts are held
@@ -420,7 +429,7 @@ because no common inclusion-probability model spans the 32 source families.
 Consequently, compatibility fractions are descriptive summaries of the admitted
 objects, not population frequencies.
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_all_object_growth_tracks.png}
 \caption{All-object growth-track view. The upper panel compares the 237
@@ -434,16 +443,15 @@ $z=3$.}
 
 \subsection{Growth pressure under the reference assumptions}
 
-In the 227-object primary sample, the required $\fedd$ distribution for a
-$10^2\,M_\odot$ seed has median 0.574 and interquartile range 0.487--0.684.
+In the 224-object manuscript primary sample, the required $\fedd$ distribution for a
+$10^2\,M_\odot$ seed has median 0.578 and interquartile range 0.487--0.682.
 Twelve objects require $\fedd>1$ at their point estimates; none requires
-$\fedd>2$. The exploratory 237-object sample has median 0.574,
-interquartile range 0.488--0.680, and 14 point requirements above unity. The high-pressure
+$\fedd>2$. The manuscript exploratory 234-object sample has median 0.574,
+interquartile range 0.488--0.679, and 14 point requirements above unity. The high-pressure
 tail is not simply a mass ranking because less cosmic time can offset a lower
 observed mass. GN-z11, for example, has a lower standardized mass than many
 broad-line objects but has the second-largest required $\fedd$ at
-$z=10.603$. Its UV virial estimator and high-ionization evidence place it
-outside the primary comparison subset; this position is a conditional
+$z=10.603$. Its UV virial estimator places it outside the primary comparison subset; this position is a conditional
 cross-method diagnostic, not a claim of equivalent mass-estimator reliability.
 
 UNCOVER-20466 has the largest required average rate in both samples. Its
@@ -456,7 +464,7 @@ GN-z11 is discussed separately as an exploratory cross-method comparison.
 \centering
 \caption{Highest point-estimate required $\fedd$ for a $10^2\,M_\odot$ seed under
 the reference assumptions. Intervals propagate published mass
-errors only. All five objects belong to the 227-object primary subset;
+errors only. All five objects belong to the 224-object manuscript primary subset;
 GN-z11 is excluded from this comparison.}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
@@ -488,10 +496,10 @@ separates missing-error cases from sampled intervals. Most objects lie below
 the reference threshold; the primary-sample counts above are calculated with
 the additional evidence and method cuts.
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_monte_carlo_summary.png}
-\caption{Exploratory-sample uncertainty summary for 225 objects with reported mass errors
+\caption{Full-catalogue exploratory uncertainty summary for 225 objects with reported mass errors
 and 12 point estimates without mass errors, shown as open diamonds on the
 ``No error'' row. Point size encodes the 16th--84th percentile width for sampled
 objects. The accounting panel retains all
@@ -535,7 +543,7 @@ $B_{\rm merge}=1$). Counts use provisional object identities and do not include
 uncertainty tails.}
 \begin{tabular}{@{}lrr@{}}
 \toprule
-Scenario & Primary (227) & Exploratory (237) \\
+Scenario & Primary (224) & Exploratory (234) \\
 \midrule
 Reference & 12 & 14 \\
 $M_{\rm seed}=10^3M_\odot$ & 4 & 5 \\
@@ -546,6 +554,14 @@ $\epsilon=1-\sqrt{8/9}$ & 0 & 0 \\
 \end{tabular}
 \label{tab:scenarios}
 \end{table}
+
+An explicit inclusion/exclusion sensitivity calculation compares these samples
+with the original 227/237-object sets. Excluding the six ambiguous records
+preserves the threshold counts and top-five ordering in every scenario in
+Table~\ref{tab:scenarios}, as well as the reference 16th-percentile and
+$P\geq0.95$ counts. The primary reference median changes from 0.574 to 0.578.
+Thus the reported early-growth tail does not depend on retaining the unresolved
+groups, although catalogue-wide uniqueness remains unsettled.
 
 Figure~\ref{fig:compatibility} shows the full exploratory scenario grid by
 admitted class. Its dependence on spin/efficiency, merger boost, and seed
@@ -564,24 +580,22 @@ do not establish robustness for the untested high-pressure tail. The follow-up
 matrix distinguishes reference high-pressure objects, measurement-sensitive
 cases, and records still requiring a suitable mass.
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_compatibility_summary.png}
-\caption{Exploratory-sample descriptive compatibility across seed families, spin/efficiency cases,
+\caption{Full-catalogue exploratory descriptive compatibility across seed families, spin/efficiency cases,
 merger boosts, and average accretion rates. Percentages are within admitted
 classes and are not completeness-corrected demographic estimates.}
 \label{fig:compatibility}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.99\textwidth]{../results/v3/figures/v3_measurement_sensitivity.png}
 \caption{Seven alternate-measurement comparisons across six objects. Numbered points
 are keyed to stable object and measurement identifiers.}
 \label{fig:sensitivity}
 \end{figure}
-\clearpage
-
 \section{Discussion}
 
 \subsection{What the high-pressure tail establishes}
@@ -644,8 +658,8 @@ GN-z11 illustrates a different kind of constraint. Its high redshift yields
 a reference point requirement of 1.437 despite its smaller adopted mass.
 Delaying seeding to $z=20$ raises that requirement to 1.880, exceeding
 UNCOVER-20466's 1.733 in that scenario. Thus even the identity of the most
-demanding object depends on the starting time. GN-z11's UV estimator and
-evidence classification exclude it from the primary sample; an independent,
+demanding object depends on the starting time. GN-z11's UV estimator excludes it from the primary sample; its probable
+evidence classification is permitted by the primary evidence cut. An independent,
 method-comparable mass would determine whether this apparent timing constraint
 survives the measurement assumptions. These examples distinguish sensitivity
 to the available growth time from sensitivity to mass methodology.
@@ -673,7 +687,11 @@ measurements. Three identity groups remain open: Baccus GDS\_1210\_9515 versus
 JADES GS-8083, GS-10013704 versus Scholtz 99671, and Scholtz 16745 versus 208643.
 The first requires target/spectral and preferred-mass reconciliation; the latter
 two require imaging and aperture checks. Unique-object and host counts remain
-provisional. These specific tasks cannot be replaced by wider matching thresholds. Finally, Eq.~\ref{eq:growth}
+provisional. All six affected records are excluded from manuscript inference;
+the inclusion/exclusion sensitivity above shows the effect on the reported
+results. This addresses their influence on the present analysis without
+claiming physical identity resolution. Future readmission requires source-backed
+spectral or imaging decisions, not wider matching thresholds. Finally, Eq.~\ref{eq:growth}
 compresses time-dependent accretion, feedback, mergers, and radiative-state
 changes into effective parameters. Its outputs should be read as conditional
 comparisons, not reconstructed histories. Reported-error probabilities condition
@@ -687,8 +705,8 @@ All admitted numerical mass/error fields have independent source checks;
 all 350 central redshifts and 323 available coordinate pairs are also checked
 against independent source evidence. Twenty-seven measurement rows lack
 coordinates. Redshift uncertainties, full source posteriors, and auxiliary
-observables are not exhaustively validated. The immediate priority is resolving
-the three identity groups and reassessing affected summaries. The literature
+observables are not exhaustively validated. Resolving the three groups is required before readmitting their records or
+claiming a final unique-object census. The literature
 cutoff is 3 September 2026; catalogue completeness refers to the declared source
 membership, not every JWST discovery.
 The A2744-QSO1 direct-mass measurement \cite{juodzbalis_direct2025} awaits a new
@@ -709,9 +727,11 @@ Independent source checks cover all 244 numerical mass measurements and their
 error fields, all 350 central redshifts, and 323 available coordinate pairs.
 These establish source-value agreement within the declared checks, not the
 physical validity of every mass estimator or the uniqueness of every target.
-The separate publication identity gate remains open for the three groups in
-Section~\ref{sec:limits}. A successful computational reproduction does not
-close that scientific gate.
+A separate manuscript exclusion check verifies that every open group is
+fully withheld from both inference samples and reproduces the stored selection
+and sensitivity tables. It runs in the public verification notebook. The
+stricter full-catalogue identity-resolution gate still reports the three groups
+in Section~\ref{sec:limits}; the exclusion check does not replace it.
 
 \section{Conclusions}
 
@@ -720,7 +740,7 @@ black-hole objects and candidates at $z\geq4$. The main results are:
 \begin{itemize}
 \item 237 objects have a numerically eligible mass and 101 remain explicit
 no-inference records;
-\item in the primary 227-object sample, the light-seed reference history gives
+\item after excluding the ambiguous identities, the primary 224-object sample has, under the light-seed reference history,
 12 point requirements above $\fedd=1$, eight above unity at the 16th percentile,
 and six with $P(\fedd>1)\geq0.95$; the exploratory counts are 14, ten, and eight;
 \item increasing the seed mass to $10^3M_\odot$ reduces the primary point count
@@ -735,7 +755,9 @@ caveats, follow-up priorities, and per-object visual products remain linked to
 the same frozen v3 dataset.
 \end{itemize}
 
-Final object counts require the identity work specified in
+The manuscript results are unchanged in threshold membership and top-object
+ordering when the open identity groups are excluded. Final catalogue-wide
+object counts still require the identity work specified in
 Section~\ref{sec:limits}. Within the present scope, the scientific priority is
 independent mass information for objects whose growth constraints are both
 demanding and sensitive to the assumptions, rather than a single global ranking
@@ -758,6 +780,22 @@ SED-selected candidates \cite{leung2026,lyu2024}, GHZ9
 \cite{napolitano2025}, compact blue broad-line emitters \cite{mascia2026},
 additional UNCOVER candidates \cite{treiber2025}, MoM-BH*-1
 \cite{naidu2026}, and GHZ4/GHZ7 \cite{napolitano2024}.
+
+\subsection{Source-admission checks}
+\label{app:admission}
+
+The v3 additions include 15 NEXUS measurements from NIRCam/WFSS \cite{zhuang2025}, 13 COSMOS-3D NIRCam-grism
+measurements \cite{lin2025}, and GHZ4/GHZ7 \cite{napolitano2024}. These contribute 30
+measurements and 29 object records. NX10835 lies 0.066 arcsec from
+an existing Mascia identifier at consistent redshift, so the new mass-bearing
+measurement becomes preferred for the same object.
+
+The Scholtz et al. source audit provides another cardinality check. The paper
+reports 42 objects, whereas its source-native table contains 41 rows. Exactly 21
+table rows satisfy $z\geq4$; all are admitted. One is identity-linked to a
+broad-line object, yielding 20 distinct narrow-line candidates from that source.
+JADES-NS-GS00099671 is retained with its published host and bolometric
+observables but without an invented black-hole mass.
 
 \section{Catalogue navigation score}
 \label{app:navigation}

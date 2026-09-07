@@ -1,8 +1,24 @@
 # Manuscript draft
 
-**Scientific hold:** the [identity audit](../docs/source-notes/redshift-identity-audit.md)
-retains one conflicting duplicate group and two unresolved close-neighbour groups. Object
-counts and affected summaries need reconciliation before submission.
+**Conservative manuscript scope:** all six records linked to the three open
+identity groups are excluded from manuscript inference. The primary sample has
+224 objects; the exploratory numerical sample has 234. Headline threshold
+counts and top-five ordering are unchanged in the tested scenarios.
+This addresses the analysis dependency, not physical identity resolution or a
+final unique-object census. The strict identity gate remains open.
+
+The explicit policy is `identity_exclusions.json`. Reproduce the stored selection
+and inclusion/exclusion sensitivity tables with:
+
+```bash
+.venv/bin/python -m src.internal.publication_selection --write
+.venv/bin/python -m src.internal.publication_selection
+```
+
+The second command verifies without rewriting; it is also part of notebook 04.
+The five manuscript figures retain full-catalogue scope for context, clearly
+stated in the draft; numerical claims use the conservative manuscript samples.
+
 
 The `paper/` folder contains the current working manuscript draft and is kept
 for reference while the catalogue and analysis continue to evolve.

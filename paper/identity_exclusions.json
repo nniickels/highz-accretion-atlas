@@ -1,0 +1,32 @@
+{
+  "review_date": "2026-09-07",
+  "disposition": "exclude_all_open_identity_groups_from_manuscript_inference",
+  "scientific_identity_status": "open",
+  "groups": [
+    {
+      "issue_group": "baccus_gs8083",
+      "measurement_ids": [
+        "GDS12109515_baccus26",
+        "GS8083_juodzbalis25",
+        "scholtz25_00008083"
+      ],
+      "reason": "Identity remains ambiguous; exclude every linked object from manuscript primary and exploratory inference. Retain all catalogue measurements and the unresolved audit disposition."
+    },
+    {
+      "issue_group": "jades_16745_neighbour",
+      "measurement_ids": [
+        "scholtz25_00016745",
+        "scholtz25_00208643"
+      ],
+      "reason": "Identity remains ambiguous; exclude every linked object from manuscript primary and exploratory inference. Retain all catalogue measurements and the unresolved audit disposition."
+    },
+    {
+      "issue_group": "jades_99671_neighbour",
+      "measurement_ids": [
+        "GS10013704_juodzbalis25",
+        "scholtz25_00099671"
+      ],
+      "reason": "Identity remains ambiguous; exclude every linked object from manuscript primary and exploratory inference. Retain all catalogue measurements and the unresolved audit disposition."
+    }
+  ]
+}

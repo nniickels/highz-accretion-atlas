@@ -208,3 +208,12 @@ retain representative coverage. See the
 [validation scope and extension requirements](data/validation/README.md) and
 [scientific limits](docs/reference/science-policy.md); passing CI does not imply
 a complete source audit or permit population-demographic claims.
+
+
+The manuscript additionally excludes all six records linked to the three open
+identity groups, giving 224 primary and 234 exploratory numerical objects.
+The catalogue retains every source measurement and its provisional identity.
+Notebook 01 reproduces the manuscript selection and sensitivity tables;
+notebook 04 verifies them with `src.internal.publication_selection`.
+This conservative analysis check does not replace the strict identity-resolution
+gate. See [manuscript scope and reproduction](paper/README.md).

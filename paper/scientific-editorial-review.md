@@ -61,3 +61,15 @@ now distinguishes the early-redshift tail, algebraic efficiency sensitivity,
 physical growth feasibility, and the catalogue's contribution. The limitations
 list the outstanding identities and exact source-audit scope; the conclusion
 prioritizes their resolution before optional demographic extensions.
+
+
+## Conservative manuscript scope — 7 September 2026
+
+The remaining identity dependency is addressed by excluding all six affected
+records from manuscript inference, retaining all source data and unresolved
+audit dispositions. The 224/234 primary/exploratory samples preserve all tested
+threshold counts and top-five rankings; the primary reference median becomes
+0.578. Reproducible masks, before/after summaries, and mutation tests ensure
+these exclusions cannot silently lose a group or readmit an affected object.
+The full-catalogue identity gate still fails; only the conservative manuscript
+exclusion check passes. Unique-object census finalization remains separate.

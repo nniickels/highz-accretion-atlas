@@ -136,3 +136,32 @@ versions and target labels; they do not supply the aperture/imaging evidence
 or reconcile the competing spectra. All three dispositions remain open.
 The manuscript now distinguishes the assembly registry's resolved flag from
 this independent scientific identity gate explicitly in its eligibility rules.
+
+
+## Conservative manuscript disposition (7 September 2026)
+
+The requested alternative is now implemented: **exclude all six object records
+linked to the three open groups from manuscript inference**, including every
+linked measurement when constructing the object mask. Seven source measurements
+remain in the catalogue. The three mass-bearing exclusions are GDS_1210_9515,
+GS-8083, and GS-10013704. The other three were already no-inference records.
+This produces 224 primary and 234 exploratory numerical manuscript objects.
+
+The explicit registry is `paper/identity_exclusions.json`; reproducible membership
+and sensitivity tables are in `paper/analysis/`. For all five manuscript scenarios,
+threshold counts and top-five order are unchanged; reference p16 and P>=0.95 counts
+also agree. The primary reference median changes from 0.574 to 0.578.
+
+`python -m src.internal.publication_selection` verifies complete exclusion and
+stored-table reproduction, including the underlying source/identity audit.
+The existing `verify_redshift_identity --require-resolved` remains unchanged and
+fails while these identities remain open. Do not describe the new exclusion
+check as proving identity resolution. Full-catalogue figures are explicitly
+contextual and do not determine the manuscript's numerical inference samples.
+
+A further exact-name literature search found the published Scholtz source tables
+but no decisive target crosswalk or aperture/segmentation reconciliation. The
+[author-repository published table](https://api.repository.cam.ac.uk/server/api/core/bitstreams/7d5f5d95-94f3-4ceb-925f-18abfe17f938/content)
+retains the separate program/target labels; that alone does not settle identity.
+The remaining astrophysical questions above are deferred to evidence-backed
+readmission. No source value, matching threshold, or audit disposition is changed.

@@ -138,3 +138,17 @@ Generated uncertainty metadata uses `equal_side_half_normal_in_log_mbh` to match
 the sampler: equal side probabilities with separately scaled half-normal draws.
 This replaces the misleading `split_normal_in_log_mbh` label without changing
 any samples, percentiles or probabilities.
+
+
+## Manuscript identity exclusions
+
+The canonical method-defined primary sample remains 227 objects. Manuscript
+inference additionally excludes all records linked to the three independently
+unresolved identity groups: three mass-bearing records and three already without
+masses. The resulting primary/exploratory samples have 224/234 objects. The
+12/14 point, 8/10 p16, and 6/8 P>=0.95 counts are unchanged; scenario threshold
+counts and top-five ordering also remain unchanged. The primary median is now
+0.578 (previously 0.574). The complete membership mask and sensitivity outputs
+are in `paper/analysis/`, governed by `paper/identity_exclusions.json` and checked
+by `src.internal.publication_selection`. This does not alter canonical data or
+resolve physical identity; the original strict identity gate is retained.
