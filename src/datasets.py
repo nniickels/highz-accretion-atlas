@@ -52,7 +52,7 @@ V3_SOURCES = V2_SOURCES | frozenset({
 DATASET_SPECS = {
     "v1": DatasetSpec("v1", "Original JADES BLAGN catalogue", V1_SOURCES, 23, 23, 23),
     "v2": DatasetSpec("v2", "Expanded comparable BLAGN catalogue", V2_SOURCES, 218, 211, 210),
-    "v3": DatasetSpec("v3", "JWST-identified heterogeneous accretion atlas", V3_SOURCES, 350, 340, 339),
+    "v3": DatasetSpec("v3", "JWST-identified heterogeneous accretion atlas", V3_SOURCES, 350, 338, 337),
 }
 
 

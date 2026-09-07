@@ -1,7 +1,7 @@
 # Manuscript draft
 
 **Scientific hold:** the [identity audit](../docs/source-notes/redshift-identity-audit.md)
-found three duplicate groups and two unresolved close-neighbour groups. Object
+retains one conflicting duplicate group and two unresolved close-neighbour groups. Object
 counts and affected summaries need reconciliation before submission.
 
 The `paper/` folder contains the current working manuscript draft and is kept

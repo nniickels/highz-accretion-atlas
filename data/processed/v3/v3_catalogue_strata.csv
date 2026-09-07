@@ -99,8 +99,8 @@ v3-dataset-catalogue,measurement,survey,SMILES JWST/MIRI,19,19,19
 v3-dataset-catalogue,measurement,survey,Skyfire,22,22,22
 v3-dataset-catalogue,measurement,survey,THRILS,6,6,6
 v3-dataset-catalogue,measurement,survey,UNCOVER,11,11,11
-v3-dataset-catalogue,physical_object,all,all,340,237,227
-v3-dataset-catalogue,physical_object,evidence_status,candidate,84,9,0
+v3-dataset-catalogue,physical_object,all,all,338,237,227
+v3-dataset-catalogue,physical_object,evidence_status,candidate,82,9,0
 v3-dataset-catalogue,physical_object,evidence_status,disputed,1,0,0
 v3-dataset-catalogue,physical_object,evidence_status,probable,41,14,13
 v3-dataset-catalogue,physical_object,evidence_status,secure,214,214,214
@@ -108,10 +108,10 @@ v3-dataset-catalogue,physical_object,field,Abell 2744,16,9,9
 v3-dataset-catalogue,physical_object,field,Abell S1063,10,10,8
 v3-dataset-catalogue,physical_object,field,Abell-2744,2,2,2
 v3-dataset-catalogue,physical_object,field,COSMOS,21,21,15
-v3-dataset-catalogue,physical_object,field,EGS,78,50,49
+v3-dataset-catalogue,physical_object,field,EGS,77,50,49
 v3-dataset-catalogue,physical_object,field,EGS/UDS,6,6,6
 v3-dataset-catalogue,physical_object,field,GOODS-N,28,19,18
-v3-dataset-catalogue,physical_object,field,GOODS-S,57,12,12
+v3-dataset-catalogue,physical_object,field,GOODS-S,56,12,12
 v3-dataset-catalogue,physical_object,field,J0100,4,4,4
 v3-dataset-catalogue,physical_object,field,J0109M3047,1,1,1
 v3-dataset-catalogue,physical_object,field,J0148,3,3,3
@@ -132,11 +132,11 @@ v3-dataset-catalogue,physical_object,field,North Ecliptic Pole,15,12,12
 v3-dataset-catalogue,physical_object,field,UDS,22,18,18
 v3-dataset-catalogue,physical_object,field,multi-field,56,49,49
 v3-dataset-catalogue,physical_object,lrd_phenotype,lrd,116,113,112
-v3-dataset-catalogue,physical_object,lrd_phenotype,not_reported,224,124,115
+v3-dataset-catalogue,physical_object,lrd_phenotype,not_reported,222,124,115
 v3-dataset-catalogue,physical_object,object_class,broad_line_agn,247,236,227
 v3-dataset-catalogue,physical_object,object_class,high_ionization_line_candidate,10,1,0
-v3-dataset-catalogue,physical_object,object_class,narrow_line_agn_candidate,50,0,0
-v3-dataset-catalogue,physical_object,object_class,photometric_agn_candidate,31,0,0
+v3-dataset-catalogue,physical_object,object_class,narrow_line_agn_candidate,49,0,0
+v3-dataset-catalogue,physical_object,object_class,photometric_agn_candidate,30,0,0
 v3-dataset-catalogue,physical_object,object_class,xray_agn_candidate,2,0,0
 v3-dataset-catalogue,physical_object,source_key,baccus26_nirspec_blagn,49,49,49
 v3-dataset-catalogue,physical_object,source_key,chavezortiz26_ghz2,1,0,0
@@ -151,7 +151,7 @@ v3-dataset-catalogue,physical_object,source_key,kocevski25_lrd_blagn,6,6,6
 v3-dataset-catalogue,physical_object,source_key,larson23_ceers1019,1,1,1
 v3-dataset-catalogue,physical_object,source_key,lin24_aspire_blagn,16,16,16
 v3-dataset-catalogue,physical_object,source_key,lin25_cosmos3d_blagn,13,13,13
-v3-dataset-catalogue,physical_object,source_key,lyu24_smiles_miri_agn,19,0,0
+v3-dataset-catalogue,physical_object,source_key,lyu24_smiles_miri_agn,18,0,0
 v3-dataset-catalogue,physical_object,source_key,maiolino24_gnz11_agn,1,1,0
 v3-dataset-catalogue,physical_object,source_key,mascia26_compact_blue_ble,7,0,0
 v3-dataset-catalogue,physical_object,source_key,matthee23_eiger_fresco_blagn,19,19,19
@@ -168,7 +168,7 @@ v3-dataset-catalogue,physical_object,source_key,taylor24_ceers_rubies_blagn,36,3
 v3-dataset-catalogue,physical_object,source_key,treiber25_uncover_uv_emitters,2,0,0
 v3-dataset-catalogue,physical_object,source_key,ubler24_zs7_offset_blagn,1,1,1
 v3-dataset-catalogue,physical_object,source_key,uhz1_xray_evidence_history,1,0,0
-v3-dataset-catalogue,physical_object,source_key,zhang25_narrow_line_lrds,5,0,0
+v3-dataset-catalogue,physical_object,source_key,zhang25_narrow_line_lrds,4,0,0
 v3-dataset-catalogue,physical_object,source_key,zhuang25_nexus_wfss,15,12,12
 v3-dataset-catalogue,physical_object,survey,ALPINE-CRISTAL-JWST,7,7,1
 v3-dataset-catalogue,physical_object,survey,ASPIRE,16,16,16
@@ -185,7 +185,7 @@ v3-dataset-catalogue,physical_object,survey,GLASS-JWST GO-3073 plus Chandra,1,0,
 v3-dataset-catalogue,physical_object,survey,GLASS-JWST NIRSpec and MIRI,1,0,0
 v3-dataset-catalogue,physical_object,survey,GLIMPSE,10,10,8
 v3-dataset-catalogue,physical_object,survey,JADES,24,24,23
-v3-dataset-catalogue,physical_object,survey,JWST DJA,12,0,0
+v3-dataset-catalogue,physical_object,survey,JWST DJA,11,0,0
 v3-dataset-catalogue,physical_object,survey,JWST GO-1433,1,1,1
 v3-dataset-catalogue,physical_object,survey,JWST GO-1871,1,0,0
 v3-dataset-catalogue,physical_object,survey,JWST JADES NIRSpec,20,0,0
@@ -195,7 +195,7 @@ v3-dataset-catalogue,physical_object,survey,JWST/NIRSpec archival census,49,49,4
 v3-dataset-catalogue,physical_object,survey,MEOW JWST/MIRI,12,0,0
 v3-dataset-catalogue,physical_object,survey,NEXUS-Wide EDR,15,12,12
 v3-dataset-catalogue,physical_object,survey,RUBIES,38,38,37
-v3-dataset-catalogue,physical_object,survey,SMILES JWST/MIRI,19,0,0
+v3-dataset-catalogue,physical_object,survey,SMILES JWST/MIRI,18,0,0
 v3-dataset-catalogue,physical_object,survey,Skyfire,22,22,22
 v3-dataset-catalogue,physical_object,survey,THRILS,6,6,6
 v3-dataset-catalogue,physical_object,survey,UNCOVER,11,9,9

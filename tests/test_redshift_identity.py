@@ -18,7 +18,7 @@ class RedshiftIdentityTests(unittest.TestCase):
         self.assertEqual(report['missing_coordinate_pairs'], 27)
         self.assertEqual(report['source_fields'], 1027)
         self.assertEqual(report['scientific_identity_status'], 'open')
-        self.assertEqual(len(report['unresolved_identity_groups']), 5)
+        self.assertEqual(len(report['unresolved_identity_groups']), 3)
 
     def test_missing_measurement_rejected(self):
         f = copy.deepcopy(self.reference); f['measurements'].pop()
@@ -47,3 +47,28 @@ class RedshiftIdentityTests(unittest.TestCase):
         )
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('Publication identity gate FAILED', result.stderr)
+
+class ReconciledDuplicateTests(unittest.TestCase):
+    def test_supported_duplicates_preserve_measurements_and_preference(self):
+        import pandas as pd
+        from src.internal.reconcile_identities import REGISTRY
+        from src.internal.verify_redshift_identity import ROOT
+        rows = pd.read_csv(ROOT/'data/processed/v3/v3_accreting_measurements.csv').set_index('measurement_id')
+        for pair in json.loads(REGISTRY.read_text()):
+            preferred = rows.loc[pair['preferred_measurement_id']]
+            alternate = rows.loc[pair['alternate_measurement_id']]
+            self.assertEqual(preferred.physical_object_id, alternate.physical_object_id)
+            self.assertEqual(preferred.host_system_id, alternate.host_system_id)
+            self.assertTrue(preferred.preferred_measurement_flag)
+            self.assertFalse(alternate.preferred_measurement_flag)
+            self.assertTrue(preferred.growth_ranking_eligible_flag)
+            self.assertFalse(alternate.growth_ranking_eligible_flag)
+            self.assertNotEqual(preferred.source_key, alternate.source_key)
+            self.assertNotEqual(preferred.redshift, alternate.redshift)
+
+    def test_resolved_pair_cannot_be_silently_split(self):
+        f = copy.deepcopy(json.loads(FIXTURE.read_text()))
+        pair = next(p for p in f['pair_reviews'] if p['status'] == 'resolved_duplicate')
+        pair['expected_same_object'] = False
+        with self.assertRaisesRegex(AssertionError, 'Resolved identity decision'):
+            verify_redshift_identity(fixture=f)

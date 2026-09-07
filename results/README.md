@@ -12,7 +12,7 @@ results/<version>/
 ```
 
 v1 covers all 23 objects numerically; v2 covers all 211 numerically; v3
-represents all 311 objects with 212 numerical products and 99 explicit
+represents all 338 object records with 237 numerical products and 101 explicit
 no-inference panels. Obsolete software-release result trees are not part of the
 public repository contract; necessary assembly logic is isolated under
 `src/internal/compatibility/`.
@@ -34,8 +34,8 @@ through the atlas notebook produces both figures.
 ## v3 catalogue and atlas
 
 Start with `data/processed/v3/v3_accreting_objects.csv`, which contains one
-preferred row for each physical object. Companion files contain all 320
-measurements, 675 source-native observables, 310 host systems, and catalogue
+preferred row for each physical object. Companion files contain all 350
+measurements, 810 source-native observables, 337 host systems, and catalogue
 strata.
 
 The main summary figures are:
@@ -50,9 +50,13 @@ The main summary figures are:
 The complete supplements are `v3_all_object_fedd_mass_map_gallery.png`,
 `v3_all_object_compatibility_atlas.png`, and
 `v3_all_object_monte_carlo_uncertainty.png`. The two parameter-map directories
-contain 622 canonical panels, one of each map type for every object. Objects
+contain 676 canonical panels, one of each map type for every object. Objects
 without a supported canonical numerical black-hole mass receive explicit
 no-inference panels; the pipeline does not invent masses or growth histories.
 
 Regenerate and verify the atlas with `scripts/03_generate_atlas.ipynb` and
 `scripts/04_verify.ipynb`.
+
+Two source-supported duplicates were merged on 7 September 2026, preserving all
+350 measurement rows. Three identity groups remain under review; counts are
+provisional until the [identity audit](../docs/source-notes/redshift-identity-audit.md) closes.

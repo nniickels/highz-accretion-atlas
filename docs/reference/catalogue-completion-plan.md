@@ -1,6 +1,6 @@
 # Catalogue completion record
 
-The evidence-based final target is **340 unique objects with 237 growth-
+The historical admission target was **340 object records with 237 growth-
 plottable objects**, under the fixed z>=4 and JWST-identification rules. It was
 implemented on 2026-09-03. This is
 more defensible than forcing 350-400 total or 250 plottable objects by admitting
@@ -49,6 +49,6 @@ plottable-object counts unchanged.
 Literature membership is frozen after these three batches. Later discoveries
 require a new dataset version.
 
-> Audit update (2026-09-05): this is a historical completion record. The
-> [identity audit](../source-notes/redshift-identity-audit.md) finds three duplicate
-> groups and two unresolved neighbours, so the stored object count is provisional.
+> Audit update (2026-09-07): this is a historical completion record. The
+> [identity audit](../source-notes/redshift-identity-audit.md) now retains three open groups after two supported merges; the current catalogue
+> has 338 object records and remains provisional.

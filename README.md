@@ -4,8 +4,8 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 possible formation and growth scenarios.
 
 **Identity audit status:** all admitted redshifts and available coordinates
-pass independent source checks, but three duplicate groups and two close-neighbour
-groups need reconciliation. The stored 340-object count is provisional; see the
+pass independent source checks, but one conflicting duplicate group and two close-neighbour
+groups need reconciliation. The stored 338-object count is provisional; see the
 [identity audit](docs/source-notes/redshift-identity-audit.md).
 
 ## Background
@@ -14,6 +14,12 @@ The James Webb Space Telescope pushes observational cosmology into the first few
 Across the literature, key quantities are often inferred with different methods and assumptions, even though small shifts in inferred quantities like `M_BH`, `M_*`, or `L_bol` can imply very different growth histories. A standardized, assumption-tracked catalogue would clarify which objects are genuinely challenging for standard formation models rather than artifacts of inference choices.
 
 Overall, this project aims to help determine what objects are the best candidates for follow-up and deeper theory work.
+
+The strongest reference-model tensions occur in the early subset, not across
+the whole catalogue. Results constrain combinations of seed, efficiency and
+accretion assumptions; they do not reconstruct unique histories or prove that
+super-Eddington episodes were necessary. See the
+[scientific limits and interpretation](docs/reference/science-policy.md).
 
 ## Theory 
 The growth model follows Eq. 1 of [Dayal (2024)](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html):
@@ -56,7 +62,7 @@ For each object, the pipeline computes the cosmic time available between $z_{see
 
 The complete first manuscript draft is available as
 [`paper/highz_accretion_atlas_v3.pdf`](paper/highz_accretion_atlas_v3.pdf),
-with its editable LaTeX source beside it. It reflects the frozen 340-object v3
+with its editable LaTeX source beside it. It reflects the frozen 338-object v3
 catalogue and the current canonical results.
 
 Main-text products:
@@ -86,10 +92,10 @@ Appendix or supplement products:
 - source-level selection/completeness audit — `data/selection_function_registry.csv` and `results/v3/tables/v3_selection_completeness_summary.csv`
 - immutable extraction audit — `data/manual_extraction_audit.csv`
 
-The canonical v3 gallery covers all 340 objects with one $f_{Edd}$-mass map in
+The canonical v3 gallery covers all 338 objects with one $f_{Edd}$-mass map in
 `results/v3/parameter_maps/fedd_mass_maps/` and one seed-redshift-mass map in
 `results/v3/parameter_maps/seedredshift_mass_maps/`. The 237
-growth-eligible objects receive numerical panels; the other 103 receive explicit
+growth-eligible objects receive numerical panels; the other 101 receive explicit
 no-inference status panels. Growth tracks are retained only as combined
 catalogue-wide figures under `results/v3/figures/`; the full-assumption v3
 companion contains 72 curves spanning three seed masses, three $f_{Edd}$
@@ -116,7 +122,7 @@ propagation, comparison policy, and visual grammar.
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES BLAGN catalogue | 23 | 23 | 23 |
 | v2 | v1 plus comparable JWST BLAGN sources with canonical masses | 218 | 211 | 210 |
-| v3 | v2 plus heterogeneous JWST-identified candidates | 350 | 340 | 339 |
+| v3 | v2 plus heterogeneous JWST-identified candidates | 350 | 338 | 337 |
 
 For each version, canonical catalogues are under
 `data/processed/<version>/`, identity products are under
@@ -197,7 +203,7 @@ baseline before refreshing hashes; see [reproduction and intentional updates](do
 Independent source fixtures cover all 32 families with 2,041 field checks;
 all 244 numerical masses and both error bounds are independently checked.
 The separate redshift/identity fixture checks all central redshifts and available
-coordinates but reports five unresolved identity groups. Other observable fields
+coordinates but reports three unresolved identity groups. Other observable fields
 retain representative coverage. See the
 [validation scope and extension requirements](data/validation/README.md) and
 [scientific limits](docs/reference/science-policy.md); passing CI does not imply

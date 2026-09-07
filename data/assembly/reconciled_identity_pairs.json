@@ -1,0 +1,20 @@
+[
+  {
+    "preferred_measurement_id": "GS30148179_juodzbalis25",
+    "alternate_measurement_id": "SMILESMIRI2743_lyu24",
+    "max_separation_arcsec": 0.01,
+    "max_redshift_delta": 0.003,
+    "review_date": "2026-09-07",
+    "review_basis": "Independent source positions agree to 0.004 arcsec and redshifts 5.922/5.920; retain the mass-bearing JADES row and preserve the SMILES SED measurement as an alternate.",
+    "review_reference": "docs/source-notes/redshift-identity-audit.md#resolved-duplicates"
+  },
+  {
+    "preferred_measurement_id": "RUBIESEGS927271_kocevski25",
+    "alternate_measurement_id": "DJA8219_zhang25",
+    "max_separation_arcsec": 0.04,
+    "max_redshift_delta": 0.002,
+    "review_date": "2026-09-07",
+    "review_basis": "Independent source positions agree to 0.026 arcsec and redshifts 6.786/6.785; retain the mass-bearing RUBIES row while preserving the alternate narrow-line interpretation.",
+    "review_reference": "docs/source-notes/redshift-identity-audit.md#resolved-duplicates"
+  }
+]

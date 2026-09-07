@@ -18,6 +18,7 @@ from src.internal.compatibility.v7_uhz1_catalogue import build_v7_uhz1_catalogue
 from src.internal.canonical_mass_additions import append_additions
 from src.internal.heterogeneous_v3_additions import append_heterogeneous_v3
 from src.internal.v3_completion_additions import append_v3_completion
+from src.internal.reconcile_identities import reconcile_identities
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -103,4 +104,5 @@ def build_outputs() -> dict[str, pd.DataFrame]:
         _read("seven_wonders_v3_completion"),
     ], ignore_index=True, sort=False)
     final = append_v3_completion(final, completion)
+    final = reconcile_identities(final)
     return {name: _normalize_historical_labels(frame) for name, frame in final.items()}

@@ -50,5 +50,18 @@ has its separate, explicitly bounded scope in `data/validation/README.md`.
 
 `python -m src.internal.verify_redshift_identity` verifies source fields and reports
 open identity cases. `--require-resolved` is a separate publication gate; it
-currently fails for five groups. Reproduction success does not resolve them.
+currently fails for three groups. Reproduction success does not resolve them.
 See the [audit record](../source-notes/redshift-identity-audit.md).
+
+## Reviewed correction of 7 September 2026
+
+Two independently reviewed duplicates are now assembled under shared physical
+and host IDs, retaining all source measurements and the mass-bearing preferred
+rows. v3 changes from 340 to 338 object records and from 339 to 337 host records.
+Four obsolete mass-free panels are removed; v1/v2 membership is unchanged.
+All versions replace the inaccurate uncertainty-model label with
+`equal_side_half_normal_in_log_mbh`, without changing draws or numerical growth
+results. Updated counts, identity metadata and summary images are intentional
+changes against the prior commit; refreshed manifests describe this reviewed
+revision. Regeneration must reproduce this revision in an independent workspace.
+Three unresolved identities remain subject to the separate publication gate.

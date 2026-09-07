@@ -217,7 +217,7 @@ def build_uncertainty_ranking(
                 str(source["source_key"]), has_reported_error,
             ),
             "reported_mass_error_model": (
-                "split_normal_in_log_mbh" if has_reported_error
+                "equal_side_half_normal_in_log_mbh" if has_reported_error
                 else "point_estimate_no_reported_error_distribution"
             ),
             "log_mbh_sigma_plus_used": spec.sigma_plus,

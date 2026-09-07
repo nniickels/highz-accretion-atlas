@@ -346,7 +346,7 @@ versions, DOIs, archive hashes, and review dates are machine-readable in
 
 These source-level heterogeneous datasets are assigned only to v3. Together
 they add 29 physical objects and 25 growth-plottable objects, producing the
-final 340-object, 237-plottable-object catalogue. Extraction and identity
+338-record, 237-plottable-object catalogue after the September 7 identity corrections. Extraction and identity
 details are in `docs/source-notes/v3-completion-extraction-notes.md`.
 
 The [mass/error and publication-version audit](../docs/source-notes/mass-error-and-publication-revision-audit.md)

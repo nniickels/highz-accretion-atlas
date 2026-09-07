@@ -13597,10 +13597,10 @@
       "right": "SMILESMIRI2743_lyu24",
       "separation_arcsec": 0.004234492362898172,
       "redshift_delta": 0.0019999999999997797,
-      "status": "duplicate_requires_reconciliation",
+      "status": "resolved_duplicate",
       "expected_same_object": true,
-      "issue_group": "jades_smiles",
-      "review_basis": "Independent source positions agree to 0.004 arcsec and redshifts are 5.922/5.92. Separate physical-object IDs are unsupported; preserve both measurements when merging."
+      "issue_group": "",
+      "review_basis": "Independent source positions agree to 0.004 arcsec and redshifts are 5.922/5.92. Separate physical-object IDs are unsupported; preserve both measurements when merging. Applied 2026-09-07: common physical/host ID, mass-bearing preferred measurement retained; both source measurements preserved."
     },
     {
       "left": "GS10013704_juodzbalis25",
@@ -13637,10 +13637,10 @@
       "right": "DJA8219_zhang25",
       "separation_arcsec": 0.025570691841845527,
       "redshift_delta": 0.0009999999999994458,
-      "status": "duplicate_requires_reconciliation",
+      "status": "resolved_duplicate",
       "expected_same_object": true,
-      "issue_group": "rubies_dja",
-      "review_basis": "Independent source positions agree to 0.026 arcsec and redshifts are 6.786/6.785. Separate physical-object IDs are unsupported; retain broad-line and narrow-line interpretations as distinct measurements."
+      "issue_group": "",
+      "review_basis": "Independent source positions agree to 0.026 arcsec and redshifts are 6.786/6.785. Separate physical-object IDs are unsupported; retain broad-line and narrow-line interpretations as distinct measurements. Applied 2026-09-07: common physical/host ID, mass-bearing preferred measurement retained; both source measurements preserved."
     },
     {
       "left": "nexusobs3510510835_mascia26",

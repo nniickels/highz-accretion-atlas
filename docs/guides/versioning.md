@@ -34,7 +34,7 @@ and explicit no-inference cases. Source-level assignment governs membership: a
 heterogeneous catalogue belongs to v3 even when individual rows resemble v2
 objects. The final completion adds the heterogeneous NEXUS WFSS and COSMOS-3D
 samples plus the GHZ4/GHZ7 high-ionization candidates. v3 has 350 measurements,
-340 objects, and 339 hosts; 237 objects
+338 objects, and 337 hosts; 237 objects
 support numerical growth inference.
 
 ## Invariants

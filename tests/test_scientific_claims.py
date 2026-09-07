@@ -127,7 +127,7 @@ class V3ScientificClaimTests(unittest.TestCase):
                 "napolitano25_seven_wonders": 0,
             },
         )
-        self.assertEqual((len(measurements), len(objects)), (350, 340))
+        self.assertEqual((len(measurements), len(objects)), (350, 338))
         self.assertEqual(int(objects["growth_ranking_eligible_flag"].astype(bool).sum()), 237)
         nx = measurements[measurements["physical_object_id"].eq("HZA-NEXUS-OBS3-5105-10835")]
         self.assertEqual(len(nx), 2)
@@ -256,10 +256,10 @@ class V3ScientificClaimTests(unittest.TestCase):
         self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 234)
         self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 227)
         self.assertEqual(len(alternates), 7)
-        self.assertEqual((len(followup), len(caveats), len(coverage)), (340, 32, 680))
+        self.assertEqual((len(followup), len(caveats), len(coverage)), (338, 32, 676))
         self.assertEqual(
             coverage.groupby("product_kind").size().to_dict(),
-            {"fedd_mass_map": 340, "seedredshift_mass_map": 340},
+            {"fedd_mass_map": 338, "seedredshift_mass_map": 338},
         )
 
     def test_jades_8083_identity_merge_retains_one_preferred_measurement(self) -> None:

@@ -47,5 +47,17 @@ a permanent release/archive identifier still need author input before submission
 
 The [5 September audit](../docs/source-notes/redshift-identity-audit.md) supersedes
 the earlier redshift/identity coverage assessment: all central redshifts and
-available coordinates are checked, but five scientific identity groups remain
+available coordinates are checked, but three scientific identity groups remain
 open. Unique-object counts and affected interpretations require reconciliation.
+
+## Correction and interpretation update — 7 September 2026
+
+Two supported mass-free duplicates were merged while retaining all 350 source
+measurements. The current catalogue has 338 object records (237 numerical,
+101 mass-free), with three identity groups still open. Numerical growth and
+uncertainty results remain unchanged. Counts, affected figures, manifests,
+uncertainty-model metadata, and draft prose were updated together. The discussion
+now distinguishes the early-redshift tail, algebraic efficiency sensitivity,
+physical growth feasibility, and the catalogue's contribution. The limitations
+list the outstanding identities and exact source-audit scope; the conclusion
+prioritizes their resolution before optional demographic extensions.

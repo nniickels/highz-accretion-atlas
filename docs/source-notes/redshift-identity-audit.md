@@ -1,10 +1,25 @@
-# Redshift and identity audit — 5 September 2026
+# Redshift and identity audit — updated 7 September 2026
 
-**Numerical source checks pass; scientific identity reconciliation remains open.**
-Reviewed baseline: `64d526e`. The 340 stored object IDs must not yet be described
-as 340 independently validated unique astrophysical objects. No catalogue
-measurements, preferred rows, masses, redshifts or generated figures were changed
-by this audit.
+**Numerical source checks pass; three scientific identity groups remain open.**
+The initial audit reviewed baseline `64d526e`. On 7 September 2026, two supported
+duplicates were merged through the explicit, hash-pinned registry
+`data/assembly/reconciled_identity_pairs.json`. All 350 source measurements and
+source-native values remain; the catalogue now has 338 object records, 337 host
+records, 237 numerical objects, and 101 catalogue-only records. The count remains
+provisional until the three cases below are resolved.
+
+## Resolved duplicates
+
+| Group | Evidence and disposition |
+| --- | --- |
+| GS-30148179 / SMILES-MIRI-2743 | Source positions agree to 0.004 arcsec, z=5.922/5.920. Both measurements now share the JADES physical/host ID; retain the JADES mass-bearing preferred row and SMILES SED evidence as an alternate. |
+| RUBIES-EGS-927271 / DJA-8219 | Source positions agree to 0.026 arcsec, z=6.786/6.785. Both measurements share the RUBIES physical/host ID; retain its mass-bearing preferred row and the alternate narrow-line interpretation. |
+
+The audit fixture records these decisions separately from the assembly registry;
+verification checks their consistency. Matching thresholds for other targets were
+not widened. Four obsolete status panels were removed; source observables and
+all numerical mass rows remain. These two merges do not change the numerical
+growth sample or its headline requirements.
 
 ## Scope and evidence
 
@@ -46,8 +61,6 @@ These supporting coordinate references do not replace admitted redshifts.
 
 | Group | Evidence | Required disposition |
 | --- | --- | --- |
-| GS-30148179 / SMILES-MIRI-2743 | 0.004 arcsec; z=5.922/5.920 | Merge-supported duplicate: reconcile physical/host IDs while preserving both source measurements and the mass-bearing preferred row. |
-| RUBIES-EGS-927271 / DJA-8219 | 0.026 arcsec; z=6.786/6.785 | Merge-supported duplicate: retain both broad-line and narrow-line interpretations as measurements of the same target. |
 | Baccus GDS_1210_9515 / JADES GS-8083 / Scholtz 00008083 | 0.014–0.024 arcsec; z=4.6477/4.753/4.665 | Likely duplicate group missed by the delta-z cut. Reconcile source target identifiers, spectra/redshift versions and preferred mass before merging. |
 | JADES GS-10013704 / Scholtz 00099671 | 1.332 arcsec; delta-z=0.017 | Inspect source imaging and aperture/target definitions; proximity alone cannot decide distinct galaxies versus components/images. |
 | Scholtz 00016745 / 00208643 | 0.612 arcsec; delta-z=0.008 | Inspect imaging and aperture definitions before treating distinct target IDs as distinct astrophysical objects. |
@@ -57,7 +70,7 @@ and UHZ1 links are supported. Ren's DC_848185_a and _b remain explicitly distinc
 components in a shared host. UHZ1's photometric and spectroscopic redshifts are
 legitimate historical measurements, not a transcription discrepancy.
 
-The two merge-supported pairs include a mass-free contextual row, so merging
+The two resolved pairs include a mass-free contextual row, so merging
 those pairs alone would not add a new mass or change the reference high-pressure
 tail. They would change unique-object/class/coverage counts. The Baccus group
 also involves competing masses and redshifts: regenerate and reassess after a
@@ -72,7 +85,7 @@ preferred-measurement decision; do not assume all object-level summaries survive
 
 The first command verifies the numerical expectations and review coverage and
 prints the open groups. The second is the **publication identity gate** and
-currently fails intentionally because five groups remain open. A green regression
+currently fails intentionally because three groups remain open. A green regression
 or reproduction run is not a claim that these groups have been resolved.
 
 `data/validation/redshift_identity_checks.json` is pinned in the source-provenance
@@ -87,3 +100,23 @@ Primary references: [Mascia Table 2 and GS-3073 discussion](https://arxiv.org/ht
 [GN-z11 discovery paper](https://assets.science.nasa.gov/content/dam/science/missions/hubble/releases/2016/03/STScI-01EVSR4JPCXZB7365EVHP9905G.pdf),
 [ZS7 spectroscopic reanalysis, Table 1](https://api.repository.cam.ac.uk/server/api/core/bitstreams/152489de-fd1d-4de4-b0bf-82027721d6ec/content).
 Individual pair evidence is linked through the fixture's measurement source records.
+
+## Evidence still needed (reviewed 7 September 2026)
+
+- **Baccus/JADES 8083:** the retained Baccus v1 source table explicitly gives
+  GDS_1210_9515 at z=4.6477 and log(MBH/Msun)=5.59; Scholtz explicitly identifies
+  8083 as a previously known type-1 target, but these do not settle the conflicting
+  source redshifts or preferred mass. Obtain a program/target crosswalk and inspect
+  the associated spectra before merging. Do not average the masses or substitute
+  a different publication version silently.
+- **99671 / 10013704 and 16745 / 208643:** the source sample treats these as
+  separate NIRSpec targets in programs 1210/3215. Target IDs, line diagnostics,
+  angular proximity and similar redshifts alone do not settle distinct hosts
+  versus components or repeated apertures. Review NIRCam segmentation/cutouts
+  with the NIRSpec shutter footprints before assigning a shared identity.
+
+Available source-table and source-text checks did not supply that decisive
+imaging/spectral evidence. These remain actionable scientific review tasks, not
+resolved cases or test failures to suppress. The ordinary `identity_resolution_status`
+field records the existing assembly decision; this audit is the stricter check
+of independently established astrophysical uniqueness.

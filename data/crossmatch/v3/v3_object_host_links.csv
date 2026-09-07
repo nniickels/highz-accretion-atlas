@@ -66,7 +66,6 @@ v3-dataset-catalogue,HZA-DJA-12329,HZS-DJA-12329,source_verified_single_object_h
 v3-dataset-catalogue,HZA-DJA-16321,HZS-DJA-16321,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-DJA-20547,HZS-DJA-20547,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-DJA-22015,HZS-DJA-22015,source_verified_single_object_host,not_published
-v3-dataset-catalogue,HZA-DJA-8219,HZS-DJA-8219,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-EGS-4106-47962,HZS-EGS-4106-47962,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-EGS-4106-71365,HZS-EGS-4106-71365,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-EXCELS-3543-42268,HZS-EXCELS-3543-42268,source_verified_single_object_host,not_published
@@ -311,7 +310,6 @@ v3-dataset-catalogue,HZA-SMILES-MIRI-239,HZS-SMILES-MIRI-239,source_verified_sin
 v3-dataset-catalogue,HZA-SMILES-MIRI-2394,HZS-SMILES-MIRI-2394,source_verified_single_object_host,object_specific
 v3-dataset-catalogue,HZA-SMILES-MIRI-2452,HZS-SMILES-MIRI-2452,source_verified_single_object_host,object_specific
 v3-dataset-catalogue,HZA-SMILES-MIRI-2634,HZS-SMILES-MIRI-2634,source_verified_single_object_host,object_specific
-v3-dataset-catalogue,HZA-SMILES-MIRI-2743,HZS-SMILES-MIRI-2743,source_verified_single_object_host,object_specific
 v3-dataset-catalogue,HZA-SMILES-MIRI-2759,HZS-SMILES-MIRI-2759,source_verified_single_object_host,object_specific
 v3-dataset-catalogue,HZA-SMILES-MIRI-2832,HZS-SMILES-MIRI-2832,source_verified_single_object_host,object_specific
 v3-dataset-catalogue,HZA-SMILES-MIRI-3010,HZS-SMILES-MIRI-3010,source_verified_single_object_host,object_specific

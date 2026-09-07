@@ -20,7 +20,7 @@ exists; none currently does. Source-reported mass errors are sampled
 without adding separate method systematics. ZS7's published 0.4-dex error
 already includes calibration scatter and is retained once. Other reported
 errors are not assumed to have purely statistical components. The 209-row exclusion audit is
-the union of 106 ineligible measurement rows and 103 ineligible object rows; all
+the union of 106 ineligible measurement rows and 101 ineligible object rows; all
 remain in the catalogue.
 
 The required-Eddington-ratio order differs from the composite navigation score.
@@ -47,9 +47,9 @@ photon-trapping rule assumes `f=1+ln(mdot)`, with accretion rate normalized by
 `L_Edd/(epsilon_spin*c^2)`. It is not a relativistic slim-disk or spin-evolution
 solution. Comparisons must preserve the distinction between these products.
 
-`results/v3/tables/v3_followup_priority.csv` contains all 340 objects. Its 237
+`results/v3/tables/v3_followup_priority.csv` contains all 338 objects. Its 237
 growth-eligible rows receive both within-class and navigation-only ranks; the
-103 objects without a method-comparable canonical mass remain explicitly
+101 objects without a method-comparable canonical mass remain explicitly
 unranked. `v3_source_caveat_summary.csv` contains one row for each of the 32
 admitted source families.
 
@@ -72,7 +72,7 @@ must accompany interpretation of the results:
 | Fixed growth assumptions | Reported-error probabilities hold at the stated seed mass/redshift, efficiency, merger factor and cosmology; they are not model-marginalized probabilities or probabilities of a seed origin. | Define justified parameter distributions and correlations, then propagate them jointly. Existing scenario maps illustrate sensitivity; they do not marginalize it. |
 | Approximate mass-error distributions | Equal-side half-normal draws reproduce quoted scales approximately, not full source posteriors. Method envelopes remain separate; twelve objects lack reported errors. | Obtain posterior information or justify and test alternative error models, including shared calibration effects. Never turn absent errors into certainty. |
 | Heterogeneous selection | Counts and navigation ranks describe the admitted sample; population fractions, number densities and seed-channel frequencies are unsupported. | Validate source-specific inclusion probabilities and parent populations, account for survey overlap, and only then enable the demographic gate. Missing selection information cannot be repaired by assigning arbitrary weights. |
-| Partial non-mass source audit | Reproduction is verified, but not every source field or identity has been independently re-read. | Extend the fixtures under the criteria in `data/validation/README.md`, prioritizing redshifts and identities. |
+| Partial auxiliary-field and identity audit | Central redshifts and available coordinates pass source checks; three identity groups, redshift uncertainties, and auxiliary fields are not fully resolved or audited. | Extend the fixtures under the criteria in `data/validation/README.md`, prioritizing the remaining identity groups, redshift uncertainties, and auxiliary observables. |
 | Frozen measurement membership | Known new measurements, including the A2744-QSO1 direct-mass result, are not silently substituted into v1/v2/v3. | Follow the next-version admission work in `literature-scope.md`; distinguish new measurements from corrections to existing extracted values. |
 
 The growth law also compresses time-dependent feedback and accretion into
@@ -103,7 +103,36 @@ labels are mass-range scenarios, not a primordial-abundance calculation.
 ## Current identity audit status
 
 The [redshift/identity audit](../source-notes/redshift-identity-audit.md) checks all
-admitted central redshifts and available coordinates but identifies three duplicate
-groups and two unresolved close neighbours. The 340 stored object IDs are not yet
+admitted central redshifts and available coordinates but identifies one conflicting duplicate
+group and two unresolved close neighbours. The 338 stored object IDs are not yet
 a validated unique-object census. Resolve these cases and regenerate affected
 counts before submission. The explicit publication identity gate remains open.
+
+## Paper interpretation and scope
+
+The reference above-Eddington tail lies at z=6.6214--10.603. The catalogue's
+median redshift does not make every member an early-growth tension. Present
+object-level mass/time requirements, with the 227-object primary subset as the
+main comparable analysis and the 237-object set as exploratory context.
+
+The efficiency scaling is an algebraic consequence of the adopted growth law,
+not new black-hole physics. The contribution is the provenance-aware application,
+uncertainty and scenario comparison, and identification of informative targets.
+Zero point estimates above unity at epsilon=0.05719 neither rules out earlier
+super-Eddington episodes nor establishes an easy supply of fuel or a measured
+spin. Long near-Eddington duty cycles can remain physically demanding. Follow-up
+scores are heuristics, not calibrated expected information gain.
+
+The source cutoff is 3 September 2026; this is not a complete census of every
+JWST object or of later publications. Central redshifts and available coordinates
+are checked; redshift uncertainties, missing coordinates, full source posteriors,
+and all auxiliary observables are not exhaustively validated. The z-seed 3400
+comparison is an extrapolation of a radiation-free age relation and does not
+validate primordial seed formation. Resolving identities is required before
+final unique-object counts; broader demographic modelling is required only if
+population claims are added.
+
+Generated uncertainty metadata uses `equal_side_half_normal_in_log_mbh` to match
+the sampler: equal side probabilities with separately scaled half-normal draws.
+This replaces the misleading `split_normal_in_log_mbh` label without changing
+any samples, percentiles or probabilities.

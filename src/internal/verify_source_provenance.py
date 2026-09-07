@@ -22,6 +22,7 @@ MANIFEST_PATH = ROOT / "releases/source-provenance-manifest.json"
 SELECTION_PATH = ROOT / "data/selection_function_registry.csv"
 AUDIT_PATH = ROOT / "data/manual_extraction_audit.csv"
 ARTIFACTS = {
+    "data/assembly/reconciled_identity_pairs.json",
     "data/source_provenance_registry.csv",
     "data/selection_function_registry.csv",
     "data/manual_extraction_audit.csv",
