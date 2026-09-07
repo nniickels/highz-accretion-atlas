@@ -73,3 +73,19 @@ threshold counts and top-five rankings; the primary reference median becomes
 these exclusions cannot silently lose a group or readmit an affected object.
 The full-catalogue identity gate still fails; only the conservative manuscript
 exclusion check passes. Unique-object census finalization remains separate.
+
+## Mass-scale sensitivity and presentation — 7 September 2026
+
+The five manuscript figures now use the conservative 224/234 selection. A fixed
+virial-mass offset experiment translates the original reported-error draws by
+-0.5, -0.3, 0, +0.3 and +0.5 dex; this is a coherent stress test, not added
+independent scatter or a systematic-marginalized posterior. At the extremes,
+primary point/p16/P>=0.95 counts become 6/4/3 and 19/16/13, versus 12/8/6 at
+zero offset. The analysis is integrated into publication-product generation and
+verification, with object-level outputs and regression checks for zero-offset
+recovery, the analytic mass response, and missing-error handling.
+
+The draft foregrounds these conditional results; class, provenance and release
+bookkeeping is consolidated in appendices. The figure-path documentation is
+corrected. Source-specific mass calibration and external scientific review
+remain beyond this stress test.

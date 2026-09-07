@@ -75,7 +75,9 @@ def build_publication_outputs(root=ROOT, policy=None):
                     p16_above_unity=int(e.required_fedd_seed1e2_p16.gt(1).sum()) if scenario == 'reference' else np.nan,
                     probability_ge_095=int(e.prob_required_fedd_seed1e2_gt_1.ge(.95).sum()) if scenario == 'reference' else np.nan,
                     top_five=';'.join(subset.iloc[np.argsort(-required, kind='stable')[:5]].object_id)))
-    return {'publication_object_selection': selection, 'identity_exclusion_sensitivity': pd.DataFrame(rows)}
+    from src.internal.publication_systematics import build_mass_offset_outputs
+    return {'publication_object_selection': selection, 'identity_exclusion_sensitivity': pd.DataFrame(rows),
+            **build_mass_offset_outputs(selection, errors)}
 
 
 def verify_publication_selection(root=ROOT):

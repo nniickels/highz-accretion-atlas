@@ -27,16 +27,15 @@ and how these constraints depend on seed formation, radiative efficiency,
 and reported mass uncertainty.
 
 \textbf{Methods.} We compile a provenance-aware catalogue containing 350
-literature measurements across 32 source families, represented by 338
-object records in 337 host systems pending final identity reconciliation.
+literature measurements across 32 source families.
 After excluding all six records associated with three unresolved identity
 groups, our primary comparison uses 224 objects with comparable mass methods
 and accepted evidence classifications; the exploratory comparison includes
-234 numerical objects. The full catalogue retains all 237 mass-bearing records
-and 101 records without eligible masses. We propagate published asymmetric mass
+234 numerical objects. We propagate published asymmetric mass
 errors using 10,000 deterministic Monte Carlo draws and preserve mass-method
 systematics as separate envelopes. We compare fixed seed, formation-redshift,
-and efficiency scenarios using a reproducible catalogue workflow.
+and efficiency scenarios, and test fixed virial-mass offsets of $\pm0.3$ and
+$\pm0.5$ dex without treating these offsets as additional random scatter.
 
 \textbf{Results.} Under the reference assumptions $z_{\rm seed}=30$,
 $\epsilon=0.1$, no merger boost, and a $10^2\,M_\odot$ seed, 12 primary-sample
@@ -45,6 +44,8 @@ remain above unity at the 16th percentile, and six have
 $P(\fedd>1)\geq0.95$. The corresponding exploratory counts are 14, ten, and eight.
 UNCOVER-20466 has the highest required average rate, with median
 $\fedd=1.453$ and a 16th--84th percentile interval of 1.354--1.549.
+A $-0.5$-dex mass shift reduces the primary 12/8/6 counts to 6/4/3;
+a $+0.5$-dex shift raises them to 19/16/13.
 Increasing the seed mass to $10^3\,M_\odot$ reduces the primary count above
 unity to four; delaying seeding to $z_{\rm seed}=20$ increases it to 22.
 At the ideal non-spinning thin-disk efficiency $\epsilon=0.05719$, no point
@@ -240,25 +241,19 @@ Source-family and measurement membership is frozen at the review cutoff of
 3 September 2026; corrections to admitted measurements apply across affected
 versions, while new measurements require a declared subsequent version.
 
-The v3 catalogue has 350 measurement rows, 338 provisional object records, and
-337 provisional host records. Catalogue counts remain provisional. The manuscript inference samples exclude
-the affected records as specified below and in Section~\ref{sec:limits}. It contains 247 broad-line AGN, 49 narrow-line candidates, 30
-photometric candidates, ten high-ionization candidates, and two X-ray
-candidates. Preferred object-level evidence comprises 214 secure, 41 probable,
-82 candidate, and one disputed classification. These labels describe the source
-papers' evidence and do not place all classes on a single purity scale.
+The catalogue retains 350 measurements represented by 338 provisional object
+records in 337 host systems. Numerical comparisons use the conservative samples
+defined below; the wider evidence inventory is summarized in
+Appendix~\ref{app:sources}. Evidence labels describe the source papers'
+assessments and do not place different discovery classes on a common purity scale.
 
 \subsection{Provenance, extraction, and identity}
 
-Each measurement carries stable measurement, physical-object, and host-system
-identifiers. Source-native values, adopted standardized values, uncertainty
-semantics, table locations, URLs, DOI or archive versions, archive SHA-256
-hashes where available, extraction dates, and caveat tags are retained. The
-manual-extraction audit covers 26 hash-pinned extraction artifacts, while the
-provenance registry contains 38 records covering all 32 admitted source
-families. Independent checks cover all 244 numerical masses and both error fields. Auxiliary coordinate and contextual sources are attributed separately
-to the THRILS catalogue \cite{hutchison2025}, the UHZ1 spectroscopy paper
-\cite{goulding2023}, and the versioned JADES DR3 GOODS-S prism catalogue.
+Stable measurement, object, and host identifiers connect each adopted value to
+its source-native measurement, extraction location, version, and uncertainty
+semantics. Independent source checks cover every admitted numerical mass and its
+reported errors. The repository retains the extraction artifacts, provenance
+registry, and auxiliary-coordinate attribution (Appendix~\ref{app:sources}).
 
 Identity resolution preserves every admitted measurement while selecting exactly
 one preferred row per object. Its mass, redshift, evidence status, and method
@@ -330,15 +325,11 @@ full-catalogue figures remain available in the repository.
 Product or subset & Rows or objects \\
 \midrule
 Measurements / provisional objects / hosts & 350 / 338 / 337 \\
-Source-local observables & 810 \\
 Growth-eligible measurements / objects & 244 / 237 \\
 Method-eligible primary measurements / objects & 234 / 227 \\
 Manuscript primary / exploratory objects & 224 / 234 \\
 Identity-excluded object records & 6 \\
 Catalogue-only object records & 101 \\
-Alternate-measurement sensitivity pairs & 7 \\
-Source-family caveat rows & 32 \\
-Per-object parameter-map panels & 676 \\
 \bottomrule
 \end{tabular}
 \label{tab:scale}
@@ -400,6 +391,19 @@ virial-calibration scatter. No additional scatter is added to that error.
 Separately reported method-scale systematics are stored and, where possible,
 mapped to sensitivity envelopes; the atlas does not assume that these terms
 are independent Gaussian errors.
+
+To test sensitivity to the assumed virial-mass scale, we shift every numerical
+publication-sample mass by a common fixed offset $\delta=-0.5,-0.3,0,+0.3,+0.5$
+dex. The same offset translates each object's original reported-error draws;
+redshifts, sample membership, and reference growth parameters remain fixed.
+The chosen amplitudes probe a fraction of and approximately the $0.5$-dex
+single-epoch mass uncertainty scale discussed by Shen \cite{shen2013}.
+They are stress-test amplitudes, not an inferred common calibration bias or a
+validated uncertainty model for JWST sources. A coherent shift is not equivalent
+to independent object-to-object scatter. No new scatter is added in quadrature,
+including for errors already containing calibration scatter. Probabilities remain
+conditional on each fixed offset, with no marginalization over $\delta$;
+objects without reported errors contribute only point estimates.
 
 The final published Killi mass $8^{+0.5}_{-0.4}\times10^8M_\odot$
 is converted by transforming both linear bounds, giving
@@ -505,6 +509,38 @@ on the ``No error'' row, with no probability assigned. Point size for sampled
 objects encodes the 16th--84th percentile width.}
 \label{fig:uncertainty}
 \end{figure}
+
+\subsection{Sensitivity to the virial-mass scale}
+
+Table~\ref{tab:massoffset} shows that the exact reference counts are sensitive
+to the adopted mass scale. A downward shift of 0.3 dex changes the primary
+12/8/6 counts to 9/6/4; a downward shift of 0.5 dex leaves 6/4/3.
+Positive shifts increase all three counts. Thus some reference-history tension
+survives even the negative 0.5-dex stress test, but the size of that tail is
+not robust to mass calibration. This does not remove the efficiency degeneracy:
+the lower-efficiency scenario below is a separate change to the growth model.
+The archived object-level results identify membership changes at every offset.
+
+\begin{table}[htbp]
+\centering
+\caption{Fixed mass-scale stress tests under the reference growth history.
+Triplets give counts above unity at the point estimate, at the 16th percentile,
+and with conditional $P(\overline{\fedd}_{\rm req}>1)\geq0.95$.
+The probability-based counts use 212 primary and 222 exploratory objects with
+reported errors; point counts use all 224 and 234 objects.}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Mass offset (dex) & Primary & Exploratory \\
+\midrule
+$-0.5$ & 6 / 4 / 3 & 7 / 5 / 4 \\
+$-0.3$ & 9 / 6 / 4 & 10 / 7 / 5 \\
+$0$ & 12 / 8 / 6 & 14 / 10 / 8 \\
+$+0.3$ & 15 / 13 / 12 & 17 / 15 / 14 \\
+$+0.5$ & 19 / 16 / 13 & 21 / 18 / 15 \\
+\bottomrule
+\end{tabular}
+\label{tab:massoffset}
+\end{table}
 
 A separate full-catalogue publication-version check, performed on the original
 227/237-object method-defined samples before the manuscript identity exclusions,
@@ -689,7 +725,9 @@ The dominant limitations are scientific rather than computational. The
 catalogue is a union of heterogeneous selections and cannot support pooled
 demographics without source-specific completeness models. Single-epoch virial
 masses share calibration and geometry uncertainties that are incompletely
-reported across papers. Two source-supported duplicate pairs have been reconciled without removing
+reported across papers. The fixed-offset experiment quantifies one coherent
+mass-scale perturbation; it does not model source-specific biases, correlated
+calibration errors, or selection-dependent scatter. Two source-supported duplicate pairs have been reconciled without removing
 measurements. Three identity groups remain open: Baccus GDS\_1210\_9515 versus
 JADES GS-8083, GS-10013704 versus Scholtz 99671, and Scholtz 16745 versus 208643.
 The first requires target/spectral and preferred-mass reconciliation; the latter
@@ -730,13 +768,12 @@ The release includes per-object parameter maps, alternate-measurement checks,
 and source-linked follow-up information; implementation details and artifact
 inventories are documented in the repository.
 
-Independent source checks cover all 244 numerical mass measurements and their
-error fields, all 350 central redshifts, and 323 available coordinate pairs.
-These establish source-value agreement within the declared checks, not the
-physical validity of every mass estimator or the uniqueness of every target.
+The source checks establish agreement with published values, not the physical
+validity of every estimator or the uniqueness of every target.
 A separate manuscript exclusion check verifies that every open group is
 fully withheld from both inference samples and reproduces the stored selection
-and sensitivity tables. It runs in the public verification notebook. The
+and sensitivity tables, including the fixed mass-offset experiment. It runs in
+the public verification notebook. The
 stricter full-catalogue identity-resolution gate still reports the three groups
 in Section~\ref{sec:limits}; the exclusion check does not replace it.
 
@@ -750,6 +787,8 @@ no-inference records;
 \item after excluding the ambiguous identities, the primary 224-object sample has, under the light-seed reference history,
 12 point requirements above $\fedd=1$, eight above unity at the 16th percentile,
 and six with $P(\fedd>1)\geq0.95$; the exploratory counts are 14, ten, and eight;
+\item a coherent $-0.5$-dex mass shift leaves primary counts of 6/4/3,
+whereas $+0.5$ dex yields 19/16/13: the exact tail size depends on the mass scale;
 \item increasing the seed mass to $10^3M_\odot$ reduces the primary point count
 to four, while delaying seeding to $z=20$ increases it to 22; object ordering
 also depends on the assumed starting time;
@@ -773,6 +812,20 @@ of the heterogeneous catalogue.
 \appendix
 \section{Source-family inventory}
 \label{app:sources}
+
+The full catalogue contains 247 broad-line AGN, 49 narrow-line candidates,
+30 photometric candidates, ten high-ionization candidates, and two X-ray
+candidates. Preferred-row evidence labels comprise 214 secure, 41 probable,
+82 candidate, and one disputed classification. These full-catalogue counts
+precede the manuscript exclusions.
+
+The manual-extraction audit covers 26 hash-pinned extraction artifacts, while
+the provenance registry contains 38 records covering all 32 admitted source
+families. Source locations, URLs, DOI or archive versions, archive hashes where
+available, extraction dates, and caveat tags accompany the measurements.
+Auxiliary coordinates and context are attributed to THRILS
+\cite{hutchison2025}, the UHZ1 spectroscopy paper \cite{goulding2023}, and the
+versioned JADES DR3 GOODS-S prism catalogue in the repository registry.
 
 The input literature spans JWST broad-line samples
 \cite{juodzbalis2026,taylor2025,matthee2024,lin2024,harikane2023,davis2026,
@@ -821,6 +874,8 @@ decreasing $f_2$, decreasing redshift, then stable identifier. The manuscript's
 required-$\fedd$ table is instead ordered directly by $f_2$.
 \section{Release inventory}
 
+The release also retains 810 source-local observables, seven alternate-measurement
+pairs, 32 source-family caveat rows, and 676 per-object parameter-map panels.
 Canonical manifests record SHA-256 hashes for 85 v1, 461 v2, and 720 v3 artifacts.
 The current result inventory contains 1,236 artifacts. These inventories have
 different scopes: version manifests include dataset products as well as results.
@@ -828,6 +883,7 @@ The repository records their individual entries and verification tolerances.
 
 \begin{thebibliography}{99}
 \setlength{\itemsep}{2pt}
+\bibitem{shen2013} Shen, Y. 2013, The Mass of Quasars, arXiv:1302.2643v1.
 \bibitem{bardeen1972} Bardeen, J. M., Press, W. H., \& Teukolsky, S. A. 1972,
 \emph{ApJ}, 178, 347--369, doi:10.1086/151796.
 \bibitem{dayal2024} Dayal, P. 2024, \emph{A\&A}, 690, A182, doi:10.1051/0004-6361/202451481.

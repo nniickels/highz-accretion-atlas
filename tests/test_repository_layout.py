@@ -81,7 +81,7 @@ class RepositoryLayoutTests(unittest.TestCase):
         manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
         expected = {
             "baccus2026", "bogdan2024", "chavezortiz2026", "chisholm2024", "davis2026",
-            "dayal2024", "goulding2023", "greene2024", "harikane2023",
+            "dayal2024", "shen2013", "goulding2023", "greene2024", "harikane2023",
             "fei2026", "hutchison2025", "juodzbalis2026", "killi2024", "kocevski2025",
             "larson2023", "leung2026", "lin2024", "lyu2024", "maiolino2024",
             "mascia2026", "matthee2024", "mazzolari2024", "naidu2026", "napolitano2025",

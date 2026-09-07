@@ -1,0 +1,11 @@
+sample,mass_offset_dex,n_objects,n_reported_errors,above_unity,p16_above_unity,probability_ge_095
+primary,-0.5,224,212,6,4,3
+primary,-0.3,224,212,9,6,4
+primary,0.0,224,212,12,8,6
+primary,0.3,224,212,15,13,12
+primary,0.5,224,212,19,16,13
+exploratory,-0.5,234,222,7,5,4
+exploratory,-0.3,234,222,10,7,5
+exploratory,0.0,234,222,14,10,8
+exploratory,0.3,234,222,17,15,14
+exploratory,0.5,234,222,21,18,15

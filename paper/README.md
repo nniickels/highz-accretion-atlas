@@ -25,7 +25,7 @@ full-catalogue figures remain in `results/v3/figures/`.
 The `paper/` folder contains the current working manuscript draft and is kept
 for reference while the catalogue and analysis continue to evolve.
 `highz_accretion_atlas_v3.tex` is the editable LaTeX source. It references the
-canonical v3 figures in `results/v3/figures/`.
+publication-sample figures in `paper/figures/`.
 
 ```bash
 cd paper
