@@ -120,3 +120,19 @@ imaging/spectral evidence. These remain actionable scientific review tasks, not
 resolved cases or test failures to suppress. The ordinary `identity_resolution_status`
 field records the existing assembly decision; this audit is the stricter check
 of independently established astrophysical uniqueness.
+
+
+## Manuscript follow-up check (7 September 2026)
+
+The source HTML was checked again for the open groups. The
+[JADES broad-line table](https://arxiv.org/html/2504.03551v2) still lists GS-8083
+at z=4.753 with log(MBH/Msun)=7.10, while the retained Baccus v1 extraction
+lists GDS_1210_9515 at z=4.6477 and 5.59. The
+[Baccus HTML](https://arxiv.org/html/2512.03281v1) did not expose a searchable
+9515 row; it provides no new target crosswalk for this decision. The
+[Scholtz tables](https://arxiv.org/html/2311.18731v4) retain 16745 under program
+1210 and 99671/208643 under 3215. These checks confirm the documented source
+versions and target labels; they do not supply the aperture/imaging evidence
+or reconcile the competing spectra. All three dispositions remain open.
+The manuscript now distinguishes the assembly registry's resolved flag from
+this independent scientific identity gate explicitly in its eligibility rules.

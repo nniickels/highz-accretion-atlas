@@ -19,7 +19,7 @@ registry leaves inverse weights unset unless a valid inclusion-probability model
 exists; none currently does. Source-reported mass errors are sampled
 without adding separate method systematics. ZS7's published 0.4-dex error
 already includes calibration scatter and is retained once. Other reported
-errors are not assumed to have purely statistical components. The 209-row exclusion audit is
+errors are not assumed to have purely statistical components. The 207-row exclusion audit is
 the union of 106 ineligible measurement rows and 101 ineligible object rows; all
 remain in the catalogue.
 
@@ -27,8 +27,10 @@ The required-Eddington-ratio order differs from the composite navigation score.
 The latter combines two normalized growth diagnostics and a redshift term (see
 `_pressure_score` in `src/internal/compatibility/v7_science_core.py` and the
 manuscript formula). The manuscript top-five table sorts by
-`required_fedd_seed1e2`: GS-20057765 is third; COSMOS3D-13852 is fourth but third
-in composite navigation order.
+`required_fedd_seed1e2` within the 227-object primary subset: GS-20057765
+is second and COSMOS3D-13852 third. In the exploratory 237-object order,
+GN-z11 is second, GS-20057765 third, and COSMOS3D-13852 fourth. The
+composite navigation score is separate from both scientific orders.
 
 Twelve NEXUS masses have no reported mass errors. Their repeated point
 values in the uncertainty CSVs have `mbh_uncertainty_mode` equal to

@@ -14,6 +14,19 @@ class ManuscriptMethodTests(unittest.TestCase):
         primary = point.loc[point.primary_growth_ranking_flag]
         uncertainty = errors.loc[errors.primary_growth_ranking_flag]
         self.assertEqual(len(primary), 227)
+        objects = pd.read_csv(ROOT/'data/processed/v3/v3_accreting_objects.csv')
+        eligible = objects.growth_ranking_eligible_flag
+        declared_primary = (eligible & objects.evidence_status.isin(['secure', 'probable'])
+                            & ~objects.conditional_mass_flag
+                            & objects.primary_mass_comparison_flag)
+        np.testing.assert_array_equal(declared_primary, objects.primary_growth_ranking_flag)
+        excluded = objects.loc[eligible & ~declared_primary]
+        self.assertEqual(int(excluded.evidence_status.eq('candidate').sum()), 9)
+        self.assertEqual(int(excluded.conditional_mass_flag.sum()), 7)
+        alternate = pd.read_csv(ROOT/'results/v3/tables/v3_alternate_measurement_sensitivity.csv')
+        self.assertEqual((len(alternate), alternate.physical_object_id.nunique()), (7, 6))
+        self.assertTrue(alternate.default_required_fedd_seed1e2.lt(1).all())
+        self.assertTrue(alternate.alternate_required_fedd_seed1e2.lt(1).all())
         self.assertEqual(int(primary.required_fedd_seed1e2.gt(1).sum()), 12)
         self.assertEqual(int(uncertainty.required_fedd_seed1e2_p16.gt(1).sum()), 8)
         self.assertEqual(int(uncertainty.prob_required_fedd_seed1e2_gt_1.ge(.95).sum()), 6)
