@@ -98,25 +98,49 @@ def render_figures(root=ROOT, destination=None):
         axes[0].legend(fontsize=8,frameon=False,loc='upper left')
         save(fig,'growth_boundaries')
         seed_names=list(compatibility.seed_model.drop_duplicates())
-        fig,axes=plt.subplots(len(seed_names),2,figsize=(10,9),constrained_layout=True,squeeze=False)
-        for row,(ids,label) in enumerate([(primary,f'Primary ({len(primary)})'),(set(point.physical_object_id),f'Exploratory incl. primary ({len(point)})')]):
-            for col,seed in enumerate(seed_names):
+        fig,axes=plt.subplots(len(seed_names),2,figsize=(10,8.5),
+                              sharex=True,sharey=True,squeeze=False)
+        fig.subplots_adjust(left=.09,right=.825,bottom=.14,top=.88,
+                            hspace=.48,wspace=.12)
+        samples = [(primary,f'Primary ({len(primary)})'),
+                   (set(point.physical_object_id),f'Exploratory, including primary ({len(point)})')]
+        for sample_col,(ids,label) in enumerate(samples):
+            position=axes[0,sample_col].get_position()
+            fig.text((position.x0+position.x1)/2,.956,label,
+                     ha='center',va='center',fontsize=11,fontweight='bold')
+            for seed_row,seed in enumerate(seed_names):
                 g=compatibility.loc[compatibility.physical_object_id.isin(ids)&compatibility.seed_model.eq(seed)]
                 pivot=g.pivot_table(index='spin_case',columns=['merger_case','f_edd_avg'],values='compatible',aggfunc='mean')
                 spin_order=sorted(pivot.index,key=lambda x: 0 if 'minus1' in x else 2 if 'plus1' in x else 1)
                 columns=sorted(pivot.columns,key=lambda x: (x[0]=='merger_boost_x2',x[1]))
                 pivot=pivot.reindex(index=spin_order,columns=columns)
-                ax=axes[col,row];im=ax.imshow(pivot.to_numpy(float),vmin=0,vmax=1,cmap='viridis',aspect='auto')
+                ax=axes[seed_row,sample_col]
+                im=ax.imshow(pivot.to_numpy(float),vmin=0,vmax=1,cmap='viridis',aspect='auto')
                 for y in range(len(pivot)):
                     for x in range(len(pivot.columns)):
-                        v=pivot.iloc[y,x];ax.text(x,y,f'{v:.0%}',ha='center',va='center',fontsize=9,color='white' if v<.6 else 'black')
-                title = r'$10^2$--$10^6$ solar masses' if 'pbh' in seed else seed.replace('_',' ').capitalize()
-                ax.set_title(title + (' - ' + label if col==0 else ''),fontsize=10)
-                ax.set_xticks(range(len(pivot.columns)),[f'B={2 if b=="merger_boost_x2" else 1}\nf={f:g}' for b,f in pivot.columns],fontsize=8)
-                ax.set_yticks(range(len(pivot)),['a=-1' if 'minus1' in x else 'a=+1' if 'plus1' in x else 'a=0' for x in pivot.index],fontsize=9)
-                ax.set_ylabel('Spin')
-        fig.colorbar(im,ax=axes.ravel().tolist(),shrink=.85,label='Descriptive compatible fraction')
-        fig.suptitle('Compatibility by publication sample (not population frequencies)')
+                        v=pivot.iloc[y,x]
+                        ax.text(x,y,f'{v:.0%}',ha='center',va='center',fontsize=10,
+                                color='white' if v<.6 else 'black')
+                ax.axvline(2.5,color='white',lw=1.2,alpha=.65)
+                ax.set_xticks(range(len(pivot.columns)),[f'{f:g}' for _,f in pivot.columns],fontsize=10)
+                ax.set_yticks(range(len(pivot)),['-1' if 'minus1' in x else '+1' if 'plus1' in x else '0' for x in pivot.index],fontsize=10)
+                ax.tick_params(axis='x',bottom=seed_row==len(seed_names)-1,
+                               labelbottom=seed_row==len(seed_names)-1)
+                ax.tick_params(axis='y',left=sample_col==0,labelleft=sample_col==0)
+                if seed_row==len(seed_names)-1:
+                    for xpos,boost in [(1,1),(4,2)]:
+                        ax.text(xpos,-.27,rf'$B_{{\rm merge}}={boost}$',
+                                transform=ax.get_xaxis_transform(),ha='center',va='top',fontsize=10)
+        for seed_row,seed in enumerate(seed_names):
+            title = r'$10^2$--$10^6\,M_\odot$ seed range' if 'pbh' in seed else seed.replace('_',' ').capitalize()
+            fig.text(.4575,axes[seed_row,0].get_position().y1+.014,title,
+                     ha='center',va='bottom',fontsize=11)
+        fig.supylabel(r'Spin, $a$',x=.02,fontsize=12)
+        fig.supxlabel(r'Lifetime-average Eddington ratio, $\overline{f}_{\rm Edd}$',
+                      y=.025,fontsize=12)
+        colorbar=fig.colorbar(im,cax=fig.add_axes([.865,.20,.025,.62]))
+        colorbar.set_ticks([0,.25,.5,.75,1],labels=['0%','25%','50%','75%','100%'])
+        colorbar.set_label('Descriptive compatible fraction',labelpad=10)
         save(fig,'compatibility')
         fig,ax=plt.subplots(figsize=(9,4.8),constrained_layout=True)
         labels=[]

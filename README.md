@@ -73,8 +73,9 @@ Main-text figures use the conservative manuscript samples:
 - reported-error uncertainty — `paper/figures/uncertainty.png`
 - seed/efficiency growth boundaries — `paper/figures/growth_boundaries.png`
 - alternate-measurement sensitivity — `paper/figures/measurement_sensitivity.png`
+- scenario compatibility summary — `paper/figures/compatibility.png`
 
-The manuscript appendix uses `paper/figures/compatibility.png`. Generated tables,
+The detailed efficiency prescription remains in the appendix. Generated tables,
 source-aware target assessments, and sensitivity comparisons are in
 `paper/analysis/`; their LaTeX fragments are included directly in the draft.
 See [manuscript analysis products](paper/analysis/README.md) for their scope and

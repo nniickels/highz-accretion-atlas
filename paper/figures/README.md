@@ -6,7 +6,9 @@ Verify by `python -m src.internal.publication_figures --verify` (also notebook 0
 All plotted numerical records pass the conservative publication selection:
 224 primary and ten additional exploratory objects. The coverage panel separately
 accounts for 98 retained no-mass and six identity-excluded records. Compatibility
-rows show primary and inclusive exploratory samples, not independent populations.
+columns show primary and inclusive exploratory samples, not independent populations.
+Seed scenarios label the rows; shared axis titles and bottom-only scenario ticks
+avoid repeating labels across panels. The colorbar reports percentages.
 The measurement-sensitivity figure retains seven pairs across six primary objects.
 
 Images are 300 dpi. Verification requires identical dimensions and a maximum
@@ -16,7 +18,7 @@ full-catalogue figures in `results/v3/figures/` are unchanged.
 The six manuscript figures comprise the landscape and reference tracks,
 a labelled interval plot of the twelve primary threshold objects, paired
 preferred/alternate requirements, fixed-efficiency seed boundaries for five
-named targets, and the supplementary compatibility grid. The broad 10^2--10^6
-solar-mass column is labelled by its interval, with the legacy PBH key retained
+named targets, and the main-text compatibility grid. The broad 10^2--10^6
+solar-mass row is labelled by its interval, with the legacy PBH key retained
 only in the canonical machine-readable data. Boundary curves solve f_req=1
 with B=1; they are not probability contours or spin-evolution tracks.

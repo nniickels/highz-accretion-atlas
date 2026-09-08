@@ -578,8 +578,8 @@ $\overline{\fedd}_{\rm req}\leq1$. The curves solve Eq.~\ref{eq:required-rate}
 with $B_{\rm merge}=1$ and the adopted point masses; efficiencies below each
 curve permit the threshold, but do not guarantee a sustainable fuel supply.
 Comparing $z_{\rm seed}=30$ and 20 exposes the greater timing sensitivity of
-GN-z11. The full constant-state compatibility grid is retained in
-Appendix~\ref{app:efficiency}.
+GN-z11. Figure~\ref{fig:compatibility} complements these object-level boundaries
+with a comparison across the full manuscript samples.
 
 \begin{figure}[htbp]
 \centering
@@ -591,6 +591,31 @@ mark $\epsilon=0.1$ (solid grey) and $1-\sqrt{8/9}$ (dotted grey).
 GN-z11 (dashed) is exploratory; the other objects are primary.
 These are fixed-efficiency comparisons without probability weights.}
 \label{fig:boundaries}
+\end{figure}
+
+Figure~\ref{fig:compatibility} shows how the fraction compatible with each
+fixed history changes across seed intervals, spin-dependent efficiencies,
+merger boosts, and accretion rates. Primary and inclusive exploratory samples
+show similar patterns. For example, in the heavy-seed interval at $a=+1$ and
+$f=1$, increasing the merger multiplier from one to two changes the primary
+compatible fraction from 57 to 70 per cent (59 to 71 per cent in the exploratory
+sample). Compatibility need not increase monotonically with rate: a fixed
+history can overgrow an object and put its required seed below the interval.
+These fractions describe point-mass compatibility within the selected samples;
+they do not include mass-error integration or measure formation-channel
+frequencies. The efficiency prescription differs from the fixed-$\epsilon=0.1$
+reference ranking and is detailed in Appendix~\ref{app:efficiency}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.99\textwidth]{figures/compatibility.png}
+\caption{Constant-state compatibility fractions in the primary
+sample (left) and the inclusive exploratory sample (right). These samples
+are nested. Each column specifies merger multiplier $B$ and fixed luminosity
+ratio $f$; rows specify ideal spin-dependent efficiency, with the supercritical
+prescription in Appendix~\ref{app:efficiency}. Seed intervals overlap and carry no probability weights.
+The broad mass interval has no formation-channel interpretation.}
+\label{fig:compatibility}
 \end{figure}
 
 Figure~\ref{fig:sensitivity} shows seven alternate-measurement comparisons
@@ -857,6 +882,11 @@ outcome is a set of named observational tests with explicit assumptions, not
 a universal ordering or a measurement of formation-channel frequencies.
 
 \appendix
+% Prefix appendix headings while keeping references A, B, C and A.1 intact.
+\makeatletter
+\def\sectionprefix{Appendix~}
+\renewcommand{\@seccntformat}[1]{\ifcsname #1prefix\endcsname\csname #1prefix\endcsname\fi\csname the#1\endcsname\quad}
+\makeatother
 \section{Source-family inventory}
 \label{app:sources}
 
@@ -941,7 +971,7 @@ $\log_{10}(M_{\rm seed}/M_\odot)$ at $\fedd=0.3$. This heuristic combines
 two growth diagnostics and a redshift term; it is not a probability. Ties use
 decreasing $f_2$, decreasing redshift, then stable identifier. The manuscript's
 required-$\fedd$ table is instead ordered directly by $f_2$.
-\section{Supplementary efficiency and compatibility scenarios}
+\section{Efficiency prescription for compatibility scenarios}
 \label{app:efficiency}
 
 For the illustrative spin-dependent maps, the ideal Kerr thin-disk efficiency
@@ -986,17 +1016,7 @@ $10^2$--$10^6M_\odot$ interval retains the legacy code key
 no primordial formation process. The descriptive fractions use point masses
 and the inclusive interval criterion in Section~\ref{sec:uncertainty}, without error integration.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.99\textwidth]{figures/compatibility.png}
-\caption{Supplementary constant-state compatibility fractions in the primary
-sample (left) and the inclusive exploratory sample (right). These samples
-are nested. Each column specifies merger multiplier $B$ and fixed luminosity
-ratio $f$; rows specify ideal spin-dependent efficiency, with the supercritical
-prescription above. Seed intervals overlap and carry no probability weights.
-The broad mass interval has no formation-channel interpretation.}
-\label{fig:compatibility}
-\end{figure}
+
 \clearpage
 
 \begin{thebibliography}{99}
