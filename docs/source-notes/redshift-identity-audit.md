@@ -84,9 +84,12 @@ preferred-measurement decision; do not assume all object-level summaries survive
 ```
 
 The first command verifies the numerical expectations and review coverage and
-prints the open groups. The second is the **publication identity gate** and
-currently fails intentionally because three groups remain open. A green regression
-or reproduction run is not a claim that these groups have been resolved.
+prints the open groups. The second is the **strict full-catalogue identity gate**
+and currently fails because three groups remain open. Closure is required before
+readmitting their records or claiming a final unique-object census. The
+conservative manuscript excludes those records and has a separate passing
+exclusion check, described below. A green regression or reproduction run is
+not a claim that these groups have been resolved.
 
 `data/validation/redshift_identity_checks.json` is pinned in the source-provenance
 manifest. To extend it, retrieve the recorded URL, verify its archive/member hash,

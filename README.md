@@ -66,16 +66,20 @@ with its editable LaTeX source beside it. It uses the frozen 338-object v3 catal
 inference samples. The revised draft adds source-aware target assessments and
 explicitly separate literature/direct-mass comparisons; see `paper/analysis/`.
 
-Main-text products:
+Main-text figures use the conservative manuscript samples:
 
-- catalogue overview in redshift-mass space — `results/v3/figures/v3_catalogue_growth_landscape.png`
-- object ranking by growth pressure — `results/v3/tables/v3_object_point_ranking.csv` and `results/v3/figures/v3_class_aware_growth_pressure.png`
-- required $f_{Edd}$ summaries for fixed seed masses — `results/v3/tables/v3_required_fedd_by_seed_mass.csv`
-- required seed-mass summaries for fixed accretion histories — `results/v3/tables/v3_required_mseed_by_growth_assumption.csv`
-- compatibility heatmap across seed/growth assumptions — `results/v3/figures/v3_compatibility_summary.png` and `results/v3/tables/v3_all_object_compatibility.csv`
-- uncertainty and systematics robustness plots — `results/v3/figures/v3_uncertainty_robustness.png`, its presentation-ready top-five crop `results/v3/figures/v3_uncertainty_robustness_top5.png`, `results/v3/figures/v3_monte_carlo_summary.png`, and `results/v3/figures/v3_measurement_sensitivity.png`
-- selected object-level $f_{Edd}$-mass maps — `results/v3/parameter_maps/fedd_mass_maps/`
-- follow-up priority table or matrix — `results/v3/tables/v3_followup_priority.csv`
+- sample overview — `paper/figures/landscape.png`
+- reference growth tracks — `paper/figures/growth_tracks.png`
+- reported-error uncertainty — `paper/figures/uncertainty.png`
+- seed/efficiency growth boundaries — `paper/figures/growth_boundaries.png`
+- alternate-measurement sensitivity — `paper/figures/measurement_sensitivity.png`
+
+The manuscript appendix uses `paper/figures/compatibility.png`. Generated tables,
+source-aware target assessments, and sensitivity comparisons are in
+`paper/analysis/`; their LaTeX fragments are included directly in the draft.
+See [manuscript analysis products](paper/analysis/README.md) for their scope and
+reproduction commands. Full-catalogue plots and navigation rankings remain
+available under `results/v3/` as supporting atlas products.
 
 Appendix or supplement products:
 

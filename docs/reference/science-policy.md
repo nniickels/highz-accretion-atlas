@@ -1,7 +1,8 @@
 # Class-aware science policy
 
 The shared science layer consumes the canonical measurement and physical-object
-tables for each of v1, v2, and v3. The counts below describe v3. It produces separate point and 10,000-draw uncertainty
+tables for each of v1, v2, and v3. Canonical counts below describe the full v3
+catalogue; manuscript comparisons use the additional 224/234-object selection. It produces separate point and 10,000-draw uncertainty
 rankings for both views, a class/method summary, a complete exclusion audit,
 alternate-measurement sensitivity, a class-aware observational follow-up
 matrix, a source-family caveat summary, a source-level selection/completeness
@@ -26,9 +27,10 @@ remain in the catalogue.
 The required-Eddington-ratio order differs from the composite navigation score.
 The latter combines two normalized growth diagnostics and a redshift term (see
 `_pressure_score` in `src/internal/compatibility/v7_science_core.py` and the
-manuscript formula). The manuscript top-five table sorts by
-`required_fedd_seed1e2` within the 227-object primary subset: GS-20057765
-is second and COSMOS3D-13852 third. In the exploratory 237-object order,
+manuscript formula). The manuscript target table includes the twelve reference
+requirements above unity, sorted by `required_fedd_seed1e2` within the
+224-object primary sample: GS-20057765
+is second and COSMOS3D-13852 third. In the manuscript exploratory 234-object order,
 GN-z11 is second, GS-20057765 third, and COSMOS3D-13852 fourth. The
 composite navigation score is separate from both scientific orders.
 
@@ -37,7 +39,8 @@ values in the uncertainty CSVs have `mbh_uncertainty_mode` equal to
 `point_estimate_no_reported_mbh_error`. Probabilities and uncertainty ranks are
 unavailable; zero-width intervals are not statistical certainty. Summary plots put these objects in a
 separate "No error" row; the full uncertainty atlas uses open diamonds. The
-other 225 objects use equal-probability half-normal draws on each side of the
+other 225 canonical objects (222 in the manuscript exploratory sample) use
+equal-probability half-normal draws on each side of the
 central mass, scaled by the reported error. This approximates intervals, not
 source posteriors.
 
@@ -85,8 +88,9 @@ implementation of those equations, not their adequacy for every physical model.
 
 ## Interpretation checks added in the scientific/editorial pass
 
-The 237-object exploratory set and the 227-object primary set are distinct.
-The primary set has 12 point requirements above unity, eight at p16, and six
+The manuscript exploratory sample contains 234 objects, including all 224
+primary objects. The canonical method-defined samples remain 237 and 227
+objects, respectively. The manuscript primary sample has 12 point requirements above unity, eight at p16, and six
 with reported-error P(f_Edd>1)>=0.95. GN-z11 is outside that primary subset;
 its UV estimator must not be presented as interchangeable with Balmer masses.
 
@@ -107,15 +111,18 @@ labels are mass-range scenarios, not a primordial-abundance calculation.
 The [redshift/identity audit](../source-notes/redshift-identity-audit.md) checks all
 admitted central redshifts and available coordinates but identifies one conflicting duplicate
 group and two unresolved close neighbours. The 338 stored object IDs are not yet
-a validated unique-object census. Resolve these cases and regenerate affected
-counts before submission. The explicit publication identity gate remains open.
+a validated unique-object census. Resolve these cases before readmitting their
+records or claiming final unique-object counts. The strict full-catalogue
+identity gate remains open. All six affected records are excluded from the
+manuscript samples, so these open cases do not block the stated conservative
+analysis; its separate exclusion and reproduction check must pass.
 
 ## Paper interpretation and scope
 
 The reference above-Eddington tail lies at z=6.6214--10.603. The catalogue's
 median redshift does not make every member an early-growth tension. Present
-object-level mass/time requirements, with the 227-object primary subset as the
-main comparable analysis and the 237-object set as exploratory context.
+object-level mass/time requirements, with the 224-object primary sample as the
+main comparable analysis and the 234-object sample as exploratory context.
 
 The efficiency scaling is an algebraic consequence of the adopted growth law,
 not new black-hole physics. The contribution is the provenance-aware application,

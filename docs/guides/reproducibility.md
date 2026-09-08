@@ -49,8 +49,13 @@ has its separate, explicitly bounded scope in `data/validation/README.md`.
 ## Scientific identity gate
 
 `python -m src.internal.verify_redshift_identity` verifies source fields and reports
-open identity cases. `--require-resolved` is a separate publication gate; it
-currently fails for three groups. Reproduction success does not resolve them.
+open identity cases. `--require-resolved` is the strict full-catalogue identity
+gate; it currently fails for three groups. Resolving them is required before
+readmission or a final unique-object census. The manuscript instead excludes
+all six affected records and verifies the 224/234-object samples through
+`src.internal.publication_selection`. These exclusions permit the conservative
+analysis without claiming identity resolution. Reproduction success alone
+does not resolve the groups.
 See the [audit record](../source-notes/redshift-identity-audit.md).
 
 ## Reviewed correction of 7 September 2026
@@ -64,7 +69,8 @@ All versions replace the inaccurate uncertainty-model label with
 results. Updated counts, identity metadata and summary images are intentional
 changes against the prior commit; refreshed manifests describe this reviewed
 revision. Regeneration must reproduce this revision in an independent workspace.
-Three unresolved identities remain subject to the separate publication gate.
+Three unresolved identity groups remain subject to the strict full-catalogue
+identity gate; the conservative manuscript exclusion check is separate.
 
 ## Manuscript reproduction and clean builds
 
