@@ -11,6 +11,9 @@ htmlcov/
 .codex_tmp/
 docs/archive/
 
+# Local supervisor meeting materials.
+/docs/meetings/
+
 # Local LaTeX build intermediates; the final manuscript PDF is retained.
 paper/*.aux
 paper/*.log
