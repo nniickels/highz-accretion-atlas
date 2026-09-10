@@ -110,116 +110,46 @@ Appendix~\ref{app:sources}.
 \subsection{Theoretical framework}
 \label{sec:theory}
 
-The growth constraints follow from the relation between accretion luminosity,
-retained mass, and available cosmic time. For electron-scattering opacity in
-ionized hydrogen, the Eddington luminosity and luminosity-based Eddington ratio
-are
-\begin{equation}
-L_{\rm Edd}=\frac{4\pi G\mbh m_p c}{\sigma_T},\qquad
-\fedd=\frac{L_{\rm bol}}{L_{\rm Edd}},\qquad
-t_{\rm Edd}=\frac{\mbh c^2}{L_{\rm Edd}}
-=\frac{c\sigma_T}{4\pi Gm_p}\simeq0.45\ {\rm Gyr}.
-\label{eq:eddington}
-\end{equation}
-Here $G$, $c$, $m_p$, and $\sigma_T$ denote the gravitational constant,
-speed of light, proton mass, and Thomson cross section. With radiative
-efficiency $0<\epsilon<1$ and rest-mass inflow rate $\dot M_{\rm in}$,
-\begin{equation}
-L_{\rm bol}=\epsilon\dot M_{\rm in}c^2,\qquad
-\dot\mbh=(1-\epsilon)\dot M_{\rm in}
-=\frac{1-\epsilon}{\epsilon}\frac{\fedd}{t_{\rm Edd}}\mbh.
-\label{eq:massgrowth}
-\end{equation}
-The inflow rate is defined at the radiating flow; additional mass loss before
-that point is not modelled. At fixed efficiency, define
+We use the luminosity-based Eddington ratio $\fedd=L_{\rm bol}/L_{\rm Edd}$
+and a fixed radiative efficiency $\epsilon$, the fraction of accreted rest-mass
+energy emitted as radiation. For the available growth interval,
 \begin{equation}
 \Delta t=t(z_{\rm obs})-t(z_{\rm seed})>0,\qquad
 \overline{\fedd}=\frac{1}{\Delta t}
 \int_{t(z_{\rm seed})}^{t(z_{\rm obs})}\fedd(t)\,dt.
 \label{eq:average}
 \end{equation}
-The analytic growth relation adopted by Dayal \cite{dayal2024} then becomes
+The analytic growth relation adopted by Dayal \cite{dayal2024} gives
 \begin{equation}
 \mbh(t_{\rm obs})=B_{\rm merge}\mseed
 \exp\!\left[\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}}\right],\qquad
-t_{\rm efold}=\frac{\epsilon}{1-\epsilon}
-\frac{t_{\rm Edd}}{\fedd}.
+\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}}\right],
 \label{eq:growth}
 \end{equation}
-The e-folding time assumes constant positive $\fedd$; it is 0.05 Gyr at
-$\epsilon=0.1$ and $\fedd=1$. The dimensionless $B_{\rm merge}$ represents an
-effective multiplicative merger boost. The implementation applies it in log mass as
+where $t_{\rm Edd}\simeq0.45$ Gyr. The merger multiplier is
+$B_{\rm merge}=1$ for the reference calculation and 2 for a factor-of-two
+mass boost. This prescription rescales the seed normalization; it does not
+simulate merger times, mass ratios, gravitational-wave losses or a merger tree.
+The required lifetime-average ratio is
 \begin{equation}
-\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)
-=\log_{10}\!\left(\frac{\mseed}{M_\odot}\right)
-+\log_{10}B_{\rm merge}
-+\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
-\label{eq:merger-implementation}
-\end{equation}
-We evaluate $B_{\rm merge}=1$ (no boost) and 2 (a factor-of-two mass boost).
-At fixed accretion history,
-\begin{equation}
-\frac{\mbh(B_{\rm merge}=2)}{\mbh(B_{\rm merge}=1)}=2,
-\qquad \Delta\log_{10}\mbh=\log_{10}2\simeq0.3010.
-\label{eq:merger-shift}
-\end{equation}
-This prescription is equivalent to rescaling the seed normalization; it does
-not simulate merger times, mass ratios, gravitational-wave losses or a merger
-tree. The reference ranking uses $B_{\rm merge}=1$; boosted cases are conditional
-sensitivity comparisons. Equations~\ref{eq:required-rate} and
-\ref{eq:required-seed} below include the same factor in the inverse calculation.
-
-Cosmic ages use the flat matter-plus-Lambda relation
-\begin{equation}
-t(z)=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
-\operatorname{asinh}\!\left[\sqrt{\frac{\Omega_\Lambda}{\Omega_m}}
-(1+z)^{-3/2}\right],
-\label{eq:cosmictime}
-\end{equation}
-with $H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m=0.315$, and
-$\Omega_\Lambda=0.685$. The Hubble constant is converted to inverse time;
-ages and growth intervals are in Gyr. Radiation is neglected. In particular,
-the supplementary $z_{\rm seed}=3400$ comparison extrapolates this age relation
-and is not a radiation-era seed-formation calculation.
-
-Two inversions provide the principal growth diagnostics:
-\begin{align}
 \overline{\fedd}_{\rm req}
-&=\max\!\left[0,\frac{\epsilon}{1-\epsilon}
+=\max\!\left[0,\frac{\epsilon}{1-\epsilon}
 \frac{t_{\rm Edd}}{\Delta t}
-\ln\!\left(\frac{\mbh}{B_{\rm merge}\mseed}\right)\right],
-\label{eq:required-rate}\\
-\log_{10}\!\left(\frac{M_{\rm seed,req}}{M_\odot}\right)
-&=\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)-\log_{10}B_{\rm merge}
--\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
-\label{eq:required-seed}
-\end{align}
-In Eq.~\ref{eq:required-seed}, $M_{\rm seed,req}$ denotes the required seed
-mass. The zero floor in Eq.~\ref{eq:required-rate} follows the implementation:
-if the boosted seed already exceeds the observed mass, no positive accretion
-is required, but this does not make that fixed history an exact mass match.
-
-For a two-state history with the same efficiency in both states,
-\begin{equation}
-\overline{\fedd}=D f_{\rm burst}+(1-D)f_{\rm quiet},\qquad
-D_{\rm req}=\frac{\overline{\fedd}_{\rm req}-f_{\rm quiet}}
-{f_{\rm burst}-f_{\rm quiet}}.
-\label{eq:dutycycle}
+\ln\!\left(\frac{\mbh}{B_{\rm merge}\mseed}\right)\right].
+\label{eq:required-rate}
 \end{equation}
-Here $D$ is the active-state time fraction, $f_{\rm burst}>f_{\rm quiet}\geq0$,
-and the diagnostic requires $\overline{\fedd}_{\rm req}\geq f_{\rm quiet}$.
-Values $D_{\rm req}>1$ identify an infeasible specified two-state history and
-are retained. An average growth requirement is not an instantaneous Eddington
-ratio or a uniquely measured duty cycle.
+If the boosted seed already exceeds the observed mass, the requirement is set
+to zero; this does not make the specified history an exact mass match.
+A lifetime-average requirement is distinct from an instantaneous Eddington
+ratio and does not uniquely determine a duty cycle.
 
-The main comparisons use fixed efficiencies. The supplementary spin-dependent
-maps use the ideal Kerr binding efficiencies 0.038, 0.057, and 0.423 for
-$a=-1,0,+1$, respectively \cite{bardeen1972}. Their supercritical extension
-and the ISCO algebra are specified in Appendix~\ref{app:efficiency}; they are
-illustrative constant-state scenarios rather than spin-evolution models.
+Cosmic ages assume a flat matter-plus-Lambda cosmology with
+$H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m=0.315$ and
+$\Omega_\Lambda=0.685$, neglecting radiation. Appendix~\ref{app:derivations}
+gives the supporting relations, implementation and inverse seed-mass diagnostic.
+The fixed-efficiency assumption is essential to Eqs.~\ref{eq:growth}--\ref{eq:required-rate}.
+The supplementary spin-dependent compatibility prescription is specified in
+Appendix~\ref{app:efficiency}; it does not model spin evolution.
 
 \section{Catalogue construction}
 
@@ -861,6 +791,7 @@ the full catalogue's unique-object census remains provisional. The useful
 outcome is a set of named observational tests with explicit assumptions, not
 a universal ordering or a measurement of formation-channel frequencies.
 
+\clearpage
 \appendix
 % Prefix appendix headings while keeping references A, B, C and A.1 intact.
 \makeatletter
@@ -1010,6 +941,111 @@ and the inclusive interval criterion in Section~\ref{sec:uncertainty}, without e
 
 \clearpage
 
+\section{Growth-model derivations and implementation}
+\label{app:derivations}
+
+\subsection{Accretion and exponential growth}
+
+The growth constraints follow from the relation between accretion luminosity,
+retained mass, and available cosmic time. For electron-scattering opacity in
+ionized hydrogen, the Eddington luminosity and luminosity-based Eddington ratio
+are
+\begin{equation}
+L_{\rm Edd}=\frac{4\pi G\mbh m_p c}{\sigma_T},\qquad
+\fedd=\frac{L_{\rm bol}}{L_{\rm Edd}},\qquad
+t_{\rm Edd}=\frac{\mbh c^2}{L_{\rm Edd}}
+=\frac{c\sigma_T}{4\pi Gm_p}\simeq0.45\ {\rm Gyr}.
+\label{eq:eddington}
+\end{equation}
+Here $G$, $c$, $m_p$, and $\sigma_T$ denote the gravitational constant,
+speed of light, proton mass, and Thomson cross section. With radiative
+efficiency $0<\epsilon<1$ and rest-mass inflow rate $\dot M_{\rm in}$,
+\begin{equation}
+L_{\rm bol}=\epsilon\dot M_{\rm in}c^2,\qquad
+\dot\mbh=(1-\epsilon)\dot M_{\rm in}
+=\frac{1-\epsilon}{\epsilon}\frac{\fedd}{t_{\rm Edd}}\mbh.
+\label{eq:massgrowth}
+\end{equation}
+The inflow rate is defined at the radiating flow; additional mass loss before
+that point is not modelled.
+Dividing Eq.~\ref{eq:massgrowth} by $\mbh$ and integrating at fixed
+$\epsilon$ gives
+\begin{equation}
+\ln\!\left(\frac{\mbh}{B_{\rm merge}\mseed}\right)
+=\frac{1-\epsilon}{\epsilon}\frac{1}{t_{\rm Edd}}
+\int_{t(z_{\rm seed})}^{t(z_{\rm obs})}\fedd(t)\,dt
+=\frac{1-\epsilon}{\epsilon}
+\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}}.
+\end{equation}
+Exponentiating yields Eq.~\ref{eq:growth}; solving for the average rate and
+applying the non-negative floor yields Eq.~\ref{eq:required-rate}.
+For a constant positive $\fedd$, the e-folding time is
+\begin{equation}
+t_{\rm efold}=\frac{\epsilon}{1-\epsilon}\frac{t_{\rm Edd}}{\fedd}.
+\end{equation}
+It is 0.05 Gyr at $\epsilon=0.1$ and $\fedd=1$.
+
+\subsection{Merger multiplier and inverse seed mass}
+
+The implementation evaluates Eq.~\ref{eq:growth} in log mass:
+\begin{equation}
+\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)
+=\log_{10}\!\left(\frac{\mseed}{M_\odot}\right)
++\log_{10}B_{\rm merge}
++\frac{1-\epsilon}{\epsilon}
+\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
+\label{eq:merger-implementation}
+\end{equation}
+We evaluate $B_{\rm merge}=1$ (no boost) and 2 (a factor-of-two mass boost).
+At fixed accretion history,
+\begin{equation}
+\frac{\mbh(B_{\rm merge}=2)}{\mbh(B_{\rm merge}=1)}=2,
+\qquad \Delta\log_{10}\mbh=\log_{10}2\simeq0.3010.
+\label{eq:merger-shift}
+\end{equation}
+
+Solving the same relation for seed mass gives
+\begin{equation}
+\log_{10}\!\left(\frac{M_{\rm seed,req}}{M_\odot}\right)
+=\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)-\log_{10}B_{\rm merge}
+-\frac{1-\epsilon}{\epsilon}
+\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
+\label{eq:required-seed}
+\end{equation}
+Here $M_{\rm seed,req}$ is the seed mass required for a specified average
+rate, efficiency, growth interval and merger multiplier.
+
+\subsection{Cosmic time}
+
+Cosmic ages use the flat matter-plus-Lambda relation
+\begin{equation}
+t(z)=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
+\operatorname{asinh}\!\left[\sqrt{\frac{\Omega_\Lambda}{\Omega_m}}
+(1+z)^{-3/2}\right],
+\label{eq:cosmictime}
+\end{equation}
+with $H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m=0.315$, and
+$\Omega_\Lambda=0.685$. The Hubble constant is converted to inverse time;
+ages and growth intervals are in Gyr. Radiation is neglected. In particular,
+the supplementary $z_{\rm seed}=3400$ comparison extrapolates this age relation
+and is not a radiation-era seed-formation calculation.
+
+\subsection{Two-state duty cycle}
+
+For a two-state history with the same efficiency in both states,
+\begin{equation}
+\overline{\fedd}=D f_{\rm burst}+(1-D)f_{\rm quiet},\qquad
+D_{\rm req}=\frac{\overline{\fedd}_{\rm req}-f_{\rm quiet}}
+{f_{\rm burst}-f_{\rm quiet}}.
+\label{eq:dutycycle}
+\end{equation}
+Here $D$ is the active-state time fraction, $f_{\rm burst}>f_{\rm quiet}\geq0$,
+and the diagnostic requires $\overline{\fedd}_{\rm req}\geq f_{\rm quiet}$.
+Values $D_{\rm req}>1$ identify an infeasible specified two-state history and
+are retained. An average growth requirement is not an instantaneous Eddington
+ratio or a uniquely measured duty cycle.
+
+
 \section{Data and code availability}
 \label{app:availability}
 
@@ -1038,6 +1074,7 @@ uniqueness. The manuscript exclusion check verifies that all open identity
 groups are withheld; the separate full-catalogue identity gate remains open
 for the three groups listed in Section~\ref{sec:limits}.
 
+\clearpage
 \begin{thebibliography}{99}
 \setlength{\itemsep}{2pt}
 \bibitem{shen2013} Shen, Y. 2013, The Mass of Quasars, arXiv:1302.2643v1.
