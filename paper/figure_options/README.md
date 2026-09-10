@@ -1,6 +1,6 @@
 # Growth-track layout options
 
-Review alternatives, not replacements for the current manuscript figure. All use the conservative 224 primary plus 10 exploratory-only objects, not the broader full-catalogue atlas. Objects without eligible numerical masses and identity exclusions are not plotted. All displayed points lie within the axes. The complete original atlas remains in `results/v3/figures/`.
+Option C is adopted as the manuscript growth-track figure; A, B and D remain review alternatives. All use the conservative 224 primary plus 10 exploratory-only objects, not the broader full-catalogue atlas. Objects without eligible numerical masses and identity exclusions are not plotted. All displayed points lie within the axes. The complete original atlas remains in `results/v3/figures/`.
 
 - **A — reference seed panels:** three nearby rates per seed, fixed efficiency 0.1 and B=1. Clearest comparison of rates at fixed seed mass.
 - **B — minimal reference:** one nearby rate per seed. Simplest overview, but hides the range of possible histories.
@@ -24,3 +24,9 @@ Reproduce from the repository root:
 ```sh
 MPLCONFIGDIR=/tmp/highz-mpl .venv/bin/python -m src.internal.growth_track_options
 ```
+
+## Publication refinement
+
+All four previews now extend from z=11.5 to z=3 so markers at z=4 are not clipped. No objects or selected scenarios changed. Six scientific targets are outlined: GN-z11 (exploratory), CEERS-1019, GS-20057765, UNCOVER-20466, COSMOS3D-13852 and RUBIES-EGS-55604. Full names appear once per multipanel figure, with the same targets highlighted in every panel; B names all six.
+
+Option C uses legends outside the plotting area, shared axes and panel letters. Both 300-dpi PNG and vector SVG are supplied; option C is adopted in the manuscript and Overleaf. The second footer line has been removed; selection and band definitions are documented in the manuscript text and caption.

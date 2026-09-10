@@ -60,14 +60,13 @@ def render_figures(root=ROOT, destination=None):
         for i,v in enumerate(values):counts.text(v+2,i,str(v),va='center')
         counts.set(xlabel='Object records',xlim=(0,max(values)*1.18),title=f'Catalogue accounting ({len(selection)})');counts.invert_yaxis()
         save(fig,'landscape')
-        fig,ax=plt.subplots(figsize=(10.5,5.5),constrained_layout=True)
-        z=np.linspace(3,13,300)
-        for seed,color in [(2,'#6688aa'),(4,'#719874'),(6,'#aa7777')]:
-            for rate,ls in [(.3,'--'),(1,'-')]:
-                ax.plot(z,models.predicted_log_mbh(seed,rate,.1,30,z),color=color,ls=ls,lw=1,
-                        label=rf'$M_{{\rm seed}}=10^{seed}M_\odot$, $\bar f={rate:g}$')
-        masses(ax);ax.set(xlim=(13,3),ylim=(4.5,10.8),title='Growth tracks and publication samples')
-        ax.legend(ncol=3,fontsize=8,frameon=False);save(fig,'growth_tracks')
+        # Rebuild the adopted efficiency-panel layout from the same source as option C.
+        from src.internal.growth_track_options import render as render_growth_options
+        import shutil
+        with tempfile.TemporaryDirectory() as growth_tmp, plt.rc_context():
+            render_growth_options(root, growth_tmp)
+            shutil.copyfile(Path(growth_tmp)/'03_full_efficiency_panels.png',
+                            destination/'growth_tracks.png')
         fig,ax=plt.subplots(figsize=(9,6.5),constrained_layout=True)
         tail_ids = point.loc[point.physical_object_id.isin(primary) & point.required_fedd_seed1e2.gt(1), 'physical_object_id']
         g = uncertainty.loc[uncertainty.physical_object_id.isin(tail_ids)].copy()

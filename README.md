@@ -69,7 +69,7 @@ explicitly separate literature/direct-mass comparisons; see `paper/analysis/`.
 Main-text figures use the conservative manuscript samples:
 
 - sample overview — `paper/figures/landscape.png`
-- reference growth tracks — `paper/figures/growth_tracks.png`
+- growth tracks across four fixed efficiencies — `paper/figures/growth_tracks.png`
 - reported-error uncertainty — `paper/figures/uncertainty.png`
 - seed/efficiency growth boundaries — `paper/figures/growth_boundaries.png`
 - alternate-measurement sensitivity — `paper/figures/measurement_sensitivity.png`

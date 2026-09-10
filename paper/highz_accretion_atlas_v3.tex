@@ -318,9 +318,14 @@ Eq.~\ref{eq:effective-efficiency}. The baseline rankings, duty-cycle diagnostics
 and seed-redshift--mass maps retain $\epsilon=0.1$; growth tracks retain their
 stated constant efficiencies. Thus compatibility above unity is conditional on
 a different efficiency model from the baseline required-$\fedd$ ranking.
-Figure~\ref{fig:allgrowth} places the exploratory masses against reference tracks
-to show the mass and time scales. Primary and exploratory-only objects are distinguished; the tracks are
-reference histories, not fits to individual objects.
+Figure~\ref{fig:allgrowth} compares the primary and exploratory-only masses
+with growth tracks at four fixed efficiencies. Tracks were selected for their
+proximity to the observed masses, not fitted to individual growth histories.
+For each seed mass and efficiency, we retain the two candidate average rates
+with the most primary objects within 0.5 dex of either the $B=1$ or $B=2$
+prediction, requiring at least five such objects. Rates span 0.1--2.0 in steps
+of 0.1; ties favour smaller median absolute residuals, then smaller rates.
+This display selection is dominated by the numerous objects at $z\simeq4$--6.
 
 \subsection{Uncertainty and ranking policy}
 \label{sec:uncertainty}
@@ -390,11 +395,14 @@ objects, not population frequencies.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.99\textwidth]{figures/growth_tracks.png}
-\caption{Reference growth tracks with the 224 primary and ten exploratory-only
-objects. Tracks use $z_{\rm seed}=30$, $\epsilon=0.1$, $B_{\rm merge}=1$,
-three seed masses and two average Eddington ratios. No excluded identities or
-mass-free records enter the plotted mass comparison; the reversed redshift
-axis spans $z=13$ to $z=3$.}
+\caption{Growth tracks with 224 primary and ten exploratory-only objects.
+Panels show four constant radiative efficiencies at $z_{\rm seed}=30$;
+colours distinguish seeds of $10^2$, $10^4$ and $10^5M_\odot$, and legends
+list the selected average Eddington ratios. Shaded bands span merger boosts
+$B=1$--2, with thick and thin edges respectively; they are not uncertainty
+intervals. Six named objects are outlined in every panel. The reversed
+redshift axis spans $z=11.5$ to $z=3$. Excluded identities and objects without
+eligible masses are omitted.}
 \label{fig:allgrowth}
 \end{figure}
 
