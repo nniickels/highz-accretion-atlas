@@ -36,36 +36,22 @@ def render_figures(root=ROOT, destination=None):
     destination = Path(destination) if destination is not None else root/'paper/figures'
     destination.mkdir(parents=True, exist_ok=True)
     selection, primary, point, uncertainty, compatibility, sensitivity = load_plot_inputs(root)
-    groups = [(point.physical_object_id.isin(primary), 'Primary', PRIMARY, 'o'),
-              (~point.physical_object_id.isin(primary), 'Exploratory only', SECONDARY, '^')]
     with plt.rc_context({**plt.rcParamsDefault, 'font.family':'DejaVu Sans', 'font.size':11, 'axes.labelsize':12, 'axes.titlesize':12,
                          'legend.fontsize':9, 'grid.alpha':.15,
                          'axes.spines.top':False, 'axes.spines.right':False}):
         def save(fig, name):
             fig.savefig(destination/f'{name}.png', dpi=300, facecolor='white')
             plt.close(fig)
-        def masses(ax):
-            for mask, label, color, marker in groups:
-                g = point.loc[mask]
-                ax.scatter(g.redshift, g.log_mbh_msun_std, s=24, alpha=.8,
-                           color='#69747e' if label == 'Primary' else '#874194', marker=marker,
-                           facecolors='#69747e' if label == 'Primary' else 'none', linewidth=.8,
-                           label=f'{label} ({len(g)})')
-            ax.set(xlabel='Observed redshift', ylabel=r'$\log_{10}(M_{\rm BH}/M_\odot)$')
-            ax.grid(alpha=.15)
-        fig, (ax, counts) = plt.subplots(1,2,figsize=(13,5.8), gridspec_kw={'width_ratios':[1.4,1]})
-        fig.subplots_adjust(left=.075,right=.98,bottom=.14,top=.77,wspace=.55)
-        fig.text(.075,.96,'Manuscript sample and catalogue accounting',fontsize=16,weight='bold',va='top')
-        masses(ax); ax.set_xlim(11.5,3)
-        ax.legend(frameon=False,ncol=2,loc='lower left',bbox_to_anchor=(0,1.01))
-        ax.set_title('(a)  Masses and redshifts',loc='left',y=1.17)
+        fig, counts = plt.subplots(figsize=(13,5.2))
+        fig.subplots_adjust(left=.24,right=.98,bottom=.15,top=.78)
+        fig.text(.075,.96,'Manuscript sample accounting',fontsize=16,weight='bold',va='top')
+        fig.text(.075,.87,f'{len(selection)} catalogue object records',fontsize=11)
         excluded = selection.excluded_identity_flag
         values = [len(primary),len(point)-len(primary),int((~excluded & ~selection.growth_ranking_eligible_flag).sum()),int(excluded.sum())]
         labels = ['Primary','Exploratory only','Retained without mass','Identity excluded']
         counts.barh(labels,values,color=['#69747e','#874194','#aaa','#444'])
         for i,v in enumerate(values):counts.text(v+2,i,str(v),va='center')
         counts.set(xlabel='Object records',xlim=(0,max(values)*1.18));counts.invert_yaxis()
-        counts.set_title(f'(b)  Catalogue accounting ({len(selection)})',loc='left',y=1.17)
         counts.grid(axis='x',alpha=.15);counts.set_axisbelow(True)
         save(fig,'landscape')
         # Rebuild the adopted efficiency-panel layout from the same source as option C.
