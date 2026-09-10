@@ -153,166 +153,75 @@ Appendix~\ref{app:efficiency}; it does not model spin evolution.
 
 \section{Catalogue construction}
 
-\subsection{Provenance, extraction, and identity}
+We compile 350 literature measurements from 32 source families at $z\geq4$.
+Each adopted mass is linked to its source, method and reported uncertainty.
+One preferred measurement is selected per object using documented source
+assessments; alternate measurements remain available for sensitivity tests
+and are not averaged into the preferred value.
 
-Stable measurement, object, and host identifiers connect each adopted value to
-its source-native measurement, extraction location, version, and uncertainty
-semantics. Independent source checks cover every admitted numerical mass and its
-reported errors. The repository retains the extraction artifacts, provenance
-registry, and auxiliary-coordinate attribution (Appendix~\ref{app:sources}).
+Growth analysis requires a numerical mass and redshift, an identified mass
+method and a resolved lensing treatment. Upper limits, indirect model ranges
+and masses inferred by assuming an Eddington ratio are excluded from numerical
+inference. We also exclude all six records associated with three unresolved
+identity groups, including three records with eligible masses. This leaves
+224 primary objects and an inclusive exploratory sample of 234 objects.
 
-Identity resolution preserves every admitted measurement while selecting exactly
-one preferred row per object. Its mass, redshift, evidence status, and method
-flags control the object-level comparison; alternate evidence remains recorded
-but is not averaged into that row. Preferences are explicit source-reviewed
-decisions, not a ranking by inferred growth pressure or a universal
-newest-publication rule. Previously adopted rows are retained unless a documented
-replacement is justified. For example, the CEERS-2782 group uses RUBIES-EGS-50052
-because the source adopts its higher-signal-to-noise spectrum over the slit-loss
-measurement; NX10835 uses the newly available numerical NEXUS mass. UHZ1 uses
-the later full-dataset evidence assessment and remains outside numerical growth
-inference. The measurement--object link table records each decision and reason.
-Additional source-admission checks are summarized in
-Appendix~\ref{app:admission}.
-
-\subsection{Mass comparability and analysis subsets}
-
-A measurement enters numerical growth analysis only when the source publishes a
-canonical numeric black-hole mass compatible with the declared comparison
-policy. It must have a numerical redshift, a named mass method, a numerical-mass
-comparability group, declared uncertainty semantics (including explicitly absent
-errors), an applied or otherwise resolved lensing treatment, and a resolved
-identity in the assembly registry. That last field denotes the recorded assembly
-decision, not closure of the stricter independent identity audit in
-Section~\ref{sec:limits}. Masses inferred by assuming an Eddington ratio,
-indirect model ranges, and upper limits remain contextual observables.
-Published virial masses conditional on a broad component being a broad-line
-region are retained in the exploratory calculation but excluded from the primary
-comparison. This produces 244
-eligible measurements and 237 eligible preferred objects. Of those objects, 236
-use Balmer-line single-epoch virial masses and one uses a UV single-epoch virial
-mass. Their redshifts span 4.000--10.603 with median 5.110; standardized
-$\log_{10}(\mbh/M_\odot)$ spans 5.51--9.31 with median 7.18. The 101 objects
-without an eligible mass remain visible throughout the catalogue and atlas.
-Before the independent identity exclusions, the method-defined primary subset
-has 234 measurements and 227 preferred objects:
-an eligible preferred row must have secure or probable evidence, no conditional
-mass flag, and an affirmative primary-mass-comparison flag. In this release,
-all 227 method-eligible primary objects use Balmer-line single-epoch virial masses. Of the ten
-exploratory objects excluded from the primary sample, nine have candidate
-evidence (seven also have conditional broad-line interpretations), and GN-z11
-has a UV estimator outside the primary method group. Missing reported errors
-do not remove an otherwise eligible point estimate; they prevent probability
-inference. These cuts define a method stratum, not identical calibration or
-uniform observational selection.
-
-For manuscript inference we conservatively exclude every object record linked
-to any of the three open identity groups: six records linked to seven admitted
-measurements. Three excluded records have numerical masses (GDS\_1210\_9515,
-GS-8083, and GS-10013704); all three otherwise pass the primary method cuts.
-This yields 224 primary and 234 exploratory numerical objects. The other three
-excluded records already lack numerical masses. All source measurements and
-original catalogue flags remain available; exclusion does not assert that the
-records are duplicates or that their physical identities are resolved.
-The explicit exclusion registry and complete per-object selection are supplied
-with the manuscript analysis products.
-
-Figure~\ref{fig:landscape} in Appendix~\ref{app:sources} distinguishes the 224 primary objects from the ten
-additional exploratory objects. The accounting panel also records 98 retained
-objects without masses and all six identity exclusions, without plotting excluded
-measurements. Figures use the publication selection or explicitly labelled subsets of it.
-
-
+The primary sample uses Balmer-line single-epoch virial masses with secure or
+probable evidence and no conditional broad-line-region interpretation. The ten
+additional exploratory objects comprise nine candidates and GN-z11, whose UV
+mass estimator lies outside the primary method group. Missing mass errors do
+not exclude a point estimate, but prevent probability inference. These cuts
+improve method comparability without implying a common calibration or survey
+selection function. Appendix~\ref{app:sources} gives the source inventory,
+identity decisions and sample accounting (Figure~\ref{fig:landscape}).
 
 \section{Growth-model comparison}
 
 \subsection{Reference model}
 
-We apply the relations in Section~\ref{sec:theory} to each eligible object.
-The reference ranking uses $z_{\rm seed}=30$, $\epsilon=0.1$,
-$B_{\rm merge}=1$, and $\mseed=10^2\,M_\odot$. Required average rates and
-seed masses follow Eqs.~\ref{eq:required-rate} and \ref{eq:required-seed}.
-We call the derived requirement \emph{growth pressure}: it measures how
-demanding a specified history is, conditional on the published mass and model.
+We calculate the required lifetime-average Eddington ratio using
+Eq.~\ref{eq:required-rate}, with $\mseed=10^2M_\odot$, $z_{\rm seed}=30$,
+$\epsilon=0.1$ and $B_{\rm merge}=1$ as the reference history.
+We refer to this conditional requirement as \emph{growth pressure}.
+Figure~\ref{fig:allgrowth} illustrates tracks at four fixed efficiencies;
+tracks are selected for proximity to the observed masses, not fitted growth
+histories. Appendix~\ref{app:implementation} specifies the display selection.
 
-The spin-dependent $\fedd$--seed-mass maps and compatibility matrices use
-Eq.~\ref{eq:effective-efficiency}. The baseline rankings, duty-cycle diagnostics,
-and seed-redshift--mass maps retain $\epsilon=0.1$; growth tracks retain their
-stated constant efficiencies. Thus compatibility above unity is conditional on
-a different efficiency model from the baseline required-$\fedd$ ranking.
-Figure~\ref{fig:allgrowth} compares the primary and exploratory-only masses
-with growth tracks at four fixed efficiencies. Tracks were selected for their
-proximity to the observed masses, not fitted to individual growth histories.
-For each seed mass and efficiency, we retain the two candidate average rates
-with the most primary objects within 0.5 dex of either the $B=1$ or $B=2$
-prediction, requiring at least five such objects. Rates span 0.1--2.0 in steps
-of 0.1; ties favour smaller median absolute residuals, then smaller rates.
-This display selection is dominated by the numerous objects at $z\simeq4$--6.
-
-\subsection{Uncertainty and ranking policy}
+\subsection{Uncertainty and sensitivity}
 \label{sec:uncertainty}
 
-Published asymmetric mass uncertainties in $\log_{10}\mbh$ are
-propagated with 10,000 deterministic split-side draws per measurement and per
-preferred object. If a source gives no reported mass error, the atlas does not
-invent one. In particular, the twelve mass-bearing NEXUS objects have no
-published mass errors. Their repeated point values yield zero-width
-stored intervals; probabilities and uncertainty ranks are left unavailable,
-not interpreted as certainty. They are marked separately in uncertainty figures. The other
-225 objects have reported mass errors in the full numerical catalogue; 222
-remain in the manuscript exploratory sample after identity exclusion. Split-side sampling assigns half
-the probability to each side of the reported central value, using the respective
-error as the scale of a half-normal distribution; it approximates quoted
-intervals rather than reconstructing source posteriors. Redshifts are held
-fixed. Draws use seed 20260808 with a stable identifier-based random stream.
-For 10,000 draws the binomial Monte Carlo standard error of an estimated
-probability is at most 0.005 (approximately 0.0022 at probability 0.95);
-this numerical sampling error is separate from astrophysical uncertainty.
-Source-reported errors are retained as quoted and are not assumed to be
-purely statistical. For ZS7, the published 0.4-dex error already includes
-virial-calibration scatter. No additional scatter is added to that error.
-Separately reported method-scale systematics are stored and, where possible,
-mapped to sensitivity envelopes; the atlas does not assume that these terms
-are independent Gaussian errors.
+We propagate reported asymmetric log-mass errors through 10,000 draws per
+object, assigning half the draws to each side of the central mass with the
+corresponding half-normal scale. Redshifts are held fixed. This approximates
+quoted intervals rather than reconstructing source posteriors. The 12 primary
+objects without reported errors contribute point estimates only; probability
+calculations use 212 primary and 222 inclusive exploratory objects.
+No additional calibration scatter is added to the quoted errors.
 
-To test sensitivity to the assumed virial-mass scale, we shift every numerical
-publication-sample mass by a common fixed offset $\delta=-0.5,-0.3,0,+0.3,+0.5$
-dex. The same offset translates each object's original reported-error draws;
-redshifts, sample membership, and reference growth parameters remain fixed.
-The chosen amplitudes probe a fraction of and approximately the $0.5$-dex
-single-epoch mass uncertainty scale discussed by Shen \cite{shen2013}.
-They are stress-test amplitudes, not an inferred common calibration bias or a
-validated uncertainty model for JWST sources. A coherent shift is not equivalent
-to independent object-to-object scatter. No new scatter is added in quadrature,
-including for errors already containing calibration scatter. Probabilities remain
-conditional on each fixed offset, with no marginalization over $\delta$;
-objects without reported errors contribute only point estimates.
+We test mass-scale sensitivity by shifting all adopted log masses and their
+error draws by offsets of $-0.5$, $-0.3$, $0$, $+0.3$ and $+0.5$ dex, keeping the sample and growth
+assumptions fixed. These offsets probe the single-epoch mass uncertainty scale
+\cite{shen2013}; they are stress tests, not inferred calibration corrections.
+Probabilities remain conditional on each offset. Sampling and conversion
+details are given in Appendix~\ref{app:implementation}.
 
-The final published Killi mass $8^{+0.5}_{-0.4}\times10^8M_\odot$
-is converted by transforming both linear bounds, giving
-$\log_{10}(M/M_\odot)=8.90309^{+0.02633}_{-0.02228}$.
+\subsection{Compatibility across growth assumptions}
+\label{sec:compatibility}
 
-The primary scientific comparison is within object class and mass-comparability
-group. Global point and uncertainty ranks are retained only for navigation.
-The required-$\fedd$ comparisons in this manuscript use the physical growth
-requirement directly. The separate heuristic navigation score and tie policy
-are specified in Appendix~\ref{app:navigation}; they do not define the
-scientific conclusions.
-Compatibility is also calculated object by object across four seed families,
-three spin/efficiency cases, two merger cases, and three constant accretion rates.
-For fixed $z_{\rm seed}=30$, $\epsilon$, $B_{\rm merge}$ and $\fedd$, a cell is
-compatible precisely when the required $\log_{10}(M_{\rm seed}/M_\odot)$ lies
-inside the inclusive seed interval: $[1,2]$ (light), $[3,4]$ (intermediate),
-$[4,6]$ (heavy), or $[2,6]$ (broad mass interval). These are overlapping scenario
-ranges, not probability priors. A required seed below the interval indicates
-that this fixed history would overgrow the observed mass; it does not exclude
-the seed family under a shorter duty cycle. The broad interval specifies a mass range at the common starting redshift;
-it has no formation-channel interpretation. The legacy machine-readable
-key is retained for reproducibility and is documented in the supplement.
-The source-level selection registry leaves inverse-probability weights unset
-because no common inclusion-probability model spans the 32 source families.
-Consequently, compatibility fractions are descriptive summaries of the admitted
-objects, not population frequencies.
+A fixed history is compatible with an object when its required seed mass
+(Eq.~\ref{eq:required-seed}) lies within the chosen interval in
+$\log_{10}(M_{\rm seed}/M_\odot)$: $[1,2]$ (light), $[3,4]$ (intermediate),
+$[4,6]$ (heavy), or $[2,6]$ (broad). The grid uses $z_{\rm seed}=30$, three
+spin/efficiency cases, merger multipliers 1 and 2, and average rates 0.3, 1
+and 2. Unlike the reference ranking and fixed-efficiency growth tracks, these
+maps use the supercritical efficiency prescription in
+Appendix~\ref{app:efficiency}.
+
+Seed intervals overlap and carry no probability weights; the broad interval
+has no formation-channel interpretation. A required seed below an interval
+means that the specified history overgrows the observed mass. Compatibility
+fractions describe the admitted objects, not population frequencies, because
+the literature sample has no common selection function.
 
 \begin{figure}[htbp]
 \centering
@@ -878,6 +787,28 @@ broad-line object, yielding 20 distinct narrow-line candidates from that source.
 JADES-NS-GS00099671 is retained with its published host and bolometric
 observables but without an invented black-hole mass.
 
+\subsection{Preferred measurements and identity exclusions}
+\label{app:identities}
+
+Stable measurement, object and host identifiers retain extraction locations,
+source versions and uncertainty semantics. Preferred measurements are chosen
+from source assessments, not inferred growth pressure or publication date alone.
+The CEERS-2782 group uses RUBIES-EGS-50052 because the source prefers its
+higher-signal-to-noise spectrum over the slit-loss measurement. NX10835 uses
+the newly available NEXUS mass; UHZ1 uses the later full-dataset evidence
+assessment and remains outside numerical growth inference. The measurement--object
+link table records each choice and its reason.
+
+Before the conservative identity exclusions, there are 244 eligible measurements
+and 237 preferred objects: 236 Balmer-line and one UV single-epoch virial masses.
+The method-defined primary subset has 234 measurements and 227 objects.
+The six excluded records link to seven admitted measurements; the three with
+eligible masses are GDS\_1210\_9515, GS-8083 and GS-10013704. All three otherwise
+pass the primary cuts. The other three excluded records lack eligible masses.
+Exclusion does not establish duplication or resolve the identities.
+Seven of the nine additional candidate objects have conditional broad-line
+interpretations. All original measurements and catalogue flags remain available.
+
 \section{Catalogue navigation score}
 \label{app:navigation}
 
@@ -936,7 +867,7 @@ Figure~\ref{fig:compatibility} gives the full scenario grid. The broad
 $10^2$--$10^6M_\odot$ interval retains the legacy code key
 \nolinkurl{pbh_origin_hypothesis} solely for artifact compatibility; it models
 no primordial formation process. The descriptive fractions use point masses
-and the inclusive interval criterion in Section~\ref{sec:uncertainty}, without error integration.
+and the inclusive interval criterion in Section~\ref{sec:compatibility}, without error integration.
 
 
 \clearpage
@@ -1045,6 +976,37 @@ Values $D_{\rm req}>1$ identify an infeasible specified two-state history and
 are retained. An average growth requirement is not an instantaneous Eddington
 ratio or a uniquely measured duty cycle.
 
+
+\subsection{Sampling, mass conversions and track selection}
+\label{app:implementation}
+
+Draws use seed 20260808 and a stable identifier-based random stream.
+For 10,000 draws, the binomial Monte Carlo standard error of a probability is
+at most 0.005 (approximately 0.0022 at probability 0.95). This is numerical
+sampling error, separate from astrophysical uncertainty. The twelve mass-bearing
+NEXUS objects have no published mass errors: repeated point values produce
+zero-width stored intervals, while probabilities and uncertainty ranks remain
+unavailable. Source errors are retained as quoted and need not be purely
+statistical. For ZS7, the published 0.4-dex error already includes
+virial-calibration scatter. Separately reported method systematics are stored
+and, where possible, mapped to sensitivity envelopes without assuming
+independent Gaussian contributions.
+
+The mass-scale tests translate each object's original draws by the fixed
+offset; no scatter is added in quadrature and no marginalization over the
+offset is performed. The final published Killi mass
+$8^{+0.5}_{-0.4}\times10^8M_\odot$ is converted by transforming both linear
+bounds, giving $\log_{10}(M/M_\odot)=8.90309^{+0.02633}_{-0.02228}$.
+
+For Figure~\ref{fig:allgrowth}, candidate average rates span 0.1--2.0 in
+steps of 0.1. For each seed mass and fixed efficiency, we retain the two rates
+with the most primary objects within 0.5 dex of either the $B=1$ or $B=2$
+prediction, requiring at least five such objects. Ties favour smaller median
+absolute residuals, then smaller rates. Objects at $z\simeq4$--6 dominate
+this display selection; the tolerance is not an uncertainty interval.
+Baseline rankings, duty-cycle diagnostics and seed-redshift--mass maps retain
+$\epsilon=0.1$. The heuristic catalogue score in Appendix~\ref{app:navigation}
+is separate from the required-rate ranking used for scientific conclusions.
 
 \section{Data and code availability}
 \label{app:availability}
