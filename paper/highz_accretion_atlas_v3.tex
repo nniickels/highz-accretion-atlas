@@ -26,8 +26,9 @@
 \maketitle
 
 \begin{abstract}
-\textbf{Aims.} We identify which JWST black-hole candidates provide useful tests
-of early growth and which mass or growth assumptions control their interpretation.
+\textbf{Aims.} Massive black holes in the early universe must grow within limited
+cosmic time. We identify which JWST black-hole candidates test early growth and
+which assumptions control their interpretation.
 \textbf{Methods.} We compile 350 literature measurements from 32 source families
 at $z\geq4$. Excluding unresolved identities gives 224 primary objects with
 comparable mass methods and 234 objects in an inclusive exploratory sample.
@@ -40,14 +41,16 @@ under their reported errors. UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604
 retain this probability threshold after a $-0.5$ dex mass shift, although
 source-specific lensing, scattering, and calibration assumptions remain relevant.
 The most demanding object changes from UNCOVER-20466 to the exploratory object
-GN-z11 when seeding is delayed to $z=20$. Lowering the fixed efficiency to 0.05719
-removes every point-estimate requirement above unity. A separate A2744-QSO1
+GN-z11 when seeding is delayed to $z=20$. A separate A2744-QSO1
 dynamical-mass comparison moves its requirement close to unity, with an error
 interval crossing the threshold.
-\textbf{Conclusions.} The atlas supplies source-linked targets for testing mass
-estimators and growth assumptions. Its constraints do not identify unique
-formation channels, and its heterogeneous membership does not support pooled
-demographic inference.
+\textbf{Conclusions.} Using the catalogued masses and redshifts, we determine which
+seed masses and radiative efficiencies permit growth to the observed masses
+within the available cosmic time. Lowering the efficiency to
+$\epsilon=1-\sqrt{8/9}\simeq0.05719$, the ideal thin-disc value for a non-spinning
+(Schwarzschild) black hole, permits all central mass estimates in the primary
+and inclusive exploratory samples to be reached from $10^2M_\odot$ seeds formed
+at $z=30$ without requiring lifetime-average accretion above the Eddington limit.
 
 \smallskip
 \noindent\textbf{Key words.} black hole physics -- accretion, accretion disks --
@@ -146,7 +149,27 @@ t_{\rm efold}=\frac{\epsilon}{1-\epsilon}
 \end{equation}
 The e-folding time assumes constant positive $\fedd$; it is 0.05 Gyr at
 $\epsilon=0.1$ and $\fedd=1$. The dimensionless $B_{\rm merge}$ represents an
-effective multiplicative merger boost, not a resolved merger history.
+effective multiplicative merger boost. The implementation applies it in log mass as
+\begin{equation}
+\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)
+=\log_{10}\!\left(\frac{\mseed}{M_\odot}\right)
++\log_{10}B_{\rm merge}
++\frac{1-\epsilon}{\epsilon}
+\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
+\label{eq:merger-implementation}
+\end{equation}
+We evaluate $B_{\rm merge}=1$ (no boost) and 2 (a factor-of-two mass boost).
+At fixed accretion history,
+\begin{equation}
+\frac{\mbh(B_{\rm merge}=2)}{\mbh(B_{\rm merge}=1)}=2,
+\qquad \Delta\log_{10}\mbh=\log_{10}2\simeq0.3010.
+\label{eq:merger-shift}
+\end{equation}
+This prescription is equivalent to rescaling the seed normalization; it does
+not simulate merger times, mass ratios, gravitational-wave losses or a merger
+tree. The reference ranking uses $B_{\rm merge}=1$; boosted cases are conditional
+sensitivity comparisons. Equations~\ref{eq:required-rate} and
+\ref{eq:required-seed} below include the same factor in the inverse calculation.
 
 Cosmic ages use the flat matter-plus-Lambda relation
 \begin{equation}
@@ -199,22 +222,6 @@ and the ISCO algebra are specified in Appendix~\ref{app:efficiency}; they are
 illustrative constant-state scenarios rather than spin-evolution models.
 
 \section{Catalogue construction}
-
-\subsection{Scope and versioning}
-
-The scope requires $z\geq4$ and identification or candidate classification
-from JWST data. Objects merely followed up by JWST after a non-JWST discovery
-are outside the admission rule. The declared 32-source membership was frozen
-at the review cutoff of 3 September 2026; it is not an exhaustive census of
-all discoveries before that date. Source-native measurements are retained,
-with corrections documented against the source. The repository records the
-nested v1/v2/v3 datasets; this paper analyses v3.
-
-The catalogue retains 350 measurements represented by 338 provisional object
-records in 337 host systems. Numerical comparisons use the conservative samples
-defined below; the wider evidence inventory is summarized in
-Appendix~\ref{app:sources}. Evidence labels describe the source papers'
-assessments and do not place different discovery classes on a common purity scale.
 
 \subsection{Provenance, extraction, and identity}
 
@@ -831,33 +838,6 @@ membership, not every JWST discovery.
 The external A2744-QSO1 comparison in Section~\ref{sec:direct} evaluates a
 pre-cutoff dynamical measurement without silently changing frozen membership.
 
-\section{Data and code availability}
-
-The catalogue, source registries, code, and manuscript analysis are available at
-\url{https://github.com/nniickels/highz-accretion-atlas}. The frozen v3 catalogue
-baseline is identified by Git commit
-\href{https://github.com/nniickels/highz-accretion-atlas/tree/a40a0d28c6c8d0b7e0c98aea089629903c34f7be}{\texttt{a40a0d2}};
-version manifests under \texttt{releases/} record the dataset artifact hashes.
-The revised manuscript's source-linked comparisons and generated tables are in
-\texttt{paper/analysis/}, with explicit external inputs in
-\texttt{paper/review\_inputs.json}. A permanent archival DOI has not yet been
-assigned; the repository and Git baseline provide the current access and
-version identification.
-
-Five ordered notebooks reproduce the catalogue, science products, figures,
-and atlas using pinned dependencies. Reproduction checks compare regenerated
-numerical products, figures, and manuscript table fragments with an independent
-stored baseline, then verify their internal consistency. Independent
-cosmic-age quadrature and growth integration supplement the regression checks.
-The source-family inventory in Appendix~\ref{app:sources} links measurements,
-methods, selection channels, and major caveats. Full identifiers, source-native
-observables, alternative measurements, and per-object maps remain available.
-
-Source agreement does not establish estimator validity or astrophysical
-uniqueness. The manuscript exclusion check verifies that all open identity
-groups are withheld; the separate full-catalogue identity gate remains open
-for the three groups listed in Section~\ref{sec:limits}.
-
 \section{Conclusions}
 
 The atlas provides a reproducible, source-linked comparison of early
@@ -1018,6 +998,34 @@ and the inclusive interval criterion in Section~\ref{sec:uncertainty}, without e
 
 
 \clearpage
+
+\section{Data and code availability}
+\label{app:availability}
+
+The catalogue, source registries, code, and manuscript analysis are available at
+\url{https://github.com/nniickels/highz-accretion-atlas}. The frozen v3 catalogue
+baseline is identified by Git commit
+\href{https://github.com/nniickels/highz-accretion-atlas/tree/a40a0d28c6c8d0b7e0c98aea089629903c34f7be}{\texttt{a40a0d2}};
+version manifests under \texttt{releases/} record the dataset artifact hashes.
+The revised manuscript's source-linked comparisons and generated tables are in
+\texttt{paper/analysis/}, with explicit external inputs in
+\texttt{paper/review\_inputs.json}. A permanent archival DOI has not yet been
+assigned; the repository and Git baseline provide the current access and
+version identification.
+
+Five ordered notebooks reproduce the catalogue, science products, figures,
+and atlas using pinned dependencies. Reproduction checks compare regenerated
+numerical products, figures, and manuscript table fragments with an independent
+stored baseline, then verify their internal consistency. Independent
+cosmic-age quadrature and growth integration supplement the regression checks.
+The source-family inventory in Appendix~\ref{app:sources} links measurements,
+methods, selection channels, and major caveats. Full identifiers, source-native
+observables, alternative measurements, and per-object maps remain available.
+
+Source agreement does not establish estimator validity or astrophysical
+uniqueness. The manuscript exclusion check verifies that all open identity
+groups are withheld; the separate full-catalogue identity gate remains open
+for the three groups listed in Section~\ref{sec:limits}.
 
 \begin{thebibliography}{99}
 \setlength{\itemsep}{2pt}
