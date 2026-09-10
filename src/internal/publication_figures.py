@@ -13,7 +13,7 @@ from src import models
 from src.internal.publication_selection import ROOT, build_publication_outputs
 
 NAMES = ('landscape', 'growth_tracks', 'uncertainty', 'compatibility', 'measurement_sensitivity', 'growth_boundaries')
-PRIMARY, SECONDARY = '#176B87', '#B66A1E'
+PRIMARY, SECONDARY = '#0072B2', '#D55E00'
 
 
 def load_plot_inputs(root=ROOT):
@@ -38,7 +38,8 @@ def render_figures(root=ROOT, destination=None):
     selection, primary, point, uncertainty, compatibility, sensitivity = load_plot_inputs(root)
     groups = [(point.physical_object_id.isin(primary), 'Primary', PRIMARY, 'o'),
               (~point.physical_object_id.isin(primary), 'Exploratory only', SECONDARY, '^')]
-    with plt.rc_context({**plt.rcParamsDefault, 'font.family':'DejaVu Sans', 'font.size':10,
+    with plt.rc_context({**plt.rcParamsDefault, 'font.family':'DejaVu Sans', 'font.size':11, 'axes.labelsize':12, 'axes.titlesize':12,
+                         'legend.fontsize':9, 'grid.alpha':.15,
                          'axes.spines.top':False, 'axes.spines.right':False}):
         def save(fig, name):
             fig.savefig(destination/f'{name}.png', dpi=300, facecolor='white')
@@ -47,27 +48,36 @@ def render_figures(root=ROOT, destination=None):
             for mask, label, color, marker in groups:
                 g = point.loc[mask]
                 ax.scatter(g.redshift, g.log_mbh_msun_std, s=24, alpha=.8,
-                           color=color, marker=marker, edgecolor='white', linewidth=.3,
+                           color='#69747e' if label == 'Primary' else '#874194', marker=marker,
+                           facecolors='#69747e' if label == 'Primary' else 'none', linewidth=.8,
                            label=f'{label} ({len(g)})')
             ax.set(xlabel='Observed redshift', ylabel=r'$\log_{10}(M_{\rm BH}/M_\odot)$')
             ax.grid(alpha=.15)
-        fig, (ax, counts) = plt.subplots(1,2,figsize=(10.5,4.5), constrained_layout=True, gridspec_kw={'width_ratios':[1.4,1]})
-        masses(ax);ax.legend(frameon=False);ax.set_title('Manuscript numerical samples')
+        fig, (ax, counts) = plt.subplots(1,2,figsize=(13,5.8), gridspec_kw={'width_ratios':[1.4,1]})
+        fig.subplots_adjust(left=.075,right=.98,bottom=.14,top=.77,wspace=.55)
+        fig.text(.075,.96,'Manuscript sample and catalogue accounting',fontsize=16,weight='bold',va='top')
+        masses(ax); ax.set_xlim(11.5,3)
+        ax.legend(frameon=False,ncol=2,loc='lower left',bbox_to_anchor=(0,1.01))
+        ax.set_title('(a)  Masses and redshifts',loc='left',y=1.17)
         excluded = selection.excluded_identity_flag
         values = [len(primary),len(point)-len(primary),int((~excluded & ~selection.growth_ranking_eligible_flag).sum()),int(excluded.sum())]
         labels = ['Primary','Exploratory only','Retained without mass','Identity excluded']
-        counts.barh(labels,values,color=[PRIMARY,SECONDARY,'#aaa','#666'])
+        counts.barh(labels,values,color=['#69747e','#874194','#aaa','#444'])
         for i,v in enumerate(values):counts.text(v+2,i,str(v),va='center')
-        counts.set(xlabel='Object records',xlim=(0,max(values)*1.18),title=f'Catalogue accounting ({len(selection)})');counts.invert_yaxis()
+        counts.set(xlabel='Object records',xlim=(0,max(values)*1.18));counts.invert_yaxis()
+        counts.set_title(f'(b)  Catalogue accounting ({len(selection)})',loc='left',y=1.17)
+        counts.grid(axis='x',alpha=.15);counts.set_axisbelow(True)
         save(fig,'landscape')
         # Rebuild the adopted efficiency-panel layout from the same source as option C.
         from src.internal.growth_track_options import render as render_growth_options
         import shutil
-        with tempfile.TemporaryDirectory() as growth_tmp, plt.rc_context():
+        with tempfile.TemporaryDirectory() as growth_tmp, plt.rc_context(plt.rcParamsDefault):
             render_growth_options(root, growth_tmp)
             shutil.copyfile(Path(growth_tmp)/'03_full_efficiency_panels.png',
                             destination/'growth_tracks.png')
-        fig,ax=plt.subplots(figsize=(9,6.5),constrained_layout=True)
+        fig,ax=plt.subplots(figsize=(13,7.8))
+        fig.subplots_adjust(left=.23,right=.98,bottom=.12,top=.79)
+        fig.text(.075,.96,'Objects above the reference growth threshold',fontsize=16,weight='bold',va='top')
         tail_ids = point.loc[point.physical_object_id.isin(primary) & point.required_fedd_seed1e2.gt(1), 'physical_object_id']
         g = uncertainty.loc[uncertainty.physical_object_id.isin(tail_ids)].copy()
         g = g.sort_values('required_fedd_seed1e2_p50',ascending=False)
@@ -79,10 +89,12 @@ def render_figures(root=ROOT, destination=None):
         ax.scatter(lower.loc[g.physical_object_id,'required_fedd'],y,marker='D',color=SECONDARY,s=28,label='Point requirement after -0.5 dex mass shift')
         ax.set_yticks(y,g.object_id,fontsize=10);ax.invert_yaxis()
         ax.axvline(1,color='#555',ls='--',lw=1)
-        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$',title='Twelve primary objects above the reference threshold')
-        ax.grid(axis='x',alpha=.2);ax.legend(loc='lower right',fontsize=9,frameon=False)
+        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$')
+        ax.grid(axis='x',alpha=.15);ax.legend(loc='lower left',bbox_to_anchor=(0,1.015),fontsize=9,frameon=False)
         save(fig,'uncertainty')
-        fig,axes=plt.subplots(1,2,figsize=(10,4.5),constrained_layout=True,sharey=True)
+        fig,axes=plt.subplots(1,2,figsize=(13,6.5),sharey=True)
+        fig.subplots_adjust(left=.085,right=.98,bottom=.14,top=.73,wspace=.15)
+        fig.text(.075,.97,'Seed mass and radiative-efficiency constraints',fontsize=16,weight='bold',va='top')
         seeds=np.linspace(1,6,250)
         for name,color,ls in [('UNCOVER-20466',PRIMARY,'-'),('COSMOS3D-13852','#874194','-'),('RUBIES-EGS-55604','#49834c','-'),('GS-20057765','#555555',':'),('GN-z11',SECONDARY,'--')]:
             obj=point.loc[point.object_id.eq(name)].iloc[0]
@@ -90,23 +102,27 @@ def render_figures(root=ROOT, destination=None):
                 # Solve f_req=1 at fixed seed, start time and B=1 for efficiency.
                 a=(models.cosmic_time_gyr(obj.redshift)-models.cosmic_time_gyr(zseed))/(.45*np.log(10)*(obj.log_mbh_msun_std-seeds))
                 ax.plot(seeds,a/(1+a),color=color,ls=ls,label=name)
-                ax.set(xlabel=r'$\log_{10}(M_{\rm seed}/M_\odot)$',title=rf'$z_{{\rm seed}}={zseed}$',ylim=(.035,.19))
+                ax.set(xlabel=r'$\log_{10}(M_{\rm seed}/M_\odot)$',title=rf'({"a" if zseed == 30 else "b"})  $z_{{\rm seed}}={zseed}$',ylim=(.035,.19))
                 ax.axhline(.1,color='#aaa',lw=.7);ax.axhline(1-np.sqrt(8/9),color='#aaa',ls=':',lw=.7)
                 ax.grid(alpha=.15)
         axes[0].set_ylabel(r'Maximum fixed efficiency for $\overline{f}_{\rm Edd}\leq1$')
-        axes[0].legend(fontsize=8,frameon=False,loc='upper left')
+        for ax in axes:
+            ax.set_title(ax.get_title(),loc='left');ax.set_title('')
+        handles, labels = axes[0].get_legend_handles_labels()
+        fig.legend(handles,labels,fontsize=9,frameon=False,loc='upper left',bbox_to_anchor=(.075,.90),ncol=3)
         save(fig,'growth_boundaries')
         seed_names=list(compatibility.seed_model.drop_duplicates())
-        fig,axes=plt.subplots(len(seed_names),2,figsize=(10,8.5),
+        fig,axes=plt.subplots(len(seed_names),2,figsize=(13,10),
                               sharex=True,sharey=True,squeeze=False)
-        fig.subplots_adjust(left=.09,right=.825,bottom=.14,top=.88,
+        fig.subplots_adjust(left=.09,right=.825,bottom=.14,top=.82,
                             hspace=.48,wspace=.12)
+        fig.text(.075,.977,'Compatibility across growth assumptions',fontsize=16,weight='bold',va='top')
         samples = [(primary,f'Primary ({len(primary)})'),
                    (set(point.physical_object_id),f'Exploratory, including primary ({len(point)})')]
         for sample_col,(ids,label) in enumerate(samples):
             position=axes[0,sample_col].get_position()
-            fig.text((position.x0+position.x1)/2,.956,label,
-                     ha='center',va='center',fontsize=11,fontweight='bold')
+            fig.text((position.x0+position.x1)/2,.918,label,
+                     ha='center',va='center',fontsize=12)
             for seed_row,seed in enumerate(seed_names):
                 g=compatibility.loc[compatibility.physical_object_id.isin(ids)&compatibility.seed_model.eq(seed)]
                 pivot=g.pivot_table(index='spin_case',columns=['merger_case','f_edd_avg'],values='compatible',aggfunc='mean')
@@ -131,17 +147,19 @@ def render_figures(root=ROOT, destination=None):
                         ax.text(xpos,-.27,rf'$B_{{\rm merge}}={boost}$',
                                 transform=ax.get_xaxis_transform(),ha='center',va='top',fontsize=10)
         for seed_row,seed in enumerate(seed_names):
-            title = r'$10^2$--$10^6\,M_\odot$ seed range' if 'pbh' in seed else seed.replace('_',' ').capitalize()
+            title = r'$10^2$ to $10^6\,M_\odot$ seed range' if 'pbh' in seed else seed.replace('_',' ').capitalize()
             fig.text(.4575,axes[seed_row,0].get_position().y1+.014,title,
                      ha='center',va='bottom',fontsize=11)
         fig.supylabel(r'Spin, $a$',x=.02,fontsize=12)
         fig.supxlabel(r'Lifetime-average Eddington ratio, $\overline{f}_{\rm Edd}$',
                       y=.025,fontsize=12)
-        colorbar=fig.colorbar(im,cax=fig.add_axes([.865,.20,.025,.62]))
+        colorbar=fig.colorbar(im,cax=fig.add_axes([.865,.20,.025,.56]))
         colorbar.set_ticks([0,.25,.5,.75,1],labels=['0%','25%','50%','75%','100%'])
         colorbar.set_label('Descriptive compatible fraction',labelpad=10)
         save(fig,'compatibility')
-        fig,ax=plt.subplots(figsize=(9,4.8),constrained_layout=True)
+        fig,ax=plt.subplots(figsize=(13,6))
+        fig.subplots_adjust(left=.25,right=.98,bottom=.15,top=.77)
+        fig.text(.075,.96,'Growth requirements from alternate mass estimates',fontsize=16,weight='bold',va='top')
         labels=[]
         for i,(_,row) in enumerate(sensitivity.iterrows()):
             preferred=row.default_required_fedd_seed1e2;alternate=row.alternate_required_fedd_seed1e2
@@ -152,8 +170,8 @@ def render_figures(root=ROOT, destination=None):
             labels.append(f'{obj} (pair {i+1})')
         ax.set_yticks(range(len(labels)),labels);ax.invert_yaxis()
         ax.axvline(1,color='#555',ls='--',lw=1)
-        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$',title='Preferred and alternate masses: seven comparisons',xlim=(0,1.05))
-        ax.legend(frameon=False,loc='lower right');ax.grid(axis='x',alpha=.15)
+        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$',xlim=(0,1.05))
+        ax.legend(frameon=False,loc='lower left',bbox_to_anchor=(0,1.02),ncol=2);ax.grid(axis='x',alpha=.15)
         save(fig,'measurement_sensitivity')
 
 
