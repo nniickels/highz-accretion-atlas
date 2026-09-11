@@ -22,6 +22,10 @@ def build_review_outputs(root, selection, offsets):
     for key in ['caveat', 'proposed_observation']:
         tail[key] = tail.object_id.map(lambda x: inputs['targets'][x][key])
     tail = tail.sort_values('required_fedd', ascending=False).reset_index(drop=True)
+    # At f_Edd=1 the inverse seed mass exceeds the reference log seed by
+    # exactly the downward shift in observed log mass needed to reach unity.
+    tail['mass_reduction_to_f1_dex'] = models.required_seed_mass_for_growth(
+        tail.log_mbh_msun_std, 1, .1, 30, tail.redshift) - 2
     for offset in (1, 2):
         tail[f'f_minus{offset}dex'] = models.required_fedd_for_seed(
             2, tail.log_mbh_msun_std-offset, .1, 30, tail.redshift)
@@ -79,9 +83,15 @@ def review_tex(outputs):
         line = r'H$\alpha$' if 'halpha' in r.mbh_method else r'H$\beta$'
         citation = sources.loc[r.source_key, 'citation']
         mass = rf'${r.log_mbh_msun_std:.2f}^{{+{r.log_mbh_err_plus_std:.2f}}}_{{-{r.log_mbh_err_minus_std:.2f}}}$'
+        note = ''
+        if pd.notna(r.log_mbh_systematic_dex):
+            marker = {0.5: 'a', 0.3: 'b'}[r.log_mbh_systematic_dex]
+            note = rf'$^{{\rm {marker}}}$'
+        elif r.object_id == 'ZS7':
+            note = r'$^{\rm c}$'
         # Rounded probabilities are descriptive, never labelled exact certainty.
         prob = lambda p: '$>0.999$' if p>.999 else ('$<0.001$' if p<.001 else f'{p:.3f}')
-        rows.append(f'{tex_escape(r.object_id)} \\newline {{\\footnotesize \\citet{{{citation}}}}} & {line} & {mass} & {r.required_fedd:.3f} & {r.p16:.3f} & {prob(r.probability_gt_1)} & {r.f_minus05:.3f} & {prob(r.p_minus05)} \\\\')
+        rows.append(f'{tex_escape(r.object_id)}{note} \\newline {{\\footnotesize \\citet{{{citation}}}}} & {line} & {mass} & {r.required_fedd:.3f} & {r.p16:.3f} & {prob(r.probability_gt_1)} & {r.f_minus05:.3f} & {prob(r.p_minus05)} & {r.mass_reduction_to_f1_dex:.3f} \\\\')
         actions.append(f'{tex_escape(r.object_id)} & {tex_escape(r.caveat)} & {tex_escape(r.proposed_observation)} \\\\[3pt]')
     inventory = []
     for r in outputs['source_inventory'].itertuples():

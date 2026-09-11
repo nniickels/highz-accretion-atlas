@@ -57,3 +57,20 @@ class PublicationReviewTests(unittest.TestCase):
             mass, z, seed = 8.17, 8.5, 2
             a = (models.cosmic_time_gyr(z)-models.cosmic_time_gyr(zseed))/(.45*np.log(10)*(mass-seed))
             self.assertAlmostEqual(float(models.required_fedd_for_seed(seed,mass,a/(1+a),zseed,z)), 1)
+
+    def test_mass_reduction_reaches_eddington_limit(self):
+        tail = self.outputs['target_robustness']
+        reduction = tail.mass_reduction_to_f1_dex
+        self.assertTrue(reduction.gt(0).all())
+        # The reduced observed mass must require f=1 from a 100-solar-mass
+        # seed at each object's redshift.
+        critical_mass = tail.log_mbh_msun_std - reduction
+        required = models.required_fedd_for_seed(2, critical_mass, .1, 30, tail.redshift)
+        np.testing.assert_allclose(required, 1, atol=1e-12)
+        self.assertTrue((models.required_fedd_for_seed(
+            2, critical_mass - .01, .1, 30, tail.redshift) < 1).all())
+        self.assertTrue((models.required_fedd_for_seed(
+            2, critical_mass + .01, .1, 30, tail.redshift) > 1).all())
+        j = tail.set_index('object_id').loc['J0910_2028_12910']
+        self.assertAlmostEqual(j.mass_reduction_to_f1_dex, .330, places=3)
+        self.assertLess(j.mass_reduction_to_f1_dex, j.log_mbh_systematic_dex)

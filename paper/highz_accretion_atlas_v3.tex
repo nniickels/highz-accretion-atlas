@@ -147,12 +147,11 @@ seed, a smaller merger contribution, or a model that includes mass loss.
 This requirement averages accretion over the full growth interval. Inferring
 a duty cycle also requires assumptions about the rates during active and quiet phases.
 
-We calculate cosmic ages in a spatially flat $\Lambda$CDM model, using the
-Planck-based parameters quoted by \citet{dayal2024}:
-$H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m=0.315$ and
-$\Omega_\Lambda=1-\Omega_m=0.685$. The age calculation includes matter and
-a cosmological constant and neglects radiation. Spatial flatness fixes
-$\Omega_\Lambda=1-\Omega_m$ in this approximation. Appendix~\ref{app:derivations}
+We calculate cosmic ages using $H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$
+and $\Omega_m=0.315$, matching these two values in \citet{dayal2024},
+who cite Planck. We impose spatial flatness and set
+$\Omega_\Lambda=1-\Omega_m=0.685$. The age calculation includes matter
+and a cosmological constant and neglects radiation. Appendix~\ref{app:derivations}
 gives the supporting relations, implementation and inverse seed-mass diagnostic.
 Equations~\ref{eq:growth}--\ref{eq:required-rate} assume constant radiative efficiency.
 The compatibility calculations use fixed spin values and the efficiency
@@ -174,9 +173,18 @@ identity groups, including three records with eligible masses. This leaves
 
 For the main comparison, we use masses estimated from broad H$\alpha$ or
 H$\beta$ emission lines in objects with secure or probable evidence for an
-accreting black hole. We exclude objects whose mass estimate depends on an
-unresolved interpretation of the broad emission as a gravitationally bound
-broad-line region. We refer to the resulting 224 objects as the primary sample.
+accreting black hole, using the evidence classifications recorded from the
+source papers. Seven masses are explicitly flagged as conditional on a
+broad-line-region interpretation: six candidates with intermediate-width
+H$\alpha$ emission and possible outflow contamination \citep{ren2025}, and
+RUBIES-EGS-49140 \citep{taylor2025},
+for which an alternative non-AGN interpretation is recorded. These seven
+objects enter the expanded sample only. After the identity exclusions,
+the main comparison contains 224 objects, labelled primary in the tables
+and figures. Other limitations of a virial mass, including possible scattering,
+are recorded separately. COSMOS3D-13852 remains in the main sample on the basis
+of its published broad-line AGN identification; we test the reported scattering
+bias in Section~\ref{sec:credibility}.
 These single-epoch virial estimators combine the line width, which estimates
 gas velocity, with a luminosity-based estimate of the broad-line region's radius.
 Their calibration is based on reverberation mapping of nearby AGN \citep{shen2013}.
@@ -304,16 +312,28 @@ the exploratory sample.
 Masses and errors are in $\log_{10}(M/M_\odot)$; all estimators are single-epoch
 virial. $f_0$ is the reference point requirement, $f_{16}$ its reported-error
 16th percentile, and $P_0=P(\overline{\fedd}_{\rm req}>1)$.
-$f_-$ and $P_-$ apply the fixed $-0.5$ dex offset. All probabilities are conditional on the mass-error model and growth assumptions. Source-specific caveats and proposed
-observations are in Table~\ref{tab:actions}.}
+$f_-$ and $P_-$ apply the fixed $-0.5$ dex offset. $\Delta m$ (dex) is the
+reduction in log mass that brings the central required average Eddington
+ratio to one, with the growth assumptions unchanged. All probabilities use
+the quoted mass errors and fixed growth assumptions. Additional limitations
+and proposed observations are in Table~\ref{tab:actions}.}
 \begingroup\small\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}lrrrrrr@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}lrrrrrrr@{}}
 \toprule
-Object/source & Line & Log mass & $f_0$ & $f_{16}$ & $P_0$ & $f_-$ & $P_-$ \\
+Object/source & Line & Log mass & $f_0$ & $f_{16}$ & $P_0$ & $f_-$ & $P_-$ & $\Delta m$ \\
 \midrule
 \tableinput{analysis/target_rows.tex}
 \bottomrule
 \end{tabular}
+\par\smallskip
+\parbox{\textwidth}{\footnotesize
+$^{\rm a}$ A separate 0.5-dex calibration scale is reported for
+RUBIES-EGS-55604 and J0910\_2028\_12910; $^{\rm b}$ a separate 0.3-dex
+scale is reported for GN-38509. These scales are omitted from the quoted
+errors and probabilities shown here. $^{\rm c}$ ZS7's quoted 0.4-dex error
+already includes calibration scatter. Unmarked rows have no separate
+numerical calibration scale recorded; their quoted errors may omit other
+mass-estimator uncertainties.}
 \endgroup
 \label{tab:top}
 \end{table}
@@ -321,7 +341,7 @@ Object/source & Line & Log mass & $f_0$ & $f_{16}$ & $P_0$ & $f_-$ & $P_-$ \\
 \subsection{Robustness to reported mass uncertainty}
 
 Of the 12 primary point requirements above unity, eight remain above it at
-the 16th percentile and six have conditional $P(\fedd>1)\geq0.95$
+the 16th percentile and six have conditional $P(\overline{\fedd}_{\rm req}>1)\geq0.95$
 (Fig.~\ref{fig:uncertainty}). The exploratory counts are 14 at the median,
 ten at the 16th percentile and eight at $P\geq0.95$; 15 exceed unity by the
 84th percentile. Probabilities follow Section~\ref{sec:uncertainty} and use
@@ -554,9 +574,19 @@ For COSMOS3D-13852, scattering could inflate the H$\beta$ mass by 1--2 dex
 and 0.916, respectively. These stress tests use the bias range discussed by
 the source; the actual correction remains uncertain.
 
-J0910\_2028\_12910 has a 0.01 dex quoted error and a requirement of 1.053,
-giving $P>0.999$, yet its separately recorded 0.5 dex calibration scale
-\citep{baccus2026} allows it below unity in the negative-offset test. ZS7's quoted 0.4 dex already includes calibration scatter
+The mass reductions in Table~\ref{tab:top} show how far each central mass
+lies above the value reachable at an average Eddington ratio of one. We
+subtract the log mass predicted by Eq.~\ref{eq:growth} at
+$\overline{\fedd}=1$ from the observed log mass, keeping the seed,
+starting redshift, efficiency and merger contribution fixed.
+For J0910\_2028\_12910, a reduction of 0.330 dex is sufficient. This is
+smaller than its separately reported 0.5-dex calibration scale \citep{baccus2026},
+although its 0.01-dex quoted error gives $P>0.999$ in the reported-error calculation.
+COSMOS3D-13852 requires a reduction of 1.576 dex, within the 1--2 dex range
+of possible scattering bias. UNCOVER-20466 requires 1.921 dex; its lensing
+and broad-line assumptions still require independent tests. These mass
+reductions follow from the adopted growth parameters. ZS7's quoted 0.4 dex
+already includes calibration scatter
 \citep{ubler2024}. The probabilities therefore reflect different combinations of measurement
 and calibration uncertainty across the sample.
 
@@ -626,16 +656,23 @@ incomplete. The catalogue covers the declared sources through 3 September
 
 For the adopted masses and growth assumptions, we find:
 \begin{itemize}
-\item The conservative 224-object primary sample contains 12 reference point
-requirements above unity and six with conditional $P\geq0.95$ under quoted errors.
-\item UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604 retain the probability
-threshold after a $-0.5$ dex mass shift. Their mass estimates require tests of lensing, scattering and calibration, respectively.
-\item Seed formation time changes both threshold membership and the most
-demanding object; lowering the fixed efficiency to 0.05719 removes all point
-requirements above unity.
-\item The external A2744-QSO1 dynamical estimate increases its reference
-requirement from 0.929 to approximately unity, with an error interval spanning
-the threshold.
+\item For $100\,M_\odot$ seeds formed at $z=30$, $\epsilon=0.1$ and no
+merger contribution, 12 of the 224 objects in the main sample require an
+average Eddington ratio above one. Six do so in at least 95\% of Monte Carlo
+draws from their quoted mass-error distributions.
+\item For UNCOVER-20466, COSMOS3D-13852 and RUBIES-EGS-55604, at least
+95\% of draws still require an average Eddington ratio above one after
+reducing the masses by 0.5 dex. Their mass estimates require tests of lensing,
+scattering and calibration, respectively.
+\item The assumed start of growth changes which objects require average
+accretion above the Eddington limit and which requires the highest rate.
+At constant efficiency $\epsilon=0.05719$, every central mass in the
+234-object expanded sample is reachable from a $100\,M_\odot$ seed at $z=30$
+with an average Eddington ratio below one.
+\item For A2744-QSO1, replacing the adopted virial mass with the independent
+dynamical estimate raises the required average Eddington ratio from 0.929 to
+approximately one. Its mass uncertainty allows average rates both below and
+above the Eddington limit.
 \end{itemize}
 Excluding the six records with unresolved identities preserves the threshold
 counts. Counts of unique objects in the full catalogue remain provisional. The proposed observations test the mass estimates of the most demanding
@@ -919,7 +956,7 @@ the resulting shift is
 \end{equation}
 For $\overline{\fedd}=1$, this is 0.868 dex (a factor of 7.37) at
 $\epsilon=0.1$, or 1.589 dex (a factor of 38.85) at the ideal non-spinning
-thin-disc efficiency. The tracks shift upward by these amounts (Figure~\ref{fig:early-start}). at fixed observed mass and seed mass
+thin-disc efficiency. The tracks shift upward by these amounts (Figure~\ref{fig:early-start}). At fixed observed mass and seed mass
 requiring positive accretion, the ratio of required average rates is
 $[t(z_{\rm obs})-t(30)]/[t(z_{\rm obs})-t(3400)]$; the earlier start lowers
 the requirement by 6.5, 13.1 and 22.9 per cent at $z_{\rm obs}=4$, 7 and
@@ -990,9 +1027,8 @@ The catalogue, source registries, code, and manuscript analysis are available at
 baseline is identified by Git commit
 \href{https://github.com/nniickels/highz-accretion-atlas/tree/a40a0d28c6c8d0b7e0c98aea089629903c34f7be}{\texttt{a40a0d2}};
 version manifests under \texttt{releases/} record the dataset artifact hashes.
-The comparison results and generated tables are in
-\texttt{paper/analysis/}, with explicit external inputs in
-\texttt{paper/review\_inputs.json}. An archival DOI is pending.
+Comparison results and tables are in \texttt{paper/analysis/}.
+External inputs are in \texttt{paper/review\_inputs.json}. An archival DOI is pending.
 
 Five ordered notebooks reproduce the catalogue, science products, figures,
 and atlas using pinned dependencies. Reproduction checks compare regenerated
