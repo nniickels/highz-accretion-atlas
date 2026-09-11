@@ -67,6 +67,11 @@ its reverse pass to prevent an isolated reference receiving an orphan `a` suffix
 The generated bibliography is embedded in the main `.tex` for portability;
 normal manuscript builds do not require BibTeX or an Overleaf recompile to sync edits.
 
+The appendix's comparison of growth starting at redshifts 30 and 3400 is
+reproduced with `.venv/bin/python -m scripts.check_early_start`. It uses the
+existing matter-plus-Lambda age relation and explicitly treats the high-redshift
+extension as an extrapolation, without changing any catalogue inference.
+
 The [scientific/editorial pass record](scientific-editorial-review.md) lists
 checked claims, corrections, and remaining submission work.
 
