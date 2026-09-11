@@ -26,3 +26,16 @@ figure/table outputs were changed.
 Validation: all 99 unit tests pass. The main and supplementary Overleaf sources
 were checked against the local sources after expanding generated table fragments
 and adjusting figure paths for the existing Overleaf project layout.
+
+## Compatibility appendix restored
+
+Following review of the plot's role, the compatibility grid and its efficiency
+prescription and seed-range methods were returned to Appendix C. The main text
+briefly directs readers there. The early-start/primordial-seed illustration
+remains in the supplement. The resulting manuscript has 21 pages and the
+supplement has two. Numerical results and plot files are unchanged.
+
+Both PDFs compile without warnings; the restored appendix and supplementary
+figure layout were inspected. All 11 repository-layout tests pass, including
+figure availability and separate citation/bibliography checks for both documents.
+Both Overleaf sources were compared with their prepared local equivalents.

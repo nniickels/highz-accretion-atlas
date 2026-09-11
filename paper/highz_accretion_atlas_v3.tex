@@ -441,8 +441,9 @@ Each curve holds efficiency constant.}
 \label{fig:boundaries}
 \end{figure}
 
-The Supplementary Material gives additional constant-spin calculations across
-seed-mass ranges and accretion rates.
+Appendix~\ref{app:compatibility} gives the fractions of objects whose masses
+can be reproduced from each seed-mass range under specified accretion rates,
+spin-dependent efficiencies and merger contributions.
 
 Seven alternate-measurement comparisons across six objects (two for CEERS-2782)
 span mass shifts of $-0.600$ to $+0.949$ dex and required-$\fedd$ shifts of
@@ -832,6 +833,100 @@ absolute residuals, then smaller rates. Most objects selected by this 0.5-dex pl
 Baseline rankings, duty-cycle diagnostics and seed-redshift--mass maps retain
 $\epsilon=0.1$. Scientific conclusions use the required-rate ranking.
 
+\section{Compatibility across seed masses and accretion rates}
+\label{app:compatibility}
+
+\subsection{Efficiency prescription}
+\label{app:efficiency}
+
+For the illustrative spin-dependent maps, the ideal Kerr thin-disk efficiency
+is the ISCO binding efficiency \citep{bardeen1972}:
+\begin{align}
+\epsilon_a&=1-\sqrt{1-\frac{2}{3r_{\rm ISCO}}},\\
+r_{\rm ISCO}&=3+Z_2-\operatorname{sgn}(a)
+\sqrt{(3-Z_1)(3+Z_1+2Z_2)},\\
+Z_1&=1+(1-a^2)^{1/3}\big[(1+a)^{1/3}+(1-a)^{1/3}\big],\qquad
+Z_2=\sqrt{3a^2+Z_1^2}.
+\label{eq:spin}
+\end{align}
+The dimensionless spin is $a=cJ/(G\mbh^2)$, where $J$ is the signed angular
+momentum relative to the disk, and $r_{\rm ISCO}$ is in units of $G\mbh/c^2$.
+The ideal efficiencies at $a=-1,0,+1$ are approximately 0.038, 0.057, and
+0.423, respectively, neglecting photon capture and stress at the ISCO.
+Logarithmic luminosity growth at supercritical inflow is motivated by
+advection and wind models \citep{poutanen2007}. We use a simplified logarithmic relation with coefficient one and omit radial
+mass loss. For Eddington ratios above unity, the maps adopt
+\begin{equation}
+\fedd=1+\ln\dot m,\qquad
+\dot m=\frac{\dot M_{\rm in}}{L_{\rm Edd}/(\epsilon_a c^2)},\qquad
+\epsilon_{\rm eff}=\begin{cases}
+\epsilon_a,&\fedd\leq1,\\
+\epsilon_a\fedd\exp(1-\fedd),&\fedd>1.
+\end{cases}
+\label{eq:effective-efficiency}
+\end{equation}
+The logarithmic luminosity relation applies only for super-Eddington accretion.
+Each compatibility cell holds both the rate and its effective efficiency
+constant over the interval. The grid tests constant accretion states with fixed spin and omits relativistic
+slim-disc dynamics. For time-varying efficiency, growth depends on
+$\int [(1-\epsilon(t))/\epsilon(t)]\fedd(t)\,dt$, which requires the joint
+time dependence of efficiency and accretion rate.
+
+Figure~\ref{fig:compatibility} gives the full scenario grid. The broad $10^2$--$10^6M_\odot$ interval is stored under the original code key
+\nolinkurl{pbh_origin_hypothesis}. This key labels the mass interval; a primordial
+interpretation requires additional assumptions about seed formation. The descriptive fractions use point masses
+and the inclusive interval criterion in Section~\ref{sec:compatibility}, without error integration.
+The Supplementary Material discusses this interval for pre-existing primordial
+black holes and illustrates an earlier start of accretion.
+
+\subsection{Seed-mass ranges and compatible fractions}
+\label{sec:compatibility}
+
+For each assumed accretion rate, efficiency, starting redshift and merger
+contribution, we solve Eq.~\ref{eq:required-seed} for the initial seed mass
+that would grow to the observed black-hole mass. We then check whether that
+seed falls in each of four mass ranges: $10$--$100\,M_\odot$ (light),
+$10^3$--$10^4\,M_\odot$ (intermediate), $10^4$--$10^6\,M_\odot$ (heavy),
+and $10^2$--$10^6\,M_\odot$ (broad). We count an object as compatible with a
+range when some seed within it can reproduce the observed mass under these assumptions. The grid uses $z_{\rm seed}=30$, three
+spin/efficiency cases, merger multipliers 1 and 2, and average rates 0.3, 1
+and 2. These maps use the supercritical efficiency prescription in
+Section~\ref{app:efficiency}.
+
+The seed-mass ranges overlap and are tested separately, without probability
+weights. The broad range spans several possible seed-formation channels.
+If the seed mass needed to reproduce an object is smaller than the lower
+bound of a tested range, even the smallest seed in that range would grow
+larger than the observed black hole at the assumed accretion rate. That object
+is therefore excluded from the count for that range and set of growth assumptions.
+For each set of assumptions, we report the percentage of catalogue objects
+whose observed masses can be reproduced from a seed in the tested range.
+These percentages describe this literature sample. Estimating the corresponding
+percentages among all high-redshift black holes would require accounting for
+how each contributing study selected and detected its objects.
+
+The primary and exploratory samples show similar compatibility patterns
+(Fig.~\ref{fig:compatibility}). For heavy seeds at $a=+1$ and $f=1$, changing
+$B_{\rm merge}$ from one to two raises compatibility from 57 to 70 per cent
+in the primary sample (59 to 71 per cent inclusive). At higher accretion rates, even the smallest seed in a tested mass range can
+grow larger than the observed black hole. Such objects reduce the percentage
+reproduced from seeds in that range.
+These fractions use central mass estimates and the efficiency prescription in
+Section~\ref{app:efficiency}. They describe compatibility within the selected
+sample; estimating the frequency of each formation channel would require
+uncertainty propagation and a population selection model.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.99\textwidth]{figures/compatibility.pdf}
+\caption{Constant-state compatibility fractions in the primary
+sample (left) and the inclusive exploratory sample (right). The exploratory sample includes all primary objects. Each column specifies merger multiplier $B$ and fixed luminosity
+ratio $f$; rows specify ideal spin-dependent efficiency, with the supercritical
+prescription in Section~\ref{app:efficiency}. Seed intervals overlap and have no assigned probability weights. The broad
+mass interval spans several possible seed-formation channels.}
+\label{fig:compatibility}
+\end{figure}
+
 \section{Data and code availability}
 \label{app:availability}
 
@@ -1081,6 +1176,14 @@ Napolitano, L., Castellano, M., Pentericci, L., {et~al.} 2025{\natexlab{b}},
   \bibinfo{title}{Seven wonders of Cosmic Dawn: JWST confirms a high abundance
   of galaxies and AGN at z ≃ 9--11 in the GLASS field,} A\&A, 693, A50,
   \dodoi{10.1051/0004-6361/202452090}
+
+% type= article
+\bibitem[{J. Poutanen {et~al.}(2007)Poutanen, Lipunova, Fabrika, Butkevich, \&
+  Abolmasov}]{poutanen2007}
+Poutanen, J., Lipunova, G., Fabrika, S., Butkevich, A.~G., \& Abolmasov, P.
+  2007, \bibinfo{title}{Supercritically accreting stellar mass black holes as
+  ultraluminous X-ray sources,} MNRAS, 377, 1187,
+  \dodoi{10.1111/j.1365-2966.2007.11668.x}
 
 % type= article
 \bibitem[{W. Ren {et~al.}(2025)Ren, Silverman, Faisst, {et~al.}}]{ren2025}

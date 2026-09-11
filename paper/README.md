@@ -26,9 +26,9 @@ The `paper/` folder contains the current working manuscript draft and is kept
 for reference while the catalogue and analysis continue to evolve.
 `highz_accretion_atlas_v3.tex` is the editable LaTeX source. It references the
 publication-sample figures in `paper/figures/`.
-`supplementary_material.tex` contains the full compatibility grid, its efficiency
-prescription, and the illustrative early-start calculation. Five figures appear
-in the main paper and two in the supplement.
+The manuscript appendix contains the full compatibility grid and its efficiency
+prescription. `supplementary_material.tex` contains the illustrative early-start
+calculation. Six figures appear in the manuscript and one in the supplement.
 
 ```bash
 cd paper
