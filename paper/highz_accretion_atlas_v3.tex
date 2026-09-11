@@ -66,10 +66,9 @@ galaxies: active -- galaxies: high-redshift -- quasars: supermassive black holes
 
 \section{Introduction}
 
-The discovery of massive black holes in the early Universe raises a fundamental
-question: what growth histories could have assembled them within the available
-cosmic time? The strength of this constraint depends on both the observed
-black-hole mass and redshift, as well as assumptions about seed formation,
+Massive black holes observed in the early Universe must have assembled within
+the available cosmic time. The strength of this constraint depends on the observed
+black-hole mass and redshift and on assumptions about seed formation,
 radiative efficiency, and the duration of active accretion. An apparently
 demanding object under one set of assumptions may therefore be compatible with
 less extreme growth under another.
@@ -81,38 +80,30 @@ observed masses by the observed redshifts. The atlas covers $z\geq4$, extending 
 billion years to a cosmic age of approximately 1.54 Gyr at its lower-redshift
 boundary. We calculate the average accretion rates required across a range of
 seed and growth assumptions, incorporating reported mass uncertainties and
-distinguishing measurements with different evidential and methodological
-limitations. Source-native measurements, identity links, and mass provenance
-are retained to support comparison across heterogeneous literature samples.
+accounting for differences in detection evidence and mass-estimation methods.
+We retain published measurements, object identity links and mass-estimation
+sources so that measurements from different studies can be compared.
 
 Our aim is to identify which growth requirements remain demanding across
 plausible scenarios, which depend primarily on uncertain assumptions, and where
-improved observations would most strengthen the constraints. This approach
-treats the catalogue as a means of testing possible growth histories, rather
-than assuming that every high-redshift black hole presents the same assembly
-problem. The constraints apply to individual objects under stated assumptions.
+improved observations would most strengthen the constraints. The constraints apply to individual objects under stated assumptions.
 
 Analytic seed-growth comparisons already establish the trade-off between seed
 mass and sustained accretion. For example, \citet{dayal2024} considered
 light and heavy seeds at $z_{\rm seed}=25$ and explored a primordial-seeding
-interpretation. Here we use this established growth framework to assess how
-object-level constraints change when published masses, measurement methods,
-and growth assumptions are treated consistently across a larger evidence atlas.
-The added scientific product is an object-by-object distinction between
-requirements that survive quoted errors, those that survive a mass-scale
-perturbation, and those whose interpretation depends on a specific estimator.
+interpretation. We apply the same growth equations to a larger catalogue and test how each
+object's constraints depend on its published mass, measurement method and
+growth assumptions. We identify which requirements remain above the reference
+threshold under quoted errors and mass-scale shifts, and which depend on
+the mass estimator.
 We report the complete primary threshold set with source-linked caveats and
 proposed observations, isolate measurement and starting-time effects in a
 matched literature comparison, and evaluate an independent dynamical estimate
-outside the frozen catalogue. These comparisons make the catalogue useful for
-selecting observational tests of growth assumptions.
-Survey studies provide a complementary perspective: the JADES broad-line census
+outside the frozen catalogue. Survey studies provide a complementary perspective: the JADES broad-line census
 \citep{juodzbalis2026} measures current accretion and host scaling relations,
 while the narrow-line census \citep{scholtz2025} broadens the evidence for
-obscured activity. Our comparison asks what cumulative growth the adopted
-masses require, which is distinct from measuring present accretion or counting
-AGN in a survey. It uses those source measurements without imposing a common
-selection function. The source-family inventory is given in
+obscured activity. We use these measurements to calculate the cumulative growth needed to reach
+the adopted masses. The combined catalogue has no common selection function. The source-family inventory is given in
 Appendix~\ref{app:sources}.
 
 \subsection{Theoretical framework}
@@ -201,7 +192,7 @@ histories. Appendix~\ref{app:implementation} specifies the display selection.
 We propagate reported asymmetric log-mass errors through 10,000 draws per
 object, assigning half the draws to each side of the central mass with the
 corresponding half-normal scale. Redshifts are held fixed. This approximates
-quoted intervals rather than reconstructing source posteriors. The 12 primary
+the quoted intervals without reconstructing the source posterior distributions. The 12 primary
 objects without reported errors contribute point estimates only; probability
 calculations use 212 primary and 222 inclusive exploratory objects.
 No additional calibration scatter is added to the quoted errors.
@@ -398,7 +389,7 @@ including the reference probability counts. The primary median changes from
 
 Figure~\ref{fig:boundaries} shows the maximum fixed efficiency allowing
 $\overline{\fedd}_{\rm req}\leq1$ for five targets as a function of seed mass.
-The $z_{\rm seed}=20$ and 30 curves expose GN-z11's greater timing sensitivity.
+The $z_{\rm seed}=20$ and 30 curves show GN-z11's greater sensitivity to the starting time.
 These point-mass boundaries assume no merger boost and do not establish
 whether the required fuel supply is sustainable.
 
@@ -458,8 +449,8 @@ Table~\ref{tab:matched} first replaces the earlier masses and redshifts with
 our adopted values at $z_{\rm seed}=25$, then changes seeding to $z=30$.
 All columns use our cosmology, $\epsilon=0.1$, $10^2M_\odot$ seeds and no
 merger boost. Earlier seeding lowers the requirements more than the measurement
-updates change them. This isolates input and timing effects rather than
-reproducing the earlier analysis or providing a complete crossmatch.
+updates change them. This separates measurement changes from starting-time changes for these four
+objects; it is not a reproduction of the full earlier analysis.
 
 \begin{table}[htbp]
 \centering
@@ -498,20 +489,20 @@ membership unchanged and does not calibrate the full virial sample.
 
 The objects above the reference threshold lie at $z=6.6214$--10.603; the
 lower-redshift majority supplies comparison objects. Their growth requirements
-constrain combinations of seed mass, starting time, efficiency and accretion,
-rather than selecting a unique formation history.
+constrain combinations of seed mass, starting time, efficiency and accretion.
+Several formation histories satisfy these constraints.
 
 At fixed seed, growth interval and merger factor, required $\fedd$ scales as
 $\epsilon/(1-\epsilon)$. Lowering $\epsilon$ from 0.1 to 0.05719 multiplies
 all requirements by 0.54594: the largest becomes 0.793. The reference tail
 therefore does not establish a model-independent need for super-Eddington
-accretion or measure black-hole spins. Heavier or earlier seeds and merger
-growth offer further degeneracies.
+accretion or measure black-hole spins. Larger seed masses, earlier growth onset and merger contributions also reduce
+the required accretion rate.
 
 Table~\ref{tab:actions} links the demanding targets to tests of their mass
 assumptions. Independent masses and constraints on scattering, outflows,
-obscuration and lensing can distinguish these interpretations. The follow-up
-ordering is heuristic, not a calibrated estimate of information gain;
+obscuration and lensing can distinguish these interpretations. The proposed
+observation priorities are qualitative;
 a high quoted-error probability alone does not validate an estimator.
 
 \subsection{Estimator credibility and observational tests}
@@ -537,8 +528,8 @@ physical uncertainties.
 \centering\small
 \caption{Source-linked interpretation of the complete primary threshold set.
 Caveats summarize the source records cited in Table~\ref{tab:top}; proposed
-observations are our assessment of the measurement that would most directly
-test the stated limitation, not scheduled or guaranteed feasible programmes.}
+observations target the stated limitations; their feasibility has not been
+assessed.}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
 \toprule
 Object & Mass-estimator caveat & Proposed observation \\
@@ -578,8 +569,9 @@ the threshold results. Readmission requires source-backed spectral, mass,
 imaging or aperture reconciliation; unique-object and host counts remain
 provisional.
 
-Equation~\ref{eq:growth} compresses accretion, feedback, mergers and radiative
-changes into effective parameters, not reconstructed histories. Reported-error
+Equation~\ref{eq:growth} uses effective accretion and merger parameters and a
+fixed radiative efficiency; it does not model feedback or reconstruct individual
+growth histories. Reported-error
 probabilities condition on fixed growth assumptions; marginalization would
 require justified parameter distributions and correlations. Neither these
 probabilities nor scenario fractions measure seed origins. The age relation
@@ -595,8 +587,8 @@ validated. Completeness refers to the declared sources through 3 September
 
 \section{Conclusions}
 
-The atlas provides a reproducible, source-linked comparison of early
-black-hole growth requirements. Its principal results are:
+We compare early black-hole growth requirements using a catalogue with
+documented measurement sources and reproducible calculations. We find:
 \begin{itemize}
 \item The conservative 224-object primary sample contains 12 reference point
 requirements above unity and six with conditional $P\geq0.95$ under quoted errors.
@@ -612,9 +604,8 @@ the threshold. Independent mass information can change the growth interpretation
 even without adding a new object.
 \end{itemize}
 The threshold results survive exclusion of the known ambiguous identities;
-the full catalogue's unique-object census remains provisional. The useful
-outcome is a set of named observational tests with explicit assumptions, not
-a universal ordering or a measurement of formation-channel frequencies.
+the full catalogue's unique-object census remains provisional. The proposed observations test the mass estimates of the most demanding
+objects under the stated growth assumptions.
 
 \clearpage
 \appendix
@@ -695,12 +686,13 @@ measurements and 29 object records. NX10835 lies 0.066 arcsec from
 an existing Mascia identifier at consistent redshift, so the new mass-bearing
 measurement becomes preferred for the same object.
 
-The Scholtz et al. source audit provides another cardinality check. The paper
+For the Scholtz et al. source, the published object count differs from the
+tabulated count. The paper
 reports 42 objects, whereas its source-native table contains 41 rows. Exactly 21
 table rows satisfy $z\geq4$; all are admitted. One is identity-linked to a
 broad-line object, yielding 20 distinct narrow-line candidates from that source.
 JADES-NS-GS00099671 is retained with its published host and bolometric
-observables but without an invented black-hole mass.
+observables but without a black-hole mass estimate.
 
 \subsection{Preferred measurements and identity exclusions}
 \label{app:identities}
@@ -883,8 +875,8 @@ and is not a radiation-era seed-formation calculation.
 \subsection{Earlier growth onset and primordial seed interpretations}
 \label{app:primordial-timing}
 
-The growth equations depend on starting mass and subsequent accretion, rather
-than the seed's formation channel. A primordial black hole (PBH) already
+The growth equations specify an initial mass and subsequent accretion history;
+they do not specify how the seed formed. A primordial black hole (PBH) already
 present at $z=30$ can therefore be represented by its effective mass at that
 epoch if it lies within the broad $10^2$--$10^6M_\odot$ interval and follows
 the adopted subsequent growth prescription. This mass need not equal its
@@ -933,9 +925,8 @@ accretion occurs.}
 
 These comparisons isolate the extra time allowed by the analytic prescription.
 They do not establish continuous gas accretion from equality: radiation,
-gas supply, halo assembly and feedback are not modeled here. PBH compatibility
-must consequently be stated in terms of the effective mass and subsequent
-growth assumptions, rather than inferred from visual similarity of the tracks.
+gas supply, halo assembly and feedback are not modeled here. A PBH interpretation therefore requires an effective mass at the chosen
+starting epoch and a specified subsequent accretion history.
 
 \subsection{Two-state duty cycle}
 
@@ -1007,8 +998,8 @@ The source-family inventory in Appendix~\ref{app:sources} links measurements,
 methods, selection channels, and major caveats. Full identifiers, source-native
 observables, alternative measurements, and per-object maps remain available.
 
-Source agreement does not establish estimator validity or astrophysical
-uniqueness. The manuscript exclusion check verifies that all open identity
+Agreement with a published value does not validate its mass estimator or
+resolve ambiguous object identities. The manuscript exclusion check verifies that all open identity
 groups are withheld; the separate full-catalogue identity gate remains open
 for the three groups listed in Section~\ref{sec:limits}.
 
