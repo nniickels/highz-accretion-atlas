@@ -68,3 +68,18 @@ for J0910_2028_12910 in relation to its 0.330-dex threshold margin.
 No numerical results changed. All 99 tests and the publication-generation checks
 pass. The final PDF compiles without warnings; the table and discussion layout
 were inspected. The Overleaf source matches the prepared local manuscript.
+
+## Two-object parameter-map comparison
+
+Added Appendix D and Figure 7 comparing UNCOVER-20466 and GN-z11 in seed mass
+and starting redshift, with common axes and colour scale. The figure uses the
+catalogue central masses, efficiency 0.1 and no merger boost, over starting
+redshifts 11–30. Its caption states sample membership and the absence of mass-error
+propagation. The complete galleries remain online catalogue products.
+
+Notebook 02 regenerates the new figure. All 99 tests pass. A direct growth
+inversion check across both plotted parameter domains recovers the adopted
+masses, and the required rates decrease with seed mass and earlier starting
+redshift. The local manuscript compiles without warnings and the figure and
+compiled page were inspected. Overleaf propagation is pending upload of the
+new PDF; the extension denied file access and the native picker did not complete.

@@ -74,7 +74,7 @@ class RepositoryLayoutTests(unittest.TestCase):
         manuscript = "\n".join((ROOT / "paper" / name).read_text() for name in
                                ("highz_accretion_atlas_v3.tex", "supplementary_material.tex"))
         figures = re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", manuscript)
-        self.assertEqual(len(figures), 7)
+        self.assertEqual(len(figures), 8)
         self.assertNotIn(r"\usepackage{pgfplots}", manuscript)
         self.assertNotIn(r"\begin{tikzpicture}", manuscript)
         for name in figures:
