@@ -71,6 +71,11 @@ The appendix's comparison of growth starting at redshifts 30 and 3400 is
 reproduced with `.venv/bin/python -m scripts.check_early_start`. It uses the
 existing matter-plus-Lambda age relation and explicitly treats the high-redshift
 extension as an extrapolation, without changing any catalogue inference.
+Regenerate the corresponding appendix figure with
+`.venv/bin/python -m scripts.plot_early_start`. The generated
+`figures/early_start_comparison.tex` uses PGFPlots for vector curves and the
+manuscript's serif font. Its coordinates come directly from `src.models`;
+both starting epochs use identical seed mass, rate, efficiency and merger factor.
 
 The [scientific/editorial pass record](scientific-editorial-review.md) lists
 checked claims, corrections, and remaining submission work.

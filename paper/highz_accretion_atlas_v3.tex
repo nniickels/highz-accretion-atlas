@@ -10,6 +10,8 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{enumitem,longtable,array}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \definecolor{atlasblue}{HTML}{176B87}
 \hypersetup{colorlinks=true,linkcolor=atlasblue,citecolor=atlasblue,urlcolor=atlasblue}
 \setlength{\parindent}{0pt}
@@ -905,12 +907,28 @@ the resulting shift is
 For $\overline{\fedd}=1$, this is 0.868 dex (a factor of 7.37) at
 $\epsilon=0.1$, or 1.589 dex (a factor of 38.85) at the ideal non-spinning
 thin-disc efficiency. Although the tracks retain their shape, these mass
-shifts are substantial. Conversely, at fixed observed mass and seed mass
+shifts are substantial (Figure~\ref{fig:early-start}). Conversely, at fixed observed mass and seed mass
 requiring positive accretion, the ratio of required average rates is
 $[t(z_{\rm obs})-t(30)]/[t(z_{\rm obs})-t(3400)]$; the earlier start lowers
 the requirement by 6.5, 13.1 and 22.9 per cent at $z_{\rm obs}=4$, 7 and
 10.603, respectively. Similar-looking tracks on a wide logarithmic plot
 therefore do not establish insensitivity to the starting epoch.
+
+\begin{figure}[htbp]
+\centering
+\input{figures/early_start_comparison.tex}
+\caption{Effect of moving the start of otherwise identical accretion histories
+from $z=30$ (solid blue) to 3400 (dashed orange). Both panels use
+$M_{\rm seed}=100\,M_\odot$, $\overline{\fedd}=1$ and no merger boost;
+the fixed radiative efficiencies are 0.1 (a) and 0.05719 (b). Arrows mark
+the constant logarithmic mass offset from the additional 99.90 Myr of growth.
+The panels have different vertical ranges and show $6\leq z\leq12$ to focus
+on early growth. These are controlled analytic comparisons, not fitted
+histories. The $z=3400$ curves extrapolate the matter-plus-Lambda age relation
+and assume uninterrupted accretion; they do not model PBH formation or
+establish that such early gas accretion occurs.}
+\label{fig:early-start}
+\end{figure}
 
 These comparisons isolate the extra time allowed by the analytic prescription.
 They do not establish continuous gas accretion from equality: radiation,
