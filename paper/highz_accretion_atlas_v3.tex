@@ -94,7 +94,7 @@ and the method used to estimate the mass.
 For $100\,M_\odot$ seeds formed at $z=30$, radiative efficiency $\epsilon=0.1$
 and no mass added by mergers, 12 objects in our Balmer-line sample require an
 average Eddington ratio above one. We list all 12, describe the limitations
-reported for their mass estimates, and propose observations to test those estimates.
+reported for their mass estimates, and assess how these affect the growth constraints.
 For four objects also studied by Dayal, we calculate separately how the
 required accretion rates change when we update the measured masses and redshifts
 and when we start growth earlier. For A2744-QSO1, we repeat the calculation
@@ -290,8 +290,7 @@ virial. $f_0$ is the reference point requirement, $f_{16}$ its reported-error
 $f_-$ and $P_-$ apply the fixed $-0.5$ dex offset. $\Delta m$ (dex) is the
 reduction in log mass that brings the central required average Eddington
 ratio to one, with the growth assumptions unchanged. All probabilities use
-the quoted mass errors and fixed growth assumptions. Additional limitations
-and proposed observations are in Table~\ref{tab:actions}.}
+the quoted mass errors and fixed growth assumptions. Additional mass-estimator limitations are in Table~\ref{tab:actions}.}
 \begingroup\small\setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}lrrrrrrr@{}}
 \toprule
@@ -512,12 +511,10 @@ all requirements by 0.54594: the largest becomes 0.793. The requirement for supe
 efficiency. Several spin and seed combinations can reproduce the same mass. Larger seed masses, earlier growth onset and merger contributions also reduce
 the required accretion rate.
 
-Table~\ref{tab:actions} lists observations that could test the mass estimates
-of the objects above the reference threshold. Independent masses and constraints on scattering, outflows,
-obscuration and lensing can distinguish these interpretations. We propose these observations based on the known limitations of each mass
-estimate.
+Table~\ref{tab:actions} summarizes the mass-estimator limitations for the
+12 objects above the reference threshold.
 
-\subsection{Estimator credibility and observational tests}
+\subsection{Mass-estimator limitations}
 \label{sec:credibility}
 
 Some mass-estimator biases may exceed the $-0.5$ dex shift tested above.
@@ -545,15 +542,21 @@ already includes calibration scatter
 \citep{ubler2024}. The probabilities therefore reflect different combinations of measurement
 and calibration uncertainty across the sample.
 
+For COSMOS3D-13852, the key question is how much scattering contributes to
+the measured line width and hence to the inferred mass. Confirming the weak
+broad H$\beta$ component in CEERS-1019 would strengthen the basis of its virial
+mass \citep{larson2023}, although calibration uncertainty would remain.
+An independent mass estimate for J0910\_2028\_12910 could test its 0.330-dex
+margin above the threshold. Agreement between estimators would be informative
+only to the extent that their calibration errors are independent.
+
 \begin{table}[htbp]
 \centering\small
-\caption{Mass-estimator limitations and proposed observations for all 12 primary objects above the reference threshold.
-Caveats summarize the source records cited in Table~\ref{tab:top}; proposed
-observations target the stated limitations; their feasibility has not been
-assessed.}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
+\caption{Mass-estimator limitations for all 12 primary objects above the reference threshold.
+Caveats summarize the source records cited in Table~\ref{tab:top}.}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.68\textwidth}@{}}
 \toprule
-Object & Mass-estimator caveat & Proposed observation \\
+Object & Mass-estimator caveat \\
 \midrule
 \tableinput{analysis/target_actions.tex}
 \bottomrule
@@ -628,8 +631,7 @@ approximately one. Its mass uncertainty allows average rates both below and
 above the Eddington limit.
 \end{itemize}
 Excluding the six records with unresolved identities preserves the threshold
-counts. Counts of unique objects in the full catalogue remain provisional. The proposed observations test the mass estimates of the most demanding
-objects under the stated growth assumptions.
+counts. Counts of unique objects in the full catalogue remain provisional.
 
 \clearpage
 \appendix

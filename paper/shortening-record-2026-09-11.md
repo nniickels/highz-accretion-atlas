@@ -55,3 +55,16 @@ The catalogue baseline identifier and analysis-input paths are retained.
 Table 6 and its generated inputs are unchanged pending discussion of its role.
 The manuscript compiles without warnings and all 11 repository-layout checks
 pass. The prepared Overleaf main source matches the local manuscript.
+
+## Table 6 reduced to mass-estimator caveats
+
+Removed the proposed-observation column while preserving all twelve object-specific
+caveats. Updated the table generator so regeneration retains the two-column format.
+Replaced claims about an observing programme in the introduction, table references
+and conclusion. Section 5.2 now briefly discusses scattering in COSMOS3D-13852,
+confirmation of the broad Hβ component in CEERS-1019, and independent calibration
+for J0910_2028_12910 in relation to its 0.330-dex threshold margin.
+
+No numerical results changed. All 99 tests and the publication-generation checks
+pass. The final PDF compiles without warnings; the table and discussion layout
+were inspected. The Overleaf source matches the prepared local manuscript.

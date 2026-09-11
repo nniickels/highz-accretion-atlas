@@ -95,7 +95,7 @@ checked claims, corrections, and remaining submission work.
 ## Scientific revision following manuscript assessment
 
 The revised draft foregrounds the twelve primary reference-threshold objects,
-source-specific estimator caveats and proposed observations. Generated LaTeX
+source-specific estimator caveats and their implications for the growth constraints. Generated LaTeX
 fragments under `analysis/` keep manuscript tables synchronized with the numerical
 outputs. The four-object Dayal input comparison and A2744-QSO1 dynamical-mass
 comparison are external manuscript analyses; neither admits a new canonical

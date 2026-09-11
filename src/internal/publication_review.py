@@ -92,7 +92,7 @@ def review_tex(outputs):
         # Rounded probabilities are descriptive, never labelled exact certainty.
         prob = lambda p: '$>0.999$' if p>.999 else ('$<0.001$' if p<.001 else f'{p:.3f}')
         rows.append(f'{tex_escape(r.object_id)}{note} \\newline {{\\footnotesize \\citet{{{citation}}}}} & {line} & {mass} & {r.required_fedd:.3f} & {r.p16:.3f} & {prob(r.probability_gt_1)} & {r.f_minus05:.3f} & {prob(r.p_minus05)} & {r.mass_reduction_to_f1_dex:.3f} \\\\')
-        actions.append(f'{tex_escape(r.object_id)} & {tex_escape(r.caveat)} & {tex_escape(r.proposed_observation)} \\\\[3pt]')
+        actions.append(f'{tex_escape(r.object_id)} & {tex_escape(r.caveat)} \\\\[3pt]')
     inventory = []
     for r in outputs['source_inventory'].itertuples():
         survey = ' / ' + tex_escape(r.label.split(' / ', 1)[1]) if ' / ' in r.label else ''
