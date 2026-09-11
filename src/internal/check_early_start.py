@@ -2,7 +2,7 @@
 
 Uses the manuscript's matter-plus-Lambda cosmology and constant-efficiency
 accretion prescription. This is an extrapolation, not a PBH evolution model.
-Run from the repository root: .venv/bin/python -m scripts.check_early_start
+Run from the repository root: .venv/bin/python -m src.internal.check_early_start
 """
 import json
 import numpy as np

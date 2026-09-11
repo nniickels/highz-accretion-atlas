@@ -100,7 +100,7 @@ class IndependentValidationTests(unittest.TestCase):
             uncertainty[['physical_object_id', 'required_fedd_seed1e2_p16', 'required_fedd_seed1e2_p84']],
             on='physical_object_id', validate='one_to_one',
         )
-        self.assertEqual([r[0].replace(r'\_', '_').strip() for r in rows], expected.object_id.tolist())
+        self.assertEqual([r[0].split(r'\newline', 1)[0].replace(r'\_', '_').strip() for r in rows], expected.object_id.tolist())
         for displayed, (_, actual) in zip(rows, expected.iterrows(), strict=True):
             self.assertTrue(displayed[2].startswith(f'${actual.log_mbh_msun_std:.2f}'))
             self.assertEqual(displayed[3], f'{actual.required_fedd_seed1e2:.3f}')

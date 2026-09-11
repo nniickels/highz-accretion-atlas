@@ -10,7 +10,7 @@ import subprocess
 import tempfile
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT / "paper"
 MANUSCRIPT = PAPER / "highz_accretion_atlas_v3.tex"
 

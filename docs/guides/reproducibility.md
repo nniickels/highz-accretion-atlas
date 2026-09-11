@@ -75,7 +75,7 @@ identity gate; the conservative manuscript exclusion check is separate.
 ## Manuscript reproduction and clean builds
 
 The independent baseline comparison includes generated `paper/analysis/*.csv`,
-`paper/analysis/*.tex`, and `paper/figures/*.png`, as well as the canonical dataset
+`paper/analysis/*.tex`, and `paper/figures/*.{png,tex}`, as well as the canonical dataset
 products. CSVs use the shared numerical tolerance; generated LaTeX fragments
 must match byte for byte; figures use the same per-channel bound and exact alpha
 as the atlas. Source README files and the compiler-dependent manuscript PDF are
@@ -115,3 +115,25 @@ PDF with the same Tectonic compiler and epoch produced the exact committed bytes
 Two builds with the pinned setuptools backend and epoch produced identical
 wheels. This is local macOS/Python 3.12 validation; Linux CI executes the updated
 workflow independently and uses pdfLaTeX for compilation.
+
+## Manuscript tooling repair of 11 September 2026
+
+The regression suite caught three integration failures after the AAS citation
+update and appendix-figure additions. Citation checks now recognize natbib
+commands and optional bibliography labels; the independent target-table check
+separates source citations from object names while retaining all numerical and
+ordering assertions. Bibliography and early-start helpers live in `src/internal/`,
+leaving `scripts/` for the five public workflow notebooks.
+
+Notebook 02 now regenerates the appendix's early-start vector figure. Generated
+`paper/figures/*.tex` files are included in clean-output removal and exact-byte
+baseline comparisons. A regression check confirms that changed vector-figure
+content is rejected. No numerical baseline or image tolerance was changed.
+
+Validation completed with all five notebooks executed in a disposable archive
+after removing all 1,289 generated artifacts. The independent baseline
+comparison passed, as did all 93 regression tests, provenance, source-value,
+publication-selection and version checks. The pinned package build passed and
+includes all relocated helpers. Tectonic compiled the manuscript from the
+regenerated inputs to the same PDF bytes as the committed version. This is
+local macOS validation; Linux CI still runs its own checks and pdfLaTeX build.

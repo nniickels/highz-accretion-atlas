@@ -58,7 +58,7 @@ Updating a reference does not change the versioned measurements used in the anal
 To regenerate the embedded bibliography after editing `references.bib`, run:
 
 ```bash
-python3 scripts/update_bibliography.py
+.venv/bin/python -m src.internal.update_bibliography
 ```
 
 This uses Tectonic and the [official AAS v7.1 style](https://journals.aas.org/wp-content/uploads/2026/06/aasjournalv7.1.bst).
@@ -68,11 +68,11 @@ The generated bibliography is embedded in the main `.tex` for portability;
 normal manuscript builds do not require BibTeX or an Overleaf recompile to sync edits.
 
 The appendix's comparison of growth starting at redshifts 30 and 3400 is
-reproduced with `.venv/bin/python -m scripts.check_early_start`. It uses the
+reproduced with `.venv/bin/python -m src.internal.check_early_start`. It uses the
 existing matter-plus-Lambda age relation and explicitly treats the high-redshift
 extension as an extrapolation, without changing any catalogue inference.
 Regenerate the corresponding appendix figure with
-`.venv/bin/python -m scripts.plot_early_start`. The generated
+`.venv/bin/python -m src.internal.plot_early_start`. The generated
 `figures/early_start_comparison.tex` uses PGFPlots for vector curves and the
 manuscript's serif font. Its coordinates come directly from `src.models`;
 both starting epochs use identical seed mass, rate, efficiency and merger factor.

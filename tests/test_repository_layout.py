@@ -87,10 +87,10 @@ class RepositoryLayoutTests(unittest.TestCase):
             manuscript += (ROOT / 'paper' / fragment).read_text()
         cited = {
             key.strip()
-            for group in re.findall(r"\\cite\{([^}]+)\}", manuscript)
+            for group in re.findall(r"\\cite(?:p|t|author|yearpar|year)?\*?(?:\[[^\]]*\])*\{([^}]+)\}", manuscript)
             for key in group.split(",")
         }
-        bibliography = set(re.findall(r"\\bibitem\{([^}]+)\}", manuscript))
+        bibliography = set(re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}", manuscript))
         self.assertEqual(cited, expected)
         self.assertEqual(bibliography, expected)
 
