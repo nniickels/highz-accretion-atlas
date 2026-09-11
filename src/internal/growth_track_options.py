@@ -54,7 +54,7 @@ def render(root=ROOT, destination=None):
         best = sorted(options, key=lambda x: (-x[0], x[1], x[2]))[:3]
         refs.extend((seed, rate, count) for count, _, rate in best if count >= 5)
     pd.DataFrame(refs, columns=['log_seed','rate','nearby_primary']).to_csv(OUT/'reference_selection.csv', index=False)
-    plt.rcParams.update({'font.family':'DejaVu Sans', 'font.size':11,
+    plt.rcParams.update({'font.family':'STIXGeneral', 'mathtext.fontset':'stix', 'font.size':11,
                          'axes.spines.top':False, 'axes.spines.right':False})
 
     def data(ax, label=False):

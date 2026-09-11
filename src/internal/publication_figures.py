@@ -36,7 +36,7 @@ def render_figures(root=ROOT, destination=None):
     destination = Path(destination) if destination is not None else root/'paper/figures'
     destination.mkdir(parents=True, exist_ok=True)
     selection, primary, point, uncertainty, compatibility, sensitivity = load_plot_inputs(root)
-    with plt.rc_context({**plt.rcParamsDefault, 'font.family':'DejaVu Sans', 'font.size':11, 'axes.labelsize':12, 'axes.titlesize':12,
+    with plt.rc_context({**plt.rcParamsDefault, 'font.family':'STIXGeneral', 'mathtext.fontset':'stix', 'font.size':11, 'axes.labelsize':12, 'axes.titlesize':12,
                          'legend.fontsize':9, 'grid.alpha':.15,
                          'axes.spines.top':False, 'axes.spines.right':False}):
         def save(fig, name):
