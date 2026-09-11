@@ -44,6 +44,29 @@ The compiled draft is `highz_accretion_atlas_v3.pdf`. LaTeX intermediate files
 are ignored. The fixed epoch is 2026-09-03 00:00:00 UTC and makes repeat builds
 with the same compiler byte-reproducible.
 
+## Bibliography
+
+The bibliography follows the [AAS reference instructions](https://journals.aas.org/references/):
+author–year citations with initials, alphabetical references, all authors for
+papers with up to five authors, and the first three plus *et al.* otherwise.
+Article titles remain in `references.bib` but are hidden in the default short
+bibliography. Journal metadata and preprint versions were checked on 2026-09-10
+against publisher-deposited Crossref records and arXiv; each BibTeX entry records
+its metadata source. Stable citation keys can differ from publication years.
+Updating a reference does not change the versioned measurements used in the analysis.
+
+To regenerate the embedded bibliography after editing `references.bib`, run:
+
+```bash
+python3 scripts/update_bibliography.py
+```
+
+This uses Tectonic and the [official AAS v7.1 style](https://journals.aas.org/wp-content/uploads/2026/06/aasjournalv7.1.bst).
+The vendored style has one documented correction: clear the suffix state before
+its reverse pass to prevent an isolated reference receiving an orphan `a` suffix.
+The generated bibliography is embedded in the main `.tex` for portability;
+normal manuscript builds do not require BibTeX or an Overleaf recompile to sync edits.
+
 The [scientific/editorial pass record](scientific-editorial-review.md) lists
 checked claims, corrections, and remaining submission work.
 

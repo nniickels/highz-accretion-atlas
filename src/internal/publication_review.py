@@ -81,11 +81,16 @@ def review_tex(outputs):
         mass = rf'${r.log_mbh_msun_std:.2f}^{{+{r.log_mbh_err_plus_std:.2f}}}_{{-{r.log_mbh_err_minus_std:.2f}}}$'
         # Rounded probabilities are descriptive, never labelled exact certainty.
         prob = lambda p: '$>0.999$' if p>.999 else ('$<0.001$' if p<.001 else f'{p:.3f}')
-        rows.append(f'{tex_escape(r.object_id)} & {line} \\cite{{{citation}}} & {mass} & {r.required_fedd:.3f} & {r.p16:.3f} & {prob(r.probability_gt_1)} & {r.f_minus05:.3f} & {prob(r.p_minus05)} \\\\')
+        rows.append(f'{tex_escape(r.object_id)} \\newline {{\\footnotesize \\citet{{{citation}}}}} & {line} & {mass} & {r.required_fedd:.3f} & {r.p16:.3f} & {prob(r.probability_gt_1)} & {r.f_minus05:.3f} & {prob(r.p_minus05)} \\\\')
         actions.append(f'{tex_escape(r.object_id)} & {tex_escape(r.caveat)} & {tex_escape(r.proposed_observation)} \\\\[3pt]')
     inventory = []
     for r in outputs['source_inventory'].itertuples():
-        inventory.append(f'{tex_escape(r.label)} \\cite{{{r.citation}}} & {r.n_measurements}/{r.n_growth_eligible_measurements}/{r.n_publication_primary_preferred} & {r.mass_summary} & {tex_escape(r.channel_summary)}; {tex_escape(r.caveat_summary)} \\\\[3pt]')
+        survey = ' / ' + tex_escape(r.label.split(' / ', 1)[1]) if ' / ' in r.label else ''
+        if r.label.startswith('Skyfire'):
+            survey = ' / Skyfire (CEERS)'
+        elif r.citation == 'bogdan2024,zou2026':
+            survey = ' / UHZ1'
+        inventory.append(f'\\citet{{{r.citation}}}{survey} & {r.n_measurements}/{r.n_growth_eligible_measurements}/{r.n_publication_primary_preferred} & {r.mass_summary} & {tex_escape(r.channel_summary)}; {tex_escape(r.caveat_summary)} \\\\[3pt]')
     matched = [f'{tex_escape(r.object_id)} & {r.earlier_inputs_z25:.3f} & {r.current_inputs_z25:.3f} & {r.current_inputs_z30:.3f} \\\\' for r in outputs['matched_literature_comparison'].itertuples()]
     direct = outputs['external_direct_mass_comparison'].set_index('comparison')
     old, new = direct.loc['catalogue_virial'], direct.loc['external_dynamical']

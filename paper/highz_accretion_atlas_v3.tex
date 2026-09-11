@@ -1,6 +1,12 @@
 \documentclass[11pt]{article}
 \usepackage[margin=0.78in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,graphicx,microtype,xcolor}
+\usepackage[authoryear,round]{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+% Match AAS's default short bibliography (article titles are kept in the .bib).
+\renewcommand{\bibinfo}[2]{}
+\setlength{\bibsep}{4pt}
+\renewcommand{\bibfont}{\interlinepenalty=10000\urlstyle{same}}
 \usepackage[hidelinks]{hyperref}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{enumitem,longtable,array}
@@ -85,7 +91,7 @@ than assuming that every high-redshift black hole presents the same assembly
 problem. The constraints apply to individual objects under stated assumptions.
 
 Analytic seed-growth comparisons already establish the trade-off between seed
-mass and sustained accretion. For example, Dayal \cite{dayal2024} considered
+mass and sustained accretion. For example, \citet{dayal2024} considered
 light and heavy seeds at $z_{\rm seed}=25$ and explored a primordial-seeding
 interpretation. Here we use this established growth framework to assess how
 object-level constraints change when published masses, measurement methods,
@@ -99,8 +105,8 @@ matched literature comparison, and evaluate an independent dynamical estimate
 outside the frozen catalogue. These comparisons make the catalogue useful for
 selecting observational tests of growth assumptions.
 Survey studies provide a complementary perspective: the JADES broad-line census
-\cite{juodzbalis2026} measures current accretion and host scaling relations,
-while the narrow-line census \cite{scholtz2025} broadens the evidence for
+\citep{juodzbalis2026} measures current accretion and host scaling relations,
+while the narrow-line census \citep{scholtz2025} broadens the evidence for
 obscured activity. Our comparison asks what cumulative growth the adopted
 masses require, which is distinct from measuring present accretion or counting
 AGN in a survey. It uses those source measurements without imposing a common
@@ -119,7 +125,7 @@ energy emitted as radiation. For the available growth interval,
 \int_{t(z_{\rm seed})}^{t(z_{\rm obs})}\fedd(t)\,dt.
 \label{eq:average}
 \end{equation}
-The analytic growth relation adopted by Dayal \cite{dayal2024} gives
+The analytic growth relation adopted by \citet{dayal2024} gives
 \begin{equation}
 \mbh(t_{\rm obs})=B_{\rm merge}\mseed
 \exp\!\left[\frac{1-\epsilon}{\epsilon}
@@ -201,7 +207,7 @@ No additional calibration scatter is added to the quoted errors.
 We test mass-scale sensitivity by shifting all adopted log masses and their
 error draws by offsets of $-0.5$, $-0.3$, $0$, $+0.3$ and $+0.5$ dex, keeping the sample and growth
 assumptions fixed. These offsets probe the single-epoch mass uncertainty scale
-\cite{shen2013}; they are stress tests, not inferred calibration corrections.
+\citep{shen2013}; they are stress tests, not inferred calibration corrections.
 Probabilities remain conditional on each offset. Sampling and conversion
 details are given in Appendix~\ref{app:implementation}.
 
@@ -264,9 +270,9 @@ $f_-$ and $P_-$ apply the fixed $-0.5$ dex offset. Rounded probabilities above
 0.999 do not imply physical certainty. Source-specific caveats and proposed
 observations are in Table~\ref{tab:actions}.}
 \begingroup\small\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}llrrrrrr@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}lrrrrrr@{}}
 \toprule
-Object & Line/source & Log mass & $f_0$ & $f_{16}$ & $P_0$ & $f_-$ & $P_-$ \\
+Object/source & Line & Log mass & $f_0$ & $f_{16}$ & $P_0$ & $f_-$ & $P_-$ \\
 \midrule
 \tableinput{analysis/target_rows.tex}
 \bottomrule
@@ -327,7 +333,7 @@ $+0.5$ & 19 / 16 / 13 & 21 / 18 / 15 \\
 \end{table}
 
 Replacing the redshifts, masses and errors of 44 exact-ID, position-confirmed
-Baccus counterparts with published Table~1 values \cite{baccus2026} preserves
+Baccus counterparts with published Table~1 values \citep{baccus2026} preserves
 the primary 12/8/6 and exploratory 14/10/8 counts and both top-five rankings
 (Table~\ref{tab:baccusjoint}). The 32 changed central masses shift by $-0.10$
 to $+0.04$ dex. Of five unmatched records, one is identity-excluded; retaining
@@ -359,7 +365,7 @@ unity from 12 to four; $10^5\,M_\odot$ seeds remove all point exceedances.
 Delaying seeding to $z=20$ raises the primary count to 22, while
 $\epsilon=0.05719$ removes all point exceedances in both samples
 (Table~\ref{tab:scenarios}). These one-parameter tests span light/heavy seeds
-\cite{dayal2024}, shorter growth time and the ideal non-spinning thin-disc
+\citep{dayal2024}, shorter growth time and the ideal non-spinning thin-disc
 efficiency (Eq.~\ref{eq:spin}); they have no inferred population weights.
 
 \begin{table}[ht]
@@ -445,7 +451,7 @@ RUBIES-EGS-50052 (CEERS-2782) has two alternatives. All pairs remain below the r
 
 \subsection{Separating measurement and starting-time changes}
 
-For four unambiguous matches to Dayal's Table~1 \cite{dayal2024},
+For four unambiguous matches to Table~1 of \citet{dayal2024},
 Table~\ref{tab:matched} first replaces the earlier masses and redshifts with
 our adopted values at $z_{\rm seed}=25$, then changes seeding to $z=30$.
 All columns use our cosmology, $\epsilon=0.1$, $10^2M_\odot$ seeds and no
@@ -472,9 +478,11 @@ Object & Earlier inputs, 25 & Adopted inputs, 25 & Adopted inputs, 30 \\
 \label{sec:direct}
 
 For A2744-QSO1, we compare the frozen virial mass
-$\log_{10}(M/M_\odot)=7.3\pm0.2$ \cite{greene2024} with the external MOKA3D
-point-mass estimate $7.7\pm0.3$ \cite{juodzbalis_direct2025}, using $z=7.04$
-and the reference history. The latter depends on lens reconstruction and
+$\log_{10}(M/M_\odot)=7.3\pm0.2$ \citep{greene2024} with the external MOKA3D
+point-mass estimate $7.7\pm0.3$ \citep{juodzbalis_direct2025}, using $z=7.04$
+and the reference history. We retain the values from
+\href{https://arxiv.org/abs/2508.21748v2}{arXiv:2508.21748v2}; the reference
+lists the subsequent journal publication. The latter estimate depends on lens reconstruction and
 inclination; its inclination-free lower limit is not sampled symmetrically.
 \input{analysis/direct_result.tex}
 The dynamical estimate moves the object from below the reference threshold
@@ -509,18 +517,18 @@ a high quoted-error probability alone does not validate an estimator.
 
 The $-0.5$ dex test does not bracket every estimator limitation.
 UNCOVER-20466's demagnified H$\beta$ mass depends on lensing and broad-line
-interpretation \cite{greene2024}; RUBIES-EGS-55604's dust-corrected H$\beta$
-mass has a separately recorded 0.5 dex calibration scale \cite{kocevski2025}.
+interpretation \citep{greene2024}; RUBIES-EGS-55604's dust-corrected H$\beta$
+mass has a separately recorded 0.5 dex calibration scale \citep{kocevski2025}.
 For COSMOS3D-13852, scattering could inflate the H$\beta$ mass by 1--2 dex
-\cite{lin2025}. Those downward offsets give point requirements of 1.115 and
+\citep{lin2025}. Those downward offsets give point requirements of 1.115 and
 0.916: illustrative source-motivated tests, not inferred corrections or
 probability distributions.
 
 J0910\_2028\_12910 has a 0.01 dex quoted error and a requirement of 1.053,
 giving $P>0.999$, yet its separately recorded 0.5 dex calibration scale
-\cite{baccus2026} allows it below unity in the negative-offset test. In
+\citep{baccus2026} allows it below unity in the negative-offset test. In
 contrast, ZS7's quoted 0.4 dex already includes calibration scatter
-\cite{ubler2024}. Quoted-error probabilities therefore do not rank equivalent
+\citep{ubler2024}. Quoted-error probabilities therefore do not rank equivalent
 physical uncertainties.
 
 \begin{table}[htbp]
@@ -653,7 +661,7 @@ precede the manuscript exclusions.
 Table~\ref{tab:sources} gives every admitted source family. Counts distinguish
 measurements from preferred objects and avoid attributing one shared physical
 object independently to multiple sources. Auxiliary coordinates are attributed in the registry to THRILS
-\cite{hutchison2025}, UHZ1 spectroscopy \cite{goulding2023}, and the versioned
+\citep{hutchison2025}, UHZ1 spectroscopy \citep{goulding2023}, and the versioned
 JADES DR3 GOODS-S prism catalogue. The machine-readable companion retains
 full selection-channel and caveat tags alongside source URLs. ``Context'' and
 ``Limit'' denote values retained outside numerical growth inference.
@@ -679,8 +687,8 @@ selected object once. ``Balmer'' denotes single-epoch virial masses.}
 \subsection{Source-admission checks}
 \label{app:admission}
 
-The v3 additions include 15 NEXUS measurements from NIRCam/WFSS \cite{zhuang2025}, 13 COSMOS-3D NIRCam-grism
-measurements \cite{lin2025}, and GHZ4/GHZ7 \cite{napolitano2024}. These contribute 30
+The v3 additions include 15 NEXUS measurements from NIRCam/WFSS \citep{zhuang2025}, 13 COSMOS-3D NIRCam-grism
+measurements \citep{lin2025}, and GHZ4/GHZ7 \citep{napolitano2024}. These contribute 30
 measurements and 29 object records. NX10835 lies 0.066 arcsec from
 an existing Mascia identifier at consistent redshift, so the new mass-bearing
 measurement becomes preferred for the same object.
@@ -737,7 +745,7 @@ required-$\fedd$ table is instead ordered directly by $f_2$.
 \label{app:efficiency}
 
 For the illustrative spin-dependent maps, the ideal Kerr thin-disk efficiency
-is the ISCO binding efficiency \cite{bardeen1972}:
+is the ISCO binding efficiency \citep{bardeen1972}:
 \begin{align}
 \epsilon_a&=1-\sqrt{1-\frac{2}{3r_{\rm ISCO}}},\\
 r_{\rm ISCO}&=3+Z_2-\operatorname{sgn}(a)
@@ -751,7 +759,7 @@ momentum relative to the disk, and $r_{\rm ISCO}$ is in units of $G\mbh/c^2$.
 The ideal efficiencies at $a=-1,0,+1$ are approximately 0.038, 0.057, and
 0.423, respectively, neglecting photon capture and stress at the ISCO.
 Logarithmic luminosity growth at supercritical inflow is motivated by
-advection and wind models \cite{poutanen2007}. Our unit-coefficient relation
+advection and wind models \citep{poutanen2007}. Our unit-coefficient relation
 is a phenomenological ansatz, not a fit to those models or a treatment of
 radial mass loss. Above unity, the maps adopt
 \begin{equation}
@@ -944,53 +952,304 @@ groups are withheld; the separate full-catalogue identity gate remains open
 for the three groups listed in Section~\ref{sec:limits}.
 
 \clearpage
-\begin{thebibliography}{99}
-\setlength{\itemsep}{2pt}
-\bibitem{dayal2024} Dayal, P. 2024, \emph{A\&A}, 690, A182, doi:10.1051/0004-6361/202451481.
-\bibitem{juodzbalis2026} Juod\v{z}balis, I. et al. 2026, \emph{MNRAS}, 546, stag086, doi:10.1093/mnras/stag086.
-\bibitem{scholtz2025} Scholtz, J. et al. 2025, \emph{A\&A}, 697, A175, doi:10.1051/0004-6361/202348804.
-\bibitem{shen2013} Shen, Y. 2013, The Mass of Quasars, arXiv:1302.2643v1.
-\bibitem{greene2024} Greene, J. E. et al. 2024, \emph{ApJ}, 964, 39, doi:10.3847/1538-4357/ad1e5f.
-\bibitem{lin2025} Lin, X. et al. 2025, COSMOS-3D broad-line AGN sample, accepted by \emph{ApJ}, doi:10.3847/1538-4357/ae1b9b.
-\bibitem{kocevski2025} Kocevski, D. D. et al. 2025, \emph{ApJ}, 986, 126, doi:10.3847/1538-4357/adbc7d.
-\bibitem{larson2023} Larson, R. L. et al. 2023, \emph{ApJL}, 953, L29, doi:10.3847/2041-8213/ace619.
-\bibitem{baccus2026} Baccus, C. et al. 2026, \emph{ApJ}, 1006, 165, doi:10.3847/1538-4357/ae7de7.
-\bibitem{harikane2023} Harikane, Y. et al. 2023, \emph{ApJ}, 959, 39, doi:10.3847/1538-4357/ad029e.
-\bibitem{ubler2024} \"{U}bler, H. et al. 2024, \emph{MNRAS}, 531, 355, doi:10.1093/mnras/stae943.
-\bibitem{juodzbalis_direct2025} Juod\v{z}balis, I. et al. 2025,
-A direct black hole mass measurement in a Little Red Dot at the Epoch of
-Reionization, arXiv:2508.21748v2; related publication doi:10.1038/s41586-026-10579-4.
-\bibitem{hutchison2025} Hutchison, T. A. et al. 2025, THRILS redshift catalogue, arXiv:2512.12509v1.
-\bibitem{goulding2023} Goulding, A. D. et al. 2023, \emph{ApJL}, 955, L24, doi:10.3847/2041-8213/acf7c5.
-\bibitem{chavezortiz2026} Chavez Ortiz, O. A. et al. 2025, revised 2026, arXiv:2511.03035v2.
-\bibitem{chisholm2024} Chisholm, J. et al. 2024, \emph{MNRAS}, doi:10.1093/mnras/stae2199.
-\bibitem{davis2026} Davis, K. et al. 2026, arXiv:2602.23310v1.
-\bibitem{fei2026} Fei, Q. et al. 2026, \emph{ApJ}, 1003, 244, doi:10.3847/1538-4357/ae6248.
-\bibitem{killi2024} Killi, M. et al. 2024, \emph{A\&A}, 691, A52, doi:10.1051/0004-6361/202348857.
-\bibitem{lin2024} Lin, X. et al. 2024, \emph{ApJ}, 974, 147, doi:10.3847/1538-4357/ad6565.
-\bibitem{lyu2024} Lyu, J. et al. 2024, \emph{ApJ}, 966, 229, doi:10.3847/1538-4357/ad3643.
-\bibitem{maiolino2024} Maiolino, R. et al. 2024, \emph{Nature}, 627, 59--63, doi:10.1038/s41586-024-07052-5.
-\bibitem{mascia2026} Mascia, S. et al. 2026, submitted to \emph{A\&A}, arXiv:2608.25021v1.
-\bibitem{matthee2024} Matthee, J. et al. 2024, \emph{ApJ}, 963, 129, doi:10.3847/1538-4357/ad2345.
-\bibitem{mazzolari2024} Mazzolari, G. et al. 2024, \emph{A\&A}, 691, A338, doi:10.1051/0004-6361/202451860.
-\bibitem{leung2026} Leung, G. C. K. et al. 2026, submitted to \emph{ApJ}, arXiv:2607.02666v1.
-\bibitem{naidu2026} Naidu, R. P. et al. 2026, \emph{Nature}, 656, 329--333, doi:10.1038/s41586-026-10846-4.
-\bibitem{napolitano2025} Napolitano, L. et al. 2025, \emph{ApJ}, 989, 75, doi:10.3847/1538-4357/ade706.
-\bibitem{napolitano2024} Napolitano, L. et al. 2025, \emph{A\&A}, 693, A50, doi:10.1051/0004-6361/202452090.
-\bibitem{ren2025} Ren, J. et al. 2025, \emph{MNRAS}, 544, 211--233, doi:10.1093/mnras/staf1709.
-\bibitem{skyfire2026} Skyfire Collaboration 2026, arXiv:2609.00112v1.
-\bibitem{tang2025} Tang, M. et al. 2025, accepted by \emph{ApJ}, arXiv:2505.06359v2.
-\bibitem{taylor2025} Taylor, A. J. et al. 2025, \emph{ApJ}, 986, 165, doi:10.3847/1538-4357/add15b.
-\bibitem{treiber2025} Treiber, H. et al. 2025, \emph{ApJ}, 984, 93, doi:10.3847/1538-4357/adc38f.
-\bibitem{bogdan2024} Bogd\'an, \'A. et al. 2024, \emph{Nature Astronomy}, 8, 126, doi:10.1038/s41550-023-02111-9.
-\bibitem{zou2026} Zou, F. et al. 2026, UHZ1 full-data X-ray reanalysis, accepted by \emph{ApJ}, arXiv:2603.24893v2.
-\bibitem{zhang2026} Zhang, Z. et al. 2026, accepted by \emph{ApJ}, arXiv:2506.04350v2.
-\bibitem{zhuang2025} Zhuang, M.-Y. et al. 2025, NEXUS broad-line AGN sample, arXiv:2505.20393v1.
-\bibitem{bardeen1972} Bardeen, J. M., Press, W. H., \& Teukolsky, S. A. 1972,
-\emph{ApJ}, 178, 347--369, doi:10.1086/151796.
-\bibitem{poutanen2007} Poutanen, J., Lipunova, G., Fabrika, S., Butkevich, A. G.,
-\& Abolmasov, P. 2007, \emph{MNRAS}, 377, 1187--1194,
-doi:10.1111/j.1365-2966.2007.11668.x.
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+\providecommand{\dodoi}[1]{doi:~\href{http://doi.org/#1}{\nolinkurl{#1}}}
+\providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
+\providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
+
+% type= article
+\bibitem[{C.~J. Baccus {\&} X. Xu(2026)Baccus \& Xu}]{baccus2026}
+Baccus, C.~J., \& Xu, X. 2026, \bibinfo{title}{A Comprehensive JWST/NIRSpec
+  Census of Broad-line Active Galactic Nuclei: Faint, Low-mass Accretors and a
+  Population of Little Red Dots,} ApJ, 1006, 165,
+  \dodoi{10.3847/1538-4357/ae7de7}
+
+% type= article
+\bibitem[{J.~M. Bardeen {et~al.}(1972)Bardeen, Press, \&
+  Teukolsky}]{bardeen1972}
+Bardeen, J.~M., Press, W.~H., \& Teukolsky, S.~A. 1972,
+  \bibinfo{title}{Rotating Black Holes: Locally Nonrotating Frames, Energy
+  Extraction, and Scalar Synchrotron Radiation,} ApJ, 178, 347,
+  \dodoi{10.1086/151796}
+
+% type= article
+\bibitem[{{\'{A}}. Bogd{\'{a}}n {et~al.}(2024)Bogd{\'{a}}n, Goulding,
+  Natarajan, {et~al.}}]{bogdan2024}
+Bogd{\'{a}}n, {\'{A}}., Goulding, A.~D., Natarajan, P., {et~al.} 2024,
+  \bibinfo{title}{Evidence for heavy-seed origin of early supermassive black
+  holes from a z ≈ 10 X-ray quasar,} Nature Astronomy, 8, 126,
+  \dodoi{10.1038/s41550-023-02111-9}
+
+% type= article
+\bibitem[{{\'{O}}.~A. Ch{\'{a}}vez~Ortiz {et~al.}(2026)Ch{\'{a}}vez~Ortiz,
+  Finkelstein, Plat, {et~al.}}]{chavezortiz2026}
+Ch{\'{a}}vez~Ortiz, {\'{O}}.~A., Finkelstein, S.~L., Plat, A., {et~al.} 2026,
+  \bibinfo{title}{Significant Evidence of an Active Galactic Nucleus
+  Contribution in GHZ2 at z = 12.34,} ApJ, 1008, 227,
+  \dodoi{10.3847/1538-4357/ae96a4}
+
+% type= article
+\bibitem[{J. Chisholm {et~al.}(2024)Chisholm, Berg, Endsley,
+  {et~al.}}]{chisholm2024}
+Chisholm, J., Berg, D.~A., Endsley, R., {et~al.} 2024, \bibinfo{title}{[Ne v]
+  emission from a faint epoch of reionization-era galaxy: evidence for a
+  narrow-line intermediate-mass black hole,} MNRAS, 534, 2633,
+  \dodoi{10.1093/mnras/stae2199}
+
+% type= article
+\bibitem[{K. Davis {et~al.}(2026)Davis, Brooks, Trump, {et~al.}}]{davis2026}
+Davis, K., Brooks, M., Trump, J.~R., {et~al.} 2026, \bibinfo{title}{Extreme
+  Emission Line Galaxies in CEERS Are Powered by Star Formation, not AGN,} ApJ,
+  submitted.
+\newblock \doarXiv{2602.23310v1}
+
+% type= article
+\bibitem[{P. Dayal(2024)Dayal}]{dayal2024}
+Dayal, P. 2024, \bibinfo{title}{Exploring a primordial solution for early black
+  holes detected with JWST,} A\&A, 690, A182,
+  \dodoi{10.1051/0004-6361/202451481}
+
+% type= article
+\bibitem[{Q. Fei {et~al.}(2026)Fei, Fujimoto, Naidu, {et~al.}}]{fei2026}
+Fei, Q., Fujimoto, S., Naidu, R.~P., {et~al.} 2026, \bibinfo{title}{A GLIMPSE
+  of Intermediate Mass Black Holes in the Epoch of Reionization: Witnessing the
+  Descendants of Direct Collapse?} ApJ, 1003, 244,
+  \dodoi{10.3847/1538-4357/ae6248}
+
+% type= article
+\bibitem[{A.~D. Goulding {et~al.}(2023)Goulding, Greene, Setton,
+  {et~al.}}]{goulding2023}
+Goulding, A.~D., Greene, J.~E., Setton, D.~J., {et~al.} 2023,
+  \bibinfo{title}{UNCOVER: The Growth of the First Massive Black Holes from
+  JWST/NIRSpec---Spectroscopic Redshift Confirmation of an X-Ray Luminous AGN
+  at z = 10.1,} ApJL, 955, L24, \dodoi{10.3847/2041-8213/acf7c5}
+
+% type= article
+\bibitem[{J.~E. Greene {et~al.}(2024)Greene, Labbe, Goulding,
+  {et~al.}}]{greene2024}
+Greene, J.~E., Labbe, I., Goulding, A.~D., {et~al.} 2024,
+  \bibinfo{title}{UNCOVER Spectroscopy Confirms the Surprising Ubiquity of
+  Active Galactic Nuclei in Red Sources at z > 5,} ApJ, 964, 39,
+  \dodoi{10.3847/1538-4357/ad1e5f}
+
+% type= article
+\bibitem[{Y. Harikane {et~al.}(2023)Harikane, Zhang, Nakajima,
+  {et~al.}}]{harikane2023}
+Harikane, Y., Zhang, Y., Nakajima, K., {et~al.} 2023, \bibinfo{title}{A
+  JWST/NIRSpec First Census of Broad-line AGNs at z = 4--7: Detection of 10
+  Faint AGNs with M BH ∼ 106--108 M ⊙ and Their Host Galaxy Properties,}
+  ApJ, 959, 39, \dodoi{10.3847/1538-4357/ad029e}
+
+% type= article
+\bibitem[{T.~A. Hutchison {et~al.}(2025)Hutchison, Larson, Arrabal~Haro,
+  {et~al.}}]{hutchison2025}
+Hutchison, T.~A., Larson, R.~L., Arrabal~Haro, P., {et~al.} 2025,
+  \bibinfo{title}{THRILS -- The High-(Redshift+Ionization) Line Search: Program
+  Description \& Redshift Catalog,} arXiv e-prints.
+\newblock \doarXiv{2512.12509v1}
+
+% type= article
+\bibitem[{I. Juod{\v{z}}balis {et~al.}(2026{\natexlab{a}})Juod{\v{z}}balis,
+  Maiolino, Baker, {et~al.}}]{juodzbalis2026}
+Juod{\v{z}}balis, I., Maiolino, R., Baker, W.~M., {et~al.} 2026{\natexlab{a}},
+  \bibinfo{title}{JADES: comprehensive census of broad-line AGN from
+  reionization to cosmic noon revealed by JWST,} MNRAS, 546, stag086,
+  \dodoi{10.1093/mnras/stag086}
+
+% type= article
+\bibitem[{I. Juod{\v{z}}balis {et~al.}(2026{\natexlab{b}})Juod{\v{z}}balis,
+  Marconcini, D'Eugenio, {et~al.}}]{juodzbalis_direct2025}
+Juod{\v{z}}balis, I., Marconcini, C., D'Eugenio, F., {et~al.}
+  2026{\natexlab{b}}, \bibinfo{title}{A direct black-hole mass measurement in a
+  little red dot at high redshift,} Nature, 653, 1017,
+  \dodoi{10.1038/s41586-026-10579-4}
+
+% type= article
+\bibitem[{M. Killi {et~al.}(2024)Killi, Watson, Brammer, {et~al.}}]{killi2024}
+Killi, M., Watson, D., Brammer, G., {et~al.} 2024, \bibinfo{title}{Deciphering
+  the JWST spectrum of a ‘little red dot' at z ∼ 4.53: An obscured AGN and
+  its star-forming host,} A\&A, 691, A52, \dodoi{10.1051/0004-6361/202348857}
+
+% type= article
+\bibitem[{D.~D. Kocevski {et~al.}(2025)Kocevski, Finkelstein, Barro,
+  {et~al.}}]{kocevski2025}
+Kocevski, D.~D., Finkelstein, S.~L., Barro, G., {et~al.} 2025,
+  \bibinfo{title}{The Rise of Faint, Red Active Galactic Nuclei at z > 4: A
+  Sample of Little Red Dots in the JWST Extragalactic Legacy Fields,} ApJ, 986,
+  126, \dodoi{10.3847/1538-4357/adbc7d}
+
+% type= article
+\bibitem[{D.~D. Kocevski {et~al.}(2026)Kocevski, Taylor, Onoue,
+  {et~al.}}]{skyfire2026}
+Kocevski, D.~D., Taylor, A.~J., Onoue, M., {et~al.} 2026,
+  \bibinfo{title}{Skyfire: A Spectroscopic Census of Little Red Dots and
+  Broad-Line AGN in the CEERS Field,} ApJ, submitted.
+\newblock \doarXiv{2609.00112v1}
+
+% type= article
+\bibitem[{R.~L. Larson {et~al.}(2023)Larson, Finkelstein, Kocevski,
+  {et~al.}}]{larson2023}
+Larson, R.~L., Finkelstein, S.~L., Kocevski, D.~D., {et~al.} 2023,
+  \bibinfo{title}{A CEERS Discovery of an Accreting Supermassive Black Hole 570
+  Myr after the Big Bang: Identifying a Progenitor of Massive z > 6 Quasars,}
+  ApJL, 953, L29, \dodoi{10.3847/2041-8213/ace619}
+
+% type= article
+\bibitem[{G.~C.~K. Leung {et~al.}(2026)Leung, Eilers, Endsley,
+  {et~al.}}]{leung2026}
+Leung, G. C.~K., Eilers, A.-C., Endsley, R., {et~al.} 2026, \bibinfo{title}{The
+  MIRI Early Obscured-AGN Wide Survey (MEOW): A Population of Hidden AGN at $z
+  \gtrsim 5$ Revealed by JWST/MIRI Imaging,} ApJ, submitted.
+\newblock \doarXiv{2607.02666v1}
+
+% type= article
+\bibitem[{X. Lin {et~al.}(2026)Lin, Fan, Wang, {et~al.}}]{lin2025}
+Lin, X., Fan, X., Wang, F., {et~al.} 2026, \bibinfo{title}{Bridging Quasars and
+  Little Red Dots: Insights into Broad-line Active Galactic Nuclei at z = 5--8
+  from the First JWST COSMOS-3D Dataset,} ApJ, 996, 93,
+  \dodoi{10.3847/1538-4357/ae1b9b}
+
+% type= article
+\bibitem[{X. Lin {et~al.}(2024)Lin, Wang, Fan, {et~al.}}]{lin2024}
+Lin, X., Wang, F., Fan, X., {et~al.} 2024, \bibinfo{title}{A SPectroscopic
+  Survey of Biased Halos In the Reionization Era (ASPIRE): Broad-line AGN at z
+  = 4−5 Revealed by JWST/NIRCam WFSS,} ApJ, 974, 147,
+  \dodoi{10.3847/1538-4357/ad6565}
+
+% type= article
+\bibitem[{J. Lyu {et~al.}(2024)Lyu, Alberts, Rieke, {et~al.}}]{lyu2024}
+Lyu, J., Alberts, S., Rieke, G.~H., {et~al.} 2024, \bibinfo{title}{Active
+  Galactic Nuclei Selection and Demographics: A New Age with JWST/MIRI,} ApJ,
+  966, 229, \dodoi{10.3847/1538-4357/ad3643}
+
+% type= article
+\bibitem[{R. Maiolino {et~al.}(2024)Maiolino, Scholtz, Witstok,
+  {et~al.}}]{maiolino2024}
+Maiolino, R., Scholtz, J., Witstok, J., {et~al.} 2024, \bibinfo{title}{A small
+  and vigorous black hole in the early Universe,} Nature, 627, 59,
+  \dodoi{10.1038/s41586-024-07052-5}
+
+% type= article
+\bibitem[{S. Mascia {et~al.}(2026)Mascia, Matthee, Torralba,
+  {et~al.}}]{mascia2026}
+Mascia, S., Matthee, J., Torralba, A., {et~al.} 2026, \bibinfo{title}{The
+  ionizing properties of JWST's compact broad-line emitters,} A\&A, submitted.
+\newblock \doarXiv{2608.25021v1}
+
+% type= article
+\bibitem[{J. Matthee {et~al.}(2024)Matthee, Naidu, Brammer,
+  {et~al.}}]{matthee2024}
+Matthee, J., Naidu, R.~P., Brammer, G., {et~al.} 2024, \bibinfo{title}{Little
+  Red Dots: An Abundant Population of Faint Active Galactic Nuclei at z ∼ 5
+  Revealed by the EIGER and FRESCO JWST Surveys,} ApJ, 963, 129,
+  \dodoi{10.3847/1538-4357/ad2345}
+
+% type= article
+\bibitem[{G. Mazzolari {et~al.}(2025)Mazzolari, Scholtz, Maiolino,
+  {et~al.}}]{mazzolari2024}
+Mazzolari, G., Scholtz, J., Maiolino, R., {et~al.} 2025,
+  \bibinfo{title}{Narrow-line AGN selection in CEERS: Spectroscopic selection,
+  physical properties, and X-ray and radio analysis,} A\&A, 700, A12,
+  \dodoi{10.1051/0004-6361/202451860}
+
+% type= article
+\bibitem[{R.~P. Naidu {et~al.}(2026)Naidu, Matthee, Katz, {et~al.}}]{naidu2026}
+Naidu, R.~P., Matthee, J., Katz, H., {et~al.} 2026, \bibinfo{title}{A
+  gas-enshrouded and gas-reddened black hole at cosmic dawn,} Nature, 656, 329,
+  \dodoi{10.1038/s41586-026-10846-4}
+
+% type= article
+\bibitem[{L. Napolitano {et~al.}(2025{\natexlab{a}})Napolitano, Castellano,
+  Pentericci, {et~al.}}]{napolitano2025}
+Napolitano, L., Castellano, M., Pentericci, L., {et~al.} 2025{\natexlab{a}},
+  \bibinfo{title}{The Dual Nature of GHZ9: Coexisting Active Galactic Nuclei
+  and Star Formation Activity in a Remote X-Ray Source at z = 10.145,} ApJ,
+  989, 75, \dodoi{10.3847/1538-4357/ade706}
+
+% type= article
+\bibitem[{L. Napolitano {et~al.}(2025{\natexlab{b}})Napolitano, Castellano,
+  Pentericci, {et~al.}}]{napolitano2024}
+Napolitano, L., Castellano, M., Pentericci, L., {et~al.} 2025{\natexlab{b}},
+  \bibinfo{title}{Seven wonders of Cosmic Dawn: JWST confirms a high abundance
+  of galaxies and AGN at z ≃ 9--11 in the GLASS field,} A\&A, 693, A50,
+  \dodoi{10.1051/0004-6361/202452090}
+
+% type= article
+\bibitem[{J. Poutanen {et~al.}(2007)Poutanen, Lipunova, Fabrika, Butkevich, \&
+  Abolmasov}]{poutanen2007}
+Poutanen, J., Lipunova, G., Fabrika, S., Butkevich, A.~G., \& Abolmasov, P.
+  2007, \bibinfo{title}{Supercritically accreting stellar mass black holes as
+  ultraluminous X-ray sources,} MNRAS, 377, 1187,
+  \dodoi{10.1111/j.1365-2966.2007.11668.x}
+
+% type= article
+\bibitem[{W. Ren {et~al.}(2025)Ren, Silverman, Faisst, {et~al.}}]{ren2025}
+Ren, W., Silverman, J.~D., Faisst, A.~L., {et~al.} 2025, \bibinfo{title}{The
+  ALPINE--CRISTAL-- JWST survey: revealing less massive black holes in
+  high-redshift galaxies,} MNRAS, 544, 211, \dodoi{10.1093/mnras/staf1709}
+
+% type= article
+\bibitem[{J. Scholtz {et~al.}(2025)Scholtz, Maiolino, D'Eugenio,
+  {et~al.}}]{scholtz2025}
+Scholtz, J., Maiolino, R., D'Eugenio, F., {et~al.} 2025, \bibinfo{title}{JADES:
+  A large population of obscured, narrow-line active galactic nuclei at high
+  redshift,} A\&A, 697, A175, \dodoi{10.1051/0004-6361/202348804}
+
+% type= article
+\bibitem[{Y. Shen(2013)Shen}]{shen2013}
+Shen, Y. 2013, \bibinfo{title}{The Mass of Quasars,} Bulletin of the
+  Astronomical Society of India, 41, 61.
+\newblock \doarXiv{1302.2643v1}
+
+% type= article
+\bibitem[{M. Tang {et~al.}(2025)Tang, Stark, Plat, {et~al.}}]{tang2025}
+Tang, M., Stark, D.~P., Plat, A., {et~al.} 2025, \bibinfo{title}{JWST/NIRSpec
+  Observations of High-ionization Emission Lines in Galaxies at High Redshift,}
+  ApJ, 991, 217, \dodoi{10.3847/1538-4357/adfd57}
+
+% type= article
+\bibitem[{A.~J. Taylor {et~al.}(2025)Taylor, Finkelstein, Kocevski,
+  {et~al.}}]{taylor2025}
+Taylor, A.~J., Finkelstein, S.~L., Kocevski, D.~D., {et~al.} 2025,
+  \bibinfo{title}{Broad-line AGNs at 3.5 < z < 6: The Black Hole Mass Function
+  and a Connection with Little Red Dots,} ApJ, 986, 165,
+  \dodoi{10.3847/1538-4357/add15b}
+
+% type= article
+\bibitem[{H. Treiber {et~al.}(2025)Treiber, Greene, Weaver,
+  {et~al.}}]{treiber2025}
+Treiber, H., Greene, J.~E., Weaver, J.~R., {et~al.} 2025,
+  \bibinfo{title}{UNCOVERing the High-redshift AGN Population among Extreme UV
+  Line Emitters,} ApJ, 984, 93, \dodoi{10.3847/1538-4357/adc38f}
+
+% type= article
+\bibitem[{H. {\"{U}}bler {et~al.}(2024){\"{U}}bler, Maiolino,
+  P{\'{e}}rez-Gonz{\'{a}}lez, {et~al.}}]{ubler2024}
+{\"{U}}bler, H., Maiolino, R., P{\'{e}}rez-Gonz{\'{a}}lez, P.~G., {et~al.}
+  2024, \bibinfo{title}{GA-NIFS: JWST discovers an offset AGN 740 million years
+  after the big bang,} MNRAS, 531, 355, \dodoi{10.1093/mnras/stae943}
+
+% type= article
+\bibitem[{Z. Zhang {et~al.}(2026)Zhang, Jiang, Liu, Ho, \&
+  Inayoshi}]{zhang2026}
+Zhang, Z., Jiang, L., Liu, W., Ho, L.~C., \& Inayoshi, K. 2026,
+  \bibinfo{title}{JWST Insights into Narrow-line Little Red Dots,} ApJ, 998,
+  170, \dodoi{10.3847/1538-4357/ae33c4}
+
+% type= article
+\bibitem[{M.-Y. Zhuang {et~al.}(2026)Zhuang, Li, Shen, {et~al.}}]{zhuang2025}
+Zhuang, M.-Y., Li, J., Shen, Y., {et~al.} 2026, \bibinfo{title}{NEXUS: A
+  Spectroscopic Census of Broad-line AGNs and Little Red Dots at 3 ≲ z ≲
+  6,} ApJ, 999, 31, \dodoi{10.3847/1538-4357/ae3612}
+
+% type= article
+\bibitem[{F. Zou {et~al.}(2026)Zou, Gallo, Zuo, {et~al.}}]{zou2026}
+Zou, F., Gallo, E., Zuo, Z., {et~al.} 2026, \bibinfo{title}{Revisiting the
+  Claim for a Direct-Collapse Black Hole in UHZ1 at $z=10.05$,} ApJ, in press.
+\newblock \doarXiv{2603.24893v2}
+
 \end{thebibliography}
 
 \end{document}
