@@ -39,3 +39,19 @@ Both PDFs compile without warnings; the restored appendix and supplementary
 figure layout were inspected. All 11 repository-layout tests pass, including
 figure availability and separate citation/bibliography checks for both documents.
 Both Overleaf sources were compared with their prepared local equivalents.
+
+## Repetition and procedural-detail edits
+
+Removed the five agreed repeated qualifications in the offset methods,
+mass-scale results, discussion and compatibility appendix/caption. Preserved
+qualifications in the abstract, Table 1 notes and conclusions.
+
+Moved the Baccus central-mass change count/range and coordinate-validation counts
+to `docs/source-notes/manuscript-catalogue-bookkeeping.md`. Moved the compatibility
+code-key explanation and detailed notebook verification description to
+`docs/guides/reproducibility.md`, referenced by the shortened data statement.
+The catalogue baseline identifier and analysis-input paths are retained.
+
+Table 6 and its generated inputs are unchanged pending discussion of its role.
+The manuscript compiles without warnings and all 11 repository-layout checks
+pass. The prepared Overleaf main source matches the local manuscript.

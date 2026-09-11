@@ -48,3 +48,13 @@ the latter two require imaging and aperture checks.
 Seven of the nine additional candidate objects have conditional broad-line
 interpretations. All original measurements and catalogue flags remain available.
 
+## Measurement revision and validation coverage
+
+In the comparison with the published Baccus Table 1 measurements, 32 central
+masses change by −0.10 to +0.04 dex. The manuscript reports the threshold-count
+and ranking comparisons, including the treatment of unmatched records.
+
+Independent source checks cover all admitted mass/error fields, 350 central
+redshifts and 323 available coordinate pairs. Twenty-seven rows lack coordinates.
+Validation of redshift uncertainties, full posteriors and auxiliary observables
+is incomplete.

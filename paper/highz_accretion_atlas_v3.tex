@@ -248,8 +248,7 @@ mass estimates \citep{shen2013}.
 For each offset, we report the fraction of shifted Monte Carlo draws that
 require an average Eddington ratio above one. Each probability assumes that
 particular mass shift and the stated seed mass, starting redshift, radiative
-efficiency and merger contribution. We assign no probability to the offsets
-and report their results separately. Sampling and conversion
+efficiency and merger contribution. Sampling and conversion
 details are given in Appendix~\ref{app:implementation}.
 
 \begin{figure}[htbp]
@@ -340,7 +339,7 @@ these intervals do not include additional estimator systematics.}
 Downward mass shifts of 0.3 and 0.5 dex reduce the primary point/16th-percentile/
 $P\geq0.95$ counts from 12/8/6 to 9/6/4 and 6/4/3, respectively
 (Table~\ref{tab:massoffset}). UNCOVER-20466, COSMOS3D-13852 and
-RUBIES-EGS-55604 retain $P\geq0.95$ at $-0.5$ dex. Independent mass estimates would test these results. Biases specific to each
+RUBIES-EGS-55604 retain $P\geq0.95$ at $-0.5$ dex. Biases specific to each
 source may exceed this offset (Section~\ref{sec:credibility}), and the required
 rates still depend on seed mass, formation time and radiative efficiency.
 
@@ -367,8 +366,7 @@ $+0.5$ & 19 / 16 / 13 & 21 / 18 / 15 \\
 
 Replacing the redshifts, masses and errors of 44 Baccus counterparts matched by identifier and confirmed by position with published Table~1 values \citep{baccus2026} preserves
 the primary 12/8/6 and exploratory 14/10/8 counts and both top-five rankings
-(Table~\ref{tab:baccusjoint}). The 32 changed central masses shift by $-0.10$
-to $+0.04$ dex. Of five unmatched records, one is identity-excluded; retaining
+(Table~\ref{tab:baccusjoint}). Of five unmatched records, one is identity-excluded; retaining
 or omitting the other four leaves these results unchanged (220/230 objects
 when omitted). The test updates the matched measurements while keeping all six identity
 exclusions, method classes, growth parameters and sampling rules fixed.
@@ -517,7 +515,7 @@ the required accretion rate.
 Table~\ref{tab:actions} lists observations that could test the mass estimates
 of the objects above the reference threshold. Independent masses and constraints on scattering, outflows,
 obscuration and lensing can distinguish these interpretations. We propose these observations based on the known limitations of each mass
-estimate. The quoted-error probabilities omit any unreported estimator bias.
+estimate.
 
 \subsection{Estimator credibility and observational tests}
 \label{sec:credibility}
@@ -601,8 +599,8 @@ these assumptions fixed. Averaging over them would require justified
 parameter distributions and correlations; identifying seed origins would
 also require formation models and population information.
 
-Independent source checks cover all admitted mass/error fields, 350 central
-redshifts and 323 available coordinate pairs; 27 rows lack coordinates.
+Independent source checks cover all admitted mass/error fields and central
+redshifts. Coordinate checks and missing fields are documented with the release.
 Validation of redshift errors, full posteriors and auxiliary observables is
 incomplete. The catalogue covers the declared sources through 3 September
 2026; other JWST discoveries may fall outside this source list.
@@ -872,9 +870,9 @@ slim-disc dynamics. For time-varying efficiency, growth depends on
 $\int [(1-\epsilon(t))/\epsilon(t)]\fedd(t)\,dt$, which requires the joint
 time dependence of efficiency and accretion rate.
 
-Figure~\ref{fig:compatibility} gives the full scenario grid. The broad $10^2$--$10^6M_\odot$ interval is stored under the original code key
-\nolinkurl{pbh_origin_hypothesis}. This key labels the mass interval; a primordial
-interpretation requires additional assumptions about seed formation. The descriptive fractions use point masses
+Figure~\ref{fig:compatibility} gives the full scenario grid. A primordial
+interpretation of the broad seed-mass interval requires additional assumptions
+about seed formation. The descriptive fractions use point masses
 and the inclusive interval criterion in Section~\ref{sec:compatibility}, without error integration.
 The Supplementary Material discusses this interval for pre-existing primordial
 black holes and illustrates an earlier start of accretion.
@@ -912,9 +910,7 @@ in the primary sample (59 to 71 per cent inclusive). At higher accretion rates, 
 grow larger than the observed black hole. Such objects reduce the percentage
 reproduced from seeds in that range.
 These fractions use central mass estimates and the efficiency prescription in
-Section~\ref{app:efficiency}. They describe compatibility within the selected
-sample; estimating the frequency of each formation channel would require
-uncertainty propagation and a population selection model.
+Section~\ref{app:efficiency}.
 
 \begin{figure}[htbp]
 \centering
@@ -922,8 +918,7 @@ uncertainty propagation and a population selection model.
 \caption{Constant-state compatibility fractions in the primary
 sample (left) and the inclusive exploratory sample (right). The exploratory sample includes all primary objects. Each column specifies merger multiplier $B$ and fixed luminosity
 ratio $f$; rows specify ideal spin-dependent efficiency, with the supercritical
-prescription in Section~\ref{app:efficiency}. Seed intervals overlap and have no assigned probability weights. The broad
-mass interval spans several possible seed-formation channels.}
+prescription in Section~\ref{app:efficiency}. Seed intervals overlap and have no assigned probability weights.}
 \label{fig:compatibility}
 \end{figure}
 
@@ -938,11 +933,9 @@ version manifests under \texttt{releases/} record the dataset artifact hashes.
 Comparison results and tables are in \texttt{paper/analysis/}.
 External inputs are in \texttt{paper/review\_inputs.json}. An archival DOI is pending.
 
-Five ordered notebooks reproduce the catalogue, science products, figures,
-and atlas using pinned dependencies. Reproduction checks compare regenerated
-numerical products, figures, and manuscript table fragments with an independent
-stored baseline, then verify their internal consistency. Independent
-cosmic-age quadrature and growth integration supplement the regression checks.
+The numbered notebooks reproduce the catalogue, analysis, figures and atlas
+using pinned dependencies. Instructions and verification procedures are in
+\nolinkurl{docs/guides/reproducibility.md}.
 The source-family inventory in Appendix~\ref{app:sources} links measurements,
 methods, selection channels, and major caveats. Full identifiers, source-native
 observables, alternative measurements, and per-object maps remain available.

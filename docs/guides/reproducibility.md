@@ -172,3 +172,16 @@ after removing every generated artifact. The independent comparison verified
 1,296 regenerated artifacts, and the manuscript compiled from the regenerated
 inputs. This records macOS validation; a new Linux CI run is still required
 after the repair is pushed.
+
+## Manuscript verification and compatibility labels
+
+Five ordered notebooks reproduce the catalogue, science products, figures and
+atlas using pinned dependencies. Reproduction checks compare regenerated
+numerical products, figures and manuscript table fragments with an independent
+stored baseline, then verify their internal consistency. Independent cosmic-age
+quadrature and growth integration supplement the regression checks.
+
+The broad 10²–10⁶ solar-mass seed interval is stored under the original code key
+`pbh_origin_hypothesis`. The key identifies the tested mass interval. A primordial
+interpretation requires additional seed-formation assumptions; the manuscript's
+supplement discusses these assumptions and an earlier start of accretion.
