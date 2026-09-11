@@ -15,8 +15,8 @@ PAPER = ROOT / "paper"
 MANUSCRIPT = PAPER / "highz_accretion_atlas_v3.tex"
 
 
-def main():
-    source = MANUSCRIPT.read_text()
+def update(manuscript):
+    source = manuscript.read_text()
     # Expand table fragments to preserve actual first-citation order for a/b labels.
     expanded = re.sub(
         r"\\tableinput\{([^}]+)\}",
@@ -47,8 +47,13 @@ def main():
     )
     if count != 1:
         raise ValueError(f"Expected one bibliography, found {count}")
-    MANUSCRIPT.write_text(new_source)
-    print(f"Updated {len(keys)} AAS references")
+    manuscript.write_text(new_source)
+    print(f"Updated {len(keys)} AAS references in {manuscript.name}")
+
+
+def main():
+    for manuscript in (MANUSCRIPT, PAPER / "supplementary_material.tex"):
+        update(manuscript)
 
 
 if __name__ == "__main__":

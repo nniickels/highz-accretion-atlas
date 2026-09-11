@@ -154,8 +154,10 @@ $\Omega_\Lambda=1-\Omega_m=0.685$. The age calculation includes matter
 and a cosmological constant and neglects radiation. Appendix~\ref{app:derivations}
 gives the supporting relations, implementation and inverse seed-mass diagnostic.
 Equations~\ref{eq:growth}--\ref{eq:required-rate} assume constant radiative efficiency.
-The compatibility calculations use fixed spin values and the efficiency
-prescription in Appendix~\ref{app:efficiency}.
+The ideal thin-disc efficiencies used in Figure~\ref{fig:allgrowth} are
+0.03775, 0.05719 and 0.42265 for dimensionless spins $a=-1,0,+1$,
+respectively \citep{bardeen1972}. Each track holds efficiency constant;
+spin evolution is unspecified.
 
 \section{Catalogue construction}
 
@@ -209,7 +211,7 @@ The mass estimates retained in each sample still use different calibrations,
 and the contributing studies have different target-selection criteria and
 detection limits.
 Appendix~\ref{app:sources} gives the source inventory,
-identity decisions and sample accounting (Figure~\ref{fig:landscape}).
+identity decisions and sample accounting.
 
 \section{Growth-model comparison}
 
@@ -234,8 +236,8 @@ held fixed. For each sampled mass, we calculate the average Eddington ratio
 needed to grow from the assumed seed to that mass. The fraction of the 10,000
 Monte Carlo draws with a required ratio above one estimates the probability
 that growth requires an average rate above the Eddington limit, given the
-adopted mass-error distribution and growth assumptions. The draws use the
-quoted errors only. Probability calculations include 212 primary and 222
+adopted mass-error distribution and growth assumptions.
+Probability calculations include 212 primary and 222
 expanded-sample objects; the 12 objects without reported errors enter only
 calculations at their published masses.
 
@@ -249,32 +251,6 @@ particular mass shift and the stated seed mass, starting redshift, radiative
 efficiency and merger contribution. We assign no probability to the offsets
 and report their results separately. Sampling and conversion
 details are given in Appendix~\ref{app:implementation}.
-
-\subsection{Compatibility across growth assumptions}
-\label{sec:compatibility}
-
-For each assumed accretion rate, efficiency, starting redshift and merger
-contribution, we solve Eq.~\ref{eq:required-seed} for the initial seed mass
-that would grow to the observed black-hole mass. We then check whether that
-seed falls in each of four mass ranges: $10$--$100\,M_\odot$ (light),
-$10^3$--$10^4\,M_\odot$ (intermediate), $10^4$--$10^6\,M_\odot$ (heavy),
-and $10^2$--$10^6\,M_\odot$ (broad). We count an object as compatible with a
-range when some seed within it can reproduce the observed mass under these assumptions. The grid uses $z_{\rm seed}=30$, three
-spin/efficiency cases, merger multipliers 1 and 2, and average rates 0.3, 1
-and 2. These maps use the supercritical efficiency prescription in
-Appendix~\ref{app:efficiency}.
-
-The seed-mass ranges overlap and are tested separately, without probability
-weights. The broad range spans several possible seed-formation channels.
-If the seed mass needed to reproduce an object is smaller than the lower
-bound of a tested range, even the smallest seed in that range would grow
-larger than the observed black hole at the assumed accretion rate. That object
-is therefore excluded from the count for that range and set of growth assumptions.
-For each set of assumptions, we report the percentage of catalogue objects
-whose observed masses can be reproduced from a seed in the tested range.
-These percentages describe this literature sample. Estimating the corresponding
-percentages among all high-redshift black holes would require accounting for
-how each contributing study selected and detected its objects.
 
 \begin{figure}[htbp]
 \centering
@@ -421,7 +397,7 @@ Delaying seeding to $z=20$ raises the primary count to 22, while
 $\epsilon=0.05719$ removes all point exceedances in both samples
 (Table~\ref{tab:scenarios}). Each test changes one assumption: seed mass \citep{dayal2024}, available growth
 time, or the efficiency of an ideal thin disc around a non-spinning black hole
-(Eq.~\ref{eq:spin}). We assign no population weights to these scenarios.
+\citep{bardeen1972}.
 
 \begin{table}[ht]
 \centering
@@ -452,7 +428,6 @@ Figure~\ref{fig:boundaries} shows the maximum fixed efficiency allowing
 $\overline{\fedd}_{\rm req}\leq1$ for five targets as a function of seed mass.
 The $z_{\rm seed}=20$ and 30 curves show GN-z11's greater sensitivity to the starting time.
 These boundaries use central mass estimates and assume no merger boost.
-Sustaining the required rate also depends on the fuel supply.
 
 \begin{figure}[htbp]
 \centering
@@ -462,31 +437,12 @@ at two starting redshifts. Each curve uses an adopted point mass and no merger
 boost. Below a curve the required average is at most unity. Horizontal guides
 mark $\epsilon=0.1$ (solid grey) and $1-\sqrt{8/9}$ (dotted grey).
 GN-z11 (dashed) is exploratory; the other objects are primary.
-Each curve holds efficiency constant and has no assigned probability weight.}
+Each curve holds efficiency constant.}
 \label{fig:boundaries}
 \end{figure}
 
-The primary and exploratory samples show similar compatibility patterns
-(Fig.~\ref{fig:compatibility}). For heavy seeds at $a=+1$ and $f=1$, changing
-$B_{\rm merge}$ from one to two raises compatibility from 57 to 70 per cent
-in the primary sample (59 to 71 per cent inclusive). At higher accretion rates, even the smallest seed in a tested mass range can
-grow larger than the observed black hole. Such objects reduce the percentage
-reproduced from seeds in that range.
-These fractions use central mass estimates and the efficiency prescription in
-Appendix~\ref{app:efficiency}. They describe compatibility within the selected
-sample; estimating the frequency of each formation channel would require
-uncertainty propagation and a population selection model.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.99\textwidth]{figures/compatibility.pdf}
-\caption{Constant-state compatibility fractions in the primary
-sample (left) and the inclusive exploratory sample (right). The exploratory sample includes all primary objects. Each column specifies merger multiplier $B$ and fixed luminosity
-ratio $f$; rows specify ideal spin-dependent efficiency, with the supercritical
-prescription in Appendix~\ref{app:efficiency}. Seed intervals overlap and have no assigned probability weights. The broad
-mass interval spans several possible seed-formation channels.}
-\label{fig:compatibility}
-\end{figure}
+The Supplementary Material gives additional constant-spin calculations across
+seed-mass ranges and accretion rates.
 
 Seven alternate-measurement comparisons across six objects (two for CEERS-2782)
 span mass shifts of $-0.600$ to $+0.949$ dex and required-$\fedd$ shifts of
@@ -642,15 +598,13 @@ a fixed merger multiplier and constant radiative efficiency. Feedback and
 individual accretion histories remain unspecified. The probabilities hold
 these assumptions fixed. Averaging over them would require justified
 parameter distributions and correlations; identifying seed origins would
-also require formation models and population information. The age relation
-neglects radiation, so its extension to $z_{\rm seed}=3400$ is an extrapolation.
+also require formation models and population information.
 
 Independent source checks cover all admitted mass/error fields, 350 central
 redshifts and 323 available coordinate pairs; 27 rows lack coordinates.
 Validation of redshift errors, full posteriors and auxiliary observables is
 incomplete. The catalogue covers the declared sources through 3 September
-2026; other JWST discoveries may fall outside this source list. The external A2744-QSO1 test
-(Section~\ref{sec:direct}) leaves this frozen membership intact.
+2026; other JWST discoveries may fall outside this source list.
 
 \section{Conclusions}
 
@@ -716,12 +670,6 @@ Catalogue-only object records & 101 \\
 \label{tab:scale}
 \end{table}
 
-The full catalogue contains 247 broad-line AGN, 49 narrow-line candidates,
-30 photometric candidates, ten high-ionization candidates, and two X-ray
-candidates. Preferred-row evidence labels comprise 214 secure, 41 probable,
-82 candidate, and one disputed classification. These full-catalogue counts
-precede the manuscript exclusions.
-
 Table~\ref{tab:sources} gives every admitted source family. We count measurements and preferred objects separately. Each preferred object
 is counted once under its adopted source. Auxiliary coordinates are attributed in the registry to THRILS
 \citep{hutchison2025}, UHZ1 spectroscopy \citep{goulding2023}, and the versioned
@@ -747,104 +695,17 @@ selected object once. ``Balmer'' denotes single-epoch virial masses.}
 \end{longtable}
 \endgroup
 
-\subsection{Source-admission checks}
-\label{app:admission}
-
-The v3 additions include 15 NEXUS measurements from NIRCam/WFSS \citep{zhuang2025}, 13 COSMOS-3D NIRCam-grism
-measurements \citep{lin2025}, and GHZ4/GHZ7 \citep{napolitano2024}. These contribute 30
-measurements and 29 object records. NX10835 lies 0.066 arcsec from
-an existing Mascia identifier at consistent redshift, so the new mass-bearing
-measurement becomes preferred for the same object.
-
-The Scholtz et al. paper reports 42 objects, but its published table contains
-41 rows. Exactly 21
-table rows satisfy $z\geq4$; all are admitted. One is identity-linked to a
-broad-line object, yielding 20 distinct narrow-line candidates from that source.
-JADES-NS-GS00099671 is retained with its published host and bolometric
-observables but without a black-hole mass estimate.
-
 \subsection{Preferred measurements and identity exclusions}
 \label{app:identities}
 
-Measurement, object and host identifiers link each value to its location in
-the source, publication version and quoted uncertainty. We choose preferred
-measurements using the source assessments.
-The CEERS-2782 group uses RUBIES-EGS-50052 because the source prefers its
-higher-signal-to-noise spectrum over the slit-loss measurement. NX10835 uses
-the newly available NEXUS mass; UHZ1 uses the later full-dataset evidence
-assessment and remains outside numerical growth inference. The measurement--object
-link table records each choice and its reason.
-
-Before the conservative identity exclusions, there are 244 eligible measurements
-and 237 preferred objects: 236 Balmer-line and one UV single-epoch virial masses.
-The method-defined primary subset has 234 measurements and 227 objects.
-The six excluded records link to seven admitted measurements; the three with
-eligible masses are GDS\_1210\_9515, GS-8083 and GS-10013704. All three otherwise
-pass the primary cuts. The other three excluded records lack eligible masses.
-These records remain excluded until their identities can be resolved.
-The open groups are Baccus GDS\_1210\_9515 versus JADES GS-8083,
+The measurement--object link table records the source, publication version,
+quoted uncertainty and reason for each preferred measurement. The three
+unresolved identity groups are Baccus GDS\_1210\_9515 versus JADES GS-8083,
 GS-10013704 versus Scholtz 99671, and Scholtz 16745 versus 208643.
-The first requires target/spectral and preferred-mass reconciliation;
-the latter two require imaging and aperture checks.
-Seven of the nine additional candidate objects have conditional broad-line
-interpretations. All original measurements and catalogue flags remain available.
-
-\section{Catalogue navigation score}
-\label{app:navigation}
-
-The point navigation score is
-\begin{equation}
-S=\min\left[100,100\max\left(C\!\left(\frac{f_2-0.3}{1.2}\right),
-C\!\left(\frac{s_{0.3}-4}{2.8}\right)\right)
-+8C\!\left(\frac{z-6}{4}\right)\right],
-\end{equation}
-where $C(x)=\min(1,\max(0,x))$, $f_2$ is the required
-$\fedd$ for a $10^2\,M_\odot$ seed, and $s_{0.3}$ is the required
-$\log_{10}(M_{\rm seed}/M_\odot)$ at $\fedd=0.3$. This score combines two growth diagnostics and a redshift term to help
-browse the catalogue. It has no probabilistic calibration. Ties use
-decreasing $f_2$, decreasing redshift, then stable identifier. The manuscript's required-$\fedd$ table is ordered directly by $f_2$.
-\section{Efficiency prescription for compatibility scenarios}
-\label{app:efficiency}
-
-For the illustrative spin-dependent maps, the ideal Kerr thin-disk efficiency
-is the ISCO binding efficiency \citep{bardeen1972}:
-\begin{align}
-\epsilon_a&=1-\sqrt{1-\frac{2}{3r_{\rm ISCO}}},\\
-r_{\rm ISCO}&=3+Z_2-\operatorname{sgn}(a)
-\sqrt{(3-Z_1)(3+Z_1+2Z_2)},\\
-Z_1&=1+(1-a^2)^{1/3}\big[(1+a)^{1/3}+(1-a)^{1/3}\big],\qquad
-Z_2=\sqrt{3a^2+Z_1^2}.
-\label{eq:spin}
-\end{align}
-The dimensionless spin is $a=cJ/(G\mbh^2)$, where $J$ is the signed angular
-momentum relative to the disk, and $r_{\rm ISCO}$ is in units of $G\mbh/c^2$.
-The ideal efficiencies at $a=-1,0,+1$ are approximately 0.038, 0.057, and
-0.423, respectively, neglecting photon capture and stress at the ISCO.
-Logarithmic luminosity growth at supercritical inflow is motivated by
-advection and wind models \citep{poutanen2007}. We use a simplified logarithmic relation with coefficient one and omit radial
-mass loss. For Eddington ratios above unity, the maps adopt
-\begin{equation}
-\fedd=1+\ln\dot m,\qquad
-\dot m=\frac{\dot M_{\rm in}}{L_{\rm Edd}/(\epsilon_a c^2)},\qquad
-\epsilon_{\rm eff}=\begin{cases}
-\epsilon_a,&\fedd\leq1,\\
-\epsilon_a\fedd\exp(1-\fedd),&\fedd>1.
-\end{cases}
-\label{eq:effective-efficiency}
-\end{equation}
-The logarithmic luminosity relation applies only for super-Eddington accretion.
-Each compatibility cell holds both the rate and its effective efficiency
-constant over the interval. The grid tests constant accretion states with fixed spin and omits relativistic
-slim-disc dynamics. For time-varying efficiency, growth depends on
-$\int [(1-\epsilon(t))/\epsilon(t)]\fedd(t)\,dt$, which requires the joint
-time dependence of efficiency and accretion rate.
-
-Figure~\ref{fig:compatibility} gives the full scenario grid. The broad $10^2$--$10^6M_\odot$ interval is stored under the original code key
-\nolinkurl{pbh_origin_hypothesis}. This key labels the mass interval; a primordial
-interpretation requires additional assumptions about seed formation. The descriptive fractions use point masses
-and the inclusive interval criterion in Section~\ref{sec:compatibility}, without error integration.
-Appendix~\ref{app:primordial-timing} explains the conditional interpretation
-of this interval for pre-existing primordial black holes.
+All six records are excluded from manuscript inference. Three have eligible
+masses and otherwise pass the primary cuts; the other three lack eligible masses.
+Their spectra, images and apertures require reconciliation before readmission.
+Detailed admission and revision records accompany the catalogue release.
 
 \section{Growth-model derivations and implementation}
 \label{app:derivations}
@@ -930,52 +791,7 @@ t(z)=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
 \end{equation}
 with $H_0=67.3\,{\rm km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m=0.315$, and
 $\Omega_\Lambda=0.685$. The Hubble constant is converted to inverse time;
-ages and growth intervals are in Gyr. Radiation is neglected, including in the supplementary extrapolation to $z_{\rm seed}=3400$.
-
-\subsection{Earlier growth onset and primordial seed interpretations}
-\label{app:primordial-timing}
-
-The growth equations take the initial mass and subsequent accretion history
-as inputs. The seed-formation mechanism is left unspecified. A primordial black hole (PBH) already
-present at $z=30$ can therefore be represented by its effective mass at that
-epoch if it lies within the broad $10^2$--$10^6M_\odot$ interval and follows
-the adopted subsequent growth prescription. This mass need not equal its
-primordial formation mass. This interval covers a specified range of effective masses; inferring a
-primordial origin requires a separate formation model. In \citet{dayal2024}, $z\simeq3400$ marks matter--radiation
-equality and the start of the modelled evolution of PBHs that formed earlier.
-
-Moving the start of the same constant-rate, constant-efficiency history from
-$z=30$ to 3400 adds $\delta t=t(30)-t(3400)=0.09990$ Gyr in our
-matter-plus-Lambda extrapolation. At fixed seed mass and merger multiplier,
-the resulting shift is
-\begin{equation}
-\Delta\log_{10}M_{\rm BH}
-=\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\delta t}{t_{\rm Edd}\ln 10}.
-\label{eq:early-start-shift}
-\end{equation}
-For $\overline{\fedd}=1$, this is 0.868 dex (a factor of 7.37) at
-$\epsilon=0.1$, or 1.589 dex (a factor of 38.85) at the ideal non-spinning
-thin-disc efficiency. The tracks shift upward by these amounts (Figure~\ref{fig:early-start}). At fixed observed mass and seed mass
-requiring positive accretion, the ratio of required average rates is
-$[t(z_{\rm obs})-t(30)]/[t(z_{\rm obs})-t(3400)]$; the earlier start lowers
-the requirement by 6.5, 13.1 and 22.9 per cent at $z_{\rm obs}=4$, 7 and
-10.603, respectively.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.99\textwidth]{figures/early_start_comparison.pdf}
-\caption{Growth from $z_{\rm seed}=30$ (a) and 3400 (b), with matched
-seed masses and the fixed assumptions shown. Earlier onset adds 99.90 Myr
-and shifts each track upward by 0.868 dex. Here $z_{\rm seed}$ denotes the assumed start of accretion. The $z=3400$ comparison
-extrapolates the matter-plus-Lambda cosmology and assumes uninterrupted
-accretion. Radiation, gas supply, halo assembly and feedback are omitted.}
-\label{fig:early-start}
-\end{figure}
-
-These comparisons quantify the additional growth time. Applying them to PBHs
-requires an effective mass at the chosen starting epoch and a model for the
-subsequent gas supply and accretion history.
+ages and growth intervals are in Gyr. Radiation is neglected.
 
 \subsection{Two-state duty cycle}
 
@@ -1000,13 +816,11 @@ For 10,000 draws, the binomial Monte Carlo standard error of a probability is
 at most 0.005 (approximately 0.0022 at probability 0.95). This numerical error measures the precision from a finite number of draws. The twelve mass-bearing
 NEXUS objects have no published mass errors: repeated point values produce
 zero-width stored intervals, while probabilities and uncertainty ranks remain
-unavailable. Quoted source errors may include systematic contributions. For ZS7, the published 0.4-dex error already includes
-virial-calibration scatter. We record separately reported method systematics and use them in sensitivity
-tests where possible. Their distributions and correlations are generally
-unspecified.
+unavailable. Table~\ref{tab:top} identifies separately reported calibration scales and
+scatter already included in the quoted errors.
 
 The mass-scale tests add the same fixed offset to every original mass draw.
-We calculate the results separately for each offset, using the original scatter. The final published Killi mass
+The final published Killi mass
 $8^{+0.5}_{-0.4}\times10^8M_\odot$ is converted by transforming both linear
 bounds, giving $\log_{10}(M/M_\odot)=8.90309^{+0.02633}_{-0.02228}$.
 
@@ -1016,8 +830,7 @@ with the most primary objects within 0.5 dex of either the $B=1$ or $B=2$
 prediction, requiring at least five such objects. Ties favour smaller median
 absolute residuals, then smaller rates. Most objects selected by this 0.5-dex plotting tolerance lie at $z\simeq4$--6.
 Baseline rankings, duty-cycle diagnostics and seed-redshift--mass maps retain
-$\epsilon=0.1$. The score in Appendix~\ref{app:navigation} is used for catalogue browsing;
-scientific conclusions use the required-rate ranking.
+$\epsilon=0.1$. Scientific conclusions use the required-rate ranking.
 
 \section{Data and code availability}
 \label{app:availability}
@@ -1268,14 +1081,6 @@ Napolitano, L., Castellano, M., Pentericci, L., {et~al.} 2025{\natexlab{b}},
   \bibinfo{title}{Seven wonders of Cosmic Dawn: JWST confirms a high abundance
   of galaxies and AGN at z ≃ 9--11 in the GLASS field,} A\&A, 693, A50,
   \dodoi{10.1051/0004-6361/202452090}
-
-% type= article
-\bibitem[{J. Poutanen {et~al.}(2007)Poutanen, Lipunova, Fabrika, Butkevich, \&
-  Abolmasov}]{poutanen2007}
-Poutanen, J., Lipunova, G., Fabrika, S., Butkevich, A.~G., \& Abolmasov, P.
-  2007, \bibinfo{title}{Supercritically accreting stellar mass black holes as
-  ultraluminous X-ray sources,} MNRAS, 377, 1187,
-  \dodoi{10.1111/j.1365-2966.2007.11668.x}
 
 % type= article
 \bibitem[{W. Ren {et~al.}(2025)Ren, Silverman, Faisst, {et~al.}}]{ren2025}

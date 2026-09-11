@@ -16,7 +16,7 @@ and inclusion/exclusion sensitivity tables with:
 ```
 
 The second command verifies without rewriting; it is also part of notebook 04.
-The six manuscript figures in `paper/figures/` use the conservative publication
+The six publication-sample figures in `paper/figures/` use the conservative publication
 samples. Notebook 02 regenerates them and notebook 04 compares regenerated
 pixels (maximum channel difference 3, identical dimensions). The original
 full-catalogue figures remain in `results/v3/figures/`.
@@ -26,6 +26,9 @@ The `paper/` folder contains the current working manuscript draft and is kept
 for reference while the catalogue and analysis continue to evolve.
 `highz_accretion_atlas_v3.tex` is the editable LaTeX source. It references the
 publication-sample figures in `paper/figures/`.
+`supplementary_material.tex` contains the full compatibility grid, its efficiency
+prescription, and the illustrative early-start calculation. Five figures appear
+in the main paper and two in the supplement.
 
 ```bash
 cd paper
@@ -38,9 +41,12 @@ Tectonic is an equivalent local option when `pdflatex` is unavailable:
 
 ```bash
 SOURCE_DATE_EPOCH=1788393600 tectonic --keep-logs highz_accretion_atlas_v3.tex
+SOURCE_DATE_EPOCH=1788393600 tectonic --keep-logs supplementary_material.tex
 ```
 
-The compiled draft is `highz_accretion_atlas_v3.pdf`. LaTeX intermediate files
+The compiled files are `highz_accretion_atlas_v3.pdf` and
+`supplementary_material.pdf`. With pdflatex, also run the three passes above
+for `supplementary_material.tex`. LaTeX intermediate files
 are ignored. The fixed epoch is 2026-09-03 00:00:00 UTC and makes repeat builds
 with the same compiler byte-reproducible.
 
@@ -64,14 +70,14 @@ To regenerate the embedded bibliography after editing `references.bib`, run:
 This uses Tectonic and the [official AAS v7.1 style](https://journals.aas.org/wp-content/uploads/2026/06/aasjournalv7.1.bst).
 The vendored style has one documented correction: clear the suffix state before
 its reverse pass to prevent an isolated reference receiving an orphan `a` suffix.
-The generated bibliography is embedded in the main `.tex` for portability;
+The generated bibliography is embedded in each `.tex` for portability;
 normal manuscript builds do not require BibTeX or an Overleaf recompile to sync edits.
 
-The appendix's comparison of growth starting at redshifts 30 and 3400 is
+The supplement's comparison of growth starting at redshifts 30 and 3400 is
 reproduced with `.venv/bin/python -m src.internal.check_early_start`. It uses the
 existing matter-plus-Lambda age relation and explicitly treats the high-redshift
 extension as an extrapolation, without changing any catalogue inference.
-Regenerate the corresponding appendix figure with
+Regenerate the corresponding supplementary figure with
 `.venv/bin/python -m src.internal.plot_early_start`. The generated
 `figures/early_start_comparison.pdf` is pre-rendered with Matplotlib and the
 same serif font family as the other paper figures. Its coordinates come directly
@@ -107,3 +113,11 @@ figures against the independent baseline before refreshing dataset manifests.
 Notebook 04 additionally checks internal consistency. CI deletes generated
 products in its disposable workspace before reproduction and compiles this
 manuscript from the regenerated inputs, not the baseline checkout.
+
+## Supporting documentation
+
+- [Catalogue navigation score](../docs/guides/catalogue-navigation-score.md)
+- [Catalogue admission and measurement decisions](../docs/source-notes/manuscript-catalogue-bookkeeping.md)
+
+These details accompany the release; the manuscript retains the source inventory,
+sample counts and unresolved identity exclusions.

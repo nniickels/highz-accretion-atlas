@@ -71,7 +71,8 @@ class RepositoryLayoutTests(unittest.TestCase):
             self.assertTrue((ROOT / 'paper' / fragment).is_file(), fragment)
 
     def test_manuscript_embeds_all_figures_without_live_plotting(self) -> None:
-        manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
+        manuscript = "\n".join((ROOT / "paper" / name).read_text() for name in
+                               ("highz_accretion_atlas_v3.tex", "supplementary_material.tex"))
         figures = re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", manuscript)
         self.assertEqual(len(figures), 7)
         self.assertNotIn(r"\usepackage{pgfplots}", manuscript)
@@ -92,17 +93,21 @@ class RepositoryLayoutTests(unittest.TestCase):
             "treiber2025", "ubler2024", "zhang2026", "zou2026",
             "zhuang2025", "lin2025", "napolitano2024", "juodzbalis_direct2025", "bardeen1972", "poutanen2007",
         }
-        # Citations in generated table fragments are part of the manuscript.
-        for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
-            manuscript += (ROOT / 'paper' / fragment).read_text()
-        cited = {
-            key.strip()
-            for group in re.findall(r"\\cite(?:p|t|author|yearpar|year)?\*?(?:\[[^\]]*\])*\{([^}]+)\}", manuscript)
-            for key in group.split(",")
-        }
-        bibliography = set(re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}", manuscript))
-        self.assertEqual(cited, expected)
-        self.assertEqual(bibliography, expected)
+        all_cited = set()
+        for name in ("highz_accretion_atlas_v3.tex", "supplementary_material.tex"):
+            manuscript = (ROOT / "paper" / name).read_text()
+            # Check each document independently, including its generated tables.
+            for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
+                manuscript += (ROOT / 'paper' / fragment).read_text()
+            cited = {
+                key.strip()
+                for group in re.findall(r"\\cite(?:p|t|author|yearpar|year)?\*?(?:\[[^\]]*\])*\{([^}]+)\}", manuscript)
+                for key in group.split(",")
+            }
+            bibliography = set(re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}", manuscript))
+            self.assertEqual(bibliography, cited, name)
+            all_cited.update(cited)
+        self.assertEqual(all_cited, expected)
 
     def test_complete_axis_named_parameter_maps(self) -> None:
         expected = {"v1": 23, "v2": 211, "v3": 338}
