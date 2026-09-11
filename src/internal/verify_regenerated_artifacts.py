@@ -3,6 +3,7 @@
 CSV values use the shared cross-platform numeric tolerance; PNG RGB channels
 allow at most three 8-bit levels of rasterization roundoff at the same pixel.
 Image dimensions and alpha remain exact; --exact-pixels also requires exact RGB.
+PDFs require exact decoded document contents, independent of stream compression.
 The default baseline is Git HEAD, never the just-regenerated files. CI archive
 checkouts use HIGHZ_BASELINE_ROOT.
 """
@@ -69,6 +70,9 @@ def compare_artifact(expected: Path, actual: Path, *, exact_pixels: bool = False
                         raise AssertionError(f'{actual}: image transparency differs')
         finally:
             Image.MAX_IMAGE_PIXELS = old_limit
+    elif expected.suffix == '.pdf':
+        from src.internal.pdf_reproduction import compare_pdf
+        compare_pdf(expected, actual)
     elif expected.read_bytes() != actual.read_bytes():
         raise AssertionError(f'{actual}: bytes differ')
 

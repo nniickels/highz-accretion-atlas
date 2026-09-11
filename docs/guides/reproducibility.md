@@ -77,8 +77,12 @@ identity gate; the conservative manuscript exclusion check is separate.
 The independent baseline comparison includes generated `paper/analysis/*.csv`,
 `paper/analysis/*.tex`, and `paper/figures/*.{png,pdf}`, as well as the canonical dataset
 products. CSVs use the shared numerical tolerance; generated LaTeX fragments
-must match byte for byte; figures use the same per-channel bound and exact alpha
-as the atlas. Source README files and the compiler-dependent manuscript PDF are
+must match byte for byte; PNG figures use the same per-channel bound and exact alpha
+as the atlas. PDF figures are parsed with pinned pypdf and compared as decoded
+object graphs. Drawing commands, font programs, image samples, page geometry and
+document properties must match exactly. Stream compression, object numbering,
+xref offsets and file identifiers are serialization details and are not compared.
+Source README files and the compiler-dependent manuscript PDF are
 outside this artifact set. Missing or unexpected manuscript outputs fail the
 comparison. Comparing a workspace with itself, including through a symlink,
 is rejected by the comparison API as well as the command line.
@@ -142,8 +146,8 @@ local macOS validation; Linux CI still runs its own checks and pdfLaTeX build.
 
 All seven manuscript figures now have deterministic Matplotlib PDF exports
 (without creation/modification timestamps), plus PNG previews. Notebook 02
-regenerates both formats. The reproduction gate compares PDF bytes and PNG
-pixels; Figure 7 no longer requires PGFPlots during manuscript compilation.
+regenerates both formats. The reproduction gate compares decoded PDF contents
+and PNG pixels; Figure 7 no longer requires PGFPlots during manuscript compilation.
 Earlier references above to a generated TeX figure describe the previous format.
 
 Local validation passed all 94 tests and independently regenerated all 14
@@ -151,3 +155,20 @@ manuscript PNG/PDF exports with matching pixels/bytes. A same-machine Tectonic
 build comparison took 4.39 seconds for the previous source and 0.88 seconds for
 the optimized source; these are local timings, not Overleaf measurements.
 The manuscript PDF decreased from 3,104,922 to 638,660 bytes.
+
+## Portable PDF comparison repair (11 September 2026)
+
+CI run `34565289435` stopped at the raw-byte comparison of
+`paper/figures/compatibility.pdf`; its regression suite passed and all 1,184 PNG
+comparisons stayed within the existing channel tolerance. The PDF gate now
+compares decoded document graphs using pinned `pypdf==6.10.0`. It permits
+compression and object-numbering differences while requiring exact content.
+Regression cases reject changes to labels, vector coordinates, font glyphs,
+image samples, page sizes and resources. Recompressing the actual compatibility
+PDF changes its bytes but passes the gate and renders pixel-identically.
+
+Local validation passed all 98 tests and notebooks 00--04 in a separate workspace
+after removing every generated artifact. The independent comparison verified
+1,296 regenerated artifacts, and the manuscript compiled from the regenerated
+inputs. This records macOS validation; a new Linux CI run is still required
+after the repair is pushed.

@@ -260,11 +260,11 @@
   ],
   "targets": {
     "UNCOVER-20466": {
-      "caveat": "Hbeta; demagnified mass; lens model and BLR assumptions remain.",
+      "caveat": "Hbeta; mass depends on lens model and BLR interpretation.",
       "proposed_observation": "Independent lens model and broad-line profile constraints."
     },
     "GS-20057765": {
-      "caveat": "Hbeta; quoted errors; extinction and calibration not fully quantified.",
+      "caveat": "Hbeta; extinction and calibration uncertainties are incompletely quantified.",
       "proposed_observation": "Deeper line profiles and an extinction constraint."
     },
     "COSMOS3D-13852": {
@@ -280,7 +280,7 @@
       "proposed_observation": "Confirm the broad component with deeper spectroscopy."
     },
     "GS-20030333": {
-      "caveat": "Hbeta; broad quoted errors; extinction/calibration caveats.",
+      "caveat": "Hbeta; large quoted errors and uncertain extinction and calibration.",
       "proposed_observation": "Improve line profile and extinction constraints."
     },
     "GS-164055": {
@@ -293,7 +293,7 @@
     },
     "J0910_2028_12910": {
       "caveat": "Halpha; 0.01 dex formal error excludes 0.5 dex mass scale.",
-      "proposed_observation": "Independent mass calibration; smaller fit errors alone are insufficient."
+      "proposed_observation": "Measure the mass with an independent calibration."
     },
     "CEERS-00717": {
       "caveat": "Halpha; local calibration; no numeric systematic supplied.",

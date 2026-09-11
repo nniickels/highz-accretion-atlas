@@ -95,13 +95,14 @@ def review_tex(outputs):
     direct = outputs['external_direct_mass_comparison'].set_index('comparison')
     old, new = direct.loc['catalogue_virial'], direct.loc['external_dynamical']
     direct_text = (
-        rf'The point requirement rises from {old.required_fedd:.3f} to {new.required_fedd:.3f}. '
+        rf'Using the central mass estimates, the required average Eddington ratio rises from {old.required_fedd:.3f} to {new.required_fedd:.3f}. '
         rf'With a symmetric normal approximation to the quoted log-mass errors, '
         rf'the exact 16th--84th percentile intervals are {old.p16:.3f}--{old.p84:.3f} '
         rf'and {new.p16:.3f}--{new.p84:.3f}, respectively. '
-        rf'The direct estimate lies just below unity at the point value, but its interval crosses the threshold; '
-        rf'the conditional exceedance probability is {new.probability_gt_1:.3f}. '
-        rf'Rounding the point requirement to 1.000 does not indicate exact equality.'+'\n')
+        rf'For the dynamical mass, the unrounded required ratio is just below one. '
+        rf'Its uncertainty interval includes average accretion rates both below and above the Eddington limit. '
+        rf'With this mass-error distribution and the growth assumptions held fixed, '
+        rf'the probability that the required average Eddington ratio exceeds one is {new.probability_gt_1:.3f}.'+'\n')
     revision_rows = []
     labels = {'frozen_v1_measurements': 'Frozen values',
               'published_values_keep_unmatched': 'Published; retain unmatched',

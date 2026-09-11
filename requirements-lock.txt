@@ -3,6 +3,7 @@ numpy==2.5.2
 pandas==2.2.3
 matplotlib==3.11.1
 pillow==12.3.0
+pypdf==6.10.0
 
 # Numerical/rendering transitive dependencies from the verified environment.
 # Pinning only matplotlib left its font/layout dependencies free to drift.

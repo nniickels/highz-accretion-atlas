@@ -79,7 +79,9 @@ from `src.models`; both panels use matched masses, rates and efficiencies.
 All seven figures are embedded as vector PDFs, so normal manuscript builds
 require neither PGFPlots nor plot rendering. PNG exports remain for previews
 and pixel-based reproduction checks. PDF timestamps are omitted for deterministic
-exports and PDFs are checked byte for byte by the reproduction gate.
+exports. The reproduction gate compares decoded PDF object graphs exactly,
+including drawing commands, fonts, image samples and page geometry; compression
+and object numbering may differ between rendering environments.
 
 The [scientific/editorial pass record](scientific-editorial-review.md) lists
 checked claims, corrections, and remaining submission work.
