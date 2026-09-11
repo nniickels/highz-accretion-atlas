@@ -83,3 +83,12 @@ masses, and the required rates decrease with seed mass and earlier starting
 redshift. The local manuscript compiles without warnings and the figure and
 compiled page were inspected. Overleaf propagation is pending upload of the
 new PDF; the extension denied file access and the native picker did not complete.
+
+## Final wording edits
+
+Removed the repeated sentence describing the uncertainty tests, replaced
+“primary threshold objects” with “primary objects above the threshold”, and
+replaced “the key question is” with a direct statement of the scattering bias.
+These three edits were also applied and verified in the existing Overleaf main
+file. The parameter-map appendix remains pending there because the extension
+continues to deny upload of its pre-rendered PDF. Local compilation passes.
