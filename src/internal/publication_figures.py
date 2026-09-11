@@ -41,6 +41,8 @@ def render_figures(root=ROOT, destination=None):
                          'axes.spines.top':False, 'axes.spines.right':False}):
         def save(fig, name):
             fig.savefig(destination/f'{name}.png', dpi=300, facecolor='white')
+            fig.savefig(destination/f'{name}.pdf', facecolor='white',
+                        metadata={'CreationDate': None, 'ModDate': None})
             plt.close(fig)
         fig, counts = plt.subplots(figsize=(13,5.2))
         fig.subplots_adjust(left=.24,right=.98,bottom=.15,top=.78)
@@ -61,6 +63,8 @@ def render_figures(root=ROOT, destination=None):
             render_growth_options(root, growth_tmp)
             shutil.copyfile(Path(growth_tmp)/'03_full_efficiency_panels.png',
                             destination/'growth_tracks.png')
+            shutil.copyfile(Path(growth_tmp)/'03_full_efficiency_panels.pdf',
+                            destination/'growth_tracks.pdf')
         fig,ax=plt.subplots(figsize=(13,7.8))
         fig.subplots_adjust(left=.23,right=.98,bottom=.12,top=.79)
         fig.text(.075,.96,'Objects above the reference growth threshold',fontsize=16,weight='bold',va='top')

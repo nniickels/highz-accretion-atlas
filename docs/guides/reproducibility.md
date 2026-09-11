@@ -75,7 +75,7 @@ identity gate; the conservative manuscript exclusion check is separate.
 ## Manuscript reproduction and clean builds
 
 The independent baseline comparison includes generated `paper/analysis/*.csv`,
-`paper/analysis/*.tex`, and `paper/figures/*.{png,tex}`, as well as the canonical dataset
+`paper/analysis/*.tex`, and `paper/figures/*.{png,pdf}`, as well as the canonical dataset
 products. CSVs use the shared numerical tolerance; generated LaTeX fragments
 must match byte for byte; figures use the same per-channel bound and exact alpha
 as the atlas. Source README files and the compiler-dependent manuscript PDF are
@@ -137,3 +137,17 @@ publication-selection and version checks. The pinned package build passed and
 includes all relocated helpers. Tectonic compiled the manuscript from the
 regenerated inputs to the same PDF bytes as the committed version. This is
 local macOS validation; Linux CI still runs its own checks and pdfLaTeX build.
+
+## Pre-rendered manuscript figures
+
+All seven manuscript figures now have deterministic Matplotlib PDF exports
+(without creation/modification timestamps), plus PNG previews. Notebook 02
+regenerates both formats. The reproduction gate compares PDF bytes and PNG
+pixels; Figure 7 no longer requires PGFPlots during manuscript compilation.
+Earlier references above to a generated TeX figure describe the previous format.
+
+Local validation passed all 94 tests and independently regenerated all 14
+manuscript PNG/PDF exports with matching pixels/bytes. A same-machine Tectonic
+build comparison took 4.39 seconds for the previous source and 0.88 seconds for
+the optimized source; these are local timings, not Overleaf measurements.
+The manuscript PDF decreased from 3,104,922 to 638,660 bytes.

@@ -60,7 +60,7 @@ class RepositoryLayoutTests(unittest.TestCase):
 
     def test_compiled_manuscript_is_present(self) -> None:
         manuscript = ROOT / "paper/highz_accretion_atlas_v3.pdf"
-        self.assertGreater(manuscript.stat().st_size, 1_000_000)
+        self.assertTrue(manuscript.read_bytes().rstrip().endswith(b"%%EOF"))
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
 
     def test_manuscript_links_versioned_data_and_generated_tables(self) -> None:
@@ -69,6 +69,16 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertIn("a40a0d28c6c8d0b7e0c98aea089629903c34f7be", manuscript)
         for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
             self.assertTrue((ROOT / 'paper' / fragment).is_file(), fragment)
+
+    def test_manuscript_embeds_all_figures_without_live_plotting(self) -> None:
+        manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
+        figures = re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", manuscript)
+        self.assertEqual(len(figures), 7)
+        self.assertNotIn(r"\usepackage{pgfplots}", manuscript)
+        self.assertNotIn(r"\begin{tikzpicture}", manuscript)
+        for name in figures:
+            self.assertEqual(Path(name).suffix, '.pdf')
+            self.assertTrue((ROOT/'paper'/name).read_bytes().startswith(b'%PDF-'))
 
     def test_manuscript_citations_have_bibliography_entries(self) -> None:
         manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()

@@ -10,8 +10,6 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{enumitem,longtable,array}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
 \definecolor{atlasblue}{HTML}{176B87}
 \hypersetup{colorlinks=true,linkcolor=atlasblue,citecolor=atlasblue,urlcolor=atlasblue}
 \setlength{\parindent}{0pt}
@@ -224,7 +222,7 @@ the literature sample has no common selection function.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{figures/growth_tracks.png}
+\includegraphics[width=0.99\textwidth]{figures/growth_tracks.pdf}
 \caption{Growth tracks with 224 primary and ten exploratory-only objects.
 Panels show four constant radiative efficiencies at $z_{\rm seed}=30$;
 colours distinguish seeds of $10^2$, $10^4$ and $10^5M_\odot$, and legends
@@ -286,7 +284,7 @@ objects without errors enter only point counts.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/uncertainty.png}
+\includegraphics[width=0.95\textwidth]{figures/uncertainty.pdf}
 \caption{The 12 primary objects whose reference point requirements exceed unity.
 Circles and bars show reported-error medians and 16th--84th percentile intervals;
 diamonds show point requirements after a $-0.5$ dex mass shift. The vertical
@@ -395,7 +393,7 @@ whether the required fuel supply is sustainable.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{figures/growth_boundaries.png}
+\includegraphics[width=0.99\textwidth]{figures/growth_boundaries.pdf}
 \caption{Seed-mass--efficiency boundaries for Eddington-limited average growth
 at two starting redshifts. Each curve uses an adopted point mass and no merger
 boost. Below a curve the required average is at most unity. Horizontal guides
@@ -416,7 +414,7 @@ formation-channel frequencies.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{figures/compatibility.png}
+\includegraphics[width=0.99\textwidth]{figures/compatibility.pdf}
 \caption{Constant-state compatibility fractions in the primary
 sample (left) and the inclusive exploratory sample (right). These samples
 are nested. Each column specifies merger multiplier $B$ and fixed luminosity
@@ -434,7 +432,7 @@ the untested high-pressure tail.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/measurement_sensitivity.png}
+\includegraphics[width=0.95\textwidth]{figures/measurement_sensitivity.pdf}
 \caption{Preferred (circles) and alternate (diamonds) point requirements for
 seven measurement pairs across six primary objects. Pair numbers follow the
 released alternate-measurement table, which supplies stable measurement IDs;
@@ -619,7 +617,7 @@ objects under the stated growth assumptions.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.99\textwidth]{figures/landscape.png}
+\includegraphics[width=0.99\textwidth]{figures/landscape.pdf}
 \caption{Sample accounting for 338 catalogue object records. Mutually exclusive
 categories comprise 224 primary objects, ten additional exploratory objects,
 98 retained without eligible masses and six identity exclusions. The inclusive
@@ -908,7 +906,7 @@ therefore do not establish insensitivity to the starting epoch.
 
 \begin{figure}[htbp]
 \centering
-\input{figures/early_start_comparison.tex}
+\includegraphics[width=0.99\textwidth]{figures/early_start_comparison.pdf}
 \caption{Growth from $z_{\rm seed}=30$ (a) and 3400 (b), with matched
 seed masses and the fixed assumptions shown. Earlier onset adds 99.90 Myr
 and shifts each track upward by 0.868 dex. Here $z_{\rm seed}$ marks the

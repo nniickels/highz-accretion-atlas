@@ -64,7 +64,7 @@ class ReproductionGateTests(unittest.TestCase):
             ('paper/analysis/target_robustness.csv', 'object_id,required_fedd\na,1.2\n',
              'object_id,required_fedd\na,1.3\n'),
             ('paper/analysis/target_rows.tex', 'a & 1.200 \\\\\n', 'a & 1.300 \\\\\n'),
-            ('paper/figures/early_start_comparison.tex', 'track=1.2\n', 'track=1.3\n'),
+            ('paper/figures/early_start_comparison.pdf', 'track=1.2\n', 'track=1.3\n'),
         ]:
             with self.subTest(relative=relative), tempfile.TemporaryDirectory() as d:
                 a, b = Path(d)/'baseline', Path(d)/'generated'

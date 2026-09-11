@@ -159,6 +159,8 @@ def render(root=ROOT, destination=None):
              'Outlined targets are named in panel (a).',fontsize=9)
     fig.savefig(OUT/'03_full_efficiency_panels.png',dpi=300,facecolor='white')
     fig.savefig(OUT/'03_full_efficiency_panels.svg',facecolor='white')
+    fig.savefig(OUT/'03_full_efficiency_panels.pdf',facecolor='white',
+                metadata={'CreationDate': None, 'ModDate': None})
     plt.close(fig)
     fig,axes=plt.subplots(1,3,figsize=(17,7),sharex=True,sharey=True)
     fig.subplots_adjust(left=.06,right=.98,bottom=.15,top=.68,wspace=.10)

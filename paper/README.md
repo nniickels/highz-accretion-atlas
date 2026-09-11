@@ -73,9 +73,13 @@ existing matter-plus-Lambda age relation and explicitly treats the high-redshift
 extension as an extrapolation, without changing any catalogue inference.
 Regenerate the corresponding appendix figure with
 `.venv/bin/python -m src.internal.plot_early_start`. The generated
-`figures/early_start_comparison.tex` uses PGFPlots for vector curves and the
-manuscript's serif font. Its coordinates come directly from `src.models`;
-both starting epochs use identical seed mass, rate, efficiency and merger factor.
+`figures/early_start_comparison.pdf` is pre-rendered with Matplotlib and the
+same serif font family as the other paper figures. Its coordinates come directly
+from `src.models`; both panels use matched masses, rates and efficiencies.
+All seven figures are embedded as vector PDFs, so normal manuscript builds
+require neither PGFPlots nor plot rendering. PNG exports remain for previews
+and pixel-based reproduction checks. PDF timestamps are omitted for deterministic
+exports and PDFs are checked byte for byte by the reproduction gate.
 
 The [scientific/editorial pass record](scientific-editorial-review.md) lists
 checked claims, corrections, and remaining submission work.

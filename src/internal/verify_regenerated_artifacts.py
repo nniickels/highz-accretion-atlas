@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PNG_CHANNEL_ATOL = 3
 VERSIONS = ('v1', 'v2', 'v3')
 ARTIFACT_ROOTS = [f'{base}/{v}' for v in VERSIONS for base in ('data/processed', 'data/crossmatch', 'results')]
-MANUSCRIPT_ROOTS = {'paper/analysis': {'.csv', '.tex'}, 'paper/figures': {'.png', '.tex'}}
+MANUSCRIPT_ROOTS = {'paper/analysis': {'.csv', '.tex'}, 'paper/figures': {'.png', '.pdf'}}
 ARTIFACT_ROOTS += list(MANUSCRIPT_ROOTS)
 
 
