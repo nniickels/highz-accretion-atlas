@@ -16,7 +16,7 @@ Historical exploratory notebooks are not part of the public workflow; their
 history remains recoverable from Git.
 
 Notebook 01 also regenerates `paper/analysis/` from the explicit manuscript
-identity-exclusion policy. Notebook 04 checks exact membership and numerical
+evidence-selection and identity-exclusion policies. Notebook 04 checks exact membership and numerical
 reproduction through `src.internal.publication_selection`; the original strict
 full-catalogue identity gate remains distinct.
 

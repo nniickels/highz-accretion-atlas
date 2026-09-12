@@ -52,7 +52,8 @@ has its separate, explicitly bounded scope in `data/validation/README.md`.
 open identity cases. `--require-resolved` is the strict full-catalogue identity
 gate; it currently fails for three groups. Resolving them is required before
 readmission or a final unique-object census. The manuscript instead excludes
-all six affected records and verifies the 224/234-object samples through
+all six affected records, retains four tentative JADES detections only in the
+exploratory sample, and verifies the 220/234-object samples through
 `src.internal.publication_selection`. These exclusions permit the conservative
 analysis without claiming identity resolution. Reproduction success alone
 does not resolve the groups.

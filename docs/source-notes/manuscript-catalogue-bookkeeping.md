@@ -45,8 +45,13 @@ The open groups are Baccus GDS_1210_9515 versus JADES GS-8083,
 GS-10013704 versus Scholtz 99671, and Scholtz 16745 versus 208643.
 The first requires target/spectral and preferred-mass reconciliation;
 the latter two require imaging and aperture checks.
-Seven of the nine additional candidate objects have conditional broad-line
-interpretations. All original measurements and catalogue flags remain available.
+The manuscript evidence policy additionally places four tentative JADES detections
+in the exploratory sample only. The final samples contain 220 primary objects
+and 234 inclusive exploratory objects: thirteen additional candidates and GN-z11.
+The thirteen candidates include the seven previously recorded conditional
+broad-line interpretations and the four tentative JADES detections. Policies are
+recorded in `paper/evidence_selection.json` and `paper/identity_exclusions.json`.
+All original measurements and catalogue flags remain available.
 
 ## Measurement revision and validation coverage
 

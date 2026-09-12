@@ -148,12 +148,21 @@ linked to the three open groups from manuscript inference**, including every
 linked measurement when constructing the object mask. Seven source measurements
 remain in the catalogue. The three mass-bearing exclusions are GDS_1210_9515,
 GS-8083, and GS-10013704. The other three were already no-inference records.
-This produces 224 primary and 234 exploratory numerical manuscript objects.
+At the identity-only stage, this produced 224 primary and 234 exploratory
+numerical manuscript objects. These are historical counts, before the later
+evidence-selection revision.
 
-The explicit registry is `paper/identity_exclusions.json`; reproducible membership
-and sensitivity tables are in `paper/analysis/`. For all five manuscript scenarios,
+The identity registry is `paper/identity_exclusions.json`. At that stage, for all
+five manuscript scenarios,
 threshold counts and top-five order are unchanged; reference p16 and P>=0.95 counts
-also agree. The primary reference median changes from 0.574 to 0.578.
+also agree. The primary reference median changed from 0.574 to 0.578.
+
+The current manuscript additionally retains four tentative JADES detections only
+in the exploratory sample under `paper/evidence_selection.json`, giving 220/234
+objects. Current membership and sensitivity tables are in `paper/analysis/`.
+With this evidence policy held fixed, identity exclusions change primary
+membership from 223 to 220 and the median from 0.571 to 0.573, while preserving
+the primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 counts.
 
 `python -m src.internal.publication_selection` verifies complete exclusion and
 stored-table reproduction, including the underlying source/identity audit.

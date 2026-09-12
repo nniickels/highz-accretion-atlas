@@ -2,7 +2,7 @@
 
 The shared science layer consumes the canonical measurement and physical-object
 tables for each of v1, v2, and v3. Canonical counts below describe the full v3
-catalogue; manuscript comparisons use the additional 224/234-object selection. It produces separate point and 10,000-draw uncertainty
+catalogue; manuscript comparisons use the additional 220/234-object selection. It produces separate point and 10,000-draw uncertainty
 rankings for both views, a class/method summary, a complete exclusion audit,
 alternate-measurement sensitivity, a class-aware observational follow-up
 matrix, a source-family caveat summary, a source-level selection/completeness
@@ -27,10 +27,10 @@ remain in the catalogue.
 The required-Eddington-ratio order differs from the composite navigation score.
 The latter combines two normalized growth diagnostics and a redshift term (see
 `_pressure_score` in `src/internal/compatibility/v7_science_core.py` and the
-manuscript formula). The manuscript target table includes the twelve reference
+manuscript formula). The manuscript target table includes the eight reference
 requirements above unity, sorted by `required_fedd_seed1e2` within the
-224-object primary sample: GS-20057765
-is second and COSMOS3D-13852 third. In the manuscript exploratory 234-object order,
+220-object primary sample: COSMOS3D-13852
+is second and RUBIES-EGS-55604 third. In the manuscript exploratory 234-object order,
 GN-z11 is second, GS-20057765 third, and COSMOS3D-13852 fourth. The
 composite navigation score is separate from both scientific orders.
 
@@ -88,9 +88,9 @@ implementation of those equations, not their adequacy for every physical model.
 
 ## Interpretation checks added in the scientific/editorial pass
 
-The manuscript exploratory sample contains 234 objects, including all 224
+The manuscript exploratory sample contains 234 objects, including all 220
 primary objects. The canonical method-defined samples remain 237 and 227
-objects, respectively. The manuscript primary sample has 12 point requirements above unity, eight at p16, and six
+objects, respectively. The manuscript primary sample has eight point requirements above unity, six at p16, and five
 with reported-error P(f_Edd>1)>=0.95. GN-z11 is outside that primary subset;
 its UV estimator must not be presented as interchangeable with Balmer masses.
 
@@ -121,7 +121,7 @@ analysis; its separate exclusion and reproduction check must pass.
 
 The reference above-Eddington tail lies at z=6.6214--10.603. The catalogue's
 median redshift does not make every member an early-growth tension. Present
-object-level mass/time requirements, with the 224-object primary sample as the
+object-level mass/time requirements, with the 220-object primary sample as the
 main comparable analysis and the 234-object sample as exploratory context.
 
 The efficiency scaling is an algebraic consequence of the adopted growth law,
@@ -147,15 +147,24 @@ This replaces the misleading `split_normal_in_log_mbh` label without changing
 any samples, percentiles or probabilities.
 
 
-## Manuscript identity exclusions
+## Manuscript evidence selection and identity exclusions
 
-The canonical method-defined primary sample remains 227 objects. Manuscript
-inference additionally excludes all records linked to the three independently
-unresolved identity groups: three mass-bearing records and three already without
-masses. The resulting primary/exploratory samples have 224/234 objects. The
-12/14 point, 8/10 p16, and 6/8 P>=0.95 counts are unchanged; scenario threshold
-counts and top-five ordering also remain unchanged. The primary median is now
-0.578 (previously 0.574). The complete membership mask and sensitivity outputs
-are in `paper/analysis/`, governed by `paper/identity_exclusions.json` and checked
-by `src.internal.publication_selection`. This does not alter canonical data or
-resolve physical identity; the original strict identity gate is retained.
+The canonical method-defined primary sample remains 227 objects. The manuscript
+places GS-20057765, GS-20030333, GS-164055, and GN-4685 in the exploratory
+sample only, leaving 223 primary candidates before identity exclusions.
+It then excludes all six records linked to the three unresolved identity groups:
+three mass-bearing records and three already without eligible masses. The final
+primary/exploratory samples contain 220/234 objects, with 14 exploratory-only
+objects (thirteen additional candidates and GN-z11).
+
+Holding the evidence selection fixed, excluding unresolved identities preserves
+the primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 counts, as well as
+scenario threshold counts and top-five ordering. The primary median changes
+from 0.571 before identity exclusions to 0.573 afterward. The complete membership
+mask and sensitivity outputs are in `paper/analysis/`, governed by
+`paper/evidence_selection.json` and `paper/identity_exclusions.json` and checked
+by `src.internal.publication_selection`. The `catalogue` scope in the identity
+sensitivity table holds the manuscript evidence selection fixed before applying
+identity exclusions; it is not the unfiltered canonical primary sample.
+These manuscript policies do not alter canonical data or resolve physical
+identity; the original strict identity gate is retained.
