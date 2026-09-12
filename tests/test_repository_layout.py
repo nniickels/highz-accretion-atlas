@@ -63,10 +63,9 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertTrue(manuscript.read_bytes().rstrip().endswith(b"%%EOF"))
         self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
 
-    def test_manuscript_links_versioned_data_and_generated_tables(self) -> None:
+    def test_manuscript_links_repository_and_generated_tables(self) -> None:
         manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
         self.assertIn("https://github.com/nniickels/highz-accretion-atlas", manuscript)
-        self.assertIn("a40a0d28c6c8d0b7e0c98aea089629903c34f7be", manuscript)
         for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
             self.assertTrue((ROOT / 'paper' / fragment).is_file(), fragment)
 

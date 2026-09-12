@@ -48,7 +48,7 @@ The mass/error audit is complete for admitted numerical measurements. The
 [redshift/identity audit](../../docs/source-notes/redshift-identity-audit.md) now
 checks all 350 central redshifts and all 323 available coordinate pairs, plus
 31 mixed-sample redshift-type labels, in a separate 1,027-field fixture.
-It exposes five open identity groups; numerical agreement does not settle these
+It exposes three open identity groups; numerical agreement does not settle these
 scientific decisions. Twenty-seven rows lack coordinates. Redshift errors and
 spectral reliability are not exhaustively audited. Other fields, including
 luminosities, Eddington ratios, host masses, magnifications, line measurements,
