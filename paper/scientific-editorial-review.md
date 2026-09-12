@@ -1,5 +1,20 @@
 # Focused scientific and editorial pass
 
+## Current manuscript status — 12 September 2026
+
+The manuscript uses 220 primary objects and 234 objects in the inclusive
+exploratory sample. Reference counts above unity at the central mass, at the
+16th percentile, and with probability at least 0.95 are 8/6/5 and 14/10/8,
+respectively. Probability calculations use the 208 primary and 222 exploratory
+objects with reported mass uncertainties. All six records in the three open
+identity groups remain excluded; three have otherwise eligible masses.
+
+The main and supplementary PDFs have been rebuilt from the revised sources.
+The dated entries below record earlier manuscript stages; their sample sizes,
+counts, and descriptions of manuscript structure are historical.
+
+## Original review
+
 Baseline reviewed: commit `8334746`. This is a code/data/source-supported review,
 not external peer review or an exhaustive re-extraction of the literature.
 
