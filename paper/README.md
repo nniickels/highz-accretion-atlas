@@ -91,10 +91,7 @@ exports. The reproduction gate compares decoded PDF object graphs exactly,
 including drawing commands, fonts, image samples and page geometry; compression
 and object numbering may differ between rendering environments.
 
-The [scientific/editorial pass record](scientific-editorial-review.md) lists
-checked claims, corrections, and remaining submission work.
-
-## Scientific revision following manuscript assessment
+## Manuscript analyses
 
 The revised draft foregrounds the eight primary reference-threshold objects,
 source-specific estimator caveats and their implications for the growth constraints. Generated LaTeX

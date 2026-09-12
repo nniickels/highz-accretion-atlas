@@ -41,5 +41,4 @@ support numerical growth inference.
 
 Every version uses the latest applicable corrections and the same analysis and
 figure definitions. Figures differ only because dataset membership, object
-classes, or supported measurements differ. The contribution ledger is
-append-only and retains historical terminology verbatim.
+classes, or supported measurements differ.

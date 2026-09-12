@@ -14,6 +14,26 @@ docs/archive/
 # Local supervisor meeting materials.
 /docs/meetings/
 
+# Local contributor/agent instructions and contribution ledgers (Markdown only).
+[Cc][Oo][Nn][Tt][Rr][Ii][Bb][Uu][Tt][Ii][Nn][Gg].md
+contribution-guide*.md
+contributing-guide*.md
+*ledger*.md
+*LEDGER*.md
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+/docs/reference/source-family-admission.md
+/docs/reference/catalogue-completion-plan.md
+
+# Local manuscript reviews, edit histories, and internal release check records.
+/paper/*edit-log*.md
+/paper/manuscript-assessment*.md
+/paper/manuscript-reassessment*.md
+/paper/shortening-record*.md
+/paper/scientific-editorial-review.md
+/releases/v3-audit.md
+
 # Local LaTeX build intermediates; the final manuscript PDF is retained.
 paper/*.aux
 paper/*.log

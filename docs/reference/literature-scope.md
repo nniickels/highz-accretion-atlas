@@ -40,8 +40,9 @@ every affected existing version. Any correction to an extracted value must be
 documented against the primary source and accompanied by regenerated products
 and explicitly reviewed manifests.
 
-The implemented final admission record and counts are maintained in
-[`catalogue-completion-plan.md`](catalogue-completion-plan.md).
+Current dataset membership and counts are described in
+[`../guides/versioning.md`](../guides/versioning.md), with source-specific
+extraction decisions in [`../source-notes/`](../source-notes/README.md).
 
 ## Deferred A2744-QSO1 measurement: next-version work
 
