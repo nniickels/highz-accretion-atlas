@@ -44,15 +44,23 @@ def render_figures(root=ROOT, destination=None):
             fig.savefig(destination/f'{name}.pdf', facecolor='white',
                         metadata={'CreationDate': None, 'ModDate': None})
             plt.close(fig)
-        fig, counts = plt.subplots(figsize=(13,5.2))
+        fig, counts = plt.subplots(figsize=(13,6.2))
         fig.subplots_adjust(left=.24,right=.98,bottom=.15,top=.78)
         fig.text(.075,.96,'Manuscript sample accounting',fontsize=16,weight='bold',va='top')
         fig.text(.075,.87,f'{len(selection)} provisional catalogue objects',fontsize=11)
         excluded = selection.excluded_identity_flag
         values = [len(primary),len(point)-len(primary),int((~excluded & ~selection.growth_ranking_eligible_flag).sum()),int(excluded.sum())]
-        labels = ['Primary','Exploratory only','Without growth-eligible mass','Identity excluded']
-        counts.barh(labels,values,color=['#69747e','#874194','#aaa','#444'])
-        for i,v in enumerate(values):counts.text(v+2,i,str(v),va='center')
+        missing_errors = uncertainty.loc[~uncertainty.reported_mass_errors_sampled]
+        if not set(missing_errors.physical_object_id).issubset(primary):
+            raise ValueError('Update the missing-uncertainty subset label: not all objects are primary')
+        values.append(len(missing_errors))
+        labels = ['Primary','Exploratory only','Without growth-eligible mass','Identity excluded',
+                  'Without mass uncertainty\n(included in primary)']
+        positions = [0,1,2,3,4.6]
+        counts.barh(positions,values,color=['#69747e','#874194','#aaa','#444','#0072B2'])
+        counts.set_yticks(positions, labels)
+        counts.axhline(3.8, color='#bbb', linewidth=.8, linestyle='--')
+        for y,v in zip(positions,values):counts.text(v+2,y,str(v),va='center')
         counts.set(xlabel='Objects',xlim=(0,max(values)*1.18));counts.invert_yaxis()
         counts.grid(axis='x',alpha=.15);counts.set_axisbelow(True)
         save(fig,'landscape')

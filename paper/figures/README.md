@@ -5,7 +5,9 @@ Verify by `python -m src.internal.publication_figures --verify` (also notebook 0
 
 All plotted numerical records pass the conservative publication selection:
 220 primary and 14 additional exploratory objects. The coverage panel separately
-accounts for 98 objects without growth-eligible masses and six identity exclusions. Compatibility
+accounts for 98 objects without growth-eligible masses and six identity exclusions.
+A separated fifth bar shows the 12 primary objects without reported mass uncertainties;
+these are included in the primary count. Compatibility
 columns show primary and inclusive exploratory samples, not independent populations.
 Seed scenarios label the rows; shared axis titles and bottom-only scenario ticks
 avoid repeating labels across panels. The colorbar reports percentages.
