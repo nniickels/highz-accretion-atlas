@@ -42,6 +42,29 @@ def render(root=ROOT, destination=None):
         selected = g[g.nearby_primary.ge(5)].sort_values(
             ['nearby_primary', 'median_distance_dex', 'rate'], ascending=[False, True, True]).head(2)
         audit.loc[selected.index, 'selected_full'] = True
+
+    # For manual selection, comment out the automatic selection block above
+    # and remove the first '# ' from each code line below, preserving indentation.
+    # manual_tracks = [
+    #     (2, EPS[0], 0.5),  # 10^2 solar masses, efficiency 0.1, f_Edd 0.5
+    #     (2, EPS[0], 1.0),
+    #     (4, EPS[0], 0.3),
+    #     (4, EPS[1], 0.2),  # efficiency for spin a = -1
+    #     (5, EPS[2], 0.6),  # efficiency for spin a = 0
+    #     (5, EPS[3], 1.5),  # efficiency for spin a = +1
+    # ]
+
+    # audit['selected_full'] = False
+    # for seed, eps, rate in manual_tracks:
+    #     mask = (
+    #         audit['log_seed'].eq(seed)
+    #         & np.isclose(audit['epsilon'], eps)
+    #         & np.isclose(audit['rate'], rate)
+    #     )
+    #     if mask.sum() != 1:
+    #         raise ValueError(f"Track not in candidate grid: {(seed, eps, rate)}")
+    #     audit.loc[mask, 'selected_full'] = True
+
     audit.to_csv(OUT/'track_selection.csv', index=False, float_format='%.8g')
     # Reference options use B=1, so select independently on that precise history.
     refs = []
