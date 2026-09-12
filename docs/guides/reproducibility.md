@@ -186,8 +186,8 @@ quadrature and growth integration supplement the regression checks.
 
 The broad 10²–10⁶ solar-mass seed interval is stored under the original code key
 `pbh_origin_hypothesis`. The key identifies the tested mass interval. A primordial
-interpretation requires additional seed-formation assumptions; the manuscript's
-supplement discusses these assumptions and an earlier start of accretion.
+interpretation requires additional seed-formation assumptions. The optional
+early-start calculation is described in the [paper guide](../../paper/README.md).
 
 ## Pinned-renderer baseline repair (12 September 2026)
 

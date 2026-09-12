@@ -52,8 +52,7 @@ def update(manuscript):
 
 
 def main():
-    for manuscript in (MANUSCRIPT, PAPER / "supplementary_material.tex"):
-        update(manuscript)
+    update(MANUSCRIPT)
 
 
 if __name__ == "__main__":

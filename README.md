@@ -4,8 +4,6 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 possible formation and growth scenarios.
 
 **Manuscript:** read [Early Black-Hole Growth Constraints from JWST](paper/highz_accretion_atlas_v3.pdf).
-The [LaTeX source](paper/highz_accretion_atlas_v3.tex) and
-[supplementary material](paper/supplementary_material.pdf) are in [`paper/`](paper/README.md).
 
 **Identity audit status:** all admitted redshifts and available coordinates
 pass independent source checks, but one conflicting duplicate group and two close-neighbour
@@ -86,7 +84,7 @@ See [manuscript analysis products](paper/analysis/README.md) for their scope and
 reproduction commands. Full-catalogue plots and navigation rankings remain
 available under `results/v3/` as supporting atlas products.
 
-Appendix or supplement products:
+Supporting products:
 
 - full catalogue schema — `docs/reference/admission-schema.md`
 - full source registry — `data/source_family_registry.csv`, `data/source_provenance_registry.csv`, and `data/mass_method_registry.csv`

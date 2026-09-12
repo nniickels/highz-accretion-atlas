@@ -71,9 +71,9 @@ class RepositoryLayoutTests(unittest.TestCase):
 
     def test_manuscript_embeds_all_figures_without_live_plotting(self) -> None:
         manuscript = "\n".join((ROOT / "paper" / name).read_text() for name in
-                               ("highz_accretion_atlas_v3.tex", "supplementary_material.tex"))
+                               ("highz_accretion_atlas_v3.tex",))
         figures = re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", manuscript)
-        self.assertEqual(len(figures), 8)
+        self.assertEqual(len(figures), 7)
         self.assertNotIn(r"\usepackage{pgfplots}", manuscript)
         self.assertNotIn(r"\begin{tikzpicture}", manuscript)
         for name in figures:
@@ -93,7 +93,7 @@ class RepositoryLayoutTests(unittest.TestCase):
             "zhuang2025", "lin2025", "napolitano2024", "juodzbalis_direct2025", "bardeen1972", "poutanen2007",
         }
         all_cited = set()
-        for name in ("highz_accretion_atlas_v3.tex", "supplementary_material.tex"):
+        for name in ("highz_accretion_atlas_v3.tex",):
             manuscript = (ROOT / "paper" / name).read_text()
             # Check each document independently, including its generated tables.
             for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):

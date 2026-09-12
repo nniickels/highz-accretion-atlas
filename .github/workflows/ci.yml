@@ -82,12 +82,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --yes texlive-latex-base texlive-latex-extra texlive-fonts-recommended
-      - name: Compile manuscript and supplement
+      - name: Compile manuscript
         working-directory: ${{ runner.temp }}/highz-atlas-notebook-workspace/paper
         env:
           SOURCE_DATE_EPOCH: "1788393600"
         run: |
-          for document in highz_accretion_atlas_v3 supplementary_material; do
+          for document in highz_accretion_atlas_v3; do
             rm -f "$document.pdf"
             for pass in 1 2 3; do
               pdflatex -interaction=nonstopmode -halt-on-error "$document.tex"
@@ -99,7 +99,7 @@ jobs:
           unresolved = ('undefined references', 'undefined citations',
                         'Label(s) may have changed', 'Rerun to get',
                         'Table widths have changed')
-          for document in ('highz_accretion_atlas_v3', 'supplementary_material'):
+          for document in ('highz_accretion_atlas_v3',):
               log = Path(f'{document}.log').read_text()
               if any(message in log for message in unresolved):
                   raise SystemExit(f'{document}: references or table widths did not converge')

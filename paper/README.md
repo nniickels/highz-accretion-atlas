@@ -29,8 +29,7 @@ for reference while the catalogue and analysis continue to evolve.
 `highz_accretion_atlas_v3.tex` is the editable LaTeX source. It references the
 publication-sample figures in `paper/figures/`.
 The manuscript appendix contains the full compatibility grid and its efficiency
-prescription. `supplementary_material.tex` contains the illustrative early-start
-calculation. Seven figures appear in the manuscript and one in the supplement.
+prescription. Seven figures appear in the manuscript.
 
 ```bash
 cd paper
@@ -43,12 +42,9 @@ Tectonic is an equivalent local option when `pdflatex` is unavailable:
 
 ```bash
 SOURCE_DATE_EPOCH=1788393600 tectonic --keep-logs highz_accretion_atlas_v3.tex
-SOURCE_DATE_EPOCH=1788393600 tectonic --keep-logs supplementary_material.tex
 ```
 
-The compiled files are `highz_accretion_atlas_v3.pdf` and
-`supplementary_material.pdf`. With pdflatex, also run the three passes above
-for `supplementary_material.tex`. LaTeX intermediate files
+The compiled file is `highz_accretion_atlas_v3.pdf`. LaTeX intermediate files
 are ignored. The fixed epoch is 2026-09-03 00:00:00 UTC and makes repeat builds
 with the same compiler byte-reproducible.
 
@@ -72,19 +68,19 @@ To regenerate the embedded bibliography after editing `references.bib`, run:
 This uses Tectonic and the [official AAS v7.1 style](https://journals.aas.org/wp-content/uploads/2026/06/aasjournalv7.1.bst).
 The vendored style has one documented correction: clear the suffix state before
 its reverse pass to prevent an isolated reference receiving an orphan `a` suffix.
-The generated bibliography is embedded in each `.tex` for portability;
+The generated bibliography is embedded in the manuscript `.tex` for portability;
 normal manuscript builds do not require BibTeX or an Overleaf recompile to sync edits.
 
-The supplement's comparison of growth starting at redshifts 30 and 3400 is
+An optional supporting comparison of growth starting at redshifts 30 and 3400 is
 reproduced with `.venv/bin/python -m src.internal.check_early_start`. It uses the
 existing matter-plus-Lambda age relation and explicitly treats the high-redshift
 extension as an extrapolation, without changing any catalogue inference.
-Regenerate the corresponding supplementary figure with
+Regenerate the corresponding supporting figure with
 `.venv/bin/python -m src.internal.plot_early_start`. The generated
 `figures/early_start_comparison.pdf` is pre-rendered with Matplotlib and the
 same serif font family as the other paper figures. Its coordinates come directly
 from `src.models`; both panels use matched masses, rates and efficiencies.
-All eight figures are embedded as PDFs, so normal manuscript builds
+All seven manuscript figures are embedded as PDFs, so normal manuscript builds
 require neither PGFPlots nor plot rendering. PNG exports remain for previews
 and pixel-based reproduction checks. PDF timestamps are omitted for deterministic
 exports. The reproduction gate compares decoded PDF object graphs exactly,

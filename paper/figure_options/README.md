@@ -7,7 +7,7 @@ Option C is adopted as the manuscript growth-track figure; A, B and D remain rev
 - **C — full assumption efficiency panels:** four efficiency cases; two nearby rates per seed/efficiency, and B=1–2 bands. Recommended for comparing the fuller assumptions.
 - **D — full assumption seed panels:** the same scenarios as C, grouped by seed mass; more information per panel.
 
-The word “full” refers to varying seed mass, efficiency, rate and merger multiplier, not showing every original curve. These options use z_seed=30; they do not reproduce the supplementary z_seed=3400 extrapolation.
+The word “full” refers to varying seed mass, efficiency, rate and merger multiplier, not showing every original curve. These options use z_seed=30; they do not reproduce the optional z_seed=3400 extrapolation.
 
 ## Explicit display selection
 
