@@ -551,19 +551,22 @@ virial sample would require independent measurements for more objects.
 \FloatBarrier
 \section{Discussion}
 
-These constraints do not uniquely identify a seed-formation history. At the
-lower efficiency associated with a non-spinning black hole, none of the adopted
-central masses requires lifetime-average accretion above the Eddington limit.
+These constraints do not uniquely identify a seed-formation history. With
+radiative efficiency $\epsilon=0.05719$ for a non-spinning black hole,
+$100\,M_\odot$ seeds formed at $z=30$, and no merger contribution, all adopted
+central masses can be reached without a lifetime-average Eddington ratio above 1.
 
 \subsection{Mass-estimator limitations}
 \label{sec:credibility}
 
 Table~\ref{tab:actions} summarizes the mass-estimator limitations for the
-8 primary objects above the reference threshold.
+8 primary objects requiring an average Eddington ratio above 1 under the
+reference assumptions.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Mass-estimator limitations for all 8 primary objects above the reference threshold.
+\caption{Mass-estimator limitations for the 8 primary objects requiring
+$\overline{f}_{\mathrm{Edd,req}}>1$ under the reference assumptions.
 Caveats summarize the source records cited in Table~\ref{tab:top}.}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.68\textwidth}@{}}
 \toprule
@@ -575,20 +578,18 @@ Object & Mass-estimator caveat \\
 \label{tab:actions}
 \end{table}
 
-Some mass-estimator biases may exceed the $-0.5$ dex shift tested above.
+Some mass-estimator biases may exceed the 0.5 dex reduction tested above.
 UNCOVER-20466's demagnified H$\beta$ mass depends on lensing and broad-line
 interpretation \citep{greene2024}; RUBIES-EGS-55604's dust-corrected H$\beta$
 mass has a separately recorded 0.5 dex calibration scale \citep{kocevski2025}.
 For COSMOS3D-13852, scattering could inflate the H$\beta$ mass by 1--2 dex
-\citep{lin2025}. Applying downward offsets of 1 and 2 dex gives point requirements of 1.115
-and 0.916, respectively. These stress tests use the bias range discussed by
-the source; the actual correction remains uncertain.
+\citep{lin2025}. Reducing its adopted mass by factors of 10 and 100 lowers
+its required average Eddington ratio to 1.115 and 0.916, respectively, under
+the reference assumptions. These are hypothetical corrections within the
+source's suggested bias range; the actual correction remains uncertain.
 
-The mass reductions in Table~\ref{tab:top} show how far each central mass
-lies above the value reachable at an average Eddington ratio of 1. We
-subtract the log mass predicted by Eq.~\ref{eq:growth} at
-$\overline{f}_{\mathrm{Edd}}=1$ from the observed log mass, keeping the seed,
-starting redshift, efficiency, and merger contribution fixed.
+Table~\ref{tab:top} gives the reduction in each adopted log mass needed to
+bring its required average Eddington ratio to 1 under the reference assumptions.
 For J0910\_2028\_12910, a reduction of 0.330 dex is sufficient. This is
 smaller than its separately reported 0.5-dex calibration scale \citep{baccus2026},
 although its 0.01-dex quoted error gives $P>0.999$ in the reported-error calculation.
@@ -602,27 +603,29 @@ and calibration uncertainty across the sample.
 Confirming the weak
 broad H$\beta$ component in CEERS-1019 would strengthen the basis of its virial
 mass \citep{larson2023}, although calibration uncertainty would remain.
-An independent mass estimate for J0910\_2028\_12910 could test its 0.330-dex
-margin above the threshold. Shared calibration errors would limit how strongly
+An independent mass estimate for J0910\_2028\_12910 could test whether it
+still requires an average Eddington ratio above 1 under the reference assumptions. Shared calibration errors would limit how strongly
 agreement between estimators supports the inferred mass.
 
 \FloatBarrier
 \subsection{Growth constraints for individual objects}
 
-UNCOVER-20466 and GS-20057765 have reference requirements of 1.452 and 1.355,
-with 16th percentiles above unity. Their point requirements remain above unity
-for $10^3M_\odot$ seeds (1.217 and 1.101), but fall to 0.746 and 0.592 for
-$10^5M_\odot$ seeds. At $\epsilon=0.05719$, light seeds require 0.793 and
-0.740. For Eddington-limited active phases separated by zero-accretion phases,
-these imply active fractions of about 79 and 74 per cent of the available
-time, requiring a sustained fuel supply. The constraints for GS-20057765 are
-conditional on its tentative broad-H$\beta$ component tracing a broad-line region.
+UNCOVER-20466 and GS-20057765 require average Eddington ratios above 1
+for $10^3M_\odot$ seeds, but below 1 for $10^5M_\odot$ seeds, with the other
+reference assumptions unchanged. At radiative efficiency $\epsilon=0.05719$,
+$100\,M_\odot$ seeds formed at $z=30$ without merger growth require average
+Eddington ratios of 0.793 and 0.740, respectively. If accretion occurs at the
+Eddington limit during active phases and ceases between them, these values
+require activity for about 79 and 74 per cent of the available time.
+The constraints for GS-20057765 depend on its tentative broad-H$\beta$
+component tracing a broad-line region.
 
-GN-z11's reference requirement is 1.437. Seeding at $z=20$ raises it to 1.880,
-above UNCOVER-20466's 1.733, reversing their order. A mass measured with a method comparable to the Balmer-line sample would test
-this timing constraint. Appendix~\ref{app:seed-timing} shows the joint dependence
-on seed mass and starting redshift for GN-z11 and UNCOVER-20466. GN-z11 meets the primary evidence criterion and is
-placed in the exploratory sample because it uses a UV mass estimator.
+GN-z11 requires an average Eddington ratio of 1.437 under the reference
+assumptions. Delaying seeding to $z=20$ raises this to 1.880, above
+UNCOVER-20466's 1.733, reversing their order. A mass estimate based on the
+Balmer lines would test whether this result depends on GN-z11's UV mass
+estimator. Appendix~\ref{app:seed-timing} shows how seed mass and starting
+redshift affect the required average Eddington ratios for both objects.
 
 \subsection{Limitations}
 \label{sec:limits}
@@ -630,8 +633,8 @@ placed in the exploratory sample because it uses a UV mass estimator.
 The contributing studies use different selection criteria and detection
 limits. Inferring population demographics would require a combined completeness
 model. Virial calibration and geometry errors are incompletely reported.
-The common mass offsets test a uniform shift; biases specific to individual
-sources, correlated errors, and selection-dependent scatter remain unmodelled.
+The mass-offset tests do not provide a joint uncertainty model for
+object-specific biases, shared calibration errors, or selection effects.
 
 Two duplicate pairs have been reconciled using the source papers; the identities
 of 3 groups remain unresolved
