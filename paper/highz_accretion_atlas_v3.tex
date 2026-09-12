@@ -187,9 +187,14 @@ spin evolution is unspecified.
 \section{Catalogue construction}
 
 We compile 350 literature measurements from 32 source families at $z\geq4$.
+The catalogue covers the source families listed in Appendix~\ref{app:sources}
+through 3 September 2026; it is not a complete census of JWST discoveries.
 Each adopted mass is linked to its source, method, and reported uncertainty.
-We select 1 published measurement per object using the source assessments
-and retain the alternatives for sensitivity tests.
+We adopt one measurement per object and retain alternatives for sensitivity tests.
+Choices follow the documented source assessments. For example, CEERS-2782 uses
+the higher-signal-to-noise RUBIES-EGS-50052 spectrum preferred by the source study,
+while NX10835 uses the newly available NEXUS mass estimate. The measurement--object
+link table records the adopted measurement, publication version, and reason for each choice.
 
 Growth analysis requires a numerical mass and redshift, an identified mass
 method, and a resolved lensing treatment. Upper limits, indirect model ranges,
@@ -207,7 +212,11 @@ broad-line-region interpretation: 6 candidates with intermediate-width
 H$\alpha$ emission and possible outflow contamination \citep{ren2025}, and
 RUBIES-EGS-49140 \citep{taylor2025},
 for which an alternative non-AGN interpretation is recorded. These 7
-objects enter the expanded sample only. After the identity exclusions,
+objects enter the expanded sample only. Four further JADES objects---GS-20057765,
+GS-20030333, GS-164055, and GN-4685---enter the exploratory sample only because
+their individual broad-H$\beta$ detections are tentative, although broad emission
+is supported by the stacked spectrum \citep{juodzbalis2026}.
+After the identity exclusions,
 the main comparison contains 220 objects, labelled primary in the tables
 and figures. Other limitations of a virial mass, including possible scattering,
 are recorded separately. COSMOS3D-13852 remains in the main sample on the basis
@@ -653,7 +662,8 @@ for $10^3M_\odot$ seeds (1.217 and 1.101), but fall to 0.746 and 0.592 for
 $10^5M_\odot$ seeds. At $\epsilon=0.05719$, light seeds require 0.793 and
 0.740. For Eddington-limited active phases separated by zero-accretion phases,
 these imply active fractions of about 79 and 74 per cent of the available
-time, requiring a sustained fuel supply.
+time, requiring a sustained fuel supply. The constraints for GS-20057765 are
+conditional on its tentative broad-H$\beta$ component tracing a broad-line region.
 
 GN-z11's reference requirement is 1.437. Seeding at $z=20$ raises it to 1.880,
 above UNCOVER-20466's 1.733, reversing their order. A mass measured with a method comparable to the Balmer-line sample would test
@@ -1019,6 +1029,11 @@ The catalogue, source registries, code, and manuscript analysis are available at
 baseline is identified by Git commit
 \href{https://github.com/nniickels/highz-accretion-atlas/tree/a40a0d28c6c8d0b7e0c98aea089629903c34f7be}{\texttt{a40a0d2}};
 version manifests under \texttt{releases/} record the dataset artifact hashes.
+The manuscript analysis is identified by Git commit \texttt{600ba59},
+which fixes the sample-selection policies, external comparison inputs, generated
+tables, and figure code. The catalogue baseline and manuscript-analysis version
+are identified separately because the analysis applies additional evidence and
+identity exclusions.
 Comparison results and tables are in \texttt{paper/analysis/}.
 External inputs are in \texttt{paper/review\_inputs.json}. An archival DOI is pending.
 
