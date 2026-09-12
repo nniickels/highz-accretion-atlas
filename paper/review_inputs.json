@@ -276,7 +276,7 @@
       "proposed_observation": "Confirm the broad component with deeper spectroscopy."
     },
     "GN-38509": {
-      "caveat": "Halpha; separate 0.3 dex calibration scale.",
+      "caveat": "Halpha; quoted mass errors include 0.3 dex calibration scatter.",
       "proposed_observation": "Independent estimator or calibration constraint."
     },
     "J0910_2028_12910": {
