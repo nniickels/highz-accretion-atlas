@@ -722,16 +722,18 @@ these bounds are also excluded from growth calculations.}
 \end{longtable}
 \endgroup
 
-\subsection{Preferred measurements and identity exclusions}
+\subsection{Adopted measurements and uncertain object matches}
 \label{app:identities}
 
-The measurement--object link table records each adopted source, publication
-version, quoted uncertainty, and reason for preference. Three identity groups
-remain unresolved: Baccus GDS\_1210\_9515 versus JADES GS-8083,
-GS-10013704 versus Scholtz 99671, and Scholtz 16745 versus 208643.
-All 6 records are excluded. Three otherwise pass the primary cuts; the other
-3 lack eligible masses. Readmission requires reconciling their spectra,
-images, and apertures. Admission and revision records accompany the catalogue.
+The catalogue records the source paper, version, quoted uncertainty, and
+reason for choosing each adopted measurement. For three pairs of entries,
+it remains unclear whether both refer to the same object: Baccus
+GDS\_1210\_9515 and JADES GS-8083; GS-10013704 and Scholtz 99671;
+and Scholtz 16745 and 208643. All six entries are excluded from the analysis.
+Three have usable masses and otherwise meet the primary-sample criteria;
+the other three have no usable masses. Before including them, their spectra,
+images, and extraction apertures must be checked to establish which objects
+were measured. The catalogue documents these decisions and subsequent revisions.
 
 \section{Growth-model derivations and implementation}
 \label{app:derivations}
@@ -831,7 +833,7 @@ $f_{\rm burst}>f_{\rm quiet}\geq0$. The expression applies when
 $\overline{f}_{\mathrm{Edd,req}}\geq f_{\rm quiet}$. Values $D_{\rm req}>1$
 identify histories that cannot reach the observed mass at the assumed rates.
 
-\subsection{Sampling, mass conversions, and track selection}
+\subsection{Mass uncertainties and growth-track plotting}
 \label{app:implementation}
 
 Sampling uses random seed 20260808 and a stable random stream for each object
@@ -933,6 +935,7 @@ prescription in Section~\ref{app:efficiency}. Seed intervals overlap and have no
 \label{fig:compatibility}
 \end{figure}
 
+\FloatBarrier
 \section{Seed mass and starting redshift}
 \label{app:seed-timing}
 
@@ -954,24 +957,16 @@ Mass uncertainties are not propagated in these maps.}
 \label{fig:seed-timing}
 \end{figure}
 
+\FloatBarrier
 \section{Data and code availability}
 \label{app:availability}
 
-The catalogue, source registries, code, and manuscript analysis are available at
-\url{https://github.com/nniickels/highz-accretion-atlas}. The frozen v3 catalogue
-baseline is identified by Git commit
-\href{https://github.com/nniickels/highz-accretion-atlas/tree/a40a0d28c6c8d0b7e0c98aea089629903c34f7be}{\texttt{a40a0d2}};
-version manifests under \texttt{releases/} record the dataset artifact hashes.
-Comparison results and tables are in \texttt{paper/analysis/}.
-External inputs are in \texttt{paper/review\_inputs.json}. An archival DOI is pending.
-
-The numbered notebooks reproduce the catalogue, analysis, figures, and maps
-with pinned dependencies; see \nolinkurl{docs/guides/reproducibility.md}.
-The release includes identifiers, source observables, alternative measurements,
-selection information, and caveats. Verification checks transcription and
-numerical reproduction. Assessing mass estimators and resolving identities
-requires observational evidence; all six records in the unresolved groups
-remain excluded.
+The catalogue and code are available at
+\url{https://github.com/nniickels/highz-accretion-atlas}.
+Catalogue data and source records are in \texttt{data/}; manuscript results
+and figures are in \texttt{paper/analysis/} and \texttt{paper/figures/}.
+The analysis code is in \texttt{src/}, with workflow notebooks in
+\texttt{scripts/}.
 
 \clearpage
 \begin{thebibliography}{}
