@@ -35,7 +35,7 @@ def render(destination=None):
         axes[0].set_ylabel(r'Starting redshift $z_{\rm seed}$')
         cax=fig.add_axes([.89,.16,.022,.65])
         cb=fig.colorbar(mesh,cax=cax,extend='max',ticks=[0,.3,1,2,3])
-        cb.set_label(r'Required average $\overline{f}_{\rm Edd}$')
+        cb.set_label(r'Required average $\overline{f}_{\mathrm{Edd,req}}$')
         fig.savefig(destination/'seed_timing_comparison.pdf', metadata={'CreationDate':None,'ModDate':None},dpi=220)
         fig.savefig(destination/'seed_timing_comparison.png',dpi=220)
         plt.close(fig)

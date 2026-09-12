@@ -175,7 +175,7 @@ def render(root=ROOT, destination=None):
     fig.text(.075,.976,'Growth tracks across radiative-efficiency assumptions',
              fontsize=16,weight='bold',va='top')
     fig.text(.075,.938,
-             r'$z_{\rm seed}=30$; bands span $B=1$ (thick edge) to $B=2$ (thin edge). '
+             r'$z_{\rm seed}=30$; bands span $B_{\rm merge}=1$ (thick edge) to $B_{\rm merge}=2$ (thin edge). '
              'Seed mass is encoded by colour; exact rates are listed above each panel.',fontsize=9)
     fig.text(.075,.025,
              f'Grey circles: primary ({len(primary)}); purple triangles: exploratory only ({len(extra)}). '

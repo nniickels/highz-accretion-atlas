@@ -79,7 +79,7 @@ def render_figures(root=ROOT, destination=None):
         ax.scatter(lower.loc[g.physical_object_id,'required_fedd'],y,marker='D',color=SECONDARY,s=28,label='Point requirement after -0.5 dex mass shift')
         ax.set_yticks(y,g.object_id,fontsize=10);ax.invert_yaxis()
         ax.axvline(1,color='#555',ls='--',lw=1)
-        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$')
+        ax.set(xlabel=r'Required $\overline{f}_{\mathrm{Edd,req}}$')
         ax.grid(axis='x',alpha=.15);ax.legend(loc='lower left',bbox_to_anchor=(0,1.015),fontsize=9,frameon=False)
         save(fig,'uncertainty')
         fig,axes=plt.subplots(1,2,figsize=(13,6.5),sharey=True)
@@ -95,7 +95,7 @@ def render_figures(root=ROOT, destination=None):
                 ax.set(xlabel=r'$\log_{10}(M_{\rm seed}/M_\odot)$',title=rf'({"a" if zseed == 30 else "b"})  $z_{{\rm seed}}={zseed}$',ylim=(.035,.19))
                 ax.axhline(.1,color='#aaa',lw=.7);ax.axhline(1-np.sqrt(8/9),color='#aaa',ls=':',lw=.7)
                 ax.grid(alpha=.15)
-        axes[0].set_ylabel(r'Maximum fixed efficiency for $\overline{f}_{\rm Edd}\leq1$')
+        axes[0].set_ylabel(r'Maximum fixed efficiency for $\overline{f}_{\mathrm{Edd,req}}\leq1$')
         for ax in axes:
             ax.set_title(ax.get_title(),loc='left');ax.set_title('')
         handles, labels = axes[0].get_legend_handles_labels()
@@ -160,7 +160,7 @@ def render_figures(root=ROOT, destination=None):
             labels.append(f'{obj} (pair {i+1})')
         ax.set_yticks(range(len(labels)),labels);ax.invert_yaxis()
         ax.axvline(1,color='#555',ls='--',lw=1)
-        ax.set(xlabel=r'Required $\overline{f}_{\rm Edd}$',xlim=(0,1.05))
+        ax.set(xlabel=r'Required $\overline{f}_{\mathrm{Edd,req}}$',xlim=(0,1.05))
         ax.legend(frameon=False,loc='lower left',bbox_to_anchor=(0,1.02),ncol=2);ax.grid(axis='x',alpha=.15)
         save(fig,'measurement_sensitivity')
 

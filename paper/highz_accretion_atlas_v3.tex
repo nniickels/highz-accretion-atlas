@@ -43,7 +43,7 @@ reported mass uncertainties and test mass-scale shifts and alternative growth
 assumptions.
 \textbf{Results.} For $100\,M_\odot$ seeds formed at $z=30$, radiative efficiency
 $\epsilon=0.1$, and no merger boost, 8 of the 220 objects require a lifetime-average
-Eddington ratio $\overline{\fedd}_{\rm req}>1$. Of these, 5 exceed this threshold
+Eddington ratio $\overline{f}_{\mathrm{Edd,req}}>1$. Of these, 5 exceed this threshold
 in at least 95\% of trials sampling their quoted mass errors under fixed growth
 assumptions. For UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604, at least
 95\% of trials still require an average Eddington ratio above 1 after
@@ -111,10 +111,10 @@ radiation force balances gravity for electron scattering in ionized hydrogen.
 The fixed radiative efficiency $\epsilon$ is the fraction of inflowing
 rest-mass energy emitted as radiation; the fraction $1-\epsilon$ is retained
 by the black hole in this model. We define the available growth interval
-$\Delta t$ and the lifetime-average Eddington ratio $\overline{\fedd}$ as
+$\Delta t$ and the lifetime-average Eddington ratio $\overline{f}_{\mathrm{Edd}}$ as
 \begin{equation}
 \Delta t=t(z_{\rm obs})-t(z_{\rm seed})>0,\qquad
-\overline{\fedd}=\frac{1}{\Delta t}
+\overline{f}_{\mathrm{Edd}}=\frac{1}{\Delta t}
 \int_{t(z_{\rm seed})}^{t(z_{\rm obs})}\fedd(t)\,dt.
 \label{eq:average}
 \end{equation}
@@ -129,7 +129,7 @@ a multiplier $B_{\rm merge}$ to approximate additional mass from mergers:
 \begin{equation}
 \mbh(t_{\rm obs})=B_{\rm merge}\mseed
 \exp\!\left[\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}}\right],
+\frac{\overline{f}_{\mathrm{Edd}}\,\Delta t}{t_{\rm Edd}}\right],
 \label{eq:growth}
 \end{equation}
 Here $\mbh(t_{\rm obs})$ is the black-hole mass at the observation time
@@ -148,11 +148,11 @@ $B_{\rm merge}=1$ for the reference calculation and 2 for a factor-of-two
 mass boost. We represent mergers by multiplying the seed mass by a constant
 factor before calculating accretion. This approximation omits the timing and
 sequence of mergers, their mass ratios, and mass lost through gravitational radiation.
-The required lifetime-average ratio $\overline{\fedd}_{\rm req}$ is the
+The required lifetime-average ratio $\overline{f}_{\mathrm{Edd,req}}$ is the
 average needed to reach the observed mass $\mbh$ from the assumed seed
 within $\Delta t$:
 \begin{equation}
-\overline{\fedd}_{\rm req}
+\overline{f}_{\mathrm{Edd,req}}
 =\max\!\left[0,\frac{\epsilon}{1-\epsilon}
 \frac{t_{\rm Edd}}{\Delta t}
 \ln\!\left(\frac{\mbh}{B_{\rm merge}\mseed}\right)\right].
@@ -242,17 +242,21 @@ the catalogue and analysis sample sizes.
 
 \begin{table}[ht]
 \centering
-\caption{Catalogue size and analysis samples.}
+\caption{\textbf{Catalogue contents and analysis samples.} Measurements are
+individual mass estimates reported in the literature; an object may have several
+measurements. Object counts are provisional because six entries have uncertain
+identifications across studies and may represent repeated observations of the
+same objects.}
 \begin{tabular}{@{}lr@{}}
 \toprule
-Product or subset & Rows or objects \\
+Category & Count \\
 \midrule
-Measurements / provisional objects / hosts & 350 / 338 / 337 \\
+Measurements / provisional objects / host systems & 350 / 338 / 337 \\
 Growth-eligible measurements / objects & 244 / 237 \\
-Method-eligible primary measurements / objects & 234 / 227 \\
-Manuscript primary / exploratory objects & 220 / 234 \\
-Identity-excluded object records & 6 \\
-Catalogue-only object records & 101 \\
+Primary-method-eligible measurements / objects & 234 / 227 \\
+Primary sample / inclusive exploratory sample & 220 / 234 \\
+Objects excluded for uncertain identity & 6 \\
+Objects without growth-eligible measurements & 101 \\
 \bottomrule
 \end{tabular}
 \label{tab:scale}
@@ -280,7 +284,7 @@ Appendix~\ref{app:implementation} specifies the display selection.
 Panels show 4 constant radiative efficiencies at $z_{\rm seed}=30$;
 colours distinguish seeds of $10^2$, $10^4$, and $10^5M_\odot$, and legends
 list the selected average Eddington ratios. Shaded bands span merger boosts
-$B=1$--2, with thick and thin edges respectively. The bands show the effect of the assumed merger boost. Six named objects are outlined in every panel. The reversed
+$B_{\rm merge}=1$--2, with thick and thin edges respectively. The bands show the effect of the assumed merger boost. Six named objects are outlined in every panel. The reversed
 redshift axis spans $z=11.5$ to $z=3$. Excluded identities and objects without
 eligible masses are omitted.}
 \label{fig:allgrowth}
@@ -319,7 +323,7 @@ details are given in Appendix~\ref{app:implementation}.
 
 For a $10^2\,M_\odot$ seed under the reference history, the median required
 lifetime-average Eddington ratio across the 220 primary objects is
-$\overline{\fedd}_{\rm req}=0.573$ (interquartile range 0.485--0.673),
+$\overline{f}_{\mathrm{Edd,req}}=0.573$ (interquartile range 0.485--0.673),
 with 8 point requirements above unity and none above 2. Across the
 inclusive 234-object sample, the corresponding median is 0.574
 (interquartile range 0.488--0.679), with 14 above unity. These sample
@@ -337,11 +341,11 @@ the exploratory sample.
 \begin{table}[htbp]
 \centering
 \caption{The 8 primary objects above the reference threshold, ordered by their point requirements.
-Masses and errors are in $\log_{10}(M/M_\odot)$; all estimators are single-epoch
+Masses and errors are in $\log_{10}(\mbh/M_\odot)$; all estimators are single-epoch
 virial. $f_0$ is the required lifetime-average Eddington ratio evaluated
 at the adopted central mass under the reference history; $f_{16}$ is the
 16th percentile of this required ratio over the object's mass-error draws,
-and $P_0=P(\overline{\fedd}_{\rm req}>1)$.
+and $P_0=P(\overline{f}_{\mathrm{Edd,req}}>1)$.
 $f_-$ and $P_-$ apply the fixed $-0.5$ dex offset. $\Delta m$ (dex) is the
 reduction in log mass that brings the central required average Eddington
 ratio to 1, with the growth assumptions unchanged. All probabilities use
@@ -371,7 +375,7 @@ mass-estimator uncertainties.}
 \subsection{Effect of reported mass uncertainties}
 
 Of the 8 primary point requirements above unity, 6 remain above it at
-the 16th percentile and 5 have conditional $P(\overline{\fedd}_{\rm req}>1)\geq0.95$
+the 16th percentile and 5 have conditional $P(\overline{f}_{\mathrm{Edd,req}}>1)\geq0.95$
 (Fig.~\ref{fig:uncertainty}). In the exploratory sample, 14 objects have
 a median required lifetime-average Eddington ratio above unity, 10 exceed
 unity at the 16th percentile, and 8 have $P\geq0.95$; 15 exceed unity
@@ -395,9 +399,10 @@ these intervals do not include additional estimator systematics.}
 \FloatBarrier
 \subsection{Sensitivity to the virial-mass scale}
 
-Downward mass shifts of 0.3 and 0.5 dex reduce the primary point/16th-percentile/
-$P\geq0.95$ counts from 8/6/5 to 6/5/4 and 4/3/3, respectively
-(Table~\ref{tab:massoffset}). UNCOVER-20466, COSMOS3D-13852, and
+Downward mass shifts of 0.3 and 0.5 dex reduce the number of primary objects
+above unity from 8 to 6 and 4, respectively. The corresponding counts at the
+16th percentile fall from 6 to 5 and 3, and the counts with $P\geq0.95$ fall
+from 5 to 4 and 3 (Table~\ref{tab:massoffset}). UNCOVER-20466, COSMOS3D-13852, and
 RUBIES-EGS-55604 retain $P\geq0.95$ at $-0.5$ dex. Biases specific to each
 source may exceed this offset (Section~\ref{sec:credibility}), and the required
 rates still depend on seed mass, formation time, and radiative efficiency.
@@ -406,7 +411,7 @@ rates still depend on seed mass, formation time, and radiative efficiency.
 \centering
 \caption{Fixed mass-scale stress tests under the reference growth history.
 Triplets give counts above unity at the point estimate, at the 16th percentile,
-and with conditional $P(\overline{\fedd}_{\rm req}>1)\geq0.95$.
+and with conditional $P(\overline{f}_{\mathrm{Edd,req}}>1)\geq0.95$.
 The probability-based counts use 208 primary and 222 exploratory objects with
 reported errors; point counts use all 220 and 234 objects.}
 \begin{tabular}{@{}lrr@{}}
@@ -461,7 +466,7 @@ time, or the efficiency of an ideal thin disc around a non-spinning black hole
 
 \begin{table}[ht]
 \centering
-\caption{Point-estimate requirements above $\overline{\fedd}=1$ under fixed
+\caption{Point-estimate requirements above $\overline{f}_{\mathrm{Edd}}=1$ under fixed
 histories. Each row changes only the named parameter from the reference
 ($M_{\rm seed}=10^2M_\odot$, $z_{\rm seed}=30$, $\epsilon=0.1$,
 $B_{\rm merge}=1$). Counts use central mass estimates and provisional object identities.}
@@ -487,7 +492,7 @@ their central masses, changes from 0.571 to 0.573; the objects above the
 reference threshold remain the same.
 
 Figure~\ref{fig:boundaries} shows the maximum fixed efficiency allowing
-$\overline{\fedd}_{\rm req}\leq1$ for 5 targets as a function of seed mass.
+$\overline{f}_{\mathrm{Edd,req}}\leq1$ for 5 targets as a function of seed mass.
 The $z_{\rm seed}=20$ and 30 curves show GN-z11's greater sensitivity to the starting time.
 These boundaries use central mass estimates and assume no merger boost.
 
@@ -509,7 +514,7 @@ can be reproduced from each seed-mass range under specified accretion rates,
 spin-dependent efficiencies, and merger contributions.
 
 Seven alternate-measurement comparisons across 6 objects (2 for CEERS-2782)
-span mass shifts of $-0.600$ to $+0.949$ dex and required-$\fedd$ shifts of
+span mass shifts of $-0.600$ to $+0.949$ dex and shifts in $\overline{f}_{\mathrm{Edd,req}}$ of
 $-0.083$ to $+0.121$ (Fig.~\ref{fig:sensitivity}). Both estimates remain below
 unity in every pair. This comparison covers 6 objects below the threshold. Testing the objects
 above it requires additional independent mass estimates.
@@ -538,7 +543,7 @@ our growth calculation.
 \begin{table}[htbp]
 \centering
 \caption{Measurement and starting-time comparison for 4 objects shared with the Dayal study. Columns give
-required average $\fedd$; the first 2 share $z_{\rm seed}=25$.
+required average $\overline{f}_{\mathrm{Edd,req}}$; the first 2 share $z_{\rm seed}=25$.
 The analysis files provide the input measurements and their source locations.}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
@@ -555,7 +560,7 @@ Object & Earlier inputs, 25 & Adopted inputs, 25 & Adopted inputs, 30 \\
 \label{sec:direct}
 
 For A2744-QSO1, we compare the virial mass adopted in the catalogue
-$\log_{10}(M/M_\odot)=7.3\pm0.2$ \citep{greene2024} with the independent MOKA3D dynamical estimate $7.7\pm0.3$ \citep{juodzbalis_direct2025}, using $z=7.04$
+$\log_{10}(\mbh/M_\odot)=7.3\pm0.2$ \citep{greene2024} with the independent MOKA3D dynamical estimate $7.7\pm0.3$ \citep{juodzbalis_direct2025}, using $z=7.04$
 and the reference history. We retain the values from
 \href{https://arxiv.org/abs/2508.21748v2}{arXiv:2508.21748v2}; the reference
 lists the subsequent journal publication. The dynamical estimate depends on lens reconstruction and inclination.
@@ -577,7 +582,7 @@ the comparison sample. Their growth requirements
 constrain combinations of seed mass, starting time, efficiency, and accretion.
 Several formation histories satisfy these constraints.
 
-At fixed seed, growth interval, and merger factor, required $\fedd$ scales as
+At fixed seed, growth interval, and merger factor, required $\overline{f}_{\mathrm{Edd,req}}$ scales as
 $\epsilon/(1-\epsilon)$. Lowering $\epsilon$ from 0.1 to 0.05719 multiplies
 all requirements by 0.54594: the largest becomes 0.793. The requirement for super-Eddington growth therefore depends on the assumed
 efficiency. Larger seed masses, earlier growth onset, and merger contributions also reduce
@@ -615,7 +620,7 @@ the source; the actual correction remains uncertain.
 The mass reductions in Table~\ref{tab:top} show how far each central mass
 lies above the value reachable at an average Eddington ratio of 1. We
 subtract the log mass predicted by Eq.~\ref{eq:growth} at
-$\overline{\fedd}=1$ from the observed log mass, keeping the seed,
+$\overline{f}_{\mathrm{Edd}}=1$ from the observed log mass, keeping the seed,
 starting redshift, efficiency, and merger contribution fixed.
 For J0910\_2028\_12910, a reduction of 0.330 dex is sufficient. This is
 smaller than its separately reported 0.5-dex calibration scale \citep{baccus2026},
@@ -795,7 +800,7 @@ $\epsilon$ gives
 =\frac{1-\epsilon}{\epsilon}\frac{1}{t_{\rm Edd}}
 \int_{t(z_{\rm seed})}^{t(z_{\rm obs})}\fedd(t)\,dt
 =\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}}.
+\frac{\overline{f}_{\mathrm{Edd}}\,\Delta t}{t_{\rm Edd}}.
 \end{equation}
 Exponentiating yields Eq.~\ref{eq:growth}; solving for the average rate and
 applying the non-negative floor yields Eq.~\ref{eq:required-rate}.
@@ -813,7 +818,7 @@ The implementation evaluates Eq.~\ref{eq:growth} in log mass:
 =\log_{10}\!\left(\frac{\mseed}{M_\odot}\right)
 +\log_{10}B_{\rm merge}
 +\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
+\frac{\overline{f}_{\mathrm{Edd}}\,\Delta t}{t_{\rm Edd}\ln 10}.
 \label{eq:merger-implementation}
 \end{equation}
 We evaluate $B_{\rm merge}=1$ (no boost) and 2 (a factor-of-two mass boost).
@@ -829,7 +834,7 @@ Solving the same relation for seed mass gives
 \log_{10}\!\left(\frac{M_{\rm seed,req}}{M_\odot}\right)
 =\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)-\log_{10}B_{\rm merge}
 -\frac{1-\epsilon}{\epsilon}
-\frac{\overline{\fedd}\,\Delta t}{t_{\rm Edd}\ln 10}.
+\frac{\overline{f}_{\mathrm{Edd}}\,\Delta t}{t_{\rm Edd}\ln 10}.
 \label{eq:required-seed}
 \end{equation}
 Here $M_{\rm seed,req}$ is the seed mass required for a specified average
@@ -852,13 +857,13 @@ ages and growth intervals are in Gyr. Radiation is neglected.
 
 For a two-state history with the same efficiency in both states,
 \begin{equation}
-\overline{\fedd}=D f_{\rm burst}+(1-D)f_{\rm quiet},\qquad
-D_{\rm req}=\frac{\overline{\fedd}_{\rm req}-f_{\rm quiet}}
+\overline{f}_{\mathrm{Edd}}=D f_{\rm burst}+(1-D)f_{\rm quiet},\qquad
+D_{\rm req}=\frac{\overline{f}_{\mathrm{Edd,req}}-f_{\rm quiet}}
 {f_{\rm burst}-f_{\rm quiet}}.
 \label{eq:dutycycle}
 \end{equation}
 Here $D$ is the active-state time fraction, $f_{\rm burst}>f_{\rm quiet}\geq0$,
-and the diagnostic requires $\overline{\fedd}_{\rm req}\geq f_{\rm quiet}$.
+and the diagnostic requires $\overline{f}_{\mathrm{Edd,req}}\geq f_{\rm quiet}$.
 We retain values $D_{\rm req}>1$ to flag histories that would require more
 active time than is available. The inferred duty cycle depends on the
 assumed burst and quiet-state rates.
@@ -877,11 +882,11 @@ scatter already included in the quoted errors.
 The mass-scale tests add the same fixed offset to every original mass draw.
 The final published Killi mass
 $8^{+0.5}_{-0.4}\times10^8M_\odot$ is converted by transforming both linear
-bounds, giving $\log_{10}(M/M_\odot)=8.90309^{+0.02633}_{-0.02228}$.
+bounds, giving $\log_{10}(\mbh/M_\odot)=8.90309^{+0.02633}_{-0.02228}$.
 
 For Figure~\ref{fig:allgrowth}, candidate average rates span 0.1--2.0 in
 steps of 0.1. For each seed mass and fixed efficiency, we retain the 2 rates
-with the most primary objects within 0.5 dex of either the $B=1$ or $B=2$
+with the most primary objects within 0.5 dex of either the $B_{\rm merge}=1$ or $B_{\rm merge}=2$
 prediction, requiring at least 5 such objects. Ties favour smaller median
 absolute residuals, then smaller rates. Most objects selected by this 0.5-dex plotting tolerance lie at $z\simeq4$--6.
 Baseline rankings, duty-cycle diagnostics, and seed-redshift--mass maps retain
@@ -921,7 +926,7 @@ mass loss. For Eddington ratios above unity, the maps adopt
 \end{equation}
 The logarithmic luminosity relation applies only for super-Eddington accretion.
 Each compatibility cell holds both the rate and its effective efficiency
-constant over the interval. The grid tests constant accretion states with fixed spin and omits relativistic
+constant over the interval, so $\fedd=\overline{f}_{\mathrm{Edd}}$. The grid tests constant accretion states with fixed spin and omits relativistic
 slim-disc dynamics. For time-varying efficiency, growth depends on
 $\int [(1-\epsilon(t))/\epsilon(t)]\fedd(t)\,dt$, which requires the joint
 time dependence of efficiency and accretion rate.
@@ -960,7 +965,7 @@ percentages among all high-redshift black holes would require accounting for
 how each contributing study selected and detected its objects.
 
 The primary and exploratory samples show similar compatibility patterns
-(Fig.~\ref{fig:compatibility}). For heavy seeds at $a=+1$ and $f=1$, changing
+(Fig.~\ref{fig:compatibility}). For heavy seeds at $a=+1$ and $\fedd=1$, changing
 $B_{\rm merge}$ from 1 to 2 raises compatibility from 58 to 71 per cent
 in the primary sample (59 to 71 per cent inclusive). At higher accretion rates, even the smallest seed in a tested mass range can
 grow larger than the observed black hole. Such objects reduce the percentage
@@ -972,8 +977,8 @@ Section~\ref{app:efficiency}.
 \centering
 \includegraphics[width=0.99\textwidth]{figures/compatibility.pdf}
 \caption{Constant-state compatibility fractions in the primary
-sample (left) and the inclusive exploratory sample (right). The exploratory sample includes all primary objects. Each column specifies merger multiplier $B$ and fixed luminosity
-ratio $f$; rows specify ideal spin-dependent efficiency, with the supercritical
+sample (left) and the inclusive exploratory sample (right). The exploratory sample includes all primary objects. Each column specifies merger multiplier $B_{\rm merge}$ and fixed luminosity
+ratio $\fedd$; rows specify ideal spin-dependent efficiency, with the supercritical
 prescription in Section~\ref{app:efficiency}. Seed intervals overlap and have no assigned probability weights.}
 \label{fig:compatibility}
 \end{figure}
