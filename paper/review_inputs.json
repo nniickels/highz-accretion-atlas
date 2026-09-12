@@ -263,10 +263,6 @@
       "caveat": "Hbeta; mass depends on lens model and BLR interpretation.",
       "proposed_observation": "Independent lens model and broad-line profile constraints."
     },
-    "GS-20057765": {
-      "caveat": "Hbeta; extinction and calibration uncertainties are incompletely quantified.",
-      "proposed_observation": "Deeper line profiles and an extinction constraint."
-    },
     "COSMOS3D-13852": {
       "caveat": "Hbeta; source warns of possible 1--2 dex scattering bias.",
       "proposed_observation": "Separate scattering wings from virial broadening."
@@ -278,14 +274,6 @@
     "CEERS-1019": {
       "caveat": "Hbeta; broad component has comparatively low significance.",
       "proposed_observation": "Confirm the broad component with deeper spectroscopy."
-    },
-    "GS-20030333": {
-      "caveat": "Hbeta; large quoted errors and uncertain extinction and calibration.",
-      "proposed_observation": "Improve line profile and extinction constraints."
-    },
-    "GS-164055": {
-      "caveat": "Hbeta; reported interval straddles the reference threshold.",
-      "proposed_observation": "Reduce mass uncertainty with deeper spectroscopy."
     },
     "GN-38509": {
       "caveat": "Halpha; separate 0.3 dex calibration scale.",
@@ -302,10 +290,6 @@
     "ZS7": {
       "caveat": "Hbeta; quoted 0.4 dex already includes calibration scatter.",
       "proposed_observation": "Spatially separate nuclear kinematics and interacting components."
-    },
-    "GN-4685": {
-      "caveat": "Hbeta; reported interval straddles the reference threshold.",
-      "proposed_observation": "Improve line profile and extinction constraints."
     }
   },
   "dayal_comparison": {

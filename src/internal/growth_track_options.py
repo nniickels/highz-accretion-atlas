@@ -82,10 +82,10 @@ def render(root=ROOT, destination=None):
 
     def data(ax, label=False):
         ax.scatter(primary.redshift, primary.log_mbh_msun_std, s=15, color='#69747e',
-                   alpha=.4, edgecolors='none', zorder=2, label='Primary (224)' if label else None)
+                   alpha=.4, edgecolors='none', zorder=2, label=f'Primary ({len(primary)})' if label else None)
         ax.scatter(extra.redshift, extra.log_mbh_msun_std, s=30, marker='^', facecolors='none',
                    edgecolors='#733f8c', linewidths=.8, zorder=3,
-                   label='Exploratory only (10)' if label else None)
+                   label=f'Exploratory only ({len(extra)})' if label else None)
         ax.set(xlim=(11.5,3), ylim=(5.2,9.6))
         ax.grid(alpha=.12)
     def highlight(ax, names=True, size=8):
@@ -99,7 +99,7 @@ def render(root=ROOT, destination=None):
         }
         for name, offset in offsets.items():
             obj = point.loc[point.object_id.eq(name)].iloc[0]
-            exploratory = name == 'GN-z11'
+            exploratory = obj.physical_object_id not in primary_ids
             color = '#733f8c' if exploratory else '#28333d'
             ax.scatter([obj.redshift], [obj.log_mbh_msun_std], s=35,
                        facecolors='white', edgecolors=color,
@@ -114,7 +114,7 @@ def render(root=ROOT, destination=None):
     def finish(fig, name, title, subtitle, note):
         fig.suptitle(title, x=.08, ha='left', y=.98, fontsize=17, weight='bold')
         fig.text(.08,.927,subtitle,fontsize=10,color='#444')
-        fig.text(.08,.018,note+'\nGrey circles: primary (224); purple triangles: exploratory only (10).',fontsize=9,color='#444')
+        fig.text(.08,.018,note+f'\nGrey circles: primary ({len(primary)}); purple triangles: exploratory only ({len(extra)}).',fontsize=9,color='#444')
         fig.savefig(OUT/f'{name}.png', dpi=220, facecolor='white')
         plt.close(fig)
     note='Data-guided display only: nearby means within 0.5 dex at observed z; not a fit or model probability. All 234 eligible objects shown.'
@@ -178,7 +178,7 @@ def render(root=ROOT, destination=None):
              r'$z_{\rm seed}=30$; bands span $B=1$ (thick edge) to $B=2$ (thin edge). '
              'Seed mass is encoded by colour; exact rates are listed above each panel.',fontsize=9)
     fig.text(.075,.025,
-             'Grey circles: primary (224); purple triangles: exploratory only (10). '
+             f'Grey circles: primary ({len(primary)}); purple triangles: exploratory only ({len(extra)}). '
              'Outlined targets are named in panel (a).',fontsize=9)
     fig.savefig(OUT/'03_full_efficiency_panels.png',dpi=300,facecolor='white')
     fig.savefig(OUT/'03_full_efficiency_panels.svg',facecolor='white')

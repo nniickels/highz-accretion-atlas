@@ -12,9 +12,9 @@ class PublicationReviewTests(unittest.TestCase):
 
     def test_complete_tail_and_named_offset_survivors(self):
         tail = self.outputs['target_robustness']
-        self.assertEqual(len(tail), 12)
+        self.assertEqual(len(tail), 8)
         self.assertTrue(tail.required_fedd.gt(1).all())
-        self.assertEqual(int(tail.probability_gt_1.ge(.95).sum()), 6)
+        self.assertEqual(int(tail.probability_gt_1.ge(.95).sum()), 5)
         self.assertEqual(set(tail.loc[tail.p_minus05.ge(.95), 'object_id']),
                          {'UNCOVER-20466','COSMOS3D-13852','RUBIES-EGS-55604'})
         cosmos = tail.set_index('object_id').loc['COSMOS3D-13852']
@@ -25,7 +25,7 @@ class PublicationReviewTests(unittest.TestCase):
         sources = self.outputs['source_inventory']
         self.assertEqual(sources.source_key.nunique(), 32)
         self.assertEqual(sources[['n_measurements','n_growth_eligible_measurements',
-                                 'n_publication_primary_preferred']].sum().tolist(), [350,244,224])
+                                 'n_publication_primary_preferred']].sum().tolist(), [350,244,220])
 
     def test_external_mass_is_borderline_and_does_not_change_membership(self):
         external = self.outputs['external_direct_mass_comparison'].set_index('comparison')
@@ -41,7 +41,7 @@ class PublicationReviewTests(unittest.TestCase):
         # Affine propagation in log mass gives identical normalized intervals.
         self.assertAlmostEqual((new.p84-new.p16)/(old.p84-old.p16), .3/.2)
         selection = self.outputs['publication_object_selection']
-        self.assertEqual(int(selection.publication_primary_flag.sum()), 224)
+        self.assertEqual(int(selection.publication_primary_flag.sum()), 220)
         self.assertEqual(len(selection.loc[selection.object_id.eq('A2744-QSO1')]), 1)
 
     def test_matched_comparison_separates_measurement_and_clock_changes(self):

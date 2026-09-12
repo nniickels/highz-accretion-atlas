@@ -2,12 +2,14 @@
 
 **Conservative manuscript scope:** all six records linked to the three open
 identity groups are excluded from manuscript inference. The primary sample has
-224 objects; the exploratory numerical sample has 234. Headline threshold
+220 objects; the exploratory numerical sample has 234. Headline threshold
 counts and top-five ordering are unchanged in the tested scenarios.
 This addresses the analysis dependency, not physical identity resolution or a
 final unique-object census. The strict identity gate remains open.
 
-The explicit policy is `identity_exclusions.json`. Reproduce the stored selection
+The policies are `identity_exclusions.json` and `evidence_selection.json`.
+The latter retains four stack-supported tentative JADES detections in the
+exploratory sample only. Reproduce the stored selection
 and inclusion/exclusion sensitivity tables with:
 
 ```bash
@@ -94,7 +96,7 @@ checked claims, corrections, and remaining submission work.
 
 ## Scientific revision following manuscript assessment
 
-The revised draft foregrounds the twelve primary reference-threshold objects,
+The revised draft foregrounds the eight primary reference-threshold objects,
 source-specific estimator caveats and their implications for the growth constraints. Generated LaTeX
 fragments under `analysis/` keep manuscript tables synchronized with the numerical
 outputs. The four-object Dayal input comparison and A2744-QSO1 dynamical-mass

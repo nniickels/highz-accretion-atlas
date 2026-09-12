@@ -16,6 +16,7 @@ from src.internal.reproduction import assert_csv_reproduction
 
 ROOT = Path(__file__).resolve().parents[2]
 POLICY = Path('paper/identity_exclusions.json')
+EVIDENCE_POLICY = Path('paper/evidence_selection.json')
 DESTINATION = Path('paper/analysis')
 SCENARIOS = [('reference', 2, .1, 30), ('seed_1e3', 3, .1, 30),
              ('seed_1e5', 5, .1, 30), ('seed_z20', 2, .1, 20),
@@ -53,7 +54,20 @@ def build_publication_outputs(root=ROOT, policy=None):
     selection['open_identity_group'] = selection.physical_object_id.map(group_by_object).fillna('')
     excluded = selection.open_identity_group.ne('')
     selection['excluded_identity_flag'] = excluded
-    selection['publication_primary_flag'] = selection.primary_growth_ranking_flag & ~excluded
+    evidence_policy = json.loads((root/EVIDENCE_POLICY).read_text())
+    if evidence_policy.get('disposition') != 'retain_tentative_individual_detections_in_exploratory_only':
+        raise AssertionError('Unknown publication evidence disposition')
+    entries = evidence_policy['objects']
+    reasons = {entry['object_id']: entry['reason'] for entry in entries}
+    if len(reasons) != len(entries) or any(not entry.get(key) for entry in entries
+                                         for key in ('reason', 'source_url', 'locator')):
+        raise AssertionError('Evidence selection needs unique objects and source provenance')
+    tentative = selection.object_id.isin(reasons)
+    if int(tentative.sum()) != len(reasons) or not selection.loc[tentative, 'growth_ranking_eligible_flag'].all():
+        raise AssertionError('Evidence selection must identify eligible catalogue objects exactly')
+    selection['exploratory_only_evidence_flag'] = tentative
+    selection['evidence_selection_reason'] = selection.object_id.map(reasons).fillna('')
+    selection['publication_primary_flag'] = selection.primary_growth_ranking_flag & ~excluded & ~tentative
     selection['publication_exploratory_flag'] = selection.growth_ranking_eligible_flag & ~excluded
     selection = selection.sort_values('physical_object_id').reset_index(drop=True)
     point = pd.read_csv(root/'results/v3/tables/v3_object_point_ranking.csv')
@@ -61,9 +75,13 @@ def build_publication_outputs(root=ROOT, policy=None):
     rows = []
     for scope in ['catalogue', 'publication']:
         for sample in ['primary', 'exploratory']:
-            subset = point if sample == 'exploratory' else point.loc[point.primary_growth_ranking_flag]
+            # Hold the evidence policy fixed to isolate the effect of identity exclusions.
+            mask = selection.growth_ranking_eligible_flag if sample == 'exploratory' else (
+                selection.primary_growth_ranking_flag & ~selection.exploratory_only_evidence_flag)
             if scope == 'publication':
-                subset = subset.loc[~subset.physical_object_id.isin(group_by_object)]
+                mask = selection[f'publication_{sample}_flag']
+            ids = selection.loc[mask, 'physical_object_id']
+            subset = point.loc[point.physical_object_id.isin(ids)]
             e = errors.loc[errors.physical_object_id.isin(subset.physical_object_id)]
             for scenario, seed, epsilon, zseed in SCENARIOS:
                 required = models.required_fedd_for_seed(seed, subset.log_mbh_msun_std,

@@ -6,7 +6,7 @@ davis26_thrils_blagn,Davis / THRILS,davis2026,Balmer,EELG-selected spectroscopy,
 fei26_glimpse_blagn,Fei / GLIMPSE,fei2026,Balmer,Lensed broad lines,Lensing corrections,10,10,broad_halpha,canonical_numeric_mass_only,https://doi.org/10.3847/1538-4357/ae6248,8
 greene24_uncover_blagn,Greene / UNCOVER,greene2024,Balmer,Lensed broad lines,Lens model; BLR interpretation,9,9,broad_halpha;broad_hbeta,canonical_numeric_mass_only,https://doi.org/10.3847/1538-4357/ad1e5f,9
 harikane23_nirspec_blagn,Harikane,harikane2023,Balmer,NIRSpec broad lines,Local virial calibration,10,10,broad_halpha,broad_civ_and_tentative_heii;compact_source;dual_agn_candidate;dust_extinction_corrected;host_mass_upper_limit;narrow_oiii_outflow_component;red_agn;source_does_not_state_numeric_virial_systematic;virial_calibration_at_z0,https://doi.org/10.3847/1538-4357/ad029e,5
-juodzbalis25_jades_blagn,Juodzbalis / JADES,juodzbalis2026,Balmer,Broad Balmer lines,Extinction; calibration,23,23,broad_balmer_line,,https://arxiv.org/abs/2504.03551,21
+juodzbalis25_jades_blagn,Juodzbalis / JADES,juodzbalis2026,Balmer,Broad Balmer lines,Extinction; calibration,23,23,broad_balmer_line,,https://arxiv.org/abs/2504.03551,17
 killi24_j0647_lrd_blagn,Killi,killi2024,Balmer,Broad Halpha,Linear mass-error conversion,1,1,broad_halpha,canonical_numeric_mass_only,https://doi.org/10.1051/0004-6361/202348857,1
 kocevski25_lrd_blagn,Kocevski / LRDs,kocevski2025,Balmer,Broad Balmer lines,Dust correction; calibration,6,6,broad_halpha;broad_hbeta,canonical_numeric_mass_only,https://doi.org/10.3847/1538-4357/adbc7d,6
 larson23_ceers1019,Larson / CEERS-1019,larson2023,Balmer,Broad Hbeta,Broad-component significance,1,1,broad_hbeta,canonical_numeric_mass_only,https://doi.org/10.3847/2041-8213/ace619,1

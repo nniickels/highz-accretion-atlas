@@ -1,0 +1,29 @@
+{
+  "disposition": "retain_tentative_individual_detections_in_exploratory_only",
+  "objects": [
+    {
+      "object_id": "GS-20057765",
+      "reason": "Individual broad-Hbeta detection is tentative; broad emission is supported by the stacked spectrum.",
+      "source_url": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Section 3.1 and Appendix B"
+    },
+    {
+      "object_id": "GS-20030333",
+      "reason": "Individual broad-Hbeta detection is tentative; broad emission is supported by the stacked spectrum.",
+      "source_url": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Section 3.1 and Appendix B"
+    },
+    {
+      "object_id": "GS-164055",
+      "reason": "Individual broad-Hbeta detection is tentative; broad emission is supported by the stacked spectrum.",
+      "source_url": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Section 3.1 and Appendix B"
+    },
+    {
+      "object_id": "GN-4685",
+      "reason": "Individual broad-Hbeta detection is tentative; broad emission is supported by the stacked spectrum.",
+      "source_url": "https://arxiv.org/html/2504.03551v2",
+      "locator": "Section 3.1 and Appendix B"
+    }
+  ]
+}

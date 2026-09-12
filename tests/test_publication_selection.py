@@ -14,7 +14,7 @@ class PublicationSelectionTests(unittest.TestCase):
         detail = outputs['publication_baccus_revision_comparison']
         excluded = outputs['publication_object_selection'].query('excluded_identity_flag')
         self.assertFalse(set(detail.physical_object_id) & set(excluded.physical_object_id))
-        for sample, sizes, counts in [('primary', [224,224,220], [12,8,6]),
+        for sample, sizes, counts in [('primary', [220,220,216], [8,6,5]),
                                       ('exploratory', [234,234,230], [14,10,8])]:
             rows = summary.loc[summary['sample'].eq(sample)]
             self.assertEqual(rows.numerical_objects.tolist(), sizes)
@@ -34,7 +34,7 @@ class PublicationSelectionTests(unittest.TestCase):
         result = verify_publication_selection()
         self.assertEqual(result['scientific_identity_status'], 'open')
         self.assertEqual(result['excluded_object_records'], 6)
-        self.assertEqual(result['publication_primary_objects'], 224)
+        self.assertEqual(result['publication_primary_objects'], 220)
         self.assertEqual(result['publication_exploratory_objects'], 234)
         outputs = build_publication_outputs()
         s = outputs['identity_exclusion_sensitivity']
@@ -46,6 +46,19 @@ class PublicationSelectionTests(unittest.TestCase):
         self.assertEqual(set(excluded.physical_object_id), {
             'HZA-GDS-1210-9515','HZA-GS-8083','HZA-GS-10013704',
             'HZA-JADES-NS-GS00099671','HZA-JADES-NS-GS00016745','HZA-JADES-NS-GS00208643'})
+
+    def test_tentative_jades_are_exploratory_only_and_other_membership_is_unchanged(self):
+        selection = build_publication_outputs()['publication_object_selection']
+        names = {'GS-20057765', 'GS-20030333', 'GS-164055', 'GN-4685'}
+        tentative = selection.loc[selection.exploratory_only_evidence_flag]
+        self.assertEqual(set(tentative.object_id), names)
+        self.assertFalse(tentative.publication_primary_flag.any())
+        self.assertTrue(tentative.publication_exploratory_flag.all())
+        others = selection.loc[~selection.exploratory_only_evidence_flag]
+        pd.testing.assert_series_equal(others.publication_primary_flag,
+            others.primary_growth_ranking_flag & ~others.excluded_identity_flag, check_names=False)
+        pd.testing.assert_series_equal(selection.publication_exploratory_flag,
+            selection.growth_ranking_eligible_flag & ~selection.excluded_identity_flag, check_names=False)
 
     def test_omitting_an_open_group_is_rejected(self):
         policy = json.loads((ROOT/POLICY).read_text())
@@ -74,7 +87,7 @@ class PublicationSelectionTests(unittest.TestCase):
         from src.internal.publication_figures import load_plot_inputs
         selection, primary, point, errors, compatibility, sensitivity = load_plot_inputs()
         excluded = set(selection.loc[selection.excluded_identity_flag, 'physical_object_id'])
-        self.assertEqual((len(primary), len(point)), (224, 234))
+        self.assertEqual((len(primary), len(point)), (220, 234))
         for frame in (point, errors, compatibility, sensitivity):
             self.assertFalse(set(frame.physical_object_id) & excluded)
         point_only = errors.mbh_uncertainty_mode.eq('point_estimate_no_reported_mbh_error')
@@ -98,7 +111,7 @@ class PublicationSelectionTests(unittest.TestCase):
         self.assertTrue(missing[['p16', 'probability_gt_1']].isna().all().all())
         self.assertTrue(missing.n_samples.eq(0).all())
         summary = outputs['mass_offset_sensitivity'].query('mass_offset_dex == 0').set_index('sample')
-        self.assertEqual(summary.loc['primary', ['above_unity','p16_above_unity','probability_ge_095']].tolist(), [12,8,6])
+        self.assertEqual(summary.loc['primary', ['above_unity','p16_above_unity','probability_ge_095']].tolist(), [8,6,5])
         self.assertEqual(summary.loc['exploratory', ['above_unity','p16_above_unity','probability_ge_095']].tolist(), [14,10,8])
 
     def test_mass_offsets_follow_analytic_response_and_monotonic_thresholds(self):
