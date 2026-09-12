@@ -47,13 +47,13 @@ def render_figures(root=ROOT, destination=None):
         fig, counts = plt.subplots(figsize=(13,5.2))
         fig.subplots_adjust(left=.24,right=.98,bottom=.15,top=.78)
         fig.text(.075,.96,'Manuscript sample accounting',fontsize=16,weight='bold',va='top')
-        fig.text(.075,.87,f'{len(selection)} catalogue object records',fontsize=11)
+        fig.text(.075,.87,f'{len(selection)} provisional catalogue objects',fontsize=11)
         excluded = selection.excluded_identity_flag
         values = [len(primary),len(point)-len(primary),int((~excluded & ~selection.growth_ranking_eligible_flag).sum()),int(excluded.sum())]
-        labels = ['Primary','Exploratory only','Retained without mass','Identity excluded']
+        labels = ['Primary','Exploratory only','Without growth-eligible mass','Identity excluded']
         counts.barh(labels,values,color=['#69747e','#874194','#aaa','#444'])
         for i,v in enumerate(values):counts.text(v+2,i,str(v),va='center')
-        counts.set(xlabel='Object records',xlim=(0,max(values)*1.18));counts.invert_yaxis()
+        counts.set(xlabel='Objects',xlim=(0,max(values)*1.18));counts.invert_yaxis()
         counts.grid(axis='x',alpha=.15);counts.set_axisbelow(True)
         save(fig,'landscape')
         # Rebuild the adopted efficiency-panel layout from the same source as option C.
