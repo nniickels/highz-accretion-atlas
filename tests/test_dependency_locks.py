@@ -4,12 +4,61 @@ from pathlib import Path
 import tomllib
 import unittest
 from packaging.requirements import Requirement
+from packaging.markers import default_environment
 from packaging.utils import canonicalize_name
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class DependencyLockTests(unittest.TestCase):
+    def test_notebook_dependency_closure_including_extras_is_pinned(self):
+        project = tomllib.loads((ROOT/'pyproject.toml').read_text())['project']
+        environment = default_environment()
+        if environment['sys_platform'] not in ('linux', 'darwin'):
+            self.skipTest('Notebook lock targets Linux and macOS')
+        locked = {}
+
+        def read_lock(path):
+            for raw in path.read_text().splitlines():
+                line = raw.strip()
+                if not line or line.startswith('#'):
+                    continue
+                if line.startswith('-r '):
+                    read_lock(path.parent / line[3:])
+                    continue
+                req = Requirement(line)
+                self.assertEqual(len(req.specifier), 1)
+                pin = next(iter(req.specifier))
+                self.assertEqual(pin.operator, '==')
+                self.assertNotIn('*', pin.version)
+                if req.marker is None or req.marker.evaluate(environment):
+                    name = canonicalize_name(req.name)
+                    self.assertNotIn(name, locked, f'Duplicate lock entry: {name}')
+                    locked[name] = req
+
+        read_lock(ROOT/'requirements-notebook-lock.txt')
+        pending = [Requirement(raw) for raw in
+                   project['dependencies'] + project['optional-dependencies']['notebook']]
+        seen = set()
+        while pending:
+            req = pending.pop()
+            name = canonicalize_name(req.name)
+            key = (name, frozenset(req.extras))
+            if key in seen:
+                continue
+            seen.add(key)
+            self.assertIn(name, locked, f'Unpinned notebook dependency: {name}')
+            self.assertIn(version(name), locked[name].specifier)
+            self.assertIn(version(name), req.specifier)
+            for raw in requires(name) or []:
+                child = Requirement(raw)
+                # Jupyter requests extras such as jsonschema[format-nongpl].
+                if child.marker is None or any(
+                    child.marker.evaluate(dict(environment, extra=extra))
+                    for extra in ('', *req.extras)
+                ):
+                    pending.append(child)
+
     def test_core_dependency_closure_is_pinned_and_satisfied(self):
         locked = {}
         for line in (ROOT/'requirements-lock.txt').read_text().splitlines():

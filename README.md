@@ -142,11 +142,11 @@ only in notebook state. To execute the complete workflow non-interactively:
 
 ```bash
 mkdir -p /tmp/highz-atlas-notebooks
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/00_process_catalogues.ipynb
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/01_generate_science.ipynb
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/02_generate_figures.ipynb
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/03_generate_atlas.ipynb
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/04_verify.ipynb
+for notebook in scripts/0[0-4]_*.ipynb; do
+  .venv/bin/python -m nbconvert --to notebook --execute \
+    --ExecutePreprocessor.timeout=1800 \
+    --output-dir=/tmp/highz-atlas-notebooks "$notebook" || exit 1
+done
 ```
 
 Historical source-admission builders and the shared ranking/uncertainty core
@@ -156,11 +156,13 @@ dataset versions or write legacy output trees.
 ## Getting Started
 
 The project requires Python 3.12. Create a repository-local virtual environment
-and install the pinned project requirements (including the explicit build backend):
+and install the pinned project requirements (including the explicit build backend).
+The notebook lock covers the full dependency closure on Linux and macOS:
 
 ```bash
 python3.12 -m venv .venv
 .venv/bin/python -m pip install --requirement requirements-notebook-lock.txt --requirement requirements-build-lock.txt
+.venv/bin/python -m pip check
 ```
 
 Run the complete regression and verification suite:

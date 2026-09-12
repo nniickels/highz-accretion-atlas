@@ -97,8 +97,10 @@ successful compilation in the original checkout would not verify regenerated
 manuscript inputs. PDF bytes are not compared between Tectonic and pdfLaTeX.
 
 `requirements-lock.txt` pins the numerical/rendering dependency closure, including
-Matplotlib's font and layout dependencies. The notebook lock pins its direct
-Jupyter dependencies; it is not a complete transitive lock of the notebook UI.
+Matplotlib's font and layout dependencies. The notebook lock now pins the complete
+Jupyter dependency closure for Python 3.12 on Linux and macOS, including requested
+extras and the macOS-only `appnope` dependency. The dependency tests traverse
+installed package metadata to catch missing pins and incompatible versions.
 `requirements-build-lock.txt` pins the explicitly declared setuptools backend.
 For the same package build used by CI, install both runtime and build requirements:
 
@@ -186,3 +188,31 @@ The broad 10²–10⁶ solar-mass seed interval is stored under the original cod
 `pbh_origin_hypothesis`. The key identifies the tested mass interval. A primordial
 interpretation requires additional seed-formation assumptions; the manuscript's
 supplement discusses these assumptions and an earlier start of accretion.
+
+## Pinned-renderer baseline repair (12 September 2026)
+
+[CI run 34688211965](https://github.com/nniickels/highz-accretion-atlas/actions/runs/34688211965)
+failed in notebook 03 at `growth_boundaries.pdf`'s `/Info/Creator`. Six committed
+PDF exports still identified Matplotlib 3.11.0, while the required renderer is
+3.11.1. Regenerating them with the pinned stack preserves the decoded drawing
+content and PNG comparisons while updating the renderer metadata. The strict PDF
+comparison remains unchanged. This is a reviewed tooling-baseline correction;
+no numerical products or scientific assumptions changed.
+
+`python -m src.internal.publication_figures --verify` now compares both PNG and
+PDF exports using the shared artifact gate, including exact PNG alpha. CI runs
+this check before the full atlas rebuild, so stale manuscript PDFs fail early.
+A regression case checks that matching PNGs cannot hide stale PDF metadata.
+The README and CI both invoke nbconvert through the selected Python interpreter
+and allow 1,800 seconds per cell for atlas generation. Installation now includes
+`pip check`; the notebook dependency lock includes its transitive dependencies.
+
+Validation used a new Python 3.12.14 virtual environment installed from the locks.
+`pip check`, all 102 regression tests, the PNG/PDF figure verifier, and the wheel
+build/import check passed. A disposable archive, overlaid with these fixes,
+removed all 1,298 generated artifacts before running the notebooks. The independent
+comparison of the regenerated artifacts passed. All five notebooks completed,
+including notebook 04's provenance, version contracts and 102 regression tests.
+Tectonic compiled both the manuscript and supplement from regenerated inputs
+with converged references. These are local macOS checks;
+the updated workflow still needs a Linux CI run after the changes are pushed.

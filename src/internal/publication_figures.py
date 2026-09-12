@@ -8,7 +8,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from PIL import Image
 from src import models
 from src.internal.publication_selection import ROOT, build_publication_outputs
 
@@ -175,14 +174,15 @@ def render_figures(root=ROOT, destination=None):
 
 
 def verify_figures(root=ROOT):
+    from src.internal.verify_regenerated_artifacts import compare_artifact
+
     with tempfile.TemporaryDirectory(prefix='dayal-publication-figures-') as folder:
         render_figures(root,folder)
         for name in NAMES:
-            with Image.open(root/f'paper/figures/{name}.png') as a, Image.open(Path(folder)/f'{name}.png') as b:
-                if a.size!=b.size:raise AssertionError(f'{name}: figure dimensions differ')
-                if np.abs(np.asarray(a.convert('RGBA')).astype(int)-np.asarray(b.convert('RGBA')).astype(int)).max()>3:
-                    raise AssertionError(f'{name}: publication figure pixels differ')
-    print(f'Verified {len(NAMES)} publication figures against the conservative sample mask')
+            for suffix in ('.png', '.pdf'):
+                compare_artifact(root/f'paper/figures/{name}{suffix}',
+                                 Path(folder)/f'{name}{suffix}')
+    print(f'Verified {len(NAMES)} publication figures (PNG and PDF) against the conservative sample mask')
 
 
 def main():

@@ -18,7 +18,9 @@ jobs:
             requirements-notebook-lock.txt
             requirements-build-lock.txt
       - name: Install pinned dependencies
-        run: python -m pip install --requirement requirements-notebook-lock.txt --requirement requirements-build-lock.txt
+        run: |
+          python -m pip install --requirement requirements-notebook-lock.txt --requirement requirements-build-lock.txt
+          python -m pip check
       - name: Build and import the Python package
         env:
           SOURCE_DATE_EPOCH: "1788393600"
@@ -32,6 +34,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m unittest discover -s tests
+      - name: Verify manuscript PNG and PDF exports
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m src.internal.publication_figures --verify
       - name: Verify source provenance
         env:
           PYTHONDONTWRITEBYTECODE: "1"
@@ -63,7 +69,7 @@ jobs:
               (root / name).unlink()
           PY
           for notebook in scripts/0[0-4]_*.ipynb; do
-            python -m jupyter nbconvert --to notebook --execute \
+            python -m nbconvert --to notebook --execute \
               --ExecutePreprocessor.timeout=1800 \
               --output-dir="$executed_notebooks" "$notebook"
           done
