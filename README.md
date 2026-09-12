@@ -3,6 +3,10 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
 
+**Manuscript:** read [Early Black-Hole Growth Constraints from JWST](paper/highz_accretion_atlas_v3.pdf).
+The [LaTeX source](paper/highz_accretion_atlas_v3.tex) and
+[supplementary material](paper/supplementary_material.pdf) are in [`paper/`](paper/README.md).
+
 **Identity audit status:** all admitted redshifts and available coordinates
 pass independent source checks, but one conflicting duplicate group and two close-neighbour
 groups need reconciliation. The stored 338-object count is provisional; see the
