@@ -6,6 +6,17 @@ possible formation and growth scenarios.
 **Manuscript:** read [Early Black-Hole Growth Constraints from JWST](paper/highz_accretion_atlas_v3.pdf).
 
 
+## Repository map
+
+Folder-level guides keep the data, results, documentation, releases, and code
+easy to navigate:
+
+- [`data/`](data/README.md): raw sources, processed catalogues, and identity products
+- [`results/`](results/README.md): science tables, figures, galleries, and inventory
+- [`docs/`](docs/README.md): contracts, methods, guides, and source notes
+- [`releases/`](releases/README.md): exact dataset manifests and hashes
+- [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
+
 
 ## Workflow
 
@@ -70,16 +81,6 @@ review cutoff and explicit admission boundary are documented in
 `docs/reference/literature-scope.md`; versioning details are in
 `docs/guides/versioning.md`.
 
-## Repository map
-
-Folder-level guides keep the data, results, documentation, releases, and code
-easy to navigate:
-
-- [`data/`](data/README.md): raw sources, processed catalogues, and identity products
-- [`results/`](results/README.md): science tables, figures, galleries, and inventory
-- [`docs/`](docs/README.md): contracts, methods, guides, and source notes
-- [`releases/`](releases/README.md): exact dataset manifests and hashes
-- [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
 
 ## References
 
