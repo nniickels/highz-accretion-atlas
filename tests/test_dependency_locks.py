@@ -36,7 +36,7 @@ class DependencyLockTests(unittest.TestCase):
                     self.assertNotIn(name, locked, f'Duplicate lock entry: {name}')
                     locked[name] = req
 
-        read_lock(ROOT/'requirements-notebook-lock.txt')
+        read_lock(ROOT/'requirements/notebook.txt')
         pending = [Requirement(raw) for raw in
                    project['dependencies'] + project['optional-dependencies']['notebook']]
         seen = set()
@@ -61,7 +61,7 @@ class DependencyLockTests(unittest.TestCase):
 
     def test_core_dependency_closure_is_pinned_and_satisfied(self):
         locked = {}
-        for line in (ROOT/'requirements-lock.txt').read_text().splitlines():
+        for line in (ROOT/'requirements/core.txt').read_text().splitlines():
             if line.strip() and not line.startswith('#'):
                 req = Requirement(line)
                 self.assertEqual(len(req.specifier), 1)
@@ -87,6 +87,6 @@ class DependencyLockTests(unittest.TestCase):
         project = tomllib.loads((ROOT/'pyproject.toml').read_text())
         build = project['build-system']
         self.assertEqual(build['build-backend'], 'setuptools.build_meta')
-        installed = (ROOT/'requirements-build-lock.txt').read_text().splitlines()
+        installed = (ROOT/'requirements/notebook.txt').read_text().splitlines()
         for requirement in build['requires']:
             self.assertIn(requirement, installed)

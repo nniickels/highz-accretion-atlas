@@ -1,7 +1,5 @@
 # Catalogue admission and identity record
 
-These details were moved from the manuscript to the release documentation on 11 September 2026. All measurements and decisions are retained.
-
 The full catalogue contains 247 broad-line AGN, 49 narrow-line candidates,
 30 photometric candidates, ten high-ionization candidates, and two X-ray
 candidates. Preferred-row evidence labels comprise 214 secure, 41 probable,
@@ -10,8 +8,8 @@ precede the manuscript exclusions.
 
 ## Source-admission checks
 
-The v3 additions include 15 NEXUS measurements from NIRCam/WFSS (zhuang2025; see the [source bibliography](../../paper/references.bib)), 13 COSMOS-3D NIRCam-grism
-measurements (lin2025; see the [source bibliography](../../paper/references.bib)), and GHZ4/GHZ7 (napolitano2024; see the [source bibliography](../../paper/references.bib)). These contribute 30
+The v3 additions include 15 NEXUS measurements from NIRCam/WFSS (zhuang2025; see the [source bibliography](../../data/sources.md)), 13 COSMOS-3D NIRCam-grism
+measurements (lin2025; see the [source bibliography](../../data/sources.md)), and GHZ4/GHZ7 (napolitano2024; see the [source bibliography](../../data/sources.md)). These contribute 30
 measurements and 29 object records. NX10835 lies 0.066 arcsec from
 an existing Mascia identifier at consistent redshift, so the new mass-bearing
 measurement becomes preferred for the same object.
@@ -50,7 +48,7 @@ in the exploratory sample only. The final samples contain 220 primary objects
 and 234 inclusive exploratory objects: thirteen additional candidates and GN-z11.
 The thirteen candidates include the seven previously recorded conditional
 broad-line interpretations and the four tentative JADES detections. Policies are
-recorded in `paper/evidence_selection.json` and `paper/identity_exclusions.json`.
+recorded in `data/publication/evidence_selection.json` and `data/publication/identity_exclusions.json`.
 All original measurements and catalogue flags remain available.
 
 ## Measurement revision and validation coverage

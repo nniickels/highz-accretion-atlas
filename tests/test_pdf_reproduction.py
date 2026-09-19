@@ -59,8 +59,8 @@ class PdfReproductionTests(unittest.TestCase):
             with self.subTest(changes=changes), tempfile.TemporaryDirectory() as directory:
                 baseline, generated = Path(directory)/'baseline', Path(directory)/'generated'
                 for root in (baseline, generated):
-                    (root/'paper/figures').mkdir(parents=True)
-                a, b = [root/'paper/figures/early_start_comparison.pdf'
+                    (root/'results/publication/figures').mkdir(parents=True)
+                a, b = [root/'results/publication/figures/early_start_comparison.pdf'
                         for root in (baseline, generated)]
                 write_figure(a)
                 write_figure(b, compress=True, **changes)
@@ -81,7 +81,7 @@ class PdfReproductionTests(unittest.TestCase):
                 compare_artifact(a, b)
 
     def test_real_manuscript_pdf_survives_stream_recompression(self):
-        source = Path(__file__).resolve().parents[1]/'paper/figures/compatibility.pdf'
+        source = Path(__file__).resolve().parents[1]/'results/publication/figures/compatibility.pdf'
         with tempfile.TemporaryDirectory() as directory:
             rewritten = Path(directory)/'compatibility.pdf'
             writer = PdfWriter(clone_from=PdfReader(source))

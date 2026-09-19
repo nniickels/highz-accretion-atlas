@@ -18,7 +18,7 @@ from src.source_provenance import load_source_provenance_registry, validate_cata
 ROOT = Path(__file__).resolve().parents[2]
 REGISTRY_PATH = ROOT / "data/source_provenance_registry.csv"
 CATALOGUE_PATH = ROOT / "data/processed/v3/v3_accreting_measurements.csv"
-MANIFEST_PATH = ROOT / "releases/source-provenance-manifest.json"
+MANIFEST_PATH = ROOT / "data/manifests/source-provenance-manifest.json"
 SELECTION_PATH = ROOT / "data/selection_function_registry.csv"
 AUDIT_PATH = ROOT / "data/manual_extraction_audit.csv"
 ARTIFACTS = {

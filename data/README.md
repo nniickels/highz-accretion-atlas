@@ -20,3 +20,6 @@ name: use `measurement_id`, `physical_object_id`, and `host_system_id`.
 See `raw/README.md`, `assembly/README.md`, `processed/README.md`,
 `crossmatch/README.md`, `validation/README.md`, and
 `../docs/guides/versioning.md`.
+
+[Publication inputs](publication/README.md) define the separate manuscript samples.
+[Manifests](manifests/README.md) record canonical artifact and provenance hashes.

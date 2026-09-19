@@ -42,7 +42,7 @@ and explicitly reviewed manifests.
 
 Current dataset membership and counts are described in
 [`../guides/versioning.md`](../guides/versioning.md), with source-specific
-extraction decisions in [`../source-notes/`](../source-notes/README.md).
+extraction decisions in [`../source-notes/`](../source-notes/).
 
 ## Deferred A2744-QSO1 measurement: next-version work
 
@@ -66,7 +66,7 @@ of new rows and classification/selection changes. The existing published-value
 sensitivity test is already implemented; it is not that full re-admission.
 
 The manuscript now evaluates the deferred A2744-QSO1 direct estimate as an
-explicitly external, fixed-assumption comparison (`paper/analysis/`). This does
+explicitly external, fixed-assumption comparison (`results/publication/tables/`). This does
 not admit or replace a canonical row. Its near-unity requirement and interval
 crossing the threshold are discussed in the draft, so frozen membership does
 not prevent evaluating the scientific implication of this measurement.

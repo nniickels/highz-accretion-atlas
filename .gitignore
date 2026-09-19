@@ -26,18 +26,9 @@ GEMINI.md
 /docs/reference/source-family-admission.md
 /docs/reference/catalogue-completion-plan.md
 
-# Local manuscript reviews, edit histories, and internal release check records.
-/paper/*edit-log*.md
-/paper/manuscript-assessment*.md
-/paper/manuscript-reassessment*.md
-/paper/shortening-record*.md
-/paper/scientific-editorial-review.md
-/releases/v3-audit.md
-
-# Local LaTeX build intermediates; the final manuscript PDF is retained.
-paper/*.aux
-paper/*.log
-paper/*.out
+# Local Overleaf sources, previews, reviews, and private manuscript tools.
+/paper/
+/releases/
 
 # Common editor and OS noise.
 .DS_Store

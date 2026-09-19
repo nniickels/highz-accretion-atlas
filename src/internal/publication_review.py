@@ -7,7 +7,7 @@ from src import models
 
 
 def build_review_outputs(root, selection, offsets):
-    inputs = json.loads((root/'paper/review_inputs.json').read_text())
+    inputs = json.loads((root/'data/publication/review_inputs.json').read_text())
     objects = pd.read_csv(root/'data/processed/v3/v3_accreting_objects.csv')
     primary = set(selection.loc[selection.publication_primary_flag, 'physical_object_id'])
     baseline = offsets.loc[offsets.mass_offset_dex.eq(0) & offsets.publication_primary_flag]
@@ -69,59 +69,3 @@ def build_review_outputs(root, selection, offsets):
     return {'target_robustness':tail, 'source_inventory':sources,
             'matched_literature_comparison':pd.DataFrame(matched),
             'external_direct_mass_comparison':pd.DataFrame(external)}
-
-
-def tex_escape(value):
-    return str(value).replace('&',r'\&').replace('_',r'\_').replace('%',r'\%')
-
-
-def review_tex(outputs):
-    sources = outputs['source_inventory'].set_index('source_key')
-    tail = outputs['target_robustness']
-    rows, actions = [], []
-    for r in tail.itertuples():
-        line = r'H$\alpha$' if 'halpha' in r.mbh_method else r'H$\beta$'
-        citation = sources.loc[r.source_key, 'citation']
-        mass = rf'${r.log_mbh_msun_std:.2f}^{{+{r.log_mbh_err_plus_std:.2f}}}_{{-{r.log_mbh_err_minus_std:.2f}}}$'
-        note = ''
-        if pd.notna(r.log_mbh_systematic_dex):
-            marker = {0.5: 'a', 0.3: 'b'}[r.log_mbh_systematic_dex]
-            note = rf'$^{{\rm {marker}}}$'
-        elif r.object_id == 'ZS7':
-            note = r'$^{\rm c}$'
-        # Rounded probabilities are descriptive, never labelled exact certainty.
-        prob = lambda p: '$>0.999$' if p>.999 else ('$<0.001$' if p<.001 else f'{p:.3f}')
-        rows.append(f'{tex_escape(r.object_id)}{note} \\newline {{\\footnotesize \\citet{{{citation}}}}} & {line} & {mass} & {r.required_fedd:.3f} & {r.p16:.3f} & {prob(r.probability_gt_1)} & {r.f_minus05:.3f} & {prob(r.p_minus05)} & {r.mass_reduction_to_f1_dex:.3f} \\\\')
-        actions.append(f'{tex_escape(r.object_id)} & {tex_escape(r.caveat)} \\\\[3pt]')
-    inventory = []
-    for r in outputs['source_inventory'].itertuples():
-        survey = ' / ' + tex_escape(r.label.split(' / ', 1)[1]) if ' / ' in r.label else ''
-        if r.label.startswith('Skyfire'):
-            survey = ' / Skyfire (CEERS)'
-        elif r.citation == 'bogdan2024,zou2026':
-            survey = ' / UHZ1'
-        inventory.append(f'\\citet{{{r.citation}}}{survey} & {r.n_measurements}/{r.n_growth_eligible_measurements}/{r.n_publication_primary_preferred} & {r.mass_summary} & {tex_escape(r.channel_summary)}; {tex_escape(r.caveat_summary)} \\\\[3pt]')
-    matched = [f'{tex_escape(r.object_id)} & {r.earlier_inputs_z25:.3f} & {r.current_inputs_z25:.3f} & {r.current_inputs_z30:.3f} \\\\' for r in outputs['matched_literature_comparison'].itertuples()]
-    direct = outputs['external_direct_mass_comparison'].set_index('comparison')
-    old, new = direct.loc['catalogue_virial'], direct.loc['external_dynamical']
-    direct_text = (
-        rf'Using the central mass estimates, the required average Eddington ratio rises from {old.required_fedd:.3f} to {new.required_fedd:.3f}. '
-        rf'With a symmetric normal approximation to the quoted log-mass errors, '
-        rf'the exact 16th--84th percentile intervals are {old.p16:.3f}--{old.p84:.3f} '
-        rf'and {new.p16:.3f}--{new.p84:.3f}, respectively. '
-        rf'For the dynamical mass, the unrounded required ratio is just below 1. '
-        rf'Its uncertainty interval includes average accretion rates both below and above the Eddington limit. '
-        rf'With this mass-error distribution and the growth assumptions held fixed, '
-        rf'the probability that the required average Eddington ratio exceeds 1 is {new.probability_gt_1:.3f}.'+'\n')
-    revision_rows = []
-    labels = {'frozen_v1_measurements': 'Frozen values',
-              'published_values_keep_unmatched': 'Published; retain unmatched',
-              'published_values_omit_unmatched': 'Published; omit unmatched'}
-    for r in outputs['publication_baccus_revision_summary'].itertuples():
-        revision_rows.append(
-            f'{r.sample.capitalize()} & {labels[r.scenario]} & {r.numerical_objects} & '
-            f'{r.point_required_fedd_gt_1}/{r.p16_required_fedd_gt_1}/{r.prob_required_fedd_gt_1_ge_095} \\\\')
-    return {'baccus_revision_rows':'\n'.join(revision_rows)+'\n',
-            'target_rows':'\n'.join(rows)+'\n', 'target_actions':'\n'.join(actions)+'\n',
-            'source_rows':'\n'.join(inventory)+'\n', 'matched_rows':'\n'.join(matched)+'\n',
-            'direct_result':direct_text}

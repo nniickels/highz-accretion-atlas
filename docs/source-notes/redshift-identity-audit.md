@@ -1,8 +1,7 @@
 # Redshift and identity audit — updated 7 September 2026
 
 **Numerical source checks pass; three scientific identity groups remain open.**
-The initial audit reviewed baseline `64d526e`. On 7 September 2026, two supported
-duplicates were merged through the explicit, hash-pinned registry
+Two supported duplicates are reconciled through the hash-pinned registry
 `data/assembly/reconciled_identity_pairs.json`. All 350 source measurements and
 source-native values remain; the catalogue now has 338 object records, 337 host
 records, 237 numerical objects, and 101 catalogue-only records. The count remains
@@ -125,60 +124,21 @@ field records the existing assembly decision; this audit is the stricter check
 of independently established astrophysical uniqueness.
 
 
-## Manuscript follow-up check (7 September 2026)
+## Publication selection
 
-The source HTML was checked again for the open groups. The
-[JADES broad-line table](https://arxiv.org/html/2504.03551v2) still lists GS-8083
-at z=4.753 with log(MBH/Msun)=7.10, while the retained Baccus v1 extraction
-lists GDS_1210_9515 at z=4.6477 and 5.59. The
-[Baccus HTML](https://arxiv.org/html/2512.03281v1) did not expose a searchable
-9515 row; it provides no new target crosswalk for this decision. The
-[Scholtz tables](https://arxiv.org/html/2311.18731v4) retain 16745 under program
-1210 and 99671/208643 under 3215. These checks confirm the documented source
-versions and target labels; they do not supply the aperture/imaging evidence
-or reconcile the competing spectra. All three dispositions remain open.
-The manuscript now distinguishes the assembly registry's resolved flag from
-this independent scientific identity gate explicitly in its eligibility rules.
+All six object records linked to the three open groups are excluded from
+publication inference; their seven source measurements remain in the catalogue.
+The mass-bearing exclusions are GDS_1210_9515, GS-8083 and GS-10013704.
+The other three already lack eligible masses.
 
+[data/publication/identity_exclusions.json](../../data/publication/identity_exclusions.json)
+records these exclusions. The evidence policy additionally retains four tentative
+JADES detections only in the exploratory sample, yielding 220 primary and 234
+exploratory objects. Membership and sensitivity tables are in
+[results/publication](../../results/publication/README.md).
 
-## Conservative manuscript disposition (7 September 2026)
-
-The requested alternative is now implemented: **exclude all six object records
-linked to the three open groups from manuscript inference**, including every
-linked measurement when constructing the object mask. Seven source measurements
-remain in the catalogue. The three mass-bearing exclusions are GDS_1210_9515,
-GS-8083, and GS-10013704. The other three were already no-inference records.
-At the identity-only stage, this produced 224 primary and 234 exploratory
-numerical manuscript objects. These are historical counts, before the later
-evidence-selection revision.
-
-The identity registry is `paper/identity_exclusions.json`. At that stage, for all
-five manuscript scenarios,
-threshold counts and top-five order are unchanged; reference p16 and P>=0.95 counts
-also agree. The primary reference median changed from 0.574 to 0.578.
-
-The current manuscript additionally retains four tentative JADES detections only
-in the exploratory sample under `paper/evidence_selection.json`, giving 220/234
-objects. Current membership and sensitivity tables are in `paper/analysis/`.
-With this evidence policy held fixed, identity exclusions change primary
-membership from 223 to 220 and the median from 0.571 to 0.573, while preserving
-the primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 counts.
-
-`python -m src.internal.publication_selection` verifies complete exclusion and
-stored-table reproduction, including the underlying source/identity audit.
-The existing `verify_redshift_identity --require-resolved` remains unchanged and
-fails while these identities remain open. Do not describe the new exclusion
-check as proving identity resolution. Full-catalogue figures are explicitly
-contextual and do not determine the manuscript's numerical inference samples.
-
-A further exact-name literature search found the published Scholtz source tables
-but no decisive target crosswalk or aperture/segmentation reconciliation. The
-[author-repository published table](https://api.repository.cam.ac.uk/server/api/core/bitstreams/7d5f5d95-94f3-4ceb-925f-18abfe17f938/content)
-retains the separate program/target labels; that alone does not settle identity.
-The remaining astrophysical questions above are deferred to evidence-backed
-readmission. No source value, matching threshold, or audit disposition is changed.
-
-The subsequent manuscript-figure pass replaces the contextual full-catalogue
-plots in the draft with dedicated publication-sample figures. Original catalogue
-figures remain available separately; manuscript figures do not plot the excluded
-measurements. The coverage panel records the exclusions only as a separate count.
+Holding the evidence policy fixed, the identity exclusions preserve the
+primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 threshold counts and
+top-five ordering. The primary median changes from 0.571 to 0.573.
+`python -m src.internal.publication_selection` verifies exclusions and table
+reproduction. This does not resolve identities or replace the strict gate.

@@ -27,7 +27,7 @@ remain in the catalogue.
 The required-Eddington-ratio order differs from the composite navigation score.
 The latter combines two normalized growth diagnostics and a redshift term (see
 `_pressure_score` in `src/internal/compatibility/v7_science_core.py` and the
-manuscript formula). The manuscript target table includes the eight reference
+[catalogue browsing score](../guides/catalogue-navigation-score.md)). The manuscript target table includes the eight reference
 requirements above unity, sorted by `required_fedd_seed1e2` within the
 220-object primary sample: COSMOS3D-13852
 is second and RUBIES-EGS-55604 third. In the manuscript exploratory 234-object order,
@@ -86,7 +86,7 @@ illustrative assumptions, and the age expression is a flat matter-plus-Lambda
 approximation without radiation. Passing numerical integration tests validates
 implementation of those equations, not their adequacy for every physical model.
 
-## Interpretation checks added in the scientific/editorial pass
+## Sample and efficiency checks
 
 The manuscript exploratory sample contains 234 objects, including all 220
 primary objects. The canonical method-defined samples remain 237 and 227
@@ -117,7 +117,7 @@ identity gate remains open. All six affected records are excluded from the
 manuscript samples, so these open cases do not block the stated conservative
 analysis; its separate exclusion and reproduction check must pass.
 
-## Paper interpretation and scope
+## Interpretation and scope
 
 The reference above-Eddington tail lies at z=6.6214--10.603. The catalogue's
 median redshift does not make every member an early-growth tension. Present
@@ -143,8 +143,7 @@ population claims are added.
 
 Generated uncertainty metadata uses `equal_side_half_normal_in_log_mbh` to match
 the sampler: equal side probabilities with separately scaled half-normal draws.
-This replaces the misleading `split_normal_in_log_mbh` label without changing
-any samples, percentiles or probabilities.
+
 
 
 ## Manuscript evidence selection and identity exclusions
@@ -161,8 +160,8 @@ Holding the evidence selection fixed, excluding unresolved identities preserves
 the primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 counts, as well as
 scenario threshold counts and top-five ordering. The primary median changes
 from 0.571 before identity exclusions to 0.573 afterward. The complete membership
-mask and sensitivity outputs are in `paper/analysis/`, governed by
-`paper/evidence_selection.json` and `paper/identity_exclusions.json` and checked
+mask and sensitivity outputs are in `results/publication/tables/`, governed by
+`data/publication/evidence_selection.json` and `data/publication/identity_exclusions.json` and checked
 by `src.internal.publication_selection`. The `catalogue` scope in the identity
 sensitivity table holds the manuscript evidence selection fixed before applying
 identity exclusions; it is not the unfiltered canonical primary sample.

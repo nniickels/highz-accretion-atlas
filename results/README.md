@@ -60,3 +60,6 @@ Regenerate and verify the atlas with `scripts/03_generate_atlas.ipynb` and
 Two source-supported duplicates were merged on 7 September 2026, preserving all
 350 measurement rows. Three identity groups remain under review; counts are
 provisional until the [identity audit](../docs/source-notes/redshift-identity-audit.md) closes.
+
+[Publication results](publication/README.md) contain the separately selected
+analysis tables and PNG/PDF figures used by the manuscript.

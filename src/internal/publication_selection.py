@@ -15,9 +15,9 @@ from src.internal.verify_redshift_identity import verify_redshift_identity
 from src.internal.reproduction import assert_csv_reproduction
 
 ROOT = Path(__file__).resolve().parents[2]
-POLICY = Path('paper/identity_exclusions.json')
-EVIDENCE_POLICY = Path('paper/evidence_selection.json')
-DESTINATION = Path('paper/analysis')
+POLICY = Path('data/publication/identity_exclusions.json')
+EVIDENCE_POLICY = Path('data/publication/evidence_selection.json')
+DESTINATION = Path('results/publication/tables')
 SCENARIOS = [('reference', 2, .1, 30), ('seed_1e3', 3, .1, 30),
              ('seed_1e5', 5, .1, 30), ('seed_z20', 2, .1, 20),
              ('nonspinning', 2, 1-np.sqrt(8/9), 30)]
@@ -114,10 +114,6 @@ def verify_publication_selection(root=ROOT):
     for name, expected in outputs.items():
         path = root/DESTINATION/f'{name}.csv'
         assert_csv_reproduction(path, expected)
-    from src.internal.publication_review import review_tex
-    for name, expected in review_tex(outputs).items():
-        if (root/DESTINATION/f'{name}.tex').read_text() != expected:
-            raise AssertionError(f'{name}: manuscript table differs from analysis')
     selected = outputs['publication_object_selection']
     if selected.loc[selected.excluded_identity_flag, ['publication_primary_flag', 'publication_exploratory_flag']].any().any():
         raise AssertionError('An unresolved identity leaked into publication inference')
@@ -135,9 +131,6 @@ def write_publication_outputs(root=ROOT):
     (root/DESTINATION).mkdir(parents=True, exist_ok=True)
     for name, frame in outputs.items():
         frame.to_csv(root/DESTINATION/f'{name}.csv', index=False)
-    from src.internal.publication_review import review_tex
-    for name, content in review_tex(outputs).items():
-        (root/DESTINATION/f'{name}.tex').write_text(content)
 
 
 def main():

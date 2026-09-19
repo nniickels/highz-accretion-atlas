@@ -3,19 +3,14 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
 
-**Manuscript:** read [Early Black-Hole Growth Constraints from JWST](paper/highz_accretion_atlas_v3.pdf).
-
+**Manuscript:** in preparation. A download link will be added here when it is ready.
 
 ## Repository map
-
-
 
 - [`data/`](data/README.md): raw sources, processed catalogues, and identity products
 - [`results/`](results/README.md): science tables, figures, galleries, and inventory
 - [`docs/`](docs/README.md): methods, guides, and source notes
-
 - [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
-
 
 ## Workflow
 
@@ -46,21 +41,20 @@ for notebook in scripts/0[0-4]_*.ipynb; do
 done
 ```
 
-Historical source-admission builders and the shared ranking/uncertainty core
-remain under `src/internal/compatibility/`; their names do not define public
-dataset versions or write legacy output trees.
-
 ## Getting Started
 
 The project requires Python 3.12. Create a repository-local virtual environment
-and install the pinned project requirements (including the explicit build backend).
-The notebook lock covers the full dependency closure on Linux and macOS:
+and install the pinned environment, including Jupyter and the build backend.
+The lock covers Linux and macOS:
 
 ```bash
 python3.12 -m venv .venv
-.venv/bin/python -m pip install --requirement requirements-notebook-lock.txt --requirement requirements-build-lock.txt
+.venv/bin/python -m pip install --requirement requirements/notebook.txt
 .venv/bin/python -m pip check
 ```
+
+Use a complete source checkout: the Python wheel does not bundle the data or results.
+For a core-only environment without Jupyter, install `requirements/core.txt`.
 
 Run the complete regression and verification suite:
 
@@ -77,21 +71,13 @@ review cutoff and explicit admission boundary are documented in
 `docs/reference/literature-scope.md`; versioning details are in
 `docs/guides/versioning.md`.
 
+## Sources and interpretation
 
-## References
-
-Catalogue data sources are documented authoritatively in `data/sources.md`.
-The following is background and prospective reading, not a list of sources
-currently represented by catalogue rows:
-
-1. Dayal, P. 2024, [A&A](https://www.aanda.org/articles/aa/full_html/2024/10/aa51481-24/aa51481-24.html), 690, A182
-2. Ji, X., Maiolino, R., Übler, H., et al. 2025, [MNRAS, 544, 3900](https://doi.org/10.1093/mnras/staf1867)
-3. Maiolino, R., Übler, H., D’Eugenio, F., et al. 2025, [arXiv:2505.22567](https://arxiv.org/abs/2505.22567) 
-4. Dayal, P. & Maiolino, R. 2025, [arXiv:2506.08116](https://doi.org/10.48550/arXiv.2506.08116)
-5. Prole, L. R., Regan, J. A., Mehta, D., et al. 2025, [arXiv:2506.11233](https://arxiv.org/abs/2506.11233)
-6. Adamo, A., Atek, Hakim., Bagley, M., et al. 2025, [arXiv:2405.21054](https://arxiv.org/abs/2405.21054)
-7. Dayal, P. & Ferrara, A. 2018, [arXiv:1809.09136](https://arxiv.org/abs/1809.09136)
-8. Stark, D., Topping, M., Endsley, R., et al. 2025, [arXiv:2501.17078](https://arxiv.org/abs/2501.17078)
+Catalogue citations and source limitations are documented in [data/sources.md](data/sources.md).
+Publication sample policies are in [data/publication/](data/publication/README.md),
+with reproducible tables and figures in [results/publication/](results/publication/README.md).
+The manuscript is edited separately in Overleaf; reproducing the atlas does not
+require manuscript sources or a LaTeX installation.
 
 Reproduction compares regenerated CSV values and PNG pixels with an independent
 baseline before refreshing hashes; see [reproduction and intentional updates](docs/guides/reproducibility.md).
@@ -103,4 +89,3 @@ retain representative coverage. See the
 [validation scope and extension requirements](data/validation/README.md) and
 [scientific limits](docs/reference/science-policy.md); passing CI does not imply
 a complete source audit or permit population-demographic claims.
-

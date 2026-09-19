@@ -1,16 +1,29 @@
 # Documentation
 
-Start with the current dataset or the task-oriented guides.
+## Using the atlas
 
-## Active documentation
+- [Setup and notebook workflow](../README.md#getting-started)
+- [Reproducing results](guides/reproducibility.md)
+- [Dataset versions](guides/versioning.md)
+- [Catalogue browsing score](guides/catalogue-navigation-score.md)
 
-- [`guides/`](guides/README.md): setup, reproduction, and dataset-versioning guidance
-- [`reference/`](reference/README.md): stable project terminology and modeling conventions
-- [`source-notes/`](source-notes/README.md): source extraction and admission records
+## Methods and interpretation
 
-Authoritative source citations and limitations are consolidated in
-[`../data/sources.md`](../data/sources.md) and the machine-readable
-[`../data/source_provenance_registry.csv`](../data/source_provenance_registry.csv).
+- [Growth models](reference/model-menu.md)
+- [Object taxonomy](reference/object-taxonomy.md)
+- [Mass comparability and eligibility](reference/multiclass-eligibility-and-mass-comparability.md)
+- [Admission schema](reference/admission-schema.md)
+- [Science policy and limitations](reference/science-policy.md)
+- [Literature scope and cutoff](reference/literature-scope.md)
+- [Selection and completeness](reference/selection-completeness.md)
 
-Historical working documents under `docs/archive/` are local-only and ignored
-by Git. They do not define the current v1/v2/v3 dataset contract.
+## Sources and validation
+
+- [Source citations and limitations](../data/sources.md)
+- [Independent validation coverage](../data/validation/README.md)
+- [Catalogue admission and identity decisions](source-notes/catalogue-decisions.md)
+- [Mass and publication-version audit](source-notes/mass-error-and-publication-revision-audit.md)
+- [Redshift and identity audit](source-notes/redshift-identity-audit.md)
+- [Source extraction notes](source-notes/)
+- [Publication sample inputs](../data/publication/README.md)
+- [Publication tables and figures](../results/publication/README.md)

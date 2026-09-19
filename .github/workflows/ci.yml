@@ -14,12 +14,12 @@ jobs:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: |
-            requirements-lock.txt
-            requirements-notebook-lock.txt
-            requirements-build-lock.txt
+            requirements/core.txt
+            requirements/notebook.txt
+            pyproject.toml
       - name: Install pinned dependencies
         run: |
-          python -m pip install --requirement requirements-notebook-lock.txt --requirement requirements-build-lock.txt
+          python -m pip install --requirement requirements/notebook.txt
           python -m pip check
       - name: Build and import the Python package
         env:
@@ -34,7 +34,7 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m unittest discover -s tests
-      - name: Verify manuscript PNG and PDF exports
+      - name: Verify publication PNG and PDF exports
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m src.internal.publication_figures --verify
@@ -78,29 +78,3 @@ jobs:
         run: |
           python -m src.internal.report_image_differences "$GITHUB_WORKSPACE" \
             "$RUNNER_TEMP/highz-atlas-notebook-workspace"
-      - name: Install manuscript compiler
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes texlive-latex-base texlive-latex-extra texlive-fonts-recommended
-      - name: Compile manuscript
-        working-directory: ${{ runner.temp }}/highz-atlas-notebook-workspace/paper
-        env:
-          SOURCE_DATE_EPOCH: "1788393600"
-        run: |
-          for document in highz_accretion_atlas_v3; do
-            rm -f "$document.pdf"
-            for pass in 1 2 3; do
-              pdflatex -interaction=nonstopmode -halt-on-error "$document.tex"
-            done
-            test -s "$document.pdf"
-          done
-          python - <<'PYCODE'
-          from pathlib import Path
-          unresolved = ('undefined references', 'undefined citations',
-                        'Label(s) may have changed', 'Rerun to get',
-                        'Table widths have changed')
-          for document in ('highz_accretion_atlas_v3',):
-              log = Path(f'{document}.log').read_text()
-              if any(message in log for message in unresolved):
-                  raise SystemExit(f'{document}: references or table widths did not converge')
-          PYCODE

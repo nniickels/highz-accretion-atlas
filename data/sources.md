@@ -267,7 +267,7 @@ therefore not added. See
   so the combined v3 object-class view contains 20 narrow-line candidate
   objects contributed by this family.
 - The current dataset counts and evidence aggregation are documented in
-  `docs/reference/admission-schema.md` and `releases/v3-audit.md`.
+  `docs/reference/admission-schema.md` and `docs/source-notes/heterogeneous-v3-expansion-extraction-notes.md`.
 
 ## v3 heterogeneous evidence expansion reviewed 2026-09-03
 

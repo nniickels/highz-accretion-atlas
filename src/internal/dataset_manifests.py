@@ -10,7 +10,7 @@ from src.datasets import DATASET_SPECS
 
 
 ROOT = Path(__file__).resolve().parents[2]
-RELEASES = ROOT / "releases"
+MANIFESTS = ROOT / "data/manifests"
 LITERATURE_CUTOFF = "2026-09-03"
 
 
@@ -54,7 +54,7 @@ def build_manifest(version: str) -> dict[str, object]:
 
 
 def manifest_path(version: str) -> Path:
-    return RELEASES / f"{version}-dataset-manifest.json"
+    return MANIFESTS / f"{version}-dataset-manifest.json"
 
 
 def write_manifests() -> None:

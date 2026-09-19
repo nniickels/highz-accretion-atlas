@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import re
 import unittest
 from pathlib import Path
 
@@ -57,56 +56,6 @@ class RepositoryLayoutTests(unittest.TestCase):
             and path.suffix != ".py"
         ]
         self.assertEqual(unexpected, [])
-
-    def test_compiled_manuscript_is_present(self) -> None:
-        manuscript = ROOT / "paper/highz_accretion_atlas_v3.pdf"
-        self.assertTrue(manuscript.read_bytes().rstrip().endswith(b"%%EOF"))
-        self.assertEqual(manuscript.read_bytes()[:5], b"%PDF-")
-
-    def test_manuscript_links_repository_and_generated_tables(self) -> None:
-        manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
-        self.assertIn("https://github.com/nniickels/highz-accretion-atlas", manuscript)
-        for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
-            self.assertTrue((ROOT / 'paper' / fragment).is_file(), fragment)
-
-    def test_manuscript_embeds_all_figures_without_live_plotting(self) -> None:
-        manuscript = "\n".join((ROOT / "paper" / name).read_text() for name in
-                               ("highz_accretion_atlas_v3.tex",))
-        figures = re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", manuscript)
-        self.assertEqual(len(figures), 7)
-        self.assertNotIn(r"\usepackage{pgfplots}", manuscript)
-        self.assertNotIn(r"\begin{tikzpicture}", manuscript)
-        for name in figures:
-            self.assertEqual(Path(name).suffix, '.pdf')
-            self.assertTrue((ROOT/'paper'/name).read_bytes().startswith(b'%PDF-'))
-
-    def test_manuscript_citations_have_bibliography_entries(self) -> None:
-        manuscript = (ROOT / "paper/highz_accretion_atlas_v3.tex").read_text()
-        expected = {
-            "baccus2026", "bogdan2024", "chavezortiz2026", "chisholm2024", "davis2026",
-            "dayal2024", "shen2013", "goulding2023", "greene2024", "harikane2023",
-            "fei2026", "hutchison2025", "juodzbalis2026", "killi2024", "kocevski2025",
-            "larson2023", "leung2026", "lin2024", "lyu2024", "maiolino2024",
-            "mascia2026", "matthee2024", "mazzolari2024", "naidu2026", "napolitano2025",
-            "ren2025", "scholtz2025", "skyfire2026", "tang2025", "taylor2025",
-            "treiber2025", "ubler2024", "zhang2026", "zou2026",
-            "zhuang2025", "lin2025", "napolitano2024", "juodzbalis_direct2025", "bardeen1972", "poutanen2007",
-        }
-        all_cited = set()
-        for name in ("highz_accretion_atlas_v3.tex",):
-            manuscript = (ROOT / "paper" / name).read_text()
-            # Check each document independently, including its generated tables.
-            for fragment in re.findall(r"\\(?:tableinput|input)\{([^}]+)\}", manuscript):
-                manuscript += (ROOT / 'paper' / fragment).read_text()
-            cited = {
-                key.strip()
-                for group in re.findall(r"\\cite(?:p|t|author|yearpar|year)?\*?(?:\[[^\]]*\])*\{([^}]+)\}", manuscript)
-                for key in group.split(",")
-            }
-            bibliography = set(re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}", manuscript))
-            self.assertEqual(bibliography, cited, name)
-            all_cited.update(cited)
-        self.assertEqual(all_cited, expected)
 
     def test_complete_axis_named_parameter_maps(self) -> None:
         expected = {"v1": 23, "v2": 211, "v3": 338}

@@ -1,6 +1,6 @@
 # Complete notebook dependency closure for Python 3.12 on Linux and macOS.
 # Includes optional dependency extras required by Jupyter.
--r requirements-lock.txt
+-r core.txt
 
 anyio==4.15.0
 appnope==1.0.0; sys_platform == "darwin"
