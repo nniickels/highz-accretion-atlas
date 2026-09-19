@@ -75,7 +75,7 @@ review cutoff and explicit admission boundary are documented in
 
 Catalogue citations and source limitations are documented in [data/sources.md](data/sources.md).
 Publication sample policies are in [data/publication/](data/publication/README.md),
-with reproducible tables and figures in [results/publication/](results/publication/README.md).
+with reproducible tables and figures in [results/manuscript/](results/manuscript/README.md).
 The manuscript is edited separately in Overleaf; reproducing the atlas does not
 require manuscript sources or a LaTeX installation.
 

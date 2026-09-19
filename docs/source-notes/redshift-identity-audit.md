@@ -135,7 +135,7 @@ The other three already lack eligible masses.
 records these exclusions. The evidence policy additionally retains four tentative
 JADES detections only in the exploratory sample, yielding 220 primary and 234
 exploratory objects. Membership and sensitivity tables are in
-[results/publication](../../results/publication/README.md).
+[results/manuscript](../../results/manuscript/README.md).
 
 Holding the evidence policy fixed, the identity exclusions preserve the
 primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 threshold counts and

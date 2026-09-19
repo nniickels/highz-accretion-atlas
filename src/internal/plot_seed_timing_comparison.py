@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def render(destination=None):
-    destination = Path(destination) if destination is not None else ROOT/'results/publication/figures'
+    destination = Path(destination) if destination is not None else ROOT/'results/manuscript/figures'
     destination.mkdir(parents=True, exist_ok=True)
     objects = pd.read_csv(ROOT/'data/processed/v3/v3_accreting_objects.csv').set_index('object_id')
     seed, start = np.meshgrid(np.linspace(1, 6, 240), np.linspace(11, 30, 240))

@@ -12,7 +12,7 @@ Run them from top to bottom. Each notebook is a thin, inspectable driver for
 tested Python modules under `src/internal/`; catalogue and scientific logic is
 kept in `.py` files rather than hidden in notebook state.
 
-Notebook 01 also regenerates `results/publication/tables/` from the explicit publication
+Notebook 01 also regenerates `results/manuscript/tables/` from the explicit publication
 evidence-selection and identity-exclusion policies. Notebook 04 checks exact membership and numerical
 reproduction through `src.internal.publication_selection`; the original strict
 full-catalogue identity gate remains distinct.

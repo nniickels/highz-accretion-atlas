@@ -61,7 +61,7 @@ class ReproductionGateTests(unittest.TestCase):
         # Both workspaces can be internally consistent while disagreeing with
         # the reviewed baseline. The independent gate must still reject drift.
         for relative, original, changed in [
-            ('results/publication/tables/target_robustness.csv', 'object_id,required_fedd\na,1.2\n',
+            ('results/manuscript/tables/target_robustness.csv', 'object_id,required_fedd\na,1.2\n',
              'object_id,required_fedd\na,1.3\n'),
         ]:
             with self.subTest(relative=relative), tempfile.TemporaryDirectory() as d:
@@ -78,14 +78,14 @@ class ReproductionGateTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             a,b=Path(d)/'baseline',Path(d)/'generated'
             for root in (a,b):
-                (root/'results/publication/figures').mkdir(parents=True)
-                Image.new('RGB',(12,12),'white').save(root/'results/publication/figures/uncertainty.png')
-                (root/'results/publication/figures/README.md').write_text(str(root))
+                (root/'results/manuscript/figures').mkdir(parents=True)
+                Image.new('RGB',(12,12),'white').save(root/'results/manuscript/figures/uncertainty.png')
+                (root/'results/manuscript/figures/README.md').write_text(str(root))
             self.assertEqual(verify_against(a,b), 1)  # Source docs are not outputs.
             im=Image.new('RGB',(12,12),'white');im.putpixel((3,3),(0,0,0))
-            im.save(b/'results/publication/figures/uncertainty.png')
+            im.save(b/'results/manuscript/figures/uncertainty.png')
             with self.assertRaises(AssertionError):verify_against(a,b)
-            (b/'results/publication/figures/uncertainty.png').unlink()
+            (b/'results/manuscript/figures/uncertainty.png').unlink()
             with self.assertRaisesRegex(AssertionError,'membership'):verify_against(a,b)
 
     def test_self_comparison_is_rejected_even_through_symlink(self):

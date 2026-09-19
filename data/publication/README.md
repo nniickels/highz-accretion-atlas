@@ -11,6 +11,6 @@ The resulting samples contain 220 primary and 234 exploratory objects. These
 policies neither alter the canonical catalogue nor resolve the open identities.
 
 Run `python -m src.internal.publication_selection --write` to regenerate the
-[analysis tables](../../results/publication/README.md); omit `--write` to verify them.
+[analysis tables](../../results/manuscript/README.md); omit `--write` to verify them.
 The external Dayal and A2744-QSO1 comparisons do not admit new catalogue measurements.
 Source locators and assumptions remain in the JSON inputs and output tables.

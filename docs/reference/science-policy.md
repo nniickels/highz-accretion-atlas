@@ -160,7 +160,7 @@ Holding the evidence selection fixed, excluding unresolved identities preserves
 the primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 counts, as well as
 scenario threshold counts and top-five ordering. The primary median changes
 from 0.571 before identity exclusions to 0.573 afterward. The complete membership
-mask and sensitivity outputs are in `results/publication/tables/`, governed by
+mask and sensitivity outputs are in `results/manuscript/tables/`, governed by
 `data/publication/evidence_selection.json` and `data/publication/identity_exclusions.json` and checked
 by `src.internal.publication_selection`. The `catalogue` scope in the identity
 sensitivity table holds the manuscript evidence selection fixed before applying

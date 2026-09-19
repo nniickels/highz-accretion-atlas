@@ -15,7 +15,7 @@ A directory reorganization must first be committed or use an independent
 baseline with the same paths; an older HEAD with different paths cannot match.
 
 The comparison covers canonical v1/v2/v3 catalogues, identity products, science
-results, and the CSV tables and PNG/PDF figures in `results/publication/`:
+results, and the CSV tables and PNG/PDF figures in `results/manuscript/`:
 
 - CSV values use the shared numerical tolerance.
 - PNG dimensions and alpha must match exactly. Every RGB channel of every pixel

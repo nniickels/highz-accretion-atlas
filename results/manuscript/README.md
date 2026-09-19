@@ -1,4 +1,4 @@
-# Publication results
+# Manuscript results
 
 Reproducible numerical tables and figures supporting the manuscript are retained
 here. The manuscript text and bibliography are edited separately in Overleaf.

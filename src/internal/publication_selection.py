@@ -17,7 +17,7 @@ from src.internal.reproduction import assert_csv_reproduction
 ROOT = Path(__file__).resolve().parents[2]
 POLICY = Path('data/publication/identity_exclusions.json')
 EVIDENCE_POLICY = Path('data/publication/evidence_selection.json')
-DESTINATION = Path('results/publication/tables')
+DESTINATION = Path('results/manuscript/tables')
 SCENARIOS = [('reference', 2, .1, 30), ('seed_1e3', 3, .1, 30),
              ('seed_1e5', 5, .1, 30), ('seed_z20', 2, .1, 20),
              ('nonspinning', 2, 1-np.sqrt(8/9), 30)]

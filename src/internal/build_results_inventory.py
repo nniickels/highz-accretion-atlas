@@ -16,8 +16,8 @@ EXCLUDED = {OUTPUT.name}
 
 
 def release_label(path: Path) -> str:
-    if path.parts[0] == "publication":
-        return "publication"
+    if path.parts[0] == "manuscript":
+        return "manuscript"
     match = re.match(r"v(\d+(?:_\d+)?)", path.name)
     if not match:
         match = re.match(r"v(\d+(?:_\d+)?)", path.parts[0])
@@ -52,7 +52,7 @@ def collect_inventory() -> pd.DataFrame:
             "path": (Path("results") / relative).as_posix(),
             "size_bytes": path.stat().st_size,
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-            "path_policy": "publication_analysis_product" if relative.parts[0] == "publication" else "canonical_dataset_product",
+            "path_policy": "manuscript_analysis_product" if relative.parts[0] == "manuscript" else "canonical_dataset_product",
         })
     return pd.DataFrame(rows).sort_values(
         ["release", "artifact_kind", "collection", "path"],

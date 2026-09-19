@@ -23,7 +23,7 @@ class PublicationReproductionTests(unittest.TestCase):
     def test_verifier_checks_pdf_even_when_png_matches(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            write_exports(root/'results/publication/figures', 'old renderer')
+            write_exports(root/'results/manuscript/figures', 'old renderer')
 
             def render(root, destination):
                 write_exports(Path(destination), 'pinned renderer')
@@ -32,5 +32,5 @@ class PublicationReproductionTests(unittest.TestCase):
                  patch('src.internal.publication_figures.render_figures', render):
                 with self.assertRaisesRegex(AssertionError, '/Info/Creator'):
                     verify_figures(root)
-                write_exports(root/'results/publication/figures', 'pinned renderer')
+                write_exports(root/'results/manuscript/figures', 'pinned renderer')
                 verify_figures(root)

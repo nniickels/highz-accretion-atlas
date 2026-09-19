@@ -86,10 +86,10 @@ class IndependentValidationTests(unittest.TestCase):
             self.assertTrue(objects.redshift.between(lower, upper).all(), version)
 
     def test_publication_target_order_and_values_match_canonical_results(self):
-        targets = pd.read_csv(ROOT / 'results/publication/tables/target_robustness.csv')
+        targets = pd.read_csv(ROOT / 'results/manuscript/tables/target_robustness.csv')
         point = pd.read_csv(ROOT / 'results/v3/tables/v3_object_point_ranking.csv')
         uncertainty = pd.read_csv(ROOT / 'results/v3/tables/v3_object_uncertainty_ranking.csv')
-        selection = pd.read_csv(ROOT / 'results/publication/tables/publication_object_selection.csv')
+        selection = pd.read_csv(ROOT / 'results/manuscript/tables/publication_object_selection.csv')
         publication_ids = selection.loc[selection.publication_primary_flag, 'physical_object_id']
         expected = point.loc[point.physical_object_id.isin(publication_ids) & point.required_fedd_seed1e2.gt(1)].sort_values(
             'required_fedd_seed1e2', ascending=False).merge(
