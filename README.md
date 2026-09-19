@@ -12,7 +12,7 @@ possible formation and growth scenarios.
 - [`docs/`](docs/README.md): methods, guides, and source notes
 - [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
 
-## Workflow
+## Dataset versions
 
 I first build and implement the standardizing and growth-comparison scripts on a smaller dataset. Call this milestone of the project v1. v2 scales up the dataset but remains homogenous in terms of object class. v3 scales up again but with different object classes. 
 
@@ -27,19 +27,6 @@ For each version, canonical catalogues are under
 `data/crossmatch/<version>/`, and science tables, figures, and per-object
 galleries are under `results/<version>/`. Source-specific raw files retain
 descriptive publication names because they are immutable extractions.
-
-Run the numbered notebooks in `scripts/` from top to bottom. They call tested
-Python modules under `src/internal/`; scientific implementation does not live
-only in notebook state. To execute the complete workflow non-interactively:
-
-```bash
-mkdir -p /tmp/highz-atlas-notebooks
-for notebook in scripts/0[0-4]_*.ipynb; do
-  .venv/bin/python -m nbconvert --to notebook --execute \
-    --ExecutePreprocessor.timeout=1800 \
-    --output-dir=/tmp/highz-atlas-notebooks "$notebook" || exit 1
-done
-```
 
 ## Getting Started
 
@@ -56,6 +43,19 @@ python3.12 -m venv .venv
 Use a complete source checkout: the Python wheel does not bundle the data or results.
 For a core-only environment without Jupyter, install `requirements/core.txt`.
 
+Run the numbered notebooks in `scripts/` from top to bottom. They call tested
+Python modules under `src/internal/`; scientific implementation does not live
+only in notebook state. To execute the complete workflow non-interactively:
+
+```bash
+mkdir -p /tmp/highz-atlas-notebooks
+for notebook in scripts/0[0-4]_*.ipynb; do
+  .venv/bin/python -m nbconvert --to notebook --execute \
+    --ExecutePreprocessor.timeout=1800 \
+    --output-dir=/tmp/highz-atlas-notebooks "$notebook" || exit 1
+done
+```
+
 Run the complete regression and verification suite:
 
 ```bash
@@ -66,8 +66,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 .venv/bin/python -m src.internal.verify_versions
 ```
 
-Full dataset generation commands are listed in the workflow above. The source
-review cutoff and explicit admission boundary are documented in
+The source review cutoff and explicit admission boundary are documented in
 `docs/reference/literature-scope.md`; versioning details are in
 `docs/guides/versioning.md`.
 

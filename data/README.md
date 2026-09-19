@@ -69,5 +69,5 @@ three, which would count shared records repeatedly. See the
   expected row counts, source locators, checks performed, and remaining limitations.
 
 To regenerate or verify these products, follow the
-[repository workflow](../README.md#workflow) and
+[setup and notebook workflow](../README.md#getting-started) and
 [reproduction guide](../docs/guides/reproducibility.md).
