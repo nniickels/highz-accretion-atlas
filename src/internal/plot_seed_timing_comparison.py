@@ -19,7 +19,7 @@ def render(destination=None):
                          'mathtext.fontset':'stix', 'font.size':11}):
         fig, axes = plt.subplots(1, 2, figsize=(10, 4.8), sharex=True, sharey=True)
         fig.subplots_adjust(left=.075, right=.865, bottom=.16, top=.81, wspace=.12)
-        for ax, name, group in zip(axes, ['UNCOVER-20466','GN-z11'], ['primary','exploratory']):
+        for ax, name, group in zip(axes, ['UNCOVER-20466','GN-z11'], ['primary','expanded']):
             obj = objects.loc[name]
             values = required_fedd_for_seed(seed, float(obj.log_mbh_msun_std), .1,
                                             start, float(obj.redshift), merger_boost=1)

@@ -53,7 +53,7 @@ def render_figures(root=ROOT, destination=None):
         if not set(missing_errors.physical_object_id).issubset(primary):
             raise ValueError('Update the missing-uncertainty subset label: not all objects are primary')
         values.append(len(missing_errors))
-        labels = ['Primary','Exploratory only','Without growth-eligible mass','Identity excluded',
+        labels = ['Primary','Additional in expanded sample','Without growth-eligible mass','Identity excluded',
                   'Without mass uncertainty\n(included in primary)']
         positions = [0,1,2,3,4.6]
         counts.barh(positions,values,color=['#69747e','#874194','#aaa','#444','#0072B2'])
@@ -83,7 +83,7 @@ def render_figures(root=ROOT, destination=None):
         y=np.arange(len(g))
         mid=g.required_fedd_seed1e2_p50.to_numpy()
         ax.errorbar(mid,y,xerr=np.array([mid-g.required_fedd_seed1e2_p16,g.required_fedd_seed1e2_p84-mid]),fmt='o',color=PRIMARY,capsize=3,label='Reported-error median and 16th--84th interval')
-        ax.scatter(lower.loc[g.physical_object_id,'required_fedd'],y,marker='D',color=SECONDARY,s=28,label='Point requirement after -0.5 dex mass shift')
+        ax.scatter(lower.loc[g.physical_object_id,'required_fedd'],y,marker='D',color=SECONDARY,s=28,label='Central-mass value after -0.5 dex mass shift')
         ax.set_yticks(y,g.object_id,fontsize=10);ax.invert_yaxis()
         ax.axvline(1,color='#555',ls='--',lw=1)
         ax.set(xlabel=r'Required $\overline{f}_{\mathrm{Edd,req}}$')
@@ -115,7 +115,7 @@ def render_figures(root=ROOT, destination=None):
                             hspace=.48,wspace=.12)
         fig.text(.075,.977,'Compatibility across growth assumptions',fontsize=16,weight='bold',va='top')
         samples = [(primary,f'Primary ({len(primary)})'),
-                   (set(point.physical_object_id),f'Exploratory, including primary ({len(point)})')]
+                   (set(point.physical_object_id),f'Expanded ({len(point)})')]
         for sample_col,(ids,label) in enumerate(samples):
             position=axes[0,sample_col].get_position()
             fig.text((position.x0+position.x1)/2,.918,label,
@@ -156,13 +156,13 @@ def render_figures(root=ROOT, destination=None):
         save(fig,'compatibility')
         fig,ax=plt.subplots(figsize=(13,6))
         fig.subplots_adjust(left=.25,right=.98,bottom=.15,top=.77)
-        fig.text(.075,.96,'Growth requirements from alternate mass estimates',fontsize=16,weight='bold',va='top')
+        fig.text(.075,.96,'Growth requirements from alternative mass estimates',fontsize=16,weight='bold',va='top')
         labels=[]
         for i,(_,row) in enumerate(sensitivity.iterrows()):
             preferred=row.default_required_fedd_seed1e2;alternate=row.alternate_required_fedd_seed1e2
             ax.plot([preferred,alternate],[i,i],color='#aaa',lw=2)
             ax.scatter(preferred,i,color=PRIMARY,s=35,label='Preferred' if i==0 else None)
-            ax.scatter(alternate,i,color=SECONDARY,marker='D',s=30,label='Alternate' if i==0 else None)
+            ax.scatter(alternate,i,color=SECONDARY,marker='D',s=30,label='Alternative' if i==0 else None)
             obj=point.loc[point.physical_object_id.eq(row.physical_object_id),'object_id'].iloc[0]
             labels.append(f'{obj} (pair {i+1})')
         ax.set_yticks(range(len(labels)),labels);ax.invert_yaxis()

@@ -85,7 +85,7 @@ def render(root=ROOT, destination=None):
                    alpha=.4, edgecolors='none', zorder=2, label=f'Primary ({len(primary)})' if label else None)
         ax.scatter(extra.redshift, extra.log_mbh_msun_std, s=30, marker='^', facecolors='none',
                    edgecolors='#733f8c', linewidths=.8, zorder=3,
-                   label=f'Exploratory only ({len(extra)})' if label else None)
+                   label=f'Expanded sample only ({len(extra)})' if label else None)
         ax.set(xlim=(11.5,3), ylim=(5.2,9.6))
         ax.grid(alpha=.12)
     def highlight(ax, names=True, size=8):
@@ -114,7 +114,7 @@ def render(root=ROOT, destination=None):
     def finish(fig, name, title, subtitle, note):
         fig.suptitle(title, x=.08, ha='left', y=.98, fontsize=17, weight='bold')
         fig.text(.08,.927,subtitle,fontsize=10,color='#444')
-        fig.text(.08,.018,note+f'\nGrey circles: primary ({len(primary)}); purple triangles: exploratory only ({len(extra)}).',fontsize=9,color='#444')
+        fig.text(.08,.018,note+f'\nGrey circles: primary ({len(primary)}); purple triangles: expanded sample only ({len(extra)}).',fontsize=9,color='#444')
         fig.savefig(OUT/f'{name}.png', dpi=220, facecolor='white')
         plt.close(fig)
     note='Data-guided display only: nearby means within 0.5 dex at observed z; not a fit or model probability. All 234 eligible objects shown.'
@@ -178,7 +178,7 @@ def render(root=ROOT, destination=None):
              r'$z_{\rm seed}=30$; bands span $B_{\rm merge}=1$ (thick edge) to $B_{\rm merge}=2$ (thin edge). '
              'Seed mass is encoded by colour; exact rates are listed above each panel.',fontsize=9)
     fig.text(.075,.025,
-             f'Grey circles: primary ({len(primary)}); purple triangles: exploratory only ({len(extra)}). '
+             f'Grey circles: primary ({len(primary)}); purple triangles: expanded sample only ({len(extra)}). '
              'Outlined targets are named in panel (a).',fontsize=9)
     fig.savefig(OUT/'03_full_efficiency_panels.png',dpi=300,facecolor='white')
     fig.savefig(OUT/'03_full_efficiency_panels.svg',facecolor='white')

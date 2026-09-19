@@ -122,7 +122,7 @@ analysis; its separate exclusion and reproduction check must pass.
 The reference above-Eddington tail lies at z=6.6214--10.603. The catalogue's
 median redshift does not make every member an early-growth tension. Present
 object-level mass/time requirements, with the 220-object primary sample as the
-main comparable analysis and the 234-object sample as exploratory context.
+main comparable analysis and the 234-object expanded sample as additional context.
 
 The efficiency scaling is an algebraic consequence of the adopted growth law,
 not new black-hole physics. The contribution is the provenance-aware application,
@@ -135,9 +135,12 @@ scores are heuristics, not calibrated expected information gain.
 The source cutoff is 3 September 2026; this is not a complete census of every
 JWST object or of later publications. Central redshifts and available coordinates
 are checked; redshift uncertainties, missing coordinates, full source posteriors,
-and all auxiliary observables are not exhaustively validated. The z-seed 3400
-comparison is an extrapolation of a radiation-free age relation and does not
-validate primordial seed formation. Resolving identities is required before
+and all auxiliary observables are not exhaustively validated. The supplementary
+z-seed 30 versus 3400 comparison includes radiation in both cosmic ages but
+does not validate primordial seed formation or sustained gas supply.
+The main catalogue retains the matter-plus-Lambda age approximation; the
+manuscript quantifies its effect on the near-threshold results.
+Resolving identities is required before
 final unique-object counts; broader demographic modelling is required only if
 population claims are added.
 

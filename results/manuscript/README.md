@@ -8,7 +8,7 @@ here. The manuscript text and bibliography are edited separately in Overleaf.
 `tables/` contains:
 
 - `publication_object_selection.csv`: full membership mask, with 220 primary and
-  234 exploratory objects after evidence and identity exclusions.
+  234 expanded-sample objects after evidence and identity exclusions.
 - `identity_exclusion_sensitivity.csv`: comparisons before and after identity exclusions,
   holding the evidence policy fixed.
 - `mass_offset_sensitivity.csv` and `mass_offset_object_sensitivity.csv`: coherent
@@ -27,7 +27,7 @@ here. The manuscript text and bibliography are edited separately in Overleaf.
   The external estimate is not substituted into the canonical catalogue.
 - `publication_baccus_revision_comparison.csv` and
   `publication_baccus_revision_summary.csv`: published-value substitutions after
-  identity exclusions. Primary and exploratory samples are nested, not independent.
+  identity exclusions. Primary and expanded samples are nested, not independent.
 
 Inputs and source locators are in [data/publication](../../data/publication/README.md).
 Regenerate with `python -m src.internal.publication_selection --write` (notebook 01),
@@ -43,7 +43,8 @@ Notebook 02 generates all eight pairs; notebook 03 compares them to the baseline
 
 Numerical publication plots use the conservative selection. The coverage panel
 also accounts for excluded identities and objects without eligible masses.
-The primary sample is nested within the exploratory sample. Objects without
+The primary sample is nested within the expanded sample (called `exploratory`
+in existing table fields). Objects without
 reported mass errors are not treated as having certain masses.
 
 Growth-track display selection uses seed masses 10², 10⁴ and 10⁵ solar masses,
@@ -54,7 +55,14 @@ ties by median absolute residual and then rate. Bands connect the two fixed
 merger multipliers; they are not credible intervals. No objects are removed to
 optimize the display, and omitted curves are not ruled out by this selection.
 
-The early-start comparison extends a radiation-free matter-plus-Lambda age
-relation to redshift 3400; it is an extrapolation, not a seed-formation model.
+The early-start comparison includes radiation for both starting redshifts,
+30 and 3400. It uses H0 = 67.3 km/s/Mpc, Omega_m = 0.315,
+Omega_r = Omega_m / 3401, and Omega_Lambda = 1 - Omega_m - Omega_r.
+The main catalogue retains its matter-plus-Lambda approximation.
+Run `python -m src.internal.check_early_start` to reproduce the supplement's
+98.73 Myr time difference and 0.858 dex mass shift at efficiency 0.1 and
+Eddington ratio 1, plus the main paper's cosmology-sensitivity comparison.
+This calculation assumes an accretion history; it does not establish a
+seed-formation mechanism or sufficient gas supply.
 Full-catalogue figures remain in `results/v1/`, `results/v2/`, and `results/v3/`.
 See the [reproduction guide](../../docs/guides/reproducibility.md) for comparison tolerances.
