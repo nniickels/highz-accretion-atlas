@@ -8,22 +8,18 @@ possible formation and growth scenarios.
 
 ## Repository map
 
-Folder-level guides keep the data, results, documentation, releases, and code
-easy to navigate:
+
 
 - [`data/`](data/README.md): raw sources, processed catalogues, and identity products
 - [`results/`](results/README.md): science tables, figures, galleries, and inventory
-- [`docs/`](docs/README.md): contracts, methods, guides, and source notes
-- [`releases/`](releases/README.md): exact dataset manifests and hashes
+- [`docs/`](docs/README.md): methods, guides, and source notes
+
 - [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
 
 
 ## Workflow
 
-Dataset versions describe nested scientific datasets, not software releases or
-chronological development checkpoints. Every version uses the same latest
-applicable corrections, identity rules, cosmology, growth model, uncertainty
-propagation, comparison policy, and visual grammar.
+I first build and implement the standardizing and growth-comparison scripts on a smaller dataset. Call this milestone of the project v1. v2 scales up the dataset but remains homogenous in terms of object class. v3 scales up again but with different object classes. 
 
 | Version | Dataset | Measurements | Objects | Hosts |
 | --- | --- | ---: | ---: | ---: |
@@ -108,12 +104,3 @@ retain representative coverage. See the
 [scientific limits](docs/reference/science-policy.md); passing CI does not imply
 a complete source audit or permit population-demographic claims.
 
-
-The manuscript additionally excludes all six records linked to the three open
-identity groups and retains four tentative JADES detections only in the
-exploratory sample, giving 220 primary and 234 exploratory numerical objects.
-The catalogue retains every source measurement and its provisional identity.
-Notebook 01 reproduces the manuscript selection and sensitivity tables;
-notebook 04 verifies them with `src.internal.publication_selection`.
-This conservative analysis check does not replace the strict identity-resolution
-gate. See [manuscript scope and reproduction](paper/README.md).
