@@ -12,7 +12,7 @@ possible formation and growth scenarios.
 - [`docs/`](docs/README.md): methods, guides, and source notes
 - [`src/`](src/README.md), [`scripts/`](scripts/README.md), and [`tests/`](tests/README.md): implementation, commands, and validation
 
-## Dataset versions
+## Workflow
 
 I first build and implement the standardizing and growth-comparison scripts on a smaller dataset. Call this milestone of the project v1. v2 scales up the dataset but remains homogenous in terms of object class. v3 scales up again but with different object classes. 
 
