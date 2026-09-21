@@ -158,28 +158,29 @@ def render(root=ROOT, destination=None):
             label=rf'$10^{{{row.log_seed}}}M_\odot$: {row.rate:g}' if color_by_seed else rf'$\epsilon={row.epsilon:.3f},\ \bar f={row.rate:g}$'
             ax.plot([],[],color=color,ls=style,lw=2,label=label)
     # Publication layout: shared axis labels and legends outside the data area.
-    fig,axes=plt.subplots(2,2,figsize=(13,11),sharex=True,sharey=True)
-    fig.subplots_adjust(left=.075,right=.98,bottom=.12,top=.83,hspace=.52,wspace=.13)
+    fig,axes=plt.subplots(2,2,figsize=(13,12),sharex=True,sharey=True)
+    fig.subplots_adjust(left=.09,right=.98,bottom=.10,top=.80,hspace=.66,wspace=.15)
     for i, (ax,eps) in enumerate(zip(axes.flat,EPS)):
         data(ax); curves(ax,selected[selected.epsilon.eq(eps)])
-        ax.set_title(rf'({chr(97+i)})  $\epsilon={eps:.5f}$',fontsize=12,
-                     loc='left', y=1.23)
+        ax.set_title(rf'({chr(97+i)})  $\epsilon={eps:.5f}$',fontsize=17,
+                     loc='left', y=1.38)
         ax.legend(title=r'$M_{\mathrm{seed}}$ : $\overline{f}_{\mathrm{Edd}}$',
-                  fontsize=9, title_fontsize=9, ncol=3, loc='lower left',
+                  fontsize=14, title_fontsize=14, ncol=2, loc='lower left',
                   bbox_to_anchor=(0,1.01), frameon=False, borderaxespad=0,
-                  columnspacing=1.3, handlelength=2.2)
-        highlight(ax, names=i == 0, size=8)
-        ax.set_xticks(np.arange(3,12))
-    fig.supxlabel('Observed redshift',y=.065,fontsize=12)
-    fig.supylabel(r'$\log_{10}(M_{\rm BH}/M_\odot)$',x=.015,fontsize=12)
-    fig.text(.075,.976,'Growth tracks across radiative-efficiency assumptions',
-             fontsize=16,weight='bold',va='top')
-    fig.text(.075,.938,
-             r'$z_{\rm seed}=30$; bands span $B_{\rm merge}=1$ (thick edge) to $B_{\rm merge}=2$ (thin edge). '
-             'Seed mass is encoded by colour; exact rates are listed above each panel.',fontsize=9)
-    fig.text(.075,.025,
+                  columnspacing=1.0, handlelength=1.5)
+        highlight(ax, names=i == 0, size=14)
+        ax.set_xticks(np.arange(3,12,2))
+        ax.tick_params(labelsize=16)
+    fig.supxlabel('Observed redshift',y=.045,fontsize=17)
+    fig.supylabel(r'$\log_{10}(M_{\rm BH}/M_\odot)$',x=.005,fontsize=17)
+    fig.text(.075,.986,'Growth tracks across radiative-efficiency assumptions',
+             fontsize=18,weight='bold',va='top')
+    fig.text(.075,.955,
+             r'$z_{\rm seed}=30$; bands span $B_{\rm merge}=1$ (thick edge) to $B_{\rm merge}=2$ (thin edge).',
+             fontsize=14,va='top')
+    fig.text(.075,.007,
              f'Grey circles: primary ({len(primary)}); purple triangles: expanded sample only ({len(extra)}). '
-             'Outlined targets are named in panel (a).',fontsize=9)
+             '\nOutlined targets are named in panel (a).',fontsize=14)
     fig.savefig(OUT/'03_full_efficiency_panels.png',dpi=300,facecolor='white')
     fig.savefig(OUT/'03_full_efficiency_panels.svg',facecolor='white')
     fig.savefig(OUT/'03_full_efficiency_panels.pdf',facecolor='white',

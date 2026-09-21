@@ -35,8 +35,8 @@ def render_figures(root=ROOT, destination=None):
     destination = Path(destination) if destination is not None else root/'results/manuscript/figures'
     destination.mkdir(parents=True, exist_ok=True)
     selection, primary, point, uncertainty, compatibility, sensitivity = load_plot_inputs(root)
-    with plt.rc_context({**plt.rcParamsDefault, 'font.family':'STIXGeneral', 'mathtext.fontset':'stix', 'font.size':11, 'axes.labelsize':12, 'axes.titlesize':12,
-                         'legend.fontsize':9, 'grid.alpha':.15,
+    with plt.rc_context({**plt.rcParamsDefault, 'font.family':'STIXGeneral', 'mathtext.fontset':'stix', 'font.size':16, 'axes.labelsize':17, 'axes.titlesize':17,
+                         'legend.fontsize':14, 'grid.alpha':.15,
                          'axes.spines.top':False, 'axes.spines.right':False}):
         def save(fig, name):
             fig.savefig(destination/f'{name}.png', dpi=300, facecolor='white')
@@ -44,9 +44,9 @@ def render_figures(root=ROOT, destination=None):
                         metadata={'CreationDate': None, 'ModDate': None})
             plt.close(fig)
         fig, counts = plt.subplots(figsize=(13,6.2))
-        fig.subplots_adjust(left=.24,right=.98,bottom=.15,top=.78)
+        fig.subplots_adjust(left=.34,right=.98,bottom=.15,top=.78)
         fig.text(.075,.96,'Manuscript sample accounting',fontsize=16,weight='bold',va='top')
-        fig.text(.075,.87,f'{len(selection)} provisional catalogue objects',fontsize=11)
+        fig.text(.075,.87,f'{len(selection)} provisional catalogue objects',fontsize=16)
         excluded = selection.excluded_identity_flag
         values = [len(primary),len(point)-len(primary),int((~excluded & ~selection.growth_ranking_eligible_flag).sum()),int(excluded.sum())]
         missing_errors = uncertainty.loc[~uncertainty.reported_mass_errors_sampled]
@@ -73,7 +73,7 @@ def render_figures(root=ROOT, destination=None):
             shutil.copyfile(Path(growth_tmp)/'03_full_efficiency_panels.pdf',
                             destination/'growth_tracks.pdf')
         fig,ax=plt.subplots(figsize=(13,7.8))
-        fig.subplots_adjust(left=.23,right=.98,bottom=.12,top=.79)
+        fig.subplots_adjust(left=.29,right=.98,bottom=.12,top=.79)
         fig.text(.075,.96,'Objects above the reference growth threshold',fontsize=16,weight='bold',va='top')
         tail_ids = point.loc[point.physical_object_id.isin(primary) & point.required_fedd_seed1e2.gt(1), 'physical_object_id']
         g = uncertainty.loc[uncertainty.physical_object_id.isin(tail_ids)].copy()
@@ -84,13 +84,13 @@ def render_figures(root=ROOT, destination=None):
         mid=g.required_fedd_seed1e2_p50.to_numpy()
         ax.errorbar(mid,y,xerr=np.array([mid-g.required_fedd_seed1e2_p16,g.required_fedd_seed1e2_p84-mid]),fmt='o',color=PRIMARY,capsize=3,label='Reported-error median and 16th--84th interval')
         ax.scatter(lower.loc[g.physical_object_id,'required_fedd'],y,marker='D',color=SECONDARY,s=28,label='Central-mass value after -0.5 dex mass shift')
-        ax.set_yticks(y,g.object_id,fontsize=10);ax.invert_yaxis()
+        ax.set_yticks(y,g.object_id,fontsize=15);ax.invert_yaxis()
         ax.axvline(1,color='#555',ls='--',lw=1)
         ax.set(xlabel=r'Required $\overline{f}_{\mathrm{Edd,req}}$')
-        ax.grid(axis='x',alpha=.15);ax.legend(loc='lower left',bbox_to_anchor=(0,1.015),fontsize=9,frameon=False)
+        ax.grid(axis='x',alpha=.15);ax.legend(loc='lower left',bbox_to_anchor=(0,1.015),fontsize=14,frameon=False)
         save(fig,'uncertainty')
         fig,axes=plt.subplots(1,2,figsize=(13,6.5),sharey=True)
-        fig.subplots_adjust(left=.085,right=.98,bottom=.14,top=.73,wspace=.15)
+        fig.subplots_adjust(left=.105,right=.98,bottom=.18,top=.70,wspace=.15)
         fig.text(.075,.97,'Seed mass and radiative-efficiency constraints',fontsize=16,weight='bold',va='top')
         seeds=np.linspace(1,6,250)
         for name,color,ls in [('UNCOVER-20466',PRIMARY,'-'),('COSMOS3D-13852','#874194','-'),('RUBIES-EGS-55604','#49834c','-'),('GS-20057765','#555555',':'),('GN-z11',SECONDARY,'--')]:
@@ -106,7 +106,7 @@ def render_figures(root=ROOT, destination=None):
         for ax in axes:
             ax.set_title(ax.get_title(),loc='left');ax.set_title('')
         handles, labels = axes[0].get_legend_handles_labels()
-        fig.legend(handles,labels,fontsize=9,frameon=False,loc='upper left',bbox_to_anchor=(.075,.90),ncol=3)
+        fig.legend(handles,labels,fontsize=14,frameon=False,loc='upper left',bbox_to_anchor=(.075,.90),ncol=3)
         save(fig,'growth_boundaries')
         seed_names=list(compatibility.seed_model.drop_duplicates())
         fig,axes=plt.subplots(len(seed_names),2,figsize=(13,10),
@@ -119,7 +119,7 @@ def render_figures(root=ROOT, destination=None):
         for sample_col,(ids,label) in enumerate(samples):
             position=axes[0,sample_col].get_position()
             fig.text((position.x0+position.x1)/2,.918,label,
-                     ha='center',va='center',fontsize=12)
+                     ha='center',va='center',fontsize=17)
             for seed_row,seed in enumerate(seed_names):
                 g=compatibility.loc[compatibility.physical_object_id.isin(ids)&compatibility.seed_model.eq(seed)]
                 pivot=g.pivot_table(index='spin_case',columns=['merger_case','f_edd_avg'],values='compatible',aggfunc='mean')
@@ -131,31 +131,31 @@ def render_figures(root=ROOT, destination=None):
                 for y in range(len(pivot)):
                     for x in range(len(pivot.columns)):
                         v=pivot.iloc[y,x]
-                        ax.text(x,y,f'{v:.0%}',ha='center',va='center',fontsize=10,
+                        ax.text(x,y,f'{v:.0%}',ha='center',va='center',fontsize=15,
                                 color='white' if v<.6 else 'black')
                 ax.axvline(2.5,color='white',lw=1.2,alpha=.65)
-                ax.set_xticks(range(len(pivot.columns)),[f'{f:g}' for _,f in pivot.columns],fontsize=10)
-                ax.set_yticks(range(len(pivot)),['-1' if 'minus1' in x else '+1' if 'plus1' in x else '0' for x in pivot.index],fontsize=10)
+                ax.set_xticks(range(len(pivot.columns)),[f'{f:g}' for _,f in pivot.columns],fontsize=15)
+                ax.set_yticks(range(len(pivot)),['-1' if 'minus1' in x else '+1' if 'plus1' in x else '0' for x in pivot.index],fontsize=15)
                 ax.tick_params(axis='x',bottom=seed_row==len(seed_names)-1,
                                labelbottom=seed_row==len(seed_names)-1)
                 ax.tick_params(axis='y',left=sample_col==0,labelleft=sample_col==0)
                 if seed_row==len(seed_names)-1:
                     for xpos,boost in [(1,1),(4,2)]:
                         ax.text(xpos,-.27,rf'$B_{{\rm merge}}={boost}$',
-                                transform=ax.get_xaxis_transform(),ha='center',va='top',fontsize=10)
+                                transform=ax.get_xaxis_transform(),ha='center',va='top',fontsize=15)
         for seed_row,seed in enumerate(seed_names):
             title = r'$10^2$ to $10^6\,M_\odot$ seed range' if 'pbh' in seed else seed.replace('_',' ').capitalize()
             fig.text(.4575,axes[seed_row,0].get_position().y1+.014,title,
-                     ha='center',va='bottom',fontsize=11)
-        fig.supylabel(r'Spin, $a$',x=.02,fontsize=12)
+                     ha='center',va='bottom',fontsize=16)
+        fig.supylabel(r'Spin, $a$',x=.02,fontsize=17)
         fig.supxlabel(r'Lifetime-average Eddington ratio, $\overline{f}_{\rm Edd}$',
-                      y=.025,fontsize=12)
+                      y=.025,fontsize=17)
         colorbar=fig.colorbar(im,cax=fig.add_axes([.865,.20,.025,.56]))
         colorbar.set_ticks([0,.25,.5,.75,1],labels=['0%','25%','50%','75%','100%'])
         colorbar.set_label('Descriptive compatible fraction',labelpad=10)
         save(fig,'compatibility')
         fig,ax=plt.subplots(figsize=(13,6))
-        fig.subplots_adjust(left=.25,right=.98,bottom=.15,top=.77)
+        fig.subplots_adjust(left=.34,right=.98,bottom=.15,top=.77)
         fig.text(.075,.96,'Growth requirements from alternative mass estimates',fontsize=16,weight='bold',va='top')
         labels=[]
         for i,(_,row) in enumerate(sensitivity.iterrows()):
