@@ -61,6 +61,14 @@ A hash refresh records the current files; it does not demonstrate reproduction.
 An intentional change needs a reviewed baseline containing that change before
 the comparison can pass.
 
+The standalone `python -m src.internal.publication_figures` command refreshes
+`results/results_inventory.csv` after exporting figures. Commit that inventory
+with the changed exports. For other intentional result edits, run
+`python -m src.internal.build_results_inventory` after inspecting the changes.
+The regression suite checks that the recorded sizes and hashes match the
+checked-in results; this bookkeeping check does not replace independent
+reproduction. `publication_figures --verify` never refreshes the inventory.
+
 To reproduce the package build used by CI after installing the notebook lock:
 
 ```bash

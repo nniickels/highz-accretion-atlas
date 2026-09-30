@@ -188,6 +188,11 @@ def verify_figures(root=ROOT):
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--verify',action='store_true');args=parser.parse_args()
     if args.verify:verify_figures()
-    else:render_figures()
+    else:
+        render_figures()
+        # Standalone figure edits must update the byte sizes and hashes too.
+        # Independent reproduction remains a separate, read-only check.
+        from src.internal.build_results_inventory import build_inventory
+        build_inventory()
 
 if __name__=='__main__':main()

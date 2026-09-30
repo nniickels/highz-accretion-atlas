@@ -8,6 +8,8 @@ from PIL import Image
 from pypdf import PdfWriter
 
 from src.internal.publication_figures import verify_figures
+from src.internal import build_results_inventory, publication_figures
+from src.internal.verify_versions import verify_results_inventory
 
 
 def write_exports(destination, creator):
@@ -20,6 +22,27 @@ def write_exports(destination, creator):
 
 
 class PublicationReproductionTests(unittest.TestCase):
+    def test_checked_in_results_inventory_matches_exports(self):
+        verify_results_inventory()
+
+    def test_standalone_export_refreshes_inventory(self):
+        with tempfile.TemporaryDirectory() as directory:
+            results = Path(directory)/'results'
+            destination = results/'manuscript/figures'
+            inventory = results/'results_inventory.csv'
+            with patch.object(build_results_inventory, 'RESULTS', results), \
+                 patch.object(build_results_inventory, 'OUTPUT', inventory):
+                write_exports(destination, 'old renderer')
+                build_results_inventory.build_inventory()
+                original = inventory.read_bytes()
+                with patch.object(publication_figures, 'render_figures',
+                                  lambda: write_exports(destination, 'new renderer')), \
+                     patch('sys.argv', ['publication_figures']):
+                    publication_figures.main()
+                self.assertNotEqual(original, inventory.read_bytes())
+                self.assertEqual(inventory.read_text(),
+                                 build_results_inventory.collect_inventory().to_csv(index=False))
+
     def test_verifier_checks_pdf_even_when_png_matches(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
