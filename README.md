@@ -3,7 +3,7 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
 
-**Manuscript:** in preparation. A download link will be added here when it is ready.
+**Manuscript:** in progress. A link will be added here once the paper is finalized.
 
 ## Repository map
 
@@ -75,8 +75,7 @@ The source review cutoff and explicit admission boundary are documented in
 Catalogue citations and source limitations are documented in [data/sources.md](data/sources.md).
 Publication sample policies are in [data/publication/](data/publication/README.md),
 with reproducible tables and figures in [results/manuscript/](results/manuscript/README.md).
-The manuscript is edited separately in Overleaf; reproducing the atlas does not
-require manuscript sources or a LaTeX installation.
+Reproducing the atlas does not require manuscript sources or a LaTeX installation.
 
 Reproduction compares regenerated CSV values and PNG pixels with an independent
 baseline before refreshing hashes; see [reproduction and intentional updates](docs/guides/reproducibility.md).

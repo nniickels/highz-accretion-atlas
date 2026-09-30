@@ -152,7 +152,7 @@ def render_figures(root=ROOT, destination=None):
                       y=.025,fontsize=17)
         colorbar=fig.colorbar(im,cax=fig.add_axes([.865,.20,.025,.56]))
         colorbar.set_ticks([0,.25,.5,.75,1],labels=['0%','25%','50%','75%','100%'])
-        colorbar.set_label('Descriptive compatible fraction',labelpad=10)
+        colorbar.set_label('Objects with required seeds in range (%)',labelpad=10)
         save(fig,'compatibility')
         fig,ax=plt.subplots(figsize=(13,6))
         fig.subplots_adjust(left=.34,right=.98,bottom=.15,top=.77)
