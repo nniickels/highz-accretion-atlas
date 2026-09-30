@@ -30,6 +30,9 @@ GEMINI.md
 /paper/
 /releases/
 
+# Local CUPC poster.
+/CUPC_Poster.pptx
+
 # Common editor and OS noise.
 .DS_Store
 *.swp
