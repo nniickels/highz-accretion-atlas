@@ -14,15 +14,19 @@ possible formation and growth scenarios.
 
 ## Workflow
 
-I first build and implement the standardizing and growth-comparison scripts on a smaller dataset. Call this milestone of the project v1. v2 scales up the dataset but remains homogenous in terms of object class. v3 scales up again but with different object classes. 
+I first build and implement the standardizing and growth-comparison scripts on a smaller dataset. Call this milestone of the project v1. v2 scales up the dataset but remains homogenous in terms of object class. v3 scales up again but with different object classes. v4 adds a focused primordial-seed growth analysis using the existing v3 catalogue.
 
 | Version | Dataset | Measurements | Objects | Hosts |
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES BLAGN catalogue | 23 | 23 | 23 |
 | v2 | v1 plus comparable JWST BLAGN sources with canonical masses | 218 | 211 | 210 |
 | v3 | v2 plus heterogeneous JWST-identified candidates | 350 | 338 | 337 |
+| v4 | Unchanged v3 catalogue; PBH growth extension for four selected targets | 350 | 338 | 337 |
 
-For each version, canonical catalogues are under
+The v4 counts describe its unchanged input catalogue; the focused analysis uses
+four targets and adds no measurements, objects, or hosts.
+
+For v1–v3, canonical catalogues are under
 `data/processed/<version>/`, identity products are under
 `data/crossmatch/<version>/`, and science tables, figures, and per-object
 galleries are under `results/<version>/`. Source-specific raw files retain
