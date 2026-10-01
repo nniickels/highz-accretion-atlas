@@ -30,3 +30,9 @@ verifies the stated efficiency sensitivity against canonical results.
 `test_redshift_identity.py` tests complete redshift/coordinate coverage, source
 version pinning, rejection of altered source values and omitted identity pairs,
 and the publication gate for unresolved identities.
+
+`test_pbh_v4.py` independently checks the v4 inverse-growth equation, delayed
+onset and rate caps, seed overprediction, target membership, missing errors,
+mass-offset propagation, origin-label invariance, and numerical reproduction.
+`python -m src.internal.pbh_growth_v4 --verify` additionally compares regenerated
+PNG and decoded PDF contents against the pinned v4 artifacts.

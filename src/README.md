@@ -8,6 +8,7 @@ release number.
 - `datasets.py`: v1/v2/v3 membership, materialization, and canonical metadata
 - `science.py`: shared rankings, uncertainty, duty-cycle, follow-up, and caveat products
 - `models.py`: cosmology and black-hole growth equations
+- `pbh.py`: v4 onset-dependent minimum seeds and conditional mass-draw support
 - `scoring.py`: compatibility and ranking scores
 - `identity.py`: stable identities and match candidates
 - `object_taxonomy.py`: evidence, class, phenotype, and eligibility vocabulary
@@ -31,3 +32,7 @@ user entry points. Public workflow commands remain the numbered notebooks.
 coverage and all close identity pairs. Its report distinguishes source-value
 agreement from unresolved astrophysical identities; `--require-resolved` is the
 publication identity gate.
+
+`internal/pbh_growth_v4.py` is the optional v4 generator/verifier. It reuses
+v3 measurements and existing conservative membership, writes only `results/v4/`,
+and leaves catalogue and manuscript generation separate.

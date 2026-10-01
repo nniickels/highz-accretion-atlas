@@ -10,6 +10,7 @@
 ## Methods and interpretation
 
 - [Growth models](reference/model-menu.md)
+- [v4 PBH growth compatibility and its limits](reference/pbh-growth-v4.md)
 - [Object taxonomy](reference/object-taxonomy.md)
 - [Mass comparability and eligibility](reference/multiclass-eligibility-and-mass-comparability.md)
 - [Admission schema](reference/admission-schema.md)

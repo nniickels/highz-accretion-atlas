@@ -28,6 +28,14 @@ For each version, canonical catalogues are under
 galleries are under `results/<version>/`. Source-specific raw files retain
 descriptive publication names because they are immutable extractions.
 
+**v4 — PBH growth extension:** a separate, focused analysis of the three most
+constraining publication-primary objects plus GN-z11, using the existing v3
+measurements. It tests the growth component of Dayal (2024) with equality and
+delayed accretion onset, mass uncertainties, and stellar/heavy-seed controls.
+It does not add catalogue sources or establish PBH formation/population viability.
+See [v4 methods and limitations](docs/reference/pbh-growth-v4.md) and
+[v4 outputs](results/v4/README.md).
+
 ## Getting Started
 
 The project requires Python 3.12. Create a repository-local virtual environment
@@ -64,7 +72,13 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 .venv/bin/python -m src.internal.verify_primary_source_values
 .venv/bin/python -m src.internal.verify_source_provenance
 .venv/bin/python -m src.internal.verify_versions
+.venv/bin/python -m src.internal.pbh_growth_v4 --verify
 ```
+
+Generate the optional v4 extension with
+`.venv/bin/python -m src.internal.pbh_growth_v4 --write` or
+`scripts/05_pbh_growth_v4.ipynb`. This writes only `results/v4/`; the original
+00–04 workflows retain their scope and do not regenerate v4.
 
 The source review cutoff and explicit admission boundary are documented in
 `docs/reference/literature-scope.md`; versioning details are in

@@ -1,0 +1,99 @@
+{
+  "analysis_version": "v4",
+  "catalogue_version": "v3",
+  "claim_scope": "conditional_growth_compatibility_only",
+  "population_viability": "not_assessed",
+  "external_constraints": "not_assessed",
+  "config": {
+    "analysis_version": "v4",
+    "scenario_id": "dayal2024_growth_component_with_delayed_onset",
+    "source": {
+      "citation": "Dayal, P. 2024, A&A, 690, A182",
+      "doi": "10.1051/0004-6361/202451481",
+      "url": "https://arxiv.org/html/2407.07162v2",
+      "locator": "Equation 1 and Section 2, equality-onset seed-mass inversion",
+      "scope": "Growth component only; not the gas-limited halo/galaxy model in Section 3"
+    },
+    "catalogue_version": "v3",
+    "target_selection": "top_three_publication_primary_by_reference_required_ratio_plus_GN-z11",
+    "pbh_reference_epoch_redshift": 3400.0,
+    "pbh_formation_epoch": "assumed_before_matter_radiation_equality_not_modelled",
+    "growth_before_accretion_onset": "omitted_seed_mass_held_constant",
+    "onset_redshifts": [
+      20.0,
+      25.0,
+      30.0,
+      60.0,
+      100.0,
+      300.0,
+      1100.0,
+      3400.0
+    ],
+    "onset_grid_points": 41,
+    "log10_seed_mass_axis": {
+      "minimum": -6.0,
+      "maximum": 7.0,
+      "points": 66
+    },
+    "epsilon_values": [
+      0.1,
+      0.057190958417936644
+    ],
+    "average_fedd_caps": [
+      0.3,
+      1.0,
+      2.0
+    ],
+    "mass_offsets_dex": [
+      0.0,
+      -0.5
+    ],
+    "merger_boost": 1.0,
+    "mc_draws_per_object": 10000,
+    "random_seed": 20261001,
+    "control_seed_log10_msun": [
+      2.0,
+      5.0
+    ],
+    "control_onset_redshift": 30.0,
+    "population_viability_status": "not_assessed",
+    "external_constraints_status": "not_assessed"
+  },
+  "cosmology": {
+    "name": "flat_matter_radiation_lambda",
+    "h0_km_s_mpc": 67.3,
+    "omega_m": 0.315,
+    "omega_r": 9.261981770067627e-05,
+    "omega_lambda": 0.6849073801822994
+  },
+  "input_and_code_sha256": {
+    "data/scenarios/v4_pbh_growth.json": "48edb9cce35cb1bd826fffc9c38314a96516bf0319b961a179b1009853a3c851",
+    "data/processed/v3/v3_accreting_objects.csv": "bc4f2ca1813660106a9fa11ecd0ff4b85012aac08e79fab2420a8d889de9c9a2",
+    "results/manuscript/tables/publication_object_selection.csv": "2cfa2b4753a0c988d4370ab9f2f8da1efef99978d1d67b5d08e68ebbe606fb65",
+    "data/publication/identity_exclusions.json": "0f5e03fd99250e25db0b0d59dca691af45b26162b79950f4880219ba6011688f",
+    "data/publication/evidence_selection.json": "496c03305935586aed84be09031030efb3e950d8aeb5f0daffbc2fd935cf4007",
+    "src/pbh.py": "297cee09e81ff9167efb1e35ebe594f1ad081fcf1e25f45a62f900d3819bc9bb",
+    "src/internal/pbh_growth_v4.py": "51225a896b55ac5e7fe8f9967de3c8af6b0405a1088e06cb83c5154d5fc87017",
+    "src/models.py": "f1e5039396bc656323652a65010977816a08efcb358bc7c640b6e55ec9c81e06",
+    "src/internal/early_start_cosmology.py": "847e22ed550ae42f7b793f1ab486ca8a96b782c00efaf7cc201e930045086cff",
+    "src/internal/uncertainty.py": "6907cb4202dda9502689ddc0b7da34990f50495c846ea1055ec8654a20f1c2a5"
+  },
+  "table_rows": {
+    "targets": 4,
+    "minimum_seed_mass": 2256,
+    "seed_onset_compatibility": 12408,
+    "controls": 288
+  },
+  "artifacts": {
+    "tables/v4_targets.csv": "89f6cf4b032993aa5bd5faf4f3bdbf0374d8ac3e765888d95f15dd7226006cf7",
+    "tables/v4_minimum_seed_mass.csv": "8164b2e79b4cfa217a44bc418ad18cccfdcdd1d0db6aa238a27057dfe0096341",
+    "tables/v4_seed_onset_compatibility.csv": "1e4d5387edcce1270f40fd38645e62117a849a596371e29f95c47038f0e7a7c9",
+    "tables/v4_controls.csv": "7c7437ca06e31991fd18ea5439ab278d7472fd57b4935a08abe902ee3b1c1a92",
+    "figures/v4_minimum_seed_mass.png": "894bd38e41689a8db4566cbaf6ffa2c74ffa2231c26a7b947621f653f5dc98fd",
+    "figures/v4_minimum_seed_mass.pdf": "9674e8ff83c79c2b4fb992523e4f97f37ebd9dcca6640932f402ec90d5d84ee2",
+    "figures/v4_seed_onset_maps.png": "e7152324997068592abb4b3094b4fcde6f776d7ba693c98d434c9e3899a48d08",
+    "figures/v4_seed_onset_maps.pdf": "dafc861b4f55248f2d8da5ee8350fb458827dce70f3a7b0a8c4401f7c928e4a6",
+    "figures/v4_controls.png": "0e4d3888c194e6a70fc3ec226481ff95b98e5eeef02b52b961ccfbc775c1fba5",
+    "figures/v4_controls.pdf": "f3f05c9b326bc624a16e44677dd43661e143c337ab7f970f20b5cf6985ce217f"
+  }
+}

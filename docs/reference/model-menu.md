@@ -24,3 +24,9 @@ These are diagnostic scenarios, not claims that any object uniquely selects a
 seed or growth channel. Selection functions, time-resolved feedback, and
 population-level non-standard cosmologies are outside the implemented inference
 contract.
+
+The separate [v4 PBH growth extension](pbh-growth-v4.md) distinguishes
+formation from accretion onset, uses radiation-inclusive ages, and excludes
+seeds that already overpredict a target mass. It tests a specified published
+growth benchmark and delayed-onset sensitivities; a PBH-labelled mass range
+alone remains insufficient to establish primordial formation or viability.

@@ -1,6 +1,6 @@
 # Dataset versioning
 
-Versions identify data additions, not code milestones or public releases.
+v1–v3 identify data additions, not code milestones or public releases.
 The canonical source-family review cutoff is 2026-09-03; see
 [`../reference/literature-scope.md`](../reference/literature-scope.md). "Final v3"
 means final within that declared admission scope, not an evergreen exhaustive
@@ -42,3 +42,17 @@ support numerical growth inference.
 Every version uses the latest applicable corrections and the same analysis and
 figure definitions. Figures differ only because dataset membership, object
 classes, or supported measurements differ.
+
+## v4 — focused PBH growth-analysis extension
+
+At the user's requested v4 milestone, the version label identifies a new
+**analysis**, not another catalogue expansion. v4 reads the frozen v3 catalogue
+and conservative publication-membership policies. It does not introduce
+`data/processed/v4`, alter v1–v3 dataset contracts, or change the source cutoff.
+
+The isolated outputs under `results/v4/` test the growth component of Dayal
+(2024) for three high-pressure primary targets and GN-z11, with independent
+accretion onset, Monte Carlo mass support, and astrophysical controls.
+Its separate config/manifest and optional notebook are documented in
+[the v4 methods](../reference/pbh-growth-v4.md). A future formation or abundance
+study is outside this milestone. Manuscript and poster products remain separate.

@@ -50,6 +50,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m src.internal.verify_versions
+      - name: Verify isolated v4 PBH growth outputs
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m src.internal.pbh_growth_v4 --verify
       - name: Execute the complete public notebook workflow
         env:
           PYTHONDONTWRITEBYTECODE: "1"

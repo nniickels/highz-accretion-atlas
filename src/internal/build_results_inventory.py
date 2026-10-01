@@ -52,7 +52,9 @@ def collect_inventory() -> pd.DataFrame:
             "path": (Path("results") / relative).as_posix(),
             "size_bytes": path.stat().st_size,
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-            "path_policy": "manuscript_analysis_product" if relative.parts[0] == "manuscript" else "canonical_dataset_product",
+            "path_policy": ("manuscript_analysis_product" if relative.parts[0] == "manuscript"
+                            else "v4_analysis_extension" if relative.parts[0] == "v4"
+                            else "canonical_dataset_product"),
         })
     return pd.DataFrame(rows).sort_values(
         ["release", "artifact_kind", "collection", "path"],

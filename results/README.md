@@ -63,3 +63,12 @@ provisional until the [identity audit](../docs/source-notes/redshift-identity-au
 
 [Manuscript results](manuscript/README.md) contain the separately selected
 analysis tables and PNG/PDF figures used by the manuscript.
+
+## v4 analysis extension
+
+[v4 outputs](v4/README.md) are a focused, separately configured PBH growth
+study using existing v3 measurements. Their structure and claim scope differ
+from the complete v1–v3 catalogues: four selected targets, minimum-seed/onset
+tables, mass-error support maps, and astrophysical controls. v4 does not add
+catalogue sources or claim PBH population viability. It has its own manifest
+and reproduction command; see [methods](../docs/reference/pbh-growth-v4.md).

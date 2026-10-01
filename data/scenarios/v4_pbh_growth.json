@@ -1,0 +1,29 @@
+{
+  "analysis_version": "v4",
+  "scenario_id": "dayal2024_growth_component_with_delayed_onset",
+  "source": {
+    "citation": "Dayal, P. 2024, A&A, 690, A182",
+    "doi": "10.1051/0004-6361/202451481",
+    "url": "https://arxiv.org/html/2407.07162v2",
+    "locator": "Equation 1 and Section 2, equality-onset seed-mass inversion",
+    "scope": "Growth component only; not the gas-limited halo/galaxy model in Section 3"
+  },
+  "catalogue_version": "v3",
+  "target_selection": "top_three_publication_primary_by_reference_required_ratio_plus_GN-z11",
+  "pbh_reference_epoch_redshift": 3400.0,
+  "pbh_formation_epoch": "assumed_before_matter_radiation_equality_not_modelled",
+  "growth_before_accretion_onset": "omitted_seed_mass_held_constant",
+  "onset_redshifts": [20.0, 25.0, 30.0, 60.0, 100.0, 300.0, 1100.0, 3400.0],
+  "onset_grid_points": 41,
+  "log10_seed_mass_axis": {"minimum": -6.0, "maximum": 7.0, "points": 66},
+  "epsilon_values": [0.1, 0.057190958417936644],
+  "average_fedd_caps": [0.3, 1.0, 2.0],
+  "mass_offsets_dex": [0.0, -0.5],
+  "merger_boost": 1.0,
+  "mc_draws_per_object": 10000,
+  "random_seed": 20261001,
+  "control_seed_log10_msun": [2.0, 5.0],
+  "control_onset_redshift": 30.0,
+  "population_viability_status": "not_assessed",
+  "external_constraints_status": "not_assessed"
+}
