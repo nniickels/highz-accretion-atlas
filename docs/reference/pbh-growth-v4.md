@@ -157,3 +157,8 @@ v4 has its own verification and manifest; manuscript/poster integration is a
 separate future decision. Verification rebuilds tables independently, compares
 PNG pixels and decoded PDF contents in a temporary directory, and detects
 changed inputs, implementation, or stored artifacts before accepting them.
+
+Minimum log-seed columns allow an absolute regeneration difference of
+`1e-13` dex to accommodate macOS/Linux cancellation roundoff near zero.
+Other numerical columns retain the shared strict tolerances; stored artifact
+hashes, input hashes, and figure comparisons remain unchanged.

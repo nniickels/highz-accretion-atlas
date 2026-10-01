@@ -16,6 +16,14 @@ NUMERIC_ATOL = 1e-14
 # libm implementations can differ through cancellation at sub-milliarcsecond
 # scale.  This remains 5,000 times smaller than the 0.5-arcsec candidate cut.
 COLUMN_ATOL = {"separation_arcsec": 1e-4}
+# Minimum log seeds subtract a growth exponent from a log mass. Cancellation
+# near zero makes relative tolerance ineffective: macOS/Linux regeneration
+# differs by 1.42e-14 dex in the v4 p84 column. Allow 1e-13 dex only for these
+# derived columns; mass inputs, support fractions, and other checks stay strict.
+COLUMN_ATOL.update({
+    f"log10_minimum_seed_{suffix}": 1e-13
+    for suffix in ("central", "p5", "p16", "p50", "p84", "p95")
+})
 
 
 def csv_round_trip(frame: pd.DataFrame) -> pd.DataFrame:
