@@ -7,12 +7,23 @@ those pins, Jupyter and the build backend. Python 3.12 on Linux and macOS is sup
 
 ## Independent comparison
 
+The root README's command creates independent baseline and execution archives
+of the same committed revision, retains the original environment's Python path,
+and sets `HIGHZ_BASELINE_ROOT` before running notebooks 00–04 and v4 verification.
+The archives omit uncommitted changes. Return to the original repository root
+before running commands that use `.venv/bin/python`.
+
 Notebook 03 compares regenerated products against Git HEAD before refreshing
 [data manifests](../../data/manifests/README.md). In a separate workspace, set
 `HIGHZ_BASELINE_ROOT` to an independent checkout containing the reviewed outputs.
 Comparing a workspace with itself, including through a symlink, is rejected.
 A directory reorganization must first be committed or use an independent
 baseline with the same paths; an older HEAD with different paths cannot match.
+Keep the baseline unchanged throughout regeneration. Setting the variable to
+the execution workspace itself is invalid. For v4, regenerated input CSVs may
+be numerically equivalent despite different serialization bytes; their baseline
+must still match the manifest's pinned hashes. Code and non-CSV inputs remain
+byte-exact. See [v4 verification](../reference/pbh-growth-v4.md#run-and-verify).
 
 The comparison covers canonical v1/v2/v3 catalogues, identity products, science
 results, and the CSV tables and PNG/PDF figures in `results/manuscript/`:
@@ -29,7 +40,12 @@ results, and the CSV tables and PNG/PDF figures in `results/manuscript/`:
 CI removes generated artifacts in a disposable workspace, runs all five notebooks,
 and compares the results against the original checkout. It also runs the regression
 suite, source checks, publication figure verification, and a package build/import check.
-Manuscript editing and compilation take place separately in Overleaf.
+Manuscript editing and compilation are separate from the analysis pipeline.
+The authoritative local source is `paper/early_giants_draft2/main.tex`, with a
+local supplement, compiled PDFs, and synchronized Overleaf ZIP. The `paper/`
+directory is Git-ignored and is not distributed in a repository checkout.
+Overleaf receives the packaged local sources; it is not a separate authoritative
+editing target. The local `paper/README.md` documents compilation and packaging.
 
 ## Scientific checks
 

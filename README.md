@@ -57,18 +57,35 @@ For a core-only environment without Jupyter, install `requirements/core.txt`.
 
 Run the numbered notebooks in `scripts/` from top to bottom. They call tested
 Python modules under `src/internal/`; scientific implementation does not live
-only in notebook state. To execute the complete workflow non-interactively:
+only in notebook state. To reproduce the committed revision non-interactively,
+use separate baseline and execution copies. Review and commit intended analysis
+changes before running this command; uncommitted files are not included:
 
 ```bash
-mkdir -p /tmp/highz-atlas-notebooks
+analysis_python="$PWD/.venv/bin/python"
+baseline_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-atlas-baseline.XXXXXX")"
+reproduction_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-atlas-reproduction.XXXXXX")"
+executed_notebooks="$(mktemp -d "${TMPDIR:-/tmp}/highz-atlas-notebooks.XXXXXX")"
+git archive HEAD | tar -x -C "$baseline_root"
+cp -R "$baseline_root/." "$reproduction_root/"
+export HIGHZ_BASELINE_ROOT="$baseline_root"
+cd "$reproduction_root"
+"$analysis_python" - <<'PY'
+from pathlib import Path
+from src.internal.verify_regenerated_artifacts import artifact_paths
+root = Path.cwd()
+for name in artifact_paths(root):
+    (root / name).unlink()
+PY
 for notebook in scripts/0[0-4]_*.ipynb; do
-  .venv/bin/python -m nbconvert --to notebook --execute \
+  "$analysis_python" -m nbconvert --to notebook --execute \
     --ExecutePreprocessor.timeout=1800 \
-    --output-dir=/tmp/highz-atlas-notebooks "$notebook" || exit 1
+    --output-dir="$executed_notebooks" "$notebook" || exit 1
 done
+"$analysis_python" -m src.internal.pbh_growth_v4 --verify
 ```
 
-Run the complete regression and verification suite:
+From the original repository root, run the complete regression and verification suite:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
