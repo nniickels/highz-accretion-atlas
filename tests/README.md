@@ -36,6 +36,9 @@ onset and rate caps, seed overprediction, target membership, missing errors,
 mass-offset propagation, origin-label invariance, and numerical reproduction.
 `python -m src.internal.pbh_growth_v4 --verify` additionally compares regenerated
 PNG and decoded PDF contents against the pinned v4 artifacts.
+The v4 tests also cover CSV reserialization in the disposable notebook workflow,
+require an independently hash-pinned baseline, and reject changed measurements
+or code even when that baseline is supplied.
 
 `test_reproduction.py` reproduces the observed macOS/Linux cancellation error
 in minimum log-seed masses, verifies its narrowly scoped 1e-13-dex absolute

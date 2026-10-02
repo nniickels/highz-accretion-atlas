@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
@@ -10,8 +11,63 @@ import pandas as pd
 from src import models, pbh
 from src.internal.pbh_growth_v4 import (
     ROOT, build_tables, load_config, select_targets, verify_outputs, write_outputs,
+    INPUT_PATHS, CODE_PATHS, input_provenance, verify_input_provenance,
 )
 from src.internal.early_start_cosmology import cosmic_time_gyr
+
+
+class PBHInputProvenanceTests(unittest.TestCase):
+    def setUp(self):
+        self.folder = tempfile.TemporaryDirectory()
+        self.addCleanup(self.folder.cleanup)
+        self.root = Path(self.folder.name)
+        for relative in INPUT_PATHS + CODE_PATHS:
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT / relative).read_bytes())
+        self.pinned = input_provenance(self.root)
+        self.csv = self.root / INPUT_PATHS[1]
+        # Regeneration changes decimal serialization, not the input catalogue.
+        pd.read_csv(self.csv).to_csv(
+            self.csv, index=False, float_format="%.15g", lineterminator="\r\n")
+        self.assertNotEqual(input_provenance(self.root), self.pinned)
+
+    def test_regenerated_csv_is_checked_against_pinned_independent_baseline(self):
+        verify_input_provenance(self.root, self.pinned, baseline_root=ROOT)
+
+    def test_notebook_environment_selects_independent_baseline(self):
+        with patch.dict("os.environ", {"HIGHZ_BASELINE_ROOT": str(ROOT)}):
+            verify_input_provenance(self.root, self.pinned)
+
+    def test_changed_csv_requires_an_independent_pinned_baseline(self):
+        with patch.dict("os.environ", {}, clear=True), self.assertRaises(AssertionError):
+            verify_input_provenance(self.root, self.pinned)
+        with self.assertRaises(AssertionError):
+            verify_input_provenance(self.root, self.pinned, baseline_root=self.root)
+        with tempfile.TemporaryDirectory() as directory:
+            baseline = Path(directory)
+            target = baseline / INPUT_PATHS[1]
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(self.csv.read_bytes())
+            with self.assertRaises(AssertionError):
+                verify_input_provenance(self.root, self.pinned, baseline_root=baseline)
+
+    def test_baseline_does_not_allow_changed_measurements_or_code(self):
+        data = pd.read_csv(self.csv)
+        data.loc[0, "log_mbh_msun_std"] += .01
+        data.to_csv(self.csv, index=False)
+        with self.assertRaises(AssertionError):
+            verify_input_provenance(self.root, self.pinned, baseline_root=ROOT)
+        self.csv.write_bytes((ROOT / INPUT_PATHS[1]).read_bytes())
+        code = self.root / CODE_PATHS[0]
+        code.write_bytes(code.read_bytes() + b"\n# changed code\n")
+        with self.assertRaises(AssertionError):
+            verify_input_provenance(self.root, self.pinned, baseline_root=ROOT)
+        code.write_bytes((ROOT / CODE_PATHS[0]).read_bytes())
+        configuration = self.root / INPUT_PATHS[0]
+        configuration.write_bytes(configuration.read_bytes() + b"\n")
+        with self.assertRaises(AssertionError):
+            verify_input_provenance(self.root, self.pinned, baseline_root=ROOT)
 
 
 class PBHGrowthTests(unittest.TestCase):

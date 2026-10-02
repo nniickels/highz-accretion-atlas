@@ -162,3 +162,10 @@ Minimum log-seed columns allow an absolute regeneration difference of
 `1e-13` dex to accommodate macOS/Linux cancellation roundoff near zero.
 Other numerical columns retain the shared strict tolerances; stored artifact
 hashes, input hashes, and figure comparisons remain unchanged.
+
+During the disposable CI notebook workflow, regenerated v3 input CSV bytes may
+differ across platforms. If `HIGHZ_BASELINE_ROOT` identifies an independent
+checkout whose input bytes match the pinned v4 hashes, verification compares
+the regenerated CSV contents against that baseline using the shared numerical
+tolerances. Changed measurements still fail. Code and non-CSV inputs always
+require exact hashes; verification never refreshes the manifest implicitly.

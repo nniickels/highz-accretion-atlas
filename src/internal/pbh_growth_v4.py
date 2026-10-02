@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import tempfile
 
@@ -340,6 +341,33 @@ def input_provenance(root=ROOT):
             for path in INPUT_PATHS + CODE_PATHS}
 
 
+def verify_input_provenance(root, pinned, *, baseline_root=None):
+    """Accept regenerated CSV roundoff only against an independently pinned input.
+
+    CI regenerates v3 before rerunning the regression suite. A CSV may then
+    have different serialization bytes despite passing numerical reproduction.
+    Code/configuration remain byte-exact; CSV contents use the existing shared
+    comparison only when the independent baseline matches the original hash.
+    """
+    current = input_provenance(root)
+    if current.keys() != pinned.keys():
+        raise AssertionError("v4 input/code provenance membership differs")
+    baseline_root = baseline_root or os.environ.get("HIGHZ_BASELINE_ROOT")
+    csv_inputs = {str(path) for path in INPUT_PATHS if path.suffix == ".csv"}
+    for name, digest in pinned.items():
+        if current[name] == digest:
+            continue
+        if name not in csv_inputs or not baseline_root:
+            raise AssertionError(f"v4 input or implementation changed: {name}")
+        baseline = Path(baseline_root).resolve()
+        if baseline == root.resolve():
+            raise AssertionError("v4 CSV baseline must be independent of regenerated inputs")
+        original = baseline / name
+        if hashlib.sha256(original.read_bytes()).hexdigest() != digest:
+            raise AssertionError(f"v4 CSV baseline does not match pinned input: {name}")
+        assert_csv_reproduction(original, pd.read_csv(root / name))
+
+
 def write_outputs(root=ROOT, destination=None):
     destination = Path(destination) if destination is not None else root / "results/v4"
     resolved = destination.resolve()
@@ -377,8 +405,7 @@ def verify_outputs(root=ROOT, *, verify_figures=True):
                 "population_viability": "not_assessed", "external_constraints": "not_assessed"}
     if any(manifest.get(key) != value for key, value in metadata.items()):
         raise AssertionError("v4 manifest claim scope differs")
-    if manifest["input_and_code_sha256"] != input_provenance(root):
-        raise AssertionError("v4 inputs or implementation changed; outputs are stale")
+    verify_input_provenance(root, manifest["input_and_code_sha256"])
     if manifest["config"] != load_config(root):
         raise AssertionError("v4 manifest configuration differs")
     expected = {f"tables/v4_{name}.csv" for name in TABLE_NAMES}
