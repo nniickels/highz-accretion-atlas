@@ -266,11 +266,9 @@ def make_figures(tables, destination):
             ax.set_xlabel("Accretion-onset redshift (earlier to the right)")
             ax.set_ylabel(r"Minimum $\log_{10}(M_{\rm seed}/M_\odot)$")
         axes[0, 0].legend(fontsize=8)
-        fig.suptitle("v4: seed requirements under fixed growth caps")
-        fig.text(.5, .025, "Bands: 16–84% of reported log-mass-error draws; no extra systematics. "
-                 "Equality onset is an optimistic formal benchmark.\n"
-                 "Colored curves: efficiency 0.1. Dotted lines: onset z=30 and seed masses 100 / 100,000 solar masses.\n"
-                 "All tracks assume constant efficiency, no mergers, and no gas/feedback limits; PBH viability is not established.",
+        fig.suptitle("Minimum seed masses under fixed growth caps")
+        fig.text(.5, .025, "Bands: 16–84% of reported log-mass-error draws. Colored curves: efficiency 0.1.\n"
+                 "Dotted lines: onset z=30 and seed masses 100 / 100,000 solar masses. No mergers.",
                  ha="center", fontsize=9)
         fig.tight_layout(rect=(0, .09, 1, .95))
         _save_figure(fig, destination, "minimum_seed_mass")
@@ -292,11 +290,10 @@ def make_figures(tables, destination):
             ax.set_ylim(pivot.index.min(), pivot.index.max()); ax.set_title(oid)
             ax.set_xlabel("Accretion-onset redshift (earlier to the right)")
             ax.set_ylabel(r"$\log_{10}(M_{\rm seed}/M_\odot)$")
-        fig.suptitle(r"v4: conditional mass-error support for $0\leq\overline{f}_{\rm Edd}\leq1$, $\epsilon=0.1$")
+        fig.suptitle(r"Fraction of mass-error draws reachable for $0\leq\overline{f}_{\rm Edd}\leq1$, $\epsilon=0.1$")
         fig.subplots_adjust(left=.08, right=.85, bottom=.15, top=.9, hspace=.3)
         fig.colorbar(mesh, cax=fig.add_axes([.88, .22, .02, .6]), label="Fraction of mass-error draws reachable")
-        fig.text(.5, .045, "White curve: minimum seed at central mass. Seeds exceeding a draw's mass are excluded.\n"
-                 "Support is conditional on the growth prescription; it is not a probability of PBH origin or viability.",
+        fig.text(.5, .045, "White curve: minimum seed at central mass. Seeds exceeding a draw's mass are excluded.",
                  ha="center", fontsize=9)
         _save_figure(fig, destination, "seed_onset_maps")
         plt.close(fig)
@@ -322,9 +319,8 @@ def make_figures(tables, destination):
         ax.axvline(1, color="grey", ls="--"); ax.set_yticks(np.arange(len(ids)), ids)
         ax.invert_yaxis(); ax.set_xlabel(r"Required $\overline{f}_{\rm Edd}$ ($\epsilon=0.1$, no mergers)")
         ax.legend(fontsize=8, loc="upper left", bbox_to_anchor=(1.01, 1))
-        ax.set_title("v4: specified seed/onset controls")
-        fig.text(.5, .025, "Symbols: Monte Carlo medians and 16–84% intervals; black ticks: central masses.\n"
-                 "Same cosmology and post-onset growth law for all controls; equal mass and onset give identical growth regardless of seed origin.",
+        ax.set_title("Required average rates for selected seed masses and starting times")
+        fig.text(.5, .025, "Symbols: Monte Carlo medians and 16–84% intervals; black ticks: central masses.",
                  ha="center", fontsize=9)
         fig.tight_layout(rect=(0, .1, 1, 1))
         _save_figure(fig, destination, "controls")
