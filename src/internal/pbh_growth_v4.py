@@ -390,6 +390,9 @@ def write_outputs(root=ROOT, destination=None):
                       for name in artifact_names},
     }
     (destination / "v4_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    if resolved == (root / "results/v4").resolve():
+        from src.internal.build_results_inventory import build_inventory
+        build_inventory(results_root=root / "results")
     return manifest
 
 

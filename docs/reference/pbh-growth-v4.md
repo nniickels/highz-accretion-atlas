@@ -161,6 +161,10 @@ analysis driver does not edit manuscript or poster files.
 Verification rebuilds tables independently, compares
 PNG pixels and decoded PDF contents in a temporary directory, and detects
 changed inputs, implementation, or stored artifacts before accepting them.
+Canonical v4 exports also refresh `results/results_inventory.csv` after writing
+the manifest. Commit the inventory with the updated v4 outputs. Exports to an
+external destination leave the repository inventory unchanged; verification
+does not refresh hashes or inventory entries.
 
 Minimum log-seed columns allow an absolute regeneration difference of
 `1e-13` dex to accommodate macOS/Linux cancellation roundoff near zero.

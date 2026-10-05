@@ -79,7 +79,11 @@ the comparison can pass.
 
 The standalone `python -m src.internal.publication_figures` command refreshes
 `results/results_inventory.csv` after exporting figures. Commit that inventory
-with the changed exports. For other intentional result edits, run
+with the changed exports.
+The canonical v4 export command also refreshes this inventory after writing
+its outputs and manifest. CI verifies v4 again after notebooks 00–04 regenerate
+its catalogue inputs against the independent baseline.
+For other intentional result edits, run
 `python -m src.internal.build_results_inventory` after inspecting the changes.
 The regression suite checks that the recorded sizes and hashes match the
 checked-in results; this bookkeeping check does not replace independent

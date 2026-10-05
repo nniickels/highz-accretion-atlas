@@ -39,6 +39,8 @@ PNG and decoded PDF contents against the pinned v4 artifacts.
 The v4 tests also cover CSV reserialization in the disposable notebook workflow,
 require an independently hash-pinned baseline, and reject changed measurements
 or code even when that baseline is supplied.
+The export regression also checks that canonical v4 exports refresh the shared
+inventory, including their manifest, while external exports leave it unchanged.
 
 `test_reproduction.py` reproduces the observed macOS/Linux cancellation error
 in minimum log-seed masses, verifies its narrowly scoped 1e-13-dex absolute

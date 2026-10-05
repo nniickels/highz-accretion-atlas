@@ -98,7 +98,8 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 
 Generate the optional v4 extension with
 `.venv/bin/python -m src.internal.pbh_growth_v4 --write` or
-`scripts/05_pbh_growth_v4.ipynb`. This writes only `results/v4/`; the original
+`scripts/05_pbh_growth_v4.ipynb`. This writes `results/v4/` and refreshes
+`results/results_inventory.csv`; the original
 00–04 workflows retain their scope and do not regenerate v4.
 
 The source review cutoff and explicit admission boundary are documented in

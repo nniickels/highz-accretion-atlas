@@ -37,11 +37,12 @@ def category(path: Path) -> tuple[str, str]:
     return "other", "other"
 
 
-def collect_inventory() -> pd.DataFrame:
+def collect_inventory(*, results_root: Path | None = None) -> pd.DataFrame:
     """Return the canonical inventory without modifying the repository."""
+    results_root = RESULTS if results_root is None else Path(results_root)
     rows = []
-    for path in sorted(item for item in RESULTS.rglob("*") if item.is_file()):
-        relative = path.relative_to(RESULTS)
+    for path in sorted(item for item in results_root.rglob("*") if item.is_file()):
+        relative = path.relative_to(results_root)
         if relative.name == "README.md" or relative.as_posix() in EXCLUDED:
             continue
         artifact_kind, collection = category(relative)
@@ -61,9 +62,10 @@ def collect_inventory() -> pd.DataFrame:
     ).reset_index(drop=True)
 
 
-def build_inventory() -> pd.DataFrame:
-    result = collect_inventory()
-    result.to_csv(OUTPUT, index=False)
+def build_inventory(*, results_root: Path | None = None) -> pd.DataFrame:
+    result = collect_inventory(results_root=results_root)
+    output = OUTPUT if results_root is None else Path(results_root) / OUTPUT.name
+    result.to_csv(output, index=False)
     return result
 
 

@@ -34,5 +34,6 @@ agreement from unresolved astrophysical identities; `--require-resolved` is the
 publication identity gate.
 
 `internal/pbh_growth_v4.py` is the optional v4 generator/verifier. It reuses
-v3 measurements and existing conservative membership, writes only `results/v4/`,
-and leaves catalogue and manuscript generation separate.
+v3 measurements and existing conservative membership, writes `results/v4/`
+and refreshes the shared results inventory. Catalogue and manuscript generation
+remain separate.

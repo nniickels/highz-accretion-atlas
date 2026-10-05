@@ -77,6 +77,7 @@ jobs:
               --ExecutePreprocessor.timeout=1800 \
               --output-dir="$executed_notebooks" "$notebook"
           done
+          python -m src.internal.pbh_growth_v4 --verify
       - name: Measure failed image comparisons
         if: failure()
         run: |

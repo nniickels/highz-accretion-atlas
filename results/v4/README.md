@@ -30,6 +30,9 @@ Each figure is exported to PNG and PDF:
 - `figures/v4_controls.*`: selected seed/onset controls on a common cosmology.
 
 `v4_manifest.json` pins configuration, inputs, code, row counts, cosmology, and
-artifact hashes. It explicitly records external constraints and population
+artifact hashes.
+Canonical exports refresh `results/results_inventory.csv` with these artifacts
+and their manifest; commit it alongside the v4 outputs. Verification is read-only.
+The manifest explicitly records external constraints and population
 viability as **not assessed**. Equality-onset growth is an optimistic formal
 benchmark; none of these plots verifies PBH formation or available fuel.

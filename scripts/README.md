@@ -31,7 +31,8 @@ copies in the root README and keep `HIGHZ_BASELINE_ROOT` set during verification
 ## Optional v4 extension
 
 `05_pbh_growth_v4.ipynb` runs the focused conditional PBH growth analysis after
-the existing inputs are available. It writes only `results/v4/`, then verifies
-its own tables/figures. It is outside the 00–04 catalogue reproduction loop and
+the existing inputs are available. It writes `results/v4/`, refreshes the shared
+results inventory, then verifies its own tables/figures. It is outside the
+00–04 catalogue reproduction loop and
 does not invoke manuscript/poster regeneration. The same commands are available
 through `python -m src.internal.pbh_growth_v4 --write` and `--verify`.

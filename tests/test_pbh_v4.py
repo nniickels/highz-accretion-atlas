@@ -187,6 +187,46 @@ class PBHWorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             write_outputs(destination=ROOT / 'results/manuscript')
 
+    def test_canonical_exports_keep_inventory_current_and_external_exports_leave_it_unchanged(self):
+        from src.internal.build_results_inventory import collect_inventory
+        from src.internal.pbh_growth_v4 import FIGURE_NAMES
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder) / 'checkout'
+            for relative in INPUT_PATHS + CODE_PATHS:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+            inventory = root / 'results/results_inventory.csv'
+            other = root / 'results/v3/tables/existing.csv'
+            other.parent.mkdir(parents=True)
+            other.write_text('value\n42\n')
+
+            def export_figures(tables, destination):
+                destination.mkdir(parents=True, exist_ok=True)
+                for name in FIGURE_NAMES:
+                    for suffix in ('png', 'pdf'):
+                        (destination / f'v4_{name}.{suffix}').write_bytes(b'new export')
+
+            with patch('src.internal.pbh_growth_v4.build_tables', return_value=self.tables), \
+                 patch('src.internal.pbh_growth_v4.make_figures', side_effect=export_figures):
+                write_outputs(root)
+                expected = collect_inventory(results_root=root / 'results').to_csv(index=False)
+                self.assertEqual(inventory.read_text(), expected)
+                self.assertIn('results/v3/tables/existing.csv', expected)
+                self.assertIn('results/v4/v4_manifest.json', expected)
+                # An intentional replacement must replace the old inventory digest.
+                figure = root / 'results/v4/figures/v4_controls.png'
+                figure.write_bytes(b'old export')
+                from src.internal.build_results_inventory import build_inventory
+                build_inventory(results_root=root / 'results')
+                old = inventory.read_bytes()
+                write_outputs(root)
+                self.assertNotEqual(inventory.read_bytes(), old)
+                self.assertEqual(inventory.read_text(), expected)
+                preserved = inventory.read_bytes()
+                write_outputs(root, destination=Path(folder) / 'external')
+                self.assertEqual(inventory.read_bytes(), preserved)
+
     def test_optional_notebook_is_clean_and_compilable(self):
         notebook = json.loads((ROOT / 'scripts/05_pbh_growth_v4.ipynb').read_text())
         ids = [cell['id'] for cell in notebook['cells']]

@@ -73,7 +73,7 @@
     "data/publication/identity_exclusions.json": "0f5e03fd99250e25db0b0d59dca691af45b26162b79950f4880219ba6011688f",
     "data/publication/evidence_selection.json": "496c03305935586aed84be09031030efb3e950d8aeb5f0daffbc2fd935cf4007",
     "src/pbh.py": "297cee09e81ff9167efb1e35ebe594f1ad081fcf1e25f45a62f900d3819bc9bb",
-    "src/internal/pbh_growth_v4.py": "6290b26b5e26e3732810b37fd37f410f3ae8dd1c79c9a80d7011c381318aca7d",
+    "src/internal/pbh_growth_v4.py": "6748e35474114b7a124ff13038c57014a212848c21869ea51eb80e33c1253e18",
     "src/models.py": "f1e5039396bc656323652a65010977816a08efcb358bc7c640b6e55ec9c81e06",
     "src/internal/early_start_cosmology.py": "847e22ed550ae42f7b793f1ab486ca8a96b782c00efaf7cc201e930045086cff",
     "src/internal/uncertainty.py": "6907cb4202dda9502689ddc0b7da34990f50495c846ea1055ec8654a20f1c2a5"
