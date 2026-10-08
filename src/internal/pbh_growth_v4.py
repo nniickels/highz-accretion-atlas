@@ -235,7 +235,6 @@ def build_tables(root=ROOT):
             "controls": pd.DataFrame(control_rows)}
 
 
-
 def _make_minimum_seed_figure(tables, destination):
     """Use the manuscript typography, palette and shared-label panel layout."""
     import matplotlib.pyplot as plt
@@ -247,9 +246,13 @@ def _make_minimum_seed_figure(tables, destination):
              "axes.spines.top": False, "axes.spines.right": False}
     with plt.rc_context(style):
         fig, axes = plt.subplots(2, 2, figsize=(13, 9.75), sharex=True, sharey=True)
-        fig.subplots_adjust(left=.105, right=.98, bottom=.20, top=.76,
-                            hspace=.30, wspace=.15)
+        # Explicit panel bounds land on whole pixels at the 300-dpi export.
+        # Subplot spacing division put a spine endpoint on a raster boundary,
+        # amplifying platform floating-point roundoff into different pixels.
+        positions = ((.10, .52, .42, .24), (.56, .52, .42, .24),
+                     (.10, .20, .42, .24), (.56, .20, .42, .24))
         for i, (ax, oid) in enumerate(zip(axes.flat, tables["targets"].object_id)):
+            ax.set_position(positions[i])
             subset = tables["minimum_seed_mass"].query("object_id == @oid and mass_offset_dex == 0")
             for cap, color in zip((.3, 1., 2.), ("#0072B2", "#009E73", "#D55E00")):
                 part = subset.loc[np.isclose(subset.epsilon, .1) & np.isclose(subset.fedd_cap, cap)]
