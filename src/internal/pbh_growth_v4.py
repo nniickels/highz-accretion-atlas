@@ -235,6 +235,57 @@ def build_tables(root=ROOT):
             "controls": pd.DataFrame(control_rows)}
 
 
+
+def _make_minimum_seed_figure(tables, destination):
+    """Use the manuscript typography, palette and shared-label panel layout."""
+    import matplotlib.pyplot as plt
+
+    style = {**plt.rcParamsDefault, "font.family": "STIXGeneral",
+             "mathtext.fontset": "stix", "font.size": 16,
+             "axes.labelsize": 17, "axes.titlesize": 17,
+             "legend.fontsize": 14, "grid.alpha": .15,
+             "axes.spines.top": False, "axes.spines.right": False}
+    with plt.rc_context(style):
+        fig, axes = plt.subplots(2, 2, figsize=(13, 9.75), sharex=True, sharey=True)
+        fig.subplots_adjust(left=.105, right=.98, bottom=.20, top=.76,
+                            hspace=.30, wspace=.15)
+        for i, (ax, oid) in enumerate(zip(axes.flat, tables["targets"].object_id)):
+            subset = tables["minimum_seed_mass"].query("object_id == @oid and mass_offset_dex == 0")
+            for cap, color in zip((.3, 1., 2.), ("#0072B2", "#009E73", "#D55E00")):
+                part = subset.loc[np.isclose(subset.epsilon, .1) & np.isclose(subset.fedd_cap, cap)]
+                ax.plot(part.z_accretion, part.log10_minimum_seed_central,
+                        color=color, lw=1.6, label=rf'$f_{{\rm cap}}={cap:g}$, $\epsilon=0.1$')
+                ax.fill_between(part.z_accretion, part.log10_minimum_seed_p16,
+                                part.log10_minimum_seed_p84, color=color, alpha=.13)
+            part = subset.loc[np.isclose(subset.epsilon, models.thin_disk_radiative_efficiency(0))
+                              & np.isclose(subset.fedd_cap, 1.)]
+            ax.plot(part.z_accretion, part.log10_minimum_seed_central,
+                    color="#555555", ls="--", lw=1.6,
+                    label=r'$f_{\rm cap}=1$, $\epsilon=0.05719$')
+            ax.axvline(30, color="#aaa", ls=":", lw=.9)
+            ax.axhline(2, color="#aaa", ls=":", lw=.9)
+            ax.axhline(5, color="#aaa", ls=":", lw=.9)
+            ax.set_xscale("log")
+            ax.set_title(f'({chr(97+i)})  {oid}', loc='left')
+            ax.grid(alpha=.15)
+        handles, labels = axes[0, 0].get_legend_handles_labels()
+        fig.legend(handles, labels, fontsize=14, frameon=False, ncol=2,
+                   loc="upper left", bbox_to_anchor=(.075, .94),
+                   columnspacing=2, handlelength=2)
+        fig.text(.075, .98, "Minimum seed masses under fixed growth caps",
+                 fontsize=16, weight="bold", va="top")
+        fig.text(.075, .815, r'$f_{\rm cap}$: maximum average Eddington ratio. No mergers ($B_{\rm merge}=1$).',
+                 fontsize=14, va="top")
+        fig.supxlabel(r'Accretion-onset redshift, $z_{\rm acc}$ (earlier to the right)',
+                      y=.12, fontsize=17)
+        fig.supylabel(r'Minimum $\log_{10}(M_{\rm seed}/M_\odot)$', x=.02, fontsize=17)
+        fig.text(.075, .065, "Bands: 16th–84th percentiles of reported mass-error draws.\n"
+                 r'Dotted lines: $z_{\rm acc}=30$ and $M_{\rm seed}=10^2,\ 10^5\,M_\odot$.',
+                 fontsize=14, va="top")
+        _save_figure(fig, destination, "minimum_seed_mass", dpi=300)
+        plt.close(fig)
+
+
 def make_figures(tables, destination):
     import matplotlib
     matplotlib.use("Agg")
@@ -242,37 +293,11 @@ def make_figures(tables, destination):
 
     destination.mkdir(parents=True, exist_ok=True)
     ids = tables["targets"].object_id.tolist()
-    colors = ("#386cb0", "#00846a", "#ca6b16")
     style = dict(matplotlib.rcParamsDefault)
     style.update({"font.size": 10, "font.family": "DejaVu Sans",
                   "axes.spines.top": False, "axes.spines.right": False})
     with plt.rc_context(style):
-        fig, axes = plt.subplots(2, 2, figsize=(12, 9), sharex=True, sharey=True)
-        for ax, oid in zip(axes.flat, ids):
-            subset = tables["minimum_seed_mass"].query("object_id == @oid and mass_offset_dex == 0")
-            for cap, color in zip((.3, 1., 2.), colors):
-                part = subset.loc[np.isclose(subset.epsilon, .1) & np.isclose(subset.fedd_cap, cap)]
-                ax.plot(part.z_accretion, part.log10_minimum_seed_central, color=color, label=f"mean cap {cap:g}")
-                ax.fill_between(part.z_accretion, part.log10_minimum_seed_p16,
-                                part.log10_minimum_seed_p84, color=color, alpha=.13)
-            part = subset.loc[np.isclose(subset.epsilon, models.thin_disk_radiative_efficiency(0))
-                              & np.isclose(subset.fedd_cap, 1.)]
-            ax.plot(part.z_accretion, part.log10_minimum_seed_central, color="#555555", ls="--",
-                    label=r"cap 1, $\epsilon=0.05719$")
-            ax.axvline(30, color="grey", ls=":", lw=1)
-            ax.axhline(2, color="grey", ls=":", lw=1)
-            ax.axhline(5, color="grey", ls=":", lw=1)
-            ax.set_xscale("log"); ax.set_title(oid); ax.grid(alpha=.15)
-            ax.set_xlabel("Accretion-onset redshift (earlier to the right)")
-            ax.set_ylabel(r"Minimum $\log_{10}(M_{\rm seed}/M_\odot)$")
-        axes[0, 0].legend(fontsize=8)
-        fig.suptitle("Minimum seed masses under fixed growth caps")
-        fig.text(.5, .025, "Bands: 16–84% of reported log-mass-error draws. Colored curves: efficiency 0.1.\n"
-                 "Dotted lines: onset z=30 and seed masses 100 / 100,000 solar masses. No mergers.",
-                 ha="center", fontsize=9)
-        fig.tight_layout(rect=(0, .09, 1, .95))
-        _save_figure(fig, destination, "minimum_seed_mass")
-        plt.close(fig)
+        _make_minimum_seed_figure(tables, destination)
 
         fig, axes = plt.subplots(2, 2, figsize=(12, 9), sharex=True, sharey=True)
         for ax, oid in zip(axes.flat, ids):
@@ -327,8 +352,8 @@ def make_figures(tables, destination):
         plt.close(fig)
 
 
-def _save_figure(fig, destination, name):
-    fig.savefig(destination / f"v4_{name}.png", dpi=160)
+def _save_figure(fig, destination, name, dpi=160):
+    fig.savefig(destination / f"v4_{name}.png", dpi=dpi, facecolor="white")
     fig.savefig(destination / f"v4_{name}.pdf", metadata={"CreationDate": None, "ModDate": None})
 
 
