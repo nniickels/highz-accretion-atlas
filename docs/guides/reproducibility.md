@@ -97,3 +97,10 @@ To reproduce the package build used by CI after installing the notebook lock:
 ```bash
 SOURCE_DATE_EPOCH=1788393600 .venv/bin/python -m pip wheel . --no-deps --no-build-isolation --wheel-dir=/tmp/highz-wheels
 ```
+
+## CUPC posters
+
+The editable poster decks and portable plot/layout scripts are tracked separately
+from canonical scientific artifacts. See [poster reproduction](../../posters/README.md)
+for their reviewed input hashes and rebuild commands. Poster authoring does not
+change the 00–04 notebook workflow, analysis manifests, or comparison tolerances.

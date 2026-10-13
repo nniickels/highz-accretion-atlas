@@ -16,11 +16,8 @@ docs/archive/
 /paper/
 /releases/
 
-# Local CUPC poster.
-/CUPC_Poster.pptx
-
-# Machine-local runtime link used by the poster build.
-/.cupc-landscape-build/node_modules
+# Temporary poster authoring files; finished posters and portable sources are tracked.
+/.cupc-*/
 
 # OS metadata.
 .DS_Store
