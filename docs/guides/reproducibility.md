@@ -42,10 +42,13 @@ and compares the results against the original checkout. It also runs the regress
 suite, source checks, publication figure verification, and a package build/import check.
 Manuscript editing and compilation are separate from the analysis pipeline.
 The authoritative local source is `paper/main.tex`, with a
-local supplement, compiled PDFs, and synchronized Overleaf ZIP. The `paper/`
+compiled PDF and synchronized Overleaf ZIP. The `paper/`
 directory is Git-ignored and is not distributed in a repository checkout.
 Overleaf receives the packaged local sources; it is not a separate authoritative
-editing target. The local `paper/README.md` documents compilation and packaging.
+editing target. Run `python3 -m src.internal.package_overleaf` to build the
+manuscript-only upload ZIP from the local sources. This optional command requires
+`paper/main.tex` and is separate from CI and scientific artifact reproduction.
+The local `paper/README.md` documents compilation and packaging.
 
 ## Scientific checks
 

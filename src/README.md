@@ -37,3 +37,9 @@ publication identity gate.
 v3 measurements and existing conservative membership, writes `results/v4/`
 and refreshes the shared results inventory. Catalogue and manuscript generation
 remain separate.
+
+`internal/package_overleaf.py` packages the Git-ignored local manuscript with
+only its required figures and table fragments. Run
+`python3 -m src.internal.package_overleaf` from the repository root when
+`paper/main.tex` is present. This optional manuscript utility is separate from
+the notebook workflow and scientific artifact verification.

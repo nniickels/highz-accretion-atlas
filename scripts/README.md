@@ -23,8 +23,9 @@ images with `--verify`. Original catalogue figures remain separate.
 
 Manuscript sources, bibliography, and LaTeX compilation are managed separately
 from these notebooks in the authoritative local `paper/`
-directory. The Git-ignored sources and compiled PDFs are packaged into a
-synchronized ZIP for Overleaf; local `paper/README.md` describes that workflow.
+directory. Run `python3 -m src.internal.package_overleaf` to package the Git-ignored manuscript
+source and its required figures and tables for Overleaf. Compiled previews are
+excluded from the ZIP; local `paper/README.md` describes that workflow.
 For cross-platform reproduction, use the independent baseline and execution
 copies in the root README and keep `HIGHZ_BASELINE_ROOT` set during verification.
 
