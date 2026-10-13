@@ -12,20 +12,35 @@ from src import models
 import argparse
 import hashlib
 import json
+import os
+from src.internal.reproduction import assert_csv_reproduction
 
 
-def verify_inputs():
+def verify_inputs(*, baseline_root=None):
     manifest=json.loads((ROOT/'posters/inputs.json').read_text())
+    baseline_root = baseline_root or os.environ.get('HIGHZ_BASELINE_ROOT')
     for name, expected in manifest['sha256'].items():
         actual=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-        if actual != expected:
+        if actual == expected:
+            continue
+        if Path(name).suffix != '.csv' or not baseline_root:
             raise ValueError(f'Poster input changed: {name}. Review the poster claims before updating inputs.json.')
+        baseline = Path(baseline_root).resolve()
+        if baseline == ROOT.resolve():
+            raise ValueError('Poster CSV baseline must be independent of regenerated inputs')
+        original = baseline/name
+        if not original.is_file() or hashlib.sha256(original.read_bytes()).hexdigest() != expected:
+            raise ValueError(f'Poster CSV baseline does not match pinned input: {name}')
+        # Same comparison contract as the scientific workflow. No hash refresh,
+        # new tolerance, skipped input, or comparison of a workspace with itself.
+        assert_csv_reproduction(original, pd.read_csv(ROOT/name))
 
 
 def main():
     parser=argparse.ArgumentParser(description='Render CUPC figures from reviewed scientific tables; never writes canonical results.')
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--landscape-uncertainty-only', action='store_true')
+    parser.add_argument('--uncertainty-only', action='store_true')
     args=parser.parse_args()
     verify_inputs()
     O=args.output_dir.resolve()
@@ -40,11 +55,11 @@ def main():
     pt=pd.read_csv(ROOT/'results/v3/tables/v3_object_point_ranking.csv');pt=pt[pt.physical_object_id.isin(expanded)]
     un=pd.read_csv(ROOT/'results/v3/tables/v3_object_uncertainty_ranking.csv');tail=set(pt.loc[pt.physical_object_id.isin(primary)&pt.required_fedd_seed1e2.gt(1),'physical_object_id']);g=un[un.physical_object_id.isin(tail)].sort_values('required_fedd_seed1e2_p50',ascending=False)
     off=pd.read_csv(ROOT/'results/manuscript/tables/mass_offset_object_sensitivity.csv');off=off[off.mass_offset_dex.eq(-.5)].set_index('physical_object_id')
-    f,a=plt.subplots(figsize=(14.8,7.6) if args.landscape_uncertainty_only else (16,9.2));f.subplots_adjust(left=.35,right=.98,bottom=.15 if args.landscape_uncertainty_only else .12,top=.83)
+    f,a=plt.subplots(figsize=(14.8,7.6) if args.landscape_uncertainty_only else (16,8.6));f.subplots_adjust(left=.35,right=.98,bottom=.15 if args.landscape_uncertainty_only else .12,top=.83)
     y=np.arange(len(g));mid=g.required_fedd_seed1e2_p50.to_numpy();a.errorbar(mid,y,xerr=[mid-g.required_fedd_seed1e2_p16,g.required_fedd_seed1e2_p84-mid],fmt='o',color='#0072B2',capsize=5,ms=8,lw=2,label='Reported-error median (16th–84th percentiles)');a.scatter(off.loc[g.physical_object_id,'required_fedd'],y,marker='D',s=75,color='#D55E00',label='Central value after −0.5 dex mass shift');a.set_yticks(y,g.object_id);a.invert_yaxis();a.axvline(1,color='#737373',ls='--',lw=1.5);a.set_xlabel(r'Required average Eddington ratio, $\overline{f}_{\rm Edd,req}$');a.grid(axis='x',alpha=.18)
     f.legend(*a.get_legend_handles_labels(),loc='upper left',bbox_to_anchor=(.11,.98),frameon=False,fontsize=font_size)
     save(f,'uncertainty')
-    if args.landscape_uncertainty_only:
+    if args.landscape_uncertainty_only or args.uncertainty_only:
      return
     # Hold all assumptions except efficiency fixed; use the exact repository growth law.
     f,axes=plt.subplots(2,1,figsize=(16.5,11.5),sharex=True,sharey=True);f.subplots_adjust(left=.11,right=.98,bottom=.16,top=.83,hspace=.38)

@@ -2,6 +2,9 @@
 from collections import Counter
 from io import BytesIO
 from pathlib import Path
+import hashlib
+import json
+import posixpath
 import subprocess
 import sys
 import tempfile
@@ -14,39 +17,72 @@ import numpy as np
 from PIL import Image
 
 from posters import render_figures
+from posters.build_landscape import poster_slide_part, relationship_part
 
 ROOT = Path(__file__).resolve().parents[1]
 A = '{http://schemas.openxmlformats.org/drawingml/2006/main}'
 M = '{http://schemas.openxmlformats.org/officeDocument/2006/math}'
+P = '{http://schemas.openxmlformats.org/presentationml/2006/main}'
+R = '{http://schemas.openxmlformats.org/officeDocument/2006/relationships}'
+
+
+def plot_media(archive, slide, identity):
+    root = ET.fromstring(archive.read(slide))
+    picture = next(node for node in root.iter(P+'pic')
+                   if node.find('.//'+P+'cNvPr').get('id') == str(identity))
+    embed = picture.find('.//'+A+'blip').get(R+'embed')
+    relationships = ET.fromstring(archive.read(relationship_part(slide)))
+    target = next(node.get('Target') for node in relationships if node.get('Id') == embed)
+    return posixpath.normpath(posixpath.dirname(slide) + '/' + target)
 
 
 class PosterRebuildTests(unittest.TestCase):
     def test_landscape_reflow_preserves_reviewed_content(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)/'rebuilt.pptx'
-            subprocess.run([sys.executable, str(ROOT/'posters/build_landscape.py'),
-                            '--output', str(output)], cwd=ROOT, check=True,
-                           capture_output=True, text=True)
+            result = subprocess.run([sys.executable, str(ROOT/'posters/build_landscape.py'),
+                                     '--output', str(output)], cwd=ROOT,
+                                    capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stdout+'\n'+result.stderr)
             with ZipFile(ROOT/'CUPC_Poster_portrait_36x48.pptx') as portrait, \
                  ZipFile(ROOT/'CUPC_Poster.pptx') as reviewed, ZipFile(output) as rebuilt:
-                self.assertEqual(reviewed.read('ppt/slides/slide1.xml'),
-                                 rebuilt.read('ppt/slides/slide1.xml'))
+                reviewed_data = {name: reviewed.read(name) for name in reviewed.namelist()}
+                target = poster_slide_part(reviewed_data)
+                for name in reviewed.namelist():
+                    if name.startswith('ppt/slides/slide') and name.endswith('.xml') and name != target:
+                        self.assertEqual(reviewed.read(name), rebuilt.read(name))
+                self.assertEqual(len(ET.fromstring(reviewed.read('ppt/presentation.xml')).find(P+'sldIdLst')),
+                                 len(ET.fromstring(rebuilt.read('ppt/presentation.xml')).find(P+'sldIdLst')))
                 source = ET.fromstring(portrait.read('ppt/slides/slide1.xml'))
-                actual = ET.fromstring(rebuilt.read('ppt/slides/slide2.xml'))
+                actual = ET.fromstring(rebuilt.read(target))
                 words = lambda root: Counter(' '.join((n.text or '').split())
                                              for n in root.iter(A+'t'))
                 self.assertEqual(words(source), words(actual))
                 math = lambda root: [ET.tostring(n) for n in root.iter(M+'oMath')]
                 self.assertTrue(math(source), 'Native equation must remain present')
                 self.assertEqual(math(source), math(actual))
-                for name in ('image2.png', 'image3.png', 'image7.png'):
-                    media = 'ppt/media/landscape_current_'+name
-                    expected = np.asarray(Image.open(BytesIO(reviewed.read(media))).convert('RGBA'))
-                    generated = np.asarray(Image.open(BytesIO(rebuilt.read(media))).convert('RGBA'))
+                for identity in (3, 14, 4):
+                    expected = np.asarray(Image.open(BytesIO(reviewed.read(plot_media(reviewed, target, identity)))).convert('RGBA'))
+                    generated = np.asarray(Image.open(BytesIO(rebuilt.read(plot_media(rebuilt, target, identity)))).convert('RGBA'))
                     self.assertEqual(expected.shape, generated.shape)
                     np.testing.assert_array_equal(expected[..., 3], generated[..., 3])
                     self.assertLessEqual(int(np.max(np.abs(expected[..., :3].astype(int)
                                                            - generated[..., :3].astype(int)))), 3)
+
+    def test_portrait_uncertainty_reproduces_reviewed_pixels(self):
+        with tempfile.TemporaryDirectory() as directory:
+            result = subprocess.run([sys.executable, str(ROOT/'posters/render_figures.py'),
+                                     '--output-dir', directory, '--uncertainty-only'],
+                                    cwd=ROOT, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stdout+'\n'+result.stderr)
+            with ZipFile(ROOT/'CUPC_Poster_portrait_36x48.pptx') as portrait:
+                expected = np.asarray(Image.open(BytesIO(portrait.read(
+                    plot_media(portrait, 'ppt/slides/slide1.xml', 4)))).convert('RGBA'))
+            generated = np.asarray(Image.open(Path(directory)/'uncertainty.png').convert('RGBA'))
+            self.assertEqual(expected.shape, generated.shape)
+            np.testing.assert_array_equal(expected[..., 3], generated[..., 3])
+            self.assertLessEqual(int(np.max(np.abs(expected[..., :3].astype(int)
+                                                   - generated[..., :3].astype(int)))), 3)
 
     def test_changed_scientific_input_stops_poster_rendering(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -54,9 +90,37 @@ class PosterRebuildTests(unittest.TestCase):
             (root/'posters').mkdir()
             (root/'posters/inputs.json').write_text('{"sha256":{"input.csv":"reviewed-hash"}}')
             (root/'input.csv').write_text('changed scientific value\n')
-            with patch.object(render_figures, 'ROOT', root):
+            with patch.object(render_figures, 'ROOT', root), patch.dict('os.environ', {'HIGHZ_BASELINE_ROOT': ''}):
                 with self.assertRaisesRegex(ValueError, 'Poster input changed: input.csv'):
                     render_figures.verify_inputs()
+
+    def test_csv_reserialization_requires_a_pinned_independent_baseline(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root, baseline = Path(directory)/'run', Path(directory)/'baseline'
+            (root/'posters').mkdir(parents=True)
+            baseline.mkdir()
+            original = b'object_id,mass\nA,7.123456789012345\n'
+            (baseline/'input.csv').write_bytes(original)
+            (root/'input.csv').write_bytes(original.replace(b'\n', b'\r\n'))
+            pinned = hashlib.sha256(original).hexdigest()
+            manifest = {'sha256': {'input.csv': pinned}}
+            (root/'posters/inputs.json').write_text(json.dumps(manifest))
+            with patch.object(render_figures, 'ROOT', root), patch.dict('os.environ', {'HIGHZ_BASELINE_ROOT': ''}):
+                with self.assertRaisesRegex(ValueError, 'Poster input changed'):
+                    render_figures.verify_inputs()
+                render_figures.verify_inputs(baseline_root=baseline)
+                with self.assertRaisesRegex(ValueError, 'independent'):
+                    render_figures.verify_inputs(baseline_root=root)
+                (root/'input.csv').write_text('object_id,mass\nA,8.0\n')
+                with self.assertRaisesRegex(AssertionError, 'mass'):
+                    render_figures.verify_inputs(baseline_root=baseline)
+                (baseline/'input.csv').write_text('object_id,mass\nA,8.0\n')
+                with self.assertRaisesRegex(ValueError, 'pinned input'):
+                    render_figures.verify_inputs(baseline_root=baseline)
+                (root/'posters/inputs.json').write_text(json.dumps({'sha256': {'input.py': pinned}}))
+                (root/'input.py').write_bytes(original.replace(b'\n', b'\r\n'))
+                with self.assertRaisesRegex(ValueError, 'Poster input changed: input.py'):
+                    render_figures.verify_inputs(baseline_root=baseline)
 
 
 if __name__ == '__main__':

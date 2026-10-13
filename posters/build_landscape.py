@@ -1,4 +1,4 @@
-"""Reflow the reviewed portrait poster into slide 2 of the landscape deck.
+"""Reflow the reviewed portrait poster into the final landscape slide.
 
 The committed PPTX files are editable text/layout inputs. Scientific values are
 read only, and the only newly rendered asset is the shorter uncertainty panel.
@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 from pathlib import Path
+import posixpath
 import subprocess
 import sys
 import tempfile
@@ -60,6 +61,22 @@ def text_contract(document):
                    for node in document.getElementsByTagNameNS(A, 't'))
 
 
+def poster_slide_part(data):
+    """Select the only slide, or the last version in an older multi-slide deck."""
+    presentation = minidom.parseString(data['ppt/presentation.xml'])
+    identity = presentation.getElementsByTagNameNS(P, 'sldId')[-1].getAttributeNS(R, 'id')
+    relationships = minidom.parseString(data['ppt/_rels/presentation.xml.rels'])
+    relationship = next(node for node in relationships.documentElement.childNodes
+                        if node.nodeType == node.ELEMENT_NODE
+                        and node.getAttribute('Id') == identity)
+    return posixpath.normpath('ppt/' + relationship.getAttribute('Target'))
+
+
+def relationship_part(part):
+    directory, name = posixpath.split(part)
+    return directory + '/_rels/' + name + '.rels'
+
+
 def build(output: Path):
     if output.exists():
         raise FileExistsError(f'Choose a new output path: {output}')
@@ -67,12 +84,19 @@ def build(output: Path):
         data = {name: archive.read(name) for name in archive.namelist()}
     with ZipFile(ROOT/'CUPC_Poster_portrait_36x48.pptx') as archive:
         source = {name: archive.read(name) for name in archive.namelist()}
-    document = minidom.parseString(source['ppt/slides/slide1.xml'])
+    source_part = poster_slide_part(source)
+    target_part = poster_slide_part(data)
+    target_relationships = minidom.parseString(data[relationship_part(target_part)])
+    note_target = next(node.getAttribute('Target')
+                       for node in target_relationships.documentElement.childNodes
+                       if node.nodeType == node.ELEMENT_NODE
+                       and node.getAttribute('Type').endswith('/notesSlide'))
+    document = minidom.parseString(source[source_part])
     expected_text = text_contract(document)
     expected_math = [node.toxml() for node in document.getElementsByTagNameNS(M, 'oMath')]
     if not expected_math:
         raise ValueError('Portrait poster lacks its native growth equation')
-    landscape_document = minidom.parseString(data['ppt/slides/slide2.xml'])
+    landscape_document = minidom.parseString(data[target_part])
     # Preserve existing artwork placements exactly, rather than accumulating offsets.
     landscape_pictures = {
         int(first(node, P, 'cNvPr').getAttribute('id')): node
@@ -103,7 +127,11 @@ def build(output: Path):
             for text in node.getElementsByTagNameNS(A, 't'):
                 if text.firstChild:
                     text.firstChild.data = text.firstChild.data.replace('Growth\nConstraints', 'Growth Constraints')
-    relationships = minidom.parseString(source['ppt/slides/_rels/slide1.xml.rels'])
+    relationships = minidom.parseString(source[relationship_part(source_part)])
+    uncertainty_id = first(next(node for node in pictures
+                                if first(node, P, 'cNvPr').getAttribute('id') == '4'),
+                           A, 'blip').getAttributeNS(R, 'embed')
+    uncertainty_media = None
     for relationship in relationships.documentElement.childNodes:
         if relationship.nodeType != relationship.ELEMENT_NODE:
             continue
@@ -114,27 +142,33 @@ def build(output: Path):
             name = 'landscape_current_' + Path(key).name
             data['ppt/media/' + name] = source[key]
             relationship.setAttribute('Target', '../media/' + name)
+            if relationship.getAttribute('Id') == uncertainty_id:
+                uncertainty_media = 'ppt/media/' + name
         elif kind == 'notesSlide':
-            relationship.setAttribute('Target', '../notesSlides/notesSlide2.xml')
+            source_note_part = posixpath.normpath(posixpath.dirname(source_part) + '/' + target)
+            target_note_part = posixpath.normpath(posixpath.dirname(target_part) + '/' + note_target)
+            data[target_note_part] = source[source_note_part]
+            relationship.setAttribute('Target', note_target)
     with tempfile.TemporaryDirectory(prefix='cupc-plot-') as temporary:
         subprocess.run([sys.executable, str(ROOT/'posters/render_figures.py'),
                         '--output-dir', temporary, '--landscape-uncertainty-only'],
                        cwd=ROOT, check=True)
-        data['ppt/media/landscape_current_image7.png'] = (Path(temporary)/'uncertainty.png').read_bytes()
+        if uncertainty_media is None:
+            raise ValueError('Missing uncertainty plot relationship')
+        data[uncertainty_media] = (Path(temporary)/'uncertainty.png').read_bytes()
     if text_contract(document) != expected_text:
         raise ValueError('Poster text changed during layout conversion')
     if [node.toxml() for node in document.getElementsByTagNameNS(M, 'oMath')] != expected_math:
         raise ValueError('Native growth equation changed during conversion')
-    data['ppt/slides/slide2.xml'] = document.toxml(encoding='UTF-8')
-    data['ppt/slides/_rels/slide2.xml.rels'] = relationships.toxml(encoding='UTF-8')
-    data['ppt/notesSlides/notesSlide2.xml'] = source['ppt/notesSlides/notesSlide1.xml']
+    data[target_part] = document.toxml(encoding='UTF-8')
+    data[relationship_part(target_part)] = relationships.toxml(encoding='UTF-8')
     output.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(output, 'w') as archive:
         for name, content in data.items():
             entry = ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
             entry.compress_type = ZIP_DEFLATED
             archive.writestr(entry, content)
-    print(f'Saved {output}; slide 1, poster wording and native equation preserved.')
+    print(f'Saved {output}; other slides, poster wording and native equation preserved.')
 
 
 if __name__ == '__main__':
