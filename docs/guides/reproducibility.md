@@ -41,7 +41,7 @@ CI removes generated artifacts in a disposable workspace, runs all five notebook
 and compares the results against the original checkout. It also runs the regression
 suite, source checks, publication figure verification, and a package build/import check.
 Manuscript editing and compilation are separate from the analysis pipeline.
-The authoritative local source is `paper/early_giants_draft2/main.tex`, with a
+The authoritative local source is `paper/main.tex`, with a
 local supplement, compiled PDFs, and synchronized Overleaf ZIP. The `paper/`
 directory is Git-ignored and is not distributed in a repository checkout.
 Overleaf receives the packaged local sources; it is not a separate authoritative

@@ -155,7 +155,7 @@ Alternatively use the optional `scripts/05_pbh_growth_v4.ipynb`. The existing
 00–04 workflows and v1/v2/v3 dataset interfaces retain their original scope.
 v4 has its own verification and manifest. Its methods and results are incorporated
 into the authoritative local manuscript and supplement under
-`paper/early_giants_draft2/`, with a synchronized Overleaf package. Those local
+`paper/`, with a synchronized Overleaf package. Those local
 manuscript files are Git-ignored. Poster integration remains separate; this
 analysis driver does not edit manuscript or poster files.
 Verification rebuilds tables independently, compares
