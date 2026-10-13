@@ -1,9 +1,5 @@
 __pycache__/
 *.py[cod]
-.ipynb_checkpoints/
-.pytest_cache/
-.coverage
-htmlcov/
 .venv
 *.egg-info/
 
@@ -11,18 +7,8 @@ htmlcov/
 .codex_tmp/
 docs/archive/
 
-# Local supervisor meeting materials.
-/docs/meetings/
-
-# Local contributor/agent instructions and contribution ledgers (Markdown only).
-[Cc][Oo][Nn][Tt][Rr][Ii][Bb][Uu][Tt][Ii][Nn][Gg].md
-contribution-guide*.md
-contributing-guide*.md
-*ledger*.md
+# Local contribution ledger and catalogue planning notes.
 *LEDGER*.md
-AGENTS.md
-CLAUDE.md
-GEMINI.md
 /docs/reference/source-family-admission.md
 /docs/reference/catalogue-completion-plan.md
 
@@ -33,7 +19,8 @@ GEMINI.md
 # Local CUPC poster.
 /CUPC_Poster.pptx
 
-# Common editor and OS noise.
+# Machine-local runtime link used by the poster build.
+/.cupc-landscape-build/node_modules
+
+# OS metadata.
 .DS_Store
-*.swp
-*~
