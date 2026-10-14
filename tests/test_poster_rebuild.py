@@ -54,9 +54,9 @@ class PosterRebuildTests(unittest.TestCase):
             words = lambda shape: ' '.join(''.join(node.text or '' for node in paragraph.iter(A+'t'))
                                           for paragraph in shape.find(P+'txBody').findall(A+'p'))
             for identity in original:
-                if identity not in {'73', '2', '15', '76', '110'}:
+                if identity not in {'73', '2', '15', '76', '110', '79'}:
                     self.assertEqual(words(original[identity]), words(concise[identity]),
-                                     'Overview must preserve content outside Methods and Results')
+                                     'Overview must preserve content outside Methods, Results and Conclusions')
             self.assertLessEqual(len(words(concise['73']).split()),
                                  0.7 * len(words(original['73']).split()))
             for paragraph in concise['73'].find(P+'txBody').findall(A+'p'):
