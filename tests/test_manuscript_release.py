@@ -55,15 +55,18 @@ class ManuscriptReleaseTests(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 package(root)
 
-    def test_public_allowlist_keeps_other_paper_materials_ignored(self):
-        ignored = ('main.tex', 'README.md', 'apss/main.tex', 'apss/cover_letter.txt',
+    def test_public_allowlist_keeps_local_sources_and_editorial_materials_ignored(self):
+        ignored = ('main.tex', 'README.md', 'apss/cover_letter.txt',
+                   'apss/main.log', 'apss/main.aux', 'apss/main.out', 'apss/main.xdv',
                    'previews/main.pdf', 'figures/landscape.pdf', 'AGENTS.md')
+        public = (PDF_NAME, ZIP_NAME, 'apss/main.tex', 'apss/main.pdf',
+                  'apss/apss_source.zip', 'apss/apss_supplementary.zip')
         # Notebook regeneration uses git archives with no .git directory.
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             shutil.copy2(ROOT / '.gitignore', root / '.gitignore')
             subprocess.run(['git', 'init', '-q', str(root)], check=True)
-            for name in ignored + (PDF_NAME, ZIP_NAME):
+            for name in ignored + public:
                 result = subprocess.run(['git', 'check-ignore', '--no-index', '-q',
                                          f'paper/{name}'], cwd=root)
                 self.assertEqual(result.returncode, 0 if name in ignored else 1, name)

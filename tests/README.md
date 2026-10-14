@@ -4,6 +4,8 @@
 sources or LaTeX, rejects changed PDF bytes and private package entries, checks
 deterministic packaging and dependency completeness, and tests the `paper/`
 allowlist in an isolated Git fixture so it also works in notebook archives.
+The tracked Ap&SS submission package is allowed; its editorial cover letter and
+compilation intermediates, and the original local draft sources, remain ignored.
 
 Run from the repository root:
 
