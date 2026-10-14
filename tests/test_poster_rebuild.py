@@ -37,7 +37,7 @@ def plot_media(archive, slide, identity):
 
 
 class PosterRebuildTests(unittest.TestCase):
-    def test_overview_changes_only_methods_with_less_text_and_wider_spacing(self):
+    def test_overview_condenses_methods_and_results_with_wider_methods_spacing(self):
         for name in ['36x48.pptx', '48x36.pptx']:
             with ZipFile(ROOT/'posters'/name) as archive:
                 data = {part: archive.read(part) for part in archive.namelist()}
@@ -54,9 +54,9 @@ class PosterRebuildTests(unittest.TestCase):
             words = lambda shape: ' '.join(''.join(node.text or '' for node in paragraph.iter(A+'t'))
                                           for paragraph in shape.find(P+'txBody').findall(A+'p'))
             for identity in original:
-                if identity != '73':
+                if identity not in {'73', '2', '15', '76', '110'}:
                     self.assertEqual(words(original[identity]), words(concise[identity]),
-                                     'Overview must preserve non-Methods content')
+                                     'Overview must preserve content outside Methods and Results')
             self.assertLessEqual(len(words(concise['73']).split()),
                                  0.7 * len(words(original['73']).split()))
             for paragraph in concise['73'].find(P+'txBody').findall(A+'p'):
@@ -76,8 +76,11 @@ class PosterRebuildTests(unittest.TestCase):
                 data = {part: archive.read(part) for part in archive.namelist()}
                 slides = [ET.fromstring(archive.read(part)) for part in poster_slide_parts(data)]
                 self.assertTrue(list(slides[0].iter(M+'oMath')), 'Full version must retain its equation')
-                content.append([Counter(' '.join((node.text or '').split())
-                                        for node in slide.iter(A+'t')) for slide in slides])
+                # PowerPoint can split a word or symbol across runs when restyling it.
+                # Compare complete paragraph text so run boundaries do not imply a content change.
+                content.append([Counter(' '.join(''.join(node.text or ''
+                                                        for node in paragraph.iter(A+'t')).split())
+                                        for paragraph in slide.iter(A+'p')) for slide in slides])
         self.assertEqual(content[0], content[1], 'Final poster editions must contain the same text')
 
     def test_landscape_reflow_preserves_reviewed_content(self):
