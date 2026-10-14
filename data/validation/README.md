@@ -68,7 +68,7 @@ Exhaustive non-mass validation remains recommended before relying on those
 fields for a new scientific claim. The current manuscript's growth diagnostics
 are driven by mass and redshift, so resolving the documented identity groups is the
 first priority, followed by fields used in follow-up and host comparisons.
-Until then, describe the atlas as reproducible with complete numerical-mass
+Until then, describe the catalogue as reproducible with complete numerical-mass
 and central-redshift/available-coordinate checks, with representative checks of
 other fields; do not claim all catalogue
 values or scientific interpretations have been independently validated.

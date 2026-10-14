@@ -27,13 +27,13 @@ field.
 
 The paper states that the stellar-mass systematic from the fixed SED-fitting
 prior is typically about `0.2 dex`, smaller than the reported statistical
-uncertainty. the canonical atlas records this as `log_mstar_systematic_dex=0.2` with
+uncertainty. The canonical catalogue records this as `log_mstar_systematic_dex=0.2` with
 `mstar_systematic_applied_flag=false`; it is not folded into the tabulated host
 errors or any growth diagnostic.
 
 The mass tag is `single-epoch-virial-halpha-greeneho2005`, following Greene &
 Ho (2005). The source does not publish a numeric virial-calibration systematic,
-so `log_mbh_systematic_dex` remains blank and the canonical atlas does not invent a
+so `log_mbh_systematic_dex` remains blank and the canonical catalogue does not invent a
 Harikane-specific shift scenario. Published asymmetric statistical errors are
 propagated separately.
 

@@ -37,7 +37,7 @@ six new physical objects.
 
 One source caveat cannot be resolved safely: the prose and Appendix discussion
 are internally inconsistent about which individual rows remain extreme EELGs,
-including a duplicated THRILS ID in one list. the canonical atlas therefore records a source
+including a duplicated THRILS ID in one list. The canonical catalogue therefore records a source
 caveat but does not invent a row-level extreme-EELG phenotype. The paper's
 sample-level colour discussion is likewise not converted into row-level LRD
 flags.

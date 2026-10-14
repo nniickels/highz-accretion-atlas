@@ -18,7 +18,7 @@ release number.
 
 ## Internal workflow
 
-`internal/` contains deterministic catalogue, science, figure, atlas, manifest,
+`internal/` contains deterministic catalogue, science, figure, gallery, manifest,
 inventory, extraction, and verification helpers called by the notebooks in
 `scripts/`.
 

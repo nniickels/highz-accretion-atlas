@@ -1,4 +1,4 @@
-# highz-accretion-atlas
+# High-redshift accreting black-hole catalogue
 A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
@@ -64,9 +64,9 @@ changes before running this command; uncommitted files are not included:
 
 ```bash
 analysis_python="$PWD/.venv/bin/python"
-baseline_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-atlas-baseline.XXXXXX")"
-reproduction_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-atlas-reproduction.XXXXXX")"
-executed_notebooks="$(mktemp -d "${TMPDIR:-/tmp}/highz-atlas-notebooks.XXXXXX")"
+baseline_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-catalogue-baseline.XXXXXX")"
+reproduction_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-catalogue-reproduction.XXXXXX")"
+executed_notebooks="$(mktemp -d "${TMPDIR:-/tmp}/highz-catalogue-notebooks.XXXXXX")"
 git archive HEAD | tar -x -C "$baseline_root"
 cp -R "$baseline_root/." "$reproduction_root/"
 export HIGHZ_BASELINE_ROOT="$baseline_root"
@@ -112,7 +112,7 @@ The source review cutoff and explicit admission boundary are documented in
 Catalogue citations and source limitations are documented in [data/sources.md](data/sources.md).
 Publication sample policies are in [data/publication/](data/publication/README.md),
 with reproducible tables and figures in [results/for_manuscript/](results/for_manuscript/README.md).
-Reproducing the atlas does not require manuscript sources or a LaTeX installation.
+Reproducing the catalogue does not require manuscript sources or a LaTeX installation.
 
 Reproduction compares regenerated CSV values and PNG pixels with an independent
 baseline before refreshing hashes; see [reproduction and intentional updates](docs/guides/reproducibility.md).

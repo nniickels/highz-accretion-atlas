@@ -44,6 +44,6 @@ preserved in full, along with the derived `L_bol < 1.3e45 erg/s` limit.
 - Both rows are `object_class=xray_agn_candidate` and
   `mass_comparability_group=no_numeric_mass`.
 - Both are excluded from growth rankings with `missing_numeric_mbh`; this is an
-  evidence boundary, not deletion from the atlas.
+  evidence boundary, not deletion from the catalogue.
 - Lensing magnifications remain source-versioned (3.81 and 3.71). No value is
   averaged, and no unresolved lensing-dependent mass is admitted.

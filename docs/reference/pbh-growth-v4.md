@@ -110,7 +110,7 @@ parameters give identical answers for primordial and astrophysical labels.
 Growth compatibility is necessary but insufficient for PBH viability. A next
 stage would specify a formation mechanism and PBH mass distribution, an
 independent descendant number density, seed occupation/success fractions, and
-growth histories consistent with gas availability. The heterogeneous atlas
+growth histories consistent with gas availability. The heterogeneous catalogue
 counts have no common survey volume or completeness correction and cannot be
 used to estimate a PBH abundance or dark-matter fraction. Dayal's density result
 cannot be transferred to this catalogue without those inputs.

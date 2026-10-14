@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "highz-accretion-atlas"
 # Internal package placeholder; public v1/v2/v3 labels are dataset versions.
 version = "0.0.0"
-description = "A provenance-aware catalogue and growth-pressure atlas for high-redshift accreting black holes."
+description = "A provenance-aware catalogue and growth analysis of high-redshift accreting black holes."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]

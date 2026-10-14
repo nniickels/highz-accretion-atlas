@@ -1,6 +1,6 @@
 # Accreting massive-black-hole taxonomy
 
-The atlas concerns high-redshift accreting massive-black-hole systems and
+The catalogue concerns high-redshift accreting massive-black-hole systems and
 candidates. AGN, broad-line AGN, quasars, and LRDs are not interchangeable:
 spectroscopic type, luminosity regime, and observational phenotype are recorded
 on independent axes.

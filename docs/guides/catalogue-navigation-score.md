@@ -1,6 +1,6 @@
 # Catalogue browsing score
 
-This score is used in the atlas interface. Scientific comparisons rank objects by their required average Eddington ratios.
+This score is used in the catalogue interface. Scientific comparisons rank objects by their required average Eddington ratios.
 
 
 The point navigation score is

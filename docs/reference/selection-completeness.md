@@ -15,19 +15,19 @@ unknown completeness.
 
 The strongest current source-local constraints are:
 
-- Scholtz: 42 candidates from a 209-galaxy JADES parent over z=2-10; the atlas
+- Scholtz: 42 candidates from a 209-galaxy JADES parent over z=2-10; the catalogue
   retains the audited z>=4 subset.
 - Skyfire: 73% spectroscopic completeness for the paper's specified CEERS LRD
   phenotype subset.
 - Mascia: a 4,145-object DJA parent and a stated broad-Halpha completeness
   threshold, followed by colour and compactness cuts.
 - MEOW and SMILES: source-local selection and luminosity-function analyses that
-  are not transferable as weights for the heterogeneous atlas union.
+  are not transferable as weights for the heterogeneous catalogue union.
 - NEXUS WFSS: a 100 arcmin2 footprint and Halpha wavelength-coverage correction
   that explicitly excludes sensitivity and broad-line detectability.
 - COSMOS-3D: object-specific injection/recovery completeness for its 127
   arcmin2 luminosity-function analysis; these values do not define weights for
-  the cross-survey atlas.
+  the cross-survey catalogue.
 
 Any future demographic analysis must add a validated per-object or per-cell
 inclusion model, preserve each source's parent population and footprint, model

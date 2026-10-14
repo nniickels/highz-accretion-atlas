@@ -38,7 +38,7 @@ Twelve NEXUS masses have no reported mass errors. Their repeated point
 values in the uncertainty CSVs have `mbh_uncertainty_mode` equal to
 `point_estimate_no_reported_mbh_error`. Probabilities and uncertainty ranks are
 unavailable; zero-width intervals are not statistical certainty. Summary plots put these objects in a
-separate "No error" row; the full uncertainty atlas uses open diamonds. The
+separate "No error" row; the uncertainty figure for the full catalogue uses open diamonds. The
 other 225 canonical objects (222 in the manuscript exploratory sample) use
 equal-probability half-normal draws on each side of the
 central mass, scaled by the reported error. This approximates intervals, not
@@ -61,14 +61,14 @@ admitted source families.
 Reproduce with:
 
 ```bash
-mkdir -p /tmp/highz-atlas-notebooks
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/01_generate_science.ipynb
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-atlas-notebooks scripts/04_verify.ipynb
+mkdir -p /tmp/highz-catalogue-notebooks
+.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-catalogue-notebooks scripts/01_generate_science.ipynb
+.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-catalogue-notebooks scripts/04_verify.ipynb
 ```
 
 ## Scientific limits and what would change them
 
-The frozen atlas supports descriptive, within-class comparisons and conditional
+The frozen catalogue supports descriptive, within-class comparisons and conditional
 growth calculations. These limits do not prevent manuscript development, but
 must accompany interpretation of the results:
 

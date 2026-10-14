@@ -4,7 +4,7 @@
 
 ```text
 results/<version>/
-├── figures/               paper-ready summaries and all-object atlases
+├── figures/               paper-ready summaries and all-object galleries
 ├── tables/                rankings, follow-up priorities, uncertainty, compatibility, and audits
 └── parameter_maps/
     ├── fedd_mass_maps/             f_Edd versus seed-mass panels for every object
@@ -29,9 +29,9 @@ redshift to 3400, preserving all 72 parameter combinations and identical axes.
 Both use the adopted matter+Lambda age relation: radiation is neglected, so
 the early-seed comparison is an extrapolation, not a physical seed-formation
 model. Curves outside the shared mass-axis limits are clipped. Regeneration
-through the atlas notebook produces both figures.
+through notebook 03 produces both figures.
 
-## v3 catalogue and atlas
+## v3 catalogue results
 
 Start with `data/processed/v3/v3_accreting_objects.csv`, which contains one
 preferred row for each physical object. Companion files contain all 350
@@ -54,7 +54,7 @@ contain 676 canonical panels, one of each map type for every object. Objects
 without a supported canonical numerical black-hole mass receive explicit
 no-inference panels; the pipeline does not invent masses or growth histories.
 
-Regenerate and verify the atlas with `scripts/03_generate_atlas.ipynb` and
+Regenerate and verify the catalogue with `scripts/03_generate_atlas.ipynb` and
 `scripts/04_verify.ipynb`.
 
 Two source-supported duplicates were merged on 7 September 2026, preserving all

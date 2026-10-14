@@ -19,9 +19,9 @@ No lensing correction or additional mass scatter is introduced.
 
 ## Meaning of sampled errors
 
-The atlas samples reported mass errors, whose source-defined components need
+The catalogue samples reported mass errors, whose source-defined components need
 not be purely statistical. ZS7's published 0.4-dex error already includes
-calibration scatter. Its error is retained once; the atlas adds no extra
+calibration scatter. Its error is retained once; the catalogue adds no extra
 scatter. `reported_mass_error_scope` explicitly identifies this case and
 leaves other published components undecomposed rather than asserting that
 all source posteriors have the same statistical interpretation.

@@ -23,7 +23,7 @@ sources share the v2 object-type scope: 218 measurements, 211 objects, and 210
 hosts. Baccus cluster-field rows without source-published lensing corrections
 are excluded; Fei's GLIMPSE values include explicit magnification corrections.
 
-## v3 — JWST-identified heterogeneous atlas
+## v3 — JWST-identified heterogeneous catalogue
 
 Adds UHZ1's JWST/Chandra X-ray evidence history, the audited Scholtz JADES
 narrow-line candidates, GN-z11's high-ionization-line accretion evidence, and

@@ -1,6 +1,6 @@
 # Documentation
 
-## Using the atlas
+## Using the catalogue
 
 - [Setup and notebook workflow](../README.md#getting-started)
 - [Reproducing results](guides/reproducibility.md)

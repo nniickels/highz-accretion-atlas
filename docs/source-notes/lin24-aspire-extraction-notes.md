@@ -7,8 +7,8 @@ arXiv `2407.17570v1`.
 
 The extraction uses the authoritative v1 arXiv source archive, SHA-256
 `fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd`,
-checked on 2026-08-22. The raw CSV transcribes all 16 rows and the atlas-relevant
-columns from Tables 1--3: coordinates and redshift errors, F356W photometry,
+checked on 2026-08-22. The raw CSV transcribes all 16 rows and the columns used in the catalogue
+from Tables 1--3: coordinates and redshift errors, F356W photometry,
 broad/narrow FWHM, broad and total Halpha luminosity, equivalent width, MBH,
 Lbol, MUV, and continuum slopes.
 

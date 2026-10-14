@@ -8,7 +8,7 @@ arXiv `2306.05448v3`.
 The extraction uses the authoritative v3 arXiv source archive, SHA-256
 `b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190`,
 downloaded and checked on 2026-08-22. The raw CSV transcribes all 20 rows and
-all columns relevant to the atlas from Tables 1--3: coordinates, redshift,
+all columns relevant to the catalogue from Tables 1--3: coordinates, redshift,
 broad/total Halpha ratio, broad Halpha luminosity, broad FWHM, photometry,
 equivalent width, MBH, Lbol, MUV, and continuum slopes.
 
@@ -27,7 +27,7 @@ matching identifies GOODS-S-13971 as JADES GS-204851 (0.02 arcsec, delta-z
 0.001); both measurements are retained.
 
 The source is labelled an LRD sample at paper level (including in the title),
-not with an object-by-object LRD marker in Tables 1--3. Accordingly the atlas
+not with an object-by-object LRD marker in Tables 1--3. Accordingly the catalogue
 stores `lrd_flag=true` with `lrd_definition=paper_sample_label_little_red_dot`
 rather than presenting the flag as a table-row measurement. The
 flat-continuum exception remains explicit in its row caveats.
