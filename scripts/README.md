@@ -25,7 +25,9 @@ Manuscript sources, bibliography, and LaTeX compilation are managed separately
 from these notebooks in the authoritative local `paper/`
 directory. Run `python3 -m src.internal.package_overleaf` to package the Git-ignored manuscript
 source and its required figures and tables for Overleaf. Compiled previews are
-excluded from the ZIP; local `paper/README.md` describes that workflow.
+excluded from the ZIP; local `paper/README.md` describes that workflow. The draft
+PDF and upload ZIP are public. CI verifies their integrity and section order
+without compiling LaTeX or altering scientific reproduction outputs.
 For cross-platform reproduction, use the independent baseline and execution
 copies in the root README and keep `HIGHZ_BASELINE_ROOT` set during verification.
 

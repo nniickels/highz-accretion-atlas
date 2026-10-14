@@ -13,7 +13,9 @@ docs/archive/
 /docs/reference/catalogue-completion-plan.md
 
 # Local Overleaf sources, previews, reviews, and private manuscript tools.
-/paper/
+/paper/*
+!/paper/early_giants_draft.pdf
+!/paper/early_giants_overleaf.zip
 /releases/
 
 # Temporary poster authoring files; only final editions belong in posters/.

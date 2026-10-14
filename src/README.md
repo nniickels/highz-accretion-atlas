@@ -42,4 +42,5 @@ remain separate.
 only its required figures and table fragments. Run
 `python3 -m src.internal.package_overleaf` from the repository root when
 `paper/main.tex` is present. This optional manuscript utility is separate from
-the notebook workflow and scientific artifact verification.
+the notebook workflow and scientific artifact verification. Its `--verify` mode
+checks the public draft PDF and ZIP using only files in a normal checkout.

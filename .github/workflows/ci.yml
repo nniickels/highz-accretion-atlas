@@ -42,6 +42,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m src.internal.verify_source_provenance
+      - name: Verify public manuscript package and section order
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m src.internal.package_overleaf --verify
       - name: Audit redshift source values and report unresolved identities
         env:
           PYTHONDONTWRITEBYTECODE: "1"

@@ -2,9 +2,9 @@
 
 Reproducible numerical tables and figures supporting the manuscript are retained
 here. The manuscript text and bibliography are edited separately in the
-authoritative local `paper/early_giants_draft2/` directory, which is Git-ignored.
-Its main paper and supplement are compiled locally and packaged into a
-synchronized ZIP for Overleaf. Analysis regeneration does not edit those sources;
+authoritative local `paper/main.tex`, which is Git-ignored.
+The public draft PDF and Overleaf source ZIP are under `paper/`; other manuscript
+files, including Ap&SS materials, remain ignored. Analysis regeneration does not edit those sources;
 local `paper/README.md` documents the manuscript workflow.
 
 ## Tables

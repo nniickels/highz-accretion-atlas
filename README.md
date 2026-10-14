@@ -3,7 +3,8 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 ($z \ge 4$) accreting massive-black-hole systems and candidates, and their
 possible formation and growth scenarios.
 
-**Manuscript:** in progress. A link will be added here once the paper is finalized.
+**Draft manuscript:** [PDF](paper/early_giants_draft.pdf) and
+[Overleaf source ZIP](paper/early_giants_overleaf.zip). These are working drafts.
 
 ## Repository map
 

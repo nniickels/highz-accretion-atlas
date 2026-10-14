@@ -156,7 +156,8 @@ Alternatively use the optional `scripts/05_pbh_growth_v4.ipynb`. The existing
 v4 has its own verification and manifest. Its methods and results are incorporated
 into the authoritative local manuscript under
 `paper/`, with a synchronized Overleaf package. Those local
-manuscript files are Git-ignored. Poster integration remains separate; this
+source files are Git-ignored; the draft PDF and Overleaf ZIP are public.
+Poster integration remains separate; this
 analysis driver does not edit manuscript or poster files.
 Verification rebuilds tables independently, compares
 PNG pixels and decoded PDF contents in a temporary directory, and detects

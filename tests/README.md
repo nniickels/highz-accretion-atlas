@@ -1,5 +1,10 @@
 # Test suite
 
+`test_manuscript_release.py` verifies the public draft PDF/ZIP without private
+sources or LaTeX, rejects changed PDF bytes and private package entries, checks
+deterministic packaging and dependency completeness, and tests the `paper/`
+allowlist in an isolated Git fixture so it also works in notebook archives.
+
 Run from the repository root:
 
 ```bash
