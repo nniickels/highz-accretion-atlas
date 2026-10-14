@@ -69,11 +69,11 @@
   "input_and_code_sha256": {
     "data/scenarios/v4_pbh_growth.json": "48edb9cce35cb1bd826fffc9c38314a96516bf0319b961a179b1009853a3c851",
     "data/processed/v3/v3_accreting_objects.csv": "bc4f2ca1813660106a9fa11ecd0ff4b85012aac08e79fab2420a8d889de9c9a2",
-    "results/manuscript/tables/publication_object_selection.csv": "2cfa2b4753a0c988d4370ab9f2f8da1efef99978d1d67b5d08e68ebbe606fb65",
+    "results/for_manuscript/tables/publication_object_selection.csv": "2cfa2b4753a0c988d4370ab9f2f8da1efef99978d1d67b5d08e68ebbe606fb65",
     "data/publication/identity_exclusions.json": "0f5e03fd99250e25db0b0d59dca691af45b26162b79950f4880219ba6011688f",
     "data/publication/evidence_selection.json": "496c03305935586aed84be09031030efb3e950d8aeb5f0daffbc2fd935cf4007",
     "src/pbh.py": "297cee09e81ff9167efb1e35ebe594f1ad081fcf1e25f45a62f900d3819bc9bb",
-    "src/internal/pbh_growth_v4.py": "817a531db109f72dd73f38ce391bf307b242890b0cc5b17fcd823e7e2ea534a3",
+    "src/internal/pbh_growth_v4.py": "288febbfd264ba23d171f1b9f669bf401587ed5d917cb13c0725220188c64f6d",
     "src/models.py": "f1e5039396bc656323652a65010977816a08efcb358bc7c640b6e55ec9c81e06",
     "src/internal/early_start_cosmology.py": "847e22ed550ae42f7b793f1ab486ca8a96b782c00efaf7cc201e930045086cff",
     "src/internal/uncertainty.py": "6907cb4202dda9502689ddc0b7da34990f50495c846ea1055ec8654a20f1c2a5"

@@ -1,12 +1,12 @@
 {
   "description": "Reviewed scientific inputs for the current CUPC poster figures and quantitative claims. Refresh only after reviewing corresponding poster claims.",
   "sha256": {
-    "results/manuscript/tables/publication_object_selection.csv": "2cfa2b4753a0c988d4370ab9f2f8da1efef99978d1d67b5d08e68ebbe606fb65",
+    "results/for_manuscript/tables/publication_object_selection.csv": "2cfa2b4753a0c988d4370ab9f2f8da1efef99978d1d67b5d08e68ebbe606fb65",
     "results/v3/tables/v3_object_point_ranking.csv": "501a73e933dd2b219bb86bd5687352d72c565ac32a1f4416c9336c537ebd1839",
     "results/v3/tables/v3_object_uncertainty_ranking.csv": "1bf0e037d89b6c6d690d6b08e99281001da9a9a2fec384f301439a01c7d71ad7",
-    "results/manuscript/tables/mass_offset_object_sensitivity.csv": "337ca461a8b871774ed51039d9bca1bd1d0e333da06d7fa08eababfb3843ff86",
+    "results/for_manuscript/tables/mass_offset_object_sensitivity.csv": "337ca461a8b871774ed51039d9bca1bd1d0e333da06d7fa08eababfb3843ff86",
     "results/v4/tables/v4_minimum_seed_mass.csv": "8164b2e79b4cfa217a44bc418ad18cccfdcdd1d0db6aa238a27057dfe0096341",
     "src/models.py": "f1e5039396bc656323652a65010977816a08efcb358bc7c640b6e55ec9c81e06",
-    "results/manuscript/tables/external_direct_mass_comparison.csv": "92160d9b51cb2405d108b1cb95c54c8dc471978826851341193d8fcef447a6cd"
+    "results/for_manuscript/tables/external_direct_mass_comparison.csv": "92160d9b51cb2405d108b1cb95c54c8dc471978826851341193d8fcef447a6cd"
   }
 }

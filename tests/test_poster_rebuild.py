@@ -66,7 +66,7 @@ class PosterRebuildTests(unittest.TestCase):
 
     def test_overview_diagram_counts_match_catalogue_selection(self):
         import pandas as pd
-        selection = pd.read_csv(ROOT/'results/manuscript/tables/publication_object_selection.csv')
+        selection = pd.read_csv(ROOT/'results/for_manuscript/tables/publication_object_selection.csv')
         measurements = pd.read_csv(ROOT/'data/processed/v3/v3_accreting_measurements.csv')
         uncertainty = pd.read_csv(ROOT/'results/v3/tables/v3_object_uncertainty_ranking.csv')
         error_ids = set(uncertainty.loc[uncertainty.reported_mass_errors_sampled, 'physical_object_id'])

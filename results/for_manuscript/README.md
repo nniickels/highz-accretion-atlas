@@ -1,10 +1,10 @@
-# Manuscript results
+# Results for the manuscript
 
 Reproducible numerical tables and figures supporting the manuscript are retained
 here. The manuscript text and bibliography are edited separately in the
 authoritative local `paper/main.tex`, which is Git-ignored.
 The public draft PDF and Overleaf source ZIP are under `paper/`; other manuscript
-files, including Ap&SS materials, remain ignored. Analysis regeneration does not edit those sources;
+working files remain ignored; the separate Ap&SS submission package is tracked. Analysis regeneration does not edit those sources;
 local `paper/README.md` documents the manuscript workflow.
 
 ## Tables

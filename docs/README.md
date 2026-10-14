@@ -27,4 +27,4 @@
 - [Redshift and identity audit](source-notes/redshift-identity-audit.md)
 - [Source extraction notes](source-notes/)
 - [Publication sample inputs](../data/publication/README.md)
-- [Manuscript tables and figures](../results/manuscript/README.md)
+- [Manuscript tables and figures](../results/for_manuscript/README.md)

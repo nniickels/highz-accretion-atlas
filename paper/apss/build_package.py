@@ -11,8 +11,8 @@ PACKAGE = Path(__file__).resolve().parent
 REPO = PACKAGE.parents[1]
 SUPPLEMENT = {
     'calibration_sensitivity.py': 'src/internal/calibration_sensitivity.py',
-    'target_robustness.csv': 'results/manuscript/tables/target_robustness.csv',
-    'calibration_sensitivity.csv': 'results/manuscript/tables/calibration_sensitivity.csv',
+    'target_robustness.csv': 'results/for_manuscript/tables/target_robustness.csv',
+    'calibration_sensitivity.csv': 'results/for_manuscript/tables/calibration_sensitivity.csv',
     'core.txt': 'requirements/core.txt',
 }
 

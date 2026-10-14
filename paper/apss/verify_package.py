@@ -15,7 +15,8 @@ for name, expected in manifest['package_sha256'].items():
         raise SystemExit(f'Package file changed since review: {name}')
 for name, source in manifest['canonical_figures'].items():
     supplied = (PACKAGE / name).read_bytes()
-    pinned = subprocess.check_output(['git', 'show', manifest['analysis_commit'] + ':' + source], cwd=REPO)
+    historical = manifest.get('historical_figure_paths', {}).get(name, source)
+    pinned = subprocess.check_output(['git', 'show', manifest['analysis_commit'] + ':' + historical], cwd=REPO)
     if supplied != pinned or supplied != (REPO / source).read_bytes():
         raise SystemExit(f'Figure differs from pinned scientific export: {name}')
 with zipfile.ZipFile(PACKAGE / 'apss_source.zip') as archive:

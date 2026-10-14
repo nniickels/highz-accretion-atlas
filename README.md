@@ -111,7 +111,7 @@ The source review cutoff and explicit admission boundary are documented in
 
 Catalogue citations and source limitations are documented in [data/sources.md](data/sources.md).
 Publication sample policies are in [data/publication/](data/publication/README.md),
-with reproducible tables and figures in [results/manuscript/](results/manuscript/README.md).
+with reproducible tables and figures in [results/for_manuscript/](results/for_manuscript/README.md).
 Reproducing the atlas does not require manuscript sources or a LaTeX installation.
 
 Reproduction compares regenerated CSV values and PNG pixels with an independent

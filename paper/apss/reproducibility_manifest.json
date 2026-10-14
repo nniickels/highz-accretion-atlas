@@ -2,12 +2,12 @@
   "analysis_commit": "9584a7d05b597740434e3413514a12eb4811f6b6",
   "catalogue_commit": "1629c963cc43205bf61467e63a418e14e948efe8",
   "package_sha256": {
-    "main.tex": "187cd65e9c44676b9360adf86b7848c393f2880d84b1ad0c9c0df0689d7b1000",
-    "main.pdf": "69c816a48e531f8eea883d87d1f2ecb5d7d910a4da9c9d9cdee5f17fdb791ebc",
-    "apss_source.zip": "cc58fdb32204576c654f40a540a640c3c89bc14c1e56640fbf0ec567a36c2313",
-    "apss_supplementary.zip": "87c6624df5265e7a7b52ef603c4c62d01fbe14d7fa0fb926fc75377d5497fd64",
-    "verify_package.py": "4896c6a59a6029c596c2fbd9bbf3ecb1a242e0127153577cae43b8f635a32186",
-    "build_package.py": "52ca216b3e0c5cc545d6e73ff7f7be62138c63d19c151ad3fbd3f930af242c9e",
+    "main.tex": "6d8ae5ac8502473021c73a5757348a06271a5c9660d58dff8035d12e59d3b356",
+    "main.pdf": "6034decc5a901a5ba18221b788859e12af75ffaac16d6fcf8720b312fcd74fda",
+    "apss_source.zip": "d5a1fb21b51fb026c3039aba84255ca5b6db392249ff4b6fa7a2a7f82290b61e",
+    "apss_supplementary.zip": "c75c4f41c1c845a601572d00aa00a0c2707a537f5b2726f5ada0028ae625314e",
+    "verify_package.py": "a82860ebb9c11e9d25da3bfcddd1fab7e1615e40b544fd1280f8a575ece3615f",
+    "build_package.py": "723439445a14726fcee929ddb284f39705355762cce9b7b8c7f4dcb8eea6e546",
     "figures/compatibility.pdf": "f1d0794292db5ed1ab0470162bc4b2dcc8c5b77e8e161e0f60827942fe243eb2",
     "figures/growth_boundaries.pdf": "17b6b7eb267a3e24d5b0e4233782790c93b6323fba52395c36924b4ade7ddd2b",
     "figures/growth_tracks.pdf": "3dc16d1147e834eab0ed965e28d6a02693450961398553363b931ed740991fdb",
@@ -24,9 +24,26 @@
     "supplementary/target_robustness.csv": "7ca9235cd4d6e9a79a09d4795c34c099230fe96a97f228db59aad94f3248358f",
     "supplementary/calibration_sensitivity.csv": "970e4a70b44fa88688f3547153fcee20030ffa53de63645fcbbcf64045248e0f",
     "supplementary/core.txt": "f7962d1115d6c1aa194843425f04ec912401f52dc5136363a7cd82a1124ee731",
-    "supplementary/README.md": "739c8cf0b40374f4d73ef9b4a3d4a5ee6db0137917ad4ec7a6d60212ef1badc3"
+    "supplementary/README.md": "8230a5e32b5c55f4f4f99e5bdca8c51143eeaefea3ca1609678d9897ac936803"
   },
   "canonical_figures": {
+    "figures/v4_minimum_seed_mass.pdf": "results/v4/figures/v4_minimum_seed_mass.pdf",
+    "figures/landscape.pdf": "results/for_manuscript/figures/landscape.pdf",
+    "figures/uncertainty.pdf": "results/for_manuscript/figures/uncertainty.pdf",
+    "figures/measurement_sensitivity.pdf": "results/for_manuscript/figures/measurement_sensitivity.pdf",
+    "figures/growth_tracks.pdf": "results/for_manuscript/figures/growth_tracks.pdf",
+    "figures/growth_boundaries.pdf": "results/for_manuscript/figures/growth_boundaries.pdf",
+    "figures/seed_timing_comparison.pdf": "results/for_manuscript/figures/seed_timing_comparison.pdf",
+    "figures/compatibility.pdf": "results/for_manuscript/figures/compatibility.pdf"
+  },
+  "supplementary_sources": {
+    "calibration_sensitivity.py": "src/internal/calibration_sensitivity.py",
+    "target_robustness.csv": "results/for_manuscript/tables/target_robustness.csv",
+    "calibration_sensitivity.csv": "results/for_manuscript/tables/calibration_sensitivity.csv",
+    "core.txt": "requirements/core.txt"
+  },
+  "calibration_scope": "Separate two-object Gaussian-scatter test; baseline unchanged",
+  "historical_figure_paths": {
     "figures/v4_minimum_seed_mass.pdf": "results/v4/figures/v4_minimum_seed_mass.pdf",
     "figures/landscape.pdf": "results/manuscript/figures/landscape.pdf",
     "figures/uncertainty.pdf": "results/manuscript/figures/uncertainty.pdf",
@@ -35,12 +52,5 @@
     "figures/growth_boundaries.pdf": "results/manuscript/figures/growth_boundaries.pdf",
     "figures/seed_timing_comparison.pdf": "results/manuscript/figures/seed_timing_comparison.pdf",
     "figures/compatibility.pdf": "results/manuscript/figures/compatibility.pdf"
-  },
-  "supplementary_sources": {
-    "calibration_sensitivity.py": "src/internal/calibration_sensitivity.py",
-    "target_robustness.csv": "results/manuscript/tables/target_robustness.csv",
-    "calibration_sensitivity.csv": "results/manuscript/tables/calibration_sensitivity.csv",
-    "core.txt": "requirements/core.txt"
-  },
-  "calibration_scope": "Separate two-object Gaussian-scatter test; baseline unchanged"
+  }
 }

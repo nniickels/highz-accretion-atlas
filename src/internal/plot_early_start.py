@@ -12,7 +12,7 @@ PDF_METADATA = {'CreationDate': None, 'ModDate': None}
 
 
 def render(destination=None):
-    destination = Path(destination) if destination is not None else ROOT/'results/manuscript/figures'
+    destination = Path(destination) if destination is not None else ROOT/'results/for_manuscript/figures'
     destination.mkdir(parents=True, exist_ok=True)
     z = np.linspace(12, 6, 121)
     shift = models.growth_log10_factor(1, .1, cosmic_time_gyr(30)-cosmic_time_gyr(3400))

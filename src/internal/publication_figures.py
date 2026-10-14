@@ -32,7 +32,7 @@ def load_plot_inputs(root=ROOT):
 
 
 def render_figures(root=ROOT, destination=None):
-    destination = Path(destination) if destination is not None else root/'results/manuscript/figures'
+    destination = Path(destination) if destination is not None else root/'results/for_manuscript/figures'
     destination.mkdir(parents=True, exist_ok=True)
     selection, primary, point, uncertainty, compatibility, sensitivity = load_plot_inputs(root)
     with plt.rc_context({**plt.rcParamsDefault, 'font.family':'STIXGeneral', 'mathtext.fontset':'stix', 'font.size':16, 'axes.labelsize':17, 'axes.titlesize':17,
@@ -180,7 +180,7 @@ def verify_figures(root=ROOT):
         render_figures(root,folder)
         for name in NAMES:
             for suffix in ('.png', '.pdf'):
-                compare_artifact(root/f'results/manuscript/figures/{name}{suffix}',
+                compare_artifact(root/f'results/for_manuscript/figures/{name}{suffix}',
                                  Path(folder)/f'{name}{suffix}')
     print(f'Verified {len(NAMES)} publication figures (PNG and PDF) against the conservative sample mask')
 

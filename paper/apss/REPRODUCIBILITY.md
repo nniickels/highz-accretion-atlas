@@ -81,8 +81,8 @@ From the repository root:
 .venv/bin/python -m src.internal.publication_selection
 .venv/bin/python -m unittest tests.test_calibration_sensitivity
 .venv/bin/python -m src.internal.calibration_sensitivity \
-  --input results/manuscript/tables/target_robustness.csv \
-  --verify results/manuscript/tables/calibration_sensitivity.csv
+  --input results/for_manuscript/tables/target_robustness.csv \
+  --verify results/for_manuscript/tables/calibration_sensitivity.csv
 ```
 
 The generic Overleaf packager targets the original manuscript, not this Ap&SS
@@ -100,3 +100,7 @@ The package checker verifies the section order, figure/table membership and
 citation order in addition to hashes and archive contents. The revised source
 ZIP was rebuilt and compiled in an independent temporary directory. Layout
 changes do not alter the supplementary analysis or baseline calculation.
+
+Current figure paths use `results/for_manuscript/`. The manifest retains
+`historical_figure_paths` for comparison with the pinned analysis commit, which
+predates the directory rename.

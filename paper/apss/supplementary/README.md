@@ -18,7 +18,7 @@ python calibration_sensitivity.py --input target_robustness.csv --verify calibra
 python calibration_sensitivity.py --input target_robustness.csv --output regenerated.csv
 ```
 
-The supplied input is the canonical `results/manuscript/tables/target_robustness.csv`
+The supplied input is the canonical `results/for_manuscript/tables/target_robustness.csv`
 from repository commit 9584a7d05b597740434e3413514a12eb4811f6b6:
 https://github.com/nniickels/highz-accretion-atlas
 It identifies adopted measurements and their source keys. Source records are

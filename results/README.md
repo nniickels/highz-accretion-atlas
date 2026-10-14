@@ -61,7 +61,7 @@ Two source-supported duplicates were merged on 7 September 2026, preserving all
 350 measurement rows. Three identity groups remain under review; counts are
 provisional until the [identity audit](../docs/source-notes/redshift-identity-audit.md) closes.
 
-[Manuscript results](manuscript/README.md) contain the separately selected
+[Manuscript results](for_manuscript/README.md) contain the separately selected
 analysis tables and PNG/PDF figures used by the manuscript.
 
 ## v4 analysis extension

@@ -17,7 +17,7 @@ from src.internal.early_start_cosmology import cosmic_time_gyr, OMEGA_R, OMEGA_L
 def reference_cosmology_sensitivity():
     """Reproduce the main paper's radiation sensitivity with fixed mass draws."""
     root = Path(__file__).resolve().parents[2]
-    tables = root / 'results/manuscript/tables'
+    tables = root / 'results/for_manuscript/tables'
     selection = pd.read_csv(tables / 'publication_object_selection.csv')
     objects = pd.read_csv(root / 'data/processed/v3/v3_accreting_objects.csv')
     sample = objects.merge(selection[

@@ -185,7 +185,7 @@ class PBHWorkflowTests(unittest.TestCase):
 
     def test_protected_output_location_is_rejected_before_writing(self):
         with self.assertRaises(ValueError):
-            write_outputs(destination=ROOT / 'results/manuscript')
+            write_outputs(destination=ROOT / 'results/for_manuscript')
 
     def test_canonical_exports_keep_inventory_current_and_external_exports_leave_it_unchanged(self):
         from src.internal.build_results_inventory import collect_inventory

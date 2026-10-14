@@ -26,7 +26,7 @@ must still match the manifest's pinned hashes. Code and non-CSV inputs remain
 byte-exact. See [v4 verification](../reference/pbh-growth-v4.md#run-and-verify).
 
 The comparison covers canonical v1/v2/v3 catalogues, identity products, science
-results, and the CSV tables and PNG/PDF figures in `results/manuscript/`:
+results, and the CSV tables and PNG/PDF figures in `results/for_manuscript/`:
 
 - CSV values use the shared numerical tolerance.
 - PNG dimensions and alpha must match exactly. Every RGB channel of every pixel
@@ -119,7 +119,7 @@ manifests, or comparison tolerances.
 ## Ap&SS calibration sensitivity
 
 `publication_selection` now also generates and verifies
-`results/manuscript/tables/calibration_sensitivity.csv`. Notebook 01 calls this
+`results/for_manuscript/tables/calibration_sensitivity.csv`. Notebook 01 calls this
 through `generate_science`; notebook 04 verifies it. The existing independent
 artifact comparison includes the new CSV, and CI already runs publication
 selection and the regression suite. No comparison tolerance changes are needed.
@@ -137,8 +137,8 @@ standalone calculation also runs without importing the project:
 
 ```sh
 .venv/bin/python -m src.internal.calibration_sensitivity \
-  --input results/manuscript/tables/target_robustness.csv \
-  --verify results/manuscript/tables/calibration_sensitivity.csv
+  --input results/for_manuscript/tables/target_robustness.csv \
+  --verify results/for_manuscript/tables/calibration_sensitivity.csv
 ```
 
 The tracked Ap&SS submission supplies the calculation, reference table, result,

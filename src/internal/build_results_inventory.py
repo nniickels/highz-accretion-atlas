@@ -16,7 +16,7 @@ EXCLUDED = {OUTPUT.name}
 
 
 def release_label(path: Path) -> str:
-    if path.parts[0] == "manuscript":
+    if path.parts[0] == "for_manuscript":
         return "manuscript"
     match = re.match(r"v(\d+(?:_\d+)?)", path.name)
     if not match:
@@ -53,7 +53,7 @@ def collect_inventory(*, results_root: Path | None = None) -> pd.DataFrame:
             "path": (Path("results") / relative).as_posix(),
             "size_bytes": path.stat().st_size,
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-            "path_policy": ("manuscript_analysis_product" if relative.parts[0] == "manuscript"
+            "path_policy": ("manuscript_analysis_product" if relative.parts[0] == "for_manuscript"
                             else "v4_analysis_extension" if relative.parts[0] == "v4"
                             else "canonical_dataset_product"),
         })
