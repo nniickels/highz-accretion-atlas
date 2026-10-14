@@ -21,3 +21,6 @@ docs/archive/
 
 # OS metadata.
 .DS_Store
+
+# Private Ap&SS editorial correspondence (also covered by /paper/).
+/paper/apss/cover_letter*
