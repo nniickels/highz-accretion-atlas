@@ -37,32 +37,41 @@ def plot_media(archive, slide, identity):
 
 
 class PosterRebuildTests(unittest.TestCase):
-    def test_overview_preserves_context_and_readable_definition_spacing(self):
+    def test_final_definition_spacing_is_readable(self):
         for name in ['36x48.pptx', '48x36.pptx']:
             with ZipFile(ROOT/'posters'/name) as archive:
                 data = {part: archive.read(part) for part in archive.namelist()}
-                full, overview = [ET.fromstring(archive.read(part))
-                                  for part in poster_slide_parts(data)]
-            def shapes(root):
-                result = {}
-                for shape in root.iter(P+'sp'):
-                    identity = shape.find('.//'+P+'cNvPr').get('id')
-                    # The native Choice precedes the compatibility Fallback.
-                    result.setdefault(identity, shape)
-                return result
-            original, concise = shapes(full), shapes(overview)
-            words = lambda shape: ' '.join(''.join(node.text or '' for node in paragraph.iter(A+'t'))
-                                          for paragraph in shape.find(P+'txBody').findall(A+'p'))
-            for identity in original:
-                if identity not in {'73', '2', '15', '76', '110', '79', '111', '120'}:
-                    self.assertEqual(words(original[identity]), words(concise[identity]),
-                                     'Overview must preserve content outside Methods, Results and Conclusions')
-            self.assertLessEqual(len(words(concise['73']).split()),
-                                 0.7 * len(words(original['73']).split()))
+                overview = ET.fromstring(archive.read(poster_slide_part(data)))
+            concise = {shape.find('.//'+P+'cNvPr').get('id'): shape
+                       for shape in overview.iter(P+'sp')}
+            # The final editions retain the user-selected overview only.
             for paragraph in concise['73'].find(P+'txBody').findall(A+'p'):
                 spacing = paragraph.find(A+'pPr/'+A+'lnSpc/'+A+'spcPct')
                 self.assertIsNotNone(spacing)
                 self.assertGreaterEqual(int(spacing.get('val')), 115000)
+
+    def test_in_text_references_are_superscript_and_resolve(self):
+        import re
+        for name in ['36x48.pptx', '48x36.pptx']:
+            with ZipFile(ROOT/'posters'/name) as archive:
+                data = {n: archive.read(n) for n in archive.namelist()}
+                slide = ET.fromstring(archive.read(poster_slide_part(data)))
+            shapes = {s.find('.//'+P+'cNvPr').get('id'): s for s in slide.iter(P+'sp')}
+            used = set()
+            for identity, shape in shapes.items():
+                if identity == '82':
+                    continue
+                for run in shape.iter(A+'r'):
+                    text = run.find(A+'t')
+                    if text is None:
+                        continue
+                    citations = re.findall(r'\[([1-5])\]', text.text or '')
+                    if citations:
+                        self.assertEqual(run.find(A+'rPr').get('baseline'), '30000')
+                        used.update(citations)
+            self.assertEqual(used, set('12345'))
+            for identity, citation in [('207','1'), ('208','2'), ('217','3'), ('2','4'), ('15','5')]:
+                self.assertIn('['+citation+']', ''.join(n.text or '' for n in shapes[identity].iter(A+'t')))
 
     def test_overview_diagram_counts_match_catalogue_selection(self):
         import pandas as pd
@@ -107,10 +116,9 @@ class PosterRebuildTests(unittest.TestCase):
                 size = presentation.find(P+'sldSz')
                 self.assertEqual((int(size.get('cx')), int(size.get('cy'))),
                                  tuple(inches * 914400 for inches in dimensions))
-                self.assertEqual(len(presentation.find(P+'sldIdLst')), 2)
+                self.assertEqual(len(presentation.find(P+'sldIdLst')), 1)
                 data = {part: archive.read(part) for part in archive.namelist()}
                 slides = [ET.fromstring(archive.read(part)) for part in poster_slide_parts(data)]
-                self.assertTrue(list(slides[0].iter(M+'oMath')), 'Full version must retain its equation')
                 # PowerPoint can split a word or symbol across runs when restyling it.
                 # Compare nonempty paragraphs: run splits and empty paragraphs added by
                 # PowerPoint are formatting, not changes to the scientific content.
@@ -161,7 +169,7 @@ class PosterRebuildTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout+'\n'+result.stderr)
             with ZipFile(ROOT/'posters/36x48.pptx') as portrait:
                 expected = np.asarray(Image.open(BytesIO(portrait.read(
-                    plot_media(portrait, 'ppt/slides/slide1.xml', 4)))).convert('RGBA'))
+                    plot_media(portrait, poster_slide_part({n: portrait.read(n) for n in portrait.namelist()}), 4)))).convert('RGBA'))
             generated = np.asarray(Image.open(Path(directory)/'uncertainty.png').convert('RGBA'))
             self.assertEqual(expected.shape, generated.shape)
             np.testing.assert_array_equal(expected[..., 3], generated[..., 3])
