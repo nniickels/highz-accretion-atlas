@@ -24,6 +24,9 @@ v3 ranking/uncertainty tables, mass-offset sensitivity table, v4 seed-onset
 inputs, and the repository growth law. It never writes analysis tables,
 canonical manuscript/v4 figures, inventories, or manifests.
 
+The input manifest also pins `external_direct_mass_comparison.csv`, which
+supplies the independent A2744-QSO1 mass comparison and its uncertainty range.
+
 `inputs.json` pins the reviewed scientific inputs by SHA-256. Code and non-CSV inputs remain byte-exact. A regenerated CSV with different
 serialization is accepted only when `HIGHZ_BASELINE_ROOT` identifies an
 independent baseline whose file matches the pinned hash, and the shared
