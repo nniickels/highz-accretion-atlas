@@ -37,7 +37,7 @@ def plot_media(archive, slide, identity):
 
 
 class PosterRebuildTests(unittest.TestCase):
-    def test_overview_condenses_methods_and_results_with_wider_methods_spacing(self):
+    def test_overview_preserves_context_and_readable_definition_spacing(self):
         for name in ['36x48.pptx', '48x36.pptx']:
             with ZipFile(ROOT/'posters'/name) as archive:
                 data = {part: archive.read(part) for part in archive.namelist()}
@@ -54,7 +54,7 @@ class PosterRebuildTests(unittest.TestCase):
             words = lambda shape: ' '.join(''.join(node.text or '' for node in paragraph.iter(A+'t'))
                                           for paragraph in shape.find(P+'txBody').findall(A+'p'))
             for identity in original:
-                if identity not in {'73', '2', '15', '76', '110', '79'}:
+                if identity not in {'73', '2', '15', '76', '110', '79', '111', '120'}:
                     self.assertEqual(words(original[identity]), words(concise[identity]),
                                      'Overview must preserve content outside Methods, Results and Conclusions')
             self.assertLessEqual(len(words(concise['73']).split()),
@@ -63,6 +63,41 @@ class PosterRebuildTests(unittest.TestCase):
                 spacing = paragraph.find(A+'pPr/'+A+'lnSpc/'+A+'spcPct')
                 self.assertIsNotNone(spacing)
                 self.assertGreaterEqual(int(spacing.get('val')), 115000)
+
+    def test_overview_diagram_counts_match_catalogue_selection(self):
+        import pandas as pd
+        selection = pd.read_csv(ROOT/'results/manuscript/tables/publication_object_selection.csv')
+        measurements = pd.read_csv(ROOT/'data/processed/v3/v3_accreting_measurements.csv')
+        uncertainty = pd.read_csv(ROOT/'results/v3/tables/v3_object_uncertainty_ranking.csv')
+        error_ids = set(uncertainty.loc[uncertainty.reported_mass_errors_sampled, 'physical_object_id'])
+        primary_errors = int((selection.publication_primary_flag & selection.physical_object_id.isin(error_ids)).sum())
+        expanded_errors = int((selection.publication_exploratory_flag & selection.physical_object_id.isin(error_ids)).sum())
+        primary = int(selection.publication_primary_flag.sum())
+        expanded = int(selection.publication_exploratory_flag.sum())
+        excluded = int(selection.excluded_identity_flag.sum())
+        no_mass = int((~selection.growth_ranking_eligible_flag & ~selection.excluded_identity_flag).sum())
+        self.assertEqual(primary + (expanded-primary) + no_mass + excluded, len(selection))
+        for name in ['36x48.pptx', '48x36.pptx']:
+            with ZipFile(ROOT/'posters'/name) as archive:
+                data = {part: archive.read(part) for part in archive.namelist()}
+                slide = ET.fromstring(archive.read(poster_slide_part(data)))
+            text = {shape.find('.//'+P+'cNvPr').get('id'):
+                    ''.join(n.text or '' for n in shape.iter(A+'t'))
+                    for shape in slide.iter(P+'sp')}
+            self.assertIn(f'{len(measurements)} measurements', text['200'])
+            self.assertIn(f'{len(selection)} provisional objects', text['202'])
+            self.assertIn(f'{expanded} expanded-sample objects', text['206'])
+            self.assertIn(f'{primary} primary', text['207'])
+            self.assertIn(f'{expanded-primary} additional', text['208'])
+            self.assertIn(f'{no_mass} without an', text['209'])
+            self.assertIn(f'{excluded} with uncertain', text['209'])
+            # The editable figures retain both processing paths and the missing-error caveat.
+            self.assertIn('Central mass estimate', text['213'])
+            self.assertIn('10,000 mass-error draws', text['214'])
+            self.assertIn(f'{primary_errors} primary / {expanded_errors} expanded', text['223'])
+            self.assertIn(f'The other {expanded-expanded_errors} enter central-mass tests only', text['223'])
+            pictures = [n.find('.//'+P+'cNvPr').get('id') for n in slide.iter(P+'pic')]
+            self.assertNotIn('3', pictures, 'The overview replaces the efficiency plot with the workflow')
 
     def test_final_editions_have_matching_content_and_preserved_dimensions(self):
         content = []
@@ -107,7 +142,7 @@ class PosterRebuildTests(unittest.TestCase):
                 self.assertEqual(words(source), words(actual))
                 math = lambda root: [ET.tostring(n) for n in root.iter(M+'oMath')]
                 self.assertEqual(math(source), math(actual))
-                for identity in (3, 14, 4):
+                for identity in (14, 4):
                     expected = np.asarray(Image.open(BytesIO(reviewed.read(plot_media(reviewed, target, identity)))).convert('RGBA'))
                     generated = np.asarray(Image.open(BytesIO(rebuilt.read(plot_media(rebuilt, target, identity)))).convert('RGBA'))
                     self.assertEqual(expected.shape, generated.shape)
