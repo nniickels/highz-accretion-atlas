@@ -14,3 +14,10 @@ Run `python -m src.internal.publication_selection --write` to regenerate the
 [analysis tables](../../results/manuscript/README.md); omit `--write` to verify them.
 The external Dayal and A2744-QSO1 comparisons do not admit new catalogue measurements.
 Source locators and assumptions remain in the JSON inputs and output tables.
+
+The additional calibration sensitivity uses the separate scales and adopted
+measurement IDs already recorded in the v3 object table. Only the two named
+primary-tail objects with separately omitted 0.5-dex scales are included; no
+new source measurements are admitted. The implementation rejects changed
+measurement IDs, asymmetric reported errors, or a different calibration scale
+until the assumptions are reviewed.

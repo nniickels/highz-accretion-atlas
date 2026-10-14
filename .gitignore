@@ -16,6 +16,11 @@ docs/archive/
 /paper/*
 !/paper/early_giants_draft.pdf
 !/paper/early_giants_overleaf.zip
+!/paper/apss/
+/paper/apss/*.log
+/paper/apss/*.aux
+/paper/apss/*.out
+/paper/apss/*.xdv
 /releases/
 
 # Temporary poster authoring files; only final editions belong in posters/.

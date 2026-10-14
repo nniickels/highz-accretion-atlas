@@ -42,9 +42,11 @@ and compares the results against the original checkout. It also runs the regress
 suite, source checks, publication figure verification, and a package build/import check.
 Manuscript editing and compilation are separate from the analysis pipeline.
 The authoritative local source is `paper/main.tex`, with a
-compiled PDF and synchronized Overleaf ZIP. Only `paper/early_giants_draft.pdf`
-and `paper/early_giants_overleaf.zip` are public Git artifacts. All other files
-under `paper/`, including Ap&SS materials and local sources, remain ignored.
+compiled PDF and synchronized Overleaf ZIP. The generic manuscript PDF and Overleaf ZIP are tracked alongside the Ap&SS
+submission package in `paper/apss/`. The Ap&SS source, PDF, upload archives,
+supplementary calculation, and rebuild/integrity records are tracked. Its cover
+letter and compilation intermediates remain ignored. The original local sources
+elsewhere under `paper/` remain ignored.
 Overleaf receives the packaged local sources; it is not a separate authoritative
 editing target. Run `python3 -m src.internal.package_overleaf` to build the
 manuscript-only upload ZIP from the local sources after compiling and copying
@@ -113,3 +115,33 @@ notes and temporary compilation files are private. Automated tests retain
 content, dimension, native-equation, input-integrity, and plot-reproduction
 checks. Poster editing does not change the 00–04 notebook workflow, analysis
 manifests, or comparison tolerances.
+
+## Ap&SS calibration sensitivity
+
+`publication_selection` now also generates and verifies
+`results/manuscript/tables/calibration_sensitivity.csv`. Notebook 01 calls this
+through `generate_science`; notebook 04 verifies it. The existing independent
+artifact comparison includes the new CSV, and CI already runs publication
+selection and the regression suite. No comparison tolerance changes are needed.
+
+The calculation adds the separately reported 0.5-dex scale only to
+RUBIES-EGS-55604 and J0910_2028_12910. It assumes an independent zero-mean
+Gaussian calibration error and uses exact normal probabilities, since both
+reported errors are symmetric. It does not change baseline masses, Monte Carlo
+draws, sample membership, or existing results. GN-38509 and ZS7 receive no
+additional scatter because their reported errors already include it.
+
+Run `.venv/bin/python -m unittest tests.test_calibration_sensitivity` for the
+analytic-versus-sampling check and safeguards against double counting. The
+standalone calculation also runs without importing the project:
+
+```sh
+.venv/bin/python -m src.internal.calibration_sensitivity \
+  --input results/manuscript/tables/target_robustness.csv \
+  --verify results/manuscript/tables/calibration_sensitivity.csv
+```
+
+The tracked Ap&SS submission supplies the calculation, reference table, result,
+and dependency pins in a separate supplementary ZIP. Its package manifest records
+these files and the revised manuscript. The existing 9584a7d05b59 reference pins
+the baseline implementation and figures; it does not contain this added test.

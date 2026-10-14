@@ -66,6 +66,8 @@ def build_review_outputs(root, selection, offsets):
             source_url=obj.source_url if label=='catalogue_virial' else direct['source_url'],
             locator='Adopted catalogue row '+obj.measurement_id if label=='catalogue_virial' else direct['locator'],
             scope='Separate comparison; no replacement in primary counts'))
-    return {'target_robustness':tail, 'source_inventory':sources,
+    from src.internal.calibration_sensitivity import build_calibration_sensitivity
+    return {'calibration_sensitivity': build_calibration_sensitivity(tail),
+            'target_robustness':tail, 'source_inventory':sources,
             'matched_literature_comparison':pd.DataFrame(matched),
             'external_direct_mass_comparison':pd.DataFrame(external)}

@@ -70,3 +70,12 @@ This calculation assumes an accretion history; it does not establish a
 seed-formation mechanism or sufficient gas supply.
 Full-catalogue figures remain in `results/v1/`, `results/v2/`, and `results/v3/`.
 See the [reproduction guide](../../docs/guides/reproducibility.md) for comparison tolerances.
+
+## Separate calibration-scatter test
+
+`tables/calibration_sensitivity.csv` adds independent 0.5-dex Gaussian scatter
+to the symmetric reported log-mass errors of RUBIES-EGS-55604 and
+J0910_2028_12910. It reports exact probabilities at mass offsets 0 and -0.5 dex.
+This is a two-object assumption test, not a correction to the frozen catalogue
+or a calibrated uncertainty model for the full sample. It is generated and
+verified with the other publication tables; see the reproducibility guide.
