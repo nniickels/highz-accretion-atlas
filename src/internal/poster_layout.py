@@ -61,15 +61,20 @@ def text_contract(document):
                    for node in document.getElementsByTagNameNS(A, 't'))
 
 
-def poster_slide_part(data):
-    """Select the only slide, or the last version in an older multi-slide deck."""
+def poster_slide_parts(data):
+    """Resolve slides in presentation order, including full and overview versions."""
     presentation = minidom.parseString(data['ppt/presentation.xml'])
-    identity = presentation.getElementsByTagNameNS(P, 'sldId')[-1].getAttributeNS(R, 'id')
     relationships = minidom.parseString(data['ppt/_rels/presentation.xml.rels'])
-    relationship = next(node for node in relationships.documentElement.childNodes
-                        if node.nodeType == node.ELEMENT_NODE
-                        and node.getAttribute('Id') == identity)
-    return posixpath.normpath('ppt/' + relationship.getAttribute('Target'))
+    targets = {node.getAttribute('Id'): node.getAttribute('Target')
+               for node in relationships.documentElement.childNodes
+               if node.nodeType == node.ELEMENT_NODE}
+    return [posixpath.normpath('ppt/' + targets[node.getAttributeNS(R, 'id')])
+            for node in presentation.getElementsByTagNameNS(P, 'sldId')]
+
+
+def poster_slide_part(data):
+    """Select the last editable poster version, preserving earlier slides."""
+    return poster_slide_parts(data)[-1]
 
 
 def relationship_part(part):
@@ -94,8 +99,10 @@ def build(output: Path):
     document = minidom.parseString(source[source_part])
     expected_text = text_contract(document)
     expected_math = [node.toxml() for node in document.getElementsByTagNameNS(M, 'oMath')]
-    if not expected_math:
-        raise ValueError('Portrait poster lacks its native growth equation')
+    # The overview explains growth in words. The full version must retain math.
+    full_document = minidom.parseString(source[poster_slide_parts(source)[0]])
+    if not full_document.getElementsByTagNameNS(M, 'oMath'):
+        raise ValueError('Full portrait poster lacks its native growth equation')
     landscape_document = minidom.parseString(data[target_part])
     # Preserve existing artwork placements exactly, rather than accumulating offsets.
     landscape_pictures = {

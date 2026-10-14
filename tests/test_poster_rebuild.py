@@ -17,7 +17,7 @@ import numpy as np
 from PIL import Image
 
 from src.internal import poster_figures as render_figures
-from src.internal.poster_layout import poster_slide_part, relationship_part
+from src.internal.poster_layout import poster_slide_part, poster_slide_parts, relationship_part
 
 ROOT = Path(__file__).resolve().parents[1]
 A = '{http://schemas.openxmlformats.org/drawingml/2006/main}'
@@ -37,6 +37,33 @@ def plot_media(archive, slide, identity):
 
 
 class PosterRebuildTests(unittest.TestCase):
+    def test_overview_changes_only_methods_with_less_text_and_wider_spacing(self):
+        for name in ['36x48.pptx', '48x36.pptx']:
+            with ZipFile(ROOT/'posters'/name) as archive:
+                data = {part: archive.read(part) for part in archive.namelist()}
+                full, overview = [ET.fromstring(archive.read(part))
+                                  for part in poster_slide_parts(data)]
+            def shapes(root):
+                result = {}
+                for shape in root.iter(P+'sp'):
+                    identity = shape.find('.//'+P+'cNvPr').get('id')
+                    # The native Choice precedes the compatibility Fallback.
+                    result.setdefault(identity, shape)
+                return result
+            original, concise = shapes(full), shapes(overview)
+            words = lambda shape: ' '.join(''.join(node.text or '' for node in paragraph.iter(A+'t'))
+                                          for paragraph in shape.find(P+'txBody').findall(A+'p'))
+            for identity in original:
+                if identity != '73':
+                    self.assertEqual(words(original[identity]), words(concise[identity]),
+                                     'Overview must preserve non-Methods content')
+            self.assertLessEqual(len(words(concise['73']).split()),
+                                 0.7 * len(words(original['73']).split()))
+            for paragraph in concise['73'].find(P+'txBody').findall(A+'p'):
+                spacing = paragraph.find(A+'pPr/'+A+'lnSpc/'+A+'spcPct')
+                self.assertIsNotNone(spacing)
+                self.assertGreaterEqual(int(spacing.get('val')), 115000)
+
     def test_final_editions_have_matching_content_and_preserved_dimensions(self):
         content = []
         for name, dimensions in [('36x48.pptx', (36, 48)), ('48x36.pptx', (48, 36))]:
@@ -45,11 +72,12 @@ class PosterRebuildTests(unittest.TestCase):
                 size = presentation.find(P+'sldSz')
                 self.assertEqual((int(size.get('cx')), int(size.get('cy'))),
                                  tuple(inches * 914400 for inches in dimensions))
-                self.assertEqual(len(presentation.find(P+'sldIdLst')), 1)
+                self.assertEqual(len(presentation.find(P+'sldIdLst')), 2)
                 data = {part: archive.read(part) for part in archive.namelist()}
-                slide = ET.fromstring(archive.read(poster_slide_part(data)))
-                content.append(Counter(' '.join((node.text or '').split())
-                                       for node in slide.iter(A+'t')))
+                slides = [ET.fromstring(archive.read(part)) for part in poster_slide_parts(data)]
+                self.assertTrue(list(slides[0].iter(M+'oMath')), 'Full version must retain its equation')
+                content.append([Counter(' '.join((node.text or '').split())
+                                        for node in slide.iter(A+'t')) for slide in slides])
         self.assertEqual(content[0], content[1], 'Final poster editions must contain the same text')
 
     def test_landscape_reflow_preserves_reviewed_content(self):
@@ -68,13 +96,13 @@ class PosterRebuildTests(unittest.TestCase):
                         self.assertEqual(reviewed.read(name), rebuilt.read(name))
                 self.assertEqual(len(ET.fromstring(reviewed.read('ppt/presentation.xml')).find(P+'sldIdLst')),
                                  len(ET.fromstring(rebuilt.read('ppt/presentation.xml')).find(P+'sldIdLst')))
-                source = ET.fromstring(portrait.read('ppt/slides/slide1.xml'))
+                source_data = {name: portrait.read(name) for name in portrait.namelist()}
+                source = ET.fromstring(portrait.read(poster_slide_part(source_data)))
                 actual = ET.fromstring(rebuilt.read(target))
                 words = lambda root: Counter(' '.join((n.text or '').split())
                                              for n in root.iter(A+'t'))
                 self.assertEqual(words(source), words(actual))
                 math = lambda root: [ET.tostring(n) for n in root.iter(M+'oMath')]
-                self.assertTrue(math(source), 'Native equation must remain present')
                 self.assertEqual(math(source), math(actual))
                 for identity in (3, 14, 4):
                     expected = np.asarray(Image.open(BytesIO(reviewed.read(plot_media(reviewed, target, identity)))).convert('RGBA'))
