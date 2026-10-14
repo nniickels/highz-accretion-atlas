@@ -16,8 +16,8 @@ from zipfile import ZipFile
 import numpy as np
 from PIL import Image
 
-from posters import render_figures
-from posters.build_landscape import poster_slide_part, relationship_part
+from src.internal import poster_figures as render_figures
+from src.internal.poster_layout import poster_slide_part, relationship_part
 
 ROOT = Path(__file__).resolve().parents[1]
 A = '{http://schemas.openxmlformats.org/drawingml/2006/main}'
@@ -55,7 +55,7 @@ class PosterRebuildTests(unittest.TestCase):
     def test_landscape_reflow_preserves_reviewed_content(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)/'rebuilt.pptx'
-            result = subprocess.run([sys.executable, str(ROOT/'posters/build_landscape.py'),
+            result = subprocess.run([sys.executable, '-m', 'src.internal.poster_layout',
                                      '--output', str(output)], cwd=ROOT,
                                     capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stdout+'\n'+result.stderr)
@@ -86,7 +86,7 @@ class PosterRebuildTests(unittest.TestCase):
 
     def test_portrait_uncertainty_reproduces_reviewed_pixels(self):
         with tempfile.TemporaryDirectory() as directory:
-            result = subprocess.run([sys.executable, str(ROOT/'posters/render_figures.py'),
+            result = subprocess.run([sys.executable, '-m', 'src.internal.poster_figures',
                                      '--output-dir', directory, '--uncertainty-only'],
                                     cwd=ROOT, capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stdout+'\n'+result.stderr)
@@ -102,8 +102,8 @@ class PosterRebuildTests(unittest.TestCase):
     def test_changed_scientific_input_stops_poster_rendering(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            (root/'posters').mkdir()
-            (root/'posters/inputs.json').write_text('{"sha256":{"input.csv":"reviewed-hash"}}')
+            (root/'data').mkdir()
+            (root/'data/poster_inputs.json').write_text('{"sha256":{"input.csv":"reviewed-hash"}}')
             (root/'input.csv').write_text('changed scientific value\n')
             with patch.object(render_figures, 'ROOT', root), patch.dict('os.environ', {'HIGHZ_BASELINE_ROOT': ''}):
                 with self.assertRaisesRegex(ValueError, 'Poster input changed: input.csv'):
@@ -112,14 +112,14 @@ class PosterRebuildTests(unittest.TestCase):
     def test_csv_reserialization_requires_a_pinned_independent_baseline(self):
         with tempfile.TemporaryDirectory() as directory:
             root, baseline = Path(directory)/'run', Path(directory)/'baseline'
-            (root/'posters').mkdir(parents=True)
+            (root/'data').mkdir(parents=True)
             baseline.mkdir()
             original = b'object_id,mass\nA,7.123456789012345\n'
             (baseline/'input.csv').write_bytes(original)
             (root/'input.csv').write_bytes(original.replace(b'\n', b'\r\n'))
             pinned = hashlib.sha256(original).hexdigest()
             manifest = {'sha256': {'input.csv': pinned}}
-            (root/'posters/inputs.json').write_text(json.dumps(manifest))
+            (root/'data/poster_inputs.json').write_text(json.dumps(manifest))
             with patch.object(render_figures, 'ROOT', root), patch.dict('os.environ', {'HIGHZ_BASELINE_ROOT': ''}):
                 with self.assertRaisesRegex(ValueError, 'Poster input changed'):
                     render_figures.verify_inputs()
@@ -132,7 +132,7 @@ class PosterRebuildTests(unittest.TestCase):
                 (baseline/'input.csv').write_text('object_id,mass\nA,8.0\n')
                 with self.assertRaisesRegex(ValueError, 'pinned input'):
                     render_figures.verify_inputs(baseline_root=baseline)
-                (root/'posters/inputs.json').write_text(json.dumps({'sha256': {'input.py': pinned}}))
+                (root/'data/poster_inputs.json').write_text(json.dumps({'sha256': {'input.py': pinned}}))
                 (root/'input.py').write_bytes(original.replace(b'\n', b'\r\n'))
                 with self.assertRaisesRegex(ValueError, 'Poster input changed: input.py'):
                     render_figures.verify_inputs(baseline_root=baseline)

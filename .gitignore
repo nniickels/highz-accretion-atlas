@@ -16,8 +16,11 @@ docs/archive/
 /paper/
 /releases/
 
-# Temporary poster authoring files; finished posters and portable sources are tracked.
+# Temporary poster authoring files; only final editions belong in posters/.
 /.cupc-*/
+/posters/*
+!/posters/36x48.pptx
+!/posters/48x36.pptx
 
 # OS metadata.
 .DS_Store

@@ -100,7 +100,8 @@ SOURCE_DATE_EPOCH=1788393600 .venv/bin/python -m pip wheel . --no-deps --no-buil
 
 ## CUPC posters
 
-The editable poster decks and portable plot/layout scripts are tracked separately
-from canonical scientific artifacts. See [poster reproduction](../../posters/README.md)
-for their reviewed input hashes and rebuild commands. Poster authoring does not
-change the 00–04 notebook workflow, analysis manifests, or comparison tolerances.
+The final portrait and landscape editions are in `posters/`. Local authoring
+notes and temporary compilation files are private. Automated tests retain
+content, dimension, native-equation, input-integrity, and plot-reproduction
+checks. Poster editing does not change the 00–04 notebook workflow, analysis
+manifests, or comparison tolerances.

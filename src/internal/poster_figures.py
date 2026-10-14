@@ -1,7 +1,7 @@
 """Rebuild the scientific plot assets used in the editable CUPC posters."""
 from pathlib import Path
 import sys
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 import matplotlib
 matplotlib.use('Agg')
@@ -17,14 +17,14 @@ from src.internal.reproduction import assert_csv_reproduction
 
 
 def verify_inputs(*, baseline_root=None):
-    manifest=json.loads((ROOT/'posters/inputs.json').read_text())
+    manifest=json.loads((ROOT/'data/poster_inputs.json').read_text())
     baseline_root = baseline_root or os.environ.get('HIGHZ_BASELINE_ROOT')
     for name, expected in manifest['sha256'].items():
         actual=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
         if actual == expected:
             continue
         if Path(name).suffix != '.csv' or not baseline_root:
-            raise ValueError(f'Poster input changed: {name}. Review the poster claims before updating inputs.json.')
+            raise ValueError(f'Poster input changed: {name}. Review the poster claims before updating data/poster_inputs.json.')
         baseline = Path(baseline_root).resolve()
         if baseline == ROOT.resolve():
             raise ValueError('Poster CSV baseline must be independent of regenerated inputs')

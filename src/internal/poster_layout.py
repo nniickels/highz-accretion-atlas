@@ -16,7 +16,7 @@ import tempfile
 from xml.dom import minidom
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 P = 'http://schemas.openxmlformats.org/presentationml/2006/main'
 A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
 R = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
@@ -150,7 +150,7 @@ def build(output: Path):
             data[target_note_part] = source[source_note_part]
             relationship.setAttribute('Target', note_target)
     with tempfile.TemporaryDirectory(prefix='cupc-plot-') as temporary:
-        subprocess.run([sys.executable, str(ROOT/'posters/render_figures.py'),
+        subprocess.run([sys.executable, '-m', 'src.internal.poster_figures',
                         '--output-dir', temporary, '--landscape-uncertainty-only'],
                        cwd=ROOT, check=True)
         if uncertainty_media is None:
