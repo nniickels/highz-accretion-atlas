@@ -112,10 +112,13 @@ class PosterRebuildTests(unittest.TestCase):
                 slides = [ET.fromstring(archive.read(part)) for part in poster_slide_parts(data)]
                 self.assertTrue(list(slides[0].iter(M+'oMath')), 'Full version must retain its equation')
                 # PowerPoint can split a word or symbol across runs when restyling it.
-                # Compare complete paragraph text so run boundaries do not imply a content change.
+                # Compare nonempty paragraphs: run splits and empty paragraphs added by
+                # PowerPoint are formatting, not changes to the scientific content.
                 content.append([Counter(' '.join(''.join(node.text or ''
                                                         for node in paragraph.iter(A+'t')).split())
-                                        for paragraph in slide.iter(A+'p')) for slide in slides])
+                                        for paragraph in slide.iter(A+'p')
+                                        if any((node.text or '').strip()
+                                               for node in paragraph.iter(A+'t'))) for slide in slides])
         self.assertEqual(content[0], content[1], 'Final poster editions must contain the same text')
 
     def test_landscape_reflow_preserves_reviewed_content(self):
