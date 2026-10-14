@@ -1,11 +1,12 @@
 # CUPC poster sources and reproduction
 
-The editable text/layout sources and delivered decks are tracked at the repository root:
+The editable text/layout sources and delivered decks are tracked in this directory:
 
-- `CUPC_Poster_portrait_36x48.pptx`: the current single-slide portrait poster.
-- `CUPC_Poster.pptx`: the current single-slide landscape poster.
+- `36x48.pptx`: the current single-slide portrait poster, 36 inches wide by 48 high.
+- `48x36.pptx`: the current single-slide landscape poster, 48 inches wide by 36 high.
 
-The landscape deck is 48 × 36 inches. These files retain native text and the
+These files contain the same scientific content. The landscape edition is
+intended for other events and retains its dimensions. These files retain native text and the
 Office math equation; scientific plots are embedded PNGs. PowerPoint is needed
 for a final native export/print inspection. The portable rebuild does not need
 Codex, Node.js, an artifact tool, temporary authoring directories, or absolute
@@ -55,8 +56,9 @@ layout. New shapes or major copy changes require reviewing the placement map
 and visually inspecting the rebuilt slide. Archive timestamps are fixed, but
 PowerPoint metadata/XML serialization and platform font rendering mean that
 byte-identical PPTX reproduction across editors/platforms is not promised.
-The regression test checks content preservation and the plot pixels using the
-same per-channel tolerance as the scientific image gate.
+The regression tests check content and native-math preservation, agreement
+between the final editions, their dimensions, and plot pixels using the same
+per-channel tolerance as the scientific image gate.
 
 ## Analysis reproduction stays separate
 

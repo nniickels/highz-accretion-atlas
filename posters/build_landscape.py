@@ -40,7 +40,7 @@ POSITIONS = {
     2: (16.7, 7, 14.65, 6), 4: (16.5, 14.05, 14.8, 7.6),
     110: (16.85, 21.7, 14, 1), 76: (32.5, 7, 14, 2.2),
     14: (32.1, 9.4, 14.8, 9.99), 112: (32.5, 19.5, 14, .6),
-    15: (32.5, 20.25, 14, 2.25), 78: (32, 23.35, 15, 1.05),
+    15: (32.5, 20.15, 14, 2.75), 78: (32, 23.35, 15, 1.05),
     79: (32.5, 24.75, 14, 9.85), 80: (32, 23.35, 15, 11.9),
     120: (16.65, 23.35, 14.35, .7), 3: (16.6, 24.25, 14.5, 10.106),
     111: (16.65, 34.4, 14.35, .85),
@@ -80,9 +80,9 @@ def relationship_part(part):
 def build(output: Path):
     if output.exists():
         raise FileExistsError(f'Choose a new output path: {output}')
-    with ZipFile(ROOT/'CUPC_Poster.pptx') as archive:
+    with ZipFile(ROOT/'posters/48x36.pptx') as archive:
         data = {name: archive.read(name) for name in archive.namelist()}
-    with ZipFile(ROOT/'CUPC_Poster_portrait_36x48.pptx') as archive:
+    with ZipFile(ROOT/'posters/36x48.pptx') as archive:
         source = {name: archive.read(name) for name in archive.namelist()}
     source_part = poster_slide_part(source)
     target_part = poster_slide_part(data)

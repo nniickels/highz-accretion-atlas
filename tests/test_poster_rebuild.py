@@ -37,6 +37,21 @@ def plot_media(archive, slide, identity):
 
 
 class PosterRebuildTests(unittest.TestCase):
+    def test_final_editions_have_matching_content_and_preserved_dimensions(self):
+        content = []
+        for name, dimensions in [('36x48.pptx', (36, 48)), ('48x36.pptx', (48, 36))]:
+            with ZipFile(ROOT/'posters'/name) as archive:
+                presentation = ET.fromstring(archive.read('ppt/presentation.xml'))
+                size = presentation.find(P+'sldSz')
+                self.assertEqual((int(size.get('cx')), int(size.get('cy'))),
+                                 tuple(inches * 914400 for inches in dimensions))
+                self.assertEqual(len(presentation.find(P+'sldIdLst')), 1)
+                data = {part: archive.read(part) for part in archive.namelist()}
+                slide = ET.fromstring(archive.read(poster_slide_part(data)))
+                content.append(Counter(' '.join((node.text or '').split())
+                                       for node in slide.iter(A+'t')))
+        self.assertEqual(content[0], content[1], 'Final poster editions must contain the same text')
+
     def test_landscape_reflow_preserves_reviewed_content(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)/'rebuilt.pptx'
@@ -44,8 +59,8 @@ class PosterRebuildTests(unittest.TestCase):
                                      '--output', str(output)], cwd=ROOT,
                                     capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stdout+'\n'+result.stderr)
-            with ZipFile(ROOT/'CUPC_Poster_portrait_36x48.pptx') as portrait, \
-                 ZipFile(ROOT/'CUPC_Poster.pptx') as reviewed, ZipFile(output) as rebuilt:
+            with ZipFile(ROOT/'posters/36x48.pptx') as portrait, \
+                 ZipFile(ROOT/'posters/48x36.pptx') as reviewed, ZipFile(output) as rebuilt:
                 reviewed_data = {name: reviewed.read(name) for name in reviewed.namelist()}
                 target = poster_slide_part(reviewed_data)
                 for name in reviewed.namelist():
@@ -75,7 +90,7 @@ class PosterRebuildTests(unittest.TestCase):
                                      '--output-dir', directory, '--uncertainty-only'],
                                     cwd=ROOT, capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stdout+'\n'+result.stderr)
-            with ZipFile(ROOT/'CUPC_Poster_portrait_36x48.pptx') as portrait:
+            with ZipFile(ROOT/'posters/36x48.pptx') as portrait:
                 expected = np.asarray(Image.open(BytesIO(portrait.read(
                     plot_media(portrait, 'ppt/slides/slide1.xml', 4)))).convert('RGBA'))
             generated = np.asarray(Image.open(Path(directory)/'uncertainty.png').convert('RGBA'))
