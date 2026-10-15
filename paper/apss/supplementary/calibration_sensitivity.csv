@@ -1,5 +1,0 @@
-object_id,measurement_id,source_key,mass_offset_dex,reported_sigma_dex,added_sigma_dex,combined_sigma_dex,margin_above_critical_mass_dex,probability_reported_exact,probability_with_calibration,assumption,scope
-RUBIES-EGS-55604,RUBIESEGS55604_kocevski25,kocevski25_lrd_blagn,0.0,0.1,0.5,0.5099019513592785,1.5410820728563497,1.0,0.9987457349593701,independent_zero_mean_gaussian_0.5dex,two_primary_tail_objects_only
-RUBIES-EGS-55604,RUBIESEGS55604_kocevski25,kocevski25_lrd_blagn,-0.5,0.1,0.5,0.5099019513592785,1.0410820728563497,1.0,0.9794108356672335,independent_zero_mean_gaussian_0.5dex,two_primary_tail_objects_only
-J0910_2028_12910,J0910202812910_baccus26,baccus26_nirspec_blagn,0.0,0.01,0.5,0.5000999900019995,0.3299019107386201,1.0,0.7452677986096511,independent_zero_mean_gaussian_0.5dex,two_primary_tail_objects_only
-J0910_2028_12910,J0910202812910_baccus26,baccus26_nirspec_blagn,-0.5,0.01,0.5,0.5000999900019995,-0.17009808926137993,0.0,0.36688000812877236,independent_zero_mean_gaussian_0.5dex,two_primary_tail_objects_only

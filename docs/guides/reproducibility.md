@@ -44,7 +44,7 @@ Manuscript editing and compilation are separate from the analysis pipeline.
 The authoritative local source is `paper/main.tex`, with a
 compiled PDF and synchronized Overleaf ZIP. The generic manuscript PDF and Overleaf ZIP are tracked alongside the Ap&SS
 submission package in `paper/apss/`. The Ap&SS source, PDF, upload archives,
-supplementary calculation, and rebuild/integrity records are tracked. Its cover
+calibration analysis references, and rebuild/integrity records are tracked. Its cover
 letter and compilation intermediates remain ignored. The original local sources
 elsewhere under `paper/` remain ignored.
 Overleaf receives the packaged local sources; it is not a separate authoritative
@@ -176,7 +176,9 @@ standalone calculation also runs without importing the project:
   --verify results/for_manuscript/tables/calibration_sensitivity.csv
 ```
 
-The tracked Ap&SS submission supplies the calculation, reference table, result,
-and dependency pins in a separate supplementary ZIP. Its package manifest records
-these files and the revised manuscript. The existing 9584a7d05b59 reference pins
-the baseline implementation and figures; it does not contain this added test.
+The Ap&SS manuscript cites repository commit
+`77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac`, which contains the calibration
+code, input and result tables, dependency versions, and reproduction commands.
+The submission uses this repository reference instead of duplicate supplementary
+files. Its integrity checker verifies that the cited calibration files and
+scientific figures match the saved repository version.

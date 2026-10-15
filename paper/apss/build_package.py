@@ -9,12 +9,7 @@ import zipfile
 
 PACKAGE = Path(__file__).resolve().parent
 REPO = PACKAGE.parents[1]
-SUPPLEMENT = {
-    'calibration_sensitivity.py': 'src/internal/calibration_sensitivity.py',
-    'target_robustness.csv': 'results/for_manuscript/tables/target_robustness.csv',
-    'calibration_sensitivity.csv': 'results/for_manuscript/tables/calibration_sensitivity.csv',
-    'core.txt': 'requirements/core.txt',
-}
+CALIBRATION_TABLE = 'results/for_manuscript/tables/calibration_sensitivity.csv'
 
 
 def archive(path, entries):
@@ -29,9 +24,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--record-reviewed-hashes', action='store_true')
     args = parser.parse_args()
-    for name, source in SUPPLEMENT.items():
-        (PACKAGE / 'supplementary' / name).write_bytes((REPO / source).read_bytes())
-    with (REPO / SUPPLEMENT['calibration_sensitivity.csv']).open() as stream:
+    with (REPO / CALIBRATION_TABLE).open() as stream:
         values = {(r['object_id'], float(r['mass_offset_dex'])): r for r in csv.DictReader(stream)}
     def probability(value):
         value = float(value)
@@ -51,18 +44,14 @@ def main():
             raise ValueError(f'Duplicate flattened filename: {item.name}')
         entries[item.name] = item.read_bytes()
     archive(PACKAGE / 'apss_source.zip', entries)
-    supplement_names = [*SUPPLEMENT, 'README.md']
-    archive(PACKAGE / 'apss_supplementary.zip', {
-        n: (PACKAGE / 'supplementary' / n).read_bytes() for n in supplement_names})
     if args.record_reviewed_hashes:
         manifest_path = PACKAGE / 'reproducibility_manifest.json'
         manifest = json.loads(manifest_path.read_text())
         files = [PACKAGE / n for n in ('main.tex', 'main.pdf', 'apss_source.zip',
-                                      'apss_supplementary.zip', 'verify_package.py', 'build_package.py')]
-        files += assets + [PACKAGE / 'supplementary' / n for n in supplement_names]
+                                      'verify_package.py', 'build_package.py')]
+        files += assets
         manifest['package_sha256'] = {
             str(p.relative_to(PACKAGE)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
-        manifest['supplementary_sources'] = SUPPLEMENT
         manifest['calibration_scope'] = 'Separate two-object Gaussian-scatter test; baseline unchanged'
         manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
 

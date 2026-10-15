@@ -1,6 +1,6 @@
 # Ap&SS reproducibility record
 
-Updated 14 October 2026.
+Updated 15 October 2026.
 
 ## Baseline and added calculation
 
@@ -18,17 +18,23 @@ calibration scatter. It is not a common uncertainty model for the full sample.
 
 J0910_2028_12910 has probability 0.745268 without a mass shift and 0.366880
 with a -0.5-dex shift. RUBIES-EGS-55604 has 0.998746 and 0.979411, respectively.
-Baseline Monte Carlo probabilities are retained; the supplementary table labels
+Baseline Monte Carlo probabilities are retained; the calibration table labels
 its analytic reported-error probabilities separately.
 
-## Versions and supplied files
+## Cited repository version
 
-- Catalogue and baseline numerical tables: `1629c963cc43205bf61467e63a418e14e948efe8`.
-- Baseline implementation, current figures and earlier-onset analysis:
-  `9584a7d05b597740434e3413514a12eb4811f6b6`.
-- Additional calibration calculation: supplied in `apss_supplementary.zip`,
-  with code, reference input, result, dependency pins and execution instructions.
-  The old commits do not contain this addition.
+The manuscript links both the project repository and commit
+`77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac`. That commit contains the
+catalogue, baseline and earlier-onset analyses, current scientific figure
+exports, and the additional calibration calculation. It also contains the
+pinned dependency versions and reproduction commands. The scientific
+calibration files match that revision exactly.
+
+The calibration code is `src/internal/calibration_sensitivity.py`; its input
+and result are `results/for_manuscript/tables/target_robustness.csv` and
+`results/for_manuscript/tables/calibration_sensitivity.csv`. These paths are
+valid at the cited commit. The redundant supplementary folder and ZIP have
+been removed. The manuscript retains the methods and numerical results.
 
 All eight submitted figure PDFs match the pinned canonical exports byte-for-byte.
 The three original LaTeX table fragments are unchanged. The fourth,
@@ -55,8 +61,8 @@ baseline containing this intentional addition, as documented in the main guide.
   numerical tables and figure comparisons.
 - `verify_primary_source_values` passed 2,041 independent source-value checks.
 - The final source ZIP compiled in a separate temporary directory. The
-  supplementary ZIP's calculation reproduced its supplied table independently
-  of the project import path.
+  calibration code, input and result are checked against the cited repository
+  version; publication selection reproduces the result table.
 - The manuscript compiled without undefined-reference or overfull-box warnings.
 
 The three previously unresolved identity groups remain excluded. These checks
@@ -69,10 +75,10 @@ check was rerun after this revision.
 ## Rebuild and check
 
 From this directory, `python3 build_package.py` compiles the manuscript and
-builds both ZIPs. After reviewing intentional changes, use
+builds the source ZIP. After reviewing intentional changes, use
 `python3 build_package.py --record-reviewed-hashes`, then
 `python3 verify_package.py`. The integrity checker compares reviewed hashes,
-pinned figures, supplementary source copies, and archive membership/content.
+pinned figures, cited repository files, and source archive membership/content.
 It does not silently update a hash when a check fails.
 
 From the repository root:
@@ -87,8 +93,8 @@ From the repository root:
 
 The generic Overleaf packager targets the original manuscript, not this Ap&SS
 copy. Manuscript wording remains locally maintained; numerical regeneration
-does not rewrite it. The source ZIP excludes the cover letter and supplementary
-analysis files; upload the supplementary ZIP separately.
+does not rewrite it. The source ZIP excludes the cover letter. The calibration code and data are
+accessed through the cited repository commit; no supplementary upload is needed.
 
 ## Pagination and AI disclosure update
 
@@ -99,8 +105,7 @@ captions, table captions, scientific assets, and numerical inputs are unchanged.
 The package checker verifies the section order, figure/table membership and
 citation order in addition to hashes and archive contents. The revised source
 ZIP was rebuilt and compiled in an independent temporary directory. Layout
-changes do not alter the supplementary analysis or baseline calculation.
+changes do not alter the calibration analysis or baseline calculation.
 
-Current figure paths use `results/for_manuscript/`. The manifest retains
-`historical_figure_paths` for comparison with the pinned analysis commit, which
-predates the directory rename.
+The package checks figures at `results/for_manuscript/` against the cited
+commit. The earlier historical-path mapping is no longer needed.

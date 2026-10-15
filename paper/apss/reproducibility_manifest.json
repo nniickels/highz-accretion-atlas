@@ -1,13 +1,12 @@
 {
-  "analysis_commit": "9584a7d05b597740434e3413514a12eb4811f6b6",
-  "catalogue_commit": "1629c963cc43205bf61467e63a418e14e948efe8",
+  "analysis_commit": "77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac",
+  "catalogue_commit": "77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac",
   "package_sha256": {
-    "main.tex": "6d8ae5ac8502473021c73a5757348a06271a5c9660d58dff8035d12e59d3b356",
-    "main.pdf": "6034decc5a901a5ba18221b788859e12af75ffaac16d6fcf8720b312fcd74fda",
-    "apss_source.zip": "d5a1fb21b51fb026c3039aba84255ca5b6db392249ff4b6fa7a2a7f82290b61e",
-    "apss_supplementary.zip": "c75c4f41c1c845a601572d00aa00a0c2707a537f5b2726f5ada0028ae625314e",
-    "verify_package.py": "a82860ebb9c11e9d25da3bfcddd1fab7e1615e40b544fd1280f8a575ece3615f",
-    "build_package.py": "723439445a14726fcee929ddb284f39705355762cce9b7b8c7f4dcb8eea6e546",
+    "main.tex": "9fe30a1a6445afa2816d9460d8cacaadf81ce577a2fec218a81ce72eba4b6949",
+    "main.pdf": "894ccab5f6a1c42bdab809a58bb7e4aa8e2ddd91d6420e4e28e0f8c0bc17807e",
+    "apss_source.zip": "e279183ed0998a951f96561889d92df39f28faee3d6ff0efbe1d5786f16965b1",
+    "verify_package.py": "618e330c833ff851cd15eb809505c60e9ad8d7d527fc73e7fdd401a2bcff8553",
+    "build_package.py": "3ac134f324d6f21cc5cd36a019f9047e9e01c97710f67568eb1be697fea972c5",
     "figures/compatibility.pdf": "f1d0794292db5ed1ab0470162bc4b2dcc8c5b77e8e161e0f60827942fe243eb2",
     "figures/growth_boundaries.pdf": "17b6b7eb267a3e24d5b0e4233782790c93b6323fba52395c36924b4ade7ddd2b",
     "figures/growth_tracks.pdf": "3dc16d1147e834eab0ed965e28d6a02693450961398553363b931ed740991fdb",
@@ -19,12 +18,7 @@
     "tables/calibration_rows.tex": "ec2039ba68b48ade26079b6679d719ebfe7d609b04727386f740e7d730678c5e",
     "tables/source_rows.tex": "55b2f4dc2fc761ab14aaf0aa42c309998dfa46af4ba7355450fb7ca52df94bc9",
     "tables/target_rows.tex": "856abacf86c6b3357e7648cc99376fa10af5566e32044880bbbfa87a856257b4",
-    "tables/v4_seed_requirements.tex": "5a55afc71f9dac50902dd34949db100c5d047c31e7b29573015684c73aeedec7",
-    "supplementary/calibration_sensitivity.py": "8b2e607a5f16aea6bf02ccaabc5a66b9a336157b5170b49eabab628d0bd46ccc",
-    "supplementary/target_robustness.csv": "7ca9235cd4d6e9a79a09d4795c34c099230fe96a97f228db59aad94f3248358f",
-    "supplementary/calibration_sensitivity.csv": "970e4a70b44fa88688f3547153fcee20030ffa53de63645fcbbcf64045248e0f",
-    "supplementary/core.txt": "f7962d1115d6c1aa194843425f04ec912401f52dc5136363a7cd82a1124ee731",
-    "supplementary/README.md": "8230a5e32b5c55f4f4f99e5bdca8c51143eeaefea3ca1609678d9897ac936803"
+    "tables/v4_seed_requirements.tex": "5a55afc71f9dac50902dd34949db100c5d047c31e7b29573015684c73aeedec7"
   },
   "canonical_figures": {
     "figures/v4_minimum_seed_mass.pdf": "results/v4/figures/v4_minimum_seed_mass.pdf",
@@ -36,21 +30,13 @@
     "figures/seed_timing_comparison.pdf": "results/for_manuscript/figures/seed_timing_comparison.pdf",
     "figures/compatibility.pdf": "results/for_manuscript/figures/compatibility.pdf"
   },
-  "supplementary_sources": {
-    "calibration_sensitivity.py": "src/internal/calibration_sensitivity.py",
-    "target_robustness.csv": "results/for_manuscript/tables/target_robustness.csv",
-    "calibration_sensitivity.csv": "results/for_manuscript/tables/calibration_sensitivity.csv",
-    "core.txt": "requirements/core.txt"
-  },
   "calibration_scope": "Separate two-object Gaussian-scatter test; baseline unchanged",
-  "historical_figure_paths": {
-    "figures/v4_minimum_seed_mass.pdf": "results/v4/figures/v4_minimum_seed_mass.pdf",
-    "figures/landscape.pdf": "results/manuscript/figures/landscape.pdf",
-    "figures/uncertainty.pdf": "results/manuscript/figures/uncertainty.pdf",
-    "figures/measurement_sensitivity.pdf": "results/manuscript/figures/measurement_sensitivity.pdf",
-    "figures/growth_tracks.pdf": "results/manuscript/figures/growth_tracks.pdf",
-    "figures/growth_boundaries.pdf": "results/manuscript/figures/growth_boundaries.pdf",
-    "figures/seed_timing_comparison.pdf": "results/manuscript/figures/seed_timing_comparison.pdf",
-    "figures/compatibility.pdf": "results/manuscript/figures/compatibility.pdf"
+  "repository_sources": {
+    "src/internal/calibration_sensitivity.py": "8b2e607a5f16aea6bf02ccaabc5a66b9a336157b5170b49eabab628d0bd46ccc",
+    "src/internal/publication_review.py": "0875b3c00b2e7aaf859e1ee04a5c09712ef7518eba83dca5196e7ba6f8e021ac",
+    "src/internal/publication_selection.py": "fa155bac619892654e5bfad102a796313afd790f3f7de57fcc31726f96c72e85",
+    "results/for_manuscript/tables/target_robustness.csv": "7ca9235cd4d6e9a79a09d4795c34c099230fe96a97f228db59aad94f3248358f",
+    "results/for_manuscript/tables/calibration_sensitivity.csv": "970e4a70b44fa88688f3547153fcee20030ffa53de63645fcbbcf64045248e0f",
+    "requirements/core.txt": "f7962d1115d6c1aa194843425f04ec912401f52dc5136363a7cd82a1124ee731"
   }
 }

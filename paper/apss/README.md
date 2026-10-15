@@ -1,50 +1,59 @@
 # Ap&SS submission package
 
-Updated 14 October 2026. No submission has been made.
+This folder contains the submission package for
+*Astrophysics and Space Science* (Ap&SS). It is separate from the original
+local manuscript in `paper/main.tex`.
 
 ## Files
 
-- `main.tex`: journal submission copy, independent of `../main.tex`.
-- `main.pdf`: compiled manuscript, including figures, tables, appendices and declarations.
-- `apss_source.zip`: LaTeX manuscript and all referenced figures/table fragments, flattened for upload. References are embedded in the manuscript; no BibTeX file is needed.
-- `apss_supplementary.zip`: standalone calibration calculation, input/result CSVs, dependency pins and instructions. Upload as Supplementary Information.
-- `cover_letter.txt`: private editorial letter, excluded from Git and the source ZIP. Paste into the cover-letter field or upload separately if the portal accepts text.
-- `figures/`, `tables/`: editable package dependencies.
+| File or folder | Purpose |
+| --- | --- |
+| `main.tex`, `main.pdf` | Submission source and compiled manuscript. |
+| `figures/`, `tables/` | Eight scientific figure PDFs and four LaTeX table files. |
+| `apss_source.zip` | Manuscript and required figures and tables, with flat filenames for upload. |
+| `REPRODUCIBILITY.md` | Scientific verification record and pinned analysis versions. |
+| `reproducibility_manifest.json` | Reviewed package hashes and links to the scientific exports. |
 
-## Submission choices
+The cover letter and compilation files are excluded from Git and the upload
+archives. References are embedded in `main.tex`; no BibTeX step is needed.
 
-Select **Research Article** (or **Research**, according to the portal label).
-In **Details → Collections**, choose **Section: Software, Catalogs, and Surveys in Astrophysics and Space Science**. The editors decide whether the paper is in scope. The collection is ongoing.
+## Rebuild and verify
 
-Use the subscription publication route to stay within the C$200 author-fee budget; its APC is zero. Do not select paid open access unless a fully funded agreement is confirmed.
+From this folder, with Tectonic available:
 
-Enter Nicole Jiang as sole and corresponding author, affiliation Astronomy & Physics, University of Toronto, Toronto, Canada; email nicolejitong.jiang@mail.utoronto.ca. Funding: none. Competing interests: none. Repeat contributions and competing-interest information in the portal, even though included in the manuscript. Add ORCID if available.
+```bash
+python3 build_package.py
+python3 verify_package.py
+```
 
-Upload the source ZIP and compiled PDF in the appropriate manuscript fields. Review the portal-generated PDF before completing submission. The standard article class is retained for this initial submission; the journal encourages, but does not mandate, its Springer template. Appendices precede the references. Declarations follow the references, then figures with legends, then tables. Margin notes indicate placement in the narrative. Figures and tables are numbered by first narrative citation; the package checker verifies this order.
+The builder compiles the PDF, regenerates the calibration table fragment from
+the repository result table, and rebuilds the source ZIP. It does not update reviewed hashes. After inspecting an
+intentional package change, run:
 
-## Before the final submit action
+```bash
+python3 build_package.py --record-reviewed-hashes
+python3 verify_package.py
+```
 
-Confirm the work is not currently under consideration at another journal and that the journal's originality and institutional-approval declarations are accurate. These are submission-time attestations, not facts inferred in the cover letter. Confirm the affiliation wording describes where the work was performed. Check any acknowledgements or required resource credits and add them if applicable. The methods identify the three AI models confirmed by the author and disclose their use for extraction, code development, review, and documentation.
+The verifier checks file hashes, figures against their pinned scientific exports,
+archive contents, figure/table citation order, and the calibration files against
+the manuscript's cited repository commit. Hash review does not replace
+numerical regeneration; use the commands in [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
+The builder does not change catalogue data or scientific results.
 
-## Changes in this copy
+## Submission notes
 
-Added corresponding-author details and confirmed declarations; removed the dated draft label; shortened the abstract to approximately 230 words and defined JWST; separated keywords; stated the literature cutoff and catalogue scope; emphasized provenance and reproducible comparison; added brief AI-assisted scraping/code-review disclosure; framed the focused analysis as accretion-onset sensitivity; and pinned its implementation separately from the original catalogue snapshot. Baseline numerical results and figures are unchanged. The added calibration-scatter table is generated by the publication pipeline and supplied with standalone code and inputs.
+The manuscript includes author details, declarations, and disclosure of AI
+assistance. Confirm these statements and the affiliation before submission.
+Review the portal-generated PDF: a different compiler can change its layout.
 
-## Rebuild
+The proposed article type is Research Article. Check the journal's current
+[submission instructions](https://link.springer.com/journal/10509/submission-guidelines),
+[catalogue collection](https://link.springer.com/collections/diddgecaeb), and
+[publication options](https://link.springer.com/journal/10509/how-to-publish-with-us)
+before choosing portal settings or a publication route.
 
-From this directory, run `python3 build_package.py` to compile the PDF and rebuild both ZIPs. This does not refresh the reviewed manifest. After reviewing intentional changes, run `python3 build_package.py --record-reviewed-hashes`, then `python3 verify_package.py`. The builder does not edit catalogue data, scientific results or scientific manifests.
-
-The source ZIP contains the manuscript, eight figures and four table fragments. The supplementary ZIP contains the separate calibration calculation. Neither includes the cover letter. The local PDF is built with Tectonic; inspect the portal-generated PDF before submission because its engine may differ.
-
-## Official guidance
-
-- https://link.springer.com/journal/10509/submission-guidelines
-- https://link.springer.com/journal/10509/updates/27762122
-- https://link.springer.com/collections/diddgecaeb
-- https://link.springer.com/journal/10509/how-to-publish-with-us
-
-The Ap&SS package is tracked in Git. The cover letter and compilation intermediates are ignored. The separate original manuscript sources remain local.
-
-## Reproducibility audit
-
-See `REPRODUCIBILITY.md` for verified scientific commands and version provenance. Run `python3 verify_package.py` here to check the reviewed package against `reproducibility_manifest.json`. The later analysis commit also pins the current figure exports, not only the earlier-onset analysis.
+The calibration calculation is linked through repository commit
+`77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac`, alongside the other scientific
+code and data. No separate supplementary upload is needed. Submit `main.pdf`
+and `apss_source.zip` in the manuscript fields; supply the cover letter separately.

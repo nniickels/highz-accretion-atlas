@@ -600,28 +600,23 @@ above the Eddington limit.
 \par\penalty0
 \section*{Data and code availability}
 
-The catalogue and code are available at
+Code and data are available at
 \url{https://github.com/nniickels/highz-accretion-atlas}.
-The catalogue and main-analysis tables used here correspond to
-\href{https://github.com/nniickels/highz-accretion-atlas/tree/1629c963cc43205bf61467e63a418e14e948efe8}{commit \texttt{1629c963cc43}}.
-Catalogue data and source records are in \texttt{data/}; manuscript results
-and figures are in \texttt{results/for\_manuscript/tables/} and
-\texttt{results/for\_manuscript/figures/}.
-The analysis code is in \texttt{src/}, with workflow notebooks in
-\texttt{scripts/}. The baseline analysis implementation and figure exports correspond to
-\href{https://github.com/nniickels/highz-accretion-atlas/tree/9584a7d05b597740434e3413514a12eb4811f6b6}{commit \texttt{9584a7d05b59}},
-which retains the same catalogue and main-analysis numerical tables.
-The earlier-onset analysis uses the same catalogue snapshot; its code and
-products are pinned separately to
-\href{https://github.com/nniickels/highz-accretion-atlas/tree/9584a7d05b597740434e3413514a12eb4811f6b6}{commit \texttt{9584a7d05b59}}.
-Its configuration, numerical products, and provenance manifest
-are in \texttt{data/scenarios/v4\_pbh\_growth.json} and \texttt{results/v4/}.
-The growth-analysis source is in \texttt{src/internal/pbh\_growth\_v4.py}.
-The additional calibration test is supplied as Supplementary Information:
-\texttt{calibration\_sensitivity.py}, the reference input table, the generated
-result table, and dependency versions. In the repository it is generated and
-verified by \texttt{src.internal.publication\_selection}; the original
-version references above apply to the baseline results.
+The data, code, and results used here, including the calibration-uncertainty
+test, are preserved at
+\href{https://github.com/nniickels/highz-accretion-atlas/tree/77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac}{commit \texttt{77908cdaadb5}}.
+Catalogue data and source records are in \path{data/}; manuscript tables and
+figures are in \path{results/for_manuscript/}. The analysis code is in
+\path{src/}, and the workflow notebooks are in \path{scripts/}.
+The calibration code is \path{src/internal/calibration_sensitivity.py}.
+Its input, \path{target_robustness.csv}, and result,
+\path{calibration_sensitivity.csv}, are in
+\path{results/for_manuscript/tables/}.
+The earlier-onset configuration and products are in
+\path{data/scenarios/v4_pbh_growth.json} and \path{results/v4/}.
+Dependency versions and reproduction commands are recorded in
+\path{requirements/core.txt} and \path{docs/guides/reproducibility.md} at the
+same commit.
 \par
 
 \clearpage

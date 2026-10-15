@@ -15,8 +15,7 @@ for name, expected in manifest['package_sha256'].items():
         raise SystemExit(f'Package file changed since review: {name}')
 for name, source in manifest['canonical_figures'].items():
     supplied = (PACKAGE / name).read_bytes()
-    historical = manifest.get('historical_figure_paths', {}).get(name, source)
-    pinned = subprocess.check_output(['git', 'show', manifest['analysis_commit'] + ':' + historical], cwd=REPO)
+    pinned = subprocess.check_output(['git', 'show', manifest['analysis_commit'] + ':' + source], cwd=REPO)
     if supplied != pinned or supplied != (REPO / source).read_bytes():
         raise SystemExit(f'Figure differs from pinned scientific export: {name}')
 with zipfile.ZipFile(PACKAGE / 'apss_source.zip') as archive:
@@ -29,16 +28,12 @@ with zipfile.ZipFile(PACKAGE / 'apss_source.zip') as archive:
     for name in manifest['package_sha256']:
         if name.startswith(('figures/', 'tables/')) and archive.read(Path(name).name) != (PACKAGE / name).read_bytes():
             raise SystemExit(f'ZIP asset mismatch: {name}')
-for name, source in manifest.get('supplementary_sources', {}).items():
-    if (PACKAGE / 'supplementary' / name).read_bytes() != (REPO / source).read_bytes():
-        raise SystemExit(f'Supplementary source is stale: {name}')
-with zipfile.ZipFile(PACKAGE / 'apss_supplementary.zip') as archive:
-    expected = set(manifest['supplementary_sources']) | {'README.md'}
-    if set(archive.namelist()) != expected:
-        raise SystemExit('Supplementary ZIP membership mismatch')
-    for name in expected:
-        if archive.read(name) != (PACKAGE / 'supplementary' / name).read_bytes():
-            raise SystemExit(f'Supplementary ZIP is stale: {name}')
+for source, expected in manifest['repository_sources'].items():
+    pinned = subprocess.check_output(['git', 'show', manifest['analysis_commit'] + ':' + source], cwd=REPO)
+    if hashlib.sha256(pinned).hexdigest() != expected:
+        raise SystemExit(f'Pinned analysis input differs: {source}')
+    if pinned != (REPO / source).read_bytes():
+        raise SystemExit(f'Analysis differs from manuscript commit: {source}')
 text = (PACKAGE / 'main.tex').read_text()
 ordered = [r'\appendix', r'\begin{thebibliography}',
            r'\section*{Statements and declarations}', r'\section*{Figures and legends}',
@@ -55,5 +50,5 @@ for labels in (figure_labels, table_labels):
     citations = [narrative.index(r'\ref{' + label + '}') for label in labels]
     if citations != sorted(citations):
         raise SystemExit('Figure/table order differs from first narrative citation')
-print('PASS: reviewed hashes, pinned figures, source ZIP and supplementary ZIP consistency.')
+print('PASS: reviewed hashes, pinned figures, source ZIP and cited repository version consistency.')
 print('This integrity check does not replace numerical regeneration; see REPRODUCIBILITY.md.')
