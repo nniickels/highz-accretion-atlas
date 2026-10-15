@@ -1,73 +1,87 @@
-# Data guide
+# Data
 
-This folder contains the catalogue, the source data used to build it, and the
-records needed to trace and check its values. Calculated growth constraints,
-rankings, and plots live separately in [results/](../results/README.md).
+This folder holds catalogue tables, their source measurements, and the records
+used to check them. Calculated growth rates and figures are in [results/](../results/README.md).
 
-## Where to start
+## Start here
 
-For the broadest catalogue, open
-[v3_accreting_objects.csv](processed/v3/v3_accreting_objects.csv): one preferred
-measurement per stored object, with 338 object records. Use
-[v3_accreting_measurements.csv](processed/v3/v3_accreting_measurements.csv) to
-see all 350 literature measurements, including multiple measurements of the same
-object. The catalogue also identifies 337 host systems.
+- [v3 object table](processed/v3/v3_accreting_objects.csv): one preferred
+  measurement per stored object, with 338 object records.
+- [v3 measurement table](processed/v3/v3_accreting_measurements.csv): all 350
+  literature measurements, including alternatives for the same object.
 
-These counts describe the stored catalogue. Three identity groups remain
-unresolved, so 338 is not a confirmed count of distinct astrophysical objects;
-see the [identity audit](../docs/source-notes/redshift-identity-audit.md).
+The catalogue records 337 host systems. Three identity groups remain unresolved,
+so the object count is provisional. See the [identity audit](../docs/source-notes/redshift-identity-audit.md).
 
-## What each subfolder contains
+## Folder guide
 
-| Folder | Contents and purpose | When to use it |
-| --- | --- | --- |
-| [processed/](processed/README.md) | Standardized, analysis-ready catalogues for v1, v2, and v3. Each version has measurement, object, host-system, source-observable, and catalogue-strata tables. | Start here to read or analyze the catalogue. |
-| [raw/](raw/README.md) | Source-native tables and manual extractions from the literature. Filenames identify the source; original values and publication versions are preserved rather than overwritten by processing choices. | Inspect what a paper reported or trace a standardized value back to its input. |
-| [assembly/](assembly/README.md) | The frozen broad-line AGN foundation and reviewed identity inputs, including overrides and reconciled duplicate pairs, used by the catalogue builder. These are intermediate building blocks, not another dataset version. | Reconstruct the catalogue or inspect how source records were combined. |
-| [crossmatch/](crossmatch/README.md) | Versioned links between measurements, objects, and hosts, plus alternative names, reviewed match candidates, and external-literature identity audits. | Join tables, find another name for an object, or inspect whether two source records refer to the same system. |
-| [validation/](validation/README.md) | Independently recorded source values, source locators, and supporting extracts used to check the catalogue. Includes mass/error checks and redshift/identity checks. | Assess validation coverage or verify transcription and conversion against the literature. These checks do not establish that every field or identity is settled. |
-| [publication/](publication/README.md) | Inputs for the manuscript analysis: identity exclusions, evidence-selection rules, and source-linked comparison measurements and caveats. These select samples from the catalogue without changing its membership. | Reproduce the 220-object primary and 234-object exploratory samples. Their generated tables and figures are in [results/for_manuscript/](../results/for_manuscript/README.md). |
-| [manifests/](manifests/README.md) | Lists of canonical artifacts and their SHA-256 checksums, plus a manifest for provenance records and validation inputs. | Check file integrity and consistency with the recorded baseline. Matching hashes do not independently establish scientific correctness. |
+| Folder | Contents |
+| --- | --- |
+| [processed/](#processed-catalogues) | Standardized measurement, object, host, observable, and subgroup tables. |
+| [raw/](raw/README.md) | Original source tables and manual extractions. |
+| [assembly/](#assembly-inputs) | Inputs used to combine source records and apply reviewed identity decisions. |
+| [crossmatch/](#identity-links) | Links between measurements, objects, and hosts, with aliases and match reviews. |
+| [validation/](validation/README.md) | Expected source values and extracts used for independent checks. |
+| [publication/](publication/README.md) | Rules and comparison inputs for the manuscript samples. |
+| [manifests/](#file-manifests) | File lists and SHA-256 checksums for data and source records. |
 
-## Dataset versions and table relationships
+## Processed catalogues
 
-The `v1/`, `v2/`, and `v3/` folders under `processed/` and `crossmatch/` are
-nested dataset scopes, not software releases:
+`processed/v1/`, `v2/`, and `v3/` use the same table structure. Their sizes and
+scope are listed in the [main README](../README.md#dataset-versions).
+Choose one version for an analysis; concatenating versions counts shared
+records repeatedly.
 
-| Version | Scope | Measurements | Object records | Host systems |
-| --- | --- | ---: | ---: | ---: |
-| v1 | Original JADES broad-line AGN sample | 23 | 23 | 23 |
-| v2 | Expanded sample of comparable broad-line AGN | 218 | 211 | 210 |
-| v3 | v2 plus heterogeneous JWST-identified systems and candidates | 350 | 338 | 337 |
+A measurement is a record from the literature. An object groups measurements
+assigned to the same accreting system. A host groups systems assigned to the
+same host galaxy. Distinct objects can share a host. Observable tables retain
+individual reported quantities; strata tables summarize catalogue subgroups.
 
-Within each version, a **measurement** is a literature measurement record, an
-**object** groups records assigned to the same accreting system, and a **host**
-groups systems assigned to the same host. Multiple measurements can belong to
-one object, and distinct objects can share a host. The source-observable table
-retains individual reported quantities; the strata table summarizes catalogue
-subgroups.
+Use `measurement_id`, `physical_object_id`, and `host_system_id` to join tables.
+Display names can differ between sources. Retained legacy tables support
+regression checks and do not define additional public versions.
 
-Join tables using `measurement_id`, `physical_object_id`, and `host_system_id`,
-with the links in `crossmatch/`. Display names alone are not reliable join keys.
-For a single catalogue analysis, choose one version rather than concatenate all
-three, which would count shared records repeatedly. See the
-[versioning guide](../docs/guides/versioning.md) for admission boundaries.
+## Assembly inputs
 
-## Files alongside the subfolders
+`assembly/blagn_foundation_measurements.csv` holds the corrected broad-line
+AGN measurements used before Ren and the v3 expansion sources are added.
+Here AGN means active galactic nucleus. Files ending in
+`_identity_overrides.csv` record reviewed decisions about source matches;
+other assembly inputs record reconciled duplicate pairs.
 
-- [sources.md](sources.md): readable source bibliography, extraction methods,
-  and source-specific limitations.
-- [source_provenance_registry.csv](source_provenance_registry.csv): publication
-  versions, URLs, DOIs, archive hashes, source roles, and verification dates.
-- [source_family_registry.csv](source_family_registry.csv): how source families
-  enter the assembly process, including their evidence classes and admission modules.
-- [mass_method_registry.csv](mass_method_registry.csv): black-hole mass estimators,
-  calibration references, and reported method systematics.
-- [selection_function_registry.csv](selection_function_registry.csv): reported
-  source selection and completeness information, with limits on demographic use.
-- [manual_extraction_audit.csv](manual_extraction_audit.csv): extraction file hashes,
-  expected row counts, source locators, checks performed, and remaining limitations.
+These files are fixed inputs to the catalogue builder. Generated tables go to
+`processed/` and `crossmatch/`. The [versioning guide](../docs/guides/versioning.md)
+defines which source types enter each version.
 
-To regenerate or verify these products, follow the
-[setup and notebook workflow](../README.md#getting-started) and
-[reproduction guide](../docs/guides/reproducibility.md).
+## Identity links
+
+`crossmatch/v1/`, `v2/`, and `v3/` contain measurement-to-object and object-to-host
+links, aliases, and match reviews. Use these links to inspect how records were
+grouped. Historical filenames in retained review inputs do not identify new
+catalogue versions. Open identity questions are documented in the identity audit.
+
+## File manifests
+
+`manifests/v1-dataset-manifest.json`, `v2-dataset-manifest.json`, and
+`v3-dataset-manifest.json` list the generated files and their SHA-256 checksums.
+`source-provenance-manifest.json` records source and validation files.
+Checksums detect file changes; they do not establish scientific correctness.
+
+The [reproduction guide](../docs/guides/reproducibility.md) gives verification
+commands and explains when a reviewed change requires new checksums.
+Publication results are compared separately against an independent baseline.
+
+## Registries and review records
+
+| File | Purpose |
+| --- | --- |
+| [sources.md](sources.md) | Source bibliography, extraction methods, and limitations. |
+| [source_provenance_registry.csv](source_provenance_registry.csv) | Publication versions, source locations, archive hashes, and verification dates. |
+| [source_family_registry.csv](source_family_registry.csv) | How each study or related survey group enters the catalogue. |
+| [mass_method_registry.csv](mass_method_registry.csv) | Mass estimators, calibration references, and method uncertainties. |
+| [selection_function_registry.csv](selection_function_registry.csv) | Survey selection, completeness information, and limits on population inference. |
+| [manual_extraction_audit.csv](manual_extraction_audit.csv) | Extracted-file hashes, row counts, source locations, and remaining checks. |
+| [poster_inputs.json](poster_inputs.json) | Reviewed scientific inputs for poster figures and claims. |
+| [poster_exports.json](poster_exports.json) | Reviewed PowerPoint/PDF pairs and their hashes. |
+
+See [setup](../README.md#getting-started) before running the workflows.

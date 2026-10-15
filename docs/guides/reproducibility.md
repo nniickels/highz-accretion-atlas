@@ -1,20 +1,48 @@
 # Reproducing results
 
-Install the pinned environment and run notebooks 00–04 as described in the
-[root README](../../README.md#getting-started). `requirements/core.txt` pins the
-numerical and rendering dependencies; `requirements/notebook.txt` includes
-those pins, Jupyter and the build backend. Python 3.12 on Linux and macOS is supported.
+Install the [pinned environment](../../README.md#getting-started) first.
+Python 3.12 on Linux and macOS is supported. `requirements/core.txt` pins
+numerical and rendering dependencies; `requirements/notebook.txt` adds Jupyter
+and the package build tools.
 
 ## Independent comparison
 
-The root README's command creates independent baseline and execution archives
-of the same committed revision, retains the original environment's Python path,
-and sets `HIGHZ_BASELINE_ROOT` before running notebooks 00–04 and v4 verification.
-The archives omit uncommitted changes. Return to the original repository root
-before running commands that use `.venv/bin/python`.
+Run the following from the repository root. It creates an unchanged baseline
+and a separate execution copy of the same committed revision, then removes
+generated outputs from the execution copy before running notebooks 00–04.
+The original virtual environment supplies Python. Uncommitted files are excluded;
+review and commit intended changes before using this procedure.
+
+```bash
+analysis_python="$PWD/.venv/bin/python"
+baseline_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-catalogue-baseline.XXXXXX")"
+reproduction_root="$(mktemp -d "${TMPDIR:-/tmp}/highz-catalogue-reproduction.XXXXXX")"
+executed_notebooks="$(mktemp -d "${TMPDIR:-/tmp}/highz-catalogue-notebooks.XXXXXX")"
+git archive HEAD | tar -x -C "$baseline_root"
+cp -R "$baseline_root/." "$reproduction_root/"
+export HIGHZ_BASELINE_ROOT="$baseline_root"
+cd "$reproduction_root"
+"$analysis_python" - <<'PY'
+from pathlib import Path
+from src.internal.verify_regenerated_artifacts import artifact_paths
+root = Path.cwd()
+for name in artifact_paths(root):
+    (root / name).unlink()
+PY
+for notebook in scripts/0[0-4]_*.ipynb; do
+  "$analysis_python" -m nbconvert --to notebook --execute \
+    --ExecutePreprocessor.timeout=1800 \
+    --output-dir="$executed_notebooks" "$notebook" || exit 1
+done
+"$analysis_python" -m src.internal.pbh_growth_v4 --verify
+```
+
+Return to the original repository root before running other commands that use
+`.venv/bin/python`. Keep the baseline unchanged and `HIGHZ_BASELINE_ROOT` set to
+its path throughout regeneration.
 
 Notebook 03 compares regenerated products against Git HEAD before refreshing
-[data manifests](../../data/manifests/README.md). In a separate workspace, set
+[data manifests](../../data/README.md#file-manifests). In a separate workspace, set
 `HIGHZ_BASELINE_ROOT` to an independent checkout containing the reviewed outputs.
 Comparing a workspace with itself, including through a symlink, is rejected.
 A directory reorganization must first be committed or use an independent
@@ -61,6 +89,17 @@ draft PDF is not required to regenerate byte-for-byte across platforms.
 The local `paper/README.md` documents compilation and packaging.
 
 ## Scientific checks
+
+Run these checks from the original repository root:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
+.venv/bin/python -m src.internal.verify_manual_extractions
+.venv/bin/python -m src.internal.verify_primary_source_values
+.venv/bin/python -m src.internal.verify_source_provenance
+.venv/bin/python -m src.internal.verify_versions
+.venv/bin/python -m src.internal.pbh_growth_v4 --verify
+```
 
 `python -m src.internal.verify_versions` independently rebuilds catalogue,
 science and compatibility values. `python -m src.internal.publication_selection`

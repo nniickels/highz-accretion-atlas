@@ -1,46 +1,45 @@
-# Source package
+# Source code
 
-Public scientific code is organized by responsibility, not by former software
-release number.
+The public modules define catalogue access, growth models, and analysis methods.
+Notebook drivers and file-generation tools are in `internal/`.
 
-## Canonical interfaces
+## Public modules
 
-- `datasets.py`: v1/v2/v3 membership, materialization, and canonical metadata
-- `science.py`: shared rankings, uncertainty, duty-cycle, follow-up, and caveat products
-- `models.py`: cosmology and black-hole growth equations
-- `pbh.py`: v4 onset-dependent minimum seeds and conditional mass-draw support
-- `scoring.py`: compatibility and ranking scores
-- `identity.py`: stable identities and match candidates
-- `object_taxonomy.py`: evidence, class, phenotype, and eligibility vocabulary
-- `mass_systematics.py`: source-method systematic registry
-- `source_provenance.py`: provenance validation
-- `standardize_data.py`: source-table standardization
+| Module | Purpose |
+| --- | --- |
+| `datasets.py` | Catalogue membership, table generation, and version metadata. |
+| `science.py` | Growth rankings, uncertainties, duty cycles, and follow-up tables. |
+| `models.py` | Cosmology and black-hole growth equations. |
+| `pbh.py` | Minimum seed masses and growth tests for the v4 analysis. |
+| `scoring.py` | Growth compatibility and ranking scores. |
+| `identity.py` | Stable identifiers and candidate source matches. |
+| `object_taxonomy.py` | Object classes, observed properties, evidence labels, and analysis eligibility. |
+| `mass_systematics.py` | Mass-estimation methods and their systematic uncertainties. |
+| `source_provenance.py` | Source-version and file-integrity checks. |
+| `standardize_data.py` | Conversion of source tables to the shared schema. |
 
-## Internal workflow
+A duty cycle is the fraction of time spent accreting. Growth compatibility means
+that a specified history can reach the adopted mass under its stated assumptions;
+it does not identify the seed's origin. The catalogue browsing score is separate
+from the required-accretion-rate ranking; see the
+[score guide](../docs/guides/catalogue-navigation-score.md).
 
-`internal/` contains deterministic catalogue, science, figure, gallery, manifest,
-inventory, extraction, and verification helpers called by the notebooks in
-`scripts/`.
+## Workflow tools
 
-`internal/compatibility/` retains source-admission builders that reconstruct the
-complete catalogue from `data/assembly/`, and `v7_science_core.py`, the shared
-ranking and uncertainty implementation called by `science.py`. Its historical
-`v7_*` names are implementation history, not public dataset versions or supported
-user entry points. Public workflow commands remain the numbered notebooks.
+- `internal/compatibility/` contains source-admission builders and the shared
+  ranking and uncertainty code in `v7_science_core.py`. The historical `v7_*`
+  filenames do not define public catalogue versions.
+- `internal/verify_redshift_identity.py` checks reported redshifts, available
+  coordinates, and close source matches. `--require-resolved` also requires the
+  open identity groups to be resolved; the manuscript samples exclude them.
+- `internal/pbh_growth_v4.py` generates and verifies v4 outputs and updates the
+  shared results inventory when writing to the standard results folder.
+- `internal/package_overleaf.py` packages the local manuscript source.
+  Its `--verify` mode checks the public draft PDF and source ZIP without LaTeX
+  or local manuscript files.
+- `internal/poster_figures.py`, `poster_layout.py`, and
+  `verify_poster_exports.py` rebuild poster figures, preserve reviewed layouts,
+  and check PowerPoint/PDF pairs.
 
-`internal/verify_redshift_identity.py` checks complete admitted redshift/coordinate
-coverage and all close identity pairs. Its report distinguishes source-value
-agreement from unresolved astrophysical identities; `--require-resolved` is the
-publication identity gate.
-
-`internal/pbh_growth_v4.py` is the optional v4 generator/verifier. It reuses
-v3 measurements and existing conservative membership, writes `results/v4/`
-and refreshes the shared results inventory. Catalogue and manuscript generation
-remain separate.
-
-`internal/package_overleaf.py` packages the Git-ignored local manuscript with
-only its required figures and table fragments. Run
-`python3 -m src.internal.package_overleaf` from the repository root when
-`paper/main.tex` is present. This optional manuscript utility is separate from
-the notebook workflow and scientific artifact verification. Its `--verify` mode
-checks the public draft PDF and ZIP using only files in a normal checkout.
+Use the [notebooks](../scripts/README.md) for the complete analysis and the
+[reproduction guide](../docs/guides/reproducibility.md) for command-line checks.

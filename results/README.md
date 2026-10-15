@@ -1,74 +1,66 @@
 # Results
 
-`v1/`, `v2/`, and `v3/` have the same complete structure:
+This folder contains growth calculations and figures derived from the
+[catalogue](../data/README.md). Publication samples and the four-target v4
+analysis have separate output folders.
+
+## Catalogue outputs
+
+Each of `v1/`, `v2/`, and `v3/` has this structure:
 
 ```text
 results/<version>/
-├── figures/               paper-ready summaries and all-object galleries
-├── tables/                rankings, follow-up priorities, uncertainty, compatibility, and audits
+├── figures/                    summary plots and combined object galleries
+├── tables/                     growth rates, uncertainties, rankings, and audits
 └── parameter_maps/
-    ├── fedd_mass_maps/             f_Edd versus seed-mass panels for every object
-    └── seedredshift_mass_maps/     seed-redshift versus seed-mass panels for every object
+    ├── fedd_mass_maps/          Eddington ratio versus seed mass
+    └── seedredshift_mass_maps/  starting redshift versus seed mass
 ```
 
-v1 covers all 23 objects numerically; v2 covers all 211 numerically; v3
-represents all 338 object records with 237 numerical products and 101 explicit
-no-inference panels. Obsolete software-release result trees are not part of the
-public repository contract; necessary assembly logic is isolated under
-`src/internal/compatibility/`.
+v1 and v2 have numerical growth products for all 23 and 211 objects,
+respectively. v3 has 237 objects with eligible numerical masses and 101 without.
+Its 676 parameter-map panels include one of each map type for every stored
+object. Panels without a usable mass state why no growth calculation is made.
+The three open identity groups make the v3 object count provisional; see the
+[identity audit](../docs/source-notes/redshift-identity-audit.md).
 
-Individual growth-track panels are intentionally omitted. A combined
-growth-track overview for each version remains under `figures/`. All combined
-growth-track figures use the same observed-redshift range from 13 down to 3,
-with their existing figure dimensions and plot margins retained. v3 also has
-`v3_all_object_growth_tracks_full_assumptions.png`, which preserves the full
-historical v1 curve and object-color encodings as a separate companion figure.
-Its seed redshift is 30. The additional
-`v3_all_object_growth_tracks_full_assumptions_zseed3400.png` changes only seed
-redshift to 3400, preserving all 72 parameter combinations and identical axes.
-Both use the adopted matter+Lambda age relation: radiation is neglected, so
-the early-seed comparison is an extrapolation, not a physical seed-formation
-model. Curves outside the shared mass-axis limits are clipped. Regeneration
-through notebook 03 produces both figures.
+## v3 figures
 
-## v3 catalogue results
+| Figure | Purpose |
+| --- | --- |
+| `v3_all_object_growth_tracks.png` | Selected growth tracks and adopted object masses. |
+| `v3_compatibility_summary.png` | Compatibility with the specified growth scenarios. |
+| `v3_monte_carlo_summary.png` | Mass-error sampling results. |
+| `v3_uncertainty_robustness_top5.png` | Uncertainty comparisons for five selected targets. |
+| `v3_all_object_fedd_mass_map_gallery.png` | Combined Eddington-ratio/seed-mass maps. |
+| `v3_all_object_compatibility_atlas.png` | Combined growth-compatibility panels. |
+| `v3_all_object_monte_carlo_uncertainty.png` | Combined mass-error results. |
 
-Start with `data/processed/v3/v3_accreting_objects.csv`, which contains one
-preferred row for each physical object. Companion files contain all 350
-measurements, 810 source-native observables, 337 host systems, and catalogue
-strata.
+These files are in `v3/figures/`. Numerical tables and individual maps are in
+the adjacent folders. The underlying object table is
+[`v3_accreting_objects.csv`](../data/processed/v3/v3_accreting_objects.csv);
+companion tables retain 350 measurements, 810 reported observables, and 337 hosts.
 
-The main summary figures are:
+## Full-assumption growth figures
 
-- `v3_all_object_growth_tracks.png`
-- `v3_all_object_growth_tracks_full_assumptions.png`
-- `v3_all_object_growth_tracks_full_assumptions_zseed3400.png`
-- `v3_compatibility_summary.png`
-- `v3_monte_carlo_summary.png`
-- `v3_uncertainty_robustness_top5.png`
+`v3_all_object_growth_tracks_full_assumptions.png` retains all 72 parameter
+combinations and the original curve and object-colour conventions. Its
+`_zseed3400.png` companion changes only the starting redshift from 30 to 3400.
+Both use the same axes and the matter-plus-Lambda cosmic-age approximation,
+which neglects radiation. They illustrate available growth time, not a
+seed-formation model. Curves outside the plotted mass range are clipped.
 
-The complete supplements are `v3_all_object_fedd_mass_map_gallery.png`,
-`v3_all_object_compatibility_atlas.png`, and
-`v3_all_object_monte_carlo_uncertainty.png`. The two parameter-map directories
-contain 676 canonical panels, one of each map type for every object. Objects
-without a supported canonical numerical black-hole mass receive explicit
-no-inference panels; the pipeline does not invent masses or growth histories.
+All combined growth-track figures show observed redshifts from 13 down to 3.
+Individual growth-track panels are omitted. Notebook 03 generates these figures;
+see the [notebook sequence](../scripts/README.md) and
+[reproduction guide](../docs/guides/reproducibility.md) for the complete procedure.
 
-Regenerate and verify the catalogue with `scripts/03_generate_atlas.ipynb` and
-`scripts/04_verify.ipynb`.
+## Other analyses
 
-Two source-supported duplicates were merged on 7 September 2026, preserving all
-350 measurement rows. Three identity groups remain under review; counts are
-provisional until the [identity audit](../docs/source-notes/redshift-identity-audit.md) closes.
+- [Manuscript results](for_manuscript/README.md): tables and figures for the
+  220-object primary and 234-object expanded samples.
+- [v4 outputs](v4/README.md): minimum seed masses, starting-time tests, and
+  specified growth scenarios for four selected targets.
 
-[Manuscript results](for_manuscript/README.md) contain the separately selected
-analysis tables and PNG/PDF figures used by the manuscript.
-
-## v4 analysis extension
-
-[v4 outputs](v4/README.md) are a focused, separately configured PBH growth
-study using existing v3 measurements. Their structure and claim scope differ
-from the complete v1–v3 catalogues: four selected targets, minimum-seed/onset
-tables, mass-error support maps, and astrophysical controls. v4 does not add
-catalogue sources or claim PBH population viability. It has its own manifest
-and reproduction command; see [methods](../docs/reference/pbh-growth-v4.md).
+`results_inventory.csv` records generated files, sizes, and hashes. Follow the
+reproduction guide before updating it or changing reviewed outputs.

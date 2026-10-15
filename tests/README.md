@@ -1,60 +1,41 @@
-# Test suite
+# Tests
 
-`test_manuscript_release.py` verifies the public draft PDF/ZIP without private
-sources or LaTeX, rejects changed PDF bytes and private package entries, checks
-deterministic packaging and dependency completeness, and tests the `paper/`
-allowlist in an isolated Git fixture so it also works in notebook archives.
-The tracked Ap&SS submission package is allowed; its editorial cover letter and
-compilation intermediates, and the original local draft sources, remain ignored.
-
-Run from the repository root:
+Run the regression suite from the repository root after
+[installing the pinned environment](../README.md#getting-started):
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 ```
 
-The suite covers:
+## Coverage
 
-- `test_poster_rebuild.py`: matching poster text, current citation mappings,
-  catalogue counts, unchanged reviewed layout, pinned scientific inputs, and
-  regenerated plot pixels
-- `test_poster_exports.py`: reviewed PPTX/PDF pairing, page dimensions, text
-  coverage, embedded fonts, and rejection of stale or altered artifacts
+| Test files | Checks |
+| --- | --- |
+| `test_core_models.py`, `test_dataset_contracts.py`, `test_scientific_claims.py` | Growth equations, catalogue membership, version relationships, and reported catalogue results. |
+| `test_source_provenance.py`, `test_independent_validation.py`, `test_mass_review.py` | Source versions, recorded source values, numerical integration, and mass-error treatment. |
+| `test_redshift_identity.py` | Redshift and coordinate coverage, close source matches, and rejection of unresolved identities when required. |
+| `test_manuscript_methods.py`, `test_calibration_sensitivity.py` | Publication samples, efficiency sensitivity, and the separate calibration-scatter calculation. |
+| `test_repository_layout.py` | Notebook/source boundaries and expected catalogue maps and tables. |
+| `test_reproduction_gate.py`, `test_reproduction.py` | Rejection of changed values, pixels, and missing files; narrowly bounded numerical roundoff. |
+| `test_pbh_v4.py` | Minimum seed masses, onset times, rate caps, mass errors, and regeneration of v4 results. |
+| `test_manuscript_release.py` | Draft PDF/source-ZIP integrity, archive contents, packaging, and section order without LaTeX. |
+| `test_poster_rebuild.py`, `test_poster_exports.py` | Poster text, citations, catalogue counts, plot pixels, reviewed layouts, and PDF/source pairing. |
 
-- `test_core_models.py`: numerical equations, scoring, and canonical v1 anchors
-- `test_dataset_contracts.py`: exact v1/v2/v3 products and strict nesting
-- `test_source_provenance.py`: source roles, versions, hashes, and review policy
-- `test_repository_layout.py`: notebook/source boundaries and complete catalogue products
-- `test_scientific_claims.py`: headline v3 catalogue, correction, ranking, and coverage claims
-- `test_independent_validation.py`: primary-source values, independent numerical integration, publication ranking, and missing-error handling
+The v4 tests also require an independent baseline for equivalent CSV files with
+different encodings and reject changed scientific values or code. A regression
+in the minimum-seed calculation has an absolute tolerance of 1e-13 dex; unrelated
+columns and larger differences remain failures. PNG dimensions and transparency
+must match exactly; pixel-channel tolerances are documented in the
+[reproduction guide](../docs/guides/reproducibility.md#independent-comparison).
 
-- `test_reproduction_gate.py`: changed scientific values, rendered pixels, and missing artifacts are rejected
+## Continuous integration
 
-CI additionally executes source-provenance verification, in-memory v1/v2/v3
-catalogue/science/compatibility reproduction, and the full notebook workflow
-with independent CSV and PNG comparisons before refreshing hashes.
+CI runs the suite, source checks, numerical reconstruction, figure verification,
+poster checks, and a Python package build/import check. It also removes generated
+outputs from a separate checkout, executes notebooks 00–04, and compares results
+with the unchanged baseline before updating generated-file hashes.
 
-`test_mass_review.py` checks complete numerical-mass coverage, Killi's linear
-bounds, ZS7's included calibration scatter, and Baccus revision scenarios.
-
-`test_manuscript_methods.py` checks primary-subset claims and independently
-verifies the stated efficiency sensitivity against canonical results.
-
-`test_redshift_identity.py` tests complete redshift/coordinate coverage, source
-version pinning, rejection of altered source values and omitted identity pairs,
-and the publication gate for unresolved identities.
-
-`test_pbh_v4.py` independently checks the v4 inverse-growth equation, delayed
-onset and rate caps, seed overprediction, target membership, missing errors,
-mass-offset propagation, origin-label invariance, and numerical reproduction.
-`python -m src.internal.pbh_growth_v4 --verify` additionally compares regenerated
-PNG and decoded PDF contents against the pinned v4 artifacts.
-The v4 tests also cover CSV reserialization in the disposable notebook workflow,
-require an independently hash-pinned baseline, and reject changed measurements
-or code even when that baseline is supplied.
-The export regression also checks that canonical v4 exports refresh the shared
-inventory, including their manifest, while external exports leave it unchanged.
-
-`test_reproduction.py` reproduces the observed macOS/Linux cancellation error
-in minimum log-seed masses, verifies its narrowly scoped 1e-13-dex absolute
-tolerance, and rejects larger changes and drift in unrelated columns.
+The original local manuscript sources, cover letter, and compilation files are
+excluded from Git. Tests allow the tracked draft PDF, Overleaf ZIP, and Ap&SS
+submission package. Package-integrity checks and independent source checks serve
+different purposes: matching stored outputs does not validate every physical assumption.

@@ -1,78 +1,76 @@
-# Independent primary-source checks
+# Independent source checks
 
-The verifier performs 2,041 comparisons across three fixtures. The complete
-mass audit covers **all 244 admitted numerical mass measurements and all 732
-central-mass/error fields**, including missing errors for the twelve NEXUS
-measurements. The fixtures overlap, so 2,041 is a comparison count, not a count
-of unique cells. Coverage of other observables remains representative.
+These files record expected values read independently from the publications.
+They check transcription and unit conversion without using generated catalogue
+values as their own reference.
 
-- `primary_source_checks.json`: 865 checks across 53 rows from independently
-  retrieved COSMOS-3D, NEXUS, JADES, and Seven Wonders tables.
-- `primary_family_anchors.json`: 444 additional comparisons for the other 28
-  families, including all 49 admitted Baccus rows. Together these cover all 32
-  admitted families.
-- `complete_mass_checks.json`: 732 mass/error checks, requiring exactly one
-  independent record for every numerical mass measurement. TeX table cells,
-  source versions, conversion notes, and locators accompany the expectations.
+## Mass checks
 
-Run `.venv/bin/python -m src.internal.verify_primary_source_values`. The gate
-rejects missing measurement coverage, incomplete error triplets, source-version
-mismatches, and changed values. All fixtures and the two supplementary source
-inputs are pinned in the provenance manifest.
+| File | Coverage |
+| --- | --- |
+| `primary_source_checks.json` | 865 checks across 53 COSMOS-3D, NEXUS, JADES, and Seven Wonders rows. |
+| `primary_family_anchors.json` | 444 checks for the other 28 source families, including all 49 admitted Baccus rows. |
+| `complete_mass_checks.json` | 732 central-mass and error fields for all 244 admitted numerical mass measurements. |
 
-For the four-table fixture, download the linked HTML records as `cosmos.html`,
+Together these files cover all 32 source families and provide 2,041 comparisons.
+Some comparisons overlap; this is not a count of distinct catalogue cells.
+The mass checks include missing errors for the twelve NEXUS measurements.
+Each numerical mass must have one independent record with its central value,
+lower error, upper error, source version, and table or text location.
+
+From the repository root, after [setup](../../README.md#getting-started):
+
+```bash
+.venv/bin/python -m src.internal.verify_primary_source_values
+.venv/bin/python -m src.internal.verify_redshift_identity
+```
+
+The first command rejects incomplete mass/error coverage, changed values, and
+source-version mismatches. The second checks central redshifts, available
+coordinates, and source matches, and reports the open identity groups.
+Adding `--require-resolved` to the second command fails until those groups are
+resolved. The manuscript samples exclude all affected records.
+
+## Supporting extracts
+
+`source_inputs/killi-published-crossref.json` preserves the publisher-deposited
+abstract used for Killi's redshift and mass bounds. Its older preprint is
+registered separately for coordinates. `source_inputs/baccus_published_table1.txt`
+contains the revised publisher table used in the Baccus sensitivity test; the
+catalogue retains its pinned preprint measurements.
+
+Harikane's linear mass bounds are converted to base-10 logarithms to eight decimal
+places. Other TeX tables report logarithmic masses and errors directly. Source
+versions, conversion notes, and previously reviewed table/PDF references are
+recorded with the expected values. The provenance manifest pins these files and
+the supporting extracts by hash.
+
+## Extend the checks
+
+Retrieve the recorded source version, verify its archive hash, and inspect the
+specified table or passage. Record reported values and conversions, then check
+both the extraction and the processed table. Keep limits, conditional estimates,
+and missing values distinct from measurements. Never copy expected values from
+the processing pipeline.
+
+To update the four-source HTML checks, save the linked records as `cosmos.html`,
 `nexus.html`, `jades.html`, and `seven.html`, then run
 `.venv/bin/python -m src.internal.refresh_primary_source_checks /path/to/html`.
-For the other fixtures, retrieve the recorded source archive, verify its hash,
-and inspect the named table member/locator. Expected values must be independently
-reviewed against that source, never copied from generated catalogue outputs.
-Harikane's linear mass bounds are transformed with log10 to eight decimals.
-The remaining TeX tables quote log masses and errors directly. Previously
-reviewed table/PDF anchors are reused with explicit fixture references.
+Review the changes against those sources before updating the provenance hashes.
 
-Killi's final publisher-deposited abstract is saved verbatim in
-`source_inputs/killi-published-crossref.json`; it verifies z=4.5319 and
-M=8(+0.5,-0.4)e8 Msun. The corrected log errors preserve these asymmetric
-bounds. Its older preprint is registered separately for coordinates.
-`source_inputs/baccus_published_table1.txt` is the revised publisher table used
-by the supplementary Baccus sensitivity analysis. The frozen catalogue still
-uses the explicitly pinned v1 measurement table.
+## Limits
 
-This audit validates transcription and conversion of numerical mass/error
-fields. It does not establish estimator validity, reconstruct posterior
-covariance, or make the heterogeneous sample complete or unbiased.
+The separate [redshift and identity audit](../../docs/source-notes/redshift-identity-audit.md)
+checks all 350 central redshifts, 323 available coordinate pairs, and 31
+redshift-type labels: 1,027 field comparisons. Twenty-seven rows lack coordinates,
+and three identity groups remain unresolved. Redshift uncertainties and spectral
+reliability are not fully checked.
 
-## Remaining coverage and completion criteria
+Luminosities, Eddington ratios, host masses, magnifications, line measurements,
+limits, and evidence classifications have partial independent coverage. Checks
+of selected rows from a source do not validate its entire sample. Review any
+additional field before using it for a new scientific claim.
 
-The mass/error audit is complete for admitted numerical measurements. The
-[redshift/identity audit](../../docs/source-notes/redshift-identity-audit.md) now
-checks all 350 central redshifts and all 323 available coordinate pairs, plus
-31 mixed-sample redshift-type labels, in a separate 1,027-field fixture.
-It exposes three open identity groups; numerical agreement does not settle these
-scientific decisions. Twenty-seven rows lack coordinates. Redshift errors and
-spectral reliability are not exhaustively audited. Other fields, including
-luminosities, Eddington ratios, host masses, magnifications, line measurements,
-censoring and evidence classifications, retain partial independent coverage.
-Some are checked in the four-table fixture or family anchors; a family anchor
-does not certify all fields or every row in that family. Hash agreement and
-regeneration establish consistency with stored inputs, not source correctness.
-
-To extend coverage, retrieve each pinned source version, review its table or
-text locator independently, record source-native values and conversions, and
-check both the raw extraction and its canonical destination. Keep limits,
-conditional estimates and missing values distinct from detections. Add fixtures
-with row identifiers and source hashes, plus tests rejecting missing expected
-coverage. Do not generate expected values from the pipeline being tested.
-
-Exhaustive non-mass validation remains recommended before relying on those
-fields for a new scientific claim. The current manuscript's growth diagnostics
-are driven by mass and redshift, so resolving the documented identity groups is the
-first priority, followed by fields used in follow-up and host comparisons.
-Until then, describe the catalogue as reproducible with complete numerical-mass
-and central-redshift/available-coordinate checks, with representative checks of
-other fields; do not claim all catalogue
-values or scientific interpretations have been independently validated.
-
-Run `python -m src.internal.verify_redshift_identity` for source checks and the
-open-group report. Add `--require-resolved` for the publication gate, which remains
-unsatisfied until those groups are scientifically reconciled.
+These checks do not establish mass-estimator validity, correlations between
+errors, survey completeness, or unbiased sample selection. Numerical agreement
+also does not resolve whether two records describe the same physical object.

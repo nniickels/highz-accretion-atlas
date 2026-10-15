@@ -1,26 +1,27 @@
 # Documentation
 
-## Using the catalogue
+## Use and reproduce the catalogue
 
-- [Setup and notebook workflow](../README.md#getting-started)
-- [Reproducing results](guides/reproducibility.md)
+- [Setup](../README.md#getting-started)
+- [Notebook sequence](../scripts/README.md)
+- [Reproduction and verification](guides/reproducibility.md)
 - [Dataset versions](guides/versioning.md)
 - [Catalogue browsing score](guides/catalogue-navigation-score.md)
 
-## Methods and interpretation
+## Methods and limits
 
 - [Growth models](reference/model-menu.md)
-- [v4 PBH growth compatibility and its limits](reference/pbh-growth-v4.md)
-- [Object taxonomy](reference/object-taxonomy.md)
-- [Mass comparability and eligibility](reference/multiclass-eligibility-and-mass-comparability.md)
-- [Admission schema](reference/admission-schema.md)
-- [Science policy and limitations](reference/science-policy.md)
+- [v4 primordial black-hole growth assumptions](reference/pbh-growth-v4.md)
+- [Object classes and evidence labels](reference/object-taxonomy.md)
+- [Mass comparability and analysis eligibility](reference/multiclass-eligibility-and-mass-comparability.md)
+- [Required fields for catalogue admission](reference/admission-schema.md)
+- [Scientific claims and limitations](reference/science-policy.md)
 - [Literature scope and cutoff](reference/literature-scope.md)
-- [Selection and completeness](reference/selection-completeness.md)
+- [Survey selection and completeness](reference/selection-completeness.md)
 
-## Sources and validation
+## Sources and checks
 
-- [Source citations and limitations](../data/sources.md)
+- [Source bibliography](../data/sources.md)
 - [Independent validation coverage](../data/validation/README.md)
 - [Catalogue admission and identity decisions](source-notes/catalogue-decisions.md)
 - [Mass and publication-version audit](source-notes/mass-error-and-publication-revision-audit.md)

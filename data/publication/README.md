@@ -1,23 +1,37 @@
 # Publication analysis inputs
 
-These inputs define the publication analysis separately from canonical catalogue membership:
+These files select the manuscript samples from the catalogue and define the
+external comparisons. They do not change catalogue membership.
 
-- `identity_exclusions.json`: excludes every record in the three unresolved identity groups.
-- `evidence_selection.json`: retains four tentative JADES detections in the exploratory sample only.
-- `review_inputs.json`: source-linked target caveats and external comparison measurements.
-  Proposed observations are author suggestions, not source-reported observing plans.
+| File | Purpose |
+| --- | --- |
+| `identity_exclusions.json` | Excludes all six records in the three unresolved identity groups. |
+| `evidence_selection.json` | Places four tentative JADES detections in the expanded sample only. |
+| `review_inputs.json` | Records source caveats and external comparison measurements. Proposed observations are author suggestions. |
 
-The resulting samples contain 220 primary and 234 exploratory objects. These
-policies neither alter the canonical catalogue nor resolve the open identities.
+The samples contain 220 primary and 234 expanded objects. Existing output fields
+call the expanded sample `exploratory`; it contains every primary object.
+Excluding uncertain identities does not resolve them.
 
-Run `python -m src.internal.publication_selection --write` to regenerate the
-[analysis tables](../../results/for_manuscript/README.md); omit `--write` to verify them.
-The external Dayal and A2744-QSO1 comparisons do not admit new catalogue measurements.
-Source locators and assumptions remain in the JSON inputs and output tables.
+## Generate and verify
 
-The additional calibration sensitivity uses the separate scales and adopted
-measurement IDs already recorded in the v3 object table. Only the two named
-primary-tail objects with separately omitted 0.5-dex scales are included; no
-new source measurements are admitted. The implementation rejects changed
-measurement IDs, asymmetric reported errors, or a different calibration scale
-until the assumptions are reviewed.
+From the repository root, after [setup](../../README.md#getting-started):
+
+```bash
+.venv/bin/python -m src.internal.publication_selection --write
+.venv/bin/python -m src.internal.publication_selection
+```
+
+The first command writes the [publication tables](../../results/for_manuscript/README.md);
+the second verifies them. Notebooks 01 and 04 perform these steps. Source
+locations and assumptions remain in the inputs and output tables. The Dayal and
+A2744-QSO1 comparisons do not add catalogue measurements.
+
+## Calibration uncertainty
+
+The separate calibration test uses the adopted measurement IDs and uncertainty
+scales already recorded for RUBIES-EGS-55604 and J0910_2028_12910. It adds their
+separately reported 0.5-dex scales to symmetric mass errors under the assumptions
+in the [reproduction guide](../../docs/guides/reproducibility.md#apss-calibration-sensitivity).
+The implementation rejects different measurement IDs, asymmetric errors, or
+changed scales until those assumptions are reviewed.

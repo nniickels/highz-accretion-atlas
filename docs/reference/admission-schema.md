@@ -16,7 +16,7 @@ Admission validation requires:
 7. exact measurement/object/host cardinalities and nested v1 < v2 < v3 membership;
 8. source-caveat and exclusion coverage in generated results.
 
-Assembly inputs are described in [`../../data/assembly/README.md`](../../data/assembly/README.md).
+Assembly inputs are described in [the data guide](../../data/README.md#assembly-inputs).
 
 ## Canonical object aggregation
 
