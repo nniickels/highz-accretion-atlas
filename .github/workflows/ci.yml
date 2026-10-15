@@ -38,6 +38,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m src.internal.publication_figures --verify
+      - name: Verify reviewed poster PDF exports and scientific inputs
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m src.internal.verify_poster_exports
       - name: Verify source provenance
         env:
           PYTHONDONTWRITEBYTECODE: "1"

@@ -59,7 +59,7 @@ class PosterRebuildTests(unittest.TestCase):
             shapes = {s.find('.//'+P+'cNvPr').get('id'): s for s in slide.iter(P+'sp')}
             used = set()
             for identity, shape in shapes.items():
-                if identity == '82':
+                if identity in ('82', '9'):
                     continue
                 for run in shape.iter(A+'r'):
                     text = run.find(A+'t')
@@ -70,8 +70,13 @@ class PosterRebuildTests(unittest.TestCase):
                         self.assertEqual(run.find(A+'rPr').get('baseline'), '30000')
                         used.update(citations)
             self.assertEqual(used, set('12345'))
-            for identity, citation in [('207','1'), ('208','2'), ('217','3'), ('2','4'), ('15','5')]:
+            for identity, citation in [('70','1'), ('207','2'), ('208','1'), ('217','3'), ('2','4'), ('15','5')]:
                 self.assertIn('['+citation+']', ''.join(n.text or '' for n in shapes[identity].iter(A+'t')))
+            references = ''.join(n.text or '' for identity in ('82', '9')
+                                 if identity in shapes for n in shapes[identity].iter(A+'t'))
+            for citation, author in [('1', 'Maiolino'), ('2', 'Shen'), ('3', 'Dayal'),
+                                    ('4', 'Bardeen'), ('5', 'Juodzbalis')]:
+                self.assertIn('['+citation+'] '+author, references)
 
     def test_overview_diagram_counts_match_catalogue_selection(self):
         import pandas as pd
@@ -148,9 +153,13 @@ class PosterRebuildTests(unittest.TestCase):
                 source_data = {name: portrait.read(name) for name in portrait.namelist()}
                 source = ET.fromstring(portrait.read(poster_slide_part(source_data)))
                 actual = ET.fromstring(rebuilt.read(target))
-                words = lambda root: Counter(' '.join((n.text or '').split())
-                                             for n in root.iter(A+'t'))
+                words = lambda root: Counter(' '.join(''.join(n.text or '' for n in p.iter(A+'t')).split())
+                                             for p in root.iter(A+'p')
+                                             if any((n.text or '').strip() for n in p.iter(A+'t')))
                 self.assertEqual(words(source), words(actual))
+                # Rebuilding figures must not restore the old fixed layout or
+                # collapse the reviewed two-column reference list.
+                self.assertEqual(reviewed.read(target), rebuilt.read(target))
                 math = lambda root: [ET.tostring(n) for n in root.iter(M+'oMath')]
                 self.assertEqual(math(source), math(actual))
                 for identity in (14, 4):

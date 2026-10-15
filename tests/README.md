@@ -15,6 +15,12 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests
 
 The suite covers:
 
+- `test_poster_rebuild.py`: matching poster text, current citation mappings,
+  catalogue counts, unchanged reviewed layout, pinned scientific inputs, and
+  regenerated plot pixels
+- `test_poster_exports.py`: reviewed PPTX/PDF pairing, page dimensions, text
+  coverage, embedded fonts, and rejection of stale or altered artifacts
+
 - `test_core_models.py`: numerical equations, scoring, and canonical v1 anchors
 - `test_dataset_contracts.py`: exact v1/v2/v3 products and strict nesting
 - `test_source_provenance.py`: source roles, versions, hashes, and review policy

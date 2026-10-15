@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "description": "Reviewed poster PDF exports paired with the exact editable sources. Hashes record review, not cross-platform PDF regeneration. Re-export and visually review before updating a pair.",
+  "exports": [
+    {
+      "source": "posters/36x48.pptx",
+      "source_sha256": "fed01457ffe27802c09053c4856aca4b391f6ebacc0eb92820895b44511de4f9",
+      "pdf": "posters/36x48.pdf",
+      "pdf_sha256": "2843eeb91750a1d8863ddfc3475276ebfa66cc3b3c2c4b271551772c837a71f3",
+      "page_size_inches": [
+        36,
+        48
+      ]
+    },
+    {
+      "source": "posters/48x36.pptx",
+      "source_sha256": "f12b0e38788b73350303e3c881802060eecb0d2cfc259c8230be2cfd3f811782",
+      "pdf": "posters/48x36.pdf",
+      "pdf_sha256": "25ab438d2a999cac77cce0d519702945437e45d0ca01be96b16fcea4a536db4f",
+      "page_size_inches": [
+        48,
+        36
+      ]
+    }
+  ]
+}

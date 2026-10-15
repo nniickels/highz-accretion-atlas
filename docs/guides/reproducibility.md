@@ -110,11 +110,48 @@ SOURCE_DATE_EPOCH=1788393600 .venv/bin/python -m pip wheel . --no-deps --no-buil
 
 ## CUPC posters
 
-The final portrait and landscape editions are in `posters/`. Local authoring
-notes and temporary compilation files are private. Automated tests retain
-content, dimension, native-equation, input-integrity, and plot-reproduction
-checks. Poster editing does not change the 00–04 notebook workflow, analysis
-manifests, or comparison tolerances.
+The final portrait and landscape PPTX sources and their reviewed PDF exports
+are tracked in `posters/`. The editable decks are authoring inputs: wording and
+layout are reviewed manually, while the scientific figures are generated from
+the hash-pinned inputs in `data/poster_inputs.json`. Poster editing does not
+change the 00–04 notebook workflow, scientific manifests, or comparison tolerances.
+
+With the pinned core environment installed, run from the repository root:
+
+```bash
+.venv/bin/python -m unittest tests.test_poster_rebuild tests.test_poster_exports
+.venv/bin/python -m src.internal.verify_poster_exports
+.venv/bin/python -m src.internal.poster_figures --output-dir /tmp/highz-poster-figures
+.venv/bin/python -m src.internal.poster_layout --output /tmp/highz-landscape-rebuilt.pptx
+```
+
+Use a new output path for each rebuild. The landscape builder verifies that the
+two editions contain the same text and native equations, preserves the reviewed
+landscape XML (including manual geometry and reference columns), and regenerates
+both scientific plots. It does not derive the final layout from the old fixed
+positions. Tests independently compare regenerated plot pixels with both decks,
+check catalogue counts and citation mappings, and preserve the page dimensions.
+
+`data/poster_exports.json` binds each PDF to the exact reviewed PPTX with SHA-256
+hashes. Verification checks these hashes, one-page dimensions, text-character
+coverage, and embedded fonts. Character coverage tolerates exporter differences
+in text order and whitespace; it is not a semantic or visual-layout comparison.
+The byte hashes reject changes even if character counts happen to stay equal.
+
+PDFs are manually exported presentation artifacts, not byte-identical outputs
+of the scientific pipeline. The current portrait was exported through macOS
+Quartz (PDF 1.4), and the landscape is PDF 1.7; both were visually reviewed at
+their full page sizes. Font versions, export applications, metadata, and PDF
+encodings can differ across systems. After changing a PPTX, export a one-page
+PDF at its native size (portrait 36 × 48 inches, landscape 48 × 36 inches),
+inspect the actual PDF for text fit, symbols, images and font embedding, then
+update only that reviewed pair's hashes. Do not refresh hashes to bypass a
+failure. No automatic PDF exporter or printer-specific bleed profile is implied.
+The verifier runs in CI; no local authoring runtime is required there.
+The current Quartz portrait contains unused zero-offset cross-reference entries;
+`pypdf` warns and ignores them. They have no object references, all checked text
+and fonts are present, and independent Poppler rendering succeeded. Verification
+does not rewrite or silently repair the reviewed PDF.
 
 ## Ap&SS calibration sensitivity
 
