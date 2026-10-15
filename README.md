@@ -6,6 +6,9 @@ possible formation and growth scenarios.
 **Draft manuscript:** [PDF](paper/early_giants_draft.pdf) and
 [Overleaf source ZIP](paper/early_giants_overleaf.zip). These are working drafts.
 
+**Posters:** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
+[landscape PDF](posters/48x36.pdf) ([PowerPoint](posters/48x36.pptx)).
+
 ## Repository map
 
 - [`data/`](data/README.md): raw sources, processed catalogues, and identity products

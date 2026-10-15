@@ -139,19 +139,17 @@ in text order and whitespace; it is not a semantic or visual-layout comparison.
 The byte hashes reject changes even if character counts happen to stay equal.
 
 PDFs are manually exported presentation artifacts, not byte-identical outputs
-of the scientific pipeline. The current portrait was exported through macOS
-Quartz (PDF 1.4), and the landscape is PDF 1.7; both were visually reviewed at
-their full page sizes. Font versions, export applications, metadata, and PDF
-encodings can differ across systems. After changing a PPTX, export a one-page
+of the scientific pipeline. Both current exports are PDF 1.7 and were visually
+reviewed after the margin updates, at their full page sizes. Font versions,
+export applications, metadata, and PDF encodings can differ across systems.
+After changing a PPTX, export a one-page
 PDF at its native size (portrait 36 × 48 inches, landscape 48 × 36 inches),
 inspect the actual PDF for text fit, symbols, images and font embedding, then
 update only that reviewed pair's hashes. Do not refresh hashes to bypass a
 failure. No automatic PDF exporter or printer-specific bleed profile is implied.
 The verifier runs in CI; no local authoring runtime is required there.
-The current Quartz portrait contains unused zero-offset cross-reference entries;
-`pypdf` warns and ignores them. They have no object references, all checked text
-and fonts are present, and independent Poppler rendering succeeded. Verification
-does not rewrite or silently repair the reviewed PDF.
+The earlier Quartz portrait export was replaced by the reviewed PDF 1.7 export.
+Verification does not rewrite or silently repair the reviewed PDFs.
 
 ## Ap&SS calibration sensitivity
 
