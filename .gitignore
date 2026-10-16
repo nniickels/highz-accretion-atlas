@@ -17,10 +17,9 @@ docs/archive/
 !/paper/early_giants_draft.pdf
 !/paper/early_giants_overleaf.zip
 !/paper/apss/
-/paper/apss/*.log
-/paper/apss/*.aux
-/paper/apss/*.out
-/paper/apss/*.xdv
+/paper/apss/*
+!/paper/apss/main.tex
+!/paper/apss/main.pdf
 /releases/
 
 # Temporary poster authoring files; only final editions belong in posters/.
@@ -32,5 +31,5 @@ docs/archive/
 # OS metadata.
 .DS_Store
 
-# Private Ap&SS editorial correspondence (also covered by /paper/).
+# Private Ap&SS editorial correspondence (also covered by /paper/apss/*).
 /paper/apss/cover_letter*

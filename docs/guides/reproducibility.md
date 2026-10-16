@@ -71,10 +71,13 @@ suite, source checks, publication figure verification, and a package build/impor
 Manuscript editing and compilation are separate from the analysis pipeline.
 The authoritative local source is `paper/main.tex`, with a
 compiled PDF and synchronized Overleaf ZIP. The generic manuscript PDF and Overleaf ZIP are tracked alongside the Ap&SS
-submission package in `paper/apss/`. The Ap&SS source, PDF, upload archives,
-calibration analysis references, and rebuild/integrity records are tracked. Its cover
-letter and compilation intermediates remain ignored. The original local sources
-elsewhere under `paper/` remain ignored.
+manuscript snapshots `paper/apss/main.tex` and `paper/apss/main.pdf`.
+Other files in `paper/apss/` are local and Git-ignored, including figure/table
+copies, upload archives, rebuild scripts, integrity records, and the cover letter.
+A fresh checkout can read the Ap&SS source and PDF but cannot compile that source
+without restoring its local dependencies. Scientific code, canonical data,
+calibration calculations, and generated scientific results remain tracked.
+The original local manuscript sources elsewhere under `paper/` remain ignored.
 Overleaf receives the packaged local sources; it is not a separate authoritative
 editing target. Run `python3 -m src.internal.package_overleaf` to build the
 manuscript-only upload ZIP from the local sources after compiling and copying
@@ -222,5 +225,7 @@ The Ap&SS manuscript cites repository commit
 `77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac`, which contains the calibration
 code, input and result tables, dependency versions, and reproduction commands.
 The submission uses this repository reference instead of duplicate supplementary
-files. Its integrity checker verifies that the cited calibration files and
-scientific figures match the saved repository version.
+files. When the local submission package is available, its optional integrity checker
+compares the cited calibration files and figures against that version. Scientific
+reproduction uses the tracked analysis pipeline and does not require these local
+presentation files.

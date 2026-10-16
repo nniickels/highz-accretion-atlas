@@ -36,6 +36,6 @@ outputs from a separate checkout, executes notebooks 00–04, and compares resul
 with the unchanged baseline before updating generated-file hashes.
 
 The original local manuscript sources, cover letter, and compilation files are
-excluded from Git. Tests allow the tracked draft PDF, Overleaf ZIP, and Ap&SS
-submission package. Package-integrity checks and independent source checks serve
+excluded from Git. Tests allow the tracked draft PDF, Overleaf ZIP, and the Ap&SS
+`main.tex` and `main.pdf` snapshots. Other Ap&SS files stay local. Package-integrity checks and independent source checks serve
 different purposes: matching stored outputs does not validate every physical assumption.

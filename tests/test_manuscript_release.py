@@ -58,9 +58,13 @@ class ManuscriptReleaseTests(unittest.TestCase):
     def test_public_allowlist_keeps_local_sources_and_editorial_materials_ignored(self):
         ignored = ('main.tex', 'README.md', 'apss/cover_letter.txt',
                    'apss/main.log', 'apss/main.aux', 'apss/main.out', 'apss/main.xdv',
+                   'apss/README.md', 'apss/REPRODUCIBILITY.md',
+                   'apss/build_package.py', 'apss/verify_package.py',
+                   'apss/reproducibility_manifest.json', 'apss/figures/landscape.pdf',
+                   'apss/tables/source_rows.tex', 'apss/apss_source.zip',
+                   'apss/apss_supplementary.zip',
                    'previews/main.pdf', 'figures/landscape.pdf', 'AGENTS.md')
-        public = (PDF_NAME, ZIP_NAME, 'apss/main.tex', 'apss/main.pdf',
-                  'apss/apss_source.zip', 'apss/apss_supplementary.zip')
+        public = (PDF_NAME, ZIP_NAME, 'apss/main.tex', 'apss/main.pdf')
         # Notebook regeneration uses git archives with no .git directory.
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
