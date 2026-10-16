@@ -33,3 +33,16 @@ docs/archive/
 
 # Private Ap&SS editorial correspondence (also covered by /paper/apss/*).
 /paper/apss/cover_letter*
+
+# Notebook autosaves and temporary working files.
+.ipynb_checkpoints/
+*.tmp
+*.temp
+*.bak
+*~
+/tmp/
+/temp_exports/
+
+# Personal notes; source-audit documentation remains tracked.
+/local-notes/
+*.local.md

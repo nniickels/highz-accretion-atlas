@@ -5,11 +5,25 @@ identified with the James Webb Space Telescope (JWST). The analysis compares
 required growth rates under different seed masses, starting times, and
 radiative efficiencies.
 
-**Draft manuscript:** [PDF](paper/early_giants_draft.pdf) and
-[Overleaf source ZIP](paper/early_giants_overleaf.zip). These are working drafts.
+**Draft manuscripts:** [Paper folder](paper/). These are working drafts.
 
 **Posters:** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
 [landscape PDF](posters/48x36.pdf) ([PowerPoint](posters/48x36.pptx)).
+
+## Catalogue and key results
+
+| Find | Link |
+| --- | --- |
+| One adopted measurement per v3 object | [Object catalogue CSV](data/processed/v3/v3_accreting_objects.csv) |
+| All v3 measurements, including alternatives | [Measurement catalogue CSV](data/processed/v3/v3_accreting_measurements.csv) |
+| Required growth rates at adopted central masses | [v3 object ranking CSV](results/v3/tables/v3_object_point_ranking.csv) |
+| Growth requirements with reported mass errors | [v3 uncertainty ranking CSV](results/v3/tables/v3_object_uncertainty_ranking.csv) |
+| Highest-ranked primary-sample objects and mass-estimator caveats | [Target comparison CSV](results/for_manuscript/tables/target_robustness.csv) |
+| Figures used in the manuscript | [Scientific figures](results/for_manuscript/figures/) |
+
+See [data guidance](data/README.md) for identifiers, units, and catalogue limits,
+and [manuscript results](results/for_manuscript/README.md) for sample definitions
+and sensitivity tests.
 
 ## Repository guide
 
