@@ -1,9 +1,9 @@
 # High-Redshift Black Holes: Catalogue and Growth Constraints
 
-Published measurements of high-redshift ($z \ge 4$) black holes and candidates
-identified with the James Webb Space Telescope (JWST). The analysis compares
-required growth rates under different seed masses, starting times, and
-radiative efficiencies.
+A standardized, assumption-tracked catalogue of JWST-identified high-redshift
+($z \ge 4$) black holes and black-hole candidates, with analyses of their growth
+requirements under different seed masses, growth onset times, and radiative
+efficiencies.
 
 **Draft manuscripts:** [Paper folder](paper/). These are working drafts.
 
