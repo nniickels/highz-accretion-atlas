@@ -149,9 +149,10 @@ SOURCE_DATE_EPOCH=1788393600 .venv/bin/python -m pip wheel . --no-deps --no-buil
 
 ## CUPC posters
 
-The final portrait and landscape PPTX sources and their reviewed PDF exports
-are tracked in `posters/`. The editable decks are authoring inputs: wording and
-layout are reviewed manually, while the scientific figures are generated from
+The portrait and landscape PPTX sources and their reviewed PDF exports
+are tracked in `posters/`. Each deck contains one slide, matching its PDF.
+The editable decks are authoring inputs: wording and layout are reviewed
+manually, while the scientific figures are generated from
 the hash-pinned inputs in `data/poster_inputs.json`. Poster editing does not
 change the 00–04 notebook workflow, scientific manifests, or comparison tolerances.
 
@@ -171,8 +172,9 @@ both scientific plots. It does not derive the final layout from the old fixed
 positions. Tests independently compare regenerated plot pixels with both decks,
 check catalogue counts and citation mappings, and preserve the page dimensions.
 
-`data/poster_exports.json` binds each PDF to the exact reviewed PPTX with SHA-256
-hashes. Verification checks these hashes, one-page dimensions, text-character
+`data/poster_exports.json` records each current PPTX hash and binds its PDF to
+slide 1 with a fingerprint of that slide and all linked assets.
+Verification checks these hashes, one-page dimensions, text-character
 coverage, and embedded fonts. Character coverage tolerates exporter differences
 in text order and whitespace; it is not a semantic or visual-layout comparison.
 The byte hashes reject changes even if character counts happen to stay equal.
@@ -181,11 +183,12 @@ PDFs are manually exported presentation artifacts, not byte-identical outputs
 of the scientific pipeline. Both current exports are PDF 1.7 and were visually
 reviewed after the margin updates, at their full page sizes. Font versions,
 export applications, metadata, and PDF encodings can differ across systems.
-After changing a PPTX, export a one-page
+When promoting a layout to the print version, export the chosen slide as a one-page
 PDF at its native size (portrait 36 × 48 inches, landscape 48 × 36 inches),
 inspect the actual PDF for text fit, symbols, images and font embedding, then
-update only that reviewed pair's hashes. Do not refresh hashes to bypass a
-failure. No automatic PDF exporter or printer-specific bleed profile is implied.
+update that pair's exported slide number, fingerprint and artifact hashes.
+Do not refresh hashes to bypass a failure. No automatic PDF exporter or
+printer-specific bleed profile is implied.
 The verifier runs in CI; no local authoring runtime is required there.
 The earlier Quartz portrait export was replaced by the reviewed PDF 1.7 export.
 Verification does not rewrite or silently repair the reviewed PDFs.

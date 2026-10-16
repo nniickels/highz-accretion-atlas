@@ -3,18 +3,45 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
+import posixpath
 import unicodedata
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
 from pypdf import PdfReader
 
-from src.internal.poster_layout import poster_slide_parts
+from src.internal.poster_layout import poster_slide_parts, relationship_part
 from src.internal.poster_figures import verify_inputs
 
 ROOT = Path(__file__).resolve().parents[2]
 A = '{http://schemas.openxmlformats.org/drawingml/2006/main}'
 P = '{http://schemas.openxmlformats.org/presentationml/2006/main}'
+
+
+def slide_fingerprint(data, part):
+    """Hash a slide and its linked package parts, including images and notes."""
+    visited = set()
+
+    def visit(name):
+        if name in visited:
+            return
+        visited.add(name)
+        rel = relationship_part(name)
+        if rel not in data:
+            return
+        visited.add(rel)
+        for node in ET.fromstring(data[rel]):
+            if node.get('TargetMode') != 'External':
+                target = node.get('Target')
+                visit(target.lstrip('/') if target.startswith('/') else
+                      posixpath.normpath(posixpath.dirname(name)+'/'+target))
+
+    visit(part)
+    digest = hashlib.sha256()
+    for name in sorted(visited):
+        digest.update(name.encode()+b'\0')
+        digest.update(hashlib.sha256(data[name]).digest())
+    return digest.hexdigest()
 
 
 def text_characters(text):
@@ -37,24 +64,27 @@ def font_is_embedded(font):
 def verify_exports(root=ROOT):
     root = Path(root)
     manifest = json.loads((root/'data/poster_exports.json').read_text())
-    if manifest['schema_version'] != 1:
+    if manifest['schema_version'] != 2:
         raise ValueError('Unsupported poster export manifest version')
     for entry in manifest['exports']:
         for name, key in ((entry['source'], 'source_sha256'), (entry['pdf'], 'pdf_sha256')):
             actual = hashlib.sha256((root/name).read_bytes()).hexdigest()
             if actual != entry[key]:
-                raise ValueError(f'Reviewed poster artifact changed: {name}. Re-export and review the pair before updating its hashes.')
+                raise ValueError(f'Reviewed poster artifact changed: {name}. Review the changed slides and their export mapping before updating hashes.')
         with ZipFile(root/entry['source']) as archive:
             if archive.testzip() is not None:
                 raise ValueError(f'Invalid poster package: {entry["source"]}')
             data = {name: archive.read(name) for name in archive.namelist()}
             parts = poster_slide_parts(data)
+            exported_part = parts[entry['exported_slide']-1]
+            if slide_fingerprint(data, exported_part) != entry['exported_slide_sha256']:
+                raise ValueError(f'PDF source slide changed: {entry["source"]}. Re-export and review before updating its fingerprint.')
             size = ET.fromstring(data['ppt/presentation.xml']).find(P+'sldSz')
             source_size = tuple(int(size.get(key))/914400 for key in ('cx', 'cy'))
-            source_text = ''.join(n.text or '' for part in parts
-                                  for n in ET.fromstring(data[part]).iter(A+'t'))
+            source_text = ''.join(n.text or '' for n in
+                                  ET.fromstring(data[exported_part]).iter(A+'t'))
         reader = PdfReader(root/entry['pdf'])
-        if reader.is_encrypted or len(reader.pages) != 1 or len(parts) != 1:
+        if reader.is_encrypted or len(reader.pages) != 1:
             raise ValueError(f'Expected an unencrypted one-page poster: {entry["pdf"]}')
         page = reader.pages[0]
         pdf_size = (float(page.mediabox.width)/72, float(page.mediabox.height)/72)

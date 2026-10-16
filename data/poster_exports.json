@@ -1,26 +1,30 @@
 {
-  "schema_version": 1,
-  "description": "Reviewed poster PDF exports paired with the exact editable sources. Hashes record review, not cross-platform PDF regeneration. Re-export and visually review before updating a pair.",
+  "schema_version": 2,
+  "description": "Reviewed one-page poster PDFs paired with slide 1 of each editable deck. SHA-256 hashes pin each file; slide fingerprints include linked assets. Re-export and visually review before updating a pair.",
   "exports": [
     {
       "source": "posters/36x48.pptx",
-      "source_sha256": "4f4b42187aaeba95dc1353ac11a9cf216519b926c183f57f78806b9e04b7b117",
+      "source_sha256": "78596d6f92597f7b9093cff9f5a097f74458d497ae6abc05cf0b2b6b9ca14d63",
       "pdf": "posters/36x48.pdf",
-      "pdf_sha256": "5e22517f71e80da1454537e142a9311d69020ed7b502c30915ef83f934ef5eed",
+      "pdf_sha256": "19b43dc2ff0e7368aa3663d93fdb9ac1c370cfd928dc9ea9d86237cd9a8f8940",
       "page_size_inches": [
         36,
         48
-      ]
+      ],
+      "exported_slide": 1,
+      "exported_slide_sha256": "b2f172b1db390bed0f16717822664420dd7d65d5ea92680cace784a8abf5a67a"
     },
     {
       "source": "posters/48x36.pptx",
-      "source_sha256": "6d0e3bff0dc7f082b69edbc59bdb5f51782f0d2775499891b953a0cc38f1e1fb",
+      "source_sha256": "32ba07dc3ab64f245cfc009923bad9b3534dac0431ea96056aec5b31c1d59f90",
       "pdf": "posters/48x36.pdf",
-      "pdf_sha256": "8f350869429e08f838fbca5e73c0d1a1206cbd7a7568d062b7f7ebacb2ec709e",
+      "pdf_sha256": "bb3780e0ee20889f92e98f5c100856808b122d884cdaa9c6dda7f3cd10b84976",
       "page_size_inches": [
         48,
         36
-      ]
+      ],
+      "exported_slide": 1,
+      "exported_slide_sha256": "c7a5340c6293af117a913f1f9b8ff47d263c173c6b92442a16b85a7e6a594c25"
     }
   ]
 }
