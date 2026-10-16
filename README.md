@@ -1,4 +1,4 @@
-# High-redshift accreting black-hole catalogue
+# High-Redshift Black Holes: Catalogue and Growth Constraints
 
 Published measurements of high-redshift ($z \ge 4$) black holes and candidates
 identified with the James Webb Space Telescope (JWST). The analysis compares
