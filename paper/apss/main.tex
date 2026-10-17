@@ -52,21 +52,22 @@
 
 \begin{abstract}
 Massive black holes observed with the James Webb Space Telescope (JWST)
-constrain early growth models. We compile 350 published measurements at
-$z\geq4$ and analyse 220 objects with broad Balmer-line masses. An expanded
-sample adds 13 tentative or conditional Balmer-line candidates and GN-z11,
+constrain early growth models. We compile 355 published measurements at
+$z\geq4$ and analyse 223 objects with broad Balmer-line masses. An expanded
+sample adds 14 tentative or conditional Balmer-line candidates and GN-z11,
 whose mass is inferred from ultraviolet lines. We propagate reported mass
 uncertainties and test mass-scale shifts, alternative measurements, and growth
 assumptions. For $100\,M_\odot$ seeds formed at $z=30$, radiative efficiency
-$\epsilon=0.1$, and no mergers, eight primary objects require lifetime-average
-Eddington ratios above unity. Five exceed unity in at least 95\% of Monte Carlo
-draws. UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604 retain this threshold
+$\epsilon=0.1$, and no mergers, eleven primary objects require lifetime-average
+Eddington ratios above unity. Eight exceed unity in at least 95\% of Monte Carlo
+draws. CAPERS-LRD-z9, CANUCS-LRD-z8.6, UNCOVER-20466,
+COSMOS3D-13852, and RUBIES-EGS-55604 retain this threshold
 after a $-0.5$ dex mass shift. Adding a separate 0.5-dex calibration
 scatter retains this result for RUBIES-EGS-55604 but lowers the unshifted
 probability for J0910\_2028\_12910 to 0.745. These probabilities are conditional on the
 reported-error model and growth assumptions, rather than uniformly calibrated
 confidence levels. Delaying seeding to $z=20$ gives GN-z11 the highest required
-average Eddington ratio. At $\epsilon=0.05719$, all 234 central mass estimates
+average Eddington ratio. At $\epsilon=0.05719$, all 238 central mass estimates
 are reachable from $100\,M_\odot$ seeds at $z=30$ without lifetime-average
 accretion above the Eddington limit. For the three highest-ranked primary
 objects and GN-z11, an optimistic accretion onset at matter--radiation equality
@@ -110,12 +111,36 @@ formation or gas supply.
 \section{Catalogue construction}
 \label{sec:catalogue}
 
-We compile 350 literature measurements from 32 source families (studies or
+We compile 355 literature measurements from 37 source families (studies or
 related surveys) at $z\geq4$, with a literature cutoff of 3 September 2026.
 The catalogue is a curated collection of reproducibly extractable published
 measurements, not a statistically complete census of high-redshift black holes.
 Its scope does not include a systematic compilation of legacy ground-selected
 quasar samples.
+The bounded membership revision admitted on 17 October 2026 preserves that
+cutoff and the preceding edition at repository commit
+\texttt{fc0c5501ad22}. It adds CAPERS-LRD-z9 \citep{taylor25expansion},
+CANUCS-LRD-z8.6 \citep{tripodi25expansion}, J1007\_AGN
+\citep{schindler25expansion}, MACS0416-Y1 \citep{takechi26expansion}, and
+SAPPHIRES-ID-8760 \citep{fudamoto25expansion}. The first four are Balmer
+source families in v2 and v3; the mass-free SAPPHIRES candidate is v3 only.
+Y1 remains candidate evidence in the expanded sample; its D2 component is
+one nucleus in one host. The source's mass is already lens-corrected, as is
+CANUCS's mass. SAPPHIRES has no published black-hole mass, so numerical
+growth inference is disabled; its weak Hbeta and unidentified foreground
+contaminant remain evidence caveats. Morishita's revised CANUCS analysis \citep{morishita2026context}
+provides same-object evidence and reuses Tripodi's mass.
+
+For J1007\_AGN we adopt the observed Hbeta mass
+$(1.152^{+1.011}_{-0.463})\times10^8 M_\odot$ as a conservative comparable
+baseline, while the authors favor a dust-attenuated interpretation. Their
+correlated dust-corrected alternative is
+$(4.514^{+5.218}_{-2.320})\times10^8 M_\odot$; it raises the reference
+requirement from 1.113 to 1.222 without adding another object.
+CAPERS uses its source-canonical $7.58\pm0.15$ dex mass. Its 6.65--8.50
+systematic envelope combines different assumptions, including an assumed
+Eddington luminosity bound, and is not sampled as a measured interval.
+
 We adopt one measurement per object and retain alternatives, recording the
 source, method, uncertainty, publication version, and reason for each choice
 (Appendix~\ref{app:identities}).
@@ -153,11 +178,11 @@ still requires assessing gas dynamics, geometry, obscuration, and lensing for
 each object.
 
 The expanded sample adds 7 candidates with masses conditional on a
-broad-line-region interpretation, 6 with tentative broad-line detections, and
+broad-line-region interpretation, 7 with tentative broad-line detections, and
 GN-z11 to the primary sample (Appendix~\ref{app:expanded-membership}). GN-z11's mass is inferred from rest-frame ultraviolet
 emission lines using local virial relations \citep{maiolino2024}; its lines and
 calibration differ from those of the Balmer-line sample.
-These criteria yield 220 primary objects and 234 expanded-sample objects.
+These criteria yield 223 primary objects and 238 expanded-sample objects.
 
 Objects without reported mass errors enter calculations at their central
 masses but not the uncertainty analysis.
@@ -297,18 +322,19 @@ analysis, interpretation, and final manuscript.
 \subsection{Required accretion under the reference assumptions}
 
 For a $10^2\,M_\odot$ seed under the reference model, the median required
-lifetime-average Eddington ratio across the 220 primary objects is
-$\overline{f}_{\mathrm{Edd,req}}=0.573$ (interquartile range 0.485--0.673),
-with eight objects above unity and none above 2. Across the expanded
-234-object sample, the corresponding median is 0.574 (interquartile range
-0.488--0.679), with 14 above unity. These statistics use the required ratios
+lifetime-average Eddington ratio across the 223 primary objects is
+$\overline{f}_{\mathrm{Edd,req}}=0.574$ (interquartile range 0.487--0.679),
+with eleven objects above unity and none above 2. Across the expanded
+238-object sample, the corresponding median is 0.581 (interquartile range
+0.488--0.689), with 17 above unity. These statistics use the required ratios
 at the adopted central masses.
-UNCOVER-20466 has the highest required ratio, 1.452,
-with a 16th--84th percentile interval of 1.354--1.549 from its mass-error draws.
-Table~\ref{tab:top} lists the eight primary objects above the threshold,
+CAPERS-LRD-z9 has the highest required ratio, 1.519,
+with a 16th--84th percentile interval of 1.479--1.561 from its mass-error draws.
+UNCOVER-20466 (1.452) and CANUCS-LRD-z8.6 (1.448) follow.
+Table~\ref{tab:top} lists the eleven primary objects above the threshold,
 ranked by the required ratios at their central masses.
 
-The shorter growth time at $z=10.603$ places GN-z11 second in the expanded-sample
+The shorter growth time at $z=10.603$ places GN-z11 fourth in the expanded-sample
 required-rate ranking despite its smaller mass.
 
 
@@ -317,11 +343,11 @@ required-rate ranking despite its smaller mass.
 
 \subsection{Sensitivity to mass estimates}
 
-Of the eight primary objects above unity at their central masses, six
-remain above it at the 16th percentile and five have $P\geq0.95$
+Of the eleven primary objects above unity at their central masses, nine
+remain above it at the 16th percentile and eight have $P\geq0.95$
 (Fig.~\ref{fig:uncertainty}). These results use the quoted mass errors, which
 include different combinations of measurement and calibration uncertainty
-(Table~\ref{tab:top}). Probability calculations use the 208 primary objects
+(Table~\ref{tab:top}). Probability calculations use the 211 primary objects
 with reported errors. Appendix~\ref{app:measurement-checks} gives the expanded-sample
 percentile counts.
 
@@ -330,8 +356,8 @@ percentile counts.
 
 
 Downward mass shifts of 0.3 and 0.5 dex reduce the number of primary objects
-above unity at their central masses from eight to six and four, respectively
-(Table~\ref{tab:massoffset}). UNCOVER-20466, COSMOS3D-13852, and
+above unity at their central masses from eleven to nine and seven, respectively
+(Table~\ref{tab:massoffset}). CAPERS-LRD-z9, CANUCS-LRD-z8.6, UNCOVER-20466, COSMOS3D-13852, and
 \mbox{RUBIES-EGS-55604} retain $P\geq0.95$ at $-0.5$ dex. Biases specific to each
 source may exceed this offset (Section~\ref{sec:credibility}), and the required
 rates still depend on seed mass, formation time, and radiative efficiency.
@@ -417,8 +443,8 @@ Calibrating the virial sample would require independent measurements for more ob
 \subsection{Accretion-onset sensitivity}
 \label{sec:pbh-v4}
 
-We compare earlier accretion onset for UNCOVER-20466, COSMOS3D-13852, and
-\mbox{RUBIES-EGS-55604}, the three highest-ranked primary objects under the
+We compare earlier accretion onset for CAPERS-LRD-z9, UNCOVER-20466, and
+CANUCS-LRD-z8.6, the three highest-ranked primary objects under the
 reference growth model, together with GN-z11 as an expanded-sample UV-mass
 comparison object.
 We use the growth component of Eq.~(1) and Section~2 of \citet{dayal2024},
@@ -574,20 +600,20 @@ also require formation models and population information.
 For the adopted masses and growth assumptions, we find:
 \begin{itemize}
 \item For $100\,M_\odot$ seeds formed at $z=30$, $\epsilon=0.1$, and no
-merger contribution, 8 of the 220 objects in the primary sample require an
-average Eddington ratio above 1. Five do so in at least 95\% of Monte Carlo
+merger contribution, 11 of the 223 objects in the primary sample require an
+average Eddington ratio above 1. Eight do so in at least 95\% of Monte Carlo
 draws from the adopted mass-error model. Adding the separately reported
 0.5-dex calibration scale lowers the probability for J0910\_2028\_12910
 to 0.745. Other probabilities retain the source-reported errors, whose
 calibration coverage varies.
-\item For UNCOVER-20466, COSMOS3D-13852, and \mbox{RUBIES-EGS-55604}, at least
-95\% of draws still require an average Eddington ratio above 1 after
-reducing the masses by 0.5 dex. RUBIES-EGS-55604 retains a probability of
+\item At least 95\% of draws still require an average Eddington ratio above 1
+after reducing the masses by 0.5 dex for five objects: CAPERS-LRD-z9,
+CANUCS-LRD-z8.6, UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604. RUBIES-EGS-55604 retains a probability of
 0.979 when its separate calibration scale is also included. Unquantified
 lensing and line-broadening biases remain outside these probabilities.
 \item Delaying seeding to $z=20$ makes GN-z11 the highest-ranked object.
 At constant efficiency $\epsilon=0.05719$, every central mass in the
-234-object expanded sample is reachable from a $100\,M_\odot$ seed at $z=30$
+238-object expanded sample is reachable from a $100\,M_\odot$ seed at $z=30$
 with an average Eddington ratio below 1.
 \item For the four selected targets, accretion beginning at matter--radiation equality
 requires approximately $270$--$1200\,M_\odot$ seeds at $\epsilon=0.1$ and
@@ -606,21 +632,20 @@ above the Eddington limit.
 
 Code and data are available at
 \url{https://github.com/nniickels/highz-accretion-atlas}.
-The data, code, and results used here, including the calibration-uncertainty
-test, are preserved at
+The unchanged two-object calibration calculation is preserved at
 \href{https://github.com/nniickels/highz-accretion-atlas/tree/77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac}{commit \texttt{77908cdaadb5}}.
-Catalogue data and source records are in \path{data/}; manuscript tables and
-figures are in \path{results/for_manuscript/}. The analysis code is in
-\path{src/}, and the workflow notebooks are in \path{scripts/}.
-The calibration code is \path{src/internal/calibration_sensitivity.py}.
-Its input, \path{target_robustness.csv}, and result,
-\path{calibration_sensitivity.csv}, are in
-\path{results/for_manuscript/tables/}.
-The earlier-onset configuration and products are in
+That revision predates the expanded catalogue. The expanded catalogue and
+scientific results correspond to
+\href{https://github.com/nniickels/highz-accretion-atlas/tree/a1bef516db5c76a92b6848eb12bccabdeb5804b9}{commit \texttt{a1bef516db5c}}.
+Catalogue source records are in \path{data/}, manuscript results in
+\path{results/for_manuscript/}, and analysis code/notebooks in \path{src/}
+and \path{scripts/}. The unchanged calibration implementation is
+\path{src/internal/calibration_sensitivity.py}; its input and result are
+\path{target_robustness.csv} and \path{calibration_sensitivity.csv} in the
+manuscript-results tables. Earlier-onset inputs and products are in
 \path{data/scenarios/v4_pbh_growth.json} and \path{results/v4/}.
-Dependency versions and reproduction commands are recorded in
-\path{requirements/core.txt} and \path{docs/guides/reproducibility.md} at the
-same commit.
+Pinned dependencies and reproduction commands are in
+\path{requirements/core.txt} and \path{docs/guides/reproducibility.md}.
 \par
 
 \clearpage
@@ -644,8 +669,8 @@ Table~\ref{tab:sources} lists the contributing source families.
 \label{app:validation}
 
 Independent source records check the central masses and error fields of all
-244 numerical mass measurements, including missing errors for 12 measurements.
-Separate checks cover all 350 central redshifts and 323 available coordinate
+248 numerical mass measurements, including missing errors for 12 measurements.
+Separate checks cover all 355 central redshifts and 328 available coordinate
 pairs. The records retain source versions, table locators, and conversion
 notes. These checks test transcription and unit conversion; they do not
 validate the mass estimators or resolve ambiguous identities. Other fields,
@@ -720,10 +745,10 @@ NEXUS mass estimate.
 \subsection{Sensitivity to measurement choice and sample membership}
 \label{app:measurement-checks}
 
-In the expanded sample, 14 objects have a median required average Eddington
-ratio above unity, 10 exceed unity at the 16th percentile, and eight have
-$P\geq0.95$; 15 exceed unity at the 84th percentile. These statistics use
-222 objects with reported errors.
+In the expanded sample, 17 objects exceed unity at their central masses,
+13 exceed unity at the 16th percentile, and eleven have
+$P\geq0.95$; 19 exceed unity at the 84th percentile. These statistics use
+226 objects with reported errors.
 
 The baseline catalogue retains the Baccus \& Xu measurements from
 \texttt{arXiv:2512.03281v1} to preserve the frozen catalogue's membership and
@@ -739,19 +764,19 @@ of \citet{baccus2026}. The threshold counts and the five highest-ranked objects
 remain unchanged in both samples (Table~\ref{tab:baccusjoint}). Of five
 unmatched records, one is excluded for uncertain identity; retaining or
 omitting the other four leaves these results unchanged. Omitting them leaves
-216 primary and 230 expanded-sample objects.
+219 primary and 234 expanded-sample objects.
 
 
 \marginpar{\normalfont\small\raggedright Table~\ref{tab:baccusjoint}\\here.}
 
 
 Excluding the three uncertain-identity records with eligible masses reduces
-the primary sample from 223 to 220 objects and the
-expanded sample from 237 to 234 objects, while preserving threshold counts
+the primary sample from 226 to 223 objects and the
+expanded sample from 241 to 238 objects, while preserving threshold counts
 and top-five rankings in every scenario in Table~\ref{tab:scenarios},
 including the reference probability counts. The median required
 lifetime-average Eddington ratio across primary objects, evaluated using
-their central masses, changes from 0.571 to 0.573; the objects above the
+their central masses, changes from 0.57420 to 0.57425; the objects above the
 reference threshold remain the same.
 
 
@@ -865,8 +890,8 @@ t(z)=\frac{1}{H_0}\int_0^{1/(1+z)}
 where $x$ is the scale factor. We retain the same $H_0$ and $\Omega_m$,
 adopt $\Omega_r=\Omega_m/(1+3400)\simeq9.262\times10^{-5}$, and set
 $\Omega_\Lambda=1-\Omega_m-\Omega_r$ to preserve flatness.
-Including radiation raises the reference required ratios by 0.14--0.26\%, preserving the central-mass counts of eight
-primary and 14 expanded-sample objects above unity. Two boundary cases
+Including radiation raises the reference required ratios by 0.14--0.26\%, preserving the central-mass counts of eleven
+primary and 17 expanded-sample objects above unity. Two boundary cases
 change: CEERS-00717's sampled 16th percentile rises from 0.99805 to 1.00003,
 and A2744-QSO1's dynamical-mass requirement rises from 0.9996 to 1.0016.
 Both shifts are much smaller than the uncertainty intervals from the
@@ -1309,6 +1334,27 @@ Zou, F., Gallo, E., Zuo, Z., {et~al.} 2026, \bibinfo{title}{Revisiting the
   Claim for a Direct-Collapse Black Hole in UHZ1 at $z=10.05$,} ApJ, in press.
 \newblock \doarXiv{2603.24893v2}
 
+\bibitem[Taylor et al.(2025)]{taylor25expansion} Taylor, A. J., et al. (2025),
+CAPERS-LRD-z9: A Gas Enshrouded Little Red Dot Hosting a Broad-line AGN at z=9.288,
+ApJL, 989, L7, \dodoi{10.3847/2041-8213/ade789}.
+\bibitem[Tripodi et al.(2025)]{tripodi25expansion} Tripodi, R., et al. (2025),
+Extreme properties of a compact and massive accreting black hole host in the first 500 Myr,
+Nature Communications, 16, 9830, \dodoi{10.1038/s41467-025-65070-x}.
+\bibitem[Schindler et al.(2025)]{schindler25expansion} Schindler, J.-T., et al. (2025),
+A little red dot at z=7.3 within a large galaxy overdensity,
+Nature Astronomy, 9, 1732--1744, \dodoi{10.1038/s41550-025-02660-1}.
+\bibitem[Takechi et al.(2026)]{takechi26expansion} Takechi, K., et al. (2026),
+DREAMS. JWST Spectroscopy of a z=8.3 Galaxy with an ALMA Dust Continuum Detection,
+arXiv:2605.14922v1.
+\bibitem[Fudamoto et al.(2025)]{fudamoto25expansion} Fudamoto, Y., et al. (2025),
+SAPPHIRES: A Galaxy Over-Density in the Heart of Cosmic Reionization at z=8.47,
+arXiv:2503.15597v1.
+
+\bibitem[Morishita et al.(2026)]{morishita2026context}
+Morishita, T., et al. 2026, A Nitrogen-rich AGN Powering a Large Ionizing
+Bubble at $z=8.63$, ApJ, accepted.
+\newblock \doarXiv{2508.01372v2}
+
 \end{thebibliography}
 
 \section*{Statements and declarations}
@@ -1328,7 +1374,7 @@ Data and code availability section above.
 \noindent\begin{minipage}{\textwidth}
 \centering
 \includegraphics[width=0.99\textwidth]{figures/growth_tracks.pdf}
-\captionof{figure}{Growth tracks with 220 primary and 14 additional objects.
+\captionof{figure}{Growth tracks with 223 primary and 15 additional objects.
 Panels show 4 constant radiative efficiencies at $z_{\rm seed}=30$;
 colours distinguish seeds of $10^2$, $10^4$, and $10^5M_\odot$, and legends
 list the average Eddington ratios, selected separately in each panel to lie
@@ -1343,7 +1389,7 @@ Objects with unresolved identities or without eligible masses are omitted.}
 \noindent\begin{minipage}{\textwidth}
 \centering
 \includegraphics[width=0.92\textwidth]{figures/uncertainty.pdf}
-\captionof{figure}{The eight primary objects with $f_0>1$ under the reference model.
+\captionof{figure}{The eleven primary objects with $f_0>1$ under the reference model.
 Circles and bars show medians and 16th--84th percentile intervals of the
 required lifetime-average Eddington ratio over each object's mass-error draws;
 diamonds show $f_0$ after a $-0.5$ dex mass shift. The vertical
@@ -1382,12 +1428,12 @@ onset reduces the required mass, with diminishing gains in available time.}
 \noindent\begin{minipage}{\textwidth}
 \centering
 \includegraphics[width=0.92\textwidth]{figures/landscape.pdf}
-\captionof{figure}{Sample accounting for 338 provisional catalogue objects. The first four
-bars show mutually exclusive categories: 220 primary objects, 14 additional
-expanded-sample objects, 98 retained without eligible masses, and 6 identity exclusions.
+\captionof{figure}{Sample accounting for 343 provisional catalogue objects. The first four
+bars show mutually exclusive categories: 223 primary objects, 15 additional
+expanded-sample objects, 99 retained without eligible masses, and 6 identity exclusions.
 The final bar shows the 12 primary objects without reported mass uncertainties;
 these are included in the primary count. The expanded sample contains
-234 objects. Probability calculations use 208 primary and 222 expanded-sample objects.}
+238 objects. Probability calculations use 211 primary and 226 expanded-sample objects.}
 \label{fig:landscape}
 \end{minipage}
 
@@ -1438,13 +1484,13 @@ studies remain uncertain.}
 \toprule
 Category & Count \\
 \midrule
-Measurements / provisional objects / host systems & 350 / 338 / 337 \\
-Growth-eligible measurements / objects & 244 / 237 \\
-Preliminary Balmer selection: measurements / objects & 234 / 227 \\
-Primary sample / expanded sample & 220 / 234 \\
-Objects with mass uncertainties (primary / expanded) & 208 / 222 \\
+Measurements / provisional objects / host systems & 355 / 343 / 342 \\
+Growth-eligible measurements / objects & 248 / 241 \\
+Preliminary Balmer selection: measurements / objects & 237 / 230 \\
+Primary sample / expanded sample & 223 / 238 \\
+Objects with mass uncertainties (primary / expanded) & 211 / 226 \\
 Objects excluded for uncertain identity & 6 \\
-Objects without growth-eligible measurements & 101 \\
+Objects without growth-eligible measurements & 102 \\
 \bottomrule
 \end{tabular}
 \par\smallskip
@@ -1452,18 +1498,18 @@ Objects without growth-eligible measurements & 101 \\
 The preliminary Balmer selection requires a non-conditional Balmer virial mass and
 secure or probable evidence for an accreting black hole in the catalogue.
 These counts precede the final checks of individual line detections and object identities.
-Of these 227 objects, 4 tentative JADES detections enter
+Of these 230 objects, 4 tentative JADES detections enter
 only the expanded sample and 3 are excluded for uncertain identity,
-leaving 220 primary objects. The 101 objects without eligible masses include
+leaving 223 primary objects. The 102 objects without eligible masses include
 3 of the 6 identity exclusions. Figure~\ref{fig:landscape} counts those 3
-under identity exclusions, leaving 98 in its bar for objects without eligible masses.}
+under identity exclusions, leaving 99 in its bar for objects without eligible masses.}
 \label{tab:scale}
 \end{minipage}
 
 \par\bigskip
 \noindent\begin{minipage}{\textwidth}
 \centering
-\captionof{table}{The eight primary objects above the reference threshold, ordered by $f_0$.
+\captionof{table}{The eleven primary objects above the reference threshold, ordered by $f_0$.
 Redshifts are the adopted spectroscopic values. Masses and errors are in
 $\log_{10}(\mbh/M_\odot)$; all estimators are single-epoch
 virial. $f_0$ is the required lifetime-average Eddington ratio evaluated
@@ -1488,7 +1534,9 @@ $^{\rm a}$ A separate 0.5-dex calibration scale is reported for
 \mbox{RUBIES-EGS-55604} and J0910\_2028\_12910; these scales are omitted from the
 quoted errors and probabilities shown here. $^{\rm b}$ GN-38509's quoted
 mass errors already include 0.3-dex calibration scatter. $^{\rm c}$ ZS7's quoted 0.4-dex error
-already includes calibration scatter. Unmarked rows have no separate
+already includes calibration scatter. $^{\rm d}$ J1007\_AGN has a separate
+0.43-dex calibration scale, retained outside the quoted posterior errors.
+Unmarked rows have no separate scalar
 numerical calibration scale recorded; their quoted errors may omit other
 mass-estimator uncertainties.}
 \endgroup
@@ -1501,17 +1549,17 @@ mass-estimator uncertainties.}
 \captionof{table}{Sensitivity to fixed mass offsets under the reference model.
 The slash-separated counts are for objects above unity at the central mass, at the 16th percentile,
 and with conditional $P(\overline{f}_{\mathrm{Edd,req}}>1)\geq0.95$.
-The probability-based counts use 208 primary and 222 expanded-sample objects with
-reported errors; central-mass counts use all 220 and 234 objects.}
+The probability-based counts use 211 primary and 226 expanded-sample objects with
+reported errors; central-mass counts use all 223 and 238 objects.}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 Mass offset (dex) & Primary & Expanded \\
 \midrule
-$-0.5$ & 4 / 3 / 3 & 7 / 5 / 4 \\
-$-0.3$ & 6 / 5 / 4 & 10 / 7 / 5 \\
-$0$ & 8 / 6 / 5 & 14 / 10 / 8 \\
-$+0.3$ & 11 / 11 / 10 & 17 / 15 / 14 \\
-$+0.5$ & 15 / 12 / 11 & 21 / 18 / 15 \\
+$-0.5$ & 7 / 5 / 5 & 10 / 7 / 6 \\
+$-0.3$ & 9 / 8 / 6 & 13 / 10 / 7 \\
+$0$ & 11 / 9 / 8 & 17 / 13 / 11 \\
+$+0.3$ & 14 / 14 / 13 & 21 / 18 / 17 \\
+$+0.5$ & 18 / 15 / 14 & 25 / 21 / 18 \\
 \bottomrule
 \end{tabular}
 \label{tab:massoffset}
@@ -1545,12 +1593,12 @@ masses under fixed growth assumptions. Each row changes only the named parameter
 $B_{\rm merge}=1$). Counts use central mass estimates and provisional object identities.}
 \begin{tabular}{@{}lrr@{}}
 \toprule
-Scenario & Primary (220) & Expanded (234) \\
+Scenario & Primary (223) & Expanded (238) \\
 \midrule
-Reference & 8 & 14 \\
-$M_{\rm seed}=10^3M_\odot$ & 3 & 5 \\
+Reference & 11 & 17 \\
+$M_{\rm seed}=10^3M_\odot$ & 5 & 7 \\
 $M_{\rm seed}=10^5M_\odot$ & 0 & 0 \\
-$z_{\rm seed}=20$ & 18 & 24 \\
+$z_{\rm seed}=20$ & 21 & 28 \\
 $\epsilon=0.05719$ & 0 & 0 \\
 \bottomrule
 \end{tabular}
@@ -1577,13 +1625,16 @@ Object & $z_{\rm acc}=30$ & $z_{\rm acc}=100$ & $z_{\rm acc}=3400$ \\
 \par\bigskip
 \noindent\begin{minipage}{\textwidth}
 \centering\small
-\captionof{table}{Mass-estimator limitations for the 8 primary objects requiring
+\captionof{table}{Mass-estimator limitations for the 11 primary objects requiring
 $\overline{f}_{\mathrm{Edd,req}}>1$ under the reference assumptions.
 Caveats summarize the source records cited in Table~\ref{tab:top}.}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.68\textwidth}@{}}
 \toprule
 Object & Mass-estimator caveat \\
 \midrule
+CAPERS-LRD-z9 & H$\beta$; dense-gas/BLR geometry, correlated dust alternatives; the 0.15 dex error includes calibration coefficients but not the full high-redshift systematic. \\[3pt]
+CANUCS-LRD-z8.6 & H$\beta$; mass already lens-corrected; alternate lens model and calibration-scatter decomposition remain caveats. \\[3pt]
+J1007\_AGN & Observed total-H$\beta$ luminosity estimator; correlated dust correction raises the mass; separate 0.43 dex calibration scale is not added. \\[3pt]
 UNCOVER-20466 & H$\beta$; mass depends on lens model and broad-line-region interpretation. \\[3pt]
 COSMOS3D-13852 & H$\beta$; possible scattering bias; 1--2 dex shifts tested here. \\[3pt]
 \mbox{RUBIES-EGS-55604} & H$\beta$; dust-corrected mass; separate 0.5 dex calibration scale. \\[3pt]
@@ -1604,7 +1655,7 @@ ZS7 & H$\beta$; quoted 0.4 dex already includes calibration scatter. \\[3pt]
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}rp{0.10\textwidth}>{\raggedright\arraybackslash}p{0.43\textwidth}@{}}
 \caption{Source-family inventory. Counts are catalogue measurements / growth-eligible
 measurements / primary-sample objects (M/E/P).
-The columns sum to 350/244/220; E includes alternatives, whereas P counts each
+The columns sum to 355/248/223; E includes alternatives, whereas P counts each
 selected object once. ``Balmer'' denotes single-epoch virial masses.
 ``Context'' denotes mass estimates retained for discussion but excluded from
 growth calculations because of their method or interpretation.
@@ -1635,12 +1686,12 @@ respectively. The adopted catalogue values define the baseline.}
 \toprule
 Sample & Measurement treatment & Objects & Counts \\
 \midrule
-Primary & Adopted catalogue values & 220 & 8/6/5 \\
-Primary & Published; retain unmatched & 220 & 8/6/5 \\
-Primary & Published; omit unmatched & 216 & 8/6/5 \\
-Expanded & Adopted catalogue values & 234 & 14/10/8 \\
-Expanded & Published; retain unmatched & 234 & 14/10/8 \\
-Expanded & Published; omit unmatched & 230 & 14/10/8 \\
+Primary & Adopted catalogue values & 223 & 11/9/8 \\
+Primary & Published; retain unmatched & 223 & 11/9/8 \\
+Primary & Published; omit unmatched & 219 & 11/9/8 \\
+Expanded & Adopted catalogue values & 238 & 17/13/11 \\
+Expanded & Published; retain unmatched & 238 & 17/13/11 \\
+Expanded & Published; omit unmatched & 234 & 17/13/11 \\
 \bottomrule
 \end{tabular}
 \label{tab:baccusjoint}

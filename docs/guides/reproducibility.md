@@ -69,18 +69,19 @@ CI removes generated artifacts in a disposable workspace, runs all five notebook
 and compares the results against the original checkout. It also runs the regression
 suite, source checks, publication figure verification, and a package build/import check.
 Manuscript editing and compilation are separate from the analysis pipeline.
-The authoritative local source is `paper/main.tex`, with a
-compiled PDF and synchronized Overleaf ZIP. The generic manuscript PDF and Overleaf ZIP are tracked alongside the Ap&SS
-manuscript snapshots `paper/apss/main.tex` and `paper/apss/main.pdf`.
+The current expanded manuscript is tracked as `paper/apss/main.tex` and
+`paper/apss/main.pdf`. The generic manuscript PDF and Overleaf ZIP preserve the
+earlier, pre-expansion edition; their local source is `paper/main.tex`.
 Other files in `paper/apss/` are local and Git-ignored, including figure/table
 copies, upload archives, rebuild scripts, integrity records, and the cover letter.
 A fresh checkout can read the Ap&SS source and PDF but cannot compile that source
 without restoring its local dependencies. Scientific code, canonical data,
 calibration calculations, and generated scientific results remain tracked.
 The original local manuscript sources elsewhere under `paper/` remain ignored.
-Overleaf receives the packaged local sources; it is not a separate authoritative
-editing target. Run `python3 -m src.internal.package_overleaf` to build the
-manuscript-only upload ZIP from the local sources after compiling and copying
+For the historical generic edition, Overleaf receives the packaged local sources;
+it is not a separate authoritative editing target. Run
+`python3 -m src.internal.package_overleaf` to build that edition's
+manuscript-only upload ZIP from its local sources after compiling and copying
 `paper/previews/main.pdf` to `paper/early_giants_draft.pdf`. This optional packaging
 command requires the local source. CI runs the read-only `--verify` command
 against the public ZIP and PDF without requiring local manuscript files or TeX.
@@ -240,3 +241,8 @@ figure reconstruction therefore retain the actual historical inputs; current
 catalogue tables are not substituted or compared with a historical count.
 The generic draft PDF/Overleaf ZIP are also explicitly older snapshots.
 The expanded scientific manuscript is `paper/apss/main.tex` and its PDF.
+
+The expanded catalogue and scientific products are recorded at
+`a1bef516db5c76a92b6848eb12bccabdeb5804b9`. The Ap&SS manuscript cites this
+scientific revision separately from the unchanged calibration calculation at
+`77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac`.
