@@ -1,3 +1,15 @@
+> Current edition: the 17 October 2026 bounded membership expansion adds four
+> numerical Balmer objects and the mass-free SAPPHIRES candidate. Current v3:
+> 355 measurements / 343 provisional object records / 342 hosts, 241 growth-eligible
+> objects, 230 method-primary objects, 37 source families. The manuscript samples
+> are 223 primary / 238 expanded; reference point/p16/P>=0.95 counts are 11/9/8
+> and 17/13/11. Twelve objects lack errors in both samples. CAPERS, UNCOVER and
+> CANUCS now form the three strongest primary cases; GN-z11 is fourth in the
+> expanded order. The policy and fixed assumptions below are unchanged; numerical
+> counts and ranks in its earlier dated narrative describe the preceding edition.
+> The non-spinning maximum is now 0.829, still with zero central values above unity.
+> Source-specific caveats and correlated dust alternatives remain explicit.
+
 # Class-aware science policy
 
 The shared science layer consumes the canonical measurement and physical-object

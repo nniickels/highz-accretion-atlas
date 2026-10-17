@@ -1,0 +1,10 @@
+source_id,ra_deg,dec_deg,coordinate_frame,redshift,outcome,reason,source_location
+J1007_AGN,151.978226,21.283994,J2000,7.2583,propose_new_agn,secure broad Hbeta type-1 AGN,Extended Data Table 3; companions also Table 4
+J1007_10660,152.030665,21.254673,J2000,7.2022,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4
+J1007_11721,152.024914,21.249581,J2000,7.2083,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4
+J1007_11812,152.012827,21.249211,J2000,7.2193,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4
+J1007_5524,152.001375,21.279459,J2000,7.2341,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4
+J1007_9336,152.03151,21.260753,J2000,7.2458,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4
+J1007_3984,151.982968,21.286523,J2000,7.2605,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4
+J1007_3850,151.981961,21.287311,J2000,7.2612,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4
+J1007_16615,151.985916,21.224606,J2000,7.2725,exclude_companion_galaxy,overdensity member; no independent AGN evidence assigned by source,Extended Data Table 3; companions also Table 4

@@ -80,9 +80,12 @@ class PosterRebuildTests(unittest.TestCase):
 
     def test_overview_diagram_counts_match_catalogue_selection(self):
         import pandas as pd
-        selection = pd.read_csv(ROOT/'results/for_manuscript/tables/publication_object_selection.csv')
-        measurements = pd.read_csv(ROOT/'data/processed/v3/v3_accreting_measurements.csv')
-        uncertainty = pd.read_csv(ROOT/'results/v3/tables/v3_object_uncertainty_ranking.csv')
+        from src.internal.poster_figures import poster_input_path
+        selection = pd.read_csv(poster_input_path('results/for_manuscript/tables/publication_object_selection.csv'))
+        edition = json.loads((ROOT/'data/poster_inputs.json').read_text())
+        self.assertEqual(edition['edition_revision'],'fc0c5501ad2271865b1c040307cad8dd8ca5721a')
+        measurement_count=edition['edition_measurements']
+        uncertainty = pd.read_csv(poster_input_path('results/v3/tables/v3_object_uncertainty_ranking.csv'))
         error_ids = set(uncertainty.loc[uncertainty.reported_mass_errors_sampled, 'physical_object_id'])
         primary_errors = int((selection.publication_primary_flag & selection.physical_object_id.isin(error_ids)).sum())
         expanded_errors = int((selection.publication_exploratory_flag & selection.physical_object_id.isin(error_ids)).sum())
@@ -98,7 +101,7 @@ class PosterRebuildTests(unittest.TestCase):
             text = {shape.find('.//'+P+'cNvPr').get('id'):
                     ''.join(n.text or '' for n in shape.iter(A+'t'))
                     for shape in slide.iter(P+'sp')}
-            self.assertIn(f'{len(measurements)} measurements', text['200'])
+            self.assertIn(f'{measurement_count} measurements', text['200'])
             self.assertIn(f'{len(selection)} provisional objects', text['202'])
             self.assertIn(f'{expanded} expanded-sample objects', text['206'])
             self.assertIn(f'{primary} primary', text['207'])

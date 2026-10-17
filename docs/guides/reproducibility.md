@@ -116,8 +116,8 @@ not a substitute for independent source evidence.
 Three identity groups remain unresolved. The ordinary redshift/identity verifier
 reports them; `--require-resolved` is the strict full-catalogue gate and currently
 fails. The publication samples exclude all six affected records and place four
-tentative JADES detections in the exploratory sample only, yielding 220 primary
-and 234 exploratory objects. See the [identity audit](../source-notes/redshift-identity-audit.md).
+tentative JADES detections in the exploratory sample only, yielding 223 primary
+and 238 exploratory objects. See the [identity audit](../source-notes/redshift-identity-audit.md).
 
 ## Intentional updates
 
@@ -229,3 +229,14 @@ files. When the local submission package is available, its optional integrity ch
 compares the cited calibration files and figures against that version. Scientific
 reproduction uses the tracked analysis pipeline and does not require these local
 presentation files.
+
+## Historical presentation editions after the October admission
+
+The CUPC posters retain their reviewed pre-expansion edition at
+`fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Their original scientific-table
+hashes now resolve through the explicit path map in `data/poster_inputs.json`
+to unchanged tables in `data/publication/poster_snapshot/`. Verification and
+figure reconstruction therefore retain the actual historical inputs; current
+catalogue tables are not substituted or compared with a historical count.
+The generic draft PDF/Overleaf ZIP are also explicitly older snapshots.
+The expanded scientific manuscript is `paper/apss/main.tex` and its PDF.

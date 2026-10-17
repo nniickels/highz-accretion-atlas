@@ -1,0 +1,32 @@
+{
+  "source": "Tripodi et al. published 2025-11-19",
+  "source_doi": "10.1038/s41467-025-65070-x",
+  "locators": [
+    "abstract mass interval",
+    "Results opening identity",
+    "Methods Observations and data reduction",
+    "Supplementary Tables 1 and 3"
+  ],
+  "expected": {
+    "redshift": 8.6319,
+    "redshift_err": 0.0005,
+    "mbh_msun": 100000000,
+    "mbh_err_plus_msun": 60000000,
+    "mbh_err_minus_msun": 40000000,
+    "lensing_mu": 1.07,
+    "broad_fwhm_km_s": 4190,
+    "broad_fwhm_err_plus": 570,
+    "broad_fwhm_err_minus": 540,
+    "log_lbol_erg_s": 45.0,
+    "log_lbol_err": 0.8,
+    "table_log_mbh_msun": 8.0,
+    "table_log_mbh_err": 0.2
+  },
+  "expected_conversion": {
+    "ra_deg": 177.39091666666667,
+    "dec_deg": 22.34976666666667,
+    "log_mbh_msun": 8.0,
+    "log_mbh_err_plus": 0.204119982655925,
+    "log_mbh_err_minus": 0.221848749616356
+  }
+}

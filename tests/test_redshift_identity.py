@@ -13,10 +13,10 @@ class RedshiftIdentityTests(unittest.TestCase):
 
     def test_complete_numerical_audit_reports_open_identities(self):
         report = verify_redshift_identity()
-        self.assertEqual(report['redshifts'], 350)
-        self.assertEqual(report['coordinate_pairs'], 323)
+        self.assertEqual(report['redshifts'], 355)
+        self.assertEqual(report['coordinate_pairs'], 328)
         self.assertEqual(report['missing_coordinate_pairs'], 27)
-        self.assertEqual(report['source_fields'], 1027)
+        self.assertEqual(report['source_fields'], 1042)
         self.assertEqual(report['scientific_identity_status'], 'open')
         self.assertEqual(len(report['unresolved_identity_groups']), 3)
 

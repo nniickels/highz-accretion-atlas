@@ -1,0 +1,53 @@
+{
+  "source_version": "2503.15597v1",
+  "retrieved_on": "2026-10-17",
+  "source_locations": [
+    "Table 1 ID 8760",
+    "Section IV.2",
+    "Section III.3",
+    "Table 2 note a"
+  ],
+  "expected": {
+    "ra_deg": 63.9573331,
+    "dec_deg": -24.1674685,
+    "redshift": 8.479,
+    "hbeta_fwhm_kms": 1010,
+    "hbeta_fwhm_err_kms": 190,
+    "hbeta_flux_1e19_erg_s_cm2": 32.4,
+    "hbeta_flux_err_1e19_erg_s_cm2": 5.0,
+    "oiii_fwhm_kms": 110,
+    "oiii_fwhm_err_kms": 70,
+    "hbeta_peak_snr": 2.5,
+    "f444w_aperture_ratio": 1.58,
+    "f444w_aperture_ratio_err": 0.04,
+    "log_mbh_msun": null
+  },
+  "expected_table1_ids": [
+    "1967",
+    "1988",
+    "8760",
+    "17832",
+    "17882",
+    "17929",
+    "18743",
+    "19406",
+    "21284",
+    "16702"
+  ],
+  "expected_tableB1_ids": [
+    "2508",
+    "6385",
+    "8764",
+    "15524",
+    "16324",
+    "23481",
+    "25528"
+  ],
+  "expected_admissions": 1,
+  "expected_numerical_masses": 0,
+  "checks": {
+    "instrumental_lsf_in_forward_model": true,
+    "foreground_identity_published": false,
+    "stellar_sed_reliable_for_8760": false
+  }
+}

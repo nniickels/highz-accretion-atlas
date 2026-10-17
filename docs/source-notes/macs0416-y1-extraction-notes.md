@@ -1,0 +1,199 @@
+# MACS0416-Y1: published-value extraction and admission basis
+
+Primary measurement: Takechi et al., *DREAMS. JWST Spectroscopy of a z=8.3
+Galaxy with an ALMA Dust Continuum Detection: Early Dust, Very High Tdust,
+and a Multi-wavelength [OIII] Ratio Discrepancy*,
+[arXiv:2605.14922v1](https://arxiv.org/abs/2605.14922v1), submitted
+14 May 2026, 14:55:45 UTC. Retrieved and reviewed 17 October 2026 against the
+3 September 2026 literature cutoff. The current unversioned arXiv metadata
+lists only v1 and says “Submitted to ApJ”; it has no journal reference or
+publisher DOI. This verifies the archive's stated status, not an independent
+assertion that no later publication exists. Pin v1 for every scientific field
+below. The archive DOI is 10.48550/arXiv.2605.14922.
+
+## Source coverage and identity
+
+The complete TeX source was retrieved and inspected, including the end of the
+paper: it contains 18 figures and no numerical source tables or active appendix.
+There is no machine-readable AGN table to expand. Section IV.2.1 and Figures 6–7
+contain the one broad-line mass estimate. The source-local screen enumerates
+10 entities: Y1/D2; the E, C, W UV clumps; dust peak D1; observational target
+LAP1-B; and the four Figure 13 comparison galaxies ID4590, J0217-0208,
+SXDF-NB1106-2 and COS-2987. Literature examples and schematic nebular zones
+are not additional catalogue targets. Only Y1/D2 supplies an admitted measurement.
+
+Y1 is the host galaxy at systemic spectroscopic z=8.312, taken by Takechi from
+ALMA [O III] 88 micron and [C II] 158 micron work. No uncertainty is attached
+to that rounded redshift in the adopted source. Do not append an older paper's
+redshift error to it. Three UV peaks E/C/W and two FIR peaks D1/D2 are spatial
+components of the same system. Only one MSA spaxel passes the Hbeta broad-line
+selection; it coincides with western dust peak D2. D1 has no significant broad
+component. E/C/W each occupy the empirical MEx AGN region, but that diagnostic
+was calibrated at 0.3<z<1 and the authors caution against direct extrapolation.
+It cannot establish three accreting black holes. Do not make D2 an alias for
+the entire W UV component or use D2 alone as a globally unique object name.
+
+Proposed identities: measurement `MACS0416Y1_takechi26`, physical object
+`HZA-MACS0416-Y1`, host `HZS-MACS0416-Y1`; preferred display `MACS0416-Y1`.
+Aliases: `MACS J0416-Y1`, `MACS0416_Y1`, `Y1` (source-local only). One measurement,
+one proposed new object and one host. It is distinct from the SAPPHIRES z~8.479
+candidate. HST identification of the galaxy and ALMA redshift confirmation
+predate JWST, but do not establish prior AGN discovery. Takechi also explicitly
+cites Harshan et al. (2024) as earlier *possible* AGN evidence from JWST line
+diagnostics. Thus do not claim Takechi first identified any possible AGN;
+this is the new broad-Hbeta mass measurement, meeting the JWST evidence scope.
+
+Takechi does not tabulate a numeric D2 nucleus coordinate. For crossmatching,
+retain the host UV centroid from Tamura et al.
+[arXiv:1806.04132v2](https://arxiv.org/abs/1806.04132v2), Section 2.3:
+04:16:09.415, -24:05:35.54 ICRS, or 64.0392291667, -24.0932055556 degrees.
+This is the Gaia-registered centroid, not the earlier phase-tracking position
+04:16:09.4010, -24:05:35.470. Do not label it as the precise D2 BH position.
+Takechi's newer alignment uses Gaia DR3 with ~10 mas mean reference offsets;
+that number is not an uncertainty on this older host centroid.
+
+All coordinate-bearing measurements in both v2 (218) and v3 (350 total, 323
+with coordinates) were screened by great-circle separation. None is within
+10 arcsec of the host centroid. The nearest is J0430M1445-BHAE-1 at
+35713.39 arcsec and z=4.0947. Identifier/alias/name fields in both versions'
+processed and crossmatch files have no MACS0416/Y1 match. All 27 v3 records
+without coordinates are enumerated in the crossmatch fixture: 25 CEERS/Mazzolari
+objects, GHZ2 and MoM-BH*-1, with incompatible fields/source identities or
+redshifts. None is a supported Y1 alias. Missing coordinates cannot prove
+all-sky uniqueness, but there is no specific unresolved Y1 match. Existing
+unresolved identity groups remain untouched.
+
+## Measurements, corrections and caveats
+
+Section III.3 fits profiles with emcee; flux errors are posterior p16/p84.
+Reported velocity FWHMs are intrinsic, after Gaussian LSF deconvolution using
+Isobe et al.'s planetary-nebula LSF. They are not velocity dispersions and do
+not need a factor 2.355 or a second instrumental correction.
+
+Section IV.2.1 reports Hbeta FWHM = 1100 (+800/-500) km/s and observed broad
+flux = 1.43 (+0.62/-0.60) x 10^-19 erg/s/cm². Broad Hbeta is selected when
+AIC(double)-AIC(single)<-10; only one spaxel passes. The exact Hbeta delta-AIC
+and a Gaussian-equivalent detection significance are not published. The flux
+central/error ratio is about 2.3–2.4, not a claimed 5-sigma detection; a model
+selection threshold must not be converted to a sigma threshold.
+
+The same spaxel's broad [O III] 5007 fit has delta-AIC=-7 and FWHM
+420 (+120/-100) km/s, below the broad-component adoption criterion. Its width
+difference from Hbeta is only ~1 sigma. The authors argue against an outflow
+origin using the width difference, collisional suppression in dense BLRs,
+and typical non-AGN outflows <=~500 km/s. This is supportive but not decisive;
+the Hbeta lower interval endpoint is 600 km/s. Preserve an outflow/weak-broad-line
+caveat. The galaxy and all UV clumps fail the paper's LRD criteria; `lrd` must
+not be added as a phenotype. Neither stellar dust heating nor AGN dust heating
+establishes an additional black hole.
+
+Section II.2.2 gives mu=1.60 (+0.01/-0.02), attributed to Harshan using the
+Rihtarsic lens model, and says quantities are generally *uncorrected* unless
+stated. Section IV.2.1 explicitly states that the BH mass is *after correcting
+for lensing magnification*: MBH=1.6 (+3.0/-1.0) x 10^6 Msun, Greene & Ho
+(2005), ApJ 630, 122, DOI 10.1086/431897. Preserve that mass exactly. Do not
+divide it by mu or sqrt(mu). Observed line flux remains observed; a separately
+labelled intrinsic flux could be derived by dividing by mu, but is not needed
+for adopting the published mass. Width is unchanged by this scalar correction.
+No differential-lensing model is supplied. No independent Eddington-ratio
+assumption is used to obtain this virial mass.
+
+The mass is a comparable Balmer single-epoch virial estimate, not a dynamical
+mass. The target paper cites the calibration without printing coefficients;
+retain its reported mass rather than reverse-engineering a revised calibration.
+Its asymmetric mass/FWHM interval confidence level and calibration-scatter
+inclusion are not explicitly specified. Do not equate those automatically to
+the flux percentile convention or set additional scatter to zero. Keep
+method-scatter numeric fields missing. Do not add a guessed 0.3/0.5 dex.
+The TeX contains a *commented-out* no-extinction statement immediately below
+the mass paragraph; it is not part of the published rendered text and cannot
+establish a broad-line extinction correction. The integrated IFU Hgamma/Hbeta
+0.47 (+0.05/-0.04) in Section V.2 is compatible with low optical attenuation,
+but the paper emphasizes spatially distinct dusty/optical regions. Record
+broad-line attenuation treatment as not explicitly stated; do not correct
+MBH using the separate A_V~1.7 nebular illustration.
+
+The deterministic conversion uses endpoints 0.6e6 and 4.6e6 Msun:
+log10(MBH/Msun)=6.2041199827, minus error 0.4259687323 dex, plus error
+0.4586378490 dex. Taking logs of 1.0e6/3.0e6 error bars is incorrect.
+Approximate host stellar mass ~10^9 Msun is contextual, imported by the paper
+from Harshan; no canonical stellar mass/error is proposed here. Lbol,
+Eddington ratio, nuclear coordinate errors and redshift errors remain missing.
+
+## Proposed admission and field mappings
+
+Admit family `takechi26_macs0416_y1` to **v2 and v3**, with v1 unchanged.
+It is a one-target Balmer virial source family. Tentative evidence affects
+inference eligibility independently of membership, as for tentative Fei rows.
+There is no heterogeneous set of independently massed clumps in this source.
+Propose `object_class=broad_line_agn`, `spectroscopic_type=type1_broad_line`,
+`evidence_status=candidate` on conservative review, with the author's BLAGN
+interpretation retained in the evidence basis. Candidate rather than secure
+reflects weak flux significance, wide FWHM uncertainty and the weak outflow
+separation, not absence of a numerical estimate.
+
+Propose numerical-growth eligibility true, `mass_comparability_group=
+virial_balmer_single_epoch`, primary-growth flag false; manuscript primary
+false and expanded true, conditional on integration's standard schema checks.
+The supported source-reported virial mass, systemic redshift, one-host identity
+and explicit lens correction meet the numerical gate. The published asymmetric
+interval may be used under the repository's approximate sampling contract,
+with its unspecified confidence/scatter semantics exposed. No growth result
+or ranking has been computed here. Treat this as the sole preferred measurement
+for the new object; do not create duplicate measurements from alternative
+calibrations or integrated-vs-spaxel data.
+
+Registry proposals (integration only): source key as above; arXiv v1 primary
+record and retrieval date in provenance registry; `mbh_method=
+single-epoch-virial-hbeta-greeneho2005`, calibration tag `greene-ho2005-hbeta`,
+Hbeta species and Section IV.2.1 support in the mass-method registry;
+`lensing_status=lensed`, source-corrected mass and Section II.2.2/IV.2.1
+provenance. Copy the archive/member/retained hashes from the JSON provenance
+record. Use unknown selection completeness, with no population weight: this
+was a serendipitous MSA-footprint target of DREAMS GO-4750 observed 5 November
+2024, combined with CANUCS IFU data. It is not an unbiased AGN survey.
+The focused adapter emits proposed identities, coordinates, redshift, converted
+mass/errors and eligibility; integration must populate the full canonical
+schema and register source observables from the raw FWHM/flux/magnification.
+
+## Retained source and independent validation files
+
+- `data/raw/takechi26_macs0416_y1.csv`: one native-value mass/line/lensing record.
+- `data/raw/takechi26_macs0416_y1_screen.csv`: all 10 screen entities and outcomes.
+- `data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex`: verbatim
+  relevant sections and reference entries from the source archive, with source
+  macros/comments preserved; commented text is not adopted published evidence.
+- `data/validation/source_inputs/takechi26_macs0416_y1_arxiv_metadata.html`:
+  pinned current archive metadata, supporting version/publication-status check.
+- `data/validation/source_inputs/takechi26_macs0416_y1_tamura18v2_astrometry.tex`:
+  primary host-coordinate passage.
+- `data/validation/source_inputs/takechi26_macs0416_y1_provenance.json`: URLs,
+  retrieved archive/member SHA-256 values and retained payload hashes. Full
+  archives and redundant figures are not retained.
+- `data/validation/takechi26_macs0416_y1_expected.json`: independently read
+  native mass endpoints, line, magnification, redshift and coordinate anchors.
+- `data/validation/takechi26_macs0416_y1_crossmatch.json`: input hashes, nearest
+  neighbours and all missing-coordinate baseline records.
+- `data/validation/takechi26_macs0416_y1_adapter.py`: deterministic conversion
+  and focused source-value/hash validation; run with Python 3 from any directory.
+
+Focused checks pass for mass and both interval endpoints, flux/FWHM/mu errors,
+redshift, sexagesimal coordinate conversion, screen cardinality and retained
+payload hashes. These checks establish transcription/conversion, not AGN
+certainty or virial-calibration validity. No scientific blocker to the proposed
+candidate admission remains; nuclear astrometry, exact mass-error semantics,
+and stronger rejection of an outflow remain follow-up limitations. Shared
+registries, canonical outputs and manifests are intentionally left for integration.
+
+## Reviewed canonical admission
+
+Admitted 17 October 2026 at the unchanged 3 September 2026 cutoff.
+Final measurement `MACS0416Y1_takechi26`, physical object `HZA-MACS0416-Y1`, host `HZS-MACS0416-Y1`.
+Membership: **v2 and v3; expanded numerical sample only, candidate evidence**. Adopted semantics: source lens-corrected linear interval; confidence/calibration decomposition unspecified; no added scatter.
+Each family contributes one new physical object and one preferred measurement;
+model alternatives do not add measurements or objects. The source-level screen
+and exclusions above remain the scientific provenance for that decision.
+The three older unresolved catalogue identity groups remain excluded from
+manuscript inference. Canonical values are built by
+`src/internal/october2026_additions.py`, with independent source-native fixtures
+registered in the complete mass/error and redshift/coordinate checks.

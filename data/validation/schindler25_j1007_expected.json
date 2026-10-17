@@ -1,0 +1,40 @@
+{
+  "source_version": "published 2025-09-17",
+  "table1": {
+    "redshift": 7.2583,
+    "redshift_error": 0.0005,
+    "ra_deg": 151.978226,
+    "dec_deg": 21.283994,
+    "mass_1e7_msun": [
+      11.52,
+      4.63,
+      10.11
+    ],
+    "broad_fwhm_km_s": [
+      3370.06,
+      648.27,
+      1155.54
+    ],
+    "broad_hbeta_flux_1e20": [
+      622.95,
+      75.32,
+      82.82
+    ]
+  },
+  "table2": {
+    "mass_1e7_msun": [
+      45.14,
+      23.2,
+      52.18
+    ],
+    "log_lbol_erg_s": [
+      46.64,
+      0.12,
+      0.13
+    ]
+  },
+  "interval_order": "central, minus, plus",
+  "expected_source_rows": 9,
+  "expected_new_objects": 1,
+  "expected_companion_exclusions": 8
+}

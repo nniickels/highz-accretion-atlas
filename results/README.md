@@ -64,3 +64,16 @@ see the [notebook sequence](../scripts/README.md) and
 
 `results_inventory.csv` records generated files, sizes, and hashes. Follow the
 reproduction guide before updating it or changing reviewed outputs.
+
+## Scientific edition comparison
+
+[Before/after metrics](catalogue_edition_comparison.csv) compare the 17 October
+2026 bounded admission with `fc0c5501ad2271865b1c040307cad8dd8ca5721a`
+at identical growth assumptions. Rebuild with
+`python -m src.internal.compare_catalogue_editions --baseline-root PATH`, where
+PATH is an unchanged export of that old revision. This comparison is separate
+from independent reproduction of the new intended outputs.
+
+[Correlated source-model alternatives](v3/tables/v3_admission_source_model_sensitivity.csv)
+show CAPERS dust assumptions and J1007 observed versus dust-corrected masses.
+They are not independent objects or a probability-weighted model ensemble.

@@ -9,10 +9,16 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.internal.release_verification import require_clean_worktree, verify_artifact_manifest
+from src.internal.release_verification import (
+    require_clean_worktree,
+    verify_artifact_manifest,
+)
 from src.internal.verify_manual_extractions import load_and_verify_audit
 from src.selection_completeness import load_selection_registry
-from src.source_provenance import load_source_provenance_registry, validate_catalogue_source_coverage
+from src.source_provenance import (
+    load_source_provenance_registry,
+    validate_catalogue_source_coverage,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -34,6 +40,49 @@ ARTIFACTS = {
     "data/validation/source_inputs/baccus_published_table1.txt",
 }
 
+ARTIFACTS.update(
+    {
+        "data/validation/source_inputs/sapphires_z847_v1_extract.html",
+        "data/validation/source_inputs/takechi26_macs0416_y1_tamura18v2_astrometry.tex",
+        "data/validation/takechi26_macs0416_y1_crossmatch.json",
+        "data/validation/capers_lrd_z9_expected_values.json",
+        "data/validation/source_inputs/capers_lrd_z9_v4_extract.html",
+        "data/validation/source_inputs/sapphires_z847_v1_main.tex",
+        "data/validation/canucs_adapter_check.py",
+        "data/validation/source_inputs/schindler25_j1007_published_table3.jpg",
+        "data/validation/source_inputs/canucs_morishita25_v2_extract.txt",
+        "data/validation/canucs_expected_values.json",
+        "data/validation/takechi26_macs0416_y1_expected.json",
+        "data/validation/source_inputs/schindler25_j1007_published_methods.txt",
+        "data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+        "data/validation/source_inputs/canucs_tripodi24_v1_extract.txt",
+        "data/validation/sapphires_z847_source_manifest.json",
+        "data/validation/source_inputs/capers_lrd_z9_published_crossref.json",
+        "data/validation/source_inputs/schindler25_j1007_published_table1.jpg",
+        "data/validation/source_inputs/takechi26_macs0416_y1_arxiv_metadata.html",
+        "data/validation/source_inputs/schindler25_j1007_arxiv_v2_tables.html",
+        "data/validation/sapphires_z847_catalogue_crossmatch.csv",
+        "data/validation/source_inputs/capers_lrd_z9_v4_figure6_legend.txt",
+        "data/validation/source_inputs/takechi26_macs0416_y1_provenance.json",
+        "data/validation/source_inputs/schindler25_j1007_published_table2.jpg",
+        "data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex",
+        "data/validation/canucs_identity_screen.json",
+        "data/validation/capers_lrd_z9_identity_checks.json",
+        "data/validation/takechi26_macs0416_y1_adapter.py",
+        "data/validation/source_inputs/schindler25_j1007_provenance.json",
+        "data/validation/schindler25_j1007_expected.json",
+        "data/validation/sapphires_z847_macs0416_context_crossmatch.csv",
+        "data/validation/sapphires_z847_expected_values.json",
+        "data/validation/source_inputs/canucs_tripodi25_supplement_tables.txt",
+        "data/validation/source_inputs/sapphires_z847_version_history.html",
+        "data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+        "data/validation/canucs_source_payloads.json",
+        "data/validation/capers_lrd_z9_validate.py",
+        "data/validation/source_inputs/canucs_morishita25_v1_mass_passage.txt",
+        "data/validation/capers_lrd_z9_source_manifest.json",
+    }
+)
+
 
 def manifest_metadata(
     registry: pd.DataFrame,
@@ -42,7 +91,7 @@ def manifest_metadata(
 ) -> dict[str, object]:
     """Return the release metadata derived from the validated registries."""
     return {
-        "release": "source-provenance-2026-09-04",
+        "release": "source-provenance-2026-10-17",
         "scope": "provenance, extraction, and selection records for the JWST-identified catalogue",
         "registry_rows": len(registry),
         "catalogue_source_keys": registry["source_key"].nunique(),
@@ -97,7 +146,9 @@ def main() -> None:
     manifest = json.loads(MANIFEST_PATH.read_text())
     verify_metadata(manifest, registry, selection, audit)
     verify_artifact_manifest(
-        root=ROOT, artifacts=manifest.get("artifacts"), expected_paths=ARTIFACTS,
+        root=ROOT,
+        artifacts=manifest.get("artifacts"),
+        expected_paths=ARTIFACTS,
         release_label="source provenance",
     )
     if args.require_clean:

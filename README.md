@@ -7,7 +7,7 @@ efficiencies.
 
 **Draft manuscripts:** [Paper folder](paper/). These are working drafts.
 
-**Posters:** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
+**Posters (pre-expansion snapshot at fc0c5501; historical counts):** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
 [landscape PDF](posters/48x36.pdf) ([PowerPoint](posters/48x36.pptx)).
 
 ## Catalogue and key results
@@ -43,9 +43,9 @@ v1–v3 are nested catalogue versions; v4 is a separate analysis of four v3 targ
 | Version | Scope | Measurements | Object records | Host systems |
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES broad-line AGN sample | 23 | 23 | 23 |
-| v2 | v1 plus comparable JWST broad-line AGN measurements | 218 | 211 | 210 |
-| v3 | v2 plus systems with other evidence or mass methods | 350 | 338 | 337 |
-| v4 | Earlier-onset growth tests using the unchanged v3 catalogue | 350 | 338 | 337 |
+| v2 | v1 plus comparable JWST broad-line AGN measurements | 222 | 215 | 214 |
+| v3 | v2 plus systems with other evidence or mass methods | 355 | 343 | 342 |
+| v4 | Earlier-onset growth tests using the unchanged v3 catalogue | 355 | 343 | 342 |
 
 The v3 object count is provisional: three identity groups remain unresolved.
 The [v4 analysis](docs/reference/pbh-growth-v4.md) tests growth from assumed
@@ -81,7 +81,7 @@ samples; [manuscript results](results/for_manuscript/README.md) contain their
 tables and figures. The catalogue workflow does not require LaTeX or local
 manuscript sources.
 
-Independent checks cover all 244 numerical mass measurements and both error
+Independent checks cover all 248 numerical mass measurements and both error
 bounds, all central redshifts, and all available coordinate pairs. Other fields
 have partial coverage. See [validation coverage](data/validation/README.md) and
 the [identity audit](docs/source-notes/redshift-identity-audit.md).

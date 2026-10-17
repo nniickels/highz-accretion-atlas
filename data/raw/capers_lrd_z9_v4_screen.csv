@@ -1,0 +1,20 @@
+entity,source_locator,entity_kind,outcome,reason
+CAPERS-LRD-z9 / CAPERS-COSMOS-119334,Table 1 (25 properties); Tables 2 and 3 (11 and 12 model parameters); II-VI; Appendix A,one physical object,propose_new_v2_and_v3,JWST-identified secure broad Hbeta AGN; canonical independent virial mass; no existing catalogue match
+QSOs z>6 (Inayoshi+20; Fan+23; Maiolino+24),Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Akins+25,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Furtak+24,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Lin+25,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Naidu+25,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Kokorev+23,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Tripodi+24,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Larson+23,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+Goulding+23,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+GHZ9,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+GN-z11,Figure 6 caption and source figure legend,literature_comparison_series,no_new_source_measurement,Literature comparison point(s); no source-native table of newly measured objects in this paper; do not digitize or automatically duplicate
+MoM-BH*-1,III.4; V.2; Figure 7,literature_spectrum,no_new_source_measurement,Literature spectrum at z=7.76; existing catalogue identity
+Abell2744-QSO1,III.4; V.2; Figure 7,literature_spectrum,no_new_source_measurement,Literature spectrum at z=7.04; existing A2744-QSO1 identity
+UNCOVER-45924 / A2744-45924,III.4; V.2; Figure 7,literature_spectrum,no_new_source_measurement,Literature spectrum at z=4.47; existing identity
+RUBIES-UDS-154183,III.4; V.2; Figure 7,literature_spectrum,no_new_source_measurement,Literature spectrum at z=3.55; below z>=4 scope
+RUBIES-BLAGN-1,III.4,literature_Balmer_break,no_new_source_measurement,Previously published break-strength comparison; not a CAPERS mass measurement
+232 DESI quasars; stack of reddest 20,V.3; Figure 7,control_sample_and_stack,exclude_scope,z<0.95 ground-selected control; aggregate spectra are not new high-z objects
+Literature BH/stellar-mass relations and high-redshift samples,Figure 5,literature_comparison_series,no_new_source_measurement,External comparison compilations; no extra CAPERS object table

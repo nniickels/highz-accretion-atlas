@@ -1,7 +1,7 @@
 # Manuscript results
 
-These tables and figures support the manuscript's 220-object primary and
-234-object expanded samples. The expanded sample contains every primary object;
+These tables and figures support the manuscript's 223-object primary and
+238-object expanded samples. The expanded sample contains every primary object;
 existing table fields call it `exploratory`.
 
 ## Tables
@@ -11,8 +11,8 @@ existing table fields call it `exploratory`.
 | `publication_object_selection.csv` | Sample membership after evidence and identity exclusions. |
 | `identity_exclusion_sensitivity.csv` | Effect of identity exclusions with the evidence rules held fixed. |
 | `mass_offset_sensitivity.csv`, `mass_offset_object_sensitivity.csv` | Results after uniform mass shifts of −0.5, −0.3, 0, +0.3, and +0.5 dex. |
-| `target_robustness.csv` | Eight primary objects above the reference threshold, with source caveats and mass-shift tests. |
-| `source_inventory.csv` | Counts of measurements, eligible mass measurements, and adopted primary objects for 32 source families. |
+| `target_robustness.csv` | Eleven primary objects above the reference threshold, with source caveats and mass-shift tests. |
+| `source_inventory.csv` | Counts of measurements, eligible mass measurements, and adopted primary objects for 37 source families. |
 | `matched_literature_comparison.csv` | Four named Dayal matches, separating measurement changes from starting-time changes. |
 | `external_direct_mass_comparison.csv` | A2744-QSO1 virial and dynamical masses with normal log-mass error propagation. |
 | `publication_baccus_revision_comparison.csv`, `publication_baccus_revision_summary.csv` | Effect of substituting published Baccus values after identity exclusions. |

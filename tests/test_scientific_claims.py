@@ -58,7 +58,7 @@ class V3ScientificClaimTests(unittest.TestCase):
         v1 = pd.read_csv(ROOT / "data/processed/v1/v1_accreting_objects.csv")
         v2 = pd.read_csv(ROOT / "data/processed/v2/v2_accreting_objects.csv")
         v3 = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_objects.csv")
-        self.assertEqual(len(set(v2["physical_object_id"]) - set(v1["physical_object_id"])), 188)
+        self.assertEqual(len(set(v2["physical_object_id"]) - set(v1["physical_object_id"])), 192)
         new_source_keys = {
             "greene24_uncover_blagn", "kocevski25_lrd_blagn",
             "skyfire26_ceers_blagn", "larson23_ceers1019",
@@ -127,8 +127,8 @@ class V3ScientificClaimTests(unittest.TestCase):
                 "napolitano25_seven_wonders": 0,
             },
         )
-        self.assertEqual((len(measurements), len(objects)), (350, 338))
-        self.assertEqual(int(objects["growth_ranking_eligible_flag"].astype(bool).sum()), 237)
+        self.assertEqual((len(measurements), len(objects)), (355, 343))
+        self.assertEqual(int(objects["growth_ranking_eligible_flag"].astype(bool).sum()), 241)
         nx = measurements[measurements["physical_object_id"].eq("HZA-NEXUS-OBS3-5105-10835")]
         self.assertEqual(len(nx), 2)
         self.assertEqual(int(nx["preferred_measurement_flag"].astype(bool).sum()), 1)
@@ -222,8 +222,8 @@ class V3ScientificClaimTests(unittest.TestCase):
         uncertainty_first = uncertainty.nsmallest(
             1, "rank_uncertainty_global_navigation"
         ).iloc[0]
-        self.assertEqual(point_first["object_id"], "UNCOVER-20466")
-        self.assertEqual(uncertainty_first["object_id"], "UNCOVER-20466")
+        self.assertEqual(point_first["object_id"], "CAPERS-LRD-z9")
+        self.assertEqual(uncertainty_first["object_id"], "CAPERS-LRD-z9")
 
     def test_no_error_masses_are_not_presented_as_posteriors(self) -> None:
         uncertainty = pd.read_csv(TABLES / "v3_object_uncertainty_ranking.csv")
@@ -253,13 +253,13 @@ class V3ScientificClaimTests(unittest.TestCase):
         caveats = pd.read_csv(TABLES / "v3_source_caveat_summary.csv")
         coverage = pd.read_csv(TABLES / "v3_all_object_visual_coverage.csv")
 
-        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 234)
-        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 227)
+        self.assertEqual(int(measurement["primary_growth_ranking_flag"].sum()), 237)
+        self.assertEqual(int(objects["primary_growth_ranking_flag"].sum()), 230)
         self.assertEqual(len(alternates), 7)
-        self.assertEqual((len(followup), len(caveats), len(coverage)), (338, 32, 676))
+        self.assertEqual((len(followup), len(caveats), len(coverage)), (343, 37, 686))
         self.assertEqual(
             coverage.groupby("product_kind").size().to_dict(),
-            {"fedd_mass_map": 338, "seedredshift_mass_map": 338},
+            {"fedd_mass_map": 343, "seedredshift_mass_map": 343},
         )
 
     def test_jades_8083_identity_merge_retains_one_preferred_measurement(self) -> None:

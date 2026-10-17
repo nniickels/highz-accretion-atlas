@@ -1,0 +1,3 @@
+object_id,comparison,redshift,log_mass,sigma_dex,required_fedd,p16,p84,probability_gt_1,source_url,locator,scope
+A2744-QSO1,catalogue_virial,7.04,7.3,0.2,0.9294569388960372,0.8945774755002195,0.9643364022918549,0.02214834428937973,https://doi.org/10.3847/1538-4357/ad1e5f,Adopted catalogue row UNCOVER13123_greene24,Separate comparison; no replacement in primary counts
+A2744-QSO1,external_dynamical,7.04,7.7,0.3,0.9996046323976251,0.9472854373038985,1.0519238274913516,0.4970019946883244,https://arxiv.org/pdf/2508.21748v2,"p. 3 and Methods p. 11: MOKA3D point mass, inclination 52 +/- 2 degrees",Separate comparison; no replacement in primary counts

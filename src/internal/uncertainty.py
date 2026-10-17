@@ -74,4 +74,10 @@ def reported_error_scope(source_key: str, has_reported_error: bool) -> str:
         return "not_reported"
     if source_key == "ubler24_zs7_offset_blagn":
         return "includes_source_calibration_scatter"
+    if source_key == "taylor25_capers_lrd_z9":
+        return "line_flux_width_and_calibration_coefficients_highz_systematic_separate"
+    if source_key == "schindler25_j1007":
+        return "posterior_interval_separate_virial_calibration_scale"
+    if source_key == "takechi26_macs0416_y1":
+        return "source_interval_confidence_and_calibration_inclusion_unspecified"
     return "as_published_components_not_decomposed"

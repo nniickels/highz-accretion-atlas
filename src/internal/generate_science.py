@@ -34,6 +34,8 @@ def main() -> None:
         if version == "v3":
             from src.internal.assess_baccus_revision import build_revision_outputs
             outputs.update(build_revision_outputs(objects, n_samples=args.n_samples, random_seed=args.seed))
+            from src.internal.admission_sensitivity import build_source_model_sensitivity
+            outputs["admission_source_model_sensitivity"] = build_source_model_sensitivity()
         destination = ROOT / "results" / version / "tables"
         destination.mkdir(parents=True, exist_ok=True)
         for name, frame in outputs.items():

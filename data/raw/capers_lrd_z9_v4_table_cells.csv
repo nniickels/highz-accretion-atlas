@@ -1,0 +1,49 @@
+source_table,row_number,object_id,property,grid_values,reported_value,disposition,source_locator
+1,1,CAPERS-LRD-z9,R.A.,,150.1362532 deg,source_property,arXiv:2505.04609v4 Table 1
+1,2,CAPERS-LRD-z9,Decl.,,2.3080298 deg,source_property,arXiv:2505.04609v4 Table 1
+1,3,CAPERS-LRD-z9,Redshift ( z ),,9.288\pm 0.003,source_property,arXiv:2505.04609v4 Table 1
+1,4,CAPERS-LRD-z9,H \gamma flux (narrow),,<7.1,source_property,arXiv:2505.04609v4 Table 1
+1,5,CAPERS-LRD-z9,H \gamma flux (broad),,45.9\pm 9.5,source_property,arXiv:2505.04609v4 Table 1
+1,6,CAPERS-LRD-z9,[O iii ] \lambda 4363 flux,,13.0\pm 4.2,source_property,arXiv:2505.04609v4 Table 1
+1,7,CAPERS-LRD-z9,H \beta flux (narrow),,<62.7,source_property,arXiv:2505.04609v4 Table 1
+1,8,CAPERS-LRD-z9,H \beta flux (broad),,140\pm 14.6,source_property,arXiv:2505.04609v4 Table 1
+1,9,CAPERS-LRD-z9,H \beta flux (absorption),,>-69.1,source_property,arXiv:2505.04609v4 Table 1
+1,10,CAPERS-LRD-z9,H \beta_{\rm broad} FWHM,,3521\pm 502 km s -1,source_property,arXiv:2505.04609v4 Table 1
+1,11,CAPERS-LRD-z9,H \beta_{\rm abs} FWHM,,282\pm 159 km s -1,source_property,arXiv:2505.04609v4 Table 1
+1,12,CAPERS-LRD-z9,H \beta_{\rm broad} offset,,134\pm 164 km s -1,source_property,arXiv:2505.04609v4 Table 1
+1,13,CAPERS-LRD-z9,H \beta_{\rm abs} offset,,84\pm 126 km s -1,source_property,arXiv:2505.04609v4 Table 1
+1,14,CAPERS-LRD-z9,[O iii ] \lambda 4959 flux,,7.2\pm 3.5,source_property,arXiv:2505.04609v4 Table 1
+1,15,CAPERS-LRD-z9,[O iii ] \lambda 5007 flux,,22.2\pm 5.3,source_property,arXiv:2505.04609v4 Table 1
+1,16,CAPERS-LRD-z9,[O iii ] \lambda 5007 FWHM,,483\pm 225 km s -1,source_property,arXiv:2505.04609v4 Table 1
+1,17,CAPERS-LRD-z9,M_{1500\textrm{\AA{}}},,-18.2\pm 0.2 mag,source_property,arXiv:2505.04609v4 Table 1
+1,18,CAPERS-LRD-z9,\beta_{\rm UV},,-0.99^{+0.14}_{-0.13},source_property,arXiv:2505.04609v4 Table 1
+1,19,CAPERS-LRD-z9,\log\left(M_{\textrm{BH}}/M_{\odot}\right) (canonical),,7.58\pm 0.15,source_property,arXiv:2505.04609v4 Table 1
+1,20,CAPERS-LRD-z9,\log\left(M_{\textrm{BH}}/M_{\odot}\right) (systematic bounds),,6.65 – 8.50,source_property,arXiv:2505.04609v4 Table 1
+1,21,CAPERS-LRD-z9,"A_{\rm V,BLR}",,1.9^{+1.3}_{-1.2},source_property,arXiv:2505.04609v4 Table 1
+1,22,CAPERS-LRD-z9,\log\left(M_{*}/M_{\odot}\right),,<9.0,source_property,arXiv:2505.04609v4 Table 1
+1,23,CAPERS-LRD-z9,M_{\textrm{BH}}/M_{*} (canonical),,>4.5\%,source_property,arXiv:2505.04609v4 Table 1
+1,24,CAPERS-LRD-z9,M_{\textrm{BH}}/M_{*} (systematic bounds),,">46\%,>0.5\%",source_property,arXiv:2505.04609v4 Table 1
+1,25,CAPERS-LRD-z9,"Balmer Break: \left(f_{\nu,4050\textrm{\AA{}}}/f_{\nu,3670\textrm{\AA{}}}\right)",,4.35^{+0.93}_{-0.67},source_property,arXiv:2505.04609v4 Table 1
+2,1,CAPERS-LRD-z9,\log T_{\rm BB} /K,"4 , 4.7 , 5 , 5.7",5.0,context_parameter,arXiv:2505.04609v4 Table 2
+2,2,CAPERS-LRD-z9,\alpha_{\rm OX},"-2.5 , -2.0 , -1.5",-1.5,context_parameter,arXiv:2505.04609v4 Table 2
+2,3,CAPERS-LRD-z9,\alpha_{\rm UV},-0.1,…,context_parameter,arXiv:2505.04609v4 Table 2
+2,4,CAPERS-LRD-z9,\alpha_{\rm X},-0.5,…,context_parameter,arXiv:2505.04609v4 Table 2
+2,5,CAPERS-LRD-z9,\log n_{H}/{\rm cm}^{-3},"9,9.5,10,10.5,11,11.5,12",9.9^{+0.2}_{-0.2},context_parameter,arXiv:2505.04609v4 Table 2
+2,6,CAPERS-LRD-z9,"v_{\rm turb}/{\rm km}\,{\rm s}^{-1}","100,200,300,400,500",320^{+80}_{-60},context_parameter,arXiv:2505.04609v4 Table 2
+2,7,CAPERS-LRD-z9,[Fe/H],-2,…,context_parameter,arXiv:2505.04609v4 Table 2
+2,8,CAPERS-LRD-z9,\log U,"-3.5,-3,-2.5,-1.5,-0.5",-1.5,context_parameter,arXiv:2505.04609v4 Table 2
+2,9,CAPERS-LRD-z9,\log N_{H}/{\rm cm}^{-2},"21,22,23,24,25,26",>25.9^{\dagger},context_parameter,arXiv:2505.04609v4 Table 2
+2,10,CAPERS-LRD-z9,C_{f},0–1,0.12^{+0.01}_{-0.01},context_parameter,arXiv:2505.04609v4 Table 2
+2,11,CAPERS-LRD-z9,A_{V},0–3 (SMC law),0.53^{+0.09}_{-0.08},context_parameter,arXiv:2505.04609v4 Table 2
+3,1,CAPERS-LRD-z9,\log T_{\rm BB} /K,"4 , 4.7 , 5 , 5.7",5.0,context_parameter,arXiv:2505.04609v4 Table 3
+3,2,CAPERS-LRD-z9,\alpha_{\rm OX},"-2.5 , -2.0 , -1.5",-1.5,context_parameter,arXiv:2505.04609v4 Table 3
+3,3,CAPERS-LRD-z9,\alpha_{\rm UV},-0.1,…,context_parameter,arXiv:2505.04609v4 Table 3
+3,4,CAPERS-LRD-z9,\alpha_{\rm X},-0.5,…,context_parameter,arXiv:2505.04609v4 Table 3
+3,5,CAPERS-LRD-z9,\log n_{H}/{\rm cm}^{-3},"9,9.5,10,10.5,11,11.5,12",10.3^{+0.3}_{-0.3},context_parameter,arXiv:2505.04609v4 Table 3
+3,6,CAPERS-LRD-z9,"v_{\rm turb}/{\rm km}\,{\rm s}^{-1}","100,200,300,400,500",134^{+45}_{-26},context_parameter,arXiv:2505.04609v4 Table 3
+3,7,CAPERS-LRD-z9,[Fe/H],-2,…,context_parameter,arXiv:2505.04609v4 Table 3
+3,8,CAPERS-LRD-z9,\log U,"-3.5,-3,-2.5,-1.5,-0.5",-1.5,context_parameter,arXiv:2505.04609v4 Table 3
+3,9,CAPERS-LRD-z9,\log N_{H}/{\rm cm}^{-2},"21,22,23,24,25,26",25.0^{+0.3}_{-0.5},context_parameter,arXiv:2505.04609v4 Table 3
+3,10,CAPERS-LRD-z9,C_{f},0–1,0.64^{+0.14}_{-0.13},context_parameter,arXiv:2505.04609v4 Table 3
+3,11,CAPERS-LRD-z9,A_{V},0–3 ( S. Salim et al. 123 law),0.32^{+0.05}_{-0.04},context_parameter,arXiv:2505.04609v4 Table 3
+3,12,CAPERS-LRD-z9,\delta,-5 – 0,-4.66^{+0.31}_{-0.24},context_parameter,arXiv:2505.04609v4 Table 3

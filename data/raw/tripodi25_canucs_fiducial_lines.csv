@@ -1,0 +1,12 @@
+source_id,line,flux_1e19_erg_s_cm2,flux_err_plus,flux_err_minus,flux_censoring,fwhm_km_s,fwhm_err_plus,fwhm_err_minus,width_note,flux_lensing_state,dust_state,source_location
+5112687,[OIII]5008,49.6,2.4,2.4,detection,850,48,45,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,Hbeta narrow,15.6,2.8,2.5,detection,780,120,110,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,Hbeta broad,29.8,4.7,4.7,detection,4190,570,540,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,[OIII]4364,3.9,0.9,0.9,detection,850,,,tied to [OIII]5008,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,Hgamma narrow,8.8,1.5,1.5,detection,950,170,170,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,Hgamma broad,,,,not_fitted,,,,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,Hdelta,4.0,0.9,0.9,detection,1160,170,250,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,[NeIII]3869,7.1,0.9,0.9,detection,1420,140,190,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,[OII]3727,2.9,,,upper_3sigma,,,,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,CIV,22.9,7.7,7.7,detection,5650,1250,1500,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial
+5112687,"NIV]1483,1486",21.0,7.7,7.7,detection,5670,1315,1430,,observed_not_corrected_mu1.07,fitted flux; Table 2 separately reports dust-corrected ratios,Supplementary Table 1 Fiducial

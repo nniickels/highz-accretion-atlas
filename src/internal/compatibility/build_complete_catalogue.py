@@ -19,10 +19,18 @@ from src.internal.canonical_mass_additions import append_additions
 from src.internal.heterogeneous_v3_additions import append_heterogeneous_v3
 from src.internal.v3_completion_additions import append_v3_completion
 from src.internal.reconcile_identities import reconcile_identities
+from src.internal.october2026_additions import append_expansion
 
 
 ROOT = Path(__file__).resolve().parents[3]
 INPUTS = {
+    "capers_expansion": ROOT / "data/raw/capers_lrd_z9_v4_properties.csv",
+    "capers_alternatives": ROOT / "data/raw/capers_lrd_z9_v4_mass_alternatives.csv",
+    "canucs_expansion": ROOT / "data/raw/tripodi25_canucs_lrd_z86.csv",
+    "canucs_variants": ROOT / "data/raw/tripodi25_canucs_agn_fit_variants.csv",
+    "j1007_expansion": ROOT / "data/raw/schindler25_j1007_agn_mass_alternatives.csv",
+    "y1_expansion": ROOT / "data/raw/takechi26_macs0416_y1.csv",
+    "sapphires_expansion": ROOT / "data/raw/sapphires_z847_v1_agn_candidate.csv",
     "foundation_measurements": ROOT / "data/assembly/blagn_foundation_measurements.csv",
     "ren_table1": ROOT / "data/raw/ren25_alpine_cristal_jwst_table1.csv",
     "ren_table2": ROOT / "data/raw/ren25_alpine_cristal_jwst_table2_observables.csv",
@@ -66,6 +74,10 @@ def _normalize_historical_labels(frame: pd.DataFrame) -> pd.DataFrame:
         for old, new in replacements:
             values = values.str.replace(old, new, regex=True)
         result[field] = values.astype(object).where(values.notna(), pd.NA)
+        # Prose normalization must preserve native boolean values (False is
+        # otherwise a nonempty string and becomes true in object aggregation).
+        boolean = frame[field].map(lambda value: isinstance(value, bool))
+        result.loc[boolean, field] = frame.loc[boolean, field]
     return result
 
 
@@ -104,5 +116,6 @@ def build_outputs() -> dict[str, pd.DataFrame]:
         _read("seven_wonders_v3_completion"),
     ], ignore_index=True, sort=False)
     final = append_v3_completion(final, completion)
+    final = append_expansion(final, {name: _read(name) for name in INPUTS if name.endswith("_expansion") or name in {"capers_alternatives", "canucs_variants"}})
     final = reconcile_identities(final)
     return {name: _normalize_historical_labels(frame) for name, frame in final.items()}

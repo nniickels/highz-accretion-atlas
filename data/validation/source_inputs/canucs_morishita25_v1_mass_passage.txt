@@ -1,0 +1,6 @@
+Source: https://arxiv.org/html/2508.01372v1
+Retrieved: 2026-10-17
+Section III.2, superseded numerical mass passage.
+
+III.2
+Emission Line Measurement in Prism

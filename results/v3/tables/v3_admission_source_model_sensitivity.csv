@@ -1,0 +1,6 @@
+object_id,alternative,redshift,log_mbh,log_error_minus,log_error_plus,required_fedd,seed_log_mass,seed_redshift,epsilon,merger_boost,independent_object,assumption,source_location
+CAPERS-LRD-z9,canonical_unattenuated,9.288,7.58,0.15,0.15,1.5193558933198534,2.0,30.0,0.1,1.0,False,virialized Hbeta; Greene & Ho 2005; no dust correction,arXiv:2505.04609v4 IV.2
+CAPERS-LRD-z9,balmer_decrement_dust,9.288,8.1,0.4,0.4,1.6609446145611302,2.0,30.0,0.1,1.0,False,SMC; Case B; A_V_BLR=1.9(+1.3/-1.2),arXiv:2505.04609v4 IV.2
+CAPERS-LRD-z9,sed_dust,9.288,7.7,0.14,0.14,1.5520302136063022,2.0,30.0,0.1,1.0,False,spectrophotometric SMC A_V approximately 0.53,arXiv:2505.04609v4 IV.2
+J1007_AGN,observed,7.2583,8.061452479087194,0.22323325717956743,0.2736040403518982,1.113462425719013,2.0,30.0,0.1,1.0,False,Correlated same-spectrum dust interpretation; no sample-membership replacement,published Extended Data Table 1
+J1007_AGN,dust_corrected,7.2583,8.654561554741743,0.31332493150305085,0.33364054551703765,1.2224139802140388,2.0,30.0,0.1,1.0,False,Correlated same-spectrum dust interpretation; no sample-membership replacement,published Extended Data Table 2

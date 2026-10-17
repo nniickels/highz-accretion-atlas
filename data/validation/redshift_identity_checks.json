@@ -1,5 +1,5 @@
 {
-  "review_date": "2026-09-05",
+  "review_date": "2026-10-17",
   "baseline_commit": "64d526e",
   "scope": "All 350 admitted redshifts, all 323 available coordinate pairs, redshift kinds for 31 mixed-sample rows, every within-2-arcsec or shared-identity measurement pair, and all 20 Mascia admission rows. Numerical transcription checks are distinct from unresolved astrophysical identity decisions.",
   "coordinate_absent_policy": "27 admitted measurements lack coordinates; missing fields are protected as missing, not certified absent from the literature. No sky-pair completeness claim applies to these rows.",
@@ -13509,6 +13509,186 @@
       },
       "registered_primary_archive_sha256": "e0fd19d3b0a079efeccea6fda92faa54876a5c293b24bdda7106f7df80978048",
       "unavailable_fields": []
+    },
+    {
+      "measurement_id": "CAPERSLRDz9_taylor25",
+      "source_key": "taylor25_capers_lrd_z9",
+      "source_object_id": "CAPERS-LRD-z9",
+      "fields": {
+        "redshift": {
+          "source_url": "https://arxiv.org/html/2505.04609v4",
+          "source_archive_sha256": "b176066077fcf145f797d86124a8b97fa65dbf3dce709d25783fec57ad92a885",
+          "source_member": "data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+          "source_member_sha256": "d46df6b4eed520596435c53115a74abcc0eee697b1381983ca07f3259bc6b6ea",
+          "locator": "Table 1; Section IV.2",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+          "expected": 9.288
+        },
+        "ra_deg": {
+          "source_url": "https://arxiv.org/html/2505.04609v4",
+          "source_archive_sha256": "b176066077fcf145f797d86124a8b97fa65dbf3dce709d25783fec57ad92a885",
+          "source_member": "data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+          "source_member_sha256": "d46df6b4eed520596435c53115a74abcc0eee697b1381983ca07f3259bc6b6ea",
+          "locator": "Table 1; Section IV.2",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+          "expected": 150.1362532
+        },
+        "dec_deg": {
+          "source_url": "https://arxiv.org/html/2505.04609v4",
+          "source_archive_sha256": "b176066077fcf145f797d86124a8b97fa65dbf3dce709d25783fec57ad92a885",
+          "source_member": "data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+          "source_member_sha256": "d46df6b4eed520596435c53115a74abcc0eee697b1381983ca07f3259bc6b6ea",
+          "locator": "Table 1; Section IV.2",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+          "expected": 2.3080298
+        }
+      },
+      "unavailable_fields": [],
+      "registered_primary_archive_sha256": "b176066077fcf145f797d86124a8b97fa65dbf3dce709d25783fec57ad92a885"
+    },
+    {
+      "measurement_id": "CANUCS5112687_tripodi25",
+      "source_key": "tripodi25_canucs_lrd",
+      "source_object_id": "CANUCS-LRD-z8.6",
+      "fields": {
+        "redshift": {
+          "source_url": "https://www.nature.com/articles/s41467-025-65070-x",
+          "source_archive_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+          "source_member": "data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+          "source_member_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+          "locator": "Abstract mass interval; Supplementary Tables 1 and 3; Methods",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+          "expected": 8.6319
+        },
+        "ra_deg": {
+          "source_url": "https://www.nature.com/articles/s41467-025-65070-x",
+          "source_archive_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+          "source_member": "data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+          "source_member_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+          "locator": "Abstract mass interval; Supplementary Tables 1 and 3; Methods",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+          "expected": 177.39091666666667
+        },
+        "dec_deg": {
+          "source_url": "https://www.nature.com/articles/s41467-025-65070-x",
+          "source_archive_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+          "source_member": "data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+          "source_member_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+          "locator": "Abstract mass interval; Supplementary Tables 1 and 3; Methods",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+          "expected": 22.34976666666667
+        }
+      },
+      "unavailable_fields": [],
+      "registered_primary_archive_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92"
+    },
+    {
+      "measurement_id": "J1007AGN_schindler25_observed",
+      "source_key": "schindler25_j1007",
+      "source_object_id": "J1007_AGN",
+      "fields": {
+        "redshift": {
+          "source_url": "https://www.nature.com/articles/s41550-025-02660-1",
+          "source_archive_sha256": "b251f05ff8e4aa64c5842209d6950b8aa3b31ceb4845adc588d82d75f622d673",
+          "source_member": "data/validation/source_inputs/schindler25_j1007_published_table1.jpg",
+          "source_member_sha256": "b251f05ff8e4aa64c5842209d6950b8aa3b31ceb4845adc588d82d75f622d673",
+          "locator": "Extended Data Tables 1-3; Methods SMBH mass",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/schindler25_j1007_published_table1.jpg",
+          "expected": 7.2583
+        },
+        "ra_deg": {
+          "source_url": "https://media.springernature.com/full/springer-static/esm/art%3A10.1038%2Fs41550-025-02660-1/MediaObjects/41550_2025_2660_Tab3_ESM.jpg",
+          "source_archive_sha256": "456a16ae996d4c7cd9e320f6ed62d016ac6d6bf8561aadcc52da9882e99c97b3",
+          "source_member": "data/validation/source_inputs/schindler25_j1007_published_table3.jpg",
+          "source_member_sha256": "456a16ae996d4c7cd9e320f6ed62d016ac6d6bf8561aadcc52da9882e99c97b3",
+          "locator": "Published Extended Data Table 3, J1007_AGN row",
+          "evidence": "J1007_AGN 151.978226 21.283994, J2000; independently viewed publisher Table 3",
+          "expected": 151.978226
+        },
+        "dec_deg": {
+          "source_url": "https://media.springernature.com/full/springer-static/esm/art%3A10.1038%2Fs41550-025-02660-1/MediaObjects/41550_2025_2660_Tab3_ESM.jpg",
+          "source_archive_sha256": "456a16ae996d4c7cd9e320f6ed62d016ac6d6bf8561aadcc52da9882e99c97b3",
+          "source_member": "data/validation/source_inputs/schindler25_j1007_published_table3.jpg",
+          "source_member_sha256": "456a16ae996d4c7cd9e320f6ed62d016ac6d6bf8561aadcc52da9882e99c97b3",
+          "locator": "Published Extended Data Table 3, J1007_AGN row",
+          "evidence": "J1007_AGN 151.978226 21.283994, J2000; independently viewed publisher Table 3",
+          "expected": 21.283994
+        }
+      },
+      "unavailable_fields": [],
+      "registered_primary_archive_sha256": "b251f05ff8e4aa64c5842209d6950b8aa3b31ceb4845adc588d82d75f622d673"
+    },
+    {
+      "measurement_id": "MACS0416Y1_takechi26",
+      "source_key": "takechi26_macs0416_y1",
+      "source_object_id": "MACS0416-Y1",
+      "fields": {
+        "redshift": {
+          "source_url": "https://arxiv.org/html/2605.14922v1",
+          "source_archive_sha256": "f36a625bc25c4681a777b79229175ade06555b312d76392b8509cefdbf6f169c",
+          "source_member": "data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex",
+          "source_member_sha256": "b72d9df7599923e4b4548840191b5caca6826679e2091199820b8760177568b2",
+          "locator": "Sections II.2.2, III.3, IV.2.1; Figures 6-7",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex",
+          "expected": 8.312
+        },
+        "ra_deg": {
+          "source_url": "https://arxiv.org/abs/1806.04132v2",
+          "source_archive_sha256": "4949cc234c65b9e5bfe7aefabf83104797b45d1fd0bf4e8eeb4edff1c5013b72",
+          "source_member": "data/validation/source_inputs/takechi26_macs0416_y1_tamura18v2_astrometry.tex",
+          "source_member_sha256": "0fb439c3b5f6565c92db514dbe800fcb04e80ed278617d43641200532a2a5491",
+          "locator": "Section 2.3 host centroid",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex",
+          "expected": 64.03922916666667
+        },
+        "dec_deg": {
+          "source_url": "https://arxiv.org/abs/1806.04132v2",
+          "source_archive_sha256": "4949cc234c65b9e5bfe7aefabf83104797b45d1fd0bf4e8eeb4edff1c5013b72",
+          "source_member": "data/validation/source_inputs/takechi26_macs0416_y1_tamura18v2_astrometry.tex",
+          "source_member_sha256": "0fb439c3b5f6565c92db514dbe800fcb04e80ed278617d43641200532a2a5491",
+          "locator": "Section 2.3 host centroid",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex",
+          "expected": -24.093205555555556
+        }
+      },
+      "unavailable_fields": [],
+      "registered_primary_archive_sha256": "f36a625bc25c4681a777b79229175ade06555b312d76392b8509cefdbf6f169c"
+    },
+    {
+      "measurement_id": "SAPPHIRES8760_fudamoto25",
+      "source_key": "fudamoto25_sapphires_z847",
+      "source_object_id": "SAPPHIRES-ID-8760",
+      "fields": {
+        "redshift": {
+          "source_url": "https://arxiv.org/html/2503.15597v1",
+          "source_archive_sha256": "1802281772393b71361020f936ba2457eca22c7668fa5ee5696257377add9445",
+          "source_member": "data/validation/source_inputs/sapphires_z847_v1_main.tex",
+          "source_member_sha256": "f19875abf9ba151f764f7083c20ba0baa4e66828fe06e15f922333e0b322fc00",
+          "locator": "Table 1; Sections II, III.3, IV.2; Table 2 note a",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/sapphires_z847_v1_main.tex",
+          "expected": 8.479
+        },
+        "ra_deg": {
+          "source_url": "https://arxiv.org/html/2503.15597v1",
+          "source_archive_sha256": "1802281772393b71361020f936ba2457eca22c7668fa5ee5696257377add9445",
+          "source_member": "data/validation/source_inputs/sapphires_z847_v1_main.tex",
+          "source_member_sha256": "f19875abf9ba151f764f7083c20ba0baa4e66828fe06e15f922333e0b322fc00",
+          "locator": "Table 1; Sections II, III.3, IV.2; Table 2 note a",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/sapphires_z847_v1_main.tex",
+          "expected": 63.9573331
+        },
+        "dec_deg": {
+          "source_url": "https://arxiv.org/html/2503.15597v1",
+          "source_archive_sha256": "1802281772393b71361020f936ba2457eca22c7668fa5ee5696257377add9445",
+          "source_member": "data/validation/source_inputs/sapphires_z847_v1_main.tex",
+          "source_member_sha256": "f19875abf9ba151f764f7083c20ba0baa4e66828fe06e15f922333e0b322fc00",
+          "locator": "Table 1; Sections II, III.3, IV.2; Table 2 note a",
+          "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/sapphires_z847_v1_main.tex",
+          "expected": -24.1674685
+        }
+      },
+      "unavailable_fields": [],
+      "registered_primary_archive_sha256": "1802281772393b71361020f936ba2457eca22c7668fa5ee5696257377add9445"
     }
   ],
   "pair_reviews": [

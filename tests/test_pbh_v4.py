@@ -127,12 +127,12 @@ class PBHWorkflowTests(unittest.TestCase):
     def test_targets_are_selected_from_eligible_primary_plus_uv_comparator(self):
         targets = self.tables['targets']
         self.assertEqual(targets.object_id.tolist(), [
-            'UNCOVER-20466', 'COSMOS3D-13852', 'RUBIES-EGS-55604', 'GN-z11'])
+            'CAPERS-LRD-z9', 'UNCOVER-20466', 'CANUCS-LRD-z8.6', 'GN-z11'])
         self.assertEqual(targets.publication_primary_flag.tolist(), [True, True, True, False])
         self.assertTrue(targets.reported_mass_errors_sampled.all())
         self.assertTrue(select_targets().excluded_identity_flag.eq(False).all())
         self.assertAlmostEqual(targets.iloc[0].reference_required_fedd_matter_lambda,
-                               1.452204136497696, places=12)
+                               1.5193558933198534, places=12)
 
     def test_fixed_origin_label_cannot_change_growth_for_identical_parameters(self):
         controls = self.tables['controls']

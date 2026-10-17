@@ -1,6 +1,6 @@
 # v4: conditional PBH-seed growth compatibility
 
-v4 is an analysis extension of the frozen v3 catalogue, not a fourth catalogue
+v4 is an analysis extension of the reviewed v3 catalogue, not a fourth catalogue
 or a new source-admission release. Its claim is **compatibility with a specified
 post-onset growth prescription**. It does not establish PBH formation,
 population viability, or a need for primordial seeds.
@@ -35,8 +35,8 @@ probabilities, stellar lifetimes, or a gas supply model.
 The three highest reference-growth-pressure **publication-primary** objects
 are selected by recalculating their required ratio with the unchanged v3
 matter+Lambda reference cosmology. GN-z11 is added as an expanded-sample
-high-redshift comparator. Current targets are UNCOVER-20466,
-COSMOS3D-13852, RUBIES-EGS-55604, and GN-z11. GN-z11's UV virial mass is distinct
+high-redshift comparator. After the 17 October 2026 admission, current targets are CAPERS-LRD-z9,
+UNCOVER-20466, CANUCS-LRD-z8.6, and GN-z11. GN-z11's UV virial mass is distinct
 from the primary Balmer masses; results are not pooled into a population fraction.
 
 The driver reads the canonical v3 preferred-object table and existing
@@ -132,9 +132,9 @@ stellar seeding generally, and does not establish that PBHs are required.
 ### Current central-mass results
 
 For `epsilon=0.1`, cap 1, and no mergers, the equality-onset minimum seeds are
-approximately 1,184 Msun (UNCOVER-20466), 535 Msun (COSMOS3D-13852), 495 Msun
-(RUBIES-EGS-55604), and 267 Msun (GN-z11). Starting at `z=30` instead requires
-approximately 8,527, 3,855, 3,569, and 1,924 Msun, respectively. These are
+approximately 1,144 Msun (CAPERS-LRD-z9), 1,184 Msun (UNCOVER-20466),
+1,018 Msun (CANUCS-LRD-z8.6), and 267 Msun (GN-z11). Starting at `z=30` instead requires
+approximately 8,243, 8,527, 7,333, and 1,924 Msun, respectively. These are
 algebraic growth requirements at the adopted central masses, not PBH formation
 predictions. They show that simply changing the timing of a 100 Msun seed is
 insufficient at this efficiency and rate cap; they do not establish a primordial

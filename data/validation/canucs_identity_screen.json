@@ -1,0 +1,202 @@
+{
+  "v2": {
+    "rows_scanned": 218,
+    "nearest": [
+      {
+        "measurement_id": "J112014389_matthee23",
+        "redshift": "4.897",
+        "separation_arcsec": 61837.33784706797
+      },
+      {
+        "measurement_id": "J11207546_matthee23",
+        "redshift": "4.967",
+        "separation_arcsec": 62057.218634814686
+      },
+      {
+        "measurement_id": "J114821787_matthee23",
+        "redshift": "4.277",
+        "separation_arcsec": 109746.6041516665
+      },
+      {
+        "measurement_id": "J114818404_matthee23",
+        "redshift": "5.011",
+        "separation_arcsec": 109850.76010643493
+      },
+      {
+        "measurement_id": "J11487111_matthee23",
+        "redshift": "4.339",
+        "separation_arcsec": 110012.38283996297
+      }
+    ],
+    "within_2arcsec": 0,
+    "missing_coordinates": []
+  },
+  "v3": {
+    "rows_scanned": 350,
+    "nearest": [
+      {
+        "measurement_id": "J112014389_matthee23",
+        "redshift": "4.897",
+        "separation_arcsec": 61837.33784706797
+      },
+      {
+        "measurement_id": "J11207546_matthee23",
+        "redshift": "4.967",
+        "separation_arcsec": 62057.218634814686
+      },
+      {
+        "measurement_id": "J114821787_matthee23",
+        "redshift": "4.277",
+        "separation_arcsec": 109746.6041516665
+      },
+      {
+        "measurement_id": "J114818404_matthee23",
+        "redshift": "5.011",
+        "separation_arcsec": 109850.76010643493
+      },
+      {
+        "measurement_id": "J11487111_matthee23",
+        "redshift": "4.339",
+        "separation_arcsec": 110012.38283996297
+      }
+    ],
+    "within_2arcsec": 0,
+    "missing_coordinates": [
+      {
+        "measurement_id": "GHZ2_chavezortiz26",
+        "object_id": "GHZ2",
+        "redshift": "12.34"
+      },
+      {
+        "measurement_id": "CEERS23_mazzolari24",
+        "object_id": "CEERS-23",
+        "redshift": "8.8802"
+      },
+      {
+        "measurement_id": "CEERS1029_mazzolari24",
+        "object_id": "CEERS-1029",
+        "redshift": "8.61"
+      },
+      {
+        "measurement_id": "CEERS689_mazzolari24",
+        "object_id": "CEERS-689",
+        "redshift": "7.5457"
+      },
+      {
+        "measurement_id": "CEERS1064_mazzolari24",
+        "object_id": "CEERS-1064",
+        "redshift": "6.7905"
+      },
+      {
+        "measurement_id": "CEERS613_mazzolari24",
+        "object_id": "CEERS-613",
+        "redshift": "6.7288"
+      },
+      {
+        "measurement_id": "CEERS496_mazzolari24",
+        "object_id": "CEERS-496",
+        "redshift": "6.5809"
+      },
+      {
+        "measurement_id": "CEERS1561_mazzolari24",
+        "object_id": "CEERS-1561",
+        "redshift": "6.1965"
+      },
+      {
+        "measurement_id": "CEERS428_mazzolari24",
+        "object_id": "CEERS-428",
+        "redshift": "6.1022"
+      },
+      {
+        "measurement_id": "CEERS355_mazzolari24",
+        "object_id": "CEERS-355",
+        "redshift": "6.0995"
+      },
+      {
+        "measurement_id": "CEERS2168_mazzolari24",
+        "object_id": "CEERS-2168",
+        "redshift": "5.6541"
+      },
+      {
+        "measurement_id": "CEERS44804_mazzolari24",
+        "object_id": "CEERS-44804",
+        "redshift": "5.508"
+      },
+      {
+        "measurement_id": "CEERS669_mazzolari24",
+        "object_id": "CEERS-669",
+        "redshift": "5.2714"
+      },
+      {
+        "measurement_id": "CEERS4210_mazzolari24",
+        "object_id": "CEERS-4210",
+        "redshift": "5.2549"
+      },
+      {
+        "measurement_id": "CEERS1536_mazzolari24",
+        "object_id": "CEERS-1536",
+        "redshift": "5.0338"
+      },
+      {
+        "measurement_id": "CEERS1173_mazzolari24",
+        "object_id": "CEERS-1173",
+        "redshift": "4.9955"
+      },
+      {
+        "measurement_id": "CEERS1539_mazzolari24",
+        "object_id": "CEERS-1539",
+        "redshift": "4.8838"
+      },
+      {
+        "measurement_id": "CEERS1732_mazzolari24",
+        "object_id": "CEERS-1732",
+        "redshift": "4.6598"
+      },
+      {
+        "measurement_id": "CEERS1477_mazzolari24",
+        "object_id": "CEERS-1477",
+        "redshift": "4.6307"
+      },
+      {
+        "measurement_id": "CEERS1605_mazzolari24",
+        "object_id": "CEERS-1605",
+        "redshift": "4.6305"
+      },
+      {
+        "measurement_id": "CEERS1658_mazzolari24",
+        "object_id": "CEERS-1658",
+        "redshift": "4.6035"
+      },
+      {
+        "measurement_id": "CEERS1746_mazzolari24",
+        "object_id": "CEERS-1746",
+        "redshift": "4.5602"
+      },
+      {
+        "measurement_id": "CEERS1767_mazzolari24",
+        "object_id": "CEERS-1767",
+        "redshift": "4.5455"
+      },
+      {
+        "measurement_id": "CEERS1400_mazzolari24",
+        "object_id": "CEERS-1400",
+        "redshift": "4.4893"
+      },
+      {
+        "measurement_id": "CEERS1836_mazzolari24",
+        "object_id": "CEERS-1836",
+        "redshift": "4.4694"
+      },
+      {
+        "measurement_id": "CEERS1212_mazzolari24",
+        "object_id": "CEERS-1212",
+        "redshift": "4.2772"
+      },
+      {
+        "measurement_id": "MoMBHstar1_naidu26",
+        "object_id": "MoM-BH*-1",
+        "redshift": "7.7569"
+      }
+    ]
+  }
+}

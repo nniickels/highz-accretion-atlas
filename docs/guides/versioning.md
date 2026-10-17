@@ -18,8 +18,9 @@ Accuracy fixes apply here unless they exist only for a later source/object type.
 
 Adds the comparable JWST broad-line source families from Taylor, Matthee, Lin,
 Harikane, Davis/THRILS, Ren, Greene/UNCOVER, Kocevski/RUBIES, Skyfire/CEERS,
-Larson/CEERS 1019, Killi/J0647, Uebler/ZS7, Baccus, and Fei/GLIMPSE. These
-sources share the v2 object-type scope: 218 measurements, 211 objects, and 210
+Larson/CEERS 1019, Killi/J0647, Uebler/ZS7, Baccus, Fei/GLIMPSE,
+Taylor/CAPERS, Tripodi/CANUCS, Schindler/J1007, and Takechi/MACS0416-Y1. These
+sources share the v2 object-type scope: 222 measurements, 215 object records, and 214
 hosts. Baccus cluster-field rows without source-published lensing corrections
 are excluded; Fei's GLIMPSE values include explicit magnification corrections.
 
@@ -33,8 +34,8 @@ classes, evidence states, mass-comparability groups, missing/conditional masses,
 and explicit no-inference cases. Source-level assignment governs membership: a
 heterogeneous catalogue belongs to v3 even when individual rows resemble v2
 objects. The final completion adds the heterogeneous NEXUS WFSS and COSMOS-3D
-samples plus the GHZ4/GHZ7 high-ionization candidates. v3 has 350 measurements,
-338 objects, and 337 hosts; 237 objects
+samples plus the GHZ4/GHZ7 high-ionization candidates. v3 has 355 measurements,
+343 object records, and 342 hosts; 241 objects
 support numerical growth inference.
 
 ## Invariants
@@ -56,3 +57,14 @@ accretion onset, Monte Carlo mass support, and astrophysical controls.
 Its separate config/manifest and optional notebook are documented in
 [the v4 methods](../reference/pbh-growth-v4.md). A future formation or abundance
 study is outside this milestone. Manuscript and poster products remain separate.
+
+## Authorized 17 October 2026 membership revision
+
+The unchanged 2026-09-03 cutoff now includes four new Balmer families
+(CAPERS, CANUCS, J1007 and MACS0416-Y1) in v2/v3, and the mass-free SAPPHIRES
+candidate in v3 only. Actual source retrieval/admission date is 2026-10-17.
+This deliberately revises membership under the user's instruction; it is not
+an extraction correction. The preceding scientific edition is retained at
+`fc0c5501ad2271865b1c040307cad8dd8ca5721a`. v1 is unchanged. Source-specific
+calibrations/errors are preserved: comparable does not mean recalibrated.
+See [scope and source decisions](../reference/literature-scope.md).

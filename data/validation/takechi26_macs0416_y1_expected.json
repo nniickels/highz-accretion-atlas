@@ -1,0 +1,31 @@
+{
+  "source_version": "arXiv:2605.14922v1",
+  "source_location": "IV.2.1; II.2.2; III.3",
+  "mass_msun": 1600000,
+  "mass_lower_endpoint_msun": 600000,
+  "mass_upper_endpoint_msun": 4600000,
+  "hbeta_fwhm_kms": [
+    1100,
+    500,
+    800
+  ],
+  "observed_hbeta_flux_1e19": [
+    1.43,
+    0.6,
+    0.62
+  ],
+  "magnification": [
+    1.6,
+    0.02,
+    0.01
+  ],
+  "redshift": 8.312,
+  "coordinate_source": "arXiv:1806.04132v2 Section 2.3",
+  "host_ra_deg": 64.03922916666667,
+  "host_dec_deg": -24.093205555555556,
+  "screen_entities": 10,
+  "proposed_measurements": 1,
+  "proposed_objects": 1,
+  "proposed_hosts": 1,
+  "notes": "Numerical intervals independently read from pinned paper; do not add calibration scatter or correct mass for magnification again."
+}

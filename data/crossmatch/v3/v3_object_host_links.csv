@@ -6,7 +6,9 @@ v3-dataset-catalogue,HZA-AURORA-1914-8769,HZS-AURORA-1914-8769,source_verified_s
 v3-dataset-catalogue,HZA-AURORA-1914-927605,HZS-AURORA-1914-927605,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-AURORA-1914-928583,HZS-AURORA-1914-928583,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-BLUEJAY-1810-19945,HZS-BLUEJAY-1810-19945,source_verified_single_object_host,not_published
+v3-dataset-catalogue,HZA-CANUCS-LRD-Z8-6,HZS-CANUCS-LRD-Z8-6,source_verified_single_object_host,object_specific
 v3-dataset-catalogue,HZA-CAPERS-COS07-6368-35805,HZS-CAPERS-COS07-6368-35805,source_verified_single_object_host,not_published
+v3-dataset-catalogue,HZA-CAPERS-LRD-Z9,HZS-CAPERS-LRD-Z9,source_verified_single_object_host,object_specific
 v3-dataset-catalogue,HZA-CEERS-00717,HZS-CEERS-00717,inherited_provisional_one_to_one_no_verified_multinucleus_link,object_specific
 v3-dataset-catalogue,HZA-CEERS-01236,HZS-CEERS-01236,inherited_provisional_one_to_one_no_verified_multinucleus_link,object_specific
 v3-dataset-catalogue,HZA-CEERS-01665,HZS-CEERS-01665,inherited_provisional_one_to_one_no_verified_multinucleus_link,object_specific
@@ -167,6 +169,7 @@ v3-dataset-catalogue,HZA-J0910-2028-12910,HZS-J0910-2028-12910,source_verified_s
 v3-dataset-catalogue,HZA-J0910-2028-14306,HZS-J0910-2028-14306,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-J0910M0414-BHAE-1,HZS-J0910M0414-BHAE-1,inherited_provisional_one_to_one_no_verified_multinucleus_link,not_published
 v3-dataset-catalogue,HZA-J0923P0402-BHAE-1,HZS-J0923P0402-BHAE-1,inherited_provisional_one_to_one_no_verified_multinucleus_link,not_published
+v3-dataset-catalogue,HZA-J1007-AGN,HZS-J1007-AGN,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-J1120-14389,HZS-J1120-14389,inherited_provisional_one_to_one_no_verified_multinucleus_link,not_published
 v3-dataset-catalogue,HZA-J1120-7546,HZS-J1120-7546,inherited_provisional_one_to_one_no_verified_multinucleus_link,not_published
 v3-dataset-catalogue,HZA-J1148-18404,HZS-J1148-18404,inherited_provisional_one_to_one_no_verified_multinucleus_link,not_published
@@ -208,6 +211,7 @@ v3-dataset-catalogue,HZA-JADES-NS-GS10013905,HZS-JADES-NS-GS10013905,source_veri
 v3-dataset-catalogue,HZA-JADES-NS-GS10015338,HZS-JADES-NS-GS10015338,source_verified_single_galaxy_host,object_specific
 v3-dataset-catalogue,HZA-JADES-NS-GS10056849,HZS-JADES-NS-GS10056849,source_verified_single_galaxy_host,object_specific
 v3-dataset-catalogue,HZA-JADES-NS-GS10058975,HZS-JADES-NS-GS10058975,source_verified_single_galaxy_host,object_specific
+v3-dataset-catalogue,HZA-MACS0416-Y1,HZS-MACS0416-Y1,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-MACS1423-1208-4103248,HZS-MACS1423-1208-4103248,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-MOM-BH-1,HZS-MOM-BH-1,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-NEXUS-OBS3-5105-10835,HZS-NEXUS-OBS3-5105-10835,source_verified_single_object_host,not_published
@@ -274,6 +278,7 @@ v3-dataset-catalogue,HZA-RUBIES-UDS-63166,HZS-RUBIES-UDS-63166,source_verified_s
 v3-dataset-catalogue,HZA-RUBIES-UDS-807469,HZS-RUBIES-UDS-807469,inherited_provisional_one_to_one_no_verified_multinucleus_link,not_published
 v3-dataset-catalogue,HZA-RUBIES-UDS-970351,HZS-RUBIES-UDS-970351,inherited_provisional_one_to_one_no_verified_multinucleus_link,not_published
 v3-dataset-catalogue,HZA-RUBIES-UDS32-4233-966096,HZS-RUBIES-UDS32-4233-966096,source_verified_single_object_host,not_published
+v3-dataset-catalogue,HZA-SAPPHIRES-ID-8760,HZS-SAPPHIRES-ID-8760,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-SKYFIRE-1090,HZS-SKYFIRE-1090,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-SKYFIRE-12630,HZS-SKYFIRE-12630,source_verified_single_object_host,not_published
 v3-dataset-catalogue,HZA-SKYFIRE-17484,HZS-SKYFIRE-17484,source_verified_single_object_host,not_published

@@ -31,10 +31,34 @@ outside the catalogue boundary. The authoritative included-source list is
 | Baccus GLIMPSE, MACS0416, and MACS1149 cluster-field rows without published magnifications | source-local exclusions | Thirteen otherwise-new Baccus objects lack source-published lensing corrections. Three GLIMPSE objects enter independently through Fei with explicit corrections; the remaining ten are not admitted as comparable mass points. |
 | Prospective sources listed in the README references | background only | They do not contribute catalogue rows unless separately admitted under the rules above. |
 
-The v1/v2/v3 membership is frozen at this cutoff. New source families or new
-measurements require a new dataset version; their scientific scope and nesting
-must be declared when that version is defined. The v2/v3 source assignments
-above describe the existing frozen datasets, not permission to expand them.
+On **17 October 2026**, the user authorized a bounded membership revision of
+v2/v3 at the unchanged **2026-09-03** literature cutoff: v2 is the comparable
+Balmer source-family collection and v3 contains v2 plus other evidence/methods.
+The preceding edition is recoverable at Git commit
+`fc0c5501ad2271865b1c040307cad8dd8ca5721a` (v2: 218/211/210;
+v3: 350/338/337 measurements/object records/hosts). This is a membership
+expansion, not an accuracy correction or a new v4 catalogue.
+
+| Admitted family | Placement | Reason |
+| --- | --- | --- |
+| Taylor CAPERS-LRD-z9, arXiv:2505.04609v4 | v2 and v3 | New object with source-canonical broad-Hbeta virial mass |
+| Tripodi CANUCS-LRD-z8.6, published 19 November 2025 | v2 and v3 | New object with lens-corrected Balmer virial mass |
+| Schindler J1007_AGN, published 17 September 2025 | v2 and v3 | New object; conservative observed Balmer baseline, correlated dust alternative retained |
+| Takechi MACS0416-Y1, arXiv:2605.14922v1 | v2 and v3 | New candidate with lens-corrected Balmer mass; expanded-only inference |
+| Fudamoto SAPPHIRES ID-8760, arXiv:2503.15597v1 | v3 only | New tentative LRD/AGN without a published numerical BH mass |
+
+All adopted versions predate the cutoff; actual retrieval/admission is
+2026-10-17. Every new family contributes one new physical object under the
+reviewed source/alias/coordinate screen. Morishita arXiv:2508.01372v2 is
+same-object CANUCS evidence, not another admitted family or mass: it removes
+the v1 mass calculation and reuses Tripodi. The five extraction notes and
+source-native screens retain exclusions, model alternatives and missingness.
+SAPPHIRES's unidentified foreground contaminant remains a caveat, not a forced
+object match. The three pre-existing unresolved identity groups remain open.
+
+This authorization is specific to these five families. Other new source
+families or measurements require a separately declared membership revision;
+the deferred A2744 direct mass below remains external.
 Accuracy fixes, publication-status corrections, and provenance updates apply to
 every affected existing version. Any correction to an extracted value must be
 documented against the primary source and accompanied by regenerated products

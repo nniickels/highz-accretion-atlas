@@ -53,6 +53,7 @@ v3-shared-science,v3-dataset-catalogue,measurement,MoMBHstar1_naidu26,HZA-MOM-BH
 v3-shared-science,v3-dataset-catalogue,measurement,NX12143_zhuang25,HZA-NX12143,NX12143,zhuang25_nexus_wfss,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,NX7680_zhuang25,HZA-NX7680,NX7680,zhuang25_nexus_wfss,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,NX8933_zhuang25,HZA-NX8933,NX8933,zhuang25_nexus_wfss,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,measurement,SAPPHIRES8760_fudamoto25,HZA-SAPPHIRES-ID-8760,SAPPHIRES-ID-8760,fudamoto25_sapphires_z847,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI1171_lyu24,HZA-SMILES-MIRI-1171,SMILES-MIRI-1171,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI1486_lyu24,HZA-SMILES-MIRI-1486,SMILES-MIRI-1486,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,measurement,SMILESMIRI1652_lyu24,HZA-SMILES-MIRI-1652,SMILES-MIRI-1652,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
@@ -158,6 +159,7 @@ v3-shared-science,v3-dataset-catalogue,physical_object,MoMBHstar1_naidu26,HZA-MO
 v3-shared-science,v3-dataset-catalogue,physical_object,NX12143_zhuang25,HZA-NX12143,NX12143,zhuang25_nexus_wfss,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,NX7680_zhuang25,HZA-NX7680,NX7680,zhuang25_nexus_wfss,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,NX8933_zhuang25,HZA-NX8933,NX8933,zhuang25_nexus_wfss,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
+v3-shared-science,v3-dataset-catalogue,physical_object,SAPPHIRES8760_fudamoto25,HZA-SAPPHIRES-ID-8760,SAPPHIRES-ID-8760,fudamoto25_sapphires_z847,broad_line_agn,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI1171_lyu24,HZA-SMILES-MIRI-1171,SMILES-MIRI-1171,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI1486_lyu24,HZA-SMILES-MIRI-1486,SMILES-MIRI-1486,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True
 v3-shared-science,v3-dataset-catalogue,physical_object,SMILESMIRI1652_lyu24,HZA-SMILES-MIRI-1652,SMILES-MIRI-1652,lyu24_smiles_miri_agn,photometric_agn_candidate,no_numeric_mass,missing_numeric_mbh,True,True

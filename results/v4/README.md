@@ -48,3 +48,8 @@ inputs, code, cosmology, row counts, and output hashes. Writing to this folder
 also updates `results/results_inventory.csv`; retain that inventory with the
 outputs. Verification is read-only. Follow the
 [reproduction guide](../../docs/guides/reproducibility.md) before changing reviewed inputs.
+
+The 17 October 2026 edition selects CAPERS-LRD-z9, UNCOVER-20466 and
+CANUCS-LRD-z8.6 as the three strongest primary cases, plus GN-z11. This
+replaces COSMOS3D-13852 and RUBIES-EGS-55604 under the unchanged selection
+rule; the assumptions, grid, 10,000 draws and stable object streams are unchanged.

@@ -6,11 +6,11 @@ used to check them. Calculated growth rates and figures are in [results/](../res
 ## Start here
 
 - [v3 object table](processed/v3/v3_accreting_objects.csv): one preferred
-  measurement per stored object, with 338 object records.
-- [v3 measurement table](processed/v3/v3_accreting_measurements.csv): all 350
+  measurement per stored object, with 343 object records.
+- [v3 measurement table](processed/v3/v3_accreting_measurements.csv): all 355
   literature measurements, including alternatives for the same object.
 
-The catalogue records 337 host systems. Three identity groups remain unresolved,
+The catalogue records 342 host systems. Three identity groups remain unresolved,
 so the object count is provisional. See the [identity audit](../docs/source-notes/redshift-identity-audit.md).
 
 ## Folder guide

@@ -25,3 +25,15 @@ limits. The [versioning guide](../../docs/guides/versioning.md) defines admissio
   NEXUS and COSMOS-3D retain published Balmer-line virial masses. GHZ4 and GHZ7
   remain candidates identified through high-ionization lines, without eligible
   mass estimates.
+
+## Bounded October 2026 admission
+
+- [capers-lrd-z9 source values, full screen and admission basis](../../docs/source-notes/capers-lrd-z9-extraction-notes.md).
+- [canucs-lrd-z86 source values, full screen and admission basis](../../docs/source-notes/canucs-lrd-z86-extraction-notes.md).
+- [j1007-agn source values, full screen and admission basis](../../docs/source-notes/j1007-agn-extraction-notes.md).
+- [macs0416-y1 source values, full screen and admission basis](../../docs/source-notes/macs0416-y1-extraction-notes.md).
+- [sapphires-z847 source values, full screen and admission basis](../../docs/source-notes/sapphires-z847-extraction-notes.md).
+
+Four Balmer mass families enter v2 and v3; SAPPHIRES is v3-only without a mass.
+The cutoff remains 2026-09-03; retrieval/admission was 2026-10-17. Modeling
+alternatives are correlated source observables, not independent objects.

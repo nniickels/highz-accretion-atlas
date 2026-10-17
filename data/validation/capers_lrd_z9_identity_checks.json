@@ -1,0 +1,226 @@
+{
+  "v2": {
+    "input_hashes": {
+      "data/processed/v2/v2_accreting_measurements.csv": "88345a383acf127aba864a3483c48bac76aede9dad0068cd1627b11b759406a6",
+      "data/processed/v2/v2_accreting_objects.csv": "8f7f1cc2d564eb1973043710756c2890564fcbe6b4ee277b2feff7a1e4b5b63a",
+      "data/crossmatch/v2/v2_object_aliases.csv": "b7f8ff115c5eb77547449783a5e00077c340bd3922409f16f50fbe628ca5d3bd"
+    },
+    "alias_matches": [],
+    "nearest_five": [
+      {
+        "separation_arcsec": 185.34772021417928,
+        "object_id": "ZS7",
+        "measurement_id": "ZS7_ubler24",
+        "redshift": 7.15
+      },
+      {
+        "separation_arcsec": 198.5458751891535,
+        "object_id": "AURORA_1914_8769",
+        "measurement_id": "AURORA19148769_baccus26",
+        "redshift": 4.5302
+      },
+      {
+        "separation_arcsec": 264.00257267823645,
+        "object_id": "VALENTINO_3567_44330",
+        "measurement_id": "VALENTINO356744330_baccus26",
+        "redshift": 5.1308
+      },
+      {
+        "separation_arcsec": 311.69389015215415,
+        "object_id": "BLUEJAY_1810_19945",
+        "measurement_id": "BLUEJAY181019945_baccus26",
+        "redshift": 6.9894
+      },
+      {
+        "separation_arcsec": 364.4113530990398,
+        "object_id": "DC_683613",
+        "measurement_id": "DC683613_ren25",
+        "redshift": 5.542
+      }
+    ],
+    "within_2_arcsec": [],
+    "missing_coordinates": [],
+    "decision": "new_object_no_coordinate_or_alias_match",
+    "missing_coordinate_review": "No z=9.288 source identity or CAPERS alias among missing-coordinate records; proximity cannot be tested for these records."
+  },
+  "v3": {
+    "input_hashes": {
+      "data/processed/v3/v3_accreting_measurements.csv": "fa9a45b508970fc854df0d8bb91f7de2c9eed2cc55e6d4f4e908414250bb9474",
+      "data/processed/v3/v3_accreting_objects.csv": "bc4f2ca1813660106a9fa11ecd0ff4b85012aac08e79fab2420a8d889de9c9a2",
+      "data/crossmatch/v3/v3_object_aliases.csv": "85f06a8c5cd7fef1b1e34c5640aeca512f7d7d2f2ee3fba0fe441c1454433c8d"
+    },
+    "alias_matches": [],
+    "nearest_five": [
+      {
+        "separation_arcsec": 185.34772021417928,
+        "object_id": "ZS7",
+        "measurement_id": "ZS7_ubler24",
+        "redshift": 7.15
+      },
+      {
+        "separation_arcsec": 198.5458751891535,
+        "object_id": "AURORA_1914_8769",
+        "measurement_id": "AURORA19148769_baccus26",
+        "redshift": 4.5302
+      },
+      {
+        "separation_arcsec": 264.00257267823645,
+        "object_id": "VALENTINO_3567_44330",
+        "measurement_id": "VALENTINO356744330_baccus26",
+        "redshift": 5.1308
+      },
+      {
+        "separation_arcsec": 296.7904999954812,
+        "object_id": "capers-cos07_6368_35805",
+        "measurement_id": "caperscos07636835805_mascia26",
+        "redshift": 6.528
+      },
+      {
+        "separation_arcsec": 311.69389015215415,
+        "object_id": "BLUEJAY_1810_19945",
+        "measurement_id": "BLUEJAY181019945_baccus26",
+        "redshift": 6.9894
+      }
+    ],
+    "within_2_arcsec": [],
+    "missing_coordinates": [
+      {
+        "object_id": "GHZ2",
+        "redshift": "12.34",
+        "measurement_id": "GHZ2_chavezortiz26"
+      },
+      {
+        "object_id": "CEERS-23",
+        "redshift": "8.8802",
+        "measurement_id": "CEERS23_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1029",
+        "redshift": "8.61",
+        "measurement_id": "CEERS1029_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-689",
+        "redshift": "7.5457",
+        "measurement_id": "CEERS689_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1064",
+        "redshift": "6.7905",
+        "measurement_id": "CEERS1064_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-613",
+        "redshift": "6.7288",
+        "measurement_id": "CEERS613_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-496",
+        "redshift": "6.5809",
+        "measurement_id": "CEERS496_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1561",
+        "redshift": "6.1965",
+        "measurement_id": "CEERS1561_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-428",
+        "redshift": "6.1022",
+        "measurement_id": "CEERS428_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-355",
+        "redshift": "6.0995",
+        "measurement_id": "CEERS355_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-2168",
+        "redshift": "5.6541",
+        "measurement_id": "CEERS2168_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-44804",
+        "redshift": "5.508",
+        "measurement_id": "CEERS44804_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-669",
+        "redshift": "5.2714",
+        "measurement_id": "CEERS669_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-4210",
+        "redshift": "5.2549",
+        "measurement_id": "CEERS4210_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1536",
+        "redshift": "5.0338",
+        "measurement_id": "CEERS1536_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1173",
+        "redshift": "4.9955",
+        "measurement_id": "CEERS1173_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1539",
+        "redshift": "4.8838",
+        "measurement_id": "CEERS1539_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1732",
+        "redshift": "4.6598",
+        "measurement_id": "CEERS1732_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1477",
+        "redshift": "4.6307",
+        "measurement_id": "CEERS1477_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1605",
+        "redshift": "4.6305",
+        "measurement_id": "CEERS1605_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1658",
+        "redshift": "4.6035",
+        "measurement_id": "CEERS1658_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1746",
+        "redshift": "4.5602",
+        "measurement_id": "CEERS1746_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1767",
+        "redshift": "4.5455",
+        "measurement_id": "CEERS1767_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1400",
+        "redshift": "4.4893",
+        "measurement_id": "CEERS1400_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1836",
+        "redshift": "4.4694",
+        "measurement_id": "CEERS1836_mazzolari24"
+      },
+      {
+        "object_id": "CEERS-1212",
+        "redshift": "4.2772",
+        "measurement_id": "CEERS1212_mazzolari24"
+      },
+      {
+        "object_id": "MoM-BH*-1",
+        "redshift": "7.7569",
+        "measurement_id": "MoMBHstar1_naidu26"
+      }
+    ],
+    "decision": "new_object_no_coordinate_or_alias_match",
+    "missing_coordinate_review": "No z=9.288 source identity or CAPERS alias among missing-coordinate records; proximity cannot be tested for these records."
+  }
+}

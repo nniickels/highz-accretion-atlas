@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class IndependentValidationTests(unittest.TestCase):
     def test_primary_source_table_values(self):
-        self.assertEqual(verify_primary_source_values(), 2041)
+        self.assertEqual(verify_primary_source_values(), 2079)
 
     def test_missing_source_family_anchor_is_rejected(self):
         loads = json.loads

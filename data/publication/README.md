@@ -9,7 +9,7 @@ external comparisons. They do not change catalogue membership.
 | `evidence_selection.json` | Places four tentative JADES detections in the expanded sample only. |
 | `review_inputs.json` | Records source caveats and external comparison measurements. Proposed observations are author suggestions. |
 
-The samples contain 220 primary and 234 expanded objects. Existing output fields
+The samples contain 223 primary and 238 expanded objects. Existing output fields
 call the expanded sample `exploratory`; it contains every primary object.
 Excluding uncertain identities does not resolve them.
 
@@ -35,3 +35,7 @@ separately reported 0.5-dex scales to symmetric mass errors under the assumption
 in the [reproduction guide](../../docs/guides/reproducibility.md#apss-calibration-sensitivity).
 The implementation rejects different measurement IDs, asymmetric errors, or
 changed scales until those assumptions are reviewed.
+
+`poster_snapshot/` preserves the explicitly historical CUPC poster input tables
+from `fc0c5501ad2271865b1c040307cad8dd8ca5721a`; current manuscript selection
+and growth inference use the canonical results, not that snapshot.

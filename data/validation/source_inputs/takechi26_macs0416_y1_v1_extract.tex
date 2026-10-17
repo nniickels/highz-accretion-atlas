@@ -1,0 +1,405 @@
+
+\documentclass[trackchanges,twocolumn]{aastex701}
+
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+%\newcommand{\ca}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\ca}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+%\newcommand{\cb}[1]{\textcolor{blue}{\textbf{#1}}}
+\newcommand{\cb}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+%\newcommand{\cc}[1]{\textcolor{cyan}{\textbf{#1}}}
+\newcommand{\cc}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+%\newcommand{\cd}[1]{\textcolor{purple}{\textbf{#1}}}
+\newcommand{\cd}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+%\newcommand{\ce}[1]{\textcolor{orange}{\textbf{#1}}}
+\newcommand{\ce}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+%\newcommand{\cf}[1]{\textcolor{magenta}{\textbf{#1}}}
+\newcommand{\cf}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+%\newcommand{\cg}[1]{\textcolor{teal}{\textbf{#1}}}
+\newcommand{\cg}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+%\newcommand{\ch}[1]{\textcolor{olive}{\textbf{#1}}}
+\newcommand{\ch}[1]{\textcolor{black}{#1}} %{\textbf{#1}}}
+
+\newcommand{\ckt}[1]{\textcolor{black}{#1}} 
+
+% #2
+\newcommand{\ci}[1]{\textcolor{black}{#1}}
+
+
+\newcommand{\cj}[1]{\textcolor{black}{#1}}
+
+
+\newcommand{\ck}[1]{\textcolor{black}{#1}}
+
+\newcommand{\cl}[1]{\textcolor{black}{#1}}
+\newcommand{\cm}[1]{\textcolor{black}{#1}}
+
+
+% #3
+\newcommand{\cn}[1]{\textcolor{black}{#1}}
+
+\newcommand{\co}[1]{\textcolor{black}{#1}}
+\newcommand{\cp}[1]{\textcolor{black}{#1}}
+\newcommand{\cq}[1]{\textcolor{black}{#1}}
+
+
+\newcommand{\NAOJ}{National Astronomical Observatory of Japan, 2-21-1 Osawa, Mitaka, Tokyo 181-8588, Japan}
+\newcommand{\SOKENDAI}{Department of Astronomical Science, The Graduate University for Advanced Studies, SOKENDAI, 2-21-1 Osawa, Mitaka, Tokyo 181-8588, Japan}
+\newcommand{\UA}{Department of Astronomy and Steward Observatory, University of Arizona, Tucson, AZ 85721, USA}
+\newcommand{\ICRR}{Institute for Cosmic Ray Research, The University of Tokyo, 5-1-5 Kashiwanoha, Kashiwa, Chiba 277-8582, Japan}
+\newcommand{\UT}{Department of Physics, Graduate School of Science, The University of Tokyo, 7-3-1 Hongo, Bunkyo, Tokyo 113-0033, Japan}
+\newcommand{\TSUKUBA}{Center for Computational Sciences, University of Tsukuba, Ten-nodai, 1-1-1 Tsukuba, Ibaraki 305-8577, Japan}
+
+
+
+
+\usepackage{lmodern}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{url}
+
+
+\begin{document}
+
+\title{
+DREAMS.\\
+\textit{JWST} Spectroscopy of a $z=8.3$ Galaxy with an ALMA Dust Continuum Detection:\\
+Early Dust, Very High $T_{\rm dust}$, and a Multi-wavelength [\ion{O}{3}] Ratio Discrepancy\\
+}
+
+
+\author[0009-0008-1353-7823]{Kana Takechi}
+\email[show]{ktakechi@icrr.u-tokyo.ac.jp }  
+\affiliation{\ICRR}
+\affiliation{\UT}
+
+%\begin{comment}
+
+\author[0000-0002-1049-6658]{Masami Ouchi}
+\affiliation{\ICRR}
+\affiliation{\NAOJ}
+\affiliation{Astronomical Science Program, Graduate Institute for Advanced Studies, SOKENDAI, 2-21-1 Osawa, Mitaka, Tokyo 181-8588, Japan}
+\affiliation{Kavli Institute for the Physics and Mathematics of the Universe (Kavli IPMU, WPI), The University of Tokyo, 5-1-5 Kashiwanoha, Kashiwa, Chiba, 277-8583, Japan}
+\email{ouchims@icrr.u-tokyo.ac.jp}
+
+\author[0000-0003-2965-5070]{Kimihiko Nakajima}
+\affiliation{Institute of Liberal Arts and Science, Kanazawa University, Kakuma-machi, Kanazawa, Ishikawa, 920-1192, Japan}
+\affiliation{\NAOJ}
+\email{knakajima@staff.kanazawa-u.ac.jp}
+
+\author[0009-0004-4332-9225]{Tomokazu Kiyota}
+\affiliation{\NAOJ}
+\affiliation{\SOKENDAI}
+\email{tomokazu.kiyota@grad.nao.ac.jp}
+
+\author[0000-0003-4807-8117]{Yoichi Tamura}
+\affiliation{Department of Physics, Graduate School of Science, Nagoya University, Furo, Chikusa, Nagoya, Aichi 464-8602, Japan}
+\email{ytamura@nagoya-u.jp}
+
+\author[0000-0002-6047-430X]{Yuichi Harikane}
+\affiliation{\ICRR} 
+\email{hari@icrr.u-tokyo.ac.jp}
+
+\author[0000-0002-0984-7713]{Yurina Nakazato}
+\affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010}
+\email{ynakazato@flatironinstitute.org}
+
+\author[0000-0002-5268-2221]{Tom J.\ L.\ C.\ Bakx}
+\affiliation{Department of Physics and Astronomy, Chalmers University of Technology, SE-412 96 Gothenburg, Sweden}
+\email{tjlcbakx@gmail.com}
+
+\author[0000-0002-7779-8677]{Akio K.\ Inoue}
+\affiliation{Department of Pure and Applied Physics, Graduate School of Advanced Science and Engineering, Faculty of Science and Engineering, Waseda University, 3-4-1, Okubo, Shinjuku, Tokyo 169-8555, Japan}
+\affiliation{Waseda Research Institute for Science and Engineering, Faculty of Science and Engineering, Waseda University, \\3-4-1, Okubo, Shinjuku, Tokyo 169-8555, Japan}
+\email{akinoue@aoni.waseda.jp}
+
+
+\author[0000-0002-1319-3433]{Hidenobu Yajima}
+\affiliation{\TSUKUBA} 
+\email{yajima@ccs.tsukuba.ac.jp}
+
+\author[0000-0001-8083-5814]{Masato Hagimoto}
+\affiliation{Department of Physics, Graduate School of Science, Nagoya University, Furo, Chikusa, Nagoya, Aichi 464-8602, Japan}
+\email{hagimoto@a.phys.nagoya-u.ac.jp}
+
+\author[0000-0001-9011-7605]{Yoshiaki Ono}
+\affiliation{\ICRR}
+\email{ono@icrr.u-tokyo.ac.jp}
+
+\author[0000-0002-5768-8235]{Yi Xu}
+\affiliation{Cosmic Dawn Center (DAWN), Niels Bohr Institute, University of Copenhagen, Jagtvej 128, Copenhagen N, DK-2200, Denmark.}
+\email{yi.xu@nbi.ku.dk}
+
+
+
+\begin{abstract}
+
+%246 words
+We present a deep DREAMS \textit{JWST}/NIRSpec MSA medium-grating spectrum of MACS0416-Y1, a galaxy at $z=8.312$ with the highest-redshift ALMA dust continuum detection to date, in order to characterize its properties together with archival IFU and ALMA data. The deep NIRSpec spectrum reveals a broad H$\beta$ line with a width of $\sim1100$ km~s$^{-1}$. We interpret it as a broad-line AGN whose line diagnostics are consistent with AGN activity across its clumpy structure, given the absence of little red dot signatures.
+MACS0416-Y1 clearly shows [\textsc{Oiii}]\,4363 emission, suggesting a moderately low metallicity of $12+\log(\mathrm{O/H})=7.86^{+0.09}_{-0.08}$~($0.15~Z_\odot$). The combination of [\textsc{Cii}]\,158$\mu$m and dust continuum emission indicates low dust mass ratios of $\log (M_{\rm dust}/M_{\rm gas})=-3.60^{+0.29}_{-0.22}$ and $\log (M_{\rm dust}/M_{\rm metal})=-0.95^{+0.29}_{-0.20}$. Because the metallicity of MACS0416-Y1 is around the critical metallicity of $0.1\textrm{--}0.2~Z_\odot$, the system is expected to undergo dust growth, explaining these low dust mass ratios as well as its small dust mass, $M_{\rm dust}\sim10^6~M_\odot$. The intense UV radiation from the AGN may contribute to a high dust temperature of $T_{\rm dust}\simeq91^{+62}_{-35}$ K, boosting the dust-continuum emission above the ALMA detection limit despite the small $M_{\rm dust}$ at $z>8$. We find a very high total flux ratio of [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007 = $0.26 \pm 0.06$ in MACS0416-Y1, above predictions from single ionized nebular models at any electron density. This discrepancy suggests that the [\textsc{Oiii}]\,88$\mu$m and [\textsc{Oiii}]\,5007 trace largely distinct regions, with the optical line suppressed in dusty nebulae, and thus requires careful interpretation when combining optical and infrared emission lines in JWST+ALMA studies.
+
+\end{abstract}
+
+
+\section{Introduction}
+Dust is a fundamental component of the interstellar medium (ISM) in galaxies, influencing the observational properties, energy budget, and physical conditions. In the local \cd{Universe}, dust heated by interstellar radiation fields typically reaches equilibrium temperatures of $\sim$20--40 K~\ca{\citep{Dunne2000,Casey2012}}. However, recent far-infrared (FIR) and submillimeter observations have revealed that dust in high-redshift galaxies, particularly at $z > 6$, exhibits unexpectedly high temperatures of 50--100 K, \cc{likely due to intense radiation fields associated with compact star formation and/or conditions that enhance dust heating, including low dust mass or active galactic nucleus (AGN) activity} \citep{Nakazato2026,Viero2022,Sommovigo2022,Mitsuhashi2024,Tsukui2023}. 
+
+
+\cc{Understanding the origin of these high dust temperatures and the physical conditions of the ISM requires combining dust continuum measurements with constraints on the gas properties.}
+A multi-wavelength approach that combines FIR/submillimeter continuum observations with near-infrared spectroscopy is therefore essential for characterizing dust and ISM properties in early galaxies. FIR and submillimeter observations probe the emission from dust and \ckt{FIR} fine-structure emission lines, while near-infrared spectroscopy provides emission line diagnostics that trace gas properties including electron temperature, density, ionization state, and chemical composition~\cc{\citep{Osterbrock2006,Draine2011}.} The combination of these datasets enables a more comprehensive understanding of the physical conditions in high-$z$ galaxies. For example, measurements of the gas-phase metallicity \cd{can} provide constraints on grain growth processes in the early universe~\citep[\cc{e.g.,}][]{Asano2013, Popping2017,Toyouchi2025}.
+
+
+
+MACS J0416-Y1 (hereafter Y1) is a star-forming galaxy at $z = 8.31$ that exhibits an elevated dust temperature and a complex ISM structure~\ca{characterized by three emission peaks in the rest-frame UV and two emission peaks in the rest-frame FIR continuum}. It was originally identified as a $z>8$ Lyman break galaxy candidate based on multiband \textit{Hubble Space Telescope} Wide Field Camera 3 (\textit{HST}/WFC3) observations~\citep{Infante2015, Laporte2015} in the Hubble Frontier Fields \citep[HFF,][]{Lotz2017} survey of the MACS J-0416.1-2403 cluster. Follow up observations \cn{with} \cl{the Atacama Large Millimeter/submillimeter Array (ALMA) }spectroscopically confirmed its redshift, $z=8.312$, through detections of the [\textsc{Oiii}]\,88$\mu$m~\citep{Tamura2019} and [\textsc{Cii}]\,158$\mu$m~\citep{Bakx2020} emission lines. \co{Y1 exhibits a high [\textsc{Oiii}]\,88$\mu$m/[\textsc{Cii}]\,158$\mu$m luminosity ratio of $\sim9$ \citep{Bakx2020}. \citet{Hagimoto2025} suggested that this can be explained by a porous ISM geometry with a low neutral-gas covering fraction.}
+\cg{Dust continuum emission was first reported in ALMA Band 7~\citep{Tamura2019}, representing the highest-redshift dust continuum detection to date.} %This detection implies rapid dust production and enrichment within the first $\sim 600$ Myr after the Big Bang. 
+Dust continuum emission has subsequently been detected across multiple ALMA bands \citep{Tamura2019,Harshan2024,Bakx2025}. By combining these detections with upper limits from nondetections~\citep{Bakx2020, Jones2024,Bakx2025}, the dust temperature has been constrained to 91$^{+62}_{-35}$~K~\citep{Bakx2025}, significantly \cd{warmer} than typical values observed in local galaxies~\citep[$\sim25$~K; e.g.,][]{Schreiber2018}. The origin of the high dust temperature and the detection of dust continuum at such a high redshift remain under debate. \citet{Tamura2019} suggested that the observed dust mass requires an earlier episode of star formation to pre-enrich the system, rather than production in a single young burst. \citet{Bakx2020} argue that the high inferred dust temperature itself reduces the required dust mass, alleviating the tension with rapid dust production. 
+\cc{More recently, observations with \cl{the James Webb Space Telescope/Near Infrared Spectrograph (\textit{JWST}/NIRSpec) and \textit{JWST}/Near Infrared Camera (NIRCam)} have revealed the clumpy morphology, ionized gas properties, and stellar populations~\citep[e.g.,][]{Ma2024,Harshan2024}.} 
+\cp{\citet{Harshan2024} proposed that merger-driven star formation and/or a possible AGN contribution inferred from emission line diagnostics could account for the strong dust heating.}
+
+
+\ckt{Despite these advances, several key questions remain unresolved, \cn{including the origin of the dust heating, the mechanism responsible for the dust enrichment, and the connection between the rest-frame UV/optical-emitting regions observed with \textit{JWST} and the rest-frame FIR-emitting regions observed with ALMA. Addressing these questions requires a multiwavelength analysis of the ionized gas, cold gas, and dust components using both \textit{JWST} and ALMA observations.} In this study, we present new deep \textit{JWST}/NIRSpec \cg{Micro-Shutter Assembly (MSA)} spectroscopy of Y1, combined with archival \cg{NIRSpec Integral Field Unit (IFU)} and ALMA data, to investigate its ISM properties and the mechanism of dust production and heating.}
+\cc{The remainder of this paper is organized as follows. Section \ref{sec:2} describes the observations and datasets used in this study. Section \ref{sec:3} outlines the data reduction and analysis methods. In Section \ref{sec:4}, we present the main results, including emission-line properties and ISM diagnostics. Section \ref{sec:5} discusses the implications for dust heating, production, and ISM structure. Finally, Section \ref{sec:6} summarizes our conclusions.} \cl{Throughout this paper, we assume a flat $\Lambda$CDM cosmology with $H_0=67.66$~km~s$^{-1}$~Mpc$^{-1}$, $\Omega_{\rm m}=0.3111$, and $\Omega_{\Lambda}=0.6889$~\citep{Planck2020}. }
+
+
+
+\section{Observations and Data}
+\label{sec:2}
+
+We \cd{have} observed MACS J0416-Y1 (Y1) with \textit{JWST}/NIRSpec \cl{MSA} on 2024 November 5, as part of the General Observers (GO) program Deep Reconnaissance of Early Assemblies of Metal-poor Star formation (DREAMS; proposal ID: 4750; Nakajima et al. in preparation). 
+\cd{These} observations were primarily designed to obtain deep NIRSpec MSA spectroscopy of LAP1-B in the MACS J0416 field~\ca{\citep{Nakajima2025}}. Y1, located close to LAP1-B within the NIRSpec MSA footprint, was simultaneously observed together with other high-redshift galaxies in the same field. The observations were carried out using the F290LP/G395M filter/grating configuration, covering 2.87--5.10$~\mu$m at a spectral resolution of $R\sim 1000$. The total effective exposure time \cd{was} 23 ks. 
+%\co{We simultaneously observed other high redshift galaxies in the same field, including Y1 \cd{close to} LAP1-B for the slit spectroscopy \cd{within} the NIRSpec MSA footprint.}
+%The filter/grating used in these observations is F290LP/G395\cb{\ca{M}}, corresponding to the wavelength coverage of 2.87--5.10$~\mu$m and the spectral resolution of $R\sim 1000$.
+
+\subsection{Archival data}
+\subsubsection{\textit{JWST}/NIRSpec IFU}
+We use archival \textit{JWST}/NIRSpec IFU data obtained as part of the Guaranteed Time Observation program \# GTO 1208 \citep[CANUCS;][]{Willott2022} on 2023 February 13. The observations were carried out using the F290LP/G395H filter/grating configuration, covering 2.87--5.14~$\mu$m at a spectral resolution of $R\sim2700$. \ca{The observations were conducted with eight dithers and a medium cycling pattern.} The total effective exposure time \cd{was} 18 ks.
+
+
+
+%The filter/grating used in these observations is F290LP/G395H, corresponding to the wavelength coverage of 2.87--5.14$~\mu$m and the spectral resolution of $R\sim2700$. \ca{The observations were conducted with eight dithers and a medium cycling pattern.} The total effective exposure time \cd{was} 18 ks.
+%The observations were carried out using the F290LP/G395H filter/grating configuration, providing wavelength coverage of 2.87--5.14$~\mu$m and the spectral resolution of $R\sim 2700$. 
+
+\subsubsection{\textit{JWST}/NIRCam Imaging}
+\ci{We use archival \textit{JWST}/NIRCam F150W and F444W images of the MACS0416 field observed as part of the Guaranteed Time Observation programs \# GTO 1176 \citep[PEARLS;][]{Windhorst2023} and \# GTO 1208 \citep[CANUCS;][]{Willott2022}. The total integration times are 15 ks and 18 ks for F150W and F444W images, respectively.}
+\cj{Y1 lies behind the Hubble Frontier Fields cluster MACS J0416.1$-$2403 and is moderately magnified by gravitational lensing, \cn{with a magnification factor of $\mu =1.60^{+0.01}_{-0.02}$~\citep{Harshan2024}, derived using the lens model presented by \citep{Rihtarsic2024}.} Unless otherwise stated, we do not apply corrections for lensing magnification in this work. }
+
+\subsubsection{ALMA}
+We use archival ALMA Band 7 data with project IDs \#2016.1.00117.S \citep[PI: Y. Tamura;][]{Tamura2019}, \#2017.1.0025.S \citep[PI: Y. Tamura;][]{Tamura2023}, \#2017.1.00486.S (PI: R. Ellis), and \#2018.1.01241.S \citep[PI: Y. Tamura;][]{Tamura2023}, observed in Cycles 4--6 from 2016 October to 2019 August \cd{at frequencies around $\sim$353~GHz }\citep[see Table 1 of][]{Tamura2023}. \cn{The total on-source integration times are 27.52 and 18.89 hours for the continuum and [\textsc{Oiii}]\,88$\mu$m observations, respectively.} The baseline lengths range from 15 to 3637~m.
+\ckt{We independently re-reduced and analyzed the data and confirmed consistency with the results presented by \citet{Tamura2023}. We therefore adopt their dataset in this work. }
+
+\section{Data Reduction and Analysis}
+\label{sec:3}
+\subsection{Data Reduction}
+\subsubsection{\textit{JWST}/NIRSpec MSA}
+We reduced the data using the \textit{JWST} Science Calibration Pipeline (version 1.17.1) with the Calibration Reference Data System (CRDS) context file \texttt{jwst\_1298.pmap}. A detailed description of the reduction procedure will be presented in Nakajima et al. (in preparation; see also \citealt{Nakajima2025}).
+
+\subsubsection{\textit{JWST}/NIRSpec IFU}
+We reduced the raw data retrieved from the Mikulski Archive for Space Telescopes (MAST) portal using the \textit{JWST} Science Calibration Pipeline with the CRDS context file \texttt{jwst\_1364.pmap}. We follow the NIRSpec/IFU Data Reduction Pipeline developed by the \textit{JWST} \cl{Early Release Science (ERS)} Targeting Extremely Magnified Panchromatic Lensed Arcs and their Extended Star formation~\ca{\citep[TEMPLATES;][]{Rigby2025}} team through stage 1 and stage 2, and replace stage 3 with custom processing using the \texttt{reproject} and \texttt{reproject\_interp} packages. In stage 1, \texttt{calwebb\_detector1} is applied to perform detector-level corrections for each exposure, followed by $1/f$ noise removal using the \texttt{NSClean} package. In stage 2, \texttt{calwebb\_spec2} is used for WCS assignment, wavelength and flux calibration, flat-fielding, and pass-loss correction. The calibrated data are then combined using drizzle weighting to achieve a spaxel scale of 0$\farcs$05. Finally, we construct the median-stacked 3D data cube using the \texttt{reproject} and \texttt{reproject\_interp} packages, with the background modeled and subtracted as a polynomial function of wavelength. 
+
+\subsubsection{\textit{JWST}/NIRCam Imaging}
+\ci{\textit{JWST}/NIRCam raw imaging data were retrieved from MAST archive and reduced using the \textit{JWST} Calibration Pipeline (version 1.12.5) and the CRDS context file \texttt{jwst\_1193.pmap}, with custom modifications following \citet{Harikane2023a}. The final images are drizzled to a pixel scale of $0\farcs015$.}
+
+\subsubsection{ALMA}
+We calibrated and imaged the ALMA raw data, retrieved from the ALMA Science Archive using Common Astronomy Software Applications \citep[CASA; ][]{CASA2022}. Data for each program are calibrated using the corresponding CASA pipelines versions: 4.7.0, 5.4.0-68, 5.1.1, and 5.4.0-70 for \#2016.1.00117.S, \#2017.1.0025.S, \#2017.1.00486.S, and \#2018.1.01241.S, respectively. All calibrated measurement sets are concatenated into one measurement set using CASA task \texttt{concat}. The concatenated data are then imaged with the CASA task \texttt{tclean}. \cd{Data from spectral windows (spw) covering 364.1--364.7~GHz were used for [\textsc{Oiii}]\,88$\mu$m line cube imaging with a velocity resolution of 12.85~km~s$^{-1}$}, and all remaining data are used to create the continuum image~\ca{with a pixel size of 0$\farcs$01~pixel$^{-1}$}. We adopted natural weighting, resulting in synthesized beam sizes of 81.1$\times$112.2~mas and 73.9$\times$96.1~mas with position angles of 89$^{\circ}$.4 and 93$^{\circ}$.8 for the line and continuum images, respectively.
+
+
+
+\subsection{Astrometric Alignment}
+\cb{We calibrated the astrometry of the \textit{JWST} NIRCam and \textit{JWST} NIRSpec/IFU data using an \cj{\textit{HST} image aligned to the \textit{Gaia} DR3~\citep{Gaia2021}} as the astrometric reference.} \cl{For the \textit{HST} image, we used the public \textit{HST} Frontier Fields Epoch 2 data release for MACSJ0416.1$-$2403 \cn{\citep[Proposal ID: 13496; PI: J. Lotz;][]{Lotz2017}}, obtained from MAST.}
+To increase the number of \textit{Gaia} sources for astrometric alignment, we utilized the \textit{HST} F125W image to transfer the astrometry from \textit{Gaia} to \textit{JWST}. The \textit{HST} image has a wider field of view and contains fewer saturated sources than the \textit{JWST} images. The \textit{HST} astrometry was first aligned to \textit{Gaia} DR3 catalog coordinates using 4 \textit{Gaia} sources within the field of view. The NIRCam images were then aligned to the \textit{HST} image using 4 stars detected in both datasets. 
+We constructed a pseudo F444W image of Y1 from NIRSpec/IFU data and aligned it to the NIRCam F444W image. \co{After astrometric calibration, the mean positional offset among the matched reference sources is 10 mas.}
+
+
+
+\subsection{Line Flux and Profile Measurements}
+\cn{We fit the emission lines in the NIRSpec/MSA and IFU spectra using a Markov Chain Monte Carlo (MCMC) method with \texttt{emcee}~\citep{ForemanMackey2013}.} Flux uncertainties correspond to the 16th and 84th percentiles of the posterior distributions. \cn{The flux-density uncertainties \cn{were} estimated as $1\sigma$ of the flux density in nearby line-free spectral windows within the same extraction region.}
+The emission-line FWHMs \cn{were} constrained to be larger than the FWHM of the instrumental line spread function (LSF) measured from planetary nebula spectra in \citet{Isobe2023}. 
+\cn{The intrinsic emission-line velocity widths presented in this paper \cn{were} derived by deconvolving a Gaussian profile whose FWHM matches that of the LSF measured by \citet{Isobe2023}.}
+
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{fig1_rev.pdf}
+    \caption{\ckt{\textit{JWST}/NIRSpec F150W image (rest-frame UV continuum) of Y1 in grayscale with 850$\mu$m continuum contours at 2$\sigma$, 3$\sigma$, 4$\sigma$, 5$\sigma$, 6$\sigma$, and \co{7$\sigma$} levels overlaid in yellow. The rest-frame UV peaks, E, C, and W, are labeled in white, while the dust continuum peaks, D1 and D2, are marked in yellow. The red boxes indicate the slit footprint, with each segment corresponding to an individual spaxel.}}
+    \label{fig:y1}
+\end{figure}
+
+Figure \ref{fig:y1} shows a \textit{JWST}/NIRCam F150W (rest-frame UV) image of Y1 in grayscale, with the 850$\mu$m continuum contours overlaid in yellow. 
+We define three distinct peaks in the F150W image as E, C, and W from east to west. The dust continuum exhibits two peaks, D1 (east) and D2 (west). The red boxes indicate the slit \cn{footprint}, with each segment corresponding to an individual spaxel. 
+\cn{The slit footprint shown in the figure is based on the \textit{JWST} Astronomer’s Proposal Tool~\footnote{\url{https://www.stsci.edu/scientific-community/software/astronomers-proposal-tool-apt}}, and the spaxel grid is constructed by shifting the slit minor axis in parallel steps of $0\farcs1$ from the reference position.}
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{o3_mommaps_vert.pdf}
+    \caption{Moment 0 (top), 1 (middle), and 2 (bottom) maps of [\textsc{Oiii}]\,5007. \ca{Pixels with S/N$<5$ are masked.} \ck{The contours show the NIRCam F150W image at 2$\sigma$, 5$\sigma$, 8$\sigma$, 11$\sigma$, 14$\sigma$, and 17$\sigma$ levels. The gray circle indicates the PSF at the observed wavelength of [\textsc{Oiii}]\,5007. The PSF FWHM is estimated using the wavelength-dependent relation derived from serendipitous star in the IFU field of view by \citet{Deugenio2024}. }}
+    \label{fig:mommaps}
+\end{figure}
+
+Figure \ref{fig:mommaps} presents the moment maps of [\textsc{Oiii}]\,5007, which has the highest signal-to-noise ratio among all detected emission lines. 
+\ca{The moment maps are constructed by fitting the emission line profile in each spaxel. The moment 0 map corresponds to the integrated line flux. The moment 1 map represents the line-of-sight velocity, computed from the shift of the line center relative to the systemic velocity defined by the [\textsc{Oiii}]\,88$\mu$m and [\textsc{Cii}]\,158$\mu$m redshift of Y1~\citep[$z=8.312$;][]{Tamura2019,Bakx2020}. The moment 2 map traces the velocity dispersion, derived from the fitted line width after correcting for instrumental broadening.}
+The moment 1 map in the central panel shows a velocity gradient \cn{of $\sim\pm60$~km~s$^{-1}$,} with redshifted emission on the eastern side and blueshifted emission on the western side, consistent with rotational motion. A similar velocity gradient is also observed in [\textsc{Cii}]\,158$\mu$m~\citep{Bakx2020}. 
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{aperture_rev.pdf}
+    \caption{\ckt{Color map of [\textsc{Oiii}]\,5007 moment-0 map, \ck{overlaid with the green contours of NIRCam F150W image at 2$\sigma$, 5$\sigma$, 8$\sigma$, 11$\sigma$, 14$\sigma$, and 17$\sigma$ levels}, and the red (blue) box denotes the MSA slit integration region (IFU aperture) used for spectral extraction. The IFU aperture size is determined from a growth-curve analysis.}}
+    \label{fig:aperture}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{MSA_spectrum.pdf}
+    \caption{\ckt{Top: \textit{JWST}/NIRSpec MSA two-dimensional spectrum of Y1. Bottom: Extracted one-dimensional spectrum integrated over the spaxels shown by the red box in Figure~\ref{fig:y1}. Emission lines are marked with dashed vertical lines. Flux density is shown in units of $10^{-19}\ \mathrm{erg\ s^{-1}\ cm^{-2}\ \AA^{-1}}$ as a function of observed wavelength.}}
+    \label{fig:msa_spec}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{IFU_spectrum.pdf}
+    \caption{\ckt{\textit{JWST}/NIRSpec IFU one-dimensional spectrum integrated over the blue box in Figure~\ref{fig:aperture}. Emission lines are marked with dashed vertical lines. Flux density is shown in units of $10^{-19}\ \mathrm{erg\ s^{-1}\ cm^{-2}\ \AA^{-1}}$ as a function of observed wavelength.}}
+    \label{fig:ifu_spec}
+\end{figure}
+
+
+
+\cb{The red box in Figure~\ref{fig:aperture} indicates the slit spaxels used to construct the MSA one-dimensional spectrum, corresponding to the thick red box in Figure~\ref{fig:y1}.} The one-dimensional spectrum integrated over these spaxels is shown in the bottom panel of Figure~\ref{fig:msa_spec}. The top panel presents the two-dimensional spectrum, where the vertical axis corresponds to spaxel position, the horizontal axis to wavelength, and the color scale to flux density. Emission lines are marked with dashed vertical lines. The emission-line profiles of H$\beta$ and [\textsc{Oiii}]\,5007 are analyzed in Section~\ref{subsec:broadline}.
+
+
+\cd{The blue box in Figure~\ref{fig:aperture} indicates the aperture used to extract the IFU-integrated spectrum. The colormap shows the same [\textsc{Oiii}]~$\,5007$ moment 0 map as in Figure~\ref{fig:mommaps}. The IFU aperture is determined from 90\% coverage of [\textsc{Oiii}]~$\,5007$ from the growth curve of the [\textsc{Oiii}]~$\,5007$ flux, with a fixed aspect ratio of 3:4. The resulting aperture size is $\mathrm{R.A.}\times\mathrm{Decl.} = 0\farcs86 \times 0\farcs64$.
+\cn{We masked spaxels with flux densities below $-10\sigma$ over the wavelength range $4.0394$--$4.0427~\mu$m in the northeastern region of Y1 to exclude strong negative artifacts, where $\sigma$ is the flux-density uncertainty per spaxel estimated from the line-free channels.} 
+The IFU-integrated spectrum extracted within this aperture is shown in Figure~\ref{fig:ifu_spec}. Emission lines are marked with dashed vertical lines. 
+The MSA integration region (red box) covers less than 30\% of the total [\textsc{Oiii}]$\,5007$ flux. We therefore use the IFU data to derive the global physical properties of Y1.
+}
+
+
+\subsection{AGN Signatures}
+\subsubsection{Broad H$\beta$ Emission}
+\label{subsec:broadline}
+\begin{figure*}
+    \centering
+    \includegraphics[width=.7\linewidth]{broadline_rev2.pdf}
+    \caption{Emission-line profile fitting of (a)H$\beta$ and (b)[\textsc{Oiii}]\,5007, \cj{extracted from the spaxel marked by red box in Figure~\ref{fig:BHpos}}. The black stepped curves and error bars show the observed spectra and their 1$\sigma$ uncertainties. The green dashed, blue dashed-dotted, and red solid curves represent the narrow, broad, and combined narrow$+$broad Gaussian profiles, respectively. The gray curves show the single-Gaussian fits. The bottom panels show the residuals. } 
+    
+    \label{fig:broadline}
+\end{figure*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{BH_pos_rev2.pdf}
+    \caption{\ckt{\textit{JWST}/NIRCam F150W image of Y1 overlaid with ALMA 850~$\mu$m continuum contours \cc{at 2$\sigma$, 3$\sigma$, 4$\sigma$, 5$\sigma$, 6$\sigma$, \co{and 7$\sigma$} levels} in yellow. The rest-frame UV peaks, E, C, and W, are labeled in white. The dust continuum peaks, D1 and D2, are marked in yellow. The red box indicates the position of the spaxel with broad H$\beta$ emission.}
+    \label{fig:BHpos}}
+\end{figure}
+
+
+We perform multi-component Gaussian fitting to search for broad components in the \ck{H$\beta$ line.} % emission lines. 
+This analysis is based on \textit{JWST}/NIRSpec MSA data, which provide a higher signal-to-noise ratio than the NIRSpec/IFU observations. 
+A broad component is added when the Akaike Information Criterion~\ca{\citep[\cc{AIC;}][]{Akaike1974}} decreases by more than \cb{10}, \cn{$\Delta$AIC$=$AIC$_{\rm double}-$AIC$_{\rm single}<-10$}\ck{, following the statistical model-selection criterion of \citet{Burnham2004}}. 
+Figure~\ref{fig:broadline}(a) shows the double-Gaussian fit to the H$\beta$ line for the spaxel corresponding to the region indicated by the red box in Figure~\ref{fig:BHpos}, \cl{which is the only spaxel satisfying the criterion of $\Delta$AIC$<-10$}. The velocity FWHM of the broad H$\beta$ component is $1100^{+800}_{-500}$~km~s$^{-1}$, exceeding the typical threshold used to identify AGN, 1000~km~s$^{-1}$~\citep[e.g.,][]{Harikane2023b,Mathee2024,Kiyota2025}.
+Figure~\ref{fig:broadline}(b) shows the double component fit of [\textsc{Oiii}]\,5007 ($\Delta \mathrm{AIC}=-7$) for the same spaxel. The velocity FWHM of the broad [\textsc{Oiii}]\,5007 component is $420^{+120}_{-100}$~km~s$^{-1}$, narrower than that of H$\beta$ \co{at the $\sim1\sigma$ level}. \cf{Broad [\textsc{Oiii}]\,5007 emission is commonly associated with outflows, whereas the line is expected to be suppressed in the high-density broad-line region ($n_e=10^{9\textrm{--}11}$~cm$^{-3}$; \citealt{Osterbrock1986}) because its critical density ($n_{\rm crit}=6.8\times10^5$~cm$^{-3}$;~\citealt{Osterbrock2006}) is far below typical broad-line region densities. If the broad H$\beta$ emission originated from outflowing gas, a comparable velocity width would be expected in [\textsc{Oiii}]\,5007. The observed difference in line width therefore argues against an outflow origin for the broad H$\beta$ component.} 
+\cn{In addition, \citet{Xu2025} found that galaxies without AGN typically exhibit outflow velocities of at most $\sim500$~km~s$^{-1}$, further arguing against an origin of the broad H$\beta$ component solely from outflows.} 
+\cb{Instead, this suggests that the broad H$\beta$ line is emitted from a compact and dense broad-line region in the vicinity of an AGN.} \cd{The \cn{observed} H$\beta$ broad-line flux is $f_{\rm H\beta,broad} = 1.43^{+0.62}_{-0.60}\times10^{-19}~\mathrm{erg~s^{-1}~cm^{-2}}$}. \ca{\cn{After correcting for lensing magnification,} the black hole mass is estimated to be \cn{$M_{\rm BH} = 1.6^{+3.0}_{-1.0} \times 10^6~M_\odot$} using the relation in \citet{Greene2005}.} 
+\co{Given the stellar mass of $M_{\star}\sim10^9 M_\odot$~\citep{Harshan2024}, the inferred black hole mass of $M_{\rm BH}\sim10^6 M_\odot$ corresponds to $M_{\rm BH}/M_{\star}\sim10^{-3}$, consistent with the $M_{\rm BH}$--$M_{\star}$ scaling relations in local galaxies~\citep[e.g.,][]{Greene2016}, suggesting that the black hole is neither significantly overmassive nor undermassive.} 
+%\cg{We assume that the emission is not significantly affected by dust attenuation based on the Balmer line ratio, ${\rm H}\gamma/{\rm H}\beta = 0.47^{+0.05}_{-0.04}$, and therefore no dust attenuation correction is applied.} 
+%\ck{The fluxes used to derive this ratio are measured after masking spaxels where H$\gamma$ falls within the wavelength gap.}
+\ca{Figure~\ref{fig:BHpos} shows that the red box, corresponding to the spaxel where broad-line component is detected, coincides with the western dust continuum peak, D2. 
+The relation between the elevated dust temperature and AGN activity is discussed in Section~\ref{sec:dustheating}.}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.8\linewidth]{LRDtest_vert.pdf}
+    \caption{Top: Color criterion used to identify the characteristic V-shaped spectral energy distributions (SEDs) of LRDs in the F277W $-$ F444W versus F115W $-$ F200W plane. The green shaded region indicates the selection window for V-shaped spectral sources, while the blue region marks the locations of cool dwarfs. Bottom: Color criterion used to identify red sources in the F277W $-$ F444W versus F277W $-$ F356W plane. The red shaded region denotes the color-selection criterion for red sources. \cd{LRD candidates are required to satisfy the V-shaped, red, and compactness criteria. The labeled points with error bars (Y1, C, W, and E) show the measured colors of Y1 and its three clumps.} \cg{Photometric measurements are taken from \citet{Ma2024}. }
+    \label{fig:LRDtest}}
+\end{figure}
+
+\subsubsection{LRD Test}
+\cp{We apply the Little Red Dot (LRD) color selection criteria from \citet{Greene2024} to the NIRCam photometry to test whether Y1 satisfies the LRD selection criteria. The upper panel of Figure~\ref{fig:LRDtest} shows the color criterion used to identify the characteristic V-shaped spectral energy distribution (SED) of LRDs.} 
+The \ca{V}-shaped criterion is defined by
+\begin{equation}
+    \begin{split}
+        (-0.5<\mathrm{F115W-F200W}<1.0) \land \\
+        (\mathrm{F277W-F444W}>1.0).
+    \end{split}
+\end{equation}
+The lower panel of Figure~\ref{fig:LRDtest} shows the color criterion used to identify red sources,
+\begin{equation}
+\mathrm{F277W-F356W}>1.0.
+\end{equation}
+\cp{LRD candidates are required to satisfy both the V-shaped and red color criteria (as well as the compactness criterion)~\citet{Greene2024}. 
+No individual clumps or the integrated photometry of Y1 satisfy all of these criteria, suggesting that Y1 is not classified as an LRD.} 
+
+\subsubsection{MEx Diagram}
+\begin{figure}
+    \centering
+    \includegraphics[width=.9\linewidth]{mex.pdf}
+    \caption{Mass--Excitation (MEx) diagram showing $\log_{10}$([\textsc{Oiii}]\cc{5007}/H$\beta$) versus stellar mass. The dashed curve marks the empirical division between star-forming galaxies (MEx-SF) and AGN-dominated systems (MEx-AGN)~\citep{Juneau2011}. The measured values for clumps E (red), C (blue), and W (green) are shown with uncertainties. \cn{Stellar masses are taken from \citet{Harshan2024}.}}
+    \label{fig:mex}
+\end{figure}
+
+\ckt{In Section~\ref{subsec:broadline}, we find a broad H$\beta$ line component at the position corresponding to D2, whereas no significant broad-line component is detected at the position of D1. However, the absence of a broad-line component does not rule out the presence of an AGN. }
+\cp{To investigate the ionization properties of all clumps including those without detected broad-line components, we examine their locations on the Mass-Excitation (MEx) diagram, which empirically separates AGN from star-forming galaxies using the [\textsc{Oiii}]\,5007/H$\beta$ ratio and stellar mass~\cc{\citep{Juneau2011}}.} \ck{For $\log_{10}(M_*/M_\odot) < 9.9$, the dividing curve is given by $\log_{10}([\textsc{Oiii}]\,5007/\mathrm{H}\beta) = 0.37/(\log_{10}(M_*/M_\odot)-10.5)+1$ \citep{Juneau2011}.} Figure \ref{fig:mex} shows the location of each clump on this plane. The line ratios are derived from the NIRSpec IFU spectra extracted with a 0$\farcs$08 aperture centered on each clump. For stellar masses, we adopt the SED-fitting results from \citet{Harshan2024}. All three clumps lie in the MEx-AGN regime, suggesting high ionization conditions consistent with AGN activity. However, we note that this diagnostic was calibrated using galaxies at $0.3 < z < 1$ and, similar to the BPT diagram, may not be directly applicable to the ISM conditions of high-redshift galaxies~\cj{\citep[e.g.,][]{Kewley2013,Steidel2014,Shapley2015,Sanders2016,Topping2020}. }
+
+
+\subsection{Metallicity}
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\linewidth]{picture_rev.pdf}
+    \caption{
+    %Schematic illustration of the spatial origin of emission lines and the impact of different dust extinction. Blue, black, and red arrows denote emission traced by [\textsc{Oiii}]\,5007, UV/H$\gamma$/H$\beta$, and [\textsc{Oiii}]\,88$\mu$m, respectively. The innermost region is dense and heavily dust-obscured, surrounded by a less dense but still dusty region where [\textsc{Oiii}]\,88$\mu$m emission can originate. The outermost region has low extinction and is largely dust-free. Gray clouds denote dust, and yellow stars indicate stellar sources.
+    Schematic illustration of the spatial origin of the emission lines and the effects of dust attenuation. The system consists of a dust-rich inner region and a dust-poor outer region. The innermost compact high-density region, associated with an AGN, is dust-obscured and contributes little to the observed [\textsc{Oiii}]\,88$\mu$m emission because of its high electron density. Surrounding this component is a lower-density dusty region ($n_e \lesssim 500$~cm$^{-3}$), where [\textsc{Oiii}]\,88$\mu$m emission can efficiently arise. In these dusty inner regions, dust attenuation suppresses the escape of UV and optical emission. In contrast, the outer low-extinction region dominates the observed UV continuum and optical emission lines. The outer region is characterized by low dust extinction, as suggested by the H$\gamma$/H$\beta$ ratio being consistent with the Case B value. The optical diagnostics therefore primarily trace the ionized gas in this outer component, with an electron density of $\sim700$~cm$^{-3}$ inferred from the [\textsc{Oii}] doublet ratio and an electron temperature of $T_e\sim15000\textrm{--}17000$~K inferred from the optical [\textsc{Oiii}] line ratio. Because this electron density exceeds the critical density of [\textsc{Oiii}]\,88$\mu$m, the outer low-extinction region is unlikely to contribute significantly to the observed [\textsc{Oiii}]\,88$\mu$m emission. Blue, black, and red arrows denote [\textsc{Oiii}]\,5007, UV/H$\gamma$/H$\beta$, and [\textsc{Oiii}]\,88$\mu$m emission, respectively. Gray clouds denote dust, and yellow stars indicate stellar sources. }
+    \label{fig:picture}
+\end{figure}
+
+
+
+As discussed in Section~\ref{sec:o3rat}, Y1 has a high integrated flux ratio of [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007$ = 0.26 \pm 0.06$. Under the assumption of a single homogeneous ionized nebula, this ratio cannot be reproduced for any electron density.
+In contrast, the electron density inferred from the [\textsc{Oii}]\,3726,3729 doublet is $\gtrsim700$~cm$^{-3}$, resulting in an inconsistency between the densities inferred from [\textsc{Oii}] and [\textsc{Oiii}] diagnostics. Similar discrepancies have been reported in other high-redshift galaxies \citep{Harikane2025,Usui2025}, suggesting that this may be common in \cc{high-$z$} ISM environments~\cq{\citep{Choustikov2026}}.
+
+One possible explanation is that the [\textsc{Oiii}]\,88$\mu$m and optical emission lines originate from physically and kinematically distinct gas components. 
+To investigate this possibility, we compare the line-of-sight velocities of [\textsc{Oii}]\,3726, [\textsc{Oiii}]\,5007, and [\textsc{Oiii}]\,88$\mu$m. Figure~\ref{fig:losvel} shows the velocity offsets of the rest-frame optical lines relative to the [\textsc{Oiii}]\,88$\mu$m line. The [\textsc{Oii}]\,3726 and [\textsc{Oiii}]\,5007 spectra are obtained from the IFU-integrated spectrum, and the [\textsc{Oiii}]\,88$\mu$m spectrum is constructed by integrating all spaxels with S/N $>3$ in the moment 0 map over the same aperture used for IFU-integrated spectra. According to the \textit{JWST} User Documentation, IFU data have the wavelength calibration uncertainty of $\sim 20~\mathrm{km~s^{-1}}$~\ca{\footnote{\url{https://jwst-docs.stsci.edu/jwst-calibration-status/nirspec-calibration-status/nirspec-ifu-calibration-status\#gsc.tab=0}}}. Accounting for this uncertainty, we find velocity offsets of \ck{$-32^{+37}_{-37}~\mathrm{km~s^{-1}}$} for  [\textsc{Oii}]\,3726 and $-26^{+30}_{-30}~\mathrm{km~s^{-1}}$ for [\textsc{Oiii}]\,5007 relative to [\textsc{Oiii}]\,88$\mu$m. These offsets are consistent with zero within the uncertainties, indicating that there is no significant velocity separation between the FIR and optical line emitting regions. This suggests that the observed discrepancy is unlikely to arise from kinematically distinct components, but instead reflects different physical conditions within spatially connected regions. 
+
+\cg{Dust attenuation is required to explain the discrepancy between the observed and theoretical [\textsc{Oiii}] line ratios.} If the electron density inferred from [\textsc{Oiii}] is assumed to be consistent with that derived from the [\textsc{Oii}]\,3726,3729 doublet, then extinction is estimated to be $A_V \sim 1.7$, \ck{adopting the Small Magellanic Cloud (SMC) reddening law \citep{Gordon2003}.} However, the integrated Balmer decrement measured from the IFU data, \cc{${\rm H}\gamma/{\rm H}\beta = 0.47^{+0.05}_{-0.04}$}, indicates little or no dust attenuation assuming Case B recombination. 
+The fluxes used to derive this ratio are measured from the spectrum extracted after masking spaxels affected by the wavelength gap, using the same masked region described in Section~\ref{sec:zte}. 
+\cj{The intrinsic ratio calculated using \texttt{Pyneb} is H$\gamma$/H$\beta$ = 0.47 for Case B conditions with $T_{\mathrm e} = 17300$ K and $n_{\mathrm e} = 100\textrm{--}1000$ cm$^{-3}$.} This apparent inconsistency among the multi-wavelength line diagnostics suggests that the observed optical emission lines preferentially trace low-extinction regions. 
+
+
+\cd{Figure~\ref{fig:picture} presents a schematic illustration of the ISM structure that can explain these observations.} \ckt{The system consists of a dust-rich inner region and a dust-poor outer region.} \cd{The center of the dust-rich region hosts a compact, high-density region associated with an AGN. Because the critical density of [\textsc{Oiii}]\,88$\mu$m is $\sim500$~cm$^{-3}$, the innermost region is unlikely to contribute significantly to the observed [\textsc{Oiii}]\,88$\mu$m emission. Surrounding this central component is a lower-density dusty region with $n_e \lesssim 500$~cm$^{-3}$, where [\textsc{Oiii}]\,88$\mu$m can arise efficiently. In these dusty inner regions, dust attenuation suppresses the escape of UV and optical emission, limiting their contribution to the observed UV--optical emission.} 
+The outer region is characterized by low dust extinction, as suggested by the H$\gamma$/H$\beta$ ratio being consistent with the Case B value. As a result, the UV continuum and optical emission lines are not significantly affected by dust extinction, and the observed UV--optical emission is dominated by this component. Under this interpretation, the optical diagnostics primarily reflect the physical conditions of the ionized gas in the outer low-extinction region, with an electron density of $\sim700$~cm$^{-3}$ inferred from the [\textsc{Oii}] doublet ratio and an electron temperature of $T_e \sim15000\textrm{--}17000$~K inferred from the optical [\textsc{Oiii}] line ratio. Because this electron density exceeds the critical density of [\textsc{Oiii}]\,88$\mu$m, the outer low-extinction region is unlikely to contribute significantly to the observed [\textsc{Oiii}]\,88$\mu$m emission.
+
+
+\cq{This picture is broadly consistent with observations of other high-redshift galaxies. 
+The right panels of Figure~\ref{fig:o3rat_ne} show the observed [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007 ratios and the theoretical relations between [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007 and electron density based on the measured electron temperatures for ID4590~\citep[$z\sim8.5$;][]{Fujimoto2024}, J0217-0208~\citep[$z\sim6.2$;][]{Harikane2025}, SXDF-NB1106-2~\citep[$z\sim7.2$;][]{Harikane2025}, and  COS-2987~\citep[$z\sim6.8$;][]{Usui2025}. ID4590, J0217-0208, and SXDF-NB1106-2, shown in the top left, top right, and bottom left panels, respectively, do not exhibit the discrepancy seen in Y1, as there exists an electron density consistent with the observed [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007 ratio under the measured electron temperature. Dust continuum emission has not been detected in these galaxies~\citep{Fujimoto2024,Inoue2016,Ren2023,Harikane2025}, consistent with our interpretation that they do not contain sufficiently dust-obscured regions to strongly suppress the optical emission lines and produce the observed discrepancy. In contrast, COS-2987, shown in the bottom right panel, exhibits a discrepancy between the observed and theoretical line ratios similar to that seen in Y1~\citep{Usui2025}. Although dust continuum emission has not been detected in this galaxy~\citep{Smit2018,Witstok2022}, the nondetection is still consistent with our interpretation. Assuming a dust mass comparable to that of Y1 ($M_{\rm dust}\sim10^6~M_\odot$), the dust continuum flux density in COS-2987 is expected to be below 1/4 of the current observational limit~\citep[$M_{\rm dust}\lesssim4\times10^6~M_\odot$ assuming $T_{\rm dust}=50$~K and $\beta_{\rm IR}=1.5$;][]{Witstok2022}. Therefore, COS-2987 may still host dusty regions comparable to those inferred for Y1, where the optical emission lines are significantly suppressed.}
+
+\begin{comment}
+\cq{This picture is broadly consistent with observations of other high-redshift galaxies. 
+For comparison, we select galaxies with electron temperatures derived using the direct method and with [\textsc{Oiii}]\,5007 and [\textsc{Oiii}]\,88$\mu$m fluxes measured over the same aperture. 
+The right panels of Figure~\ref{fig:o3rat_ne} show the observed [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007 ratios and the theoretical relation between [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007 and electron density based on the measured electron temperatures for these 4 galaxies. ID4590~\citep[$z\sim8.5$;][]{Fujimoto2024}, J0217-0208~\citep[$z\sim6.2$;][]{Harikane2025}, and SXDF-NB1106-2~\citep[$z\sim7.2$;][]{Harikane2025}, shown in the top left, top right, and bottom left panels, respectively, do not show the discrepancy seen in Y1, as there exists an electron density consistent with the observed [\textsc{Oiii}]\,88$\mu$m/[\textsc{Oiii}]\,5007 ratio under the measured electron temperature. This is consistent with the nondetection of dust continuum emission in these galaxies~\citep{Fujimoto2024,Inoue2016,Ren2023,Harikane2025} within the framework of this picture. In contrast, COS-2987~\citep[$z\sim6.8$;][]{Usui2025}, shown in the bottom right panel, exhibits a similar discrepancy between the observed and theoretical line ratios~\citep{Usui2025}. Although dust continuum emission has not been detected in this galaxy~\citep{Smit2018,Witstok2022}, the nondetection is still consistent with this picture. Assuming a dust mass comparable to that of Y1 ($M_{\rm dust}\sim10^6~M_\odot$), the dust continuum flux density in COS-2987 is expected to be below 1/4 of the current observational limit~\citep[$M_{\rm dust}\lesssim4\times10^6~M_\odot$ assuming $T_{\rm dust}=50$~K and $\beta_{\rm IR}=1.5$][]{Witstok2022} unless the dust temperature is as high as that of Y1.}
+\end{comment}
+
+
+%This radial dust-extinction structure may develop if dust growth becomes efficient first in the central regions during the early stages of dust enrichment, leading to a dusty inner region and lower-extinction outer regions.
+\bibitem[Fujimoto et al.(2024)]{Fujimoto2024} Fujimoto, S., Ouchi, M., Nakajima, K., et al.\ 2024, \apj, 964, 2, 146. doi:10.3847/1538-4357/ad235c
+
+\bibitem[Gaia Collaboration et al.(2021)]{Gaia2021} Gaia Collaboration, Brown, A.~G.~A., Vallenari, A., et al.\ 2021, \aap, 649, A1. doi:10.1051/0004-6361/202039657
+
+\bibitem[Gordon et al.(2003)]{Gordon2003} Gordon, K.~D., Clayton, G.~C., Misselt, K.~A., et al.\ 2003, \apj, 594, 1, 279. doi:10.1086/376774
+
+\bibitem[Greene \& Ho(2005)]{Greene2005} Greene, J.~E. \& Ho, L.~C.\ 2005, \apj, 630, 1, 122. doi:10.1086/431897
+
+\bibitem[Greene et al.(2016)]{Greene2016} Greene, J.~E., Seth, A., Kim, M., et al.\ 2016, \apjl, 826, 2, L32. doi:10.3847/2041-8205/826/2/L32
+
+\bibitem[Harshan et al.(2024)]{Harshan2024} Harshan, A., Tripodi, R., Martis, N.~S., et al.\ 2024, \apjl, 977, 2, L36. doi:10.3847/2041-8213/ad9741
+
+\bibitem[Hirschmann et al.(2023)]{Hirschmann2023} Hirschmann, M., Charlot, S., \& Somerville, R.~S.\ 2023, \mnras, 526, 3, 3504. doi:10.1093/mnras/stad2745

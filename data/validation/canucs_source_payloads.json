@@ -1,0 +1,31 @@
+{
+  "retrieval_date": "2026-10-17",
+  "literature_cutoff": "2026-09-03",
+  "payloads": [
+    {
+      "path": "data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+      "url": "https://www.nature.com/articles/s41467-025-65070-x",
+      "sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92"
+    },
+    {
+      "path": "data/validation/source_inputs/canucs_tripodi24_v1_extract.txt",
+      "url": "https://arxiv.org/html/2412.04983v1",
+      "sha256": "1c89e9176714d37f76672f098674d05933be0c4970dcd9007a8e5341b5ef5bc7"
+    },
+    {
+      "path": "data/validation/source_inputs/canucs_morishita25_v2_extract.txt",
+      "url": "https://arxiv.org/html/2508.01372v2",
+      "sha256": "6d2126077923b73f550346293aa8ad0904c2b454178e4d8cb302aef19c0eac78"
+    },
+    {
+      "path": "data/validation/source_inputs/canucs_tripodi25_supplement_tables.txt",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-65070-x/MediaObjects/41467_2025_65070_MOESM1_ESM.pdf",
+      "sha256": "350626cf823f941c685562922244d82e5379716a99214d69e9e2589e7532760b"
+    },
+    {
+      "path": "data/validation/source_inputs/canucs_morishita25_v1_mass_passage.txt",
+      "url": "https://arxiv.org/html/2508.01372v1",
+      "sha256": "c8bdbf719322bb1e03802af3ab913d95b4275551db1ade52f80930bf9b3b9014"
+    }
+  ]
+}

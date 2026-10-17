@@ -1,0 +1,6592 @@
+Source: https://arxiv.org/html/2412.04983v1
+Retrieved: 2026-10-17
+Format: HTML scientific text extraction; math retained as TeX when supplied.
+
+\defbibfilter
+onlymainsegment=0
+\defbibfilter
+onlymethodsnot segment=0
+Red, hot, and very metal poor: extreme properties of a massive accreting black hole in the first 500 Myr
+Roberta Tripodi
+†
+†
+thanks:
+Corresponding Author: roberta.tripodi@fmf.uni-lj.si
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Affiliation:
+IFPU, Institute for Fundamental Physics of the Universe, Via Beirut 2, Trieste, 34151, Italy
+Nicholas Martis
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Vladan Markov
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Maruša Bradač
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Fabio Di Mascia
+Affiliation:
+Scuola Normale Superiore, Piazza dei Cavalieri, 7 Pisa, 56126, Italy
+Vieri Cammelli
+Affiliation:
+Astronomy Unit, Department of Physics, University of Trieste, via G.B. Tiepolo 11, Trieste, 34143, Italy
+Francesco D’Eugenio
+Affiliation:
+Kavli Institute for Cosmology, University of Cambridge, Madingley Road, CB3 0HA, Cambridge, UK
+Affiliation:
+Cavendish Laboratory - Astrophysics group, University of Cambridge, 19 JJ Thomson Avenue, Cambridge, CB30HE, UK
+Chris Willott
+Affiliation:
+NRC Herzberg, 5071 West Saanich Rd, Victoria, BC V9E 2E7, Canada
+Mirko Curti
+Affiliation:
+European Southern Observatory, Karl-Schwarzschild-Strasse 2, Garching, 85748, Germany
+Maulik Bhatt
+Affiliation:
+Scuola Normale Superiore, Piazza dei Cavalieri, 7 Pisa, 56126, Italy
+Simona Gallerani
+Affiliation:
+Scuola Normale Superiore, Piazza dei Cavalieri, 7 Pisa, 56126, Italy
+Gregor Rihtaršič
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Jasbir Singh
+Affiliation:
+INAF - Osservatorio Astronomico di Brera, via Brera 20, I-20121, Milano, Italy
+Gaia Gaspar
+Affiliation:
+Department of Astronomy and Physics and Institute for Computational Astrophysics, Saint Mary’s University, 923 Robie Street, Halifax, B3H 3C3, Nova Scotia, Canada
+Anishya Harshan
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Jon Judež
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Rosa M. Merida
+Affiliation:
+Department of Astronomy and Physics and Institute for Computational Astrophysics, Saint Mary’s University, 923 Robie Street, Halifax, B3H 3C3, Nova Scotia, Canada
+Guillaume Desprez
+Affiliation:
+Department of Astronomy and Physics and Institute for Computational Astrophysics, Saint Mary’s University, 923 Robie Street, Halifax, B3H 3C3, Nova Scotia, Canada
+Affiliation:
+Kapteyn Astronomical Institute, University of Groningen, P.O. Box 800, Groningen, 9700AV, The Netherlands
+Marcin Sawicki
+Affiliation:
+Department of Astronomy and Physics and Institute for Computational Astrophysics, Saint Mary’s University, 923 Robie Street, Halifax, B3H 3C3, Nova Scotia, Canada
+Ilias Goovaerts
+Affiliation:
+Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD 21218, USA
+Adam Muzzin
+Affiliation:
+Department of Physics and Astronomy, York University, 4700 Keele St., Toronto, M3J 1P3, Ontario, Canada
+Gaël Noirot
+Affiliation:
+Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD 21218, USA
+Ghassan T.E. Sarrouh
+Affiliation:
+Department of Physics and Astronomy, York University, 4700 Keele St., Toronto, M3J 1P3, Ontario, Canada
+Roberto Abraham
+Affiliation:
+David A. Dunlap Department of Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario, M5S 3H4, Canada
+Affiliation:
+Dunlap Institute for Astronomy and Astrophysics, 50 St. George Street, Toronto, Ontario, M5S 3H4, Canada
+Yoshihisa Asada
+Affiliation:
+Department of Astronomy and Physics and Institute for Computational Astrophysics, Saint Mary’s University, 923 Robie Street, Halifax, B3H 3C3, Nova Scotia, Canada
+Affiliation:
+Department of Astronomy, Kyoto University, Sakyo-ku, Kyoto, 606-8502, Japan
+Gabriel Brammer
+Affiliation:
+Niels Bohr Institute, University of Copenhagen, Jagtvej 128, DK-2200, Copenhagen, Denmark
+Vicente Estrada-Carpenter
+Affiliation:
+Department of Astronomy and Physics and Institute for Computational Astrophysics, Saint Mary’s University, 923 Robie Street, Halifax, B3H 3C3, Nova Scotia, Canada
+Giordano Felicioni
+Affiliation:
+Faculty of Mathematics and Physics, University of Ljubljana, 19 Jadranska ulica, Ljubljana, 1000, Slovenia
+Seiji Fujimoto
+Affiliation:
+David A. Dunlap Department of Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario, M5S 3H4, Canada
+Affiliation:
+Department of Astronomy, The University of Texas at Austin, Austin, TX 78712, USA
+Kartheik Iyer
+Affiliation:
+Columbia Astrophysics Laboratory, Columbia University, 550 West 120th Street, New York, 10027, NY, USA
+Lamiya Mowla
+Affiliation:
+Whitin Observatory, Department of Physics and Astronomy, Wellesley College, 106 Central Street, Wellesley, MA 02481, USA
+Victoria Strait
+Affiliation:
+Cosmic Dawn Center (DAWN),Denmark
+Affiliation:
+Niels Bohr Institute, University of Copenhagen, Jagtvej 128, Copenhagen, DK-2200, Denmark
+{refsegment}
+The James Webb Space Telescope (JWST) has recently discovered a new population of objects at high redshift referred to as ‘Little Red Dots’ (LRDs). Their nature currently remains elusive
+[
+179
+]
+, despite their surprisingly high inferred number densities
+[
+180
+,
+181
+,
+182
+,
+183
+,
+184
+,
+185
+,
+186
+]
+. This emerging population of red point-like sources is reshaping our view of the early Universe and may shed light on the formation of high-redshift supermassive black holes. Here we present a spectroscopically confirmed LRD CANUCS-LRD-z8.6 at
+z_{\rm spec}=8.6319\pm 0.0005
+hosting an Active Galactic Nucleus (AGN), using JWST data. This source shows the typical spectral shape of an LRD (blue UV and red optical continuum, unresolved in JWST imaging), along with broad
+Hβ
+line emission, detection of high-ionization emission lines (
+C
+iv
+,
+N
+iv
+]λλ1483,1486
+) and very high electron temperature indicative of the presence of AGN. This is also combined with a very low metallicity (
+Z<0.1Z_{\odot}
+). The presence of all these diverse features in one source makes CANUCS-LRD-z8.6 unique. We show that the inferred black hole mass of CANUCS-LRD-z8.6 (
+M_{\rm BH}=1.0^{+0.6}_{-0.4}\times 10^{8}\rm~M_{\odot}
+) strongly challenges current standard theoretical models and simulations of black hole formation, and forces us to adopt ‘ad hoc’ prescriptions. Indeed if massive seeds, or light seeds with super-Eddington accretion, are considered, the observed BH mass of CANUCS-LRD-z8.6 at
+z=8.6
+can be reproduced. Moreover, the black hole is over-massive compared to its host, relative to the local
+M_{\rm BH}-M_{*}
+relations, pointing towards an earlier and faster evolution of the black hole compared to its host galaxy.
+Figure 1:
+NIRSpec PRISM spectrum and RGB image of CANUCS-LRD-z8.6 at
+\mathbf{z=8.6319\pm 0.0005}
+. Panel a: 2D spectrum. Panel b: The black line represents the measured 1D spectrum. The two independent best-fitting functions for the rest-frame UV and optical part are shown as blue and red solid curves, respectively. Vertical solid (dashed) lines mark detected (non-detected) emission lines, respectively. Panel c: residuals of the fit of the 1D spectrum. The dashed horizontal lines mark the 0 level and the average
+\pm 1\sigma
+noise levels derived at
+\lambda>2000\text{\AA}
+. The grey shaded area is
+1\sigma
+rms. Panel d: Zoom in on the
+Hβ
+emission line. The best-fitting spectrum is shown in red, while the narrow and broad
+Hβ
+components are shown in yellow and green, respectively. Panel e: zoom-in of the
+N
+iv
+]λλ1483,1486
+and
+C
+iv
+emission lines. The best-fitting spectrum is shown in blue. Panel f: RGB image of CANUCS-LRD-z8.6, combining psf-matched imaging using F090W, F200W, and F444W filters. The scale of the image is reported in the lower left corner.
+LRDs appear as a heterogeneous galaxy population in which both active galactic nuclei (AGN) and star formation can contribute to their observed light. Some LRDs have been classified as AGN hosts based on the detection of broad emission in Balmer lines
+[
+187
+,
+181
+,
+188
+]
+, and some show evidence for evolved stellar populations with clear Balmer breaks
+[
+189
+]
+. Moreover, it has been recently found that, independent of the specific AGN contribution adopted, the LRDs’ black holes (BHs) are significantly overmassive relative to their host galaxies compared to the local
+M_{\rm BH}-M_{*}
+relation
+[
+190
+]
+, and their formation channels remain unclear. Understanding how these massive BHs formed in such compact galaxies as early as redshift
+z=8.6
+remains a key question
+[
+187
+,
+191
+]
+. In this context, the discovery of the LRD CANUCS-LRD-z8.6 at
+z_{\rm spec}=8.6319\pm 0.0005
+(object ID: 5112687) opens a new pathway to the understanding of this intriguing population of LRDs. Indeed, this source is unique in terms of its BH and host galaxy properties, being the only high-z source to date to show evidence of broad line emission and high-ionization lines.
+As part of the CAnadian NIRISS Unbiased Cluster Survey (CANUCS) program, JWST/NIRCam and NIRSpec observations of the cluster MACS J1149.5+2223 allowed us to identify and study CANUCS-LRD-z8.6 (Figure
+1
+). The galaxy was first selected as a high-redshift ‘double break’ galaxy
+[
+192
+]
+, and it also meets the criteria set by ref.
+[
+183
+]
+on spectral slopes and size to be classified as an LRD. The upper limit derived for the half-light radius of this source is very stringent,
+r<70
+pc (see Methods).
+As shown in Figure
+1
+.d, the detection of broad emission in
+Hβ
+(S/N
+=6
+), with
+{\rm FWHM}_{\rm\text{H\textbeta},broad}=4200^{+600}_{-500}~\rm km~s^{-1}
+(see Methods), indicates the presence of an AGN. The non-detection of broad emission in
+[O
+iii
+]λ5008
+refutes the scenario of the high gas velocities arising from outflowing material. From locally-calibrated empirical relations
+[
+193
+]
+using both the broad
+Hβ
+luminosity and the
+L_{5100\text{\AA}}
+continuum luminosity, we derive consistent values for the BH mass of
+M_{\rm BH}=1.0^{+0.6}_{-0.4}\times 10^{8}\rm~M_{\odot}
+. This picture is further supported by the detection of high ionization lines of
+N
+iv
+]λλ1483,1486
+and
+C
+iv
+(both at S/N
+=3
+; Figure
+1
+e). These are typical indicators of Type II AGNs
+[
+194
+]
+, and have been seen with JWST in galaxies identified as Type II AGNs
+[
+195
+,
+196
+]
+. For CANUCS-LRD-z8.6, the detection of both
+N
+iv
+]λλ1483,1486
+and
+C
+iv
+cannot be explained as arising from star formation
+[
+197
+, , see Methods]
+. Moreover, the combination of extremely high-velocity broad line gas (
+>1000
+km s
+-1
+) and high-ionization narrow emission lines with high photo-ionization energy (
+\sim 50-60
+eV) constitutes a strong AGN signature
+[
+198
+,
+199
+,
+187
+]
+. When compared with other spectroscopically well-studied objects at
+z>7
+[
+200
+,
+201
+,
+202
+,
+203
+,
+187
+,
+197
+,
+204
+,
+205
+]
+, CANUCS-LRD-z8.6 stands out given that it is the only source showing both very broad emission in
+Hβ
+and the detection of
+N
+iv
+]λλ1483,1486
+and
+C
+iv
+. Notably, compared to the AGN candidate GN-z11 at
+z=10.6
+, which also exhibits
+N
+iv
+]λλ1483,1486
+and
+C
+iv
+emission
+[
+200
+,
+201
+]
+, CANUCS-LRD-z8.6 hosts a supermassive black hole (SMBH) approximately 100 times more massive than that of GN-z11, despite being just 150 Myr older.
+Figure 2:
+[O
+iii
+]λ5007
+/
+Hβ
+–
+[Ne
+iii
+]λ3869
+/
+[O
+ii
+]λ3727
+narrow line ratio diagram
+. The fiducial result for CANUCS-LRD-z8.6 is shown as a yellow star. The lighter yellow square and circle are the results for the line ratios of CANUCS-LRD-z8.6 from Test 1 and Test 2, respectively, derived by adding a broad
+Hγ
+component (see Methods). Line ratios are dust-corrected. The maximum correction for
+[Ne
+iii
+]λ3869
+/(
+[Ne
+iii
+]λ3869
++
+Hζ
++
+Hη
+) due to the blend of
+[Ne
+iii
+]λ3869
+,
+He
+i
+λ3889
+,
+Hη
+and
+Hζ
+is
+\approx
+0.2 dex (see Methods). Left: the
+[O
+iii
+]λ5007
+/
+Hβ
+ratio as a function of the
+[Ne
+iii
+]λ3869
+/
+[O
+ii
+]λ3727
+ratio (‘OHNO’ diagnostic) for our target and other observations as described in the legend and in the Methods. Right: overlaid to our results for the ‘OHNO’ diagnostic are the AGN photoionization models of
+[
+194
+]
+at hydrogen densities
+\log n{\rm[cm^{-3}]}=2.0
+(grey scale) and
+\log n{\rm[cm^{-3}]}=4.0
+(coloured scale). The grid shows the variation of the ionization parameter and metallicity (colour scales on the right-hand side of the figure, same limits are adopted for gray scale). To guide the eye, lighter colors represent lower metallicity and higher ionization.
+As anticipated above, the properties of CANUCS-LRD-z8.6’s host galaxy also add interesting details to the picture, specifically in terms of the composition of the gas and the co-evolution between the SMBH and its host. Since the auroral
+[O
+iii
+]λ4364
+emission line has been detected with S/N
+=4
+, albeit blended with a stronger
+Hγ
+line, we can determine the electron temperature (
+T_{e}
+) and the gas-phase metallicity. We find an extreme
+[O
+iii
+]λ4364
+/
+[O
+iii
+]λ5008
+ratio (
+\sim-1
+dex) even after subtracting an additional broad
+Hγ
+component (see Methods). These ratios are found to be suggestive of high densities as in the densest part of the narrow line region of Type I AGNs
+[
+206
+]
+. Using
+pyneb
+models, we derive
+T_{e}=40,000_{-12,000}^{+16,000}
+K, which is 2-4 times higher than in star-forming galaxies
+[
+207
+,
+208
+]
+, but consistent with other AGNs
+[
+209
+,
+187
+]
+. Even when considering the maximum
+Hγ
+contribution, the electron temperature is at least
+>20,000
+K. Such a high electron temperature further supports the presence of an AGN in CANUCS-LRD-z8.6. Moreover, when comparing the
+[O
+iii
+]λ4364
+/
+Hγ
+versus
+[O
+iii
+]λ5008
+/
+[O
+iii
+]λ4364
+line ratio diagram as done in
+[
+210
+,
+204
+]
+, our target occupies the region of higher electron temperatures and displays elevated ratios of
+[O
+iii
+]λ4364
+/
+Hγ
+compared to local AGNs, similar to the
+z=7.15
+AGN type I’s host galaxy ZS7, identified as a broad-line AGN
+[
+204
+]
+. The stringent upper limit on the
+[O
+ii
+]3727
+emission line provides strong constraints on the metallicity content of this LRD. Indeed, the
+3\sigma
+upper limit inferred from the
+T_{e}
+-direct method is low,
+Z\lesssim 0.2~Z_{\odot}
+(see Methods).
+Figure 3:
+Black hole mass versus stellar mass.
+The results for CANUCS-LRD-z8.6 (yellow star) are compared with
+4<z<11
+AGNs (green dots) from ref.
+[
+186
+]
+, a compilation of AGNs at
+z>4
+(purple squares) discovered by other JWST surveys at high-z
+[
+211
+,
+212
+,
+213
+,
+214
+,
+215
+,
+216
+,
+187
+,
+217
+,
+189
+,
+218
+]
+, and with local scaling relations
+[
+219
+,
+220
+,
+221
+]
+. Red edges mark sources at
+z>8
+[
+187
+,
+212
+,
+216
+,
+201
+]
+.
+These results are also consistent with those derived from ‘OHNO’ diagnostic, shown in Figure
+2
+, which relates the
+[O
+iii
+]5008
+/
+Hβ
+with
+[Ne
+iii
+]λ3869
+/
+[O
+ii
+]3727
+to distinguish between the star-forming or AGN nature of galaxies at low- and high-z
+[
+226
+,
+227
+,
+212
+]
+. Also in this case, the observed ‘OHNO’ ratios (yellow star) clearly indicate low metal content (
+Z\lesssim 0.1~Z_{\odot}
+) and high ionization parameter (
+\log(U)\sim-1.5
+) when comparing with photo-ionization models.
+By performing Spectral Energy distribution (SED) fitting using both photometry and spectroscopy with
+Bagpipes
+[
+228
+,
+229
+]
+, including an AGN component, we derive a stellar mass of
+M_{*}=7.6^{+7.2}_{-5.2}\times 10^{9}\rm~M_{\odot}
+(errors include possible variation of the SED and dust modelling, see Methods). As shown in Figure
+3
+, in terms of stellar mass, CANUCS-LRD-z8.6 is indeed the most extreme AGN at
+z>8
+.
+LRDs’ BHs are found to be significantly overmassive relative to their host galaxies compared to the local
+M_{\rm BH}-M_{*}
+relation
+[
+190
+]
+. Given the SED-inferred
+M_{*}
+, it is possible to place CANUCS-LRD-z8.6 on the
+M_{\rm BH}-M_{*}
+plane. As presented in Figure
+3
+, CANUCS-LRD-z8.6 stands above the
+M_{\rm BH}-M_{*}
+local relations (in particular the one for local AGNs, in red;
+[
+220
+]
+), indicating faster evolution of the BH compared to its host galaxy. We are witnessing the growth of a SMBH of
+10^{8}~\rm M_{\odot}
+in a very compact and massive galaxy (
+M_{*}\simeq 8\times 10^{9}~\rm M_{\odot}
+in
+r<70
+pc), unlike any other sources at the same redshift. The SMBH in CANUCS-LRD-z8.6 has a comparable mass to that of GS-9209 at
+z\sim 4.7
+, with the critical difference that GS-9209 is quenched, having halted star formation by
+z\sim 7
+[
+230
+]
+. Additionally, the stellar mass of CANUCS-LRD-z8.6 appears to be approaching that of the massive post-starburst galaxy RUBIES-UDS-QG-z7 (
+M_{*}\sim 1.7\times 10^{10}~\rm M_{\odot}
+,
+[
+231
+]
+), which is already quiescent at
+z\sim 7
+. These observations suggest that SMBHs as massive as CANUCS-LRD-z8.6 could play a pivotal role in quenching star formation in galaxies by
+z\sim 7
+.
+Figure 4:
+Black hole mass accretion history.
+The growth history of CANUCS-LRD-z8.6 assuming a constant accretion rate corresponding to the observed luminosity (
+\lambda_{\rm Edd}=0.1
+), Eddington capped accretion (
+\lambda_{\rm Edd}=1
+), and super-Eddington accretion (
+\lambda_{\rm Edd}=1.5
+), as blue, teal and light green dotted lines, respectively. Solid (dashed) lines are simulations
+[
+222
+]
+or semi-analytical models
+[
+223
+,
+224
+]
+with different prescriptions, as detailed in the Methods, that can (cannot) reproduce the BH mass of CANUCS-LRD-z8.6. We show for comparison only QSOs and AGNs having BH masses derived from broad lines
+[
+198
+,
+186
+,
+187
+,
+225
+,
+212
+,
+217
+,
+204
+,
+218
+]
+, and two AGN candidates at
+z>6
+[
+212
+,
+201
+]
+.
+The high BH mass of CANUCS-LRD-z8.6 at
+z=8.6
+imposes stringent constraints on the formation pathways of SMBHs, challenging standard models and simulations. When examining potential growth trajectories under constant accretion rates (dotted lines in Figure
+4
+), the mass of CANUCS-LRD-z8.6’s BH suggests an origin in massive seed mechanisms
+[
+216
+,
+232
+]
+, possibly from direct collapse or Pop III.1
+1
+1
+1
+Pop III.1 stars are a subclass of Population III stars, which ref.
+[
+233
+]
+divided into two categories. Pop III.1 stars are a unique type of Population III stars that form at the centers of dark matter minihalos in the early universe (
+z\gtrsim 20
+), remaining isolated from any stellar or BH feedback
+[
+233
+]
+. In contrast, Pop III.2 stars also form within dark matter minihalos but are affected by feedback from external astrophysical sources. This external influence promotes gas fragmentation, leading to the formation of lower-mass stars compared to Pop III.1.
+models
+[
+234
+,
+235
+,
+236
+,
+237
+,
+223
+]
+. While lower-mass seeds are easier to account for, sustaining a constant or super-Eddington accretion rate over the BH’s history has been largely ruled out by numerous studies
+[
+238
+,
+239
+]
+. We refer to the Methods for a more exhaustive comparison among semi-analytical models (SAMs) and numerical simulations with different prescriptions, and we summarize here our main findings. In SAMs, Super-Eddington accretion results to be essential to assemble a sufficiently large amount of mass within 500 Myr (cyan solid line in Figure
+4
+). In fact, SAMs assuming Eddington limited growth, though matching luminosity functions up to
+z\sim 9
+and the
+M_{\text{BH}}-M_{*}
+relation at
+z=0
+(blue lines,
+[
+223
+]
+), fail to account for CANUCS-LRD-z8.6 by two orders of magnitude. Most numerical simulations employing standard prescriptions cannot replicate CANUCS-LRD-z8.6’s BH mass, since AGN feedback prevents early BH growth. In particular, the original recipe of FABLE
+2
+2
+2
+The Feedback Acting on Baryons in Large-scale Environments (FABLE) suite of cosmological hydrodynamical simulations are based upon the framework of the successful Illustris project but improve upon the agreement with observations on scales larger than galaxies
+[
+240
+]
+.
+zoom-in simulations falls short by one order of magnitude (purple dotted track in Figure
+4
+). However, modifications promoting earlier BH growth to form BHs of
+M_{\rm BH}=10^{10}~\rm M_{\odot}
+at
+z\sim 6
+[
+222
+]
+, such as QSO J0100+2802
+[
+198
+]
+, allow to explain the existence of CANUCS-LRD-z8.6 (purple solid track in Figure
+4
+; see Methods). As such, CANUCS-LRD-z8.6 is a possible progenitor for QSOs like J0100+2802, which also challenges standard theoretical models. If there exists a substantial population of such SMBHs at
+z\sim 8-9
+comprising CANUCS-LRD-z8.6, the highest-redshift example hitherto detected, along with UNCOVER 20466
+[
+187
+]
+, our understanding of early galaxy evolution and its link to the local Universe may need substantial revision.
+References
+[1]
+Pablo. Pérez-González et al.
+“What Is the Nature of Little Red Dots and what Is Not, MIRI SMILES Edition”
+In
+ApJ
+968.1
+, 2024, pp. 4
+DOI:
+10.3847/1538-4357/ad38bb
+[2]
+Christina. Williams et al.
+“The Galaxies Missed by Hubble and ALMA: The Contribution of Extremely Red Galaxies to the Cosmic Census at 3 ¡ z ¡ 8”
+In
+ApJ
+968.1
+, 2024, pp. 34
+DOI:
+10.3847/1538-4357/ad3f17
+[3]
+Jorryt Matthee et al.
+“Little Red Dots: An Abundant Population of Faint Active Galactic Nuclei at z
+\sim
+5 Revealed by the EIGER and FRESCO JWST Surveys”
+In
+ApJ
+963.2
+, 2024, pp. 129
+DOI:
+10.3847/1538-4357/ad2345
+[4]
+Jenny. Greene et al.
+“UNCOVER Spectroscopy Confirms the Surprising Ubiquity of Active Galactic Nuclei in Red Sources at z ¿ 5”
+In
+ApJ
+964.1
+, 2024, pp. 39
+DOI:
+10.3847/1538-4357/ad1e5f
+[5]
+Dale. Kocevski et al.
+“The Rise of Faint, Red AGN at
+z>4
+: A Sample of Little Red Dots in the JWST Extragalactic Legacy Fields”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2404.03576
+DOI:
+10.48550/arXiv.2404.03576
+[6]
+Vasily Kokorev et al.
+“A Census of Photometrically Selected Little Red Dots at
+4<z<9
+in JWST Blank Fields”
+In
+ApJ
+968.1
+, 2024, pp. 38
+DOI:
+10.3847/1538-4357/ad4265
+[7]
+Kevin. Hainline et al.
+“An Investigation Into The Selection and Colors of Little Red Dots and Active Galactic Nuclei”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.00100
+DOI:
+10.48550/arXiv.2410.00100
+[8]
+Roberto Maiolino et al.
+“JADES. The diverse population of infant Black Holes at 4¡z¡11: merging, tiny, poor, but mighty”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2308.01230
+DOI:
+10.48550/arXiv.2308.01230
+[9]
+Vasily Kokorev et al.
+“UNCOVER: A NIRSpec Identification of a Broad-line AGN at z = 8.50”
+In
+ApJ
+957.1
+, 2023, pp. L7
+DOI:
+10.3847/2041-8213/ad037a
+[10]
+Anthony. Taylor et al.
+“Broad-Line AGN at
+3.5<z<6
+: The Black Hole Mass Function and a Connection with Little Red Dots”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2409.06772
+DOI:
+10.48550/arXiv.2409.06772
+[11]
+Bingjie Wang et al.
+“RUBIES: Evolved Stellar Populations with Extended Formation Histories at z
+\sim
+7–8 in Candidate Massive Galaxies Identified with JWST/NIRSpec”
+In
+ApJ
+969.1
+, 2024, pp. L13
+DOI:
+10.3847/2041-8213/ad55f7
+[12]
+Emmanuel Durodola, Fabio Pacucci and Ryan. Hickox
+“Exploring the AGN Fraction of a Sample of JWST’s Little Red Dots at
+5<z<8
+: Overmassive Black Holes Are Strongly Favored”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2406.10329
+DOI:
+10.48550/arXiv.2406.10329
+[13]
+Joseph Silk et al.
+“Which Came First: Supermassive Black Holes or Galaxies? Insights from JWST”
+In
+ApJ
+961.2
+, 2024, pp. L39
+DOI:
+10.3847/2041-8213/ad1bf0
+[14]
+Guillaume Desprez et al.
+“
+\Lambda
+CDM not dead yet: massive high-z Balmer break galaxies are less common than previously reported”
+In
+MNRAS
+530.3
+, 2024, pp. 2935–2952
+DOI:
+10.1093/mnras/stae1084
+[15]
+Jenny. Greene and Luis. Ho
+“Estimating Black Hole Masses in Active Galaxies Using the H
+\alpha
+Emission Line”
+In
+ApJ
+630.1
+, 2005, pp. 122–129
+DOI:
+10.1086/431897
+[16]
+A. Feltre, S. Charlot and J. Gutkin
+“Nuclear activity versus star formation: emission-line diagnostics at ultraviolet and optical wavelengths”
+In
+MNRAS
+456.3
+, 2016, pp. 3354–3374
+DOI:
+10.1093/mnras/stv2794
+[17]
+Jan Scholtz et al.
+“JADES: A large population of obscured, narrow line AGN at high redshift”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2311.18731
+DOI:
+10.48550/arXiv.2311.18731
+[18]
+Helena Treiber et al.
+“UNCOVERing the High-Redshift AGN Population Among Extreme UV Line Emitters”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2409.12232
+DOI:
+10.48550/arXiv.2409.12232
+[19]
+Michael. Topping et al.
+“Metal-poor star formation at z ¿ 6 with JWST: new insight into hard radiation fields and nitrogen enrichment on 20 pc scales”
+In
+MNRAS
+529.4
+, 2024, pp. 3301–3322
+DOI:
+10.1093/mnras/stae682
+[20]
+C. Mazzucchelli et al.
+“XQR-30: Black hole masses and accretion rates of 42 z
+\gtrsim
+6 quasars”
+In
+A&A
+676
+, 2023, pp. A71
+DOI:
+10.1051/0004-6361/202346317
+[21]
+Valentina D’Odorico et al.
+“XQR-30: The ultimate XSHOOTER quasar sample at the reionization epoch”
+In
+MNRAS
+523.1
+, 2023, pp. 1399–1420
+DOI:
+10.1093/mnras/stad1468
+[22]
+Andrew. Bunker et al.
+“JADES NIRSpec Spectroscopy of GN-z11: Lyman-
+\alpha
+emission and possible enhanced nitrogen abundance in a z = 10.60 luminous galaxy”
+In
+A&A
+677
+, 2023, pp. A88
+DOI:
+10.1051/0004-6361/202346159
+[23]
+Roberto Maiolino et al.
+“A small and vigorous black hole in the early Universe”
+In
+Nature
+627.8002
+, 2024, pp. 59–63
+DOI:
+10.1038/s41586-024-07052-5
+[24]
+Francesco D’Eugenio et al.
+“JADES: Carbon enrichment 350 Myr after the Big Bang”
+In
+A&A
+689
+, 2024, pp. A152
+DOI:
+10.1051/0004-6361/202348636
+[25]
+Marco Castellano et al.
+“JWST NIRSpec Spectroscopy of the Remarkable Bright Galaxy GHZ2/GLASS-z12 at Redshift 12.34”
+In
+ApJ
+972.2
+, 2024, pp. 143
+DOI:
+10.3847/1538-4357/ad5f88
+[26]
+Hannah Übler et al.
+“GA-NIFS: JWST discovers an offset AGN 740 million years after the big bang”
+In
+MNRAS
+531.1
+, 2024, pp. 355–365
+DOI:
+10.1093/mnras/stae943
+[27]
+Daniel. Stark et al.
+“Spectroscopic detection of C IV
+\lambda
+1548 in a galaxy at z = 7.045: implications for the ionizing spectra of reionization-era galaxies”
+In
+MNRAS
+454.2
+, 2015, pp. 1393–1403
+DOI:
+10.1093/mnras/stv1907
+[28]
+Luc Binette et al.
+“Constraints on the densities and temperature of the Seyfert 2 narrow line region”
+In
+A&A
+684
+, 2024, pp. A53
+DOI:
+10.1051/0004-6361/202245754
+[29]
+Mirko Curti et al.
+“The chemical enrichment in the early Universe as probed by JWST via direct metallicity measurements at z
+\sim
+8”
+In
+MNRAS
+518.1
+, 2023, pp. 425–438
+DOI:
+10.1093/mnras/stac2737
+[30]
+Mirko Curti et al.
+“JADES: The star-formation and chemical enrichment history of a luminous galaxy at z
+~
+9.43 probed by ultra-deep JWST/NIRSpec spectroscopy”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2407.02575
+DOI:
+10.48550/arXiv.2407.02575
+[31]
+Alexei Baskin and Ari Laor
+“What controls the [OIII]
+\lambda
+5007 line strength in active galactic nuclei?”
+In
+MNRAS
+358.3
+, 2005, pp. 1043–1054
+DOI:
+10.1111/j.1365-2966.2005.08841.x
+[32]
+G. Mazzolari et al.
+“New AGN diagnostic diagrams based on the [OIII]
+\lambda 4363
+auroral line”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2404.10811
+DOI:
+10.48550/arXiv.2404.10811
+[33]
+Yuichi Harikane et al.
+“A JWST/NIRSpec First Census of Broad-line AGNs at z = 4-7: Detection of 10 Faint AGNs with M
+BH
+10
+6
+-10
+8
+M
+⊙
+and Their Host Galaxy Properties”
+In
+ApJ
+959.1
+, 2023, pp. 39
+DOI:
+10.3847/1538-4357/ad029e
+[34]
+Rebecca. Larson et al.
+“A CEERS Discovery of an Accreting Supermassive Black Hole 570 Myr after the Big Bang: Identifying a Progenitor of Massive z ¿ 6 Quasars”
+In
+ApJ
+953.2
+, 2023, pp. L29
+DOI:
+10.3847/2041-8213/ace619
+[35]
+Hannah Übler et al.
+“GA-NIFS: A massive black hole in a low-metallicity AGN at z
+\sim
+5.55 revealed by JWST/NIRSpec IFS”
+In
+A&A
+677
+, 2023, pp. A145
+DOI:
+10.1051/0004-6361/202346137
+[36]
+Dale. Kocevski et al.
+“Hidden Little Monsters: Spectroscopic Identification of Low-mass, Broad-line AGNs at z ¿ 5 with CEERS”
+In
+ApJ
+954.1
+, 2023, pp. L4
+DOI:
+10.3847/2041-8213/ace5a0
+[37]
+Xuheng Ding et al.
+“Detection of stellar light from quasar host galaxies at redshifts above 6”
+In
+Nature
+621.7977
+, 2023, pp. 51–55
+DOI:
+10.1038/s41586-023-06345-5
+[38]
+Ákos Bogdán et al.
+“Evidence for heavy-seed origin of early supermassive black holes from a z
+\approx
+10 X-ray quasar”
+In
+Nature Astronomy
+8
+, 2024, pp. 126–133
+DOI:
+10.1038/s41550-023-02111-9
+[39]
+Ignas Juodžbalis et al.
+“JADES - The Rosetta Stone of JWST-discovered AGN: deciphering the intriguing nature of early AGN”
+In
+MNRAS
+, 2024
+DOI:
+10.1093/mnras/stae2367
+[40]
+Hollis. Akins et al.
+“Strong rest-UV emission lines in a “little red dot” AGN at
+z=7
+: Early SMBH growth alongside compact massive star formation?”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.00949
+DOI:
+10.48550/arXiv.2410.00949
+[41]
+John Kormendy and Luis. Ho
+“Coevolution (Or Not) of Supermassive Black Holes and Host Galaxies”
+In
+Annual Review of Astronomy and Astrophysics
+51.1
+, 2013, pp. 511–653
+DOI:
+10.1146/annurev-astro-082708-101811
+[42]
+Amy. Reines and M. Volonteri
+“Relations between Central Black Hole Mass and Total Galaxy Stellar Mass in the Local Universe”
+In
+ApJ
+813.2
+, 2015, pp. 82
+DOI:
+10.1088/0004-637X/813/2/82
+[43]
+Jenny. Greene, Jay Strader and Luis. Ho
+“Intermediate-Mass Black Holes”
+In
+ARA&A
+58
+, 2020, pp. 257–312
+DOI:
+10.1146/annurev-astro-032620-021835
+[44]
+Jake. Bennett et al.
+“The growth of the gargantuan black holes powering high-redshift quasars and their impact on the formation of early galaxies and protoclusters”
+In
+MNRAS
+527.1
+, 2024, pp. 1033–1054
+DOI:
+10.1093/mnras/stad3179
+[45]
+Vieri Cammelli et al.
+“The formation of supermassive black holes from Population III.1 seeds. III. Galaxy evolution and black hole growth from semi-analytic modelling”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2407.09949
+DOI:
+10.48550/arXiv.2407.09949
+[46]
+Raffaella Schneider et al.
+“Are we surprised to find SMBHs with JWST at z
+\geq
+9?”
+In
+MNRAS
+526.3
+, 2023, pp. 3250–3261
+DOI:
+10.1093/mnras/stad2503
+[47]
+R. Tripodi et al.
+“HYPERION: Coevolution of supermassive black holes and galaxies at z ¿ 6 and the build-up of massive galaxies”
+In
+A&A
+689
+, 2024, pp. A220
+DOI:
+10.1051/0004-6361/202349054
+[48]
+Bren. Backhaus et al.
+“CLEAR: Emission-line Ratios at Cosmic High Noon”
+In
+ApJ
+926.2
+, 2022, pp. 161
+DOI:
+10.3847/1538-4357/ac3919
+[49]
+Nikko. Cleri et al.
+“CLEAR: Paschen-
+\beta
+Star Formation Rates and Dust Attenuation of Low-redshift Galaxies”
+In
+ApJ
+929.1
+, 2022, pp. 3
+DOI:
+10.3847/1538-4357/ac5a4c
+[50]
+A.. Carnall, R.. McLure, J.. Dunlop and R. Davé
+“Inferring the star formation histories of massive quiescent galaxies with BAGPIPES: evidence for multiple quenching mechanisms”
+In
+MNRAS
+480.4
+, 2018, pp. 4379–4401
+DOI:
+10.1093/mnras/sty2169
+[51]
+Adam. Carnall et al.
+“How to Measure Galaxy Star Formation Histories. I. Parametric Models”
+In
+ApJ
+873.1
+, 2019, pp. 44
+DOI:
+10.3847/1538-4357/ab04a2
+[52]
+Adam. Carnall et al.
+“A massive quiescent galaxy at redshift 4.658”
+In
+Nature
+619.7971
+, 2023, pp. 716–719
+DOI:
+10.1038/s41586-023-06158-6
+[53]
+Andrea Weibel et al.
+“RUBIES Reveals a Massive Quiescent Galaxy at z=7.3”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2409.03829
+DOI:
+10.48550/arXiv.2409.03829
+[54]
+Hai-Long Huang et al.
+“Sub-Eddington accreting supermassive primordial black holes explain Little Red Dots”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.20663
+DOI:
+10.48550/arXiv.2410.20663
+[55]
+Christopher. McKee and Jonathan. Tan
+“The Formation of the First Stars. II. Radiative Feedback Processes and Implications for the Initial Mass Function”
+In
+ApJ
+681.2
+, 2008, pp. 771–797
+DOI:
+10.1086/587434
+[56]
+Volker Bromm and Abraham Loeb
+“Formation of the First Supermassive Black Holes”
+In
+The Astrophysical Journal
+596.1
+, 2003, pp. 34–46
+DOI:
+10.1086/377529
+[57]
+Umberto Maio, Stefano Borgani, Benedetta Ciardi and Margarita Petkova
+“The seeds of supermassive black holes and the role of local radiation and metal spreading”
+In
+Publications of the Astronomical Society of Australia
+36
+, 2019, pp. e020
+DOI:
+10.1017/pasa.2019.10
+[58]
+Aklant. Bhowmick et al.
+“Impact of gas spin and Lyman-Werner flux on black hole seed formation in cosmological simulations: implications for direct collapse”
+In
+Monthly Notices of the Royal Astronomical Society
+510.1
+, 2022, pp. 177–196
+DOI:
+10.1093/mnras/stab3439
+[59]
+Jasbir Singh, Pierluigi Monaco and Jonathan. Tan
+“The formation of supermassive black holes from Population III.1 seeds. II. Evolution to the local universe”
+In
+MNRAS
+525.1
+, 2023, pp. 969–982
+DOI:
+10.1093/mnras/stad2346
+[60]
+Brian. O’Shea, Tom Abel, Dan Whalen and Michael. Norman
+“Forming a Primordial Star in a Relic H II Region”
+In
+The Astrophysical Journal Letters
+628.1
+, 2005, pp. L5–L8
+DOI:
+10.1086/432683
+[61]
+Junehyoung Jeon, Boyuan Liu, Volker Bromm and Steven. Finkelstein
+“Observability of Low-Luminosity AGN in the Early Universe with JWST”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2304.07369
+DOI:
+10.48550/arXiv.2304.07369
+[62]
+Nicholas. Henden, Ewald Puchwein, Sijing Shen and Debora Sijacki
+“The FABLE simulations: a feedback model for galaxies, groups, and clusters”
+In
+MNRAS
+479.4
+, 2018, pp. 5385–5412
+DOI:
+10.1093/mnras/sty1780
+[63]
+Chris. Willott et al.
+“The Near-infrared Imager and Slitless Spectrograph for the James Webb Space Telescope. II. Wide Field Slitless Spectroscopy”
+In
+PASP
+134.1032
+, 2022, pp. 025002
+DOI:
+10.1088/1538-3873/ac5158
+[64]
+G. Soucail, B. Fort, Y. Mellier and J.. Picat
+“A blue ring-like structure in the center of the A 370 cluster of galaxies.”
+In
+A&A
+172
+, 1987, pp. L14–L16
+[65]
+H. Ebeling, A.. Edge and J.. Henry
+“MACS: A Quest for the Most Massive Galaxy Clusters in the Universe”
+In
+ApJ
+553.2
+, 2001, pp. 668–676
+DOI:
+10.1086/320958
+[66]
+J.. Lotz et al.
+“The Frontier Fields: Survey Design and Initial Results”
+In
+ApJ
+837.1
+, 2017, pp. 97
+DOI:
+10.3847/1538-4357/837/1/97
+[67]
+Gaël Noirot et al.
+“The first large catalogue of spectroscopic redshifts in Webb’s first deep field, SMACS J0723.3-7327”
+In
+MNRAS
+525.2
+, 2023, pp. 1867–1884
+DOI:
+10.1093/mnras/stad1019
+[68]
+Chris. Willott et al.
+“A Steep Decline in the Galaxy Space Density beyond Redshift 9 in the CANUCS UV Luminosity Function”
+In
+ApJ
+966.1
+, 2024, pp. 74
+DOI:
+10.3847/1538-4357/ad35bc
+[69]
+Yoshihisa Asada et al.
+“Improving photometric redshifts of Epoch of Reionization galaxies: a new transmission curve with the neutral hydrogen damped Ly
+\alpha
+absorption”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.21543
+DOI:
+10.48550/arXiv.2410.21543
+[70]
+Ghassan.. Sarrouh et al.
+“Exposing Line Emission: The Systematic Differences of Measuring Galaxy Stellar Masses with JWST NIRCam Medium versus Wide Band Photometry”
+In
+ApJ
+967.1
+, 2024, pp. L17
+DOI:
+10.3847/2041-8213/ad43e8
+[71]
+Nicholas. Martis et al.
+“Modeling and Subtracting Diffuse Cluster Light in JWST Images: A Relation between the Spatial Distribution of Globular Clusters, Dwarf Galaxies, and Intracluster Light in the Lensing Cluster SMACS 0723”
+In
+ApJ
+975.1
+, 2024, pp. 76
+DOI:
+10.3847/1538-4357/ad7735
+[72]
+Gabe Brammer and Jasleen Matharu
+“gbrammer/grizli: Release 2021”
+Zenodo, 2021
+DOI:
+10.5281/zenodo.5012699
+[73]
+Larry Bradley et al.
+“astropy/photutils: 1.6.0”
+Zenodo, 2022
+DOI:
+10.5281/zenodo.7419741
+[74]
+P. Ferruit et al.
+“The Near-Infrared Spectrograph (NIRSpec) on the James Webb Space Telescope. II. Multi-object spectroscopy (MOS)”
+In
+A&A
+661
+, 2022, pp. A81
+DOI:
+10.1051/0004-6361/202142673
+[75]
+Gabriel Brammer
+“msaexp: NIRSpec analyis tools”
+Zenodo, 2022
+DOI:
+10.5281/zenodo.7579050
+[76]
+E. Jullo et al.
+“A Bayesian approach to strong lensing modelling of galaxy clusters”
+In
+New Journal of Physics
+9.12
+, 2007, pp. 447
+DOI:
+10.1088/1367-2630/9/12/447
+[77]
+Stacy. McGaugh and James. Schombert
+“Weighing Galaxy Disks With the Baryonic Tully-Fisher Relation”
+In
+ApJ
+802.1
+, 2015, pp. 18
+DOI:
+10.1088/0004-637X/802/1/18
+[78]
+Árdís Elíasdóttir et al.
+“Where is the matter in the Merging Cluster Abell 2218?”
+In
+arXiv e-prints
+, 2007, pp. arXiv:0710.5636
+DOI:
+10.48550/arXiv.0710.5636
+[79]
+Chien. Peng, Luis. Ho, Chris. Impey and Hans-Walter Rix
+“Detailed Decomposition of Galaxy Images. II. Beyond Axisymmetric Models”
+In
+AJ
+139.6
+, 2010, pp. 2097–2129
+DOI:
+10.1088/0004-6256/139/6/2097
+[80]
+Simon Birrer, Adam Amara and Alexandre Refregier
+“Gravitational Lens Modeling with Basis Sets”
+In
+ApJ
+813.2
+, 2015, pp. 102
+DOI:
+10.1088/0004-637X/813/2/102
+[81]
+Simon Birrer and Adam Amara
+“lenstronomy: Multi-purpose gravitational lens modelling software package”
+In
+Physics of the Dark Universe
+22
+, 2018, pp. 189–201
+DOI:
+10.1016/j.dark.2018.11.002
+[82]
+Lilan Yang, Simon Birrer and Tommaso Treu
+“A versatile tool for cluster lensing source reconstruction - I. Methodology and illustration on sources in the Hubble Frontier Field Cluster MACS J0717.5+3745”
+In
+MNRAS
+496.3
+, 2020, pp. 2648–2662
+DOI:
+10.1093/mnras/staa1649
+[83]
+Eduardo Bañados et al.
+“An 800-million-solar-mass black hole in a significantly neutral Universe at a redshift of 7.5”
+In
+Nature
+553.7689
+, 2018, pp. 473–476
+DOI:
+10.1038/nature25180
+[84]
+Bradley Greig, Andrei Mesinger and Eduardo Bañados
+“Constraints on reionization from the z = 7.5 QSO ULASJ1342+0928”
+In
+MNRAS
+484.4
+, 2019, pp. 5094–5101
+DOI:
+10.1093/mnras/stz230
+[85]
+Tomonori Totani et al.
+“Implications for Cosmic Reionization from the Optical Afterglow Spectrum of the Gamma-Ray Burst 050904 at z = 6.3
+∗
+”
+In
+PASJ
+58.3
+, 2006, pp. 485–498
+DOI:
+10.1093/pasj/58.3.485
+[86]
+Bradley Greig et al.
+“Blind QSO reconstruction challenge: exploring methods to reconstruct the Ly
+\alpha
+emission line of QSOs”
+In
+MNRAS
+533.3
+, 2024, pp. 3312–3343
+DOI:
+10.1093/mnras/stae1985
+[87]
+Hiroya Umeda et al.
+“JWST Measurements of Neutral Hydrogen Fractions and Ionized Bubble Sizes at z = 7–12 Obtained with Ly
+\alpha
+Damping Wing Absorptions in 27 Bright Continuum Galaxies”
+In
+ApJ
+971.2
+, 2024, pp. 124
+DOI:
+10.3847/1538-4357/ad554e
+[88]
+Daniel Foreman-Mackey, David. Hogg, Dustin Lang and Jonathan Goodman
+“emcee: The MCMC Hammer”
+In
+PASP
+125.925
+, 2013, pp. 306
+DOI:
+10.1086/670067
+[89]
+P. Jakobsen et al.
+“The Near-Infrared Spectrograph (NIRSpec) on the James Webb Space Telescope. I. Overview of the instrument and its capabilities”
+In
+A&A
+661
+, 2022, pp. A80
+DOI:
+10.1051/0004-6361/202142663
+[90]
+Daniela Calzetti, Anne. Kinney and Thaisa Storchi-Bergmann
+“Dust Obscuration in Starburst Galaxies from Near-Infrared Spectroscopy”
+In
+ApJ
+458
+, 1996, pp. 132
+DOI:
+10.1086/176797
+[91]
+V. Luridiana, C. Morisset and R.. Shaw
+“PyNeb: a new tool for analyzing emission lines. I. Code description and validation of results”
+In
+A&A
+573
+, 2015, pp. A42
+DOI:
+10.1051/0004-6361/201323152
+[92]
+P.. Storey and D.. Hummer
+“Recombination line intensities for hydrogenic ions-IV. Total recombination coefficients and machine-readable tables for Z=1 to 8”
+In
+MNRAS
+272.1
+, 1995, pp. 41–48
+DOI:
+10.1093/mnras/272.1.41
+[93]
+Y.. Izotov et al.
+“The chemical composition of metal-poor emission-line galaxies in the Data Release 3 of the Sloan Digital Sky Survey”
+In
+A&A
+448.3
+, 2006, pp. 955–970
+DOI:
+10.1051/0004-6361:20053763
+[94]
+M. Curti et al.
+“New fully empirical calibrations of strong-line metallicity indicators in star-forming galaxies”
+In
+MNRAS
+465.2
+, 2017, pp. 1384–1400
+DOI:
+10.1093/mnras/stw2766
+[95]
+R. Maiolino and F. Mannucci
+“De re metallica: the cosmic chemical evolution of galaxies”
+In
+The Astronomy and Astrophysics Review
+27.1
+, 2019, pp. 3
+DOI:
+10.1007/s00159-018-0112-2
+[96]
+Ryan. Sanders et al.
+“Direct T_e-based Metallicities of z=2-9 Galaxies with JWST/NIRSpec: Empirical Metallicity Calibrations Applicable from Reionization to Cosmic Noon”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2303.08149
+DOI:
+10.48550/arXiv.2303.08149
+[97]
+David. Nicholls, Lisa. Kewley and Ralph. Sutherland
+“Estimating Electron Temperatures in Ionized Nebulae: The Direct Method and its Limitations”
+In
+PASP
+132.1009
+, 2020, pp. 033001
+DOI:
+10.1088/1538-3873/ab6818
+[98]
+Harley Katz et al.
+“First insights into the ISM at z ¿ 8 with JWST: possible physical implications of a high [O III]
+\lambda
+4363/[O III]
+\lambda
+5007”
+In
+MNRAS
+518.1
+, 2023, pp. 592–603
+DOI:
+10.1093/mnras/stac2657
+[99]
+Lamiya Mowla et al.
+“The Firefly Sparkle: The Earliest Stages of the Assembly of A Milky Way-type Galaxy in a 600 Myr Old Universe”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2402.08696
+DOI:
+10.48550/arXiv.2402.08696
+[100]
+Vasily Kokorev et al.
+“Silencing the Giant: Evidence of Active Galactic Nucleus Feedback and Quenching in a Little Red Dot at z = 4.13”
+In
+ApJ
+975.2
+, 2024, pp. 178
+DOI:
+10.3847/1538-4357/ad7d03
+[101]
+Tohru Nagao, Takashi Murayama and Yoshiaki Taniguchi
+“The Narrow-Line Region of Seyfert Galaxies: Narrow-Line Seyfert 1 Galaxies versus Broad-Line Seyfert 1 Galaxies”
+In
+ApJ
+546.2
+, 2001, pp. 744–758
+DOI:
+10.1086/318300
+[102]
+L. Binette et al.
+“Temperature Discrepancy with Photoionization Models of the Narrow-Line Region”
+In
+Rev. Mexicana Astron. Astrofis.
+58
+, 2022, pp. 133–153
+DOI:
+10.22201/ia.01851101p.2022.58.01.11
+[103]
+M. Perna et al.
+“An X-ray/SDSS sample. I. Multi-phase outflow incidence and dependence on AGN luminosity”
+In
+A&A
+603
+, 2017, pp. A99
+DOI:
+10.1051/0004-6361/201630369
+[104]
+Jarle Brinchmann
+“High-z galaxies with JWST and local analogues - it is not only star formation”
+In
+MNRAS
+525.2
+, 2023, pp. 2087–2106
+DOI:
+10.1093/mnras/stad1704
+[105]
+Kevork. Abazajian et al.
+“The Seventh Data Release of the Sloan Digital Sky Survey”
+In
+ApJS
+182.2
+, 2009, pp. 543–558
+DOI:
+10.1088/0067-0049/182/2/543
+[106]
+Alison Campbell, Roberto Terlevich and Jorge Melnick
+“The stellar populations and evolution of H II galaxies - I. High signal-to-noise optical spectroscopy.”
+In
+MNRAS
+223
+, 1986, pp. 811–825
+DOI:
+10.1093/mnras/223.4.811
+[107]
+Danielle. Berg et al.
+“A Window on the Earliest Star Formation: Extreme Photoionization Conditions of a High-ionization, Low-metallicity Lensed Galaxy at z
+\sim
+2*”
+In
+ApJ
+859.2
+, 2018, pp. 164
+DOI:
+10.3847/1538-4357/aab7fa
+[108]
+Danielle. Berg et al.
+“Characterizing Extreme Emission-line Galaxies. I. A Four-zone Ionization Model for Very High-ionization Emission”
+In
+ApJ
+922.2
+, 2021, pp. 170
+DOI:
+10.3847/1538-4357/ac141b
+[109]
+A. Marconi et al.
+“HOMERUN: A new approach to photoionization modeling: I. Reproducing observed emission lines with percent accuracy and obtaining accurate physical properties of the ionized gas”
+In
+A&A
+689
+, 2024, pp. A78
+DOI:
+10.1051/0004-6361/202449240
+[110]
+Xihan Ji et al.
+“GA-NIFS: An extremely nitrogen-loud and chemically stratified galaxy at
+z\sim 5.55
+”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2404.04148
+DOI:
+10.48550/arXiv.2404.04148
+[111]
+James.. Trussler et al.
+“Seeing sharper and deeper: JWST’s first glimpse of the photometric and spectroscopic properties of galaxies in the epoch of reionization”
+In
+MNRAS
+523.3
+, 2023, pp. 3423–3440
+DOI:
+10.1093/mnras/stad1629
+[112]
+Mirko Curti et al.
+“The KLEVER Survey: spatially resolved metallicity maps and gradients in a sample of 1.2 ¡ z ¡ 2.5 lensed galaxies”
+In
+MNRAS
+492.1
+, 2020, pp. 821–842
+DOI:
+10.1093/mnras/stz3379
+[113]
+Kimihiko Nakajima et al.
+“JWST Census for the Mass-Metallicity Star Formation Relations at z = 4-10 with Self-consistent Flux Calibration and Proper Metallicity Calibrators”
+In
+ApJS
+269.2
+, 2023, pp. 33
+DOI:
+10.3847/1538-4365/acd556
+[114]
+Joanna. Kuraszkiewicz et al.
+“Emission Line Properties of Active Galactic Nuclei from a Post-COSTAR Hubble Space Telescope Faint Object Spectrograph Spectral Atlas”
+In
+ApJS
+150.1
+, 2004, pp. 165–180
+DOI:
+10.1086/379809
+[115]
+T. Nagao, R. Maiolino and A. Marconi
+“Gas metallicity diagnostics in star-forming galaxies”
+In
+A&A
+459.1
+, 2006, pp. 85–101
+DOI:
+10.1051/0004-6361:20065216
+[116]
+Nikko. Cleri et al.
+“Using [Ne V]/[Ne III] to Understand the Nature of Extreme-ionization Galaxies”
+In
+ApJ
+953.1
+, 2023, pp. 10
+DOI:
+10.3847/1538-4357/acde55
+[117]
+A. Grazian et al.
+“On the AGN Nature of Two UV-bright Sources at z
+spec
+\sim
+5.5 in the CANDELS Fields: An Update on the AGN Space Density at M
+1450
+\sim
+-22.5”
+In
+ApJ
+897.1
+, 2020, pp. 94
+DOI:
+10.3847/1538-4357/ab99a3
+[118]
+E. Vanzella et al.
+“The unusual N IV] -emitter galaxy GDS J033218.92-275302.7: star formation or AGN-driven winds from a massive galaxy at z = 5.56”
+In
+A&A
+513
+, 2010, pp. A20
+DOI:
+10.1051/0004-6361/200913042
+[119]
+Eilat Glikman et al.
+“Discovery of Two Spectroscopically Peculiar, Low-Luminosity Quasars at z
+~
+4”
+In
+ApJ
+663.2
+, 2007, pp. L73–L76
+DOI:
+10.1086/520085
+[120]
+Yuki Isobe et al.
+“JWST Identification of Extremely Low C/N Galaxies with [N/O]
+\gtrsim
+0.5 at z 6-10 Evidencing the Early CNO-cycle Enrichment and a Connection with Globular Cluster Formation”
+In
+ApJ
+959.2
+, 2023, pp. 100
+DOI:
+10.3847/1538-4357/ad09be
+[121]
+Valentina D’Orazi et al.
+“Lithium and Proton-capture Elements in Globular Cluster Dwarfs: The Case of 47 TUC”
+In
+ApJ
+713.1
+, 2010, pp. L1–L5
+DOI:
+10.1088/2041-8205/713/1/L1
+[122]
+André Maeder, Georges Meynet and Cristina Chiappini
+“The first stars: CEMP-no stars and signatures of spinstars”
+In
+A&A
+576
+, 2015, pp. A56
+DOI:
+10.1051/0004-6361/201424153
+[123]
+C. Charbonnel et al.
+“N-enhancement in GN-z11: First evidence for supermassive stars nucleosynthesis in proto-globular clusters-like conditions at high redshift?”
+In
+A&A
+673
+, 2023, pp. L7
+DOI:
+10.1051/0004-6361/202346410
+[124]
+Kuria Watanabe et al.
+“EMPRESS. XIII. Chemical Enrichment of Young Galaxies Near and Far at z
+\sim
+0 and 4–10: Fe/O, Ar/O, S/O, and N/O Measurements with a Comparison of Chemical Evolution Models”
+In
+ApJ
+962.1
+, 2024, pp. 50
+DOI:
+10.3847/1538-4357/ad13ff
+[125]
+M. Vestergaard and Patrick. Osmer
+“Mass Functions of the Active Black Holes in Distant Quasars from the Large Bright Quasar Survey, the Bright Quasar Survey, and the Color-selected Sample of the SDSS Fall Equatorial Stripe”
+In
+ApJ
+699.1
+, 2009, pp. 800–816
+DOI:
+10.1088/0004-637X/699/1/800
+[126]
+Misty. Bentz et al.
+“The Low-luminosity End of the Radius-Luminosity Relationship for Active Galactic Nuclei”
+In
+ApJ
+767.2
+, 2013, pp. 149
+DOI:
+10.1088/0004-637X/767/2/149
+[127]
+Aaron. Barth et al.
+“The Lick AGN Monitoring Project 2011: Spectroscopic Campaign and Emission-line Light Curves”
+In
+ApJS
+217.2
+, 2015, pp. 26
+DOI:
+10.1088/0067-0049/217/2/26
+[128]
+C.. Grier et al.
+“The Sloan Digital Sky Survey Reverberation Mapping Project: H
+\alpha
+and H
+\beta
+Reverberation Measurements from First-year Spectroscopy and Photometry”
+In
+ApJ
+851.1
+, 2017, pp. 21
+DOI:
+10.3847/1538-4357/aa98dc
+[129]
+U. Malik et al.
+“OzDES Reverberation Mapping Program: H
+\beta
+lags from the 6-yr survey”
+In
+MNRAS
+520.2
+, 2023, pp. 2009–2023
+DOI:
+10.1093/mnras/stad145
+[130]
+Yue Shen et al.
+“A Catalog of Quasar Properties from Sloan Digital Sky Survey Data Release 7”
+In
+ApJS
+194.2
+, 2011, pp. 45
+DOI:
+10.1088/0067-0049/194/2/45
+[131]
+Yue Shen, Xin Liu, Abraham Loeb and Scott Tremaine
+“Constraining Sub-parsec Binary Supermassive Black Holes in Quasars with Multi-epoch Spectroscopy. I. The General Quasar Population”
+In
+ApJ
+775.1
+, 2013, pp. 49
+DOI:
+10.1088/0004-637X/775/1/49
+[132]
+J.. Mejía-Restrepo, B. Trakhtenbrot, P. Lira and H. Netzer
+“Can we improve C IV-based single-epoch black hole mass estimations?”
+In
+MNRAS
+478.2
+, 2018, pp. 1929–1941
+DOI:
+10.1093/mnras/sty1086
+[133]
+Daeseong Park et al.
+“Extending the Calibration of C IV-based Single-epoch Black Hole Mass Estimators for Active Galactic Nuclei”
+In
+ApJ
+839.2
+, 2017, pp. 93
+DOI:
+10.3847/1538-4357/aa6a53
+[134]
+Romain. Meyer, Sarah.. Bosman and Richard. Ellis
+“New constraints on quasar evolution: broad-line velocity shifts over 1.5
+\lesssim
+z
+\lesssim
+7.5”
+In
+MNRAS
+487.3
+, 2019, pp. 3305–3323
+DOI:
+10.1093/mnras/stz1504
+[135]
+Jan-Torge Schindler et al.
+“The X-SHOOTER/ALMA Sample of Quasars in the Epoch of Reionization. I. NIR Spectral Modeling, Iron Enrichment, and Broad Emission Line Properties”
+In
+ApJ
+905.1
+, 2020, pp. 51
+DOI:
+10.3847/1538-4357/abc2d7
+[136]
+James. Matthews et al.
+“A disc wind model for blueshifts in quasar broad emission lines”
+In
+MNRAS
+526.3
+, 2023, pp. 3967–3986
+DOI:
+10.1093/mnras/stad2895
+[137]
+Gordon. Richards et al.
+“Eight-Dimensional Mid-Infrared/Optical Bayesian Quasar Selection”
+In
+AJ
+137.4
+, 2009, pp. 3884–3899
+DOI:
+10.1088/0004-6256/137/4/3884
+[138]
+Daniela Calzetti et al.
+“The Dust Content and Opacity of Actively Star-forming Galaxies”
+In
+ApJ
+533.2
+, 2000, pp. 682–695
+DOI:
+10.1086/308692
+[139]
+Gilles Chabrier
+“Galactic Stellar and Substellar Initial Mass Function”
+In
+PASP
+115.809
+, 2003, pp. 763–795
+DOI:
+10.1086/376392
+[140]
+V. Markov et al.
+“Dust attenuation law in JWST galaxies at z
+\sim
+7-8”
+In
+A&A
+679
+, 2023, pp. A12
+DOI:
+10.1051/0004-6361/202346723
+[141]
+V. Markov et al.
+“Dust attenuation evolution in
+z\sim 2
+-
+12
+JWST galaxies”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2402.05996
+DOI:
+10.48550/arXiv.2402.05996
+[142]
+Naveen. Reddy et al.
+“The MOSDEF Survey: Measurements of Balmer Decrements and the Dust Attenuation Curve at Redshifts z
+~
+1.4-2.6”
+In
+ApJ
+806.2
+, 2015, pp. 259
+DOI:
+10.1088/0004-637X/806/2/259
+[143]
+Samir Salim et al.
+“GALEX-SDSS-WISE Legacy Catalog (GSWLC): Star Formation Rates, Stellar Masses, and Dust Attenuations of 700,000 Low-redshift Galaxies”
+In
+ApJS
+227.1
+, 2016, pp. 2
+DOI:
+10.3847/0067-0049/227/1/2
+[144]
+Michael. Topping et al.
+“Searching for Extremely Blue UV Continuum Slopes at z = 7-11 in JWST/NIRCam Imaging: Implications for Stellar Metallicity and Ionizing Photon Escape in Early Galaxies”
+In
+ApJ
+941.2
+, 2022, pp. 153
+DOI:
+10.3847/1538-4357/aca522
+[145]
+Kartheik. Iyer et al.
+“Nonparametric Star Formation History Reconstruction with Gaussian Processes. I. Counting Major Episodes of Star Formation”
+In
+ApJ
+879.2
+, 2019, pp. 116
+DOI:
+10.3847/1538-4357/ab2052
+[146]
+Joel Leja et al.
+“How to Measure Galaxy Star Formation Histories. II. Nonparametric Models”
+In
+ApJ
+876.1
+, 2019, pp. 3
+DOI:
+10.3847/1538-4357/ab133c
+[147]
+Michael. Topping et al.
+“The MOSDEF-LRIS Survey: The connection between massive stars and ionized gas in individual galaxies at z
+\sim
+2”
+In
+MNRAS
+499.2
+, 2020, pp. 1652–1665
+DOI:
+10.1093/mnras/staa2941
+[148]
+Lily Whitler et al.
+“Star formation histories of UV-luminous galaxies at
+z\sim 6.8
+: implications for stellar mass assembly at early cosmic times”
+In
+MNRAS
+519.4
+, 2023, pp. 5859–5881
+DOI:
+10.1093/mnras/stad004
+[149]
+Daniel. Vanden Berk et al.
+“Composite Quasar Spectra from the Sloan Digital Sky Survey”
+In
+AJ
+122.2
+, 2001, pp. 549–564
+DOI:
+10.1086/321167
+[150]
+Donald. Osterbrock and Gary. Ferland
+“Astrophysics of gaseous nebulae and active galactic nuclei”, 2006
+[151]
+Brent. Groves, Michael. Dopita and Ralph. Sutherland
+“Dusty, Radiation Pressure-Dominated Photoionization. I. Model Description, Structure, and Grids”
+In
+ApJS
+153.1
+, 2004, pp. 9–73
+DOI:
+10.1086/421113
+[152]
+Lisa. Kewley, Brent Groves, Guinevere Kauffmann and Tim Heckman
+“The host galaxies and classification of active galactic nuclei”
+In
+MNRAS
+372.3
+, 2006, pp. 961–976
+DOI:
+10.1111/j.1365-2966.2006.10859.x
+[153]
+Yue Shen and Xin Liu
+“Comparing Single-epoch Virial Black Hole Mass Estimators for Luminous Quasars”
+In
+ApJ
+753.2
+, 2012, pp. 125
+DOI:
+10.1088/0004-637X/753/2/125
+[154]
+Caitlin. Casey et al.
+“Dust in Little Red Dots”
+In
+ApJ
+975.1
+, 2024, pp. L4
+DOI:
+10.3847/2041-8213/ad7ba7
+[155]
+Maia Nenkova et al.
+“AGN Dusty Tori. II. Observational Implications of Clumpiness”
+In
+ApJ
+685.1
+, 2008, pp. 160–180
+DOI:
+10.1086/590483
+[156]
+Sebastian. Hönig
+“Tori, Discs, and Winds: The First Ten Years of AGN Interferometry”
+In
+Astronomy at High Angular Resolution
+439
+, Astrophysics and Space Science Library, 2016, pp. 95
+DOI:
+10.1007/978-3-319-39739-9˙6
+[157]
+S. García-Burillo et al.
+“The Galaxy Activity, Torus, and Outflow Survey (GATOS). I. ALMA images of dusty molecular tori in Seyfert galaxies”
+In
+A&A
+652
+, 2021, pp. A98
+DOI:
+10.1051/0004-6361/202141075
+[158]
+Guillermo Barro et al.
+“Extremely Red Galaxies at z = 5–9 with MIRI and NIRSpec: Dusty Galaxies or Obscured Active Galactic Nuclei?”
+In
+ApJ
+963.2
+, 2024, pp. 128
+DOI:
+10.3847/1538-4357/ad167e
+[159]
+Marta Volonteri, Mélanie Habouzit and Monica Colpi
+“The origins of massive black holes”
+In
+Nature Reviews Physics
+3.11
+, 2021, pp. 732–743
+DOI:
+10.1038/s42254-021-00364-9
+[160]
+Simon. Portegies Zwart et al.
+“Formation of massive black holes through runaway collisions in dense young star clusters”
+In
+Nature
+428.6984
+, 2004, pp. 724–726
+DOI:
+10.1038/nature02448
+[161]
+Piero Madau and Martin. Rees
+“Massive Black Holes as Population III Remnants”
+In
+ApJ
+551.1
+, 2001, pp. L27–L30
+DOI:
+10.1086/319848
+[162]
+Michaela Hirschmann, Gabriella De Lucia and Fabio Fontanot
+“Galaxy assembly, stellar feedback and metal enrichment: the view from the GAEA model”
+In
+MNRAS
+461.2
+, 2016, pp. 1760–1785
+DOI:
+10.1093/mnras/stw1318
+[163]
+Fabio Fontanot et al.
+“The rise of active galactic nuclei in the galaxy evolution and assembly semi-analytic model”
+In
+MNRAS
+496.3
+, 2020, pp. 3943–3960
+DOI:
+10.1093/mnras/staa1716
+[164]
+Emiliano Munari et al.
+“Improving fast generation of halo catalogues with higher order Lagrangian perturbation theory”
+In
+MNRAS
+465.4
+, 2017, pp. 4658–4677
+DOI:
+10.1093/mnras/stw3085
+[165]
+Nilanjan Banik, Jonathan. Tan and Pierluigi Monaco
+“The formation of supermassive black holes from Population III.1 seeds. I. Cosmic formation histories and clustering properties”
+In
+MNRAS
+483.3
+, 2019, pp. 3592–3606
+DOI:
+10.1093/mnras/sty3298
+[166]
+Alessandro Trinca et al.
+“The low-end of the black hole mass function at cosmic dawn”
+In
+MNRAS
+511.1
+, 2022, pp. 616–640
+DOI:
+10.1093/mnras/stac062
+[167]
+Edwige Pezzulli, Rosa Valiante and Raffaella Schneider
+“Super-Eddington growth of the first black holes”
+In
+MNRAS
+458.3
+, 2016, pp. 3047–3059
+DOI:
+10.1093/mnras/stw505
+[168]
+Edwige Pezzulli, Marta Volonteri, Raffaella Schneider and Rosa Valiante
+“The sustainable growth of the first black holes”
+In
+MNRAS
+471.1
+, 2017, pp. 589–595
+DOI:
+10.1093/mnras/stx1640
+[169]
+Qirong Zhu et al.
+“The formation of the first quasars: the black hole seeds, accretion, and feedback models”
+In
+MNRAS
+514.4
+, 2022, pp. 5583–5606
+DOI:
+10.1093/mnras/stac1556
+[170]
+Federica Sassano et al.
+“Super-critical accretion of medium-weight seed black holes in gaseous proto-galactic nuclei”
+In
+MNRAS
+519.2
+, 2023, pp. 1837–1855
+DOI:
+10.1093/mnras/stac3608
+[171]
+F. Hoyle and R.. Lyttleton
+“The effect of interstellar matter on climatic variation”
+In
+Proceedings of the Cambridge Philosophical Society
+35.3
+, 1939, pp. 405
+DOI:
+10.1017/S0305004100021150
+[172]
+H. Bondi and F. Hoyle
+“On the mechanism of accretion by stars”
+In
+MNRAS
+104
+, 1944, pp. 273
+DOI:
+10.1093/mnras/104.5.273
+[173]
+H. Bondi
+“On spherically symmetrical accretion”
+In
+MNRAS
+112
+, 1952, pp. 195
+DOI:
+10.1093/mnras/112.2.195
+[174]
+Aklant. Bhowmick et al.
+“Probing the z
+\gtrsim
+6 quasars in a universe with IllustrisTNG physics: impact of gas-based black hole seeding models”
+In
+MNRAS
+516.1
+, 2022, pp. 138–157
+DOI:
+10.1093/mnras/stac2238
+[175]
+Yueying Ni, Tiziana Di Matteo and Yu Feng
+“Not all peaks are created equal: the early growth of supermassive black holes”
+In
+MNRAS
+509.2
+, 2022, pp. 3043–3064
+DOI:
+10.1093/mnras/stab3162
+[176]
+Milena Valentini, Simona Gallerani and Andrea Ferrara
+“Host galaxies of high-redshift quasars: SMBH growth and feedback”
+In
+MNRAS
+507.1
+, 2021, pp. 1–26
+DOI:
+10.1093/mnras/stab1992
+[177]
+Alessandro Lupi et al.
+“Sustained super-Eddington accretion in high-redshift quasars”
+In
+A&A
+686
+, 2024, pp. A256
+DOI:
+10.1051/0004-6361/202348788
+[178]
+Warren Massonneau, Marta Volonteri, Yohan Dubois and Ricarda. Beckmann
+“How the super-Eddington regime regulates black hole growth in high-redshift galaxies”
+In
+A&A
+670
+, 2023, pp. A180
+DOI:
+10.1051/0004-6361/202243170
+Acknowledgments
+RT, MB, NM, VM, AH, GR, JJ, and GF acknowledges support from the ERC Grant FIRSTLIGHT and from the Slovenian national research agency ARRS through grants N1-0238, P1-0188 and the program HST-GO-16667, provided through a grant from the STScI under NASA contract NAS5-26555. This research was enabled by grant 18JWST-GTO1 from the Canadian Space Agency, and Discovery Grants from the Natural Sciences and Engineering Research Council of Canada to MS, RA, and AM. YA is supported by a Research Fellowship for Young Scientists from the Japan Society of the Promotion of Science (JSPS) and by the JSPS International Leading Research (ILR) project (KAKENHI Grant Number JP22K21349).
+Authors contribution
+RT led the writing of this paper, performed the analysis of the spectrum, and derived the majority of the physical quantities discussed in this work. RT, YA, CW, GD, contributed to the target selection. CW, NM, VS, GB contributed to reduce the images. GS, YA, AM, CW contributed to the photometry measurements. CW, GB contributed to reduce the NIRSpec data. GS contributed to the psf-matching. NM contributed to the
+galfit
+modelling. RT, NM, VM, MBr, FDE, CW, RM, GG, AH contributed to the analysis and discussion of the spectro-photometric spectral energy distribution modelling. RT, FDE, MC contributed to the discussion of the gas properties of the target. FDE contributed to the comparison with photoionization models. MC contributed to the estimate of the metallicity of the target. RT, NM, VM contributed to the discussion of the obscuration of the target. FDM, SG, VC, MB, JS, contributed to the comparison with simulations and semi-analytical models. GR contributed to the lensing modelling and the estimate of the target magnification. JJ contributed to the size estimate of the target. NM, VM, MBr, VC, FDE, CW, FDM, GR, JS, JJ contributed to edit the paper. AH, GD, MS, IG, AM, GN, GS, RA, YA, GF, SF, KI, VS provided comments on the physical interpretation of the results. All authors reviewed the manuscript.
+Competing interests
+The authors declare no competing interests.
+Correspondence and requests for materials
+should be addressed to R.T.
+{refsegment}
+1
+METHODS
+1.1
+Observations and data reduction.
+We use the data acquired by the CANUCS NIRISS GTO Program #1208
+[
+241
+]
+which covers five different strong
+lensing cluster (CLU) fields: Abell 370, MACS J0416.1-2403, MACS J0417.5-1154, MACS J1149.5+2223 (hereafter MACS1149,
+z=0.543
+), and MACS J1423.8+2404
+[
+242
+,
+243
+]
+. As NIRCam and NIRISS are operated in parallel, each of the five cluster fields is accompanied by a NIRCam flanking field and a NIRISS flanking field.
+Our target lies in the MACS1149 cluster field.
+MACS1149 was observed with NIRCam filters: F090W, F115W, F150W, F200W, F277W, F356W, F410M, and F444W with exposure times of 6.4 ks each.
+We also utilized archival data of
+HST
+imaging from HFF program
+[
+244
+]
+. The CANUCS image reduction and photometry procedure is described in detail in refs.
+[
+245
+,
+246
+,
+247
+]
+, while details on point spread function (PSF) measurement and homogenization can be found in
+[
+248
+]
+. Cluster galaxies and intra-cluster light were modelled and subtracted to avoid contamination of the photometry as described in ref.
+[
+249
+]
+. In short, we use a modified version of the Detector1Pipeline (
+calwebb_detector1
+) stage of the official STScI pipeline and jwst_0916.pmap JWST Operational Pipeline (CRDS_CTX) to reduce the NIRCam data. We perform astrometric alignment of the different exposures of JWST/NIRCam to HST/ACS images, sky subtraction, and drizzling to a common pixel scale of 0.04
+′′
+using version 1.6.0 of the grism redshift and line analysis software for space-based slit-less spectroscopy (
+Grizli
+[
+250
+]
+). PSFs are extracted empirically by median stacking bright, isolated, non-saturated stars following the methodology described in ref.
+[
+248
+]
+. All images are then degraded to the F444W resolution for photometry. The source detection and photometry are done with the Photutils package
+[
+251
+]
+on the
+\chi_{mean}
+detection image created using all available NIRCam images.
+First selected as a high-z double break galaxy
+[
+192
+]
+, our target is classified as an LRD following the criteria on UV and optical slopes and compactness given by ref.
+[
+183
+]
+.
+The CANUCS program also includes NIRSpec low-resolution prism multi-object spectroscopic follow-up using the Micro-Shutter Assembly (MSA
+[
+252
+]
+). Details of the NIRSpec processing are given in ref.
+[
+192
+]
+. NIRSpec data have been reduced using the JWST pipeline for stage 1 corrections and then the msaexp
+[
+253
+]
+package to create wavelength calibrated, background subtracted 2D spectra. A 1D spectrum is extracted from the 2D using an optimal extraction based on the source spatial profile. The redshift (and its uncertainty) of CANUCS-LRD-z8.6,
+z=8.6319\pm 0.0005
+, was determined by performing a non-linear least-squares fit simultaneously to the
+Hβ
+,
+[O
+iii
+]λ4960
+and
+[O
+iii
+]λ5008
+emission lines. Each line was modelled with a single Gaussian and the ratio of
+[O
+iii
+]λ4960
+to
+[O
+iii
+]λ5008
+was fixed by atomic physics.
+The MACS1149 cluster strong lensing model was derived using
+Lenstool
+software
+[
+254
+]
+and the catalog of 91 multiple images with spectroscopic redshifts, derived from CANUCS data (Rihtaršič et al., in prep.). As the distance of the LRD from the cluster centre is large (
+\sim 3
+arcminutes), the contribution from the cluster lens model alone is small (
+\mu=1.060\pm 0.003
+). However, the LRD is only 0.54 arcsec away from a foreground galaxy 5112688 at photometric redshift
+z_{\rm phot}=0.49^{+0.05}_{-0.07}
+and stellar mass
+\log(M_{*}/M_{\odot})=8.0\pm 0.1
+(derived with
+DenseBasis
+). We evaluated the combined magnification in two ways. First, we constructed a
+Lenstool
+model containing the cluster model and the foreground galaxy at cluster redshift
+z=0.54
+(we verified that using a slightly lower photometric redshift for the galaxy did not affect the results). We modelled the foreground galaxy as a singular isothermal sphere, where the integrated velocity dispersion (
+\sigma=40^{+4}_{-2}
+\mathrm{kms^{-1}}
+) was derived from
+\log M_{*}
+and the stellar mass Tully-Fisher relation
+[
+255
+]
+. We find that the combined model still yields only a low magnification of
+\mu=1.13^{+0.02}_{-0.01}
+. Alternatively, we computed the magnification by modelling the galaxy as a dual Pseudo Isothermal ellipse
+[
+256
+]
+, following the scaling relations of other cluster members and by using its F160W magnitude of
+25.28\pm 0.03
+(we verified that the magnitude uncertainty has a negligible impact on magnification). The scaling relations for parameters were constrained with
+Lenstool
+in the inner cluster regions. This method gives a more modest total magnification of
+\mu=1.066^{+0.004}_{-0.002}
+. We take the latter value as our best magnification estimate
+\mu=1.07^{+0.08}_{-0.01}
+. Considering that the uncertainty derived from different estimates is small, we correct masses, luminosities, and sizes presented in this work for CANUCS-LRD-z8.6 for a constant
+\mu=1.07
+.
+Extended Data Figure
+1
+shows the photometry of our target in 10 bands. We fit CANUCS-LRD-z8.6 with
+Galfit
+[
+257
+]
+and confirm that it is spatially unresolved in all filters (see Extended Data Figure
+2
+). From Galfit modelling, the object is consistent with a point source in all observed NIRCam filters. We perform a more refined fit accounting for the effect of gravitational lensing with
+Lenstruction
+[
+258
+,
+259
+,
+260
+]
+to place a more stringent limit on the physical size.
+Lenstruction
+performs forward modelling accounting for lensing and the instrumental point spread function. We use lensing maps from the main cluster model, which yields a conservative magnification estimate of
+\mu=1.056
+, and we choose a clear single star as PSF reference. We use 20 mas image in the F150W filter as this filter comes with the smallest PSF size while still retaining enough flux. The half-light radius of the object results to be smaller than
+<0.015
+arcsec with
+95\%
+confidence. This corresponds to an upper limit on the physical half-light radius of
+70
+pc.
+1.2
+Continuum and emission line fitting.
+The emission lines are fitted to the 1D spectrum of CANUCS-LRD-z8.6 using single or multiple Gaussian components (see below for details). LRDs often have a characteristic continuum shape, with a blue color in the rest-frame UV and red in the rest-frame optical. This is why we split the continuum emission of CANUCS-LRD-z8.6 in two parts modelled by two independent power-laws. In particular, we divide the spectrum in two parts visually setting
+\lambda_{\rm rest,sep}=3400\text{\AA}
+, wavelength at which the continuum slope changes sign. Any choice for
+\lambda_{\rm rest,sep}
+in the range
+3300-3600\text{\AA}
+led to perfectly consistent results. Although our spectrum does not display a prominent break at this location, we note that the wavelength at which our spectrum changes slope is similar to that of breaks observed in other LRDs
+[
+189
+,
+217
+]
+which have been interpreted as Balmer breaks. We discuss a possible physical interpretation of the spectral shape in Sect.
+1.9
+. We fit the two parts (UV and optical) of the spectrum separately (see Figure
+1
+). The spectrum is fitted accounting for the well-known variation of prism resolution with wavelength (see below).
+No Lyman-
+\alpha
+emission has been detected, and the shape of the spectrum around Lyman-
+\alpha
+seems to indicate the presence of a damping wing
+[
+261
+,
+262
+,
+263
+]
+. The analysis of Lyman-
+\alpha
+damping wing is beyond the scope of this paper. Therefore, we exclude the part of the spectrum with
+\lambda_{\rm rest}<1320\text{\AA}
+, avoiding any contamination from a possible damping wing given the damping wing’s size commonly found in the literature (
+\sim 2000-3000
+km s
+-1
+, see e.g.,
+[
+264
+,
+265
+]
+). Above
+\lambda_{\rm rest}=1320\text{\AA}
+, any detected emission line has been modelled with a single or multiple Gaussian components in case of line blending or broad emission.
+The doublet
+[O
+iii
+]λλ4959,5007
+has been fitted fixing the ratio between the peak fluxes (peak
+{}_{\text{[{O}\,{\sc{iii}}]{\textlambda}{4959}{}{}}}/{\rm peak}_{\text{[{O}\,{\sc{iii}}]{\textlambda}{5007}{}{}}}=0.335
+) and the wavelength separation (
+\Delta\lambda=47.94
+Å
+) of the two emission lines, and using the same FWHM for both emission lines. Similarly, we fit the
+[Ne
+iii
+]λ3869
+and
+[Ne
+iii
+]λ3967
+doublet adopting a ratio of 0.301 between the latter and the former, and a rest-frame wavelength separation of
+98.73
+Å
+, and considering the same FWHM for both emission lines. This reduces to 3 the number of free parameters for both the
+[O
+iii
+]
+and the
+[Ne
+iii
+]λ3869
+doublets. Given the prism resolution,
+[Ne
+iii
+]λ3869
+is still blended with
+Hζ
+,
+Hη
+and
+He
+i
+λ3889
+(see the following section).
+Apart from these two doublets, there are other 6 emission lines detected:
+N
+iv
+]λλ1483,1486
+,
+C
+iv
+,
+Hδ
+,
+Hγ
+,
+[O
+iii
+]λ4368
+, and
+Hβ
+. Each emission line is fitted with a single Gaussian with the only exception of
+Hβ
+, which shows signatures of a broad emission (see Extended Data Table
+1
+). When trying to fit
+Hβ
+with one single Gaussian component, the resulting
+\sigma_{\text{H\textbeta}}
+is greater than
+\sigma_{\text{[{O}\,{\sc{iii}}]{\textlambda}{5008}{}{}}}
+by more than
+7\%
+, which is the expected difference due to the poorer spectral resolution at
+\lambda_{\text{H\textbeta}}
+. Thus, the
+Hβ
+emission line is modelled with two Gaussians accounting for both the narrow and broad components.
+For the UV part of the spectrum, we have 8 free parameters in total (i.e., peak flux, peak wavelength, and FWHM for
+N
+iv
+]λλ1483,1486
+and same for
+C
+iv
+, power-law exponent and normalization for their underlying continuum), while for the optical part we have 24 free parameters: i.e., peak flux, peak wavelength, and FWHM for
+[Ne
+iii
+]λ3869
+,
+[O
+ii
+]
+,
+Hδ
+,
+Hγ
+,
+Hβ
+narrow
+,
+[O
+iii
+]λ5007
+; peak flux and FWHM for
+Hβ
+broad
+; peak flux and wavelength for
+[O
+iii
+]λ4364
+, given that we fixed FWHM
+{}_{\text{[{O}\,{\sc{iii}}]{\textlambda}{4364}{}{}}}={\rm FWHM}_{\text{[{O}\,{\sc{iii}}]{5008}{}{}{}}}
+; power-law exponent and normalization for their underlying continuum. We explore the parameter space for each part of the spectrum using a Markov chain Monte Carlo (MCMC) algorithm implemented in the
+EMCEE
+package
+[
+266
+]
+, assuming uniform priors for the fitting parameters, considering
+\sim 5
+walkers per parameter and 2000 trials (the typical burn-in phase is
+\sim
+200 trials). Priors on the FWHM are tight, depending on the resolution of the prism, with the exception of the FWHM
+{}_{\rm broad\text{H\textbeta}}
+. More precisely, the prior on the FWHM of the narrow component of every fitted emission line is set to be
+\rm FWHM^{\rm prior}_{narrowline}\in[1,2]
+spectral resolution elements. The size of the spectral resolution element at the peak wavelength of each fitted line is derived considering the well-known variation of the prism resolution with wavelength
+[
+267
+]
+.
+We compute the integrated fluxes by integrating the best-fitting functions for each emission line. In the Extended Data Table
+1
+, we report the fluxes and widths of the fitted emission lines. Unless otherwise stated, we report the median value of the posterior, and
+1\sigma
+error bars are the 16th and 84th percentiles. Upper or lower limits are given at
+3\sigma
+.
+1.3
+Hγ
+and
+[O
+iii
+]λ4364
+.
+Given the resolution of the prism,
+Hγ
+is blended with
+[O
+iii
+]λ4364
+; nonetheless a clear peak at the nominal
+[O
+iii
+]λ4364
+wavelength is observed (see Extended Data Figure
+3
+). Therefore, we fitted the blend using two Gaussian components and the results are shown in the Extended Data Table
+1
+(see Fiducial). Since we detected significant broad
+Hβ
+emission, a broad
+Hγ
+component could be present along with the narrow
+Hγ
+and
+[O
+iii
+]λ4364
+emission lines. We try to evaluate its impact on our results considering the detection of the broad
+Hβ
+emission. Hence, we re-fitted the spectrum adding an additional Gaussian component to the
+Hγ
+-
+[O
+iii
+]λ4364
+blend with
+{\rm FWHM}_{\text{H\textgamma}}={\rm FWHM}_{\text{H\textbeta}}
+,
+\lambda^{\rm peak}_{\rm\text{H\textgamma}_{broad}}=\lambda^{\rm peak}_{\rm\text{H\textgamma}_{narrow}}
+and the
+F^{\rm peak}_{\rm\text{H\textgamma}_{broad}}/F^{\rm peak}_{\rm\text{H\textbeta}_{broad}}
+ratio corresponding to Case B recombination (see Test 1 in Extended Data Table
+1
+). Alternatively we also fitted the broad H
+γ
+component considering
+F^{\rm peak}_{\rm\text{H\textgamma}_{narrow}}/F^{\rm peak}_{\rm\text{H\textgamma}_{broad}}=F^{\rm peak}_{\rm\text{H\textbeta}_{narrow}}/F^{\rm peak}_{\rm\text{H\textbeta}_{broad}}
+(see Test 2 in Extended Data Table
+1
+). The spectral resolution and sensitivity of our data do not allow us to be conclusive regarding the presence of a broad
+Hγ
+component, as shown in Extended Data Figure
+3
+. Even though the broad
+Hγ
+over-predicts the data at
+\lambda_{\rm rest}\sim 4300\text{\AA}
+, this is within
+1-2\sigma
+, leading to good residuals. Based on the reduced
+\chi^{2}
+criteria, the preferred solution is the one without the broad
+Hγ
+component (Fiducial), however the other two tests give still reasonably good fits. Therefore, hereafter, we will present primarily the results of our Fiducial fit, and we will discuss the uncertainties introduced by the possible broad
+Hγ
+component using the results from Tests 1 and 2.
+1.4
+Dust correction.
+In order to estimate the electron temperature,
+T_{e}
+, and the gas-phase metallicity (hereafter metallicity), O/H, line fluxes need to be corrected for dust reddening. We derive the nebular reddening,
+E(B-V)_{\rm neb}
+, using the observed ratio of H Balmer lines,
+Hβ
+and
+Hγ
+, assuming the Calzetti attenuation law
+[
+268
+]
+. Indeed, the attenuation curve of high-z galaxies is found to be consistent with the Calzetti law. Regarding the observed
+Hγ
+/
+Hβ
+ratio, we consider the three cases described in the previous section, depending on whether and how a broad
+Hγ
+component is included. To derive the reddening, we could have also used
+Hδ
+but, given the low S/N of this line (lower than for
+Hγ
+), we cannot evaluate the possible uncertainties introduced by the presence of a broad component. The intrinsic Balmer ratios are computed using
+pyneb
+[
+269
+]
+assuming
+T_{e}=10^{4}
+K, and
+n_{e}=10^{3}~\rm cm^{-3}
+; results remain in agreement within errorbars even if considering
+T_{e}=2\times 10^{4}
+K, and
+n_{e}=10^{4}~\rm cm^{-3}
+. The derived nebular reddening and dust attenuation are reported in Extended Data Table
+2
+. We note that the negative value found for our Fiducial model suggests the presence of a broad
+Hγ
+component, which adjusts the dust attenuation to a more reasonable value (see also Sect.
+1.9
+for a comparison with the stellar
+A_{V}
+from SED fitting). Emission line ratios are then computed using the reddening-corrected fluxes (see Extended Data Table
+2
+). By definition, due to the proximity of the involved lines,
+[O
+iii
+]λ5008
+/
+Hβ
+,
+[Ne
+iii
+]λ3869
+/
+[O
+ii
+]3727
+, and
+C
+iv
+/
+N
+iv
+]λλ1483,1486
+show almost no dependence on the reddening correction. These are the line ratios of interest for our study.
+[O
+ii
+]3727
+/
+Hβ
+shows a variation of
+\sim 0.3
+dex comparing the Fiducial with Test 1/2 models (when considering a broad
+Hγ
+component).
+1.5
+Line blending and contamination correction.
+When measuring
+[Ne
+iii
+]λ3869
+, we also include flux from
+Hη
+,
+Hζ
+(
+\lambda=3890.17
+Å
+) and
+He
+i
+λ3889
+, both of which are blended with
+[Ne
+iii
+]λ3869
+at the resolution of the prism (hereafter
+[Ne
+iii
+]
+blend
+=
+[Ne
+iii
+]λ3869
++
+Hζ
++
+He
+i
+λ3889
++
+Hη
+). To estimate the contamination, we proceed as follows.
+For
+Hζ
+and
+Hη
+, we calculate the dust-corrected ratio
+Hδ
+/
+[Ne
+iii
+]
+blend
+from the fiducial fit (see Extended Data Table
+2
+), finding a value of
+0.63^{+0.28}_{-0.20}
+. This means that the ratio
+Hη
+/
+[Ne
+iii
+]λ3869
+blend
+will be less than 0.18 and the ratio
+Hζ
+/
+[Ne
+iii
+]
+blend
+will be less than 0.25, assuming the Balmer ratios from Case B recombination,
+T_{\mathrm{e}}=20,000
+K and
+n_{\mathrm{e}}=10^{4}~\mathrm{cm}^{-3}
+[
+270
+]
+.
+For
+He
+i
+λ3889
+, the estimate is unfortunately unfeasible, since we cannot detect the
+He
+i
+λ5877
+line needed to infer the
+He
+i
+λ3889
+contamination to
+[Ne
+iii
+]λ3869
+. Thus we have
+(\text{H\textzeta}+\text{H\texteta})/\text{[{Ne}\,{\sc{iii}}]{}{}{}{}}_{\rm blend}<0.43
+, implying
+\text{[{Ne}\,{\sc{iii}}]{\textlambda}{3869}{}{}}/\text{[{Ne}\,{\sc{iii}}]{}{}{}{}}_{\rm blend}>0.57
+. This is an upper limit on the contamination because, as we noted, we could not consider the effect of
+He
+i
+λ3889
+. Moreover, considering the dust-corrected fluxes from either Test 1 or Test 2 would imply
+Hδ
+/
+[Ne
+iii
+]
+{}_{\rm blend}=0.5\pm 0.2,0.55\pm 0.2
+, and thus
+\text{[{Ne}\,{\sc{iii}}]{\textlambda}{3869}{}{}}/\text{[{Ne}\,{\sc{iii}}]{}{}{}{}}_{\rm blend}>0.66,0.63
+, respectively. In light of these difficulties, we do not apply the estimated correction. However, we show its magnitude for the fiducial case in the relevant figures.
+1.6
+Electron temperature and metallicity.
+We detect the auroral
+[O
+iii
+]λ4364
+line, which can be used together with the
+[O
+iii
+]λ5008
+to derive the electron temperature and gas-phase metallicity
+[
+271
+,
+272
+,
+273
+]
+. Indeed, the electron temperature,
+T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}})
+, of the high-ionization
+\rm O^{2+}
+zone of the nebula is computed from the dust-corrected
+[O
+iii
+]λ4364
+/
+[O
+iii
+]λ5008
+ratio (hereafter RO3). In each of the three cases discussed before, we find a high RO3 possibly indicating the presence of an AGN, a powerful ionizing source. Indeed, in Extended Data Figure
+4
+we compare the observed value for RO3 with models from
+pyneb
+. For the fiducial dust-corrected RO3,
+T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}})=4.0_{-1.2}^{+1.6}\times 10^{4}
+K, higher than the temperature usually found in normal star-forming galaxies (
+T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}})\sim 1-2\times 10^{4}
+K)
+[
+274
+,
+207
+]
+. Even when considering the presence of the broad
+Hγ
+component,
+T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}})
+is high within the uncertainty, at least
+>2\times 10^{4}
+K. Evidently from Extended Data Figure
+4
+, our result is insensitive of the electron density within a range of
+n_{e}=10^{2}-10^{4}\rm~cm^{-3}
+. Using the models of ref.
+[
+275
+]
+, we obtain a consistent result, having
+T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}})=3.9_{-1.0}^{+1.6}\times 10^{4}
+K. Other extreme RO3 have been found in other galaxies at same redshift
+[
+276
+,
+187
+,
+277
+]
+, at
+z\sim 4
+[
+278
+]
+, and are also found in low-z Seyfert galaxies
+[
+279
+,
+209
+,
+280
+]
+. In particular, similarly to our source, ref.
+[
+187
+]
+found extreme high electron temperature in an LRD at
+z=8.5
+also showing broad
+Hβ
+emission with FWHM
+=3439\rm~km~s^{-1}
+. These features led the authors to identify the LRD as a broad-line AGN, even in the absence of high ionization UV emission/absorption lines (e.g.
+C
+iv
+,
+N
+iv
+]λλ1483,1486
+,
+N
+v
+).
+Moreover, such a high ratio of
+[O
+iii
+]λ4364
+/
+Hγ
+as ours (
+\log(\text{[{O}\,{\sc{iii}}]{\textlambda}{4364}{}{}}/\text{H\textgamma})\sim-0.3
+) is observed in AGN
+[
+281
+,
+282
+]
+. This can be further seen by comparing nearby AGN and star-forming galaxies from SDSS
+[
+283
+]
+in the
+[O
+iii
+]λ4364
+/
+Hγ
+versus
+[O
+iii
+]λ5008
+/
+[O
+iii
+]λ4364
+line ratio diagram as done in ref.
+[
+204
+]
+for ZS7. In this diagram, local star-forming galaxies and AGN separate into two parallel sequences, with AGN occupying a region of higher electron temperatures and having elevated ratios of
+[O
+iii
+]λ4364
+/
+Hγ
+. Indeed, our target lies at the extreme end of the AGN population, the farthest from the star-forming galaxies.
+We want to derive a first-order estimate of the metallicity of our source from the total oxygen abundance
+\rm O/H=O^{2+}/H^{+}+O^{+}/H^{+}
+. To compute
+\rm O^{+}/H^{+}
+,
+T_{e}(\text{[{O}\,{\sc{ii}}]{}{}{}{}})
+is required. However, none of the
+[O
+ii
+]
+transitions (
+[O
+ii
+]3727
+,
+[O
+ii
+]λλ7322,7332
+) is or can be detected in the spectra. Therefore, we use the relation of ref.
+[
+284
+]
+:
+T_{e}(\text{[{O}\,{\sc{ii}}]{}{}{}{}})=0.7\times T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}})+3000~\rm K
+(1)
+For our fiducial case,
+T_{e}(\text{[{O}\,{\sc{ii}}]{}{}{}{}})=3.1\times 10^{4}
+K. Ionic and total oxygen abundances are computed using
+pyneb
+, assuming that all O is in either the
+\rm O^{2+}
+or
+\rm O^{+}
+states inside HII regions. Indeed,
+\rm O^{3+}
+may be neglected considering that it is
+<5\%
+of the total O even in extremely high-ionization systems
+[
+285
+,
+286
+]
+and it is negligible given the uncertainty of our computations. The
+\rm O^{2+}/H^{+}
+ratio is derived from the dust-corrected
+[O
+iii
+]5008
+/
+Hβ
+, the
+\rm O^{+}/H^{+}
+ratio from the dust-corrected
+[O
+ii
+]3727
+/
+Hβ
+upper limit, and we assume the
+T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}}),T_{e}(\text{[{O}\,{\sc{ii}}]{}{}{}{}})
+derived above for the fiducial case. Given that the upper limit on
+[O
+ii
+]3727
+/
+Hβ
+ratio and that the highest allowed electron temperature in Pyneb models is
+T_{e}=3\times 10^{4}
+K, we can derive an upper limit on the metallicity. Indeed,
+O/H
+ratios decrease at fixed line ratios and increasing electron temperature. The inferred metallicity of our source is
+12+\log(\rm O/H)<7.9
+or
+\log(Z/Z_{\odot})<-0.7
+. The upper limit becomes more stringent if considering the presence of the broad
+Hγ
+component (either Test 1 or 2), having
+12+\log(\rm O/H)<6.9
+or
+\log(Z/Z_{\odot})<-1.8
+. As a word of caution, we mention that the possible presence of very high-density regions (
+\log(n_{e})>>4
+) have an impact on the observed flux of the
+[O
+iii
+]λ5008
+line due to the collisional de-excitation of the lower level
+[O
+iii
+]λ5008
+bearing transition
+[
+287
+,
+288
+]
+. However, the available data prevent us from quantifying this effect since the density distribution cannot be derived.
+An additional evidence of CANUCS-LRD-z8.6 being metal-poor is given by the results obtained from the comparison of the ‘OHNO’ diagnostic, which relates the
+[O
+iii
+]5008
+/
+Hβ
+with
+[Ne
+iii
+]λ3869
+/
+[O
+ii
+]3727
+, with photo-ionization models (see Figure
+2
+). This diagnostic has been used to distinguish between the star-forming or AGN nature of galaxies at low- and high-z
+[
+226
+,
+227
+,
+212
+]
+. In Figure
+2
+we compare our results with
+z\sim 0
+SDSS AGNs (galaxies) as blue (pink) colormap with contours,
+z\sim 2
+MOSDEF galaxies and AGNs (black contours), SMACS 06355, 10612 and 04590 (red diamonds
+[
+289
+]
+; the left-most square of the three is 06355, the type-II AGN identified by
+[
+282
+]
+), the type-I AGN host GS 3073 at
+z=5.55
+(filled pink and hollow diamond, the latter estimating the flux of
+[Ne
+iii
+]λ3869
+based on the Case B assumption modulated by the median dust attenuation;
+[
+288
+]
+), and the
+z=7.15
+AGN type-I’s host galaxy ZS7 (yellow cross and diamond, depending on whether line fluxes are computed from the BLR location or
+[O
+iii
+]
+centroid, respectively;
+[
+204
+]
+). Overlaid are the AGN photoionization models of ref.
+[
+194
+]
+at hydrogen densities
+\log n{\rm[cm^{-3}]}=2.0
+(gray scale) and
+\log n{\rm[cm^{-3}]}=4.0
+(coloured scale). Our observed ‘OHNO’ ratios point towards
+\log(Z/Z_{\odot})<-1.0
+. Our stringent lower limit on
+[Ne
+iii
+]λ3869
+/
+[O
+ii
+]3727
+also indicates high-ionization (ionizing parameter of
+\log U\sim-1.5
+), and similar results have been reported in other AGN candidates at
+z>8
+[
+212
+,
+187
+]
+. Alternatively, we also compute the gas-phase metallicity just from the fiducial dust-corrected
+[O
+iii
+]5008
+/
+Hβ
+ratio using the empirical relation found in refs.
+[
+274
+,
+290
+,
+291
+]
+, assuming the narrow lines to be dominated by star formation. This implies a low metallicity of
+12+\log(\rm O/H)=7.08_{-0.12}^{+0.14}
+(
+Z\sim 0.02~Z_{\odot}
+),
+12+\log(\rm O/H)=7.40_{-0.11}^{+0.13}
+(
+Z\sim 0.05~Z_{\odot}
+), and
+12+\log(\rm O/H)=7.28_{-0.12}^{+0.15}
+(
+Z\sim 0.04~Z_{\odot}
+), respectively, which are consistent with the results from the ‘OHNO’ diagnostic indicating
+Z<<0.1Z_{\odot}
+.
+1.7
+C
+iv
+,
+N
+iv
+]λλ1483,1486
+,
+N
+v
+, and
+[Ne
+v
+]
+.
+High-ionization lines requiring photoionization energy
+>50-60
+eV, such as
+N
+iv
+]λλ1483,1486
+,
+N
+v
+, and
+[Ne
+v
+]
+are signatures of the presence of an AGN. Even though
+C
+iv
+is also usually associated with the presence of a central AGN
+[
+201
+,
+198
+]
+, it is not an unambiguous tracer of an AGN in the absence of other signatures (e.g.,
+N
+iv
+]λλ1483,1486
+, broad emission), since it has also been detected in some low-mass low-Z galaxies at high-z. We have clear evidence of
+N
+iv
+]λλ1483,1486
+and
+C
+iv
+emission, while both
+N
+v
+and
+[Ne
+v
+]
+remain undetected, as well as
+C
+iii
+]
+. We note, however, that the resolution of the prism does not allow us to assess the presence of
+N
+v
+since it is blended with the Ly
+\alpha
+and its damping wing. In many AGNs some of these emission lines are either very weak or undetected if the S/N is not high enough
+[
+292
+,
+293
+,
+294
+]
+. For instance, in the type 1.8 AGN GS-3073 at
+z=5.5
+[
+295
+,
+213
+,
+296
+]
+, the
+N
+v
+is five times weaker than
+N
+iv
+]λλ1483,1486
+, which would be totally undetected in our spectrum. Similarly,
+N
+v
+is undetected in GNz-11
+[
+201
+]
+and in other type 1 quasars
+[
+297
+]
+, while
+N
+iv
+]λλ1483,1486
+is strong. As discussed in
+[
+201
+,
+297
+]
+,
+[Ne
+v
+]
+/
+[Ne
+iii
+]λ3869
+can be quite low in AGNs, down to
+10^{-2}-10^{-4}
+. Recently, the simultaneous detection of both
+C
+iv
+and
+N
+iv
+]λλ1483,1486
+in galaxies at
+z\sim 7
+has been attributed to ionization by dense clusters of massive stars formed during an intense burst of star formation
+[
+197
+]
+. This interpretation is supported by high observed specific star formation rates (sSFR
+>300-1000
+Gyr
+-1
+) and large
+Hβ
+equivalent widths (EW
+>400-600\text{\AA}
+). However, for CANUCS-LRD-z8.6, this scenario is unlikely due to its very low inferred sSFR (sSFR
+<10
+Gyr
+-1
+; see Sect.
+1.9
+and Figure 18 in ref.
+[
+197
+]
+), indicating that sources other than massive stars are needed to account for its strong ionization.
+Given the uncertainties on the dust correction given by the possible presence of a broad
+Hγ
+component and the absence of the
+O
+iii
+]λ1666
+emission line in the UV, we will just discuss the
+C
+iv
+/
+N
+iv
+]λλ1483,1486
+ratio, which is reddening insensitive, leaving aside the discussion about the C/O or N/O ratios. Assuming that all the nitrogen is in
+\rm N^{3+}
+, emitted in
+N
+iv
+]λλ1483,1486
+, and all the carbon in
+\rm C^{3+}
+, emitted in
+C
+iv
+, we obtain a low
+C
+iv
+/
+N
+iv
+]λλ1483,1486
+ratio having dust corrected
+\log(\text{{C}\,{\sc{iv}}{}{}{}{}}/\text{{N}\,{\sc{iv}}]{\textlambda}{\textlambda}{1483,}{1486}})=0.07\pm 0.3
+.
+Assuming a temperature of
+40,000
+K as derived from from the
+[O
+iii
+]λ4364
+/
+[O
+iii
+]λ5008
+ratio and a density of
+n_{e}=10^{3}
+cm
+-3
+, we infer a carbon-over-nitrogen abundance of log(C/N)
+=-0.75\begin{subarray}{c}+0.05\\
+-0.04\end{subarray}
+. Such low C/N abundance ratio is similar to what was reported for some nitrogen-enriched galaxies recently observed at high redshift
+[
+298
+]
+, and aligns with abundance patterns measured for dwarf stars in local globular clusters
+[
+299
+]
+, possibly suggesting that material-enriched through the CNO cycle has been effectively ejected via powerful stellar winds from the outermost layers of massive stars
+[
+300
+,
+301
+,
+302
+]
+.
+1.8
+Black hole mass and bolometric luminosity of the AGN.
+Robust estimates of BH masses usually come from reverberation mapping studies, which unfortunately are not feasible at high-z. Therefore, the so-called single-epoch virial mass estimate of
+M_{\rm BH}
+is often used
+[
+186
+,
+198
+]
+, assuming that virial relations are still valid at high-z and considering the continuum or line luminosity and the FWHM of the broad emission lines. For this work, we use the empirically derived relation:
+\dfrac{M_{\rm BH}}{\rm M_{\odot}}=\alpha\biggl(\dfrac{L_{\lambda}}{10^{44}\rm erg~s^{-1}}\biggr)^{\beta}\biggl(\dfrac{\rm FWHM_{line}}{10^{3}\ \rm km~s^{-1}}\biggr)^{2},
+(2)
+where the best-fit values for the scaling parameters
+\alpha,\beta
+depend on the respective emission lines and/or monochromatic luminosity
+L_{\lambda}
+chosen. For instance, considering the H
+\beta
+line one has
+\alpha=(4.4\pm 0.2)\times 10^{6},\beta=0.64\pm 0.2
+at
+L_{\lambda}=L_{\text{H\textbeta}}
+or, considering the continuum luminosity at rest-frame 5100
+Å
+,
+L_{5100\text{\AA}}
+, it is found
+\alpha=(4.7\pm 0.3)\times 10^{6},\beta=0.63\pm 0.06
+at
+L_{\lambda}=\lambda L_{5100\text{\AA}}
+[
+193
+]
+. The BH masses derived from these relations can be found in Extended Data Table
+3
+. Alternatively, we also used the relations of
+[
+303
+]
+, finding a systematic rise in BH mass of
+\sim 0.15-0.2
+dex. These relationships are calibrated to the most recently updated and robust mass determinations from reverberation mapping. The majority of reverberation mapping studies have been conducted using
+Hβ
+on low redshift AGN
+[
+304
+,
+305
+,
+306
+,
+307
+]
+. For high-z sources, the MgII or
+C
+iv
+line is often utilised. However, this involves applying additional scaling from the H
+\beta
+line to formulate the virial mass based on other lines
+[
+308
+]
+. These relations have been used to measure BH masses for thousands of sources with an estimated uncertainty of about factor 2-3 (i.e. dex=0.3-0.5
+[
+309
+]
+), when using either
+Hβ
+or MgII. Estimates based on the high ionization
+C
+iv
+line are even more uncertain (
+>0.5
+dex), as this line shows large velocity offsets, implying significant non-virialized motions
+[
+310
+,
+311
+]
+. Moreover, there is mounting evidence that large CIV blueshifts (
+>2000
+km s
+-1
+) are more common at
+z>6
+than at lower redshifts
+[
+312
+,
+313
+,
+314
+]
+. Since the prism resolution of our data does not allow us to distinguish between the narrow and broad
+C
+iv
+component, either from the BLR or from outflows, we do not use the detected
+C
+iv
+emission line to infer the
+M_{\rm BH}
+. We report our estimate for the BH mass of CANUCS-LRD-z8.6 from both
+Hβ
+and
+L_{5100\text{\AA}}
+in Extended Data Table
+3
+for our fiducial fit.
+From the BH mass measurements (
+M_{\rm BH,\text{H\textbeta}},M_{\rm BH,5100\text{\AA}}
+), we calculate the Eddington luminosity:
+L_{\rm Edd,\text{H\textbeta}/5100\text{\AA}}=1.3\times 10^{38}\biggl(\dfrac{M_{\rm BH,\text{H\textbeta}/5100\text{\AA}}}{M_{\odot}}\biggr){~\rm erg~s^{-1}}
+(3)
+We also compute the bolometric luminosity (
+L_{\rm bol}
+) of the AGN using the continuum luminosity at 3000
+Å
+and using the bolometric correction presented by ref.
+[
+315
+]
+. From the
+L_{\rm Edd}
+and
+L_{\rm bol}
+, we derive the corresponding Eddington ratios
+\lambda_{\rm Edd}=L_{\rm bol}/L_{\rm Edd}=0.1
+. We report all our results in Extended Data Table
+3
+. We find comparable quantities (within 0.2-0.5 dex) also for the Test 1 and Test 2 cases.
+1.9
+Spectral energy distribution fitting
+We perform a spectro-photometric fit to the NIRCam photometry and NIRSpec spectroscopy using
+Bagpipes
+[
+228
+,
+229
+]
+with the primary goal of determining the stellar mass for CANUCS-LRD-z8.6. There was no need to scale the spectrum to the photometry.
+In the
+Bagpipes
+SED fitting procedure, we fix the redshift to the spectroscopic redshift of 8.63, and we assume a double power law (DPL) star formation history (SFH), Calzetti dust attenuation curve
+[
+316
+]
+, and Chabrier initial mass function (IMF)
+[
+317
+]
+. The priors for the fitting parameters are reported in Extended Data Table
+4
+. We fixed the ionization parameter to
+\log(U)=-1.5
+, which is derived from the ‘OHNO’ diagnostic (see Sect.
+1.6
+). We also set the range of metallicity considering the highest upper limit derived from observations,
+Z<0.2~Z_{\odot}
+(see Sect.
+1.6
+). We checked that our results do not change when increasing the upper bound of the metallicity range up to
+Z=2.5~Z_{\odot}
+.
+We adopt a Calzetti attenuation curve in the SED fitting procedure as the dust attenuation curves of high-redshift galaxies (
+z>6
+) are generally found to be flat and lack a prominent UV bump feature
+[
+318
+,
+319
+]
+. In addition to using the Calzetti standard template as our fiducial dust attenuation model, we try to fit the data with an SMC template. Moreover, we adopt a flexible analytical attenuation model
+[
+318
+,
+319
+]
+to better constrain the shape of the dust attenuation curve for our object. The resulting inferred attenuation curve is Calzetti-like, though slightly shallower in the rest-frame UV. We also found that the assumed shape of the dust attenuati
+on curve significantly impacts the inferred V-band dust attenuation (
+\Delta A_{V}\sim 0.6~\rm{dex}
+), which in turn affects fundamental galaxy properties to a lesser extent (e.g.,
+M_{*}
+, SFR, and stellar age by
+0.2-0.4
+dex) due to degeneracies. This is consistent with previous studies which conducted similar analysis
+[
+320
+,
+321
+,
+322
+,
+318
+]
+.
+Alongside the DPL model, which we use as our fiducial SFH model, we also perform fits with other SFHs, including the non-parametric SFHs from ref.
+[
+323
+]
+and the Leja model with a continuity prior
+[
+324
+]
+, and the parametric exponentially declining SFH. We found similar results within uncertainties regardless of the SFH model choice. However, this may be an exception rather than the rule, as some studies in the literature indicate that SFH model selection can significantly impact the inferred galaxy properties
+[
+324
+,
+325
+,
+322
+,
+326
+,
+318
+]
+.
+Firstly, we fitted the observed SED without including an AGN contribution (no-AGN run). Therefore, to allow reliable estimates of the inferred host galaxy’s properties, we subtracted from the observed spectrum the broad
+Hβ
+component, which is a clear AGN signature, using the best-fitting model shown in Figure
+1
+. We checked that subtracting the
+C
+iv
+and
+N
+iv
+]λλ1483,1486
+did not change the fitting results. We did not treat the UV continuum, since the real AGN contribution in LRDs to the UV flux is still unknown, and we wanted to understand what the properties of CANUCS-LRD-z8.6 would be if all the observed UV light came from stars. Extended Data Figure
+5
+shows the
+Bagpipes
+spectro-photometric fit in orange along with the posterior distribution of some quantities of interest and the resulting SFH. Results for the fitting parameters are reported in Extended Data Table
+4
+. The best-fitting
+Bagpipes
+model is able to reproduce most of the shape of the observed spectrum of CANUCS-LRD-z8.6. However, it does not capture some features that can be ascribed to the presence of a powerful ionizing source: (i) the non-detection of
+[O
+ii
+]3727
+emission while a very bright
+[O
+iii
+]λ5008
+emission; (ii) the full
+Hγ
+-
+[O
+iii
+]λ4364
+flux, possibly due to the presence of a broad
+Hγ
+component; (iii) the red slope of the continuum in the optical regime; (iv) the
+C
+iv
+and
+N
+iv
+]λλ1483,1486
+emissions. Indeed, in this run of
+Bagpipes
+, the main excitement mechanism for emission lines comes from stars thus, in our case, simple stellar population (SSP) models cannot reproduce all the observed spectral features.
+Consequently, we run
+Bagpipes
+including a model
+for AGN continuum, broad
+Hβ
+and
+Hγ
+emission
+[
+230
+]
+(AGN run). In
+Bagpipes
+, following ref.
+[
+327
+]
+, the AGN continuum emission is modelled with a broken power law, with two spectral indices and a break at
+\lambda_{\rm rest}=5100\text{\AA}
+. The broad
+Hβ
+is modelled as a Gaussian varying normalization and velocity dispersion. The broad
+Hγ
+has the same parameters of the broad
+Hβ
+but with the normalization divided by the standard ratio from Case B recombination
+[
+328
+]
+. Extended Data Figure
+6
+shows the
+Bagpipes
+spectro-photometric fit in orange along with the posterior distribution of some quantities of interest and the resulting SFH. The red continuum in the optical is now captured by the best-fitting model, as well as the broad emissions. Furthermore, the
+[O
+ii
+]
+emission is dimmer than in the previous run, yet it still does not align with the observed non-detection. The metallicity in both runs (w/o and with AGN) is in agreement with the observed data. The dust attenuation is
+\sim 3.5
+times higher than in the previous run, causing the stellar mass to increase by 0.3 dex. We did not set a tight prior on
+A_{V}
+since the observed value is very uncertain (see Sec.
+1.4
+and Extended Data Table
+2
+); indeed it is in agreement within errors with the results of both no-AGN and AGN runs, considering that
+A_{V}=0.44A_{V}^{\rm neb}
+assuming a Calzetti dust law
+[
+316
+]
+. However, in order to compare with the results from the no-AGN run, we run
+Bagpipes
+including the AGN model as before and setting a tight Gaussian prior around the value of
+A_{V}
+determined from the no-AGN run (AGN-tight run), and we obtained
+A_{V}=0.7\pm 0.2
+and
+\log(M_{*}/M_{\odot})=9.45\pm 0.07
+. Discussing the result for the spectral index in the UV regime,
+\alpha_{\lambda}
+, our best-fit model favours a very low
+\alpha_{\lambda}
+, at the edge of the prior close to
+-2
+. The continuum slope in the UV is usually found to be within the
+(-2,2)
+range of values
+[
+327
+,
+329
+,
+330
+,
+331
+]
+, and
+\alpha_{\lambda}=-2
+gives a good result in terms of residuals, comparable to the no-AGN case. However, we performed an addition run with
+Bagpipes
+extending the lower range of the prior on
+\alpha_{\lambda}
+down to
+-4
+, in order to ascertain the implications on the derived properties. In this case, the best fit
+\alpha_{\lambda}
+is equal to
+-2.4\pm 0.1
+, and the stellar mass show a slight increase to
+\log(M_{*}/M_{\odot})=10.1\pm 0.1
+, while the other properties still remain consistent within errorbars. Finally, the degeneracy between the AGN model,
+A_{V}
+and
+M_{*}
+is evident, and prevents us from obtaining a precise determination of
+M_{*}
+. For the aim of this work, we considered the
+M_{*}
+derived from the AGN-run as fiducial, and its error accounts for the uncertainties due to the variation of the SED model, i.e.
+\log(M_{*}/M_{\odot})=9.85^{+0.32}_{-0.48}
+(corrected for magnification).
+With these caveats, we hypothesize a physical model of the CANUCS-LRD-z8.6 system which can account for all of the observations and the derived properties. As shown in Extended Data Figure
+6
+, the AGN dominates the UV continuum when it is included in the fit. Combined with the observed broad
+Hβ
+and high-excitation UV lines, this suggests our sight-line to the AGN is not heavily dust-obscured. On the other hand, the fit prefers a lower AGN contribution in the rest-optical regime, instead accounting for the red continuum with more dust obscuration of the stellar component. Given the very compact size of the source and the significant SFR inferred from the fit (
+\sim 50~\rm M_{\odot}yr^{-1})
+, it is reasonable to infer that the bulk of the stellar light is embedded in stellar birth clouds, leading to high obscuration. Ref.
+[
+332
+]
+show that even small amounts of dust can cause significant obscuration in LRDs given their compactness. Altogether, this points to a highly compact system undergoing an episode of star formation with a high dust covering fraction in which a highly energetic AGN has cleared a sight-line in our direction
+[
+333
+,
+334
+,
+335
+]
+. This perhaps points toward CANUCS-LRD-z8.6 being a more evolved system than some other observed LRDs that exhibit less massive BHs and host galaxies, on its way to becoming a system resembling the brightest quasars at
+z=6
+rather than the lower luminosity AGNs recently discovered by JWST in this redshift range (see also Sect.
+1.10
+). Extended Data Figure
+7
+shows a visual representation of this physical configuration.
+Even though the run including the AGN component better reproduces the observed data, higher wavelength observations are needed to constrain the real AGN contribution to the observed multiwavelength light of CANUCS-LRD-z8.6. How best to incorporate AGN components in SED fitting for LRDs remains a topic of ongoing debate due to the inability of current data to meaningfully distinguish between different models
+[
+336
+,
+332
+,
+189
+]
+. In light of these uncertainties, we decided to use the stellar mass of the AGN-run and to account for the variation arising from the other models (no-AGN, AGN-tight) in the error bars.
+1.10
+Comparison with simulations and semi-analytical models
+In this section, we investigate the possible formation channels for the massive BH powering CANUCS-LRD-z8.6 by comparing the inferred BH mass with predictions from semi-analytical models (SAM) and numerical simulations.
+To get a first approximate idea about the possible growth history of the CANUCS-LRD-z8.6’s BH, we first assume that this BH has been accreting for its entire history at a fixed rate, expressed as a fraction of the Eddington rate, with a constant radiative efficiency
+\epsilon=0.1
+. As shown in Figure
+4
+, fixing the accretion rate to the observed value (
+\lambda_{\rm Edd}=0.1
+) requires an extremely heavy BH mass (
+M_{\rm seed}>3\times 10^{7}~M_{\odot}
+) at redshifts higher than 25. This seed mass is higher than any value predicted by theoretical models
+[
+337
+]
+. This implies that, at earlier epochs, the BH powering CANUCS-LRD-z8.6 must have been accreted at rates higher than the one observed at
+z=8.63
+.
+Assuming
+\lambda_{\rm Edd}=1
+leads to a seed mass of
+M_{\rm seed}\sim 10^{4}~M_{\odot}
+at
+z\sim 25
+or
+M_{\rm seed}\gtrsim 10^{5}~M_{\odot}
+at
+z\sim 15
+. This growth path is consistent both with intermediate-mass BHs formed in dense star clusters
+[
+338
+]
+and with heavy seeds predicted by the direct-collapse BH scenario
+[
+234
+]
+.
+Assuming
+\lambda_{\rm Edd}=1.5
+, the required seed mass would be consistent with low-mass seeds (10-100
+M_{\odot}
+) from Pop III stellar remnants at
+z\gtrsim 20
+[
+339
+]
+. This argument suggests that the BH in CANUCS-LRD-z8.6 originates from heavy seeds, constantly growing at a pace close to Eddington, or from light seeds constantly growing at super-Eddington rates.
+In the following, we discuss the formation channel of CANUCS-LRD-z8.6’s BH more accurately by performing a comparison with SAM predictions. Initially, we consider the results by ref.
+[
+223
+]
+, hereafter C24, which are able to reproduce several important global properties of galaxies both at high and low redshifts, such as the luminosity and stellar mass functions of galaxies from the local Universe up to
+z\sim 9
+[
+223
+, ; Cammelli et al, 2025, in prep]
+, and the local
+M_{\rm BH}-M_{*}
+relation. The C24 models are based on the GAEA SAM
+[
+340
+,
+341
+]
+run on merger trees extracted by using the
+PINOCCHIO
+code
+[
+342
+]
+,
+and we consider here two different seeding models: (i) Pop III.1, a scheme that allows for an early formation of massive seeds (
+\sim 10^{5}\ M_{\odot}
+) at
+z\sim 25
+from the collapse of Pop III protostars
+[
+343
+]
+; this formation mechanism is physically motivated and does not depend on the mass resolution of the simulation; (ii) All Light Seed (ALS), a model that results into seeds of 10-100
+M_{\odot}
+.
+For the scope of this work, we compare CANUCS-LRD-z8.6 with the most massive BHs predicted by the C24 models at
+z\sim 8
+for the two seeding prescriptions, as shown in the left panel of Exteded Data Figure
+8
+. We find that all these models fail in capturing the CANUCS-LRD-z8.6’s BH mass at
+z=8.6
+by several orders of magnitudes. This suggests that exists a population of high-redshift BHs, with CANUCS-LRD-z8.6 representing the most extreme example at
+z\sim 8.6
+, that cannot be explained by these SAMs employing standard prescriptions, although the same models successfully describe larger galaxy and AGN populations from the local up to the high-
+z
+Universe.
+We further consider the results by ref.
+[
+224
+]
+, which investigates the formation of massive BHs at
+z>7
+by means of the SAM Cosmic Archaeology Tool (CAT)
+[
+344
+]
+.
+In this work, the seeding prescription accounts for both light and heavy seeds, and the BH growth can occur in the Eddington-limited (EL) and super-Eddington (SE) regimes. As can be seen from the left panel of Extended Data Figure
+8
+, in the CAT framework, super-Eddington accretion is essential to assemble a large amount of mass within 500 Myr (see also
+[
+345
+,
+346
+]
+) and therefore to reproduce the CANUCS-LRD-z8.6 inferred mass. The EL model predicts BH masses that are consistent with GNz-11 at
+z\sim 10
+and CEERS-1019 at
+z\sim 8.7
+[
+212
+]
+, but do not exceed
+\sim 10^{7}\ M_{\odot}
+, therefore being inconsistent with our new data. From this analysis, CANUCS-LRD-z8.6 emerges as a very extreme source at these early epochs.
+The main caveat of SAMs is that they cannot fully capture the complex and non-linear interplay between BH accretion and feedback processes. Therefore the growth predicted in SAMs during the SE phase might be too efficient, if compared to more sophisticated models, e.g. hydrodynamical numerical simulations. This is clearly shown by the results of ref.
+[
+347
+,
+348
+]
+that are based on numerical simulations with light seeds growing at super-Eddington pace. From the ref.
+[
+347
+]
+(
+[
+348
+]
+) results, it can be seen that early light seeds, even if accreting at super-Eddington rate, can reach a maximum mass of
+10^{5}~M_{\odot}
+(
+10^{7}~M_{\odot}
+) at
+z\sim 6
+, thus being unable to reproduce the BH masses estimated so far at
+z>6
+. For this reason, most of the numerical hydro-dynamical simulations of BH formation and growth
+3
+3
+3
+The accretion rate onto the BHs is modeled according to the Bondi-Hoyle-Lyttleton prescription
+[
+349
+,
+350
+,
+351
+]
+, with a boost factor
+\alpha
+used as a correction factor for the spatial resolution of the gas distribution surrounding the BH.
+assume a heavy seed prescription (
+M_{\rm seed}>10^{5}~M_{\odot}
+) to reproduce the large masses of BHs powering
+z\sim 6
+quasars.
+In what follows, we separately discuss predictions from simulations that cap the BH accretion to the Eddington limit and those that allow for super-Eddington growth. In the middle panel of Extended Data Figure
+8
+, we report the results of EL simulations. We find that the only simulation that can reproduce the CANUCS-LRD-z8.6 BH mass is the reference run by
+[
+347
+]
+, whereas ref.
+[
+222
+]
+, when using the numerical recipe of the
+FABLE
+suite
+[
+240
+]
+, and ref.
+[
+352
+]
+predict a BH mass that is
+\sim
+1 order of magnitude smaller. Interestingly, all the simulations reported in this panel, though being inconsistent with CANUCS-LRD-z8.6, are capable of reproducing AGN candidates such as GNz-11 at
+z\sim 10
+and CEERS-1019 at
+z\sim 8.7
+[
+212
+]
+, and the estimated masses of BHs powering
+z\sim 6
+quasars, apart from the most extreme case of J0100+2802 (
+M_{\rm BH}\sim 10^{10}~M_{\odot}
+,
+[
+198
+]
+). This underlines once more that the BH mass of CANUCS-LRD-z8.6 is the most challenging for theoretical models. We further notice that the simulations by
+[
+347
+]
+predict a BH mass at
+z\sim 8
+that is
+\sim 2
+orders of magnitude smaller with respect to the reference run if a radiative efficiency larger than only a factor of two is considered. This clearly shows how sensitive predictions from numerical simulations are to the feedback prescriptions implemented.
+We now move to numerical simulations of heavy BH seeds’ growth, including super-Eddington accretion, shown in the right panel of Extended Data Figure
+8
+. First of all, we note that the reference run by
+[
+222
+]
+is able to reproduce not only CANUCS-LRD-z8.6 but also
+z\sim 6
+quasars, including the extreme case of J0100+2802. With respect to the original recipe employed in the
+FABLE
+suite (shown in the middle panel), in the reference run the authors apply the following variations: (i) reduce the halo mass where BH seeds are placed (from
+M_{h}=5\times 10^{10}~h^{-1}~\rm M_{\odot}
+to
+M_{h}=\times 10^{9}~h^{-1}~\rm M_{\odot}
+), effectively resulting in earlier BH seeding (from
+z\sim 13
+to
+z\sim 18
+); (ii) reduce the overall AGN feedback; (iii) allow for mild super-Eddington accretion (
+\lambda_{\rm Edd}=2
+). All these changes promote early BH growth, which emerges as a necessary condition to explain the BH mass of early AGN and quasars.
+Interestingly, this simulation supports a scenario in which CANUCS-LRD-z8.6 represents a progenitor of the most massive QSOs at
+z>6
+, such as J0100+2802.
+We further notice that the run
+Bh22d
+of ref.
+[
+352
+]
+(see also the similar setup used in ref.
+[
+353
+]
+) predicts a rapid mass assembly consistent with CANUCS-LRD-z8.6, if the accretion rate is boosted (
+\lambda_{\rm Edd}=2
+,
+\alpha=100
+)
+and
+the radiative efficiency is low (
+\epsilon=0.1
+), which in turn lowers the AGN feedback effect on the BH growth. Similarly,
+[
+347
+,
+354
+]
+find the AGN feedback to be the most limiting factor in BH growth.
+Notably, in
+[
+347
+]
+, the BH grows less in the super-Eddington regime due to the excessive feedback. However, this conclusion is sensitive to the detailed numerical implementation. Ref.
+[
+355
+]
+explored the BH growth with high-resolution numerical simulations with a comprehensive model of AGN feedback in the super-Eddington regime. They find that the jet power in the super-Eddington regime is a critical factor in regulating the accretion rate onto the BH, because of its ability to remove the fueling gas, as also found in other works
+[
+356
+]
+. Their run with low feedback predicts a BH mass at
+z\sim 8.5
+only a factor of
+\sim 2
+smaller than CANUCS-LRD-z8.6.
+The comparison among results from different numerical simulations emphasizes how complex is the modeling of BH seeding, accretion rate, and AGN feedback, and how important it is to collect observational data as the one provided in this work. CANUCS-LRD-z8.6 poses significant challenges to both hydrodynamical simulations and semi-analytical models. Its existence requires a rapid and efficient assembling of
+10^{8}~M_{\odot}
+in only 500 Myr, thus providing stringent constraints to seeding prescriptions, feedback recipes, and accretion models in theoretical models.
+References
+[179]
+Pablo. Pérez-González et al.
+“What Is the Nature of Little Red Dots and what Is Not, MIRI SMILES Edition”
+In
+ApJ
+968.1
+, 2024, pp. 4
+DOI:
+10.3847/1538-4357/ad38bb
+[180]
+Christina. Williams et al.
+“The Galaxies Missed by Hubble and ALMA: The Contribution of Extremely Red Galaxies to the Cosmic Census at 3 ¡ z ¡ 8”
+In
+ApJ
+968.1
+, 2024, pp. 34
+DOI:
+10.3847/1538-4357/ad3f17
+[181]
+Jorryt Matthee et al.
+“Little Red Dots: An Abundant Population of Faint Active Galactic Nuclei at z
+\sim
+5 Revealed by the EIGER and FRESCO JWST Surveys”
+In
+ApJ
+963.2
+, 2024, pp. 129
+DOI:
+10.3847/1538-4357/ad2345
+[182]
+Jenny. Greene et al.
+“UNCOVER Spectroscopy Confirms the Surprising Ubiquity of Active Galactic Nuclei in Red Sources at z ¿ 5”
+In
+ApJ
+964.1
+, 2024, pp. 39
+DOI:
+10.3847/1538-4357/ad1e5f
+[183]
+Dale. Kocevski et al.
+“The Rise of Faint, Red AGN at
+z>4
+: A Sample of Little Red Dots in the JWST Extragalactic Legacy Fields”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2404.03576
+DOI:
+10.48550/arXiv.2404.03576
+[184]
+Vasily Kokorev et al.
+“A Census of Photometrically Selected Little Red Dots at
+4<z<9
+in JWST Blank Fields”
+In
+ApJ
+968.1
+, 2024, pp. 38
+DOI:
+10.3847/1538-4357/ad4265
+[185]
+Kevin. Hainline et al.
+“An Investigation Into The Selection and Colors of Little Red Dots and Active Galactic Nuclei”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.00100
+DOI:
+10.48550/arXiv.2410.00100
+[186]
+Roberto Maiolino et al.
+“JADES. The diverse population of infant Black Holes at 4¡z¡11: merging, tiny, poor, but mighty”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2308.01230
+DOI:
+10.48550/arXiv.2308.01230
+[187]
+Vasily Kokorev et al.
+“UNCOVER: A NIRSpec Identification of a Broad-line AGN at z = 8.50”
+In
+ApJ
+957.1
+, 2023, pp. L7
+DOI:
+10.3847/2041-8213/ad037a
+[188]
+Anthony. Taylor et al.
+“Broad-Line AGN at
+3.5<z<6
+: The Black Hole Mass Function and a Connection with Little Red Dots”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2409.06772
+DOI:
+10.48550/arXiv.2409.06772
+[189]
+Bingjie Wang et al.
+“RUBIES: Evolved Stellar Populations with Extended Formation Histories at z
+\sim
+7–8 in Candidate Massive Galaxies Identified with JWST/NIRSpec”
+In
+ApJ
+969.1
+, 2024, pp. L13
+DOI:
+10.3847/2041-8213/ad55f7
+[190]
+Emmanuel Durodola, Fabio Pacucci and Ryan. Hickox
+“Exploring the AGN Fraction of a Sample of JWST’s Little Red Dots at
+5<z<8
+: Overmassive Black Holes Are Strongly Favored”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2406.10329
+DOI:
+10.48550/arXiv.2406.10329
+[191]
+Joseph Silk et al.
+“Which Came First: Supermassive Black Holes or Galaxies? Insights from JWST”
+In
+ApJ
+961.2
+, 2024, pp. L39
+DOI:
+10.3847/2041-8213/ad1bf0
+[192]
+Guillaume Desprez et al.
+“
+\Lambda
+CDM not dead yet: massive high-z Balmer break galaxies are less common than previously reported”
+In
+MNRAS
+530.3
+, 2024, pp. 2935–2952
+DOI:
+10.1093/mnras/stae1084
+[193]
+Jenny. Greene and Luis. Ho
+“Estimating Black Hole Masses in Active Galaxies Using the H
+\alpha
+Emission Line”
+In
+ApJ
+630.1
+, 2005, pp. 122–129
+DOI:
+10.1086/431897
+[194]
+A. Feltre, S. Charlot and J. Gutkin
+“Nuclear activity versus star formation: emission-line diagnostics at ultraviolet and optical wavelengths”
+In
+MNRAS
+456.3
+, 2016, pp. 3354–3374
+DOI:
+10.1093/mnras/stv2794
+[195]
+Jan Scholtz et al.
+“JADES: A large population of obscured, narrow line AGN at high redshift”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2311.18731
+DOI:
+10.48550/arXiv.2311.18731
+[196]
+Helena Treiber et al.
+“UNCOVERing the High-Redshift AGN Population Among Extreme UV Line Emitters”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2409.12232
+DOI:
+10.48550/arXiv.2409.12232
+[197]
+Michael. Topping et al.
+“Metal-poor star formation at z ¿ 6 with JWST: new insight into hard radiation fields and nitrogen enrichment on 20 pc scales”
+In
+MNRAS
+529.4
+, 2024, pp. 3301–3322
+DOI:
+10.1093/mnras/stae682
+[198]
+C. Mazzucchelli et al.
+“XQR-30: Black hole masses and accretion rates of 42 z
+\gtrsim
+6 quasars”
+In
+A&A
+676
+, 2023, pp. A71
+DOI:
+10.1051/0004-6361/202346317
+[199]
+Valentina D’Odorico et al.
+“XQR-30: The ultimate XSHOOTER quasar sample at the reionization epoch”
+In
+MNRAS
+523.1
+, 2023, pp. 1399–1420
+DOI:
+10.1093/mnras/stad1468
+[200]
+Andrew. Bunker et al.
+“JADES NIRSpec Spectroscopy of GN-z11: Lyman-
+\alpha
+emission and possible enhanced nitrogen abundance in a z = 10.60 luminous galaxy”
+In
+A&A
+677
+, 2023, pp. A88
+DOI:
+10.1051/0004-6361/202346159
+[201]
+Roberto Maiolino et al.
+“A small and vigorous black hole in the early Universe”
+In
+Nature
+627.8002
+, 2024, pp. 59–63
+DOI:
+10.1038/s41586-024-07052-5
+[202]
+Francesco D’Eugenio et al.
+“JADES: Carbon enrichment 350 Myr after the Big Bang”
+In
+A&A
+689
+, 2024, pp. A152
+DOI:
+10.1051/0004-6361/202348636
+[203]
+Marco Castellano et al.
+“JWST NIRSpec Spectroscopy of the Remarkable Bright Galaxy GHZ2/GLASS-z12 at Redshift 12.34”
+In
+ApJ
+972.2
+, 2024, pp. 143
+DOI:
+10.3847/1538-4357/ad5f88
+[204]
+Hannah Übler et al.
+“GA-NIFS: JWST discovers an offset AGN 740 million years after the big bang”
+In
+MNRAS
+531.1
+, 2024, pp. 355–365
+DOI:
+10.1093/mnras/stae943
+[205]
+Daniel. Stark et al.
+“Spectroscopic detection of C IV
+\lambda
+1548 in a galaxy at z = 7.045: implications for the ionizing spectra of reionization-era galaxies”
+In
+MNRAS
+454.2
+, 2015, pp. 1393–1403
+DOI:
+10.1093/mnras/stv1907
+[206]
+Luc Binette et al.
+“Constraints on the densities and temperature of the Seyfert 2 narrow line region”
+In
+A&A
+684
+, 2024, pp. A53
+DOI:
+10.1051/0004-6361/202245754
+[207]
+Mirko Curti et al.
+“The chemical enrichment in the early Universe as probed by JWST via direct metallicity measurements at z
+\sim
+8”
+In
+MNRAS
+518.1
+, 2023, pp. 425–438
+DOI:
+10.1093/mnras/stac2737
+[208]
+Mirko Curti et al.
+“JADES: The star-formation and chemical enrichment history of a luminous galaxy at z
+~
+9.43 probed by ultra-deep JWST/NIRSpec spectroscopy”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2407.02575
+DOI:
+10.48550/arXiv.2407.02575
+[209]
+Alexei Baskin and Ari Laor
+“What controls the [OIII]
+\lambda
+5007 line strength in active galactic nuclei?”
+In
+MNRAS
+358.3
+, 2005, pp. 1043–1054
+DOI:
+10.1111/j.1365-2966.2005.08841.x
+[210]
+G. Mazzolari et al.
+“New AGN diagnostic diagrams based on the [OIII]
+\lambda 4363
+auroral line”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2404.10811
+DOI:
+10.48550/arXiv.2404.10811
+[211]
+Yuichi Harikane et al.
+“A JWST/NIRSpec First Census of Broad-line AGNs at z = 4-7: Detection of 10 Faint AGNs with M
+BH
+10
+6
+-10
+8
+M
+⊙
+and Their Host Galaxy Properties”
+In
+ApJ
+959.1
+, 2023, pp. 39
+DOI:
+10.3847/1538-4357/ad029e
+[212]
+Rebecca. Larson et al.
+“A CEERS Discovery of an Accreting Supermassive Black Hole 570 Myr after the Big Bang: Identifying a Progenitor of Massive z ¿ 6 Quasars”
+In
+ApJ
+953.2
+, 2023, pp. L29
+DOI:
+10.3847/2041-8213/ace619
+[213]
+Hannah Übler et al.
+“GA-NIFS: A massive black hole in a low-metallicity AGN at z
+\sim
+5.55 revealed by JWST/NIRSpec IFS”
+In
+A&A
+677
+, 2023, pp. A145
+DOI:
+10.1051/0004-6361/202346137
+[214]
+Dale. Kocevski et al.
+“Hidden Little Monsters: Spectroscopic Identification of Low-mass, Broad-line AGNs at z ¿ 5 with CEERS”
+In
+ApJ
+954.1
+, 2023, pp. L4
+DOI:
+10.3847/2041-8213/ace5a0
+[215]
+Xuheng Ding et al.
+“Detection of stellar light from quasar host galaxies at redshifts above 6”
+In
+Nature
+621.7977
+, 2023, pp. 51–55
+DOI:
+10.1038/s41586-023-06345-5
+[216]
+Ákos Bogdán et al.
+“Evidence for heavy-seed origin of early supermassive black holes from a z
+\approx
+10 X-ray quasar”
+In
+Nature Astronomy
+8
+, 2024, pp. 126–133
+DOI:
+10.1038/s41550-023-02111-9
+[217]
+Ignas Juodžbalis et al.
+“JADES - The Rosetta Stone of JWST-discovered AGN: deciphering the intriguing nature of early AGN”
+In
+MNRAS
+, 2024
+DOI:
+10.1093/mnras/stae2367
+[218]
+Hollis. Akins et al.
+“Strong rest-UV emission lines in a “little red dot” AGN at
+z=7
+: Early SMBH growth alongside compact massive star formation?”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.00949
+DOI:
+10.48550/arXiv.2410.00949
+[219]
+John Kormendy and Luis. Ho
+“Coevolution (Or Not) of Supermassive Black Holes and Host Galaxies”
+In
+Annual Review of Astronomy and Astrophysics
+51.1
+, 2013, pp. 511–653
+DOI:
+10.1146/annurev-astro-082708-101811
+[220]
+Amy. Reines and M. Volonteri
+“Relations between Central Black Hole Mass and Total Galaxy Stellar Mass in the Local Universe”
+In
+ApJ
+813.2
+, 2015, pp. 82
+DOI:
+10.1088/0004-637X/813/2/82
+[221]
+Jenny. Greene, Jay Strader and Luis. Ho
+“Intermediate-Mass Black Holes”
+In
+ARA&A
+58
+, 2020, pp. 257–312
+DOI:
+10.1146/annurev-astro-032620-021835
+[222]
+Jake. Bennett et al.
+“The growth of the gargantuan black holes powering high-redshift quasars and their impact on the formation of early galaxies and protoclusters”
+In
+MNRAS
+527.1
+, 2024, pp. 1033–1054
+DOI:
+10.1093/mnras/stad3179
+[223]
+Vieri Cammelli et al.
+“The formation of supermassive black holes from Population III.1 seeds. III. Galaxy evolution and black hole growth from semi-analytic modelling”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2407.09949
+DOI:
+10.48550/arXiv.2407.09949
+[224]
+Raffaella Schneider et al.
+“Are we surprised to find SMBHs with JWST at z
+\geq
+9?”
+In
+MNRAS
+526.3
+, 2023, pp. 3250–3261
+DOI:
+10.1093/mnras/stad2503
+[225]
+R. Tripodi et al.
+“HYPERION: Coevolution of supermassive black holes and galaxies at z ¿ 6 and the build-up of massive galaxies”
+In
+A&A
+689
+, 2024, pp. A220
+DOI:
+10.1051/0004-6361/202349054
+[226]
+Bren. Backhaus et al.
+“CLEAR: Emission-line Ratios at Cosmic High Noon”
+In
+ApJ
+926.2
+, 2022, pp. 161
+DOI:
+10.3847/1538-4357/ac3919
+[227]
+Nikko. Cleri et al.
+“CLEAR: Paschen-
+\beta
+Star Formation Rates and Dust Attenuation of Low-redshift Galaxies”
+In
+ApJ
+929.1
+, 2022, pp. 3
+DOI:
+10.3847/1538-4357/ac5a4c
+[228]
+A.. Carnall, R.. McLure, J.. Dunlop and R. Davé
+“Inferring the star formation histories of massive quiescent galaxies with BAGPIPES: evidence for multiple quenching mechanisms”
+In
+MNRAS
+480.4
+, 2018, pp. 4379–4401
+DOI:
+10.1093/mnras/sty2169
+[229]
+Adam. Carnall et al.
+“How to Measure Galaxy Star Formation Histories. I. Parametric Models”
+In
+ApJ
+873.1
+, 2019, pp. 44
+DOI:
+10.3847/1538-4357/ab04a2
+[230]
+Adam. Carnall et al.
+“A massive quiescent galaxy at redshift 4.658”
+In
+Nature
+619.7971
+, 2023, pp. 716–719
+DOI:
+10.1038/s41586-023-06158-6
+[231]
+Andrea Weibel et al.
+“RUBIES Reveals a Massive Quiescent Galaxy at z=7.3”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2409.03829
+DOI:
+10.48550/arXiv.2409.03829
+[232]
+Hai-Long Huang et al.
+“Sub-Eddington accreting supermassive primordial black holes explain Little Red Dots”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.20663
+DOI:
+10.48550/arXiv.2410.20663
+[233]
+Christopher. McKee and Jonathan. Tan
+“The Formation of the First Stars. II. Radiative Feedback Processes and Implications for the Initial Mass Function”
+In
+ApJ
+681.2
+, 2008, pp. 771–797
+DOI:
+10.1086/587434
+[234]
+Volker Bromm and Abraham Loeb
+“Formation of the First Supermassive Black Holes”
+In
+The Astrophysical Journal
+596.1
+, 2003, pp. 34–46
+DOI:
+10.1086/377529
+[235]
+Umberto Maio, Stefano Borgani, Benedetta Ciardi and Margarita Petkova
+“The seeds of supermassive black holes and the role of local radiation and metal spreading”
+In
+Publications of the Astronomical Society of Australia
+36
+, 2019, pp. e020
+DOI:
+10.1017/pasa.2019.10
+[236]
+Aklant. Bhowmick et al.
+“Impact of gas spin and Lyman-Werner flux on black hole seed formation in cosmological simulations: implications for direct collapse”
+In
+Monthly Notices of the Royal Astronomical Society
+510.1
+, 2022, pp. 177–196
+DOI:
+10.1093/mnras/stab3439
+[237]
+Jasbir Singh, Pierluigi Monaco and Jonathan. Tan
+“The formation of supermassive black holes from Population III.1 seeds. II. Evolution to the local universe”
+In
+MNRAS
+525.1
+, 2023, pp. 969–982
+DOI:
+10.1093/mnras/stad2346
+[238]
+Brian. O’Shea, Tom Abel, Dan Whalen and Michael. Norman
+“Forming a Primordial Star in a Relic H II Region”
+In
+The Astrophysical Journal Letters
+628.1
+, 2005, pp. L5–L8
+DOI:
+10.1086/432683
+[239]
+Junehyoung Jeon, Boyuan Liu, Volker Bromm and Steven. Finkelstein
+“Observability of Low-Luminosity AGN in the Early Universe with JWST”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2304.07369
+DOI:
+10.48550/arXiv.2304.07369
+[240]
+Nicholas. Henden, Ewald Puchwein, Sijing Shen and Debora Sijacki
+“The FABLE simulations: a feedback model for galaxies, groups, and clusters”
+In
+MNRAS
+479.4
+, 2018, pp. 5385–5412
+DOI:
+10.1093/mnras/sty1780
+[241]
+Chris. Willott et al.
+“The Near-infrared Imager and Slitless Spectrograph for the James Webb Space Telescope. II. Wide Field Slitless Spectroscopy”
+In
+PASP
+134.1032
+, 2022, pp. 025002
+DOI:
+10.1088/1538-3873/ac5158
+[242]
+G. Soucail, B. Fort, Y. Mellier and J.. Picat
+“A blue ring-like structure in the center of the A 370 cluster of galaxies.”
+In
+A&A
+172
+, 1987, pp. L14–L16
+[243]
+H. Ebeling, A.. Edge and J.. Henry
+“MACS: A Quest for the Most Massive Galaxy Clusters in the Universe”
+In
+ApJ
+553.2
+, 2001, pp. 668–676
+DOI:
+10.1086/320958
+[244]
+J.. Lotz et al.
+“The Frontier Fields: Survey Design and Initial Results”
+In
+ApJ
+837.1
+, 2017, pp. 97
+DOI:
+10.3847/1538-4357/837/1/97
+[245]
+Gaël Noirot et al.
+“The first large catalogue of spectroscopic redshifts in Webb’s first deep field, SMACS J0723.3-7327”
+In
+MNRAS
+525.2
+, 2023, pp. 1867–1884
+DOI:
+10.1093/mnras/stad1019
+[246]
+Chris. Willott et al.
+“A Steep Decline in the Galaxy Space Density beyond Redshift 9 in the CANUCS UV Luminosity Function”
+In
+ApJ
+966.1
+, 2024, pp. 74
+DOI:
+10.3847/1538-4357/ad35bc
+[247]
+Yoshihisa Asada et al.
+“Improving photometric redshifts of Epoch of Reionization galaxies: a new transmission curve with the neutral hydrogen damped Ly
+\alpha
+absorption”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2410.21543
+DOI:
+10.48550/arXiv.2410.21543
+[248]
+Ghassan.. Sarrouh et al.
+“Exposing Line Emission: The Systematic Differences of Measuring Galaxy Stellar Masses with JWST NIRCam Medium versus Wide Band Photometry”
+In
+ApJ
+967.1
+, 2024, pp. L17
+DOI:
+10.3847/2041-8213/ad43e8
+[249]
+Nicholas. Martis et al.
+“Modeling and Subtracting Diffuse Cluster Light in JWST Images: A Relation between the Spatial Distribution of Globular Clusters, Dwarf Galaxies, and Intracluster Light in the Lensing Cluster SMACS 0723”
+In
+ApJ
+975.1
+, 2024, pp. 76
+DOI:
+10.3847/1538-4357/ad7735
+[250]
+Gabe Brammer and Jasleen Matharu
+“gbrammer/grizli: Release 2021”
+Zenodo, 2021
+DOI:
+10.5281/zenodo.5012699
+[251]
+Larry Bradley et al.
+“astropy/photutils: 1.6.0”
+Zenodo, 2022
+DOI:
+10.5281/zenodo.7419741
+[252]
+P. Ferruit et al.
+“The Near-Infrared Spectrograph (NIRSpec) on the James Webb Space Telescope. II. Multi-object spectroscopy (MOS)”
+In
+A&A
+661
+, 2022, pp. A81
+DOI:
+10.1051/0004-6361/202142673
+[253]
+Gabriel Brammer
+“msaexp: NIRSpec analyis tools”
+Zenodo, 2022
+DOI:
+10.5281/zenodo.7579050
+[254]
+E. Jullo et al.
+“A Bayesian approach to strong lensing modelling of galaxy clusters”
+In
+New Journal of Physics
+9.12
+, 2007, pp. 447
+DOI:
+10.1088/1367-2630/9/12/447
+[255]
+Stacy. McGaugh and James. Schombert
+“Weighing Galaxy Disks With the Baryonic Tully-Fisher Relation”
+In
+ApJ
+802.1
+, 2015, pp. 18
+DOI:
+10.1088/0004-637X/802/1/18
+[256]
+Árdís Elíasdóttir et al.
+“Where is the matter in the Merging Cluster Abell 2218?”
+In
+arXiv e-prints
+, 2007, pp. arXiv:0710.5636
+DOI:
+10.48550/arXiv.0710.5636
+[257]
+Chien. Peng, Luis. Ho, Chris. Impey and Hans-Walter Rix
+“Detailed Decomposition of Galaxy Images. II. Beyond Axisymmetric Models”
+In
+AJ
+139.6
+, 2010, pp. 2097–2129
+DOI:
+10.1088/0004-6256/139/6/2097
+[258]
+Simon Birrer, Adam Amara and Alexandre Refregier
+“Gravitational Lens Modeling with Basis Sets”
+In
+ApJ
+813.2
+, 2015, pp. 102
+DOI:
+10.1088/0004-637X/813/2/102
+[259]
+Simon Birrer and Adam Amara
+“lenstronomy: Multi-purpose gravitational lens modelling software package”
+In
+Physics of the Dark Universe
+22
+, 2018, pp. 189–201
+DOI:
+10.1016/j.dark.2018.11.002
+[260]
+Lilan Yang, Simon Birrer and Tommaso Treu
+“A versatile tool for cluster lensing source reconstruction - I. Methodology and illustration on sources in the Hubble Frontier Field Cluster MACS J0717.5+3745”
+In
+MNRAS
+496.3
+, 2020, pp. 2648–2662
+DOI:
+10.1093/mnras/staa1649
+[261]
+Eduardo Bañados et al.
+“An 800-million-solar-mass black hole in a significantly neutral Universe at a redshift of 7.5”
+In
+Nature
+553.7689
+, 2018, pp. 473–476
+DOI:
+10.1038/nature25180
+[262]
+Bradley Greig, Andrei Mesinger and Eduardo Bañados
+“Constraints on reionization from the z = 7.5 QSO ULASJ1342+0928”
+In
+MNRAS
+484.4
+, 2019, pp. 5094–5101
+DOI:
+10.1093/mnras/stz230
+[263]
+Tomonori Totani et al.
+“Implications for Cosmic Reionization from the Optical Afterglow Spectrum of the Gamma-Ray Burst 050904 at z = 6.3
+∗
+”
+In
+PASJ
+58.3
+, 2006, pp. 485–498
+DOI:
+10.1093/pasj/58.3.485
+[264]
+Bradley Greig et al.
+“Blind QSO reconstruction challenge: exploring methods to reconstruct the Ly
+\alpha
+emission line of QSOs”
+In
+MNRAS
+533.3
+, 2024, pp. 3312–3343
+DOI:
+10.1093/mnras/stae1985
+[265]
+Hiroya Umeda et al.
+“JWST Measurements of Neutral Hydrogen Fractions and Ionized Bubble Sizes at z = 7–12 Obtained with Ly
+\alpha
+Damping Wing Absorptions in 27 Bright Continuum Galaxies”
+In
+ApJ
+971.2
+, 2024, pp. 124
+DOI:
+10.3847/1538-4357/ad554e
+[266]
+Daniel Foreman-Mackey, David. Hogg, Dustin Lang and Jonathan Goodman
+“emcee: The MCMC Hammer”
+In
+PASP
+125.925
+, 2013, pp. 306
+DOI:
+10.1086/670067
+[267]
+P. Jakobsen et al.
+“The Near-Infrared Spectrograph (NIRSpec) on the James Webb Space Telescope. I. Overview of the instrument and its capabilities”
+In
+A&A
+661
+, 2022, pp. A80
+DOI:
+10.1051/0004-6361/202142663
+[268]
+Daniela Calzetti, Anne. Kinney and Thaisa Storchi-Bergmann
+“Dust Obscuration in Starburst Galaxies from Near-Infrared Spectroscopy”
+In
+ApJ
+458
+, 1996, pp. 132
+DOI:
+10.1086/176797
+[269]
+V. Luridiana, C. Morisset and R.. Shaw
+“PyNeb: a new tool for analyzing emission lines. I. Code description and validation of results”
+In
+A&A
+573
+, 2015, pp. A42
+DOI:
+10.1051/0004-6361/201323152
+[270]
+P.. Storey and D.. Hummer
+“Recombination line intensities for hydrogenic ions-IV. Total recombination coefficients and machine-readable tables for Z=1 to 8”
+In
+MNRAS
+272.1
+, 1995, pp. 41–48
+DOI:
+10.1093/mnras/272.1.41
+[271]
+Y.. Izotov et al.
+“The chemical composition of metal-poor emission-line galaxies in the Data Release 3 of the Sloan Digital Sky Survey”
+In
+A&A
+448.3
+, 2006, pp. 955–970
+DOI:
+10.1051/0004-6361:20053763
+[272]
+M. Curti et al.
+“New fully empirical calibrations of strong-line metallicity indicators in star-forming galaxies”
+In
+MNRAS
+465.2
+, 2017, pp. 1384–1400
+DOI:
+10.1093/mnras/stw2766
+[273]
+R. Maiolino and F. Mannucci
+“De re metallica: the cosmic chemical evolution of galaxies”
+In
+The Astronomy and Astrophysics Review
+27.1
+, 2019, pp. 3
+DOI:
+10.1007/s00159-018-0112-2
+[274]
+Ryan. Sanders et al.
+“Direct T_e-based Metallicities of z=2-9 Galaxies with JWST/NIRSpec: Empirical Metallicity Calibrations Applicable from Reionization to Cosmic Noon”
+In
+arXiv e-prints
+, 2023, pp. arXiv:2303.08149
+DOI:
+10.48550/arXiv.2303.08149
+[275]
+David. Nicholls, Lisa. Kewley and Ralph. Sutherland
+“Estimating Electron Temperatures in Ionized Nebulae: The Direct Method and its Limitations”
+In
+PASP
+132.1009
+, 2020, pp. 033001
+DOI:
+10.1088/1538-3873/ab6818
+[276]
+Harley Katz et al.
+“First insights into the ISM at z ¿ 8 with JWST: possible physical implications of a high [O III]
+\lambda
+4363/[O III]
+\lambda
+5007”
+In
+MNRAS
+518.1
+, 2023, pp. 592–603
+DOI:
+10.1093/mnras/stac2657
+[277]
+Lamiya Mowla et al.
+“The Firefly Sparkle: The Earliest Stages of the Assembly of A Milky Way-type Galaxy in a 600 Myr Old Universe”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2402.08696
+DOI:
+10.48550/arXiv.2402.08696
+[278]
+Vasily Kokorev et al.
+“Silencing the Giant: Evidence of Active Galactic Nucleus Feedback and Quenching in a Little Red Dot at z = 4.13”
+In
+ApJ
+975.2
+, 2024, pp. 178
+DOI:
+10.3847/1538-4357/ad7d03
+[279]
+Tohru Nagao, Takashi Murayama and Yoshiaki Taniguchi
+“The Narrow-Line Region of Seyfert Galaxies: Narrow-Line Seyfert 1 Galaxies versus Broad-Line Seyfert 1 Galaxies”
+In
+ApJ
+546.2
+, 2001, pp. 744–758
+DOI:
+10.1086/318300
+[280]
+L. Binette et al.
+“Temperature Discrepancy with Photoionization Models of the Narrow-Line Region”
+In
+Rev. Mexicana Astron. Astrofis.
+58
+, 2022, pp. 133–153
+DOI:
+10.22201/ia.01851101p.2022.58.01.11
+[281]
+M. Perna et al.
+“An X-ray/SDSS sample. I. Multi-phase outflow incidence and dependence on AGN luminosity”
+In
+A&A
+603
+, 2017, pp. A99
+DOI:
+10.1051/0004-6361/201630369
+[282]
+Jarle Brinchmann
+“High-z galaxies with JWST and local analogues - it is not only star formation”
+In
+MNRAS
+525.2
+, 2023, pp. 2087–2106
+DOI:
+10.1093/mnras/stad1704
+[283]
+Kevork. Abazajian et al.
+“The Seventh Data Release of the Sloan Digital Sky Survey”
+In
+ApJS
+182.2
+, 2009, pp. 543–558
+DOI:
+10.1088/0067-0049/182/2/543
+[284]
+Alison Campbell, Roberto Terlevich and Jorge Melnick
+“The stellar populations and evolution of H II galaxies - I. High signal-to-noise optical spectroscopy.”
+In
+MNRAS
+223
+, 1986, pp. 811–825
+DOI:
+10.1093/mnras/223.4.811
+[285]
+Danielle. Berg et al.
+“A Window on the Earliest Star Formation: Extreme Photoionization Conditions of a High-ionization, Low-metallicity Lensed Galaxy at z
+\sim
+2*”
+In
+ApJ
+859.2
+, 2018, pp. 164
+DOI:
+10.3847/1538-4357/aab7fa
+[286]
+Danielle. Berg et al.
+“Characterizing Extreme Emission-line Galaxies. I. A Four-zone Ionization Model for Very High-ionization Emission”
+In
+ApJ
+922.2
+, 2021, pp. 170
+DOI:
+10.3847/1538-4357/ac141b
+[287]
+A. Marconi et al.
+“HOMERUN: A new approach to photoionization modeling: I. Reproducing observed emission lines with percent accuracy and obtaining accurate physical properties of the ionized gas”
+In
+A&A
+689
+, 2024, pp. A78
+DOI:
+10.1051/0004-6361/202449240
+[288]
+Xihan Ji et al.
+“GA-NIFS: An extremely nitrogen-loud and chemically stratified galaxy at
+z\sim 5.55
+”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2404.04148
+DOI:
+10.48550/arXiv.2404.04148
+[289]
+James.. Trussler et al.
+“Seeing sharper and deeper: JWST’s first glimpse of the photometric and spectroscopic properties of galaxies in the epoch of reionization”
+In
+MNRAS
+523.3
+, 2023, pp. 3423–3440
+DOI:
+10.1093/mnras/stad1629
+[290]
+Mirko Curti et al.
+“The KLEVER Survey: spatially resolved metallicity maps and gradients in a sample of 1.2 ¡ z ¡ 2.5 lensed galaxies”
+In
+MNRAS
+492.1
+, 2020, pp. 821–842
+DOI:
+10.1093/mnras/stz3379
+[291]
+Kimihiko Nakajima et al.
+“JWST Census for the Mass-Metallicity Star Formation Relations at z = 4-10 with Self-consistent Flux Calibration and Proper Metallicity Calibrators”
+In
+ApJS
+269.2
+, 2023, pp. 33
+DOI:
+10.3847/1538-4365/acd556
+[292]
+Joanna. Kuraszkiewicz et al.
+“Emission Line Properties of Active Galactic Nuclei from a Post-COSTAR Hubble Space Telescope Faint Object Spectrograph Spectral Atlas”
+In
+ApJS
+150.1
+, 2004, pp. 165–180
+DOI:
+10.1086/379809
+[293]
+T. Nagao, R. Maiolino and A. Marconi
+“Gas metallicity diagnostics in star-forming galaxies”
+In
+A&A
+459.1
+, 2006, pp. 85–101
+DOI:
+10.1051/0004-6361:20065216
+[294]
+Nikko. Cleri et al.
+“Using [Ne V]/[Ne III] to Understand the Nature of Extreme-ionization Galaxies”
+In
+ApJ
+953.1
+, 2023, pp. 10
+DOI:
+10.3847/1538-4357/acde55
+[295]
+A. Grazian et al.
+“On the AGN Nature of Two UV-bright Sources at z
+spec
+\sim
+5.5 in the CANDELS Fields: An Update on the AGN Space Density at M
+1450
+\sim
+-22.5”
+In
+ApJ
+897.1
+, 2020, pp. 94
+DOI:
+10.3847/1538-4357/ab99a3
+[296]
+E. Vanzella et al.
+“The unusual N IV] -emitter galaxy GDS J033218.92-275302.7: star formation or AGN-driven winds from a massive galaxy at z = 5.56”
+In
+A&A
+513
+, 2010, pp. A20
+DOI:
+10.1051/0004-6361/200913042
+[297]
+Eilat Glikman et al.
+“Discovery of Two Spectroscopically Peculiar, Low-Luminosity Quasars at z
+~
+4”
+In
+ApJ
+663.2
+, 2007, pp. L73–L76
+DOI:
+10.1086/520085
+[298]
+Yuki Isobe et al.
+“JWST Identification of Extremely Low C/N Galaxies with [N/O]
+\gtrsim
+0.5 at z 6-10 Evidencing the Early CNO-cycle Enrichment and a Connection with Globular Cluster Formation”
+In
+ApJ
+959.2
+, 2023, pp. 100
+DOI:
+10.3847/1538-4357/ad09be
+[299]
+Valentina D’Orazi et al.
+“Lithium and Proton-capture Elements in Globular Cluster Dwarfs: The Case of 47 TUC”
+In
+ApJ
+713.1
+, 2010, pp. L1–L5
+DOI:
+10.1088/2041-8205/713/1/L1
+[300]
+André Maeder, Georges Meynet and Cristina Chiappini
+“The first stars: CEMP-no stars and signatures of spinstars”
+In
+A&A
+576
+, 2015, pp. A56
+DOI:
+10.1051/0004-6361/201424153
+[301]
+C. Charbonnel et al.
+“N-enhancement in GN-z11: First evidence for supermassive stars nucleosynthesis in proto-globular clusters-like conditions at high redshift?”
+In
+A&A
+673
+, 2023, pp. L7
+DOI:
+10.1051/0004-6361/202346410
+[302]
+Kuria Watanabe et al.
+“EMPRESS. XIII. Chemical Enrichment of Young Galaxies Near and Far at z
+\sim
+0 and 4–10: Fe/O, Ar/O, S/O, and N/O Measurements with a Comparison of Chemical Evolution Models”
+In
+ApJ
+962.1
+, 2024, pp. 50
+DOI:
+10.3847/1538-4357/ad13ff
+[303]
+M. Vestergaard and Patrick. Osmer
+“Mass Functions of the Active Black Holes in Distant Quasars from the Large Bright Quasar Survey, the Bright Quasar Survey, and the Color-selected Sample of the SDSS Fall Equatorial Stripe”
+In
+ApJ
+699.1
+, 2009, pp. 800–816
+DOI:
+10.1088/0004-637X/699/1/800
+[304]
+Misty. Bentz et al.
+“The Low-luminosity End of the Radius-Luminosity Relationship for Active Galactic Nuclei”
+In
+ApJ
+767.2
+, 2013, pp. 149
+DOI:
+10.1088/0004-637X/767/2/149
+[305]
+Aaron. Barth et al.
+“The Lick AGN Monitoring Project 2011: Spectroscopic Campaign and Emission-line Light Curves”
+In
+ApJS
+217.2
+, 2015, pp. 26
+DOI:
+10.1088/0067-0049/217/2/26
+[306]
+C.. Grier et al.
+“The Sloan Digital Sky Survey Reverberation Mapping Project: H
+\alpha
+and H
+\beta
+Reverberation Measurements from First-year Spectroscopy and Photometry”
+In
+ApJ
+851.1
+, 2017, pp. 21
+DOI:
+10.3847/1538-4357/aa98dc
+[307]
+U. Malik et al.
+“OzDES Reverberation Mapping Program: H
+\beta
+lags from the 6-yr survey”
+In
+MNRAS
+520.2
+, 2023, pp. 2009–2023
+DOI:
+10.1093/mnras/stad145
+[308]
+Yue Shen et al.
+“A Catalog of Quasar Properties from Sloan Digital Sky Survey Data Release 7”
+In
+ApJS
+194.2
+, 2011, pp. 45
+DOI:
+10.1088/0067-0049/194/2/45
+[309]
+Yue Shen, Xin Liu, Abraham Loeb and Scott Tremaine
+“Constraining Sub-parsec Binary Supermassive Black Holes in Quasars with Multi-epoch Spectroscopy. I. The General Quasar Population”
+In
+ApJ
+775.1
+, 2013, pp. 49
+DOI:
+10.1088/0004-637X/775/1/49
+[310]
+J.. Mejía-Restrepo, B. Trakhtenbrot, P. Lira and H. Netzer
+“Can we improve C IV-based single-epoch black hole mass estimations?”
+In
+MNRAS
+478.2
+, 2018, pp. 1929–1941
+DOI:
+10.1093/mnras/sty1086
+[311]
+Daeseong Park et al.
+“Extending the Calibration of C IV-based Single-epoch Black Hole Mass Estimators for Active Galactic Nuclei”
+In
+ApJ
+839.2
+, 2017, pp. 93
+DOI:
+10.3847/1538-4357/aa6a53
+[312]
+Romain. Meyer, Sarah.. Bosman and Richard. Ellis
+“New constraints on quasar evolution: broad-line velocity shifts over 1.5
+\lesssim
+z
+\lesssim
+7.5”
+In
+MNRAS
+487.3
+, 2019, pp. 3305–3323
+DOI:
+10.1093/mnras/stz1504
+[313]
+Jan-Torge Schindler et al.
+“The X-SHOOTER/ALMA Sample of Quasars in the Epoch of Reionization. I. NIR Spectral Modeling, Iron Enrichment, and Broad Emission Line Properties”
+In
+ApJ
+905.1
+, 2020, pp. 51
+DOI:
+10.3847/1538-4357/abc2d7
+[314]
+James. Matthews et al.
+“A disc wind model for blueshifts in quasar broad emission lines”
+In
+MNRAS
+526.3
+, 2023, pp. 3967–3986
+DOI:
+10.1093/mnras/stad2895
+[315]
+Gordon. Richards et al.
+“Eight-Dimensional Mid-Infrared/Optical Bayesian Quasar Selection”
+In
+AJ
+137.4
+, 2009, pp. 3884–3899
+DOI:
+10.1088/0004-6256/137/4/3884
+[316]
+Daniela Calzetti et al.
+“The Dust Content and Opacity of Actively Star-forming Galaxies”
+In
+ApJ
+533.2
+, 2000, pp. 682–695
+DOI:
+10.1086/308692
+[317]
+Gilles Chabrier
+“Galactic Stellar and Substellar Initial Mass Function”
+In
+PASP
+115.809
+, 2003, pp. 763–795
+DOI:
+10.1086/376392
+[318]
+V. Markov et al.
+“Dust attenuation law in JWST galaxies at z
+\sim
+7-8”
+In
+A&A
+679
+, 2023, pp. A12
+DOI:
+10.1051/0004-6361/202346723
+[319]
+V. Markov et al.
+“Dust attenuation evolution in
+z\sim 2
+-
+12
+JWST galaxies”
+In
+arXiv e-prints
+, 2024, pp. arXiv:2402.05996
+DOI:
+10.48550/arXiv.2402.05996
+[320]
+Naveen. Reddy et al.
+“The MOSDEF Survey: Measurements of Balmer Decrements and the Dust Attenuation Curve at Redshifts z
+~
+1.4-2.6”
+In
+ApJ
+806.2
+, 2015, pp. 259
+DOI:
+10.1088/0004-637X/806/2/259
+[321]
+Samir Salim et al.
+“GALEX-SDSS-WISE Legacy Catalog (GSWLC): Star Formation Rates, Stellar Masses, and Dust Attenuations of 700,000 Low-redshift Galaxies”
+In
+ApJS
+227.1
+, 2016, pp. 2
+DOI:
+10.3847/0067-0049/227/1/2
+[322]
+Michael. Topping et al.
+“Searching for Extremely Blue UV Continuum Slopes at z = 7-11 in JWST/NIRCam Imaging: Implications for Stellar Metallicity and Ionizing Photon Escape in Early Galaxies”
+In
+ApJ
+941.2
+, 2022, pp. 153
+DOI:
+10.3847/1538-4357/aca522
+[323]
+Kartheik. Iyer et al.
+“Nonparametric Star Formation History Reconstruction with Gaussian Processes. I. Counting Major Episodes of Star Formation”
+In
+ApJ
+879.2
+, 2019, pp. 116
+DOI:
+10.3847/1538-4357/ab2052
+[324]
+Joel Leja et al.
+“How to Measure Galaxy Star Formation Histories. II. Nonparametric Models”
+In
+ApJ
+876.1
+, 2019, pp. 3
+DOI:
+10.3847/1538-4357/ab133c
+[325]
+Michael. Topping et al.
+“The MOSDEF-LRIS Survey: The connection between massive stars and ionized gas in individual galaxies at z
+\sim
+2”
+In
+MNRAS
+499.2
+, 2020, pp. 1652–1665
+DOI:
+10.1093/mnras/staa2941
+[326]
+Lily Whitler et al.
+“Star formation histories of UV-luminous galaxies at
+z\sim 6.8
+: implications for stellar mass assembly at early cosmic times”
+In
+MNRAS
+519.4
+, 2023, pp. 5859–5881
+DOI:
+10.1093/mnras/stad004
+[327]
+Daniel. Vanden Berk et al.
+“Composite Quasar Spectra from the Sloan Digital Sky Survey”
+In
+AJ
+122.2
+, 2001, pp. 549–564
+DOI:
+10.1086/321167
+[328]
+Donald. Osterbrock and Gary. Ferland
+“Astrophysics of gaseous nebulae and active galactic nuclei”, 2006
+[329]
+Brent. Groves, Michael. Dopita and Ralph. Sutherland
+“Dusty, Radiation Pressure-Dominated Photoionization. I. Model Description, Structure, and Grids”
+In
+ApJS
+153.1
+, 2004, pp. 9–73
+DOI:
+10.1086/421113
+[330]
+Lisa. Kewley, Brent Groves, Guinevere Kauffmann and Tim Heckman
+“The host galaxies and classification of active galactic nuclei”
+In
+MNRAS
+372.3
+, 2006, pp. 961–976
+DOI:
+10.1111/j.1365-2966.2006.10859.x
+[331]
+Yue Shen and Xin Liu
+“Comparing Single-epoch Virial Black Hole Mass Estimators for Luminous Quasars”
+In
+ApJ
+753.2
+, 2012, pp. 125
+DOI:
+10.1088/0004-637X/753/2/125
+[332]
+Caitlin. Casey et al.
+“Dust in Little Red Dots”
+In
+ApJ
+975.1
+, 2024, pp. L4
+DOI:
+10.3847/2041-8213/ad7ba7
+[333]
+Maia Nenkova et al.
+“AGN Dusty Tori. II. Observational Implications of Clumpiness”
+In
+ApJ
+685.1
+, 2008, pp. 160–180
+DOI:
+10.1086/590483
+[334]
+Sebastian. Hönig
+“Tori, Discs, and Winds: The First Ten Years of AGN Interferometry”
+In
+Astronomy at High Angular Resolution
+439
+, Astrophysics and Space Science Library, 2016, pp. 95
+DOI:
+10.1007/978-3-319-39739-9˙6
+[335]
+S. García-Burillo et al.
+“The Galaxy Activity, Torus, and Outflow Survey (GATOS). I. ALMA images of dusty molecular tori in Seyfert galaxies”
+In
+A&A
+652
+, 2021, pp. A98
+DOI:
+10.1051/0004-6361/202141075
+[336]
+Guillermo Barro et al.
+“Extremely Red Galaxies at z = 5–9 with MIRI and NIRSpec: Dusty Galaxies or Obscured Active Galactic Nuclei?”
+In
+ApJ
+963.2
+, 2024, pp. 128
+DOI:
+10.3847/1538-4357/ad167e
+[337]
+Marta Volonteri, Mélanie Habouzit and Monica Colpi
+“The origins of massive black holes”
+In
+Nature Reviews Physics
+3.11
+, 2021, pp. 732–743
+DOI:
+10.1038/s42254-021-00364-9
+[338]
+Simon. Portegies Zwart et al.
+“Formation of massive black holes through runaway collisions in dense young star clusters”
+In
+Nature
+428.6984
+, 2004, pp. 724–726
+DOI:
+10.1038/nature02448
+[339]
+Piero Madau and Martin. Rees
+“Massive Black Holes as Population III Remnants”
+In
+ApJ
+551.1
+, 2001, pp. L27–L30
+DOI:
+10.1086/319848
+[340]
+Michaela Hirschmann, Gabriella De Lucia and Fabio Fontanot
+“Galaxy assembly, stellar feedback and metal enrichment: the view from the GAEA model”
+In
+MNRAS
+461.2
+, 2016, pp. 1760–1785
+DOI:
+10.1093/mnras/stw1318
+[341]
+Fabio Fontanot et al.
+“The rise of active galactic nuclei in the galaxy evolution and assembly semi-analytic model”
+In
+MNRAS
+496.3
+, 2020, pp. 3943–3960
+DOI:
+10.1093/mnras/staa1716
+[342]
+Emiliano Munari et al.
+“Improving fast generation of halo catalogues with higher order Lagrangian perturbation theory”
+In
+MNRAS
+465.4
+, 2017, pp. 4658–4677
+DOI:
+10.1093/mnras/stw3085
+[343]
+Nilanjan Banik, Jonathan. Tan and Pierluigi Monaco
+“The formation of supermassive black holes from Population III.1 seeds. I. Cosmic formation histories and clustering properties”
+In
+MNRAS
+483.3
+, 2019, pp. 3592–3606
+DOI:
+10.1093/mnras/sty3298
+[344]
+Alessandro Trinca et al.
+“The low-end of the black hole mass function at cosmic dawn”
+In
+MNRAS
+511.1
+, 2022, pp. 616–640
+DOI:
+10.1093/mnras/stac062
+[345]
+Edwige Pezzulli, Rosa Valiante and Raffaella Schneider
+“Super-Eddington growth of the first black holes”
+In
+MNRAS
+458.3
+, 2016, pp. 3047–3059
+DOI:
+10.1093/mnras/stw505
+[346]
+Edwige Pezzulli, Marta Volonteri, Raffaella Schneider and Rosa Valiante
+“The sustainable growth of the first black holes”
+In
+MNRAS
+471.1
+, 2017, pp. 589–595
+DOI:
+10.1093/mnras/stx1640
+[347]
+Qirong Zhu et al.
+“The formation of the first quasars: the black hole seeds, accretion, and feedback models”
+In
+MNRAS
+514.4
+, 2022, pp. 5583–5606
+DOI:
+10.1093/mnras/stac1556
+[348]
+Federica Sassano et al.
+“Super-critical accretion of medium-weight seed black holes in gaseous proto-galactic nuclei”
+In
+MNRAS
+519.2
+, 2023, pp. 1837–1855
+DOI:
+10.1093/mnras/stac3608
+[349]
+F. Hoyle and R.. Lyttleton
+“The effect of interstellar matter on climatic variation”
+In
+Proceedings of the Cambridge Philosophical Society
+35.3
+, 1939, pp. 405
+DOI:
+10.1017/S0305004100021150
+[350]
+H. Bondi and F. Hoyle
+“On the mechanism of accretion by stars”
+In
+MNRAS
+104
+, 1944, pp. 273
+DOI:
+10.1093/mnras/104.5.273
+[351]
+H. Bondi
+“On spherically symmetrical accretion”
+In
+MNRAS
+112
+, 1952, pp. 195
+DOI:
+10.1093/mnras/112.2.195
+[352]
+Aklant. Bhowmick et al.
+“Probing the z
+\gtrsim
+6 quasars in a universe with IllustrisTNG physics: impact of gas-based black hole seeding models”
+In
+MNRAS
+516.1
+, 2022, pp. 138–157
+DOI:
+10.1093/mnras/stac2238
+[353]
+Yueying Ni, Tiziana Di Matteo and Yu Feng
+“Not all peaks are created equal: the early growth of supermassive black holes”
+In
+MNRAS
+509.2
+, 2022, pp. 3043–3064
+DOI:
+10.1093/mnras/stab3162
+[354]
+Milena Valentini, Simona Gallerani and Andrea Ferrara
+“Host galaxies of high-redshift quasars: SMBH growth and feedback”
+In
+MNRAS
+507.1
+, 2021, pp. 1–26
+DOI:
+10.1093/mnras/stab1992
+[355]
+Alessandro Lupi et al.
+“Sustained super-Eddington accretion in high-redshift quasars”
+In
+A&A
+686
+, 2024, pp. A256
+DOI:
+10.1051/0004-6361/202348788
+[356]
+Warren Massonneau, Marta Volonteri, Yohan Dubois and Ricarda. Beckmann
+“How the super-Eddington regime regulates black hole growth in high-redshift galaxies”
+In
+A&A
+670
+, 2023, pp. A180
+DOI:
+10.1051/0004-6361/202243170
+EXTENDED DATA
+Figure 1:
+Photometric data in 10 filters (f435w, F606W, F814W, F090W, F115W, F150W, F200W, F277W, F358W, f410m, F444W) and RGB image (bottom right panel) of 5112687. The RGB image is made combining psf-matched photometry at F090W, F200W, F444W.
+Figure 2:
+Results of modeling CANUCS-LRD-z8.6 as a single point source with GALFIT. The observed image (left), point source model (center), and residual (right) are shown for each filter as indicated.
+Figure 3:
+Zoom-in of the
+Hγ
+,
+[O
+iii
+]λ4364
+emission lines from the 1D spectrum of 5112687. Top panels: the red solid line is the total best-fitting curve. The value of the reduced
+\chi^{2}
+of the fit is reported in the top left corner of each panel, as well as the ratio between
+[O
+iii
+]λ5008
+and
+[O
+iii
+]λ4364
+(RO3, in dex). Left: fiducial fit (see also Figure
+1
+) considering only a narrow component for
+Hγ
+(green dashed line), and
+[O
+iii
+]λ4364
+(yellow dashed line).
+Centre: test 2 fit adding a broad
+Hγ
+component (gray dashed line) and considering the observed ratio between the narrow and broad
+Hβ
+component to scale the broad
+Hγ
+. Right: test 1 fit adding a broad
+Hγ
+component (gray dashed line) and considering case B recombination ratios between the broad
+Hγ
+and the broad
+Hβ
+to scale the broad
+Hγ
+. Bottom panels: residuals of the fits shown in the top panels (red solid line). The black dashed lines mark the 0 level and the average
+\pm 1\sigma
+noise level. The gray shaded area is the noise.
+Figure 4:
+Variation of the the
+[O
+iii
+]λ4364
+/
+[O
+iii
+]λ5008
+ratio, as a function of the electron temperature,
+T_{e}(\text{[{O}\,{\sc{iii}}]{}{}{}{}})
+, for different electron densities,
+n_{e}=10-10^{5}\rm~cm^{-3}
+(as specified in the legend). The models have been generated with
+pyneb
+. The horizontal dashed line marks the observed fiducial dust-corrected
+[O
+iii
+]λ4364
+/
+[O
+iii
+]λ5008
+ratio, and the gray shaded region is its error.
+Figure 5:
+Results for the spectro-photometric SED fitting with
+Bagpipes
+.
+Panel a: observed 1D spectrum of CANUCS-LRD-z8.6 (blue line with shaded region) and photometry (blue dots with errorbar). The
+Bagpipes
+best-fitting spectrum is the orange line. Panel b: residuals. Panels c,d,e,f: posterior distributions for the stellar mass,
+M_{*}
+, the metallicity,
+Z
+, the dust attenuation
+A_{\rm v}
+, the sSFR from left to right. Dashed vertical line are the 16th, 50th and 84th percentiles of the distributions. Panel g: star formation history.
+Figure 6:
+Results for the spectro-photometric SED fitting with
+Bagpipes
+including an AGN component.
+Panel a: observed 1D spectrum of CANUCS-LRD-z8.6 (blue line with shaded region) and photometry (blue dots with errorbar). The
+Bagpipes
+best-fitting spectrum is the orange line, while the continuum of the AGN and of the galaxy component are shown as green and red dashed lines, respectively. Panel b: residuals. Panels c,d,e,f: posterior distributions for the stellar mass,
+M_{*}
+, the metallicity,
+Z
+, the dust attenuation
+A_{\rm v}
+, the sSFR from left to right. Dashed vertical line are the 16th, 50th and 84th percentiles of the distributions. Panel g: star formation history.
+Figure 7:
+Simple visual representation for our hypothesized physical configuration of CANUCS-LRD-z8.6.
+Components include a UV-bright AGN with either a patchy dusty torus or sight-line cleared by feedback. Stars are obscured by a high dust covering fraction, likely due to a combination of the current episode of star formation and the compact size.
+Figure 8:
+Comparison among observations and theoretical models.
+Solid (dashed or dotted) lines represent models that are (not) able to reproduce the BH mass of CANUCS-LRD-z8.6. Left: Semi-analytical models (SAM) including light and heavy seeds and hydro-dynamical simulations employing light seeds. Middle: Numerical simulations including heavy seeds, but limiting the BH accretion at the Eddington rate. Right: Numerical simulations including heavy seeds, allowing for super-Eddington growth. Details on the models included in this figure are summarised in Extended Data Table
+5
+.
+Table 1:
+Results for the line fitting of the 1D spectrum of 5112687.
+Fiducial
+Test 1
+Test 2
+Line
+Flux
+FWHM
+Flux
+FWHM
+Flux
+FWHM
+[O
+iii
+]λ5008
+49.6\pm 2.4
+850_{-45}^{+48}
+51.6\pm 2.4
+870_{-45}^{+40}
+49.8\pm 2.4
+850_{-45}^{+50}
+Hβ
+narrow
+15.6_{-2.5}^{+2.8}
+780_{-110}^{+120}
+16.2_{-2.5}^{+3.0}
+815_{-120}^{+110}
+15.3_{-2.5}^{+2.8}
+840_{-130}^{+95}
+Hβ
+broad
+29.8\pm 4.7
+4190_{-540}^{+570}
+26.8_{-4.7}^{+4.2}
+3860_{-510}^{+585}
+26.7\pm 4.1
+3670_{-460}^{+490}
+[O
+iii
+]λ4364
+3.9\pm 0.9
+–
+†
+2.4\pm 0.9
+–
+†
+2.5\pm 0.9
+–
+†
+Hγ
+narrow
+8.8\pm 1.5
+950\pm 170
+5.0\pm 1.4
+880_{-210}^{+220}
+5.1_{-1.1}^{+1.3}
+860_{-195}^{+220}
+Hγ
+broad
+–
+–
+12.5_{-2.2}^{+1.9}
+–
+††
+9.5_{-1.9}^{+2.2}
+–
+††
+Hδ
+4.0\pm 0.9
+1160_{-250}^{+170}
+4.4\pm 0.9
+1220_{-220}^{+140}
+4.5\pm 0.9
+1260_{-200}^{+115}
+[Ne
+iii
+]λ3869
+7.1\pm 0.9
+1420_{-190}^{+140}
+6.9\pm 1.1
+1390_{-205}^{+150}
+6.9\pm 1.1
+1450_{-200}^{+110}
+[O
+ii
+]λ3727
+<2.9
+–
+<2.9
+–
+<2.9
+–
+C
+iv
+22.9\pm 7.7
+5650_{-1500}^{+1250}
+as Fiducial
+N
+iv
+]λλ1483,1486
+21.0\pm 7.7
+5670_{-1430}^{+1315}
+as Fiducial
+Notes.
+Three cases are reported depending on the assumption for the broad
+Hγ
+component (see Sect.
+Hγ
+and
+[O
+iii
+]λ4364
+). Flux is in units of
+10^{-19}\rm~erg~s^{-1}~cm^{-2}
+. FWHM is in units of
+\rm km~s^{-1}
+.
+†
+FWHM
+[O
+iii
+]λ4364
+= FWHM
+[O
+iii
+]λ5008
+.
+††
+FWHM
+{}_{\text{H\textgamma}_{\rm broad}}
+= FWHM
+{}_{\text{H\textbeta}_{\rm broad}}
+. Upper limits are given at
+3\sigma
+significance. Fluxes are not corrected for the small magnification found for the source (
+\mu=1.07
+, see Methods). Any magnification correction would be within the uncertainties.
+Table 2:
+Color excess, nebular attenuation, and dust corrected ratios.
+Fiducial
+Test 1
+Test 2
+E(B-V)
+neb
+-0.4\pm 0.5
+0.9\pm 0.6
+0.7_{-0.4}^{+0.5}
+A_{\rm V}^{\rm neb}
+-1.5\pm 2.0
+3.5\pm 2.5
+2.8_{-1.8}^{+1.9}
+Dust-corrected emission line ratios
+\log(\text{[{O}\,{\sc{iii}}]{}{}{}{}}/\text{H\textbeta})
+0.52\pm 0.1
+0.46\pm 0.1
+0.48\pm 0.1
+\log(\text{[{Ne}\,{\sc{iii}}]{\textlambda}{3869}{}{}}/\text{[{O}\,{\sc{ii}}]{\textlambda}{3727}{}{}})
+>0.40
+>0.30
+>0.31
+\log(\text{[{O}\,{\sc{iii}}]{\textlambda}{4364}{}{}}/\text{[{O}\,{\sc{iii}}]{\textlambda}{5008}{}{}})
+-1.13_{-0.15}^{+0.10}
+-1.12_{-0.30}^{+0.10}
+-1.12_{-0.30}^{+0.10}
+\log(\text{[{O}\,{\sc{iii}}]{\textlambda}{4364}{}{}}/\text{H\textgamma})
+-0.27_{-0.19}^{+0.17}
+-0.34\pm 0.30
+-0.31_{-0.30}^{+0.25}
+\log(\text{[{O}\,{\sc{ii}}]{}{}{}{}}/\text{H\textbeta})
+<-0.92
+<-0.29
+<-0.32
+\log(\text{{C}\,{\sc{iv}}{}{}{}{}}/\text{{N}\,{\sc{iv}}]{\textlambda}{\textlambda}{1483,}{1486}})
+0.07\pm 0.3
+as Fiducial
+Notes.
+Three cases are reported depending on the assumption for the broad
+Hγ
+component (see Sect.
+Hγ
+and
+[O
+iii
+]λ4364
+). Upper limits are given at
+3\sigma
+significance.
+Table 3:
+AGN properties derived as described in Sect.
+1.8
+.
+Fiducial
+\log(M_{\rm BH,\text{H\textbeta}}/M_{\odot})
+8.0\pm 0.2
+\log(M_{\rm BH,5100\text{\AA}}/M_{\odot})
+8.2\pm 1.3
+\log(L_{\rm Edd}/\rm erg~s^{-1})
+46.2\pm 0.2
+\log(L_{\rm bol}/\rm erg~s^{-1})
+45.0\pm 0.8
+\lambda_{\rm Edd}
+0.1
+Notes.
+Quantities are corrected for magnification (
+\mu=1.07
+).
+Table 4:
+Model parameters and results for the spectro-photometric SED fitting with
+Bagpipes
+.
+Parameter
+Range
+Prior
+Result w/o AGN
+Result with AGN
+dblplaw
+\tau
+(0., 15.)
+flat
+0.30_{-0.06}^{+0.14}
+0.41_{-0.06}^{+0.08}
+dblplaw
+\alpha
+(0.01, 1000.)
+log10
+0.07_{-0.05}^{+0.26}
+0.08_{-0.06}^{+0.37}
+dblplaw
+\beta
+(0.01, 1000.)
+log10
+4_{-3}^{+165}
+10.8_{-7.9}^{+247}
+\log(M_{\rm*}/M_{\odot})
+(6., 13.)
+flat
+9.58_{-0.04}^{+0.03}
+9.88\pm 0.08
+dblplaw
+Z/Z_{\odot}
+(0.01, 0.25)
+flat
+0.13\pm 0.01
+0.20\pm 0.01
+A
+{}_{\rm V}^{\rm star}
+(0., 2.0)
+flat
+0.56\pm 0.05
+1.97_{-0.05}^{+0.02}
+\log(\rm U)
+-1.5
+–
+–
+–
+agn
+\alpha_{\lambda}
+(-2., 2.)
+gaussian:
+\mu=-1.5,\sigma=0.5
+–
+-1.99\pm 0.01
+agn
+\beta_{\lambda}
+(-2., 2.)
+gaussian:
+\mu=0.5,\sigma=0.5
+–
+0.75\pm 0.50
+agn
+{\rm H}\alpha_{\rm norm}
+(0.,
+25.\times 10^{-18}
+)
+flat
+–
+(1.08\pm 0.08)\times 10^{-17}
+agn
+F_{5100\text{\AA}}
+(0.,
+10^{-19}
+)
+flat
+–
+(7.1\pm 0.3)\times 10^{-21}
+agn
+\sigma
+(1000., 5000.)
+log10
+–
+1139_{-82}^{+133}
+Notes.
+Quantities are not corrected for magnification.
+Table 5:
+Summary of the main assumptions adopted in the SAM and numerical simulations considered.
+Name
+Accretion and feedback properties
+M_{\rm seed}
+[
+M_{\odot}
+]
+\lambda_{\rm Edd}
+ref.
+C24-Pop III.1
+GAEA semi-analytic model
+[
+341
+]
+10^{5}
+10
+[
+223
+]
+C24-ALS
+GAEA semi-analytic model
+[
+341
+]
+dependent on the halo mass
+10
+[
+223
+]
+Sch23-EL
+\alpha
+free,
+\epsilon=0.1
+Light seeds:
+40-300
++ Heavy seeds:
+10^{5}
+1
+[
+224
+]
+Sch23-SE
+\alpha
+free, slim disc
+Light seeds:
+40-300
++ Heavy seeds:
+10^{5}
+SE
+[
+224
+]
+S23-M1e-6
+\alpha=1
+, slim disc, low feedback coupling
+10^{3}
+SE
+[
+348
+]
+S23-M1e-3
+\alpha=1
+, slim disc, high feedback coupling
+10^{3}
+SE
+[
+348
+]
+Z22-S1
+\alpha=100
+, slim disc
+10\ h^{-1}
+10^{4}
+[
+347
+]
+Z22-S5-ref
+\alpha=100
+,
+\epsilon=0.1
+10^{5}\ h^{-1}
+1
+[
+347
+]
+Z22-S5-FB1
+\alpha=100
+, slim disc
+10^{5}\ h^{-1}
+10^{4}
+[
+347
+]
+Z22-S5-FB2
+\alpha=100
+,
+\epsilon=0.2
+10^{5}\ h^{-1}
+1
+[
+347
+]
+B23-FABLE
+\alpha=100
+,
+\epsilon=0.1
+10^{5}\ h^{-1}
+1
+[
+222
+]
+B23-ref
+\alpha=100
+,
+\epsilon=0.1
+, reduced feedback coupling
+10^{5}\ h^{-1}
+2
+[
+222
+]
+Bh22a
+\alpha=100
+,
+\epsilon=0.1
+5\times 10^{5}\ h^{-1}
+1
+[
+352
+]
+Bh22b
+\alpha=1
+,
+\epsilon=0.1
+5\times 10^{5}\ h^{-1}
+1
+[
+352
+]
+Bh22c
+\alpha=100
+,
+\epsilon=0.2
+5\times 10^{5}\ h^{-1}
+1
+[
+352
+]
+Bh22d
+\alpha=100
+,
+\epsilon=0.1
+5\times 10^{5}\ h^{-1}
+2
+[
+352
+]
+Bh22e
+\alpha=1
+,
+\epsilon=0.2
+5\times 10^{5}\ h^{-1}
+2
+[
+352
+]
+Ni22
+\alpha=100
+,
+\epsilon=0.1
+5\times 10^{5}\ h^{-1}
+2
+[
+353
+]
+L24-HMAD
+\alpha=1
+, several feedback regimes
+10^{5}
+SE
+[
+355
+]
+L24-MAD
+\alpha=1
+, several feedback regimes
+10^{5}
+SE
+[
+355
+]
+Notes.
+This description is not complete by any means and we refer to the original works for a complete overview of the numerical setup.
+First column:
+Name of the model, as reported in Extended Data Figure
+8
+.
+Second column:
+Relevant parameters in the accretion rate modeling and AGN feedback implementation. In particular, we emphasize the boost factor
+\alpha
+of the accretion rate and the radiative efficiency
+\epsilon
+. In models employing the slim disc solution the radiative efficiency depends on the accretion rate as described in
+[
+339
+]
+.
+Third column:
+maximum Eddington ratio
+\lambda_{\rm Edd}
+considered.
+\lambda_{\rm Edd}=1
+implies Eddington-limited growth, SE labels runs where no limit is considered.
+Fourth column:
+Model reference.

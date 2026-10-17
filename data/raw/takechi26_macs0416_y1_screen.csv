@@ -1,0 +1,11 @@
+source_entity,outcome,reason
+Y1 / D2,admit one measurement,one broad-line spaxel; D2 is its dust-peak association
+E,host component only,UV clump; MEx consistent with AGN but not independent BH evidence
+C,host component only,UV clump; MEx consistent with AGN but not independent BH evidence
+W,host component only,UV clump; do not equate automatically with D2 nucleus
+D1,host component only,dust peak; no significant broad component
+LAP1-B,exclude,"observational program target, no BH measurement in this paper"
+ID4590,exclude,Figure 13 comparison galaxy; no independent AGN admission here
+J0217-0208,exclude,Figure 13 comparison galaxy; no independent AGN admission here
+SXDF-NB1106-2,exclude,Figure 13 comparison galaxy; no independent AGN admission here
+COS-2987,exclude,Figure 13 comparison galaxy; no independent AGN admission here

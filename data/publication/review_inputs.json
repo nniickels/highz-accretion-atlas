@@ -256,6 +256,46 @@
       "mass_summary": "Balmer",
       "channel_summary": "NIRCam WFSS broad lines",
       "caveat_summary": "Twelve masses lack errors"
+    },
+    {
+      "source_key": "taylor25_capers_lrd_z9",
+      "label": "Taylor / CAPERS",
+      "citation": "taylor25expansion",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Hbeta",
+      "caveat_summary": "prism_resolution; gas_enshrouded_lrd; dust_alternatives_correlated; high_redshift_virial_calibration; coordinate_frame_unreported"
+    },
+    {
+      "source_key": "tripodi25_canucs_lrd",
+      "label": "Tripodi / CANUCS",
+      "citation": "tripodi25expansion",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Hbeta",
+      "caveat_summary": "high_redshift_virial_calibration; source_corrected_lensing; mass_dust_treatment_unspecified; morishita_lens_model_differs"
+    },
+    {
+      "source_key": "schindler25_j1007",
+      "label": "Schindler / J1007",
+      "citation": "schindler25expansion",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Hbeta",
+      "caveat_summary": "high_redshift_virial_calibration; dust_alternative_correlated; total_hbeta_luminosity_recipe; redshift_error_text_table_discrepancy"
+    },
+    {
+      "source_key": "takechi26_macs0416_y1",
+      "label": "Takechi / Y1",
+      "citation": "takechi26expansion",
+      "mass_summary": "Balmer",
+      "channel_summary": "Broad Hbeta",
+      "caveat_summary": "weak_broad_hbeta; outflow_ambiguity; mass_interval_confidence_unspecified; calibration_scatter_inclusion_unspecified; host_centroid_not_nucleus; source_corrected_lensing"
+    },
+    {
+      "source_key": "fudamoto25_sapphires_z847",
+      "label": "Fudamoto / SAPPHIRES",
+      "citation": "fudamoto25expansion",
+      "mass_summary": "None",
+      "channel_summary": "LRD and tentative Hbeta",
+      "caveat_summary": "no_published_mbh; weak_hbeta_peak; foreground_neighbour_identity_unresolved; compactness_contaminated; no_broad_narrow_decomposition"
     }
   ],
   "targets": {
@@ -290,6 +330,18 @@
     "ZS7": {
       "caveat": "Hbeta; quoted 0.4 dex already includes calibration scatter.",
       "proposed_observation": "Spatially separate nuclear kinematics and interacting components."
+    },
+    "CAPERS-LRD-z9": {
+      "caveat": "Broad Hbeta S/N about 10 with narrower forbidden lines; source canonical virial mass; prism_resolution; gas_enshrouded_lrd; dust_alternatives_correlated; high_redshift_virial_calibration; coordinate_frame_unreported",
+      "proposed_observation": "Higher-resolution Balmer spectroscopy and independent attenuation/BLR constraints; retain source lens model where applicable."
+    },
+    "CANUCS-LRD-z8.6": {
+      "caveat": "Broad Hbeta S/N 6 without broad OIII; NIV and CIV corroboration; high_redshift_virial_calibration; source_corrected_lensing; mass_dust_treatment_unspecified; morishita_lens_model_differs",
+      "proposed_observation": "Higher-resolution Balmer spectroscopy and independent attenuation/BLR constraints; retain source lens model where applicable."
+    },
+    "J1007_AGN": {
+      "caveat": "Source secure type-1 broad Hbeta AGN with high-ionization evidence; high_redshift_virial_calibration; dust_alternative_correlated; total_hbeta_luminosity_recipe; redshift_error_text_table_discrepancy",
+      "proposed_observation": "Higher-resolution Balmer spectroscopy and independent attenuation/BLR constraints; retain source lens model where applicable."
     }
   },
   "dayal_comparison": {

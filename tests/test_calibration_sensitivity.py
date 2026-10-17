@@ -28,8 +28,8 @@ class CalibrationSensitivityTests(unittest.TestCase):
         rubies = table.loc[(table.object_id == 'RUBIES-EGS-55604') & (table.mass_offset_dex == -.5)].iloc[0]
         self.assertTrue(.97 < rubies.probability_with_calibration < .99)
         self.assertAlmostEqual(rubies.combined_sigma_dex, sqrt(.1**2 + .5**2))
-        self.assertEqual(int(outputs['target_robustness'].probability_gt_1.ge(.95).sum()), 5)
-        self.assertEqual(int(outputs['publication_object_selection'].publication_primary_flag.sum()), 220)
+        self.assertEqual(int(outputs['target_robustness'].probability_gt_1.ge(.95).sum()), 8)
+        self.assertEqual(int(outputs['publication_object_selection'].publication_primary_flag.sum()), 223)
 
 
 if __name__ == '__main__':

@@ -1,3 +1,12 @@
+> Edition note (17 October 2026): the historical audit below describes the
+> pre-expansion edition at `fc0c5501ad2271865b1c040307cad8dd8ca5721a`.
+> The authorized five-family addition now has 355 measurements, 343 provisional
+> object records and 342 hosts; 241 objects have eligible masses. Source checks
+> cover 355 redshifts and 328 coordinate pairs. The same three unresolved identity
+> groups and six manuscript exclusions remain. Current manuscript samples are
+> 223 primary and 238 expanded. See the [scope decisions](../reference/literature-scope.md)
+> and [reviewed before/after metrics](../../results/catalogue_edition_comparison.csv).
+
 # Redshift and identity audit — updated 7 September 2026
 
 **Numerical source checks pass; three scientific identity groups remain open.**

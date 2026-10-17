@@ -44,6 +44,6 @@ class MassReviewTests(unittest.TestCase):
         comparison = pd.read_csv(ROOT / 'results/v3/tables/v3_baccus_revision_comparison.csv')
         summary = pd.read_csv(ROOT / 'results/v3/tables/v3_baccus_revision_summary.csv')
         self.assertEqual(comparison.match_status.value_counts().to_dict(), {'exact_id': 44, 'absent_from_published_table': 5})
-        self.assertEqual(summary.numerical_objects.tolist(), [237, 237, 232])
+        self.assertEqual(summary.numerical_objects.tolist(), [241, 241, 236])
         self.assertEqual(summary.top5_required_fedd.nunique(), 1)
-        self.assertTrue(summary.point_required_fedd_gt_1.eq(14).all())
+        self.assertTrue(summary.point_required_fedd_gt_1.eq(17).all())

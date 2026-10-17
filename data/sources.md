@@ -352,3 +352,15 @@ details are in `docs/source-notes/v3-completion-extraction-notes.md`.
 The [mass/error and publication-version audit](../docs/source-notes/mass-error-and-publication-revision-audit.md)
 records complete numerical-mass validation, the Killi correction, and the
 Baccus revision sensitivity results.
+
+## Bounded October 2026 admission
+
+- [capers-lrd-z9 source values, full screen and admission basis](../docs/source-notes/capers-lrd-z9-extraction-notes.md).
+- [canucs-lrd-z86 source values, full screen and admission basis](../docs/source-notes/canucs-lrd-z86-extraction-notes.md).
+- [j1007-agn source values, full screen and admission basis](../docs/source-notes/j1007-agn-extraction-notes.md).
+- [macs0416-y1 source values, full screen and admission basis](../docs/source-notes/macs0416-y1-extraction-notes.md).
+- [sapphires-z847 source values, full screen and admission basis](../docs/source-notes/sapphires-z847-extraction-notes.md).
+
+Four Balmer mass families enter v2 and v3; SAPPHIRES is v3-only without a mass.
+The cutoff remains 2026-09-03; retrieval/admission was 2026-10-17. Modeling
+alternatives are correlated source observables, not independent objects.

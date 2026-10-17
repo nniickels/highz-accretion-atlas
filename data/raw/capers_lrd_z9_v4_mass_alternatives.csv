@@ -1,0 +1,6 @@
+object_id,estimate,log_mbh_msun,reported_error_dex,censoring,assumptions,proposed_use,source_locator
+CAPERS-LRD-z9,canonical_unattenuated,7.58,0.15,detection,virialized Hbeta; Greene & Ho 2005; no dust correction,preferred_growth_mass,arXiv:2505.04609v4 IV.2
+CAPERS-LRD-z9,balmer_decrement_dust,8.10,0.40,detection,SMC; Case B; A_V_BLR=1.9(+1.3/-1.2),sensitivity_only_correlated_estimate,arXiv:2505.04609v4 IV.2
+CAPERS-LRD-z9,sed_dust,7.70,0.14,detection,spectrophotometric SMC A_V approximately 0.53,sensitivity_only_correlated_estimate,arXiv:2505.04609v4 IV.2
+CAPERS-LRD-z9,dust_upper_bound,8.50,,upper_limit,one-sigma upper endpoint of dust-corrected 8.10+/-0.40,context_only,arXiv:2505.04609v4 IV.2
+CAPERS-LRD-z9,assumed_eddington_lower_bound,6.65,,lower_limit,Lbol from Hbeta converted with Case B Halpha/Hbeta=2.86 and Stern & Laor 2012 bolometric correction; f_Edd=1,context_only_no_independent_growth_inference,arXiv:2505.04609v4 IV.2

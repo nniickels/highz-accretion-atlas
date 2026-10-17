@@ -1,0 +1,27 @@
+{
+  "source_key": "fudamoto25_sapphires_z847",
+  "cutoff": "2026-09-03",
+  "retrieved_on": "2026-10-17",
+  "version": "2503.15597v1",
+  "version_date": "2025-03-19",
+  "version_review": "arXiv submission history lists only v1; no journal reference or later version identified",
+  "source_archive_url": "https://arxiv.org/src/2503.15597v1",
+  "source_archive_sha256": "1802281772393b71361020f936ba2457eca22c7668fa5ee5696257377add9445",
+  "tex_archive_member": "sample631.tex",
+  "html_url": "https://arxiv.org/html/2503.15597v1",
+  "html_full_payload_sha256": "ee5c18bc277706c23e4d1641ed0a5bbb0e0539d31aea1610a43cca2f068059f7",
+  "retained": [
+    {
+      "path": "data/validation/source_inputs/sapphires_z847_v1_main.tex",
+      "sha256": "f19875abf9ba151f764f7083c20ba0baa4e66828fe06e15f922333e0b322fc00"
+    },
+    {
+      "path": "data/validation/source_inputs/sapphires_z847_v1_extract.html",
+      "sha256": "2d4f5b8be1b90e7ba7981e015bf2537c356c9c7448681597b6a6a693381b459a"
+    },
+    {
+      "path": "data/validation/source_inputs/sapphires_z847_version_history.html",
+      "sha256": "afc6ac11de13c60b7a845d922397965c6111e12a6b52a947b5e40778b618f33e"
+    }
+  ]
+}

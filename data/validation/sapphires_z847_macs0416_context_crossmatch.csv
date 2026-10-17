@@ -1,0 +1,6 @@
+context_id,ra_deg,dec_deg,redshift,separation_from_8760_arcsec,outcome,provenance
+MACS0416_4750_50001,64.022008,-24.067001,4.7079,419.4919278387435,distinct; different position and redshift; source-local Baccus lensing exclusion,existing pinned baccus_published_table1.txt; published Table 1
+MACS0416_4750_60009,64.056234,-24.113539,4.9992,378.4922288091559,distinct; different position and redshift; source-local Baccus lensing exclusion,existing pinned baccus_published_table1.txt; published Table 1
+MACS0416_4750_60003,64.052479,-24.081456,5.3340,440.0049790117312,distinct; different position and redshift; source-local Baccus lensing exclusion,existing pinned baccus_published_table1.txt; published Table 1
+MACS0416_4750_22011,64.079036,-24.125954,5.9631,426.81558602842404,distinct; different position and redshift; source-local Baccus lensing exclusion,existing pinned baccus_published_table1.txt; published Table 1
+MACS0416-Y1,64.03922916666667,-24.093205555555553,8.312,379.30101245971764,distinct host; different position and redshift; parallel extraction evidence only,takechi26_macs0416_y1_v1_extract.tex; takechi26_macs0416_y1_tamura18v2_astrometry.tex

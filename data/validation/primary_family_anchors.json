@@ -1,6 +1,6 @@
 {
   "scope": "Independent regression anchors for the 28 families not covered by the four-table fixture, including all 49 admitted Baccus rows. Representative anchors are not an exhaustive field-by-field audit.",
-  "review_date": "2026-09-04",
+  "review_date": "2026-10-17",
   "anchors": [
     {
       "source_key": "chisholm24_gn42437_nev",
@@ -1511,6 +1511,97 @@
         "log_lbol_erg_s_std": 44.8
       },
       "note": "Frozen measurement version is v1; final v2 publication contains revised values. IDs select rows only; expected numbers are parsed from the primary TeX table."
+    },
+    {
+      "source_url": "https://arxiv.org/html/2505.04609v4",
+      "source_archive_sha256": "b176066077fcf145f797d86124a8b97fa65dbf3dce709d25783fec57ad92a885",
+      "source_member": "data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+      "source_member_sha256": "d46df6b4eed520596435c53115a74abcc0eee697b1381983ca07f3259bc6b6ea",
+      "locator": "Table 1; Section IV.2",
+      "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/capers_lrd_z9_v4_main.tex",
+      "source_key": "taylor25_capers_lrd_z9",
+      "measurement_id": "CAPERSLRDz9_taylor25",
+      "expected": {
+        "redshift": 9.288,
+        "ra_deg": 150.1362532,
+        "dec_deg": 2.3080298,
+        "log_mbh_msun_std": 7.58,
+        "log_mbh_err_minus_std": 0.15,
+        "log_mbh_err_plus_std": 0.15
+      },
+      "note": "Source-specific fixtures read independently; linear interval endpoints converted using elementary logarithms."
+    },
+    {
+      "source_url": "https://www.nature.com/articles/s41467-025-65070-x",
+      "source_archive_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+      "source_member": "data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+      "source_member_sha256": "b85e970ba757e82925de7c2f97ca8b68eeecd97ebacd2e794eefa830f9764b92",
+      "locator": "Abstract mass interval; Supplementary Tables 1 and 3; Methods",
+      "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/canucs_tripodi25_published_extract.txt",
+      "source_key": "tripodi25_canucs_lrd",
+      "measurement_id": "CANUCS5112687_tripodi25",
+      "expected": {
+        "redshift": 8.6319,
+        "ra_deg": 177.39091666666667,
+        "dec_deg": 22.34976666666667,
+        "log_mbh_msun_std": 8.0,
+        "log_mbh_err_minus_std": 0.2218487496163564,
+        "log_mbh_err_plus_std": 0.2041199826559248
+      },
+      "note": "Source-specific fixtures read independently; linear interval endpoints converted using elementary logarithms."
+    },
+    {
+      "source_url": "https://www.nature.com/articles/s41550-025-02660-1",
+      "source_archive_sha256": "b251f05ff8e4aa64c5842209d6950b8aa3b31ceb4845adc588d82d75f622d673",
+      "source_member": "data/validation/source_inputs/schindler25_j1007_published_table1.jpg",
+      "source_member_sha256": "b251f05ff8e4aa64c5842209d6950b8aa3b31ceb4845adc588d82d75f622d673",
+      "locator": "Extended Data Tables 1-3; Methods SMBH mass",
+      "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/schindler25_j1007_published_table1.jpg",
+      "source_key": "schindler25_j1007",
+      "measurement_id": "J1007AGN_schindler25_observed",
+      "expected": {
+        "redshift": 7.2583,
+        "log_mbh_msun_std": 8.061452479087194,
+        "log_mbh_err_minus_std": 0.22323325717956743,
+        "log_mbh_err_plus_std": 0.2736040403518982
+      },
+      "note": "Source-specific fixtures read independently; linear interval endpoints converted using elementary logarithms. Table 3 astrometry is independently registered in redshift_identity_checks.json."
+    },
+    {
+      "source_url": "https://arxiv.org/html/2605.14922v1",
+      "source_archive_sha256": "f36a625bc25c4681a777b79229175ade06555b312d76392b8509cefdbf6f169c",
+      "source_member": "data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex",
+      "source_member_sha256": "b72d9df7599923e4b4548840191b5caca6826679e2091199820b8760177568b2",
+      "locator": "Sections II.2.2, III.3, IV.2.1; Figures 6-7",
+      "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex",
+      "source_key": "takechi26_macs0416_y1",
+      "measurement_id": "MACS0416Y1_takechi26",
+      "expected": {
+        "redshift": 8.312,
+        "log_mbh_msun_std": 6.204119982655925,
+        "log_mbh_err_minus_std": 0.4259687322722811,
+        "log_mbh_err_plus_std": 0.4586378490256493
+      },
+      "note": "Source-specific fixtures read independently; linear interval endpoints converted using elementary logarithms. Host astrometry is independently registered under Tamura in redshift_identity_checks.json."
+    },
+    {
+      "source_url": "https://arxiv.org/html/2503.15597v1",
+      "source_archive_sha256": "1802281772393b71361020f936ba2457eca22c7668fa5ee5696257377add9445",
+      "source_member": "data/validation/source_inputs/sapphires_z847_v1_main.tex",
+      "source_member_sha256": "f19875abf9ba151f764f7083c20ba0baa4e66828fe06e15f922333e0b322fc00",
+      "locator": "Table 1; Sections II, III.3, IV.2; Table 2 note a",
+      "evidence": "Independently source-read values in source-specific expected fixture; retained primary table/passage data/validation/source_inputs/sapphires_z847_v1_main.tex",
+      "source_key": "fudamoto25_sapphires_z847",
+      "measurement_id": "SAPPHIRES8760_fudamoto25",
+      "expected": {
+        "redshift": 8.479,
+        "ra_deg": 63.9573331,
+        "dec_deg": -24.1674685,
+        "log_mbh_msun_std": null,
+        "log_mbh_err_minus_std": null,
+        "log_mbh_err_plus_std": null
+      },
+      "note": "Source-specific fixtures read independently; linear interval endpoints converted using elementary logarithms."
     }
   ]
 }
