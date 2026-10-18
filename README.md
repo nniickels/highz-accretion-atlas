@@ -5,11 +5,9 @@ A standardized, assumption-tracked catalogue of JWST-identified high-redshift
 requirements under different seed masses, growth onset times, and radiative
 efficiencies.
 
-**Current expanded-catalogue draft:** [Ap&SS PDF](paper/apss/main.pdf)
-([source](paper/apss/main.tex)). The generic draft in [paper/](paper/) is the
-pre-expansion snapshot. These are working drafts.
+**Draft manuscripts:** [Paper folder](paper/).
 
-**Current posters (17 October 2026 expanded catalogue):** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
+**Posters:** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
 [landscape PDF](posters/48x36.pdf) ([PowerPoint](posters/48x36.pptx)).
 
 ## Catalogue and key results

@@ -85,10 +85,10 @@ and [source](../../paper/apss/main.tex). Its figure/table dependencies and submi
 ZIP remain local and Git-ignored; a fresh checkout can read the manuscript but
 needs those dependencies to compile it.
 
-The generic [draft PDF](../../paper/early_giants_draft.pdf) and
-[Overleaf ZIP](../../paper/early_giants_overleaf.zip) preserve the pre-expansion
-edition at `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Their original local source,
-`paper/main.tex`, is excluded from Git. `src.internal.package_overleaf --verify`
-checks that historical package without local sources or LaTeX; it does not
-package the current Ap&SS manuscript.
+The general [draft PDF](../../paper/early_giants_draft.pdf) and
+[Overleaf ZIP](../../paper/early_giants_overleaf.zip) use the same current
+expanded catalogue and scientific results in a general article layout. Their
+local source, `paper/main.tex`, is excluded from Git.
+`src.internal.package_overleaf --verify` checks the synchronized public package
+without local sources or LaTeX; it does not package the separate Ap&SS draft.
 Analysis regeneration does not edit manuscript prose or compile PDFs.

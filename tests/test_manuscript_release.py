@@ -1,5 +1,7 @@
 """Verify the public manuscript snapshot without private sources or a TeX install."""
 from pathlib import Path
+import csv
+import re
 import shutil
 import subprocess
 import tempfile
@@ -24,6 +26,28 @@ class ManuscriptReleaseTests(unittest.TestCase):
             result = verify_public(root)
             self.assertEqual(result['manuscript_verification'], 'pass')
             self.assertLess(result['references_page'], result['appendix_page'])
+
+    def test_both_drafts_match_current_growth_scenarios(self):
+        with (ROOT/'results/for_manuscript/tables/identity_exclusion_sensitivity.csv').open() as stream:
+            scenarios = {row['scenario']: row for row in csv.DictReader(stream)
+                         if row['scope'] == 'publication' and row['sample'] == 'primary'}
+        with ZipFile(ROOT/'paper'/ZIP_NAME) as archive:
+            texts = [archive.read('main.tex').decode(),
+                     (ROOT/'paper/apss/main.tex').read_text()]
+            for text in texts:
+                prose = ' '.join(text.split())
+                counts = re.search(r'central masses from (\d+) to (\d+);', prose)
+                self.assertIsNotNone(counts)
+                self.assertEqual(tuple(map(int, counts.groups())),
+                                 (int(scenarios['reference']['above_unity']),
+                                  int(scenarios['seed_1e3']['above_unity'])))
+                delayed = re.search(r'raises the primary count to (\d+)\.', prose)
+                self.assertIsNotNone(delayed)
+                self.assertEqual(int(delayed.group(1)), int(scenarios['seed_z20']['above_unity']))
+            for name in archive.namelist():
+                if name.startswith('figures/') and name.endswith('.pdf'):
+                    folder = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/for_manuscript'
+                    self.assertEqual(archive.read(name), (ROOT/folder/name).read_bytes(), name)
 
     def test_changed_pdf_and_private_zip_entry_are_rejected(self):
         with tempfile.TemporaryDirectory() as folder:

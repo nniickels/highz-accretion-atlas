@@ -69,16 +69,17 @@ CI removes generated artifacts in a disposable workspace, runs all five notebook
 and compares the results against the original checkout. It also runs the regression
 suite, source checks, publication figure verification, and a package build/import check.
 Manuscript editing and compilation are separate from the analysis pipeline.
-The current expanded manuscript is tracked as `paper/apss/main.tex` and
-`paper/apss/main.pdf`. The generic manuscript PDF and Overleaf ZIP preserve the
-earlier, pre-expansion edition; their local source is `paper/main.tex`.
+Both draft editions use the current expanded catalogue. The journal-formatted
+source and PDF are tracked as `paper/apss/main.tex` and `paper/apss/main.pdf`.
+The general draft is tracked as `paper/early_giants_draft.pdf` and its synchronized
+`paper/early_giants_overleaf.zip`; their local source is `paper/main.tex`.
 Other files in `paper/apss/` are local and Git-ignored, including figure/table
 copies, upload archives, rebuild scripts, integrity records, and the cover letter.
 A fresh checkout can read the Ap&SS source and PDF but cannot compile that source
 without restoring its local dependencies. Scientific code, canonical data,
 calibration calculations, and generated scientific results remain tracked.
 The original local manuscript sources elsewhere under `paper/` remain ignored.
-For the historical generic edition, Overleaf receives the packaged local sources;
+For the general draft, Overleaf receives the packaged local sources;
 it is not a separate authoritative editing target. Run
 `python3 -m src.internal.package_overleaf` to build that edition's
 manuscript-only upload ZIP from its local sources after compiling and copying
@@ -244,9 +245,9 @@ UNCOVER-20466, CANUCS-LRD-z8.6, and GN-z11.
 The preceding poster edition is recoverable at
 `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Its unchanged scientific tables remain
 in `data/publication/poster_snapshot/` for historical reference and are not inputs
-to the current posters. The generic draft PDF/Overleaf ZIP also remain explicitly
-older snapshots. The current expanded manuscript is `paper/apss/main.tex` and
-its PDF; its local submission ZIP must be rebuilt separately from the science
+to the current posters. Both draft manuscripts use the expanded results:
+the general draft PDF/Overleaf ZIP and the journal-formatted Ap&SS source/PDF.
+Manuscript PDFs and upload ZIPs must be rebuilt separately from the science
 notebooks.
 
 The expanded catalogue and scientific products are recorded at
