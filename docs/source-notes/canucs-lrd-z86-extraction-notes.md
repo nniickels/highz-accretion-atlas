@@ -1,8 +1,8 @@
 # CANUCS-LRD-z8.6 source extraction
 
 Reviewed/retrieved 17 October 2026 against the literature cutoff 3 September 2026.
-These are source provenance and admission proposals; canonical products have not
-been regenerated. The authorized expansion adds to v2 and v3, leaving v1 unchanged.
+This note records the source provenance and adopted v2/v3 admission, with v1
+unchanged. The identity screen below uses the pre-expansion catalogue.
 The comparison revision is `fc0c5501ad2271865b1c040307cad8dd8ca5721a`.
 
 ## Measurement version and retained sources
@@ -40,7 +40,7 @@ from enumerating galaxies:
 
 | Source material / rows screened | Outcome |
 | --- | --- |
-| CANUCS-LRD-z8.6 / 5112687 | Propose one new object, host and preferred Hbeta mass |
+| CANUCS-LRD-z8.6 / 5112687 | One admitted object, host and preferred Hbeta mass |
 | Foreground 5112688, 0.54 arcsec away, zphot=0.49(-0.07,+0.05) | Exclude: low-redshift foreground galaxy used for lensing, not a second high-z AGN |
 | Supplementary Table 1: [OIII]5008, Hbeta narrow, Hbeta broad, [OIII]4364, Hgamma narrow, Hgamma broad, Hdelta, [NeIII]3869, [OII]3727, CIV, NIV]1483/1486; each Fiducial/Test 1/Test 2 column | All 11 line rows and three model columns belong to 5112687. Hgamma broad absent in Fiducial; UV lines not separately refit in Tests 1/2. [OII] is a 3-sigma upper limit. No additional object or mass |
 | Supplementary Table 2: E(B-V), nebular AV, six logarithmic line ratios; Fiducial/Test 1/Test 2 | Same object's dust/diagnostic modeling; no new object |
@@ -57,14 +57,14 @@ The published identity is `5112687`, `CANUCS-LRD-z8.6`, RA `11:49:33.82`,
 Dec `+22:20:59.16` = (177.39091666666667, 22.34976666666667) degrees.
 An explicit coordinate frame/equinox is not stated; do not invent an ICRS claim.
 The imaging reduction is tied to the HST/ACS reference frame. Retain the
-sexagesimal precision. Proposed physical ID `HZA-CANUCS-LRD-Z8-6`, host ID
+sexagesimal precision. Canonical physical ID `HZA-CANUCS-LRD-Z8-6`, host ID
 `HZS-CANUCS-LRD-Z8-6`, measurement ID `CANUCS5112687_tripodi25`.
 
 Scanned all 218 v2 and 350 v3 measurement rows by great-circle separation,
 without a redshift prefilter. Zero positioned measurements lie within 2 arcsec;
-the nearest is J112014389_matthee23 at 61837.34 arcsec, z=4.897. No current
-measurement row contains 5112687, CANUCS-LRD or Tripodi. Proposed new alias is
-not an existing object alias. Both versions' object/alias tables were also
+the nearest is J112014389_matthee23 at 61837.34 arcsec, z=4.897. No pre-expansion
+measurement row contains 5112687, CANUCS-LRD or Tripodi. The admitted alias
+was not an existing object alias. Both versions' object/alias tables were also
 searched for these strings. The source survey's appearance in another paper
 is not object admission.
 
@@ -122,7 +122,7 @@ single-model fit, not a replacement for the adopted host envelope.
 
 ## Lensing and dust, field by field
 
-| Field | Published correction state / integration rule |
+| Field | Published correction state / catalogue treatment |
 | --- | --- |
 | Redshift, coordinates, line FWHM | No flux-magnification division |
 | Table 1 line fluxes, including broad Hbeta and limits | Explicitly observed/magnified, not lens-corrected. Retain as reported. If deriving an intrinsic flux, divide this field once by 1.07 and label it derived |
@@ -166,27 +166,24 @@ strong-line/ionization discussion. Do not import preprint metallicity or host
 fits into the published measurement. The complete retained tables allow review
 of other ancillary fit-parameter changes without claiming they are canonical.
 
-Propose source-family membership **v2 and therefore v3**: this is a JWST-selected
+Source-family membership is **v2 and therefore v3**: this is a JWST-selected
 Balmer single-epoch virial family, not a heterogeneous family made comparable
-by selectively choosing a Balmer row. Propose `secure` evidence as the source's
+by selectively choosing a Balmer row. The catalogue records `secure` evidence from the source's
 broad-line AGN identification, with resolved identity and source-corrected
 lensing. Numerical growth, method-primary, and manuscript-primary/expanded
-eligibility are proposed true, subject to integration checks. The BLR/virial
+eligibility are true under the catalogue and publication-selection rules. The BLR/virial
 interpretation and its high-redshift calibration remain assumptions; no
-source-specific disputed/conditional status is claimed. If integration adopts
-a stricter conditional BLR assessment, retain membership but explicitly exclude
-it from primary inference under that policy. Presence in v2 alone does not
+source-specific disputed/conditional status is claimed. A future stricter conditional BLR assessment would require an explicit
+change to primary-sample eligibility. Presence in v2 alone does not
 set manuscript eligibility.
 
 Preferred measurement is the only admitted numerical record for this new object;
-retain 5100 and Hgamma model alternatives as observables/sensitivities. No new
-numerical growth ranks or sample counts are claimed here. No source-specific
-blocker remains; registration, shared adapter wiring, manifests, publication
-selection and regeneration belong to integration.
+retain 5100 and Hgamma model alternatives as observables/sensitivities. Current numerical results are in `results/v2/`, `results/v3/`, and
+`results/for_manuscript/`; the shared builder and manifests include this source.
 
-## Produced files and checks
+## Source files and checks
 
-- `data/raw/tripodi25_canucs_lrd_z86.csv`: one proposed measurement.
+- `data/raw/tripodi25_canucs_lrd_z86.csv`: one admitted measurement.
 - `data/raw/tripodi25_canucs_agn_fit_variants.csv`: three same-object model cases.
 - `data/raw/tripodi25_canucs_fiducial_lines.csv`: all 11 Fiducial line rows.
 - Five `data/validation/source_inputs/canucs_*` scientific text / supplement table

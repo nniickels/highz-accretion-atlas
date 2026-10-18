@@ -46,7 +46,7 @@ classes, or supported measurements differ.
 
 ## v4 — focused PBH growth-analysis extension
 
-At the user's requested v4 milestone, the version label identifies a new
+For v4, the version label identifies a new
 **analysis**, not another catalogue expansion. v4 reads the frozen v3 catalogue
 and conservative publication-membership policies. It does not introduce
 `data/processed/v4`, alter v1–v3 dataset contracts, or change the source cutoff.
@@ -56,15 +56,15 @@ The isolated outputs under `results/v4/` test the growth component of Dayal
 accretion onset, Monte Carlo mass support, and astrophysical controls.
 Its separate config/manifest and optional notebook are documented in
 [the v4 methods](../reference/pbh-growth-v4.md). A future formation or abundance
-study is outside this milestone. Manuscript and poster products remain separate.
+study is outside this analysis. Manuscript and poster products remain separate.
 
-## Authorized 17 October 2026 membership revision
+## 17 October 2026 membership revision
 
 The unchanged 2026-09-03 cutoff now includes four new Balmer families
 (CAPERS, CANUCS, J1007 and MACS0416-Y1) in v2/v3, and the mass-free SAPPHIRES
 candidate in v3 only. Actual source retrieval/admission date is 2026-10-17.
-This deliberately revises membership under the user's instruction; it is not
-an extraction correction. The preceding scientific edition is retained at
+This changes catalogue membership rather than correcting an extracted value.
+The preceding scientific edition is retained at
 `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. v1 is unchanged. Source-specific
 calibrations/errors are preserved: comparable does not mean recalibrated.
 See [scope and source decisions](../reference/literature-scope.md).

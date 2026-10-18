@@ -31,8 +31,8 @@ outside the catalogue boundary. The authoritative included-source list is
 | Baccus GLIMPSE, MACS0416, and MACS1149 cluster-field rows without published magnifications | source-local exclusions | Thirteen otherwise-new Baccus objects lack source-published lensing corrections. Three GLIMPSE objects enter independently through Fei with explicit corrections; the remaining ten are not admitted as comparable mass points. |
 | Prospective sources listed in the README references | background only | They do not contribute catalogue rows unless separately admitted under the rules above. |
 
-On **17 October 2026**, the user authorized a bounded membership revision of
-v2/v3 at the unchanged **2026-09-03** literature cutoff: v2 is the comparable
+The **17 October 2026** edition expands v2/v3 membership at the unchanged
+**2026-09-03** literature cutoff: v2 is the comparable
 Balmer source-family collection and v3 contains v2 plus other evidence/methods.
 The preceding edition is recoverable at Git commit
 `fc0c5501ad2271865b1c040307cad8dd8ca5721a` (v2: 218/211/210;
@@ -56,8 +56,8 @@ source-native screens retain exclusions, model alternatives and missingness.
 SAPPHIRES's unidentified foreground contaminant remains a caveat, not a forced
 object match. The three pre-existing unresolved identity groups remain open.
 
-This authorization is specific to these five families. Other new source
-families or measurements require a separately declared membership revision;
+This edition adds these five families. Other new source families or
+measurements require a separately documented membership revision;
 the deferred A2744 direct mass below remains external.
 Accuracy fixes, publication-status corrections, and provenance updates apply to
 every affected existing version. Any correction to an extracted value must be

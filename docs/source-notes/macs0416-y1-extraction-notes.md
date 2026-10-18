@@ -33,10 +33,10 @@ was calibrated at 0.3<z<1 and the authors caution against direct extrapolation.
 It cannot establish three accreting black holes. Do not make D2 an alias for
 the entire W UV component or use D2 alone as a globally unique object name.
 
-Proposed identities: measurement `MACS0416Y1_takechi26`, physical object
+Canonical identities: measurement `MACS0416Y1_takechi26`, physical object
 `HZA-MACS0416-Y1`, host `HZS-MACS0416-Y1`; preferred display `MACS0416-Y1`.
 Aliases: `MACS J0416-Y1`, `MACS0416_Y1`, `Y1` (source-local only). One measurement,
-one proposed new object and one host. It is distinct from the SAPPHIRES z~8.479
+one admitted object and one host. It is distinct from the SAPPHIRES z~8.479
 candidate. HST identification of the galaxy and ALMA redshift confirmation
 predate JWST, but do not establish prior AGN discovery. Takechi also explicitly
 cites Harshan et al. (2024) as earlier *possible* AGN evidence from JWST line
@@ -117,33 +117,33 @@ The deterministic conversion uses endpoints 0.6e6 and 4.6e6 Msun:
 log10(MBH/Msun)=6.2041199827, minus error 0.4259687323 dex, plus error
 0.4586378490 dex. Taking logs of 1.0e6/3.0e6 error bars is incorrect.
 Approximate host stellar mass ~10^9 Msun is contextual, imported by the paper
-from Harshan; no canonical stellar mass/error is proposed here. Lbol,
+from Harshan; no canonical stellar mass/error is adopted here. Lbol,
 Eddington ratio, nuclear coordinate errors and redshift errors remain missing.
 
-## Proposed admission and field mappings
+## Admission and field mappings
 
-Admit family `takechi26_macs0416_y1` to **v2 and v3**, with v1 unchanged.
+Family `takechi26_macs0416_y1` belongs to **v2 and v3**, with v1 unchanged.
 It is a one-target Balmer virial source family. Tentative evidence affects
 inference eligibility independently of membership, as for tentative Fei rows.
 There is no heterogeneous set of independently massed clumps in this source.
-Propose `object_class=broad_line_agn`, `spectroscopic_type=type1_broad_line`,
+The catalogue records `object_class=broad_line_agn`, `spectroscopic_type=type1_broad_line`,
 `evidence_status=candidate` on conservative review, with the author's BLAGN
 interpretation retained in the evidence basis. Candidate rather than secure
 reflects weak flux significance, wide FWHM uncertainty and the weak outflow
 separation, not absence of a numerical estimate.
 
-Propose numerical-growth eligibility true, `mass_comparability_group=
+Numerical-growth eligibility is true, `mass_comparability_group=
 virial_balmer_single_epoch`, primary-growth flag false; manuscript primary
-false and expanded true, conditional on integration's standard schema checks.
+false and expanded true under the standard catalogue and publication rules.
 The supported source-reported virial mass, systemic redshift, one-host identity
 and explicit lens correction meet the numerical gate. The published asymmetric
 interval may be used under the repository's approximate sampling contract,
-with its unspecified confidence/scatter semantics exposed. No growth result
-or ranking has been computed here. Treat this as the sole preferred measurement
+with its unspecified confidence/scatter semantics exposed. Current growth
+results are in `results/`. This is the sole preferred measurement
 for the new object; do not create duplicate measurements from alternative
 calibrations or integrated-vs-spaxel data.
 
-Registry proposals (integration only): source key as above; arXiv v1 primary
+Registry mapping: source key as above; arXiv v1 primary
 record and retrieval date in provenance registry; `mbh_method=
 single-epoch-virial-hbeta-greeneho2005`, calibration tag `greene-ho2005-hbeta`,
 Hbeta species and Section IV.2.1 support in the mass-method registry;
@@ -152,9 +152,9 @@ provenance. Copy the archive/member/retained hashes from the JSON provenance
 record. Use unknown selection completeness, with no population weight: this
 was a serendipitous MSA-footprint target of DREAMS GO-4750 observed 5 November
 2024, combined with CANUCS IFU data. It is not an unbiased AGN survey.
-The focused adapter emits proposed identities, coordinates, redshift, converted
-mass/errors and eligibility; integration must populate the full canonical
-schema and register source observables from the raw FWHM/flux/magnification.
+The focused source validator checks identities, coordinates, redshift, converted
+mass/errors, and eligibility. The shared builder populates the canonical schema
+and registers the raw FWHM, flux, and magnification observables.
 
 ## Retained source and independent validation files
 
@@ -180,10 +180,9 @@ schema and register source observables from the raw FWHM/flux/magnification.
 Focused checks pass for mass and both interval endpoints, flux/FWHM/mu errors,
 redshift, sexagesimal coordinate conversion, screen cardinality and retained
 payload hashes. These checks establish transcription/conversion, not AGN
-certainty or virial-calibration validity. No scientific blocker to the proposed
-candidate admission remains; nuclear astrometry, exact mass-error semantics,
-and stronger rejection of an outflow remain follow-up limitations. Shared
-registries, canonical outputs and manifests are intentionally left for integration.
+certainty or virial-calibration validity. Nuclear astrometry, exact mass-error
+semantics, and stronger rejection of an outflow remain follow-up limitations.
+Shared registries, canonical outputs, and manifests include the admitted candidate.
 
 ## Reviewed canonical admission
 

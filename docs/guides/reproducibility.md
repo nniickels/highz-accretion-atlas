@@ -242,10 +242,10 @@ inputs resolve directly to canonical tables and are pinned in
 exports were refreshed together. The four onset targets are CAPERS-LRD-z9,
 UNCOVER-20466, CANUCS-LRD-z8.6, and GN-z11.
 
-The preceding poster edition is recoverable at
-`fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Its unchanged scientific tables remain
-in `data/publication/poster_snapshot/` for historical reference and are not inputs
-to the current posters. Both draft manuscripts use the expanded results:
+The preceding poster edition and its scientific inputs are recoverable from Git
+revision `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Current posters use only
+the canonical input paths pinned in `data/poster_inputs.json`. Both draft
+manuscripts use the expanded results:
 the general draft PDF/Overleaf ZIP and the journal-formatted Ap&SS source/PDF.
 Manuscript PDFs and upload ZIPs must be rebuilt separately from the science
 notebooks.

@@ -1,8 +1,8 @@
 # CAPERS-LRD-z9: published-value extraction and admission assessment
 
 Source reviewed and retrieved 17 October 2026; literature cutoff 3 September
-2026. This note documents source measurements and conventions. The proposed
-catalogue admission below has not yet been integrated into generated products.
+2026. This note documents source measurements, conventions, and the adopted
+catalogue admission. The dated identity screen uses the pre-expansion catalogue.
 
 ## Source version and publisher correspondence
 
@@ -71,11 +71,10 @@ CAPERS target alias. Their missing positions limit a positional census, but none
 supplies evidence of this target's identity. Existing unresolved identity groups
 remain unaffected.
 
-**Proposed identity outcome:** one new object, one new host, one new preferred
-measurement, zero matches to existing catalogue objects. Suggested IDs are
-`CAPERSLRDz9_taylor25`, `HZA-CAPERS-LRD-Z9`, and `HOST-CAPERS-LRD-Z9` for the
-measurement, physical object, and host, respectively; integration should check
-these against its final naming convention. `capers_lrd_z9_identity_checks.json`
+**Adopted identity outcome:** one new object, one new host, one new preferred
+measurement, zero matches to existing catalogue objects. The canonical IDs are
+`CAPERSLRDz9_taylor25`, `HZA-CAPERS-LRD-Z9`, and `HZS-CAPERS-LRD-Z9` for the
+measurement, physical object, and host, respectively. `capers_lrd_z9_identity_checks.json`
 records the exact inspected input hashes, nearest rows, and missing-coordinate
 records. It is a dated source assessment, not a requirement to keep future
 catalogue hashes unchanged after admission.
@@ -101,7 +100,7 @@ midpoint as a measured Gaussian error, add it automatically to the quoted
 0.15 dex, or silently assign one scalar `log_mbh_systematic_dex`. A dedicated
 sensitivity calculation can adopt explicit assumptions later.
 
-| Estimate in IV.2 | Reported value (log10 Msun) | Meaning and proposed handling |
+| Estimate in IV.2 | Reported value (log10 Msun) | Meaning and catalogue treatment |
 | --- | --- | --- |
 | Canonical, no attenuation correction | 7.58 +/- 0.15 | Preferred Balmer virial mass for numerical comparison. |
 | Balmer-decrement dust correction | 8.10 +/- 0.40 | Correlated alternative using SMC attenuation, Case B, and AV,BLR=1.9 +1.3/-1.2. Sensitivity/context only. |
@@ -165,24 +164,24 @@ No canonical numeric Lbol, measured instantaneous Eddington ratio, or lensing
 magnification is supplied by Table 1. Leave these missing; the lower-mass-limit
 calculation's assumed fEdd=1 is not an observed Eddington ratio. No source
 magnification correction is described for this ordinary PRIMER-COSMOS field.
-Propose `lensing_status=not_reported`, blank mu, and
+The catalogue uses `lensing_status=not_reported`, blank mu, and
 `lensing_mass_correction_status=not_required`, with this field-context rationale;
 do not fabricate mu=1 or apply a demagnification.
 
-## Proposed canonical mapping and eligibility
+## Canonical mapping and eligibility
 
 The source is a single-target broad-Balmer virial study, satisfying the comparable
-Balmer-family contract. Propose **v2 and therefore v3**, with v1 unchanged, under
-the user's authorized v2/v3 expansion. This preserves the source calibration;
+Balmer-family contract. Membership is **v2 and therefore v3**, with v1 unchanged.
+This preserves the source calibration;
 it does not recalibrate every family to a common recipe.
 
-| Canonical field(s) | Proposed mapping |
+| Canonical field(s) | Adopted mapping |
 | --- | --- |
 | source_key / source_table | `taylor25_capers_lrd_z9` / Table 1 and IV.2 |
 | object_id / published_aliases | CAPERS-LRD-z9 / CAPERS-COSMOS-119334 |
 | ra_deg / dec_deg / redshift / redshift_err | Published Table 1 values; frame explicitly unreported; redshift_kind=`spec` |
 | log_mbh_msun_std / log_mbh_err_minus / log_mbh_err_plus | 7.58 / 0.15 / 0.15 |
-| mbh_method / mass_comparability_group | `single-epoch-virial-hbeta` / `virial_balmer_single_epoch` |
+| mbh_method / mass_comparability_group | `single-epoch-virial-hbeta-greeneho2005` / `virial_balmer_single_epoch` |
 | mbh_formal_uncertainty_kind | Reported line measurements plus empirical calibration-coefficient errors; not purely statistical |
 | dust_correction_applied_flag | False |
 | log_mbh_systematic_dex / mbh_systematic_applied_flag | Missing scalar / False; native 0.5–0.7 dex range retained separately |
@@ -194,9 +193,9 @@ it does not recalibrate every family to a common recipe.
 | conditional_mass_flag | False for canonical source virial estimate; ordinary virial applicability caveats remain explicit |
 | growth_ranking_eligible_flag | True for canonical mass only; method, redshift, identity and field lensing treatment supported |
 | primary_mass_comparison_flag / primary_growth_ranking_flag | True under existing secure Balmer-method policy |
-| manuscript membership proposal | Primary and expanded, subject to integration's ordinary publication-selection gate |
+| manuscript membership | Primary and expanded under the publication-selection rules |
 
-Suggested caveat tags: `prism_resolution`, `virial_calibration_high_redshift`,
+Source caveat tags: `prism_resolution`, `virial_calibration_high_redshift`,
 `gas_enshrouded_lrd`, `dust_alternative_masses_correlated`,
 `assumed_eddington_bound_context_only`, `source_auxiliary_width_discrepancy`,
 `source_summary_width_discrepancy`, `host_mass_upper_limit`,
@@ -204,9 +203,9 @@ Suggested caveat tags: `prism_resolution`, `virial_calibration_high_redshift`,
 registry. The alternate mass rows should enter source-local observables or a
 sensitivity input, not increase preferred measurement/object cardinalities.
 
-Proposed source-family registry facts: JWST NIRCam LRD selection followed by
+Source-family registry facts: JWST NIRCam LRD selection followed by
 CAPERS/NIRSpec-PRISM confirmation; source-native Hbeta virial mass; one new
-object; dataset minimum v2; DOI and exact v4 as above. Proposed mass-method
+object; dataset minimum v2; DOI and exact v4 as above. The mass-method
 registry entry preserves Greene & Ho equation 10 and the already included
 coefficient uncertainties, with the separate high-z applicability range.
 Selection was targeted follow-up of a high-value high-z LRD candidate; there
@@ -214,9 +213,8 @@ is no usable source inclusion probability or completeness weight. This source
 supports object-level comparisons, not population fractions or seed-origin
 probabilities.
 
-No growth rank is assigned here. Integration must regenerate rankings and
-reassess the v4 target selection from the expanded primary set. Treating a
-mass estimate as eligible does not validate its high-z virial assumptions.
+Current growth rankings and v4 target selection are recorded in `results/`.
+Treating a mass estimate as eligible does not validate its high-z virial assumptions.
 
 ## Retained files and independent checks
 
@@ -250,14 +248,13 @@ Independent fixtures and read-only check:
 The check passes: retained payload hashes; 17 independently read numeric property
 anchors; five mass values/error/limit definitions; 48 table-row cardinalities;
 TeX anchors including both internal discrepancies; DOI correspondence; and the
-recorded identity outcome. This does not yet test propagation through canonical
-processed tables, which awaits integration. The HTML scraper is only a
+recorded identity outcome. This source-only checker complements the independent
+canonical mass/error and redshift/identity verifiers. The HTML scraper is a
 transcription aid; expected mass values were independently read from TeX.
 
-No extraction blocker remains. The explicitly unreported coordinate frame,
-auxiliary width conflicts, and high-z virial/dust/gas model limitations remain
-source caveats. Shared registries, processed products, manifests and publication
-outputs require the separate integration and regeneration step.
+The explicitly unreported coordinate frame, auxiliary width conflicts, and
+high-z virial/dust/gas model limitations remain source caveats. Shared registries,
+processed products, manifests, and publication outputs include the adopted source.
 
 ## Reviewed canonical admission
 

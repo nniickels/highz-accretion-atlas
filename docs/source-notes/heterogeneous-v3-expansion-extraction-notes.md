@@ -63,7 +63,7 @@ the current growth calculations.
 
 These labels describe which existing scientific dataset each family extends:
 v2-scoped additions would flow into v3, while the families above extend v3 only.
-The user-authorized heterogeneous expansion is implemented directly in v3 and
+The heterogeneous expansion is implemented directly in v3 and
 remains reproducible through the shared build pipeline.
 
 ## Admitted sources

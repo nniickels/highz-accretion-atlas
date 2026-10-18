@@ -8,7 +8,7 @@ Tables 1 and 2 describe the same ten spectroscopic/tentative objects; Table B1 a
 
 | IDs | Outcome | Reason |
 | --- | --- | --- |
-| 8760 | Propose one new v3 candidate/context object | LRD colors, marginal compactness and tentative broad Hβ; no published BH mass |
+| 8760 | One admitted v3 candidate/context object | LRD colors, marginal compactness and tentative broad Hβ; no published BH mass |
 | 1967, 1988 | Exclude | Close galaxy pair; no source AGN evidence |
 | 17832, 17882 | Exclude | Close galaxy pair; no source AGN evidence |
 | 17929, 18743, 19406 | Exclude | Member galaxies; no source AGN evidence |
@@ -16,7 +16,7 @@ Tables 1 and 2 describe the same ten spectroscopic/tentative objects; Table B1 a
 | 16702 | Exclude | Tentative spectroscopic member; no source AGN evidence |
 | 2508, 6385, 8764, 15524, 16324, 23481, 25528 | Exclude | Photometric candidates; none passes source LRD screen; no other source accretion evidence |
 
-This is 17 individually identified objects, one admission proposal and 16 exclusions. The initial photometric search finds 17 candidates, of which four are already confirmed members and five have discordant spectroscopic redshifts (6.29–8.15); the paper does not identify those five rejected sources individually. The remaining eight are 16702 and the seven Table B1 candidates. Do not invent identities for the unnamed rejected sources or count the initial search as 17 additional galaxies. The six other z>8 galaxies mentioned in the wider EDR sample are not individually tabulated here. Neither unlisted group is an AGN sample.
+This is 17 individually identified objects, one admitted candidate and 16 exclusions. The initial photometric search finds 17 candidates, of which four are already confirmed members and five have discordant spectroscopic redshifts (6.29–8.15); the paper does not identify those five rejected sources individually. The remaining eight are 16702 and the seven Table B1 candidates. Do not invent identities for the unnamed rejected sources or count the initial search as 17 additional galaxies. The six other z>8 galaxies mentioned in the wider EDR sample are not individually tabulated here. Neither unlisted group is an AGN sample.
 
 MACS0416-Y1, MACS0416-JD (z=8.34) and f090d_018 (z=8.49) are external large-scale-structure comparisons in V.2.2, not additional SAPPHIRES AGN identifications. The paper's inconsistent approximate structure separations are not used for identity. ID-25528 has a separate bright foreground contaminant discussed in III.2; it must not be assumed to be ID-8760's neighbour.
 
@@ -38,24 +38,24 @@ The source-specific crossmatch CSV scans every available coordinate in both v2/v
 
 The separately retained MACS0416 context crossmatch checks all four MACS0416 rows in the existing pinned Baccus published Table 1: 4750_50001, 4750_60009, 4750_60003 and 4750_22011. They are 378–440 arcsec away, at z=4.7079–5.9631; they cannot be the immediate foreground contaminant or ID-8760. They were not admitted to v2/v3 because of missing source-published lensing corrections.
 
-For MACS0416-Y1, the concurrent source extraction retains host astrometry from Tamura v2 (04:16:09.415, -24:05:35.54) and z=8.312 from Takechi v1. The host is 379.30 arcsec from ID-8760 with delta-z=0.167. They are distinct systems; Y1's proposed broad-line measurement must not be attached to ID-8760. This supporting cross-check does not modify the other extraction's files or its membership proposal.
+For MACS0416-Y1, the source record retains host astrometry from Tamura v2 (04:16:09.415, -24:05:35.54) and z=8.312 from Takechi v1. The host is 379.30 arcsec from ID-8760 with delta-z=0.167. They are distinct systems; Y1's proposed broad-line measurement must not be attached to ID-8760. This positional and redshift comparison supports treating them as distinct systems.
 
-Figure 3 marks ID-8760's immediate foreground neighbour but supplies no catalogue ID, coordinate pair or redshift. Its individual identity remains **unresolved**; no forced alias, host merge or neighbour admission is justified. The nearby photometric ID-8764 is ~54.6 arcsec away and zphot=8.46, not an identification of that neighbour. Lack of a precise neighbour identity does not supply an alternative BH mass. The no-mass candidate can be retained with an explicit contamination caveat; integration should preserve the unresolved-neighbour flag rather than claim a completed neighbour identity audit.
+Figure 3 marks ID-8760's immediate foreground neighbour but supplies no catalogue ID, coordinate pair or redshift. Its individual identity remains **unresolved**; no forced alias, host merge or neighbour admission is justified. The nearby photometric ID-8764 is ~54.6 arcsec away and zphot=8.46, not an identification of that neighbour. Lack of a precise neighbour identity does not supply an alternative BH mass. The no-mass candidate can be retained with an explicit contamination caveat; the unresolved-neighbour caveat remains explicit in the catalogue.
 
-## Proposed canonical mapping and registry information
+## Canonical mapping and registry information
 
-Propose source key `fudamoto25_sapphires_z847`, measurement ID `SAPPHIRES8760_fudamoto25`, object display ID `SAPPHIRES-ID-8760`, physical ID `HZA-SAPPHIRES-ID-8760`, host ID `HZS-SAPPHIRES-ID-8760`. Only this new measurement is proposed, so it is preferred for its new object. Proposed placement is **v3 only**, with v1/v2 unchanged: the source is an overdensity/heterogeneous candidate study without supported single-epoch BH masses, not a comparable Balmer mass family. The presence of Hβ does not change the source-family placement.
+The source key is `fudamoto25_sapphires_z847`, measurement ID `SAPPHIRES8760_fudamoto25`, object display ID `SAPPHIRES-ID-8760`, physical ID `HZA-SAPPHIRES-ID-8760`, host ID `HZS-SAPPHIRES-ID-8760`. This is the sole preferred measurement for the new object. Its placement is **v3 only**, with v1/v2 unchanged: the source is an overdensity/heterogeneous candidate study without supported single-epoch BH masses, not a comparable Balmer mass family. The presence of Hβ does not change the source-family placement.
 
-Use object_class `broad_line_agn`, evidence_status `candidate`, spectroscopic_type `type1_broad_line_candidate`, phenotype `lrd`, selection channels `broad_hbeta;photometric_lrd`, and mass-comparability `no_numeric_mass` (integration must map these proposals to existing controlled values). Evidence basis must mention low peak significance and contaminated marginal compactness. Set growth and primary-growth flags false; manuscript-primary and expanded numerical-growth eligibility false. Reason: no published supported BH mass. Candidate inclusion in contextual discussion is separate from numerical manuscript membership.
+Use object_class `broad_line_agn`, evidence_status `candidate`, spectroscopic_type `type1_broad_line_candidate`, phenotype `lrd`, selection channels `broad_hbeta;photometric_sed`, and mass-comparability `no_numeric_mass` as recorded in the canonical schema. Evidence basis must mention low peak significance and contaminated marginal compactness. Set growth and primary-growth flags false; manuscript-primary and expanded numerical-growth eligibility false. Reason: no published supported BH mass. Candidate inclusion in contextual discussion is separate from numerical manuscript membership.
 
-Source registry proposal: arXiv DOI 10.48550/arXiv.2503.15597, exact version v1, source-native Table 1/Sections II, III.3, IV.2; retrieval date 2026-10-17. Manifest records SHA-256 for the retrieved archive, its retained `sample631.tex` member, HTML payload and retained evidence extract/version history. There is no source mass-method calibration to register. Selection is NIRCam WFSS [O III] member identification plus LRD screen in the parallel field, not a complete AGN selection function; no population weights or fractions are supported.
+Source registry: arXiv DOI 10.48550/arXiv.2503.15597, exact version v1, source-native Table 1/Sections II, III.3, IV.2; retrieval date 2026-10-17. Manifest records SHA-256 for the retrieved archive, its retained `sample631.tex` member, HTML payload and retained evidence extract/version history. There is no source mass-method calibration to register. Selection is NIRCam WFSS [O III] member identification plus LRD screen in the parallel field, not a complete AGN selection function; no population weights or fractions are supported.
 
 ## Files and checks
 
 Produced source-specific files:
 
 - `data/raw/sapphires_z847_v1_member_screen.csv`: all 17 source rows, original table cells and explicit outcomes.
-- `data/raw/sapphires_z847_v1_agn_candidate.csv`: one proposed candidate with measurements, missingness, caveats and eligibility.
+- `data/raw/sapphires_z847_v1_agn_candidate.csv`: one admitted candidate with measurements, missingness, caveats and eligibility.
 - `data/validation/source_inputs/sapphires_z847_v1_main.tex`: exact source member, including tables and explanatory context.
 - `data/validation/source_inputs/sapphires_z847_v1_extract.html`: retained table/evidence elements.
 - `data/validation/source_inputs/sapphires_z847_version_history.html`: retrieved version-history element.
@@ -64,7 +64,7 @@ Produced source-specific files:
 - `data/validation/sapphires_z847_catalogue_crossmatch.csv`: 34 nearest-neighbour screens across both versions.
 - `data/validation/sapphires_z847_macs0416_context_crossmatch.csv`: four Baccus sources plus Y1.
 
-Anchors were transcribed from the TeX table/prose independently of the HTML-to-CSV screen. Checks compare ID sets, candidate values, missing mass and false inference flags, hash integrity and 34 no-close-match outcomes. The integration session must register these source-specific anchors and wire the one-row adapter; no shared registry, manifest, generated output, staging or commit is part of this extraction. The only unresolved scientific identity is the unnamed foreground contaminant. No usable BH mass is blocked on transcription; none is published in the pinned source.
+Anchors were transcribed from the TeX table/prose independently of the HTML-to-CSV screen. Checks compare ID sets, candidate values, missing mass and false inference flags, hash integrity and 34 no-close-match outcomes. The source-specific anchors and one-row adapter are registered in the canonical build and verification workflow. The only unresolved scientific identity is the unnamed foreground contaminant. No usable BH mass is blocked on transcription; none is published in the pinned source.
 
 ## Reviewed canonical admission
 

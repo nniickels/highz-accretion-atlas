@@ -36,7 +36,8 @@ in the [reproduction guide](../../docs/guides/reproducibility.md#apss-calibratio
 The implementation rejects different measurement IDs, asymmetric errors, or
 changed scales until those assumptions are reviewed.
 
-`poster_snapshot/` preserves historical CUPC input tables from
-`fc0c5501ad2271865b1c040307cad8dd8ca5721a` for reference. Current posters and
-manuscript growth inference use canonical results, with the current poster
-inputs pinned in `data/poster_inputs.json`.
+Current posters and manuscript growth inference use the canonical results.
+`data/poster_inputs.json` pins the current poster inputs. Earlier poster figures
+and their scientific inputs are recoverable from Git revision
+`fc0c5501ad2271865b1c040307cad8dd8ca5721a`; duplicate historical tables are not
+kept in the current tree.

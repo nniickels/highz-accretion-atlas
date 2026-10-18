@@ -1,4 +1,4 @@
-# J1007_AGN: published-value extraction and admission proposal
+# J1007_AGN: published-value extraction and catalogue admission
 
 Primary source: Schindler et al., *A little red dot at z=7.3 within a large
 galaxy overdensity*, Nature Astronomy 9, 1732–1744 (2025),
@@ -27,7 +27,7 @@ HTML/text extracts remove surrounding page material. Attribution is above.
 
 Extended Data Table 3 has one AGN, J1007_AGN, and eight galaxies:
 J1007_10660, J1007_11721, J1007_11812, J1007_5524, J1007_9336,
-J1007_3984, J1007_3850 and J1007_16615. Only the AGN is proposed for admission.
+J1007_3984, J1007_3850 and J1007_16615. Only the AGN is admitted.
 The galaxies' [O III] emission and shared environment alone do not establish
 AGN evidence. Table 4 repeats their environmental properties, not additional
 objects. Table 5 contains clustering bins, not black holes. Figures' comparison
@@ -48,7 +48,7 @@ search without a J1007 match. Their absence prevents a coordinate-only proof,
 but no source evidence suggests an overlap. Object tables inherit measurement
 coordinates; there is no competing local identity. Within the source, the
 nearest companions are 17.31 and 18.33 arcsec away (Table 4), not aliases.
-Propose one new physical object and one host, with no identity override needed.
+The catalogue admits one new physical object and one host, with no identity override needed.
 
 ## Mass, errors and preferred interpretation
 
@@ -78,10 +78,10 @@ attenuation probable and discuss the corrected estimate as the intrinsic mass,
 while explicitly retaining both interpretations; it is not a uniquely measured
 intrinsic mass independent of the continuum model.
 
-Propose observed GH05 Hβ as catalogue-preferred for the conservative comparable
+The catalogue adopts observed GH05 Hβ as preferred for the conservative comparable
 Balmer baseline, with the dust-corrected estimate retained as a correlated
 sensitivity observable/alternative on the same measurement/object. This is a
-catalogue policy proposal, not a claim that the authors prefer an unattenuated
+catalogue policy choice, not a claim that the authors prefer an unattenuated
 physical model. The corrected case tests the inferred growth pressure if the
 source's dust-screen/scattered-light interpretation is valid. It raises log mass
 by 0.59310908 dex. Do not count two black holes or statistically combine them.
@@ -96,36 +96,36 @@ trials are systematic checks, retained in source tables, not independent
 catalogue measurements.
 
 Table 1 reports z error ±0.0005, whereas main text reports ±0.0006. Preserve
-both locations; propose table ±0.0005. The table and main text also disagree
+both locations; the catalogue adopts the table value ±0.0005. The table and main text also disagree
 on M1450; no UV magnitude is adopted here. These discrepancies do not affect
 the central redshift or mass extraction.
 
 No lens model, magnification or lens correction is applied by this blank-field
-source. Propose `unlensed` under the catalogue's field-source convention;
+source. The catalogue records `unlensed` under its field-source convention;
 raw magnification is missing, not a measured mu=1. Do not demagnify again.
 Host stellar mass and uncertainties remain missing.
 
-## Proposed registry/mapping and eligibility
+## Catalogue mapping and eligibility
 
 Source/family key `schindler25_j1007`; source name Schindler et al. (2025),
 GO 2073 NIRSpec/MSA PRISM J1007 field; one secure broad-line AGN, phenotype
-`lrd`; Balmer single-epoch virial comparability. Proposed preferred measurement
-ID `J1007AGN_schindler25_observed`, object display/alias `J1007_AGN`;
-stable physical/host IDs should follow integration naming conventions.
+`lrd`; Balmer single-epoch virial comparability. Preferred measurement
+ID `J1007AGN_schindler25_observed`, object display/alias `J1007_AGN`, physical
+object `HZA-J1007-AGN`, and host `HZS-J1007-AGN`.
 Map raw coordinates/redshift directly, mass via endpoint conversion above,
 `mbh_method` to GH05 Hbeta, broad Hbeta to detection evidence, and source
 statistical versus additional method uncertainties separately. Raw corrected
 row ID `J1007AGN_schindler25_dust_corrected` is an alternative key, not an
 instruction to emit an extra independent measurement.
 
-Propose family membership **v2 and v3**, v1 unchanged. The single-source
+Family membership is **v2 and v3**, with v1 unchanged. The single-source
 family has comparable Balmer virial evidence and a supported numerical mass.
-Propose numerical-growth and manuscript-primary/expanded eligibility for the
+Numerical-growth and manuscript-primary/expanded eligibility apply to the
 observed preferred estimate: secure broad-line evidence, resolved identity,
 supported recipe and field lensing treatment. Keep estimator applicability at
 high redshift and continuum/dust interpretation explicit. Corrected values
 belong in sensitivity comparisons, not another primary object. No growth ranks
-or canonical results have been computed in this extraction.
+are defined by this source note; current calculations are in `results/`.
 
 The clustering estimate log10(f_duty)=3.66 -3.90 +5.89 measures occupation of
 an observed LRD phase through halo abundance; its median is unphysical and
@@ -135,8 +135,8 @@ growth interval spent accreting. Do not feed either number into a growth-model
 accreting-time fraction, clip the posterior to one, or infer population fractions
 from this single-object discovery.
 
-Integration must register the source and fixtures, implement the deterministic
-mapping and preferred-observable policy, then regenerate and validate outputs.
+The canonical build registers the source and fixtures and applies the
+deterministic mapping and preferred-observable policy.
 There is no unresolved scientific admission blocker for the observed baseline;
 the table/text discrepancies and dust interpretation remain documented caveats.
 
