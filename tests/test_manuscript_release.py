@@ -1,5 +1,6 @@
 """Verify the public manuscript snapshot without private sources or a TeX install."""
 from pathlib import Path
+from io import BytesIO
 import csv
 import re
 import shutil
@@ -8,7 +9,19 @@ import tempfile
 import unittest
 from zipfile import ZipFile
 
+from pypdf import PdfReader, PdfWriter
+from src.internal.pdf_reproduction import compare_pdf
+
 from src.internal.package_overleaf import ROOT, PDF_NAME, ZIP_NAME, verify_public, package
+
+
+def verify_packaged_figures(archive, root):
+    for name in archive.namelist():
+        if name.startswith('figures/') and name.endswith('.pdf'):
+            folder = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/for_manuscript'
+            # Regeneration may change compression across platforms. Keep exact
+            # decoded content/resource checks, as in the notebook verifier.
+            compare_pdf(BytesIO(archive.read(name)), root/folder/name)
 
 
 class ManuscriptReleaseTests(unittest.TestCase):
@@ -44,10 +57,32 @@ class ManuscriptReleaseTests(unittest.TestCase):
                 delayed = re.search(r'raises the primary count to (\d+)\.', prose)
                 self.assertIsNotNone(delayed)
                 self.assertEqual(int(delayed.group(1)), int(scenarios['seed_z20']['above_unity']))
-            for name in archive.namelist():
-                if name.startswith('figures/') and name.endswith('.pdf'):
-                    folder = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/for_manuscript'
-                    self.assertEqual(archive.read(name), (ROOT/folder/name).read_bytes(), name)
+            verify_packaged_figures(archive, ROOT)
+
+    def test_packaged_figures_allow_recompression_but_reject_changed_geometry(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            path = root/'results/for_manuscript/figures/compatibility.pdf'
+            path.parent.mkdir(parents=True)
+            with ZipFile(ROOT/'paper'/ZIP_NAME) as archive:
+                original = archive.read('figures/compatibility.pdf')
+                # Keep the other packaged figures unchanged to test the complete gate.
+                for name in archive.namelist():
+                    if name.startswith('figures/') and name.endswith('.pdf'):
+                        base = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/for_manuscript'
+                        target = root/base/name
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_bytes(archive.read(name))
+                writer = PdfWriter(clone_from=PdfReader(BytesIO(original)))
+                for page in writer.pages:
+                    page.compress_content_streams(level=0)
+                writer.write(path)
+                self.assertNotEqual(original, path.read_bytes())
+                verify_packaged_figures(archive, root)
+                writer.pages[0].mediabox.upper_right = (100, 100)
+                writer.write(path)
+                with self.assertRaisesRegex(AssertionError, 'PDF'):
+                    verify_packaged_figures(archive, root)
 
     def test_changed_pdf_and_private_zip_entry_are_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
