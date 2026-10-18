@@ -184,8 +184,8 @@ in text order and whitespace; it is not a semantic or visual-layout comparison.
 The byte hashes reject changes even if character counts happen to stay equal.
 
 PDFs are manually exported presentation artifacts, not byte-identical outputs
-of the scientific pipeline. Both current exports are PDF 1.7 and were visually
-reviewed after the margin updates, at their full page sizes. Font versions,
+of the scientific pipeline. The current exports were visually
+reviewed after the 17 October 2026 scientific update, at their full page sizes. Font versions,
 export applications, metadata, and PDF encodings can differ across systems.
 When promoting a layout to the print version, export the chosen slide as a one-page
 PDF at its native size (portrait 36 × 48 inches, landscape 48 × 36 inches),
@@ -194,7 +194,6 @@ update that pair's exported slide number, fingerprint and artifact hashes.
 Do not refresh hashes to bypass a failure. No automatic PDF exporter or
 printer-specific bleed profile is implied.
 The verifier runs in CI; no local authoring runtime is required there.
-The earlier Quartz portrait export was replaced by the reviewed PDF 1.7 export.
 Verification does not rewrite or silently repair the reviewed PDFs.
 
 ## Ap&SS calibration sensitivity
@@ -227,20 +226,28 @@ The Ap&SS manuscript cites repository commit
 code, input and result tables, dependency versions, and reproduction commands.
 The submission uses this repository reference instead of duplicate supplementary
 files. When the local submission package is available, its optional integrity checker
-compares the cited calibration files and figures against that version. Scientific
+compares the current figures and analysis files against the expanded scientific
+revision below, while retaining the separate calibration citation. Scientific
 reproduction uses the tracked analysis pipeline and does not require these local
 presentation files.
 
-## Historical presentation editions after the October admission
+## Current and historical presentation editions
 
-The CUPC posters retain their reviewed pre-expansion edition at
-`fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Their original scientific-table
-hashes now resolve through the explicit path map in `data/poster_inputs.json`
-to unchanged tables in `data/publication/poster_snapshot/`. Verification and
-figure reconstruction therefore retain the actual historical inputs; current
-catalogue tables are not substituted or compared with a historical count.
-The generic draft PDF/Overleaf ZIP are also explicitly older snapshots.
-The expanded scientific manuscript is `paper/apss/main.tex` and its PDF.
+The CUPC portrait and landscape posters now use the 17 October 2026 expanded
+catalogue: 355 measurements, 343 provisional object records, 37 source families,
+and publication samples of 223 primary and 238 expanded objects. Their scientific
+inputs resolve directly to canonical tables and are pinned in
+`data/poster_inputs.json`; both plot variants, editable text, and native-size PDF
+exports were refreshed together. The four onset targets are CAPERS-LRD-z9,
+UNCOVER-20466, CANUCS-LRD-z8.6, and GN-z11.
+
+The preceding poster edition is recoverable at
+`fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Its unchanged scientific tables remain
+in `data/publication/poster_snapshot/` for historical reference and are not inputs
+to the current posters. The generic draft PDF/Overleaf ZIP also remain explicitly
+older snapshots. The current expanded manuscript is `paper/apss/main.tex` and
+its PDF; its local submission ZIP must be rebuilt separately from the science
+notebooks.
 
 The expanded catalogue and scientific products are recorded at
 `a1bef516db5c76a92b6848eb12bccabdeb5804b9`. The Ap&SS manuscript cites this

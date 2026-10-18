@@ -83,7 +83,7 @@ class PosterRebuildTests(unittest.TestCase):
         from src.internal.poster_figures import poster_input_path
         selection = pd.read_csv(poster_input_path('results/for_manuscript/tables/publication_object_selection.csv'))
         edition = json.loads((ROOT/'data/poster_inputs.json').read_text())
-        self.assertEqual(edition['edition_revision'],'fc0c5501ad2271865b1c040307cad8dd8ca5721a')
+        self.assertEqual(edition['edition_revision'],'a1bef516db5c76a92b6848eb12bccabdeb5804b9')
         measurement_count=edition['edition_measurements']
         uncertainty = pd.read_csv(poster_input_path('results/v3/tables/v3_object_uncertainty_ranking.csv'))
         error_ids = set(uncertainty.loc[uncertainty.reported_mass_errors_sampled, 'physical_object_id'])
@@ -115,6 +115,25 @@ class PosterRebuildTests(unittest.TestCase):
             self.assertIn(f'The other {expanded-expanded_errors} enter central-mass tests only', text['223'])
             pictures = [n.find('.//'+P+'cNvPr').get('id') for n in slide.iter(P+'pic')]
             self.assertNotIn('3', pictures, 'The overview replaces the efficiency plot with the workflow')
+
+    def test_poster_claims_match_current_scenario_results(self):
+        import pandas as pd
+        scenarios = pd.read_csv(ROOT/'results/for_manuscript/tables/identity_exclusion_sensitivity.csv')
+        primary = scenarios[(scenarios.scope == 'publication') & (scenarios['sample'] == 'primary')].set_index('scenario')
+        expanded = scenarios[(scenarios.scope == 'publication') & (scenarios['sample'] == 'exploratory')].set_index('scenario')
+        count = int(primary.loc['reference', 'n_objects'])
+        for name in ['36x48.pptx', '48x36.pptx']:
+            with ZipFile(ROOT/'posters'/name) as archive:
+                data = {n: archive.read(n) for n in archive.namelist()}
+                slide = ET.fromstring(data[poster_slide_part(data)])
+            shapes = {s.find('.//'+P+'cNvPr').get('id'): s for s in slide.iter(P+'sp')}
+            claims = ''.join(n.text or '' for n in shapes['2'].iter(A+'t'))
+            self.assertIn(f"Reference model: {int(primary.loc['reference', 'above_unity'])}/{count}", claims)
+            self.assertIn(f"including {int(primary.loc['reference', 'probability_ge_095'])} in", claims)
+            self.assertIn(f"seeds leave {int(primary.loc['seed_1e3', 'above_unity'])}/{count}", claims)
+            self.assertIn(f"At z = 20, {int(primary.loc['seed_z20', 'above_unity'])}/{count}", claims)
+            self.assertIn(f"all {int(expanded.loc['nonspinning', 'n_objects'])} central", claims)
+            self.assertEqual(int(expanded.loc['nonspinning', 'above_unity']), 0)
 
     def test_final_editions_have_matching_content_and_preserved_dimensions(self):
         content = []

@@ -9,7 +9,7 @@ efficiencies.
 ([source](paper/apss/main.tex)). The generic draft in [paper/](paper/) is the
 pre-expansion snapshot. These are working drafts.
 
-**Posters (pre-expansion snapshot at fc0c5501; historical counts):** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
+**Current posters (17 October 2026 expanded catalogue):** [Portrait PDF](posters/36x48.pdf) ([PowerPoint](posters/36x48.pptx)) and
 [landscape PDF](posters/48x36.pdf) ([PowerPoint](posters/48x36.pptx)).
 
 ## Catalogue and key results

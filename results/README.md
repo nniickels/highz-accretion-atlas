@@ -17,9 +17,9 @@ results/<version>/
     └── seedredshift_mass_maps/  starting redshift versus seed mass
 ```
 
-v1 and v2 have numerical growth products for all 23 and 211 objects,
-respectively. v3 has 237 objects with eligible numerical masses and 101 without.
-Its 676 parameter-map panels include one of each map type for every stored
+v1 and v2 have numerical growth products for all 23 and 215 objects,
+respectively. v3 has 241 objects with eligible numerical masses and 102 without.
+Its 686 parameter-map panels include one of each map type for every stored
 object. Panels without a usable mass state why no growth calculation is made.
 The three open identity groups make the v3 object count provisional; see the
 [identity audit](../docs/source-notes/redshift-identity-audit.md).
@@ -39,7 +39,7 @@ The three open identity groups make the v3 object count provisional; see the
 These files are in `v3/figures/`. Numerical tables and individual maps are in
 the adjacent folders. The underlying object table is
 [`v3_accreting_objects.csv`](../data/processed/v3/v3_accreting_objects.csv);
-companion tables retain 350 measurements, 810 reported observables, and 337 hosts.
+companion tables retain 355 measurements, 838 reported observables, and 342 hosts.
 
 ## Full-assumption growth figures
 
@@ -58,7 +58,7 @@ see the [notebook sequence](../scripts/README.md) and
 ## Other analyses
 
 - [Manuscript results](for_manuscript/README.md): tables and figures for the
-  220-object primary and 234-object expanded samples.
+  223-object primary and 238-object expanded samples.
 - [v4 outputs](v4/README.md): minimum seed masses, starting-time tests, and
   specified growth scenarios for four selected targets.
 

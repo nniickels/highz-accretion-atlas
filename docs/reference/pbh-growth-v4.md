@@ -154,9 +154,10 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests -p 'tes
 Alternatively use the optional `scripts/05_pbh_growth_v4.ipynb`. The existing
 00–04 workflows and v1/v2/v3 dataset interfaces retain their original scope.
 v4 has its own verification and manifest. Its methods and results are incorporated
-into the authoritative local manuscript under
-`paper/`, with a synchronized Overleaf package. Those local
-source files are Git-ignored; the draft PDF and Overleaf ZIP are public.
+into the current tracked Ap&SS manuscript, `paper/apss/main.tex` and
+`paper/apss/main.pdf`. Its supporting figure/table copies and submission ZIP
+remain local and Git-ignored. The generic draft PDF and Overleaf ZIP preserve
+the pre-expansion edition.
 Poster integration remains separate; this
 analysis driver does not edit manuscript or poster files.
 Verification rebuilds tables independently, compares

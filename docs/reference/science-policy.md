@@ -1,20 +1,8 @@
-> Current edition: the 17 October 2026 bounded membership expansion adds four
-> numerical Balmer objects and the mass-free SAPPHIRES candidate. Current v3:
-> 355 measurements / 343 provisional object records / 342 hosts, 241 growth-eligible
-> objects, 230 method-primary objects, 37 source families. The manuscript samples
-> are 223 primary / 238 expanded; reference point/p16/P>=0.95 counts are 11/9/8
-> and 17/13/11. Twelve objects lack errors in both samples. CAPERS, UNCOVER and
-> CANUCS now form the three strongest primary cases; GN-z11 is fourth in the
-> expanded order. The policy and fixed assumptions below are unchanged; numerical
-> counts and ranks in its earlier dated narrative describe the preceding edition.
-> The non-spinning maximum is now 0.829, still with zero central values above unity.
-> Source-specific caveats and correlated dust alternatives remain explicit.
-
 # Class-aware science policy
 
 The shared science layer consumes the canonical measurement and physical-object
 tables for each of v1, v2, and v3. Canonical counts below describe the full v3
-catalogue; manuscript comparisons use the additional 220/234-object selection. It produces separate point and 10,000-draw uncertainty
+catalogue; manuscript comparisons use the additional 223/238-object selection. It produces separate point and 10,000-draw uncertainty
 rankings for both views, a class/method summary, a complete exclusion audit,
 alternate-measurement sensitivity, a class-aware observational follow-up
 matrix, a source-family caveat summary, a source-level selection/completeness
@@ -32,18 +20,19 @@ registry leaves inverse weights unset unless a valid inclusion-probability model
 exists; none currently does. Source-reported mass errors are sampled
 without adding separate method systematics. ZS7's published 0.4-dex error
 already includes calibration scatter and is retained once. Other reported
-errors are not assumed to have purely statistical components. The 207-row exclusion audit is
-the union of 106 ineligible measurement rows and 101 ineligible object rows; all
+errors are not assumed to have purely statistical components. The 209-row exclusion audit is
+the union of 107 ineligible measurement rows and 102 ineligible object rows; all
 remain in the catalogue.
 
 The required-Eddington-ratio order differs from the composite navigation score.
 The latter combines two normalized growth diagnostics and a redshift term (see
 `_pressure_score` in `src/internal/compatibility/v7_science_core.py` and the
-[catalogue browsing score](../guides/catalogue-navigation-score.md)). The manuscript target table includes the eight reference
+[catalogue browsing score](../guides/catalogue-navigation-score.md)). The manuscript target table includes the eleven reference
 requirements above unity, sorted by `required_fedd_seed1e2` within the
-220-object primary sample: COSMOS3D-13852
-is second and RUBIES-EGS-55604 third. In the manuscript exploratory 234-object order,
-GN-z11 is second, GS-20057765 third, and COSMOS3D-13852 fourth. The
+223-object primary sample: CAPERS-LRD-z9
+is first, UNCOVER-20466 second, and CANUCS-LRD-z8.6 third. In the manuscript
+expanded 238-object order, these remain the top three, followed by GN-z11 and
+GS-20057765. The
 composite navigation score is separate from both scientific orders.
 
 Twelve NEXUS masses have no reported mass errors. Their repeated point
@@ -51,7 +40,7 @@ values in the uncertainty CSVs have `mbh_uncertainty_mode` equal to
 `point_estimate_no_reported_mbh_error`. Probabilities and uncertainty ranks are
 unavailable; zero-width intervals are not statistical certainty. Summary plots put these objects in a
 separate "No error" row; the uncertainty figure for the full catalogue uses open diamonds. The
-other 225 canonical objects (222 in the manuscript exploratory sample) use
+other 229 canonical objects (226 in the manuscript expanded sample) use
 equal-probability half-normal draws on each side of the
 central mass, scaled by the reported error. This approximates intervals, not
 source posteriors.
@@ -64,10 +53,10 @@ photon-trapping rule assumes `f=1+ln(mdot)`, with accretion rate normalized by
 `L_Edd/(epsilon_spin*c^2)`. It is not a relativistic slim-disk or spin-evolution
 solution. Comparisons must preserve the distinction between these products.
 
-`results/v3/tables/v3_followup_priority.csv` contains all 338 objects. Its 237
+`results/v3/tables/v3_followup_priority.csv` contains all 343 object records. Its 241
 growth-eligible rows receive both within-class and navigation-only ranks; the
-101 objects without a method-comparable canonical mass remain explicitly
-unranked. `v3_source_caveat_summary.csv` contains one row for each of the 32
+102 objects without a method-comparable canonical mass remain explicitly
+unranked. `v3_source_caveat_summary.csv` contains one row for each of the 37
 admitted source families.
 
 Reproduce with:
@@ -100,16 +89,17 @@ implementation of those equations, not their adequacy for every physical model.
 
 ## Sample and efficiency checks
 
-The manuscript exploratory sample contains 234 objects, including all 220
-primary objects. The canonical method-defined samples remain 237 and 227
-objects, respectively. The manuscript primary sample has eight point requirements above unity, six at p16, and five
+The manuscript expanded sample contains 238 objects, including all 223
+primary objects. The canonical growth-eligible and method-primary samples contain
+241 and 230 objects, respectively. The manuscript primary sample has eleven
+central requirements above unity, nine at p16, and eight
 with reported-error P(f_Edd>1)>=0.95. GN-z11 is outside that primary subset;
 its UV estimator must not be presented as interchangeable with Balmer masses.
 
-The reference 14-object point tail is conditional on epsilon=0.1. Keeping all
+The reference 17-object expanded point tail is conditional on epsilon=0.1. Keeping all
 other reference assumptions fixed and using the implemented ideal non-spinning
 efficiency 1-sqrt(8/9)=0.05719 multiplies requirements by 0.54594, lowers the
-largest to 0.793, and leaves zero point requirements above unity. This is a
+largest to 0.829, and leaves zero point requirements above unity. This is a
 parameter sensitivity, not a spin measurement or a claim of unique histories.
 `tests/test_manuscript_methods.py` checks this via independent algebraic scaling.
 
@@ -122,7 +112,7 @@ labels are mass-range scenarios, not a primordial-abundance calculation.
 
 The [redshift/identity audit](../source-notes/redshift-identity-audit.md) checks all
 admitted central redshifts and available coordinates but identifies one conflicting duplicate
-group and two unresolved close neighbours. The 338 stored object IDs are not yet
+group and two unresolved close neighbours. The 343 stored object IDs are not yet
 a validated unique-object census. Resolve these cases before readmitting their
 records or claiming final unique-object counts. The strict full-catalogue
 identity gate remains open. All six affected records are excluded from the
@@ -133,8 +123,8 @@ analysis; its separate exclusion and reproduction check must pass.
 
 The reference above-Eddington tail lies at z=6.6214--10.603. The catalogue's
 median redshift does not make every member an early-growth tension. Present
-object-level mass/time requirements, with the 220-object primary sample as the
-main comparable analysis and the 234-object expanded sample as additional context.
+object-level mass/time requirements, with the 223-object primary sample as the
+main comparable analysis and the 238-object expanded sample as additional context.
 
 The efficiency scaling is an algebraic consequence of the adopted growth law,
 not new black-hole physics. The contribution is the provenance-aware application,
@@ -144,7 +134,8 @@ super-Eddington episodes nor establishes an easy supply of fuel or a measured
 spin. Long near-Eddington duty cycles can remain physically demanding. Follow-up
 scores are heuristics, not calibrated expected information gain.
 
-The source cutoff is 3 September 2026; this is not a complete census of every
+The source cutoff is 3 September 2026, with the bounded five-family membership
+extension admitted on 17 October 2026; this is not a complete census of every
 JWST object or of later publications. Central redshifts and available coordinates
 are checked; redshift uncertainties, missing coordinates, full source posteriors,
 and all auxiliary observables are not exhaustively validated. The supplementary
@@ -163,18 +154,18 @@ the sampler: equal side probabilities with separately scaled half-normal draws.
 
 ## Manuscript evidence selection and identity exclusions
 
-The canonical method-defined primary sample remains 227 objects. The manuscript
+The canonical method-defined primary sample contains 230 objects. The manuscript
 places GS-20057765, GS-20030333, GS-164055, and GN-4685 in the exploratory
-sample only, leaving 223 primary candidates before identity exclusions.
+sample only, leaving 226 primary candidates before identity exclusions.
 It then excludes all six records linked to the three unresolved identity groups:
 three mass-bearing records and three already without eligible masses. The final
-primary/exploratory samples contain 220/234 objects, with 14 exploratory-only
-objects (thirteen additional candidates and GN-z11).
+primary/exploratory samples contain 223/238 objects, with 15 expanded-only
+objects (fourteen additional candidates and GN-z11).
 
 Holding the evidence selection fixed, excluding unresolved identities preserves
-the primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 counts, as well as
+the primary/expanded 11/17 central, 9/13 p16, and 8/11 P>=0.95 counts, as well as
 scenario threshold counts and top-five ordering. The primary median changes
-from 0.571 before identity exclusions to 0.573 afterward. The complete membership
+from 0.574202 before identity exclusions to 0.574252 afterward. The complete membership
 mask and sensitivity outputs are in `results/for_manuscript/tables/`, governed by
 `data/publication/evidence_selection.json` and `data/publication/identity_exclusions.json` and checked
 by `src.internal.publication_selection`. The `catalogue` scope in the identity
@@ -182,3 +173,19 @@ sensitivity table holds the manuscript evidence selection fixed before applying
 identity exclusions; it is not the unfiltered canonical primary sample.
 These manuscript policies do not alter canonical data or resolve physical
 identity; the original strict identity gate is retained.
+
+## October 2026 source-model caveats
+
+The four added numerical objects preserve each source's adopted estimator and
+reported error scales. CAPERS, CANUCS, and J1007 enter the primary sample; the
+weak broad-line MACS0416-Y1 candidate enters only the expanded sample. SAPPHIRES
+has no published numerical black-hole mass and remains outside growth tests.
+Morishita's CANUCS evidence concerns the same object and contributes no extra
+canonical mass or source family.
+
+CAPERS dust alternatives and J1007's dust-corrected interpretation are correlated
+source-model alternatives, not independent measurements or sampled posterior
+components. CAPERS's broad systematic envelope is not converted to Gaussian
+scatter. CANUCS and Y1 masses are already lens-corrected and receive no second
+correction. These choices and source-specific limitations are recorded in the
+five extraction notes and `v3_admission_source_model_sensitivity.csv`.

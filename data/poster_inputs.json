@@ -1,23 +1,16 @@
 {
-  "description": "Historical CUPC poster edition, preceding the 17 October 2026 expansion. Pinned scientific inputs retained unchanged; not current catalogue claims.",
+  "description": "Current CUPC poster edition following the 17 October 2026 five-family expansion. Scientific inputs are pinned to the reviewed expanded catalogue.",
   "sha256": {
-    "data/publication/poster_snapshot/publication_object_selection.csv": "2cfa2b4753a0c988d4370ab9f2f8da1efef99978d1d67b5d08e68ebbe606fb65",
-    "data/publication/poster_snapshot/v3_object_point_ranking.csv": "501a73e933dd2b219bb86bd5687352d72c565ac32a1f4416c9336c537ebd1839",
-    "data/publication/poster_snapshot/v3_object_uncertainty_ranking.csv": "1bf0e037d89b6c6d690d6b08e99281001da9a9a2fec384f301439a01c7d71ad7",
-    "data/publication/poster_snapshot/mass_offset_object_sensitivity.csv": "337ca461a8b871774ed51039d9bca1bd1d0e333da06d7fa08eababfb3843ff86",
-    "data/publication/poster_snapshot/v4_minimum_seed_mass.csv": "8164b2e79b4cfa217a44bc418ad18cccfdcdd1d0db6aa238a27057dfe0096341",
+    "results/for_manuscript/tables/publication_object_selection.csv": "a6e6e3940bfe45309e44d422c30adaeaa64bf6967521593d7cf9f3bdbf20522c",
+    "results/v3/tables/v3_object_point_ranking.csv": "0c92fa98ce512ba190a93a9f43e29ab192f3b5f8b79552a20e8564863982cc84",
+    "results/v3/tables/v3_object_uncertainty_ranking.csv": "a511176a065b27eafa8a82488c81208cac80bee259fb34494c6f5956f88ec4d2",
+    "results/for_manuscript/tables/mass_offset_object_sensitivity.csv": "c22911d9e4e47511f774e3681df91067e0cc9c349b6ad8085b929821cb7d65f0",
+    "results/v4/tables/v4_minimum_seed_mass.csv": "6748713a682996c5f2e9547d78262179e03c06913eca34140b8bdad2aadf1481",
+    "results/for_manuscript/tables/external_direct_mass_comparison.csv": "92160d9b51cb2405d108b1cb95c54c8dc471978826851341193d8fcef447a6cd",
     "src/models.py": "f1e5039396bc656323652a65010977816a08efcb358bc7c640b6e55ec9c81e06",
-    "data/publication/poster_snapshot/external_direct_mass_comparison.csv": "92160d9b51cb2405d108b1cb95c54c8dc471978826851341193d8fcef447a6cd"
+    "src/internal/poster_figures.py": "b695b0db9013e4485fac5f6b098a78012e1636ee6ba06d6a3b6b8fdc0cd66e49"
   },
-  "edition_revision": "fc0c5501ad2271865b1c040307cad8dd8ca5721a",
-  "edition_measurements": 350,
-  "edition_object_records": 338,
-  "input_paths": {
-    "results/for_manuscript/tables/publication_object_selection.csv": "data/publication/poster_snapshot/publication_object_selection.csv",
-    "results/v3/tables/v3_object_point_ranking.csv": "data/publication/poster_snapshot/v3_object_point_ranking.csv",
-    "results/v3/tables/v3_object_uncertainty_ranking.csv": "data/publication/poster_snapshot/v3_object_uncertainty_ranking.csv",
-    "results/for_manuscript/tables/mass_offset_object_sensitivity.csv": "data/publication/poster_snapshot/mass_offset_object_sensitivity.csv",
-    "results/v4/tables/v4_minimum_seed_mass.csv": "data/publication/poster_snapshot/v4_minimum_seed_mass.csv",
-    "results/for_manuscript/tables/external_direct_mass_comparison.csv": "data/publication/poster_snapshot/external_direct_mass_comparison.csv"
-  }
+  "edition_revision": "a1bef516db5c76a92b6848eb12bccabdeb5804b9",
+  "edition_measurements": 355,
+  "edition_object_records": 343
 }

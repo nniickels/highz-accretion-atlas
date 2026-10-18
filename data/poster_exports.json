@@ -4,27 +4,30 @@
   "exports": [
     {
       "source": "posters/36x48.pptx",
-      "source_sha256": "78596d6f92597f7b9093cff9f5a097f74458d497ae6abc05cf0b2b6b9ca14d63",
+      "source_sha256": "ae1698a557f0be35d3933bf7be121b98e2bfc47ad19a4f4d541914b33b343059",
       "pdf": "posters/36x48.pdf",
-      "pdf_sha256": "19b43dc2ff0e7368aa3663d93fdb9ac1c370cfd928dc9ea9d86237cd9a8f8940",
+      "pdf_sha256": "d2b77b4087d9dfe10e568572a81879b93404de6fbeeb0fb50904ef7309dc4c2f",
       "page_size_inches": [
         36,
         48
       ],
       "exported_slide": 1,
-      "exported_slide_sha256": "b2f172b1db390bed0f16717822664420dd7d65d5ea92680cace784a8abf5a67a"
+      "exported_slide_sha256": "469e6baee896ec0c5a90b9028e9674d6d5ec79c15ac50da91018e18335819f84"
     },
     {
       "source": "posters/48x36.pptx",
-      "source_sha256": "32ba07dc3ab64f245cfc009923bad9b3534dac0431ea96056aec5b31c1d59f90",
+      "source_sha256": "c15c2918aad9d00f5988f5d11d72c2f86ce67d096bba65fda93a21d80057f9f6",
       "pdf": "posters/48x36.pdf",
-      "pdf_sha256": "bb3780e0ee20889f92e98f5c100856808b122d884cdaa9c6dda7f3cd10b84976",
+      "pdf_sha256": "9c6f6560fd7a252b54cf394e3a08be3fe5ca18b1a1026236a86feb758234a57b",
       "page_size_inches": [
         48,
         36
       ],
       "exported_slide": 1,
-      "exported_slide_sha256": "c7a5340c6293af117a913f1f9b8ff47d263c173c6b92442a16b85a7e6a594c25"
+      "exported_slide_sha256": "5bbae683d7c5549717dc6aa1277a4004aa77b4bd9741e59a83d96999fccbed7c"
     }
-  ]
+  ],
+  "edition_revision": "a1bef516db5c76a92b6848eb12bccabdeb5804b9",
+  "review_date": "2026-10-17",
+  "export_application": "Microsoft PowerPoint for Mac, local Best for printing PDF export"
 }

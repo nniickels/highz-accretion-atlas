@@ -80,10 +80,15 @@ other publication tables. Full assumptions and checks are in the
 
 ## Manuscript files
 
-The public [draft PDF](../../paper/early_giants_draft.pdf) and
-[Overleaf ZIP](../../paper/early_giants_overleaf.zip) are in `paper/`.
-The original local source, `paper/main.tex`, is excluded from Git. Compiling that
-source and running `src.internal.package_overleaf` updates the public package;
-its `--verify` mode checks the package without local sources or LaTeX.
-The [Ap&SS submission package](../../paper/apss/README.md) is tracked separately.
+The current expanded manuscript is the tracked [Ap&SS PDF](../../paper/apss/main.pdf)
+and [source](../../paper/apss/main.tex). Its figure/table dependencies and submission
+ZIP remain local and Git-ignored; a fresh checkout can read the manuscript but
+needs those dependencies to compile it.
+
+The generic [draft PDF](../../paper/early_giants_draft.pdf) and
+[Overleaf ZIP](../../paper/early_giants_overleaf.zip) preserve the pre-expansion
+edition at `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Their original local source,
+`paper/main.tex`, is excluded from Git. `src.internal.package_overleaf --verify`
+checks that historical package without local sources or LaTeX; it does not
+package the current Ap&SS manuscript.
 Analysis regeneration does not edit manuscript prose or compile PDFs.

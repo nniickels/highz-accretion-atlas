@@ -1,6 +1,7 @@
 # Numerical mass and publication-version audit
 
-Reviewed 2026-09-04. All 244 admitted numerical mass measurements were compared
+The September audit below was reviewed 2026-09-04 against the pre-expansion
+edition `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. All 244 numerical mass measurements then admitted were compared
 with source-table central masses and both error bounds: 732 fields. The other
 243 measurements agree with their recorded source versions. Killi required a
 conversion correction; this changes no membership or headline count.
@@ -66,3 +67,24 @@ versioned frozen catalogue plus this sensitivity result for the current draft.
 A future full publication re-admission would also review newly listed objects,
 classification changes and selection; that is outside this explicitly bounded
 measurement-version test. These counts are not demographic estimates.
+
+## October 2026 extension
+
+The bounded five-family admission adds four numerical mass measurements, bringing
+the independent mass/error coverage to 248 measurements and 744 fields. All
+37 families have source anchors, with 2,079 comparisons in total. The five new
+extraction notes document the adopted masses, correlated alternatives, lensing
+assumptions, and candidate or mass-free cases. The September Killi correction
+and Baccus source-matching results above remain unchanged.
+
+The regenerated v3 Baccus sensitivity scenarios contain 241 numerical objects
+when unmatched frozen rows are retained and 236 when those five rows are omitted.
+All three scenarios now give 17 central/median requirements above unity, 13 at
+p16, 19 at p84, and 11 with conditional probability at least 0.95. Their top five
+are CAPERS-LRD-z9, UNCOVER-20466, CANUCS-LRD-z8.6, GN-z11, and GS-20057765.
+The conservative publication samples remain 223 primary and 238 expanded; their
+central/p16/probability threshold counts are 11/9/8 and 17/13/11.
+
+These are conditional measurement-version comparisons, not population estimates.
+Current numerical results are in `results/v3/tables/v3_baccus_revision_summary.csv`
+and `results/for_manuscript/tables/publication_baccus_revision_summary.csv`.

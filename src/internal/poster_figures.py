@@ -17,7 +17,7 @@ from src.internal.reproduction import assert_csv_reproduction
 
 
 def poster_input_path(name):
-    """Resolve the explicitly pinned historical poster edition, never live counts."""
+    """Resolve the reviewed poster edition, using explicit path mappings when present."""
     manifest=json.loads((ROOT/'data/poster_inputs.json').read_text())
     return ROOT/manifest.get('input_paths',{}).get(name,name)
 
@@ -77,10 +77,10 @@ def main():
     axes[1].set_xlabel('Observed redshift');f.supylabel(r'$\log_{10}(M_{\rm BH}/M_\odot)$',x=.01,fontsize=font_size)
     f.legend(*axes[0].get_legend_handles_labels(),loc='upper left',bbox_to_anchor=(.10,.98),frameon=False,ncol=3,fontsize=font_size)
     f.text(.11,.895,r'Same $z_{\rm seed}=30$, average ratio $=1$, no mergers',fontsize=font_size)
-    f.text(.11,.045,'Grey circles: primary (220); purple triangles: expanded only (14).',fontsize=font_size)
+    f.text(.11,.045,f'Grey circles: primary ({len(primary)}); purple triangles: expanded only ({len(expanded-primary)}).',fontsize=font_size)
     save(f,'growth')
     # Same precomputed onset grid, caps, percentiles and cosmology as v4.
-    t=pd.read_csv(poster_input_path('results/v4/tables/v4_minimum_seed_mass.csv'));targets=['UNCOVER-20466','COSMOS3D-13852','RUBIES-EGS-55604','GN-z11'];f,axes=plt.subplots(2,2,figsize=(16,10.8),sharex=True,sharey=True);f.subplots_adjust(left=.09,right=.98,bottom=.20,top=.75,hspace=.42,wspace=.14)
+    t=pd.read_csv(poster_input_path('results/v4/tables/v4_minimum_seed_mass.csv'));targets=list(t.object_id.drop_duplicates());assert len(targets)==4, 'Expected four reviewed v4 targets';f,axes=plt.subplots(2,2,figsize=(16,10.8),sharex=True,sharey=True);f.subplots_adjust(left=.09,right=.98,bottom=.20,top=.75,hspace=.42,wspace=.14)
     for a,oid in zip(axes.flat,targets):
      s=t[(t.object_id==oid)&t.mass_offset_dex.eq(0)]
      for cap,col in zip([.3,1,2],['#0072B2','#D55E00','#009E73']):
