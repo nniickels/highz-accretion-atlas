@@ -31,19 +31,20 @@ coordinates, and source matches, and reports the open identity groups.
 Adding `--require-resolved` to the second command fails until those groups are
 resolved. The manuscript samples exclude all affected records.
 
-## Supporting extracts
+## Source references and retained data
 
-`source_inputs/killi-published-crossref.json` preserves the publisher-deposited
-abstract used for Killi's redshift and mass bounds. Its older preprint is
-registered separately for coordinates. `source_inputs/baccus_published_table1.txt`
-contains the revised publisher table used in the Baccus sensitivity test; the
-catalogue retains its pinned preprint measurements.
+All families use the shared provenance registry, publication/table locators, and
+independently recorded expected values. The repository does not bundle reference-only copies of
+paper pages, HTML, TeX, publisher metadata, or review excerpts. Machine-readable
+inputs used by extraction or calculations belong in `data/raw/`. Retrieve the
+recorded source version to inspect the original evidence. Historical review-extract
+identifiers and hashes document what was inspected; they do not identify bundled
+files or provide an offline source archive.
 
-Harikane's linear mass bounds are converted to base-10 logarithms to eight decimal
-places. Other TeX tables report logarithmic masses and errors directly. Source
-versions, conversion notes, and previously reviewed table/PDF references are
-recorded with the expected values. The provenance manifest pins these files and
-the supporting extracts by hash.
+`data/raw/baccus_published_table1.txt` is a machine-readable input to the publication
+revision sensitivity calculation. Its bytes
+are pinned by the provenance manifest. The frozen catalogue continues to use the
+original preprint measurements.
 
 ## Extend the checks
 
@@ -54,7 +55,7 @@ and missing values distinct from measurements. Never copy expected values from
 the processing pipeline.
 
 To update the four-source HTML checks, save the linked records as `cosmos.html`,
-`nexus.html`, `jades.html`, and `seven.html`, then run
+`nexus.html`, `jades.html`, and `seven.html` outside the repository, then run
 `.venv/bin/python -m src.internal.refresh_primary_source_checks /path/to/html`.
 Review the changes against those sources before updating the provenance hashes.
 

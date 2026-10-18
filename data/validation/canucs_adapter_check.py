@@ -1,6 +1,5 @@
 """Standalone CANUCS conversion and source-anchor check; run from repository root."""
 import csv
-import hashlib
 import json
 import math
 from pathlib import Path
@@ -38,10 +37,7 @@ def check():
         assert math.isclose(float(row[field]), value, abs_tol=1e-10, rel_tol=0), field
     assert row['mbh_lensing_state'] == 'source_corrected_mu1.07'
     assert row['line_flux_lensing_state'] == 'observed_not_corrected'
-    payloads = json.loads((ROOT / 'data/validation/canucs_source_payloads.json').read_text())
-    for payload in payloads['payloads']:
-        assert hashlib.sha256((ROOT / payload['path']).read_bytes()).hexdigest() == payload['sha256']
-    print('CANUCS: one proposed measurement; source anchors, endpoint conversion and five payload hashes pass.')
+    print('CANUCS: one admitted measurement; independent anchors and endpoint conversion pass.')
 
 
 if __name__ == '__main__':

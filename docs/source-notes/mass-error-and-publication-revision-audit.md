@@ -14,8 +14,8 @@ z=4.5319 and M=8(+0.5,-0.4)e8 Msun. The old extraction stored logM=8.90 with
 symmetric +/-0.03 dex. The corrected values are logM=8.90308999,
 upper error=0.02632894, and lower error=0.02227639 dex, computed as
 log10(M), log10((M+upper)/M), and log10(M/(M-lower)). The source record is
-stored under `data/validation/source_inputs/` and pinned by the provenance
-manifest. The original preprint remains a separate coordinate-source record.
+identified in the shared provenance registry; the independently recorded
+expected values preserve the conversion check. The original preprint remains a separate coordinate-source record.
 No lensing correction or additional mass scatter is introduced.
 
 ## Meaning of sampled errors
@@ -39,7 +39,8 @@ separate. This is a documented output-schema correction.
 ## Baccus publication sensitivity
 
 The [published Table 1](https://content.cld.iop.org/journals/0004-637X/1006/2/165/revision1/apjae7de7t1_mrt.txt)
-is saved and hashed independently from the frozen arXiv v1 table. Forty-four
+is retained as `data/raw/baccus_published_table1.txt`, an input to the
+sensitivity calculation, and hashed independently from the frozen arXiv v1 table. Forty-four
 frozen objects match by exact ID and within 0.5 arcsec. Five have no counterpart
 within 0.5 arcsec; no ambiguous identity is forced. Of the 44 matches, 32 masses
 change, with shifts from -0.10 to +0.04 dex.

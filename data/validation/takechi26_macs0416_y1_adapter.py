@@ -1,10 +1,9 @@
 """Deterministic source-local adapter and independent checks; prints, never writes outputs.
 
 Run: python3 data/validation/takechi26_macs0416_y1_adapter.py
-Integration must register this source and apply the canonical schema separately.
+Canonical assembly is handled by the shared catalogue builder.
 """
 import csv
-import hashlib
 import json
 import math
 from pathlib import Path
@@ -50,10 +49,6 @@ def verify():
         assert [float(r[k]) for k in keys] == expected
     assert a['source_version']==e['source_version']
     assert len(list(csv.DictReader((ROOT/'data/raw/takechi26_macs0416_y1_screen.csv').open())))==e['screen_entities']
-    p=json.loads((ROOT/'data/validation/source_inputs/takechi26_macs0416_y1_provenance.json').read_text())
-    for item in p['payloads']:
-        path=item.get('retained_file',item.get('retained_extract'))
-        assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==item['retained_sha256']
     return a
 
 if __name__=='__main__':

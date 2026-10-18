@@ -17,7 +17,7 @@ from src.science import science_context, DEFAULT_N_SAMPLES, DEFAULT_RANDOM_SEED
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = "baccus26_nirspec_blagn"
-TABLE = ROOT / "data/validation/source_inputs/baccus_published_table1.txt"
+TABLE = ROOT / "data/raw/baccus_published_table1.txt"
 
 
 def read_published_table(path: Path = TABLE) -> pd.DataFrame:

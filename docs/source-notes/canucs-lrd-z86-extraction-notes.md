@@ -5,7 +5,7 @@ This note records the source provenance and adopted v2/v3 admission, with v1
 unchanged. The identity screen below uses the pre-expansion catalogue.
 The comparison revision is `fc0c5501ad2271865b1c040307cad8dd8ca5721a`.
 
-## Measurement version and retained sources
+## Measurement version and sources
 
 Adopt Tripodi et al., *Extreme properties of a compact and massive accreting black
 hole host in the first 500 Myr*, Nature Communications 16, 9830 (19 November
@@ -24,13 +24,10 @@ Do not admit the obsolete v1 mass as a second current measurement. V2 adds new
 G140H Lyman-alpha observations and independently remeasures the PRISM spectrum;
 it is neither a new object nor wholly literature-reused spectroscopy.
 
-`data/validation/canucs_source_payloads.json` gives exact URLs, retrieval date,
-and SHA-256 for each retained extract. The supplementary extract additionally
-records the downloaded original PDF hash. Published supplement PDF pages 7–8
-(printed 50–51) were rendered and visually inspected, including column headings,
-asymmetric errors and magnification footnotes; all five tables were read. The
-retained text contains complete tables 1–5 (PDF pages 7–10). Temporary HTML,
-PDFs and rendered pages were kept outside the repository.
+Source URLs, versions, retrieval dates, and hashes are recorded in the shared
+provenance registry. Published supplement PDF pages 7–8 (printed 50–51) were
+visually inspected, including column headings, asymmetric errors and magnification
+footnotes; all five tables were read. Reference copies are not bundled.
 
 ## Complete source screen
 
@@ -102,9 +99,8 @@ asserted from this table alone. Hbeta broad S/N is reported as 6. Narrow [OIII]
 lacks a broad counterpart, and NIV]/CIV support the AGN interpretation.
 
 The paper cites Greene & Ho (2005), using line luminosity and Hbeta width,
-and separately 5100 A continuum and the same broad width. Its printed equation
-and coefficients are retained verbatim in the source extract, including their
-normalizations; do not silently repair/recompute the published mass from them.
+and separately 5100 A continuum and the same broad width. Consult its printed equation
+and coefficients, including their normalizations; do not silently repair/recompute the published mass from them.
 Alternative relations (reference 138) raise masses by 0.15–0.2 dex and are a
 method sensitivity, not additional independent masses. General single-epoch
 uncertainty is stated as 0.3–0.5 dex. Inclusion of that calibration scatter in
@@ -163,8 +159,8 @@ broadening parameters are not the directly fitted Table 1 Hbeta width.
 The preprint's 12+log(O/H)=7.08(-0.12,+0.14) direct estimate is superseded by
 published direct-method limits (<7.9 fiducial, <6.9 Tests 1/2) and expanded
 strong-line/ionization discussion. Do not import preprint metallicity or host
-fits into the published measurement. The complete retained tables allow review
-of other ancillary fit-parameter changes without claiming they are canonical.
+fits into the published measurement. The published tables allow review of other ancillary fit-parameter changes
+without claiming they are canonical.
 
 Source-family membership is **v2 and therefore v3**: this is a JWST-selected
 Balmer single-epoch virial family, not a heterogeneous family made comparable
@@ -186,17 +182,14 @@ retain 5100 and Hgamma model alternatives as observables/sensitivities. Current 
 - `data/raw/tripodi25_canucs_lrd_z86.csv`: one admitted measurement.
 - `data/raw/tripodi25_canucs_agn_fit_variants.csv`: three same-object model cases.
 - `data/raw/tripodi25_canucs_fiducial_lines.csv`: all 11 Fiducial line rows.
-- Five `data/validation/source_inputs/canucs_*` scientific text / supplement table
-  extracts, listed with their exact paths and hashes in `canucs_source_payloads.json`.
 - `data/validation/canucs_expected_values.json`: source-read independent anchors.
 - `data/validation/canucs_identity_screen.json`: both-version position screen,
   nearest records and complete missing-coordinate list.
-- `data/validation/canucs_adapter_check.py`: conversion/hash/anchor validation.
+- `data/validation/canucs_adapter_check.py`: conversion and independent-anchor validation.
 - This source note.
 
 Run `.venv/bin/python data/validation/canucs_adapter_check.py`. This verifies
-source anchors, asymmetric mass endpoint conversion and every retained payload
-hash. It does not test unmodified shared assembly or establish virial physics.
+source anchors and asymmetric mass endpoint conversion. It does not test unmodified shared assembly or establish virial physics.
 
 ## Reviewed canonical admission
 

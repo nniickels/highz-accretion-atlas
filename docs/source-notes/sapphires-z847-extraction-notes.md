@@ -48,23 +48,21 @@ The source key is `fudamoto25_sapphires_z847`, measurement ID `SAPPHIRES8760_fud
 
 Use object_class `broad_line_agn`, evidence_status `candidate`, spectroscopic_type `type1_broad_line_candidate`, phenotype `lrd`, selection channels `broad_hbeta;photometric_sed`, and mass-comparability `no_numeric_mass` as recorded in the canonical schema. Evidence basis must mention low peak significance and contaminated marginal compactness. Set growth and primary-growth flags false; manuscript-primary and expanded numerical-growth eligibility false. Reason: no published supported BH mass. Candidate inclusion in contextual discussion is separate from numerical manuscript membership.
 
-Source registry: arXiv DOI 10.48550/arXiv.2503.15597, exact version v1, source-native Table 1/Sections II, III.3, IV.2; retrieval date 2026-10-17. Manifest records SHA-256 for the retrieved archive, its retained `sample631.tex` member, HTML payload and retained evidence extract/version history. There is no source mass-method calibration to register. Selection is NIRCam WFSS [O III] member identification plus LRD screen in the parallel field, not a complete AGN selection function; no population weights or fractions are supported.
+Source registry: arXiv DOI 10.48550/arXiv.2503.15597, exact version v1, source-native Table 1/Sections II, III.3, IV.2; retrieval date 2026-10-17. The shared provenance registry records the retrieved archive SHA-256; the independent fixtures identify the reviewed source member and table locations. There is no source mass-method calibration to register. Selection is NIRCam WFSS [O III] member identification plus LRD screen in the parallel field, not a complete AGN selection function; no population weights or fractions are supported.
 
-## Files and checks
+## Catalogue inputs and checks
 
 Produced source-specific files:
 
 - `data/raw/sapphires_z847_v1_member_screen.csv`: all 17 source rows, original table cells and explicit outcomes.
 - `data/raw/sapphires_z847_v1_agn_candidate.csv`: one admitted candidate with measurements, missingness, caveats and eligibility.
-- `data/validation/source_inputs/sapphires_z847_v1_main.tex`: exact source member, including tables and explanatory context.
-- `data/validation/source_inputs/sapphires_z847_v1_extract.html`: retained table/evidence elements.
-- `data/validation/source_inputs/sapphires_z847_version_history.html`: retrieved version-history element.
-- `data/validation/sapphires_z847_source_manifest.json`: URLs, dates, payload/member hashes.
 - `data/validation/sapphires_z847_expected_values.json`: independent Table 1/prose anchors and complete table-ID expectations.
 - `data/validation/sapphires_z847_catalogue_crossmatch.csv`: 34 nearest-neighbour screens across both versions.
 - `data/validation/sapphires_z847_macs0416_context_crossmatch.csv`: four Baccus sources plus Y1.
 
-Anchors were transcribed from the TeX table/prose independently of the HTML-to-CSV screen. Checks compare ID sets, candidate values, missing mass and false inference flags, hash integrity and 34 no-close-match outcomes. The source-specific anchors and one-row adapter are registered in the canonical build and verification workflow. The only unresolved scientific identity is the unnamed foreground contaminant. No usable BH mass is blocked on transcription; none is published in the pinned source.
+Source versions, URLs, retrieval dates, and archive hashes are in the shared provenance registry. Reference copies are not bundled.
+
+Anchors were transcribed from the TeX table/prose independently of the HTML-to-CSV screen. Checks compare ID sets, candidate values, missing mass and false inference flags, 34 no-close-match outcomes. The source-specific anchors and one-row adapter are registered in the canonical build and verification workflow. The only unresolved scientific identity is the unnamed foreground contaminant. No usable BH mass is blocked on transcription; none is published in the pinned source.
 
 ## Reviewed canonical admission
 

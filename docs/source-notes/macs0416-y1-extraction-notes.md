@@ -148,38 +148,31 @@ record and retrieval date in provenance registry; `mbh_method=
 single-epoch-virial-hbeta-greeneho2005`, calibration tag `greene-ho2005-hbeta`,
 Hbeta species and Section IV.2.1 support in the mass-method registry;
 `lensing_status=lensed`, source-corrected mass and Section II.2.2/IV.2.1
-provenance. Copy the archive/member/retained hashes from the JSON provenance
-record. Use unknown selection completeness, with no population weight: this
+provenance. The shared provenance registry records the source archive hash;
+independent fixtures identify the reviewed source member. Use unknown selection completeness, with no population weight: this
 was a serendipitous MSA-footprint target of DREAMS GO-4750 observed 5 November
 2024, combined with CANUCS IFU data. It is not an unbiased AGN survey.
 The focused source validator checks identities, coordinates, redshift, converted
 mass/errors, and eligibility. The shared builder populates the canonical schema
 and registers the raw FWHM, flux, and magnification observables.
 
-## Retained source and independent validation files
+## Catalogue inputs and independent validation files
 
 - `data/raw/takechi26_macs0416_y1.csv`: one native-value mass/line/lensing record.
 - `data/raw/takechi26_macs0416_y1_screen.csv`: all 10 screen entities and outcomes.
-- `data/validation/source_inputs/takechi26_macs0416_y1_v1_extract.tex`: verbatim
-  relevant sections and reference entries from the source archive, with source
-  macros/comments preserved; commented text is not adopted published evidence.
-- `data/validation/source_inputs/takechi26_macs0416_y1_arxiv_metadata.html`:
-  pinned current archive metadata, supporting version/publication-status check.
-- `data/validation/source_inputs/takechi26_macs0416_y1_tamura18v2_astrometry.tex`:
-  primary host-coordinate passage.
-- `data/validation/source_inputs/takechi26_macs0416_y1_provenance.json`: URLs,
-  retrieved archive/member SHA-256 values and retained payload hashes. Full
-  archives and redundant figures are not retained.
 - `data/validation/takechi26_macs0416_y1_expected.json`: independently read
   native mass endpoints, line, magnification, redshift and coordinate anchors.
 - `data/validation/takechi26_macs0416_y1_crossmatch.json`: input hashes, nearest
   neighbours and all missing-coordinate baseline records.
 - `data/validation/takechi26_macs0416_y1_adapter.py`: deterministic conversion
-  and focused source-value/hash validation; run with Python 3 from any directory.
+  and focused source-value validation; run with Python 3 from any directory.
+
+Source versions, URLs, retrieval dates, and hashes are in the shared provenance
+registry, including Tamura's separate coordinate source. Reference copies are
+not bundled.
 
 Focused checks pass for mass and both interval endpoints, flux/FWHM/mu errors,
-redshift, sexagesimal coordinate conversion, screen cardinality and retained
-payload hashes. These checks establish transcription/conversion, not AGN
+redshift, sexagesimal coordinate conversion, screen cardinality. These checks establish transcription/conversion, not AGN
 certainty or virial-calibration validity. Nuclear astrometry, exact mass-error
 semantics, and stronger rejection of an outflow remain follow-up limitations.
 Shared registries, canonical outputs, and manifests include the admitted candidate.

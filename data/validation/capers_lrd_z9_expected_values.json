@@ -1,6 +1,6 @@
 {
   "source_version": "arXiv:2505.04609v4",
-  "independent_reading": "Expected numbers read directly from Table 1 and IV.2 in retained main.tex, independently of the HTML-cell extraction and processed catalogues.",
+  "independent_reading": "Expected numbers read directly from Table 1 and IV.2 in the source TeX, independently of the HTML-cell extraction and processed catalogues.",
   "source_locator": "main.tex Table tab:linefits; sections sec:linefit and sec:bhmass",
   "properties": {
     "ra_deg": 150.1362532,

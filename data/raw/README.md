@@ -26,6 +26,10 @@ limits. The [versioning guide](../../docs/guides/versioning.md) defines admissio
   remain candidates identified through high-ionization lines, without eligible
   mass estimates.
 
+`baccus_published_table1.txt` supplies the published-revision sensitivity
+calculation; the frozen catalogue retains the original preprint values. This
+machine-readable table is pinned by the provenance manifest.
+
 ## Bounded October 2026 admission
 
 - [capers-lrd-z9 source values, full screen and admission basis](../../docs/source-notes/capers-lrd-z9-extraction-notes.md).

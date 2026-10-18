@@ -10,18 +10,14 @@ different dust model (A_V=3.26) and headline mass; do not mix its values with
 this extraction. Published tables govern numerical values here. Archive v2
 provides machine-readable table support, not authority to overwrite the publisher.
 
-## Retained inputs and independent anchors
+## Catalogue inputs and independent anchors
 
 - `data/raw/schindler25_j1007_agn_mass_alternatives.csv`: observed and dereddened fiducial estimates, in published linear mass units.
 - `data/raw/schindler25_j1007_source_screen.csv`: all nine Extended Data Table 3 sources, explicit outcomes.
 - `data/validation/schindler25_j1007_expected.json`: independent transcription anchors from the viewed publisher images; errors ordered central, minus, plus.
-- `data/validation/source_inputs/schindler25_j1007_published_table{1,2,3}.jpg`: actual publisher tables, visually inspected.
-- `data/validation/source_inputs/schindler25_j1007_arxiv_v2_tables.html`: unchanged DOM table elements from all five archive tables, including the eight companion rows and clustering bins.
-- `data/validation/source_inputs/schindler25_j1007_published_methods.txt`: extracted publisher SMBH-method passage.
-- `data/validation/source_inputs/schindler25_j1007_provenance.json`: URLs, versions, retrieval date and SHA-256 of every retained source payload.
-
-The source is open access under CC BY 4.0. Image tables are retained unchanged;
-HTML/text extracts remove surrounding page material. Attribution is above.
+Source versions, URLs, retrieval dates, and hashes are in the shared provenance
+registry. Published table images were inspected during extraction; reference
+copies are not bundled.
 
 ## Complete screen and identity
 

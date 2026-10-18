@@ -23,11 +23,11 @@ mixing versions or prevent this extraction.
 
 Retrieved TeX archive: `https://arxiv.org/src/2505.04609v4`, SHA-256
 `b176066077fcf145f797d86124a8b97fa65dbf3dce709d25783fec57ad92a885`.
-Retain its original `main.tex` without modification, SHA-256
+The reviewed original `main.tex` had SHA-256
 `d46df6b4eed520596435c53115a74abcc0eee697b1381983ca07f3259bc6b6ea`.
-The archive's figure binaries and style files are unnecessary to the numerical
-admission and are not retained. The source manifest records the separately
-retrieved HTML hash and the hashes of every retained supporting payload.
+The source archive and reference extracts are not bundled. The shared provenance
+registry records the source version and archive hash; independent fixtures retain
+the reviewed source-member identifier and hash.
 
 ## Complete screen and identity assessment
 
@@ -225,19 +225,11 @@ Raw files:
 - `data/raw/capers_lrd_z9_v4_table_cells.csv`: every data row of all three tables.
 - `data/raw/capers_lrd_z9_v4_screen.csv`: complete original/literature/control screen.
 
-Supporting files under `data/validation/source_inputs/`:
-
-- `capers_lrd_z9_v4_main.tex`: original archive member.
-- `capers_lrd_z9_v4_extract.html`: source DOM extract of observations, analysis,
-  results, discussion, summary and appendix; table/footnote/math content retained.
-- `capers_lrd_z9_published_crossref.json`: publisher-deposited correspondence.
-- `capers_lrd_z9_v4_figure6_legend.txt`: comparison-series legend transcribed
-  from the archive figure with pypdf; no point digitization.
+Source versions, URLs, retrieval dates, and archive hashes are in the shared
+provenance registry. Reference copies are not bundled.
 
 Independent fixtures and read-only check:
 
-- `data/validation/capers_lrd_z9_source_manifest.json`: exact versions, retrieval
-  date, archive/member hashes, supporting-payload hashes and row counts.
 - `data/validation/capers_lrd_z9_expected_values.json`: independent TeX readings
   of mass/error, position/redshift, broad-line and dust values and all five
   mass semantics, plus source discrepancies.
@@ -245,12 +237,11 @@ Independent fixtures and read-only check:
 - `data/validation/capers_lrd_z9_validate.py`: source-only validation, run as
   `.venv/bin/python data/validation/capers_lrd_z9_validate.py`.
 
-The check passes: retained payload hashes; 17 independently read numeric property
-anchors; five mass values/error/limit definitions; 48 table-row cardinalities;
-TeX anchors including both internal discrepancies; DOI correspondence; and the
-recorded identity outcome. This source-only checker complements the independent
-canonical mass/error and redshift/identity verifiers. The HTML scraper is a
-transcription aid; expected mass values were independently read from TeX.
+The focused check verifies 17 independently read numeric property anchors,
+five mass values/error/limit definitions, 48 table-row cardinalities, and the
+recorded identity outcome. It complements the shared canonical mass/error and
+redshift/identity verifiers. Expected values were read from the source TeX;
+this check does not re-inspect the external paper or its publication metadata.
 
 The explicitly unreported coordinate frame, auxiliary width conflicts, and
 high-z virial/dust/gas model limitations remain source caveats. Shared registries,
