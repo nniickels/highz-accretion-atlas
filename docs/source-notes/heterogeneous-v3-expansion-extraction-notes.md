@@ -253,7 +253,7 @@ MEOW and SMILES, GHZ9, the narrow-line LRDs, GHZ2, and the unmatched Mascia
 rows. Narrow-line LRDs and GHZ2 remain exploratory extensions. The Mascia rows
 form a candidate phenotype batch rather than a v2 mass-bearing BLAGN family.
 
-Every family has an archived source version, deterministic extraction, explicit
+Every family has a recorded source version, deterministic extraction, explicit
 limits and method assumptions, and reviewed object/host identities. Their
 source metadata are recorded in `data/source_provenance_registry.csv`.
 
@@ -267,6 +267,6 @@ excludes reviewed aliases and overlaps rather than duplicating them.
 The catalogue stores high-ionization evidence as an overlapping selection
 channel, with sample size and mass availability explicit. These 78 additions
 broaden evidence coverage; none adds a canonical numerical growth point. The
-separate v2 BLAGN expansion initially raised the shared v3 numerical sample to
-212 objects. The later final-completion sources documented separately raise it
-to 237 objects.
+[NEXUS, COSMOS-3D, and Seven Wonders note](nexus-cosmos3d-seven-wonders-extraction-notes.md)
+documents a separate admission. See the [version guide](../guides/versioning.md)
+for current catalogue totals.

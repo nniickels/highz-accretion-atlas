@@ -1,27 +1,19 @@
-> Edition note (17 October 2026): the historical audit below describes the
-> pre-expansion edition at `fc0c5501ad2271865b1c040307cad8dd8ca5721a`.
-> The authorized five-family addition now has 355 measurements, 343 provisional
-> object records and 342 hosts; 241 objects have eligible masses. Source checks
-> cover 355 redshifts and 328 coordinate pairs. The same three unresolved identity
-> groups and six manuscript exclusions remain. Current manuscript samples are
-> 223 primary and 238 expanded. See the [scope decisions](../reference/literature-scope.md)
-> and [reviewed before/after metrics](../../results/catalogue_edition_comparison.csv).
-
 # Catalogue admission and identity record
 
-The full catalogue contains 247 broad-line AGN, 49 narrow-line candidates,
+The full catalogue contains 252 broad-line AGN, 49 narrow-line candidates,
 30 photometric candidates, ten high-ionization candidates, and two X-ray
-candidates. Preferred-row evidence labels comprise 214 secure, 41 probable,
-82 candidate, and one disputed classification. These full-catalogue counts
+candidates. Preferred-row evidence labels comprise 217 secure, 41 probable,
+84 candidate, and one disputed classification. These full-catalogue counts
 precede the manuscript exclusions.
 
 ## Source-admission checks
 
-The v3 additions include 15 NEXUS measurements from NIRCam/WFSS (zhuang2025; see the [source bibliography](../../data/sources.md)), 13 COSMOS-3D NIRCam-grism
-measurements (lin2025; see the [source bibliography](../../data/sources.md)), and GHZ4/GHZ7 (napolitano2024; see the [source bibliography](../../data/sources.md)). These contribute 30
-measurements and 29 object records. NX10835 lies 0.066 arcsec from
-an existing Mascia identifier at consistent redshift, so the new mass-bearing
-measurement becomes preferred for the same object.
+The NEXUS, COSMOS-3D, and Seven Wonders source sets contribute 30
+measurements and 29 object records; their [extraction note](nexus-cosmos3d-seven-wonders-extraction-notes.md)
+records the source tables. NX10835 lies 0.066 arcsec from an existing Mascia
+identifier at consistent redshift, so the mass-bearing NEXUS measurement is
+preferred for the same object. Other source additions and exclusions are listed
+in the [source bibliography](../../data/sources.md).
 
 The Scholtz et al. paper reports 42 objects, but its published table contains
 41 rows. Exactly 21
@@ -41,9 +33,9 @@ the newly available NEXUS mass; UHZ1 uses the later full-dataset evidence
 assessment and remains outside numerical growth inference. The measurement--object
 link table records each choice and its reason.
 
-Before the conservative identity exclusions, there are 244 eligible measurements
-and 237 preferred objects: 236 Balmer-line and one UV single-epoch virial masses.
-The method-defined primary subset has 234 measurements and 227 objects.
+Before the conservative identity exclusions, there are 248 eligible measurements
+and 241 preferred objects: 240 Balmer-line and one UV single-epoch virial masses.
+The method-defined primary subset has 237 measurements and 230 objects.
 The six excluded records link to seven admitted measurements; the three with
 eligible masses are GDS_1210_9515, GS-8083 and GS-10013704. All three otherwise
 pass the primary cuts. The other three excluded records lack eligible masses.
@@ -53,10 +45,11 @@ GS-10013704 versus Scholtz 99671, and Scholtz 16745 versus 208643.
 The first requires target/spectral and preferred-mass reconciliation;
 the latter two require imaging and aperture checks.
 The manuscript evidence policy additionally places four tentative JADES detections
-in the exploratory sample only. The final samples contain 220 primary objects
-and 234 inclusive exploratory objects: thirteen additional candidates and GN-z11.
-The thirteen candidates include the seven previously recorded conditional
-broad-line interpretations and the four tentative JADES detections. Policies are
+in the exploratory sample only. The final samples contain 223 primary objects
+and 238 expanded objects: fourteen additional candidates and GN-z11. Output
+fields call the expanded sample `exploratory`. MACS0416-Y1 is one of the
+expanded-only candidates; the four tentative JADES detections remain outside
+the primary sample. Policies are
 recorded in `data/publication/evidence_selection.json` and `data/publication/identity_exclusions.json`.
 All original measurements and catalogue flags remain available.
 
@@ -66,7 +59,7 @@ In the comparison with the published Baccus Table 1 measurements, 32 central
 masses change by −0.10 to +0.04 dex. The manuscript reports the threshold-count
 and ranking comparisons, including the treatment of unmatched records.
 
-Independent source checks cover all admitted mass/error fields, 350 central
-redshifts and 323 available coordinate pairs. Twenty-seven rows lack coordinates.
+Independent source checks cover all admitted mass/error fields, 355 central
+redshifts and 328 available coordinate pairs. Twenty-seven rows lack coordinates.
 Validation of redshift uncertainties, full posteriors and auxiliary observables
 is incomplete.

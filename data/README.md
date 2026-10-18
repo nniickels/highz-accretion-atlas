@@ -21,7 +21,7 @@ so the object count is provisional. See the [identity audit](../docs/source-note
 | [raw/](raw/README.md) | Original source tables and manual extractions. |
 | [assembly/](#assembly-inputs) | Inputs used to combine source records and apply reviewed identity decisions. |
 | [crossmatch/](#identity-links) | Links between measurements, objects, and hosts, with aliases and match reviews. |
-| [validation/](validation/README.md) | Expected source values and extracts used for independent checks. |
+| [validation/](validation/README.md) | Independent expected values, source locators, and conversion checks. |
 | [publication/](publication/README.md) | Rules and comparison inputs for the manuscript samples. |
 | [manifests/](#file-manifests) | File lists and SHA-256 checksums for data and source records. |
 

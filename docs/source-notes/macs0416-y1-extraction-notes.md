@@ -5,7 +5,7 @@ Galaxy with an ALMA Dust Continuum Detection: Early Dust, Very High Tdust,
 and a Multi-wavelength [OIII] Ratio Discrepancy*,
 [arXiv:2605.14922v1](https://arxiv.org/abs/2605.14922v1), submitted
 14 May 2026, 14:55:45 UTC. Retrieved and reviewed 17 October 2026 against the
-3 September 2026 literature cutoff. The current unversioned arXiv metadata
+3 September 2026 literature cutoff. The arXiv metadata checked on that date
 lists only v1 and says “Submitted to ApJ”; it has no journal reference or
 publisher DOI. This verifies the archive's stated status, not an independent
 assertion that no later publication exists. Pin v1 for every scientific field

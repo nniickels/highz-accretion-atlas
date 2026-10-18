@@ -1,6 +1,6 @@
 # SAPPHIRES z=8.47 source extraction
 
-Primary source: Fudamoto et al., [arXiv:2503.15597v1](https://arxiv.org/html/2503.15597v1), submitted 19 March 2025. Retrieved/reviewed 17 October 2026 against the 3 September 2026 cutoff. The retrieved arXiv history lists only v1; no later version or journal reference was identified. All SAPPHIRES values below use that version. No processed catalogue has been changed.
+Primary source: Fudamoto et al., [arXiv:2503.15597v1](https://arxiv.org/html/2503.15597v1), submitted 19 March 2025. Retrieved/reviewed 17 October 2026 against the 3 September 2026 cutoff. The retrieved arXiv history lists only v1; no later version or journal reference was identified. All SAPPHIRES values below use that version.
 
 ## Scope and complete screen
 

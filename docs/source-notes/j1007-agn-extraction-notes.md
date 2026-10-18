@@ -38,7 +38,7 @@ coordinate-derived name is introduced.
 Both v2/v3 measurement tables and object/alias records were searched for
 J1007 and Schindler names: no match. Spherical positional comparison of all
 available v2/v3 measurement coordinates finds no source within 1 arcminute;
-nearest is DC873321_ren25 at 67517.192 arcsec (z=5.1542). All 218 v2 rows
+nearest is DC873321_ren25 at 67517.192 arcsec (z=5.1542). The pre-admission v2/v3 catalogues were used for this screen. All 218 v2 rows
 have coordinates; 27/350 v3 rows lack coordinates and were reviewed by name
 search without a J1007 match. Their absence prevents a coordinate-only proof,
 but no source evidence suggests an overlap. Object tables inherit measurement

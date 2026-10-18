@@ -10,7 +10,8 @@ is a property, and `lrd` is a phenotype; neither is an object class.
 
 Mass-comparability groups distinguish Balmer and UV single-epoch virial masses,
 direct methods, proxy or assumed-Eddington masses, and no-numeric-mass cases.
-Statistical errors and calibration systematics remain separate. Limits and
+Source-reported errors and additional method systematics remain separate.
+Reported errors can already include calibration terms; those terms are not added twice. Limits and
 conditional values are never converted into apparently measured canonical
 masses.
 

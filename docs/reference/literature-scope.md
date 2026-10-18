@@ -26,10 +26,9 @@ outside the catalogue boundary. The authoritative included-source list is
 
 | Source | Status in v3 | Reason |
 | --- | --- | --- |
-| Juodzbalis et al. (2026), *A direct black-hole mass measurement in a little red dot at high redshift*, DOI `10.1038/s41586-026-10579-4` | verified next-version measurement | The source is A2744-QSO1, already represented in v2/v3. Its pinned v2 archive reports a preferred direct MOKA3D mass of log(MBH/Msun)=7.7+/-0.3 plus an inclination-free lower-limit result. It requires a direct-mass adapter and adds zero objects. |
+| Juodzbalis et al. (2026), *A direct black-hole mass measurement in a little red dot at high redshift*, DOI `10.1038/s41586-026-10579-4` | external comparison only | The source is A2744-QSO1, already represented in v2/v3. Its pinned v2 archive reports a preferred direct MOKA3D mass of log(MBH/Msun)=7.7+/-0.3 plus an inclination-free lower-limit result. It requires a direct-mass adapter and adds zero objects. |
 | Jin et al., J0226 JWST BLAGN sample | screened, no new membership | All four physical objects are represented by admitted Baccus rows, so adding the dataset would not contribute a new candidate. |
 | Baccus GLIMPSE, MACS0416, and MACS1149 cluster-field rows without published magnifications | source-local exclusions | Thirteen otherwise-new Baccus objects lack source-published lensing corrections. Three GLIMPSE objects enter independently through Fei with explicit corrections; the remaining ten are not admitted as comparable mass points. |
-| Prospective sources listed in the README references | background only | They do not contribute catalogue rows unless separately admitted under the rules above. |
 
 The **17 October 2026** edition expands v2/v3 membership at the unchanged
 **2026-09-03** literature cutoff: v2 is the comparable
@@ -58,7 +57,7 @@ object match. The three pre-existing unresolved identity groups remain open.
 
 This edition adds these five families. Other new source families or
 measurements require a separately documented membership revision;
-the deferred A2744 direct mass below remains external.
+the A2744 direct mass comparison below remains external.
 Accuracy fixes, publication-status corrections, and provenance updates apply to
 every affected existing version. Any correction to an extracted value must be
 documented against the primary source and accompanied by regenerated products
@@ -68,29 +67,15 @@ Current dataset membership and counts are described in
 [`../guides/versioning.md`](../guides/versioning.md), with source-specific
 extraction decisions in [`../source-notes/`](../source-notes/).
 
-## Deferred A2744-QSO1 measurement: next-version work
+## External A2744-QSO1 comparison
 
-This is an implementable extension, deliberately deferred to preserve frozen
-measurement membership. The existing physical object remains represented;
-deferral is not a missing object or a correction to its older source extraction.
-Before admitting the direct estimate:
+The direct estimate is evaluated as an external, fixed-assumption comparison in
+[`external_direct_mass_comparison.csv`](../../results/for_manuscript/tables/external_direct_mass_comparison.csv).
+It neither adds an object nor replaces the canonical virial measurement. Its
+interval crosses the reference growth threshold, so frozen membership does not
+prevent evaluating the measurement's scientific implication. Adopting it as a
+preferred canonical value would require an explicit membership and method-policy
+revision, with identity and error semantics reviewed.
 
-1. Build a source-specific adapter from the pinned source, preserving the
-   preferred MOKA3D estimate separately from the inclination-free lower limit.
-2. Add direct-mass method metadata, uncertainty/censoring semantics, and an
-   explicitly reviewed link to the existing A2744-QSO1 identity.
-3. Define next-version measurement membership and the preferred-measurement
-   policy; test the changes to ranks and growth diagnostics against the frozen
-   result without double-counting the physical object.
-4. Add independent source-value fixtures, regenerate the new version's products,
-   and review manifests and manuscript claims together.
-
-A complete publication re-admission for Baccus would similarly require review
-of new rows and classification/selection changes. The existing published-value
-sensitivity test is already implemented; it is not that full re-admission.
-
-The manuscript now evaluates the deferred A2744-QSO1 direct estimate as an
-explicitly external, fixed-assumption comparison (`results/for_manuscript/tables/`). This does
-not admit or replace a canonical row. Its near-unity requirement and interval
-crossing the threshold are discussed in the draft, so frozen membership does
-not prevent evaluating the scientific implication of this measurement.
+The Baccus published-value sensitivity similarly tests measurement revisions
+without admitting new rows or changing classification and selection policies.

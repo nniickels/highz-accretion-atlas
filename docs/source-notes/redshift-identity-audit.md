@@ -1,20 +1,14 @@
-> Edition note (17 October 2026): the historical audit below describes the
-> pre-expansion edition at `fc0c5501ad2271865b1c040307cad8dd8ca5721a`.
-> The authorized five-family addition now has 355 measurements, 343 provisional
-> object records and 342 hosts; 241 objects have eligible masses. Source checks
-> cover 355 redshifts and 328 coordinate pairs. The same three unresolved identity
-> groups and six manuscript exclusions remain. Current manuscript samples are
-> 223 primary and 238 expanded. See the [scope decisions](../reference/literature-scope.md)
-> and [reviewed before/after metrics](../../results/catalogue_edition_comparison.csv).
+# Redshift and identity audit
 
-# Redshift and identity audit — updated 7 September 2026
+Identity decisions reviewed 7 September 2026; coverage and sample summaries
+updated for the 17 October 2026 catalogue edition.
 
 **Numerical source checks pass; three scientific identity groups remain open.**
 Two supported duplicates are reconciled through the hash-pinned registry
-`data/assembly/reconciled_identity_pairs.json`. All 350 source measurements and
-source-native values remain; the catalogue now has 338 object records, 337 host
-records, 237 numerical objects, and 101 catalogue-only records. The count remains
-provisional until the three cases below are resolved.
+`data/assembly/reconciled_identity_pairs.json`. All 355 source measurements and
+source-native values remain; the catalogue now has 343 object records, 342 host
+records, 241 numerical objects, and 102 records without eligible masses.
+The count remains provisional until the three cases below are resolved.
 
 ## Resolved duplicates
 
@@ -25,18 +19,18 @@ provisional until the three cases below are resolved.
 
 The audit fixture records these decisions separately from the assembly registry;
 verification checks their consistency. Matching thresholds for other targets were
-not widened. Four obsolete status panels were removed; source observables and
-all numerical mass rows remain. These two merges do not change the numerical
+not widened. Source observables and all numerical mass rows remain. These
+two reconciliations do not change the numerical
 growth sample or its headline requirements.
 
 ## Scope and evidence
 
-- Checked all **350 admitted redshifts** against the recorded source versions.
-- Checked all **323 available coordinate pairs**. The 27 rows without coordinates
+- Checked all **355 admitted redshifts** against the recorded source versions.
+- Checked all **328 available coordinate pairs**. The 27 rows without coordinates
   (25 Mazzolari objects, GHZ2 and MoM-BH*-1) remain explicitly missing; a sky search
   cannot establish their identity completeness.
 - Checked the spectroscopic/photometric labels for all **31 mixed-sample rows**
-  from SMILES and MEOW. The fixture contains **1,027 source-field expectations**,
+  from SMILES and MEOW. The fixture contains **1,042 source-field expectations**,
   with source cells/excerpts, locators, URLs and archive/member hashes.
 - Verified propagation through v1/v2/v3 measurements, preferred objects, aliases
   and measurement/object/host links. Cross-version aliases are retained by design.
@@ -78,9 +72,9 @@ and UHZ1 links are supported. Ren's DC_848185_a and _b remain explicitly distinc
 components in a shared host. UHZ1's photometric and spectroscopic redshifts are
 legitimate historical measurements, not a transcription discrepancy.
 
-The two resolved pairs include a mass-free contextual row, so merging
-those pairs alone would not add a new mass or change the reference high-pressure
-tail. They would change unique-object/class/coverage counts. The Baccus group
+Each resolved pair includes a mass-free contextual row, so those reconciliations
+change object/class/coverage counts without adding a mass or changing the
+reference high-pressure tail. The Baccus group
 also involves competing masses and redshifts: regenerate and reassess after a
 preferred-measurement decision; do not assume all object-level summaries survive.
 
@@ -142,12 +136,12 @@ The other three already lack eligible masses.
 
 [data/publication/identity_exclusions.json](../../data/publication/identity_exclusions.json)
 records these exclusions. The evidence policy additionally retains four tentative
-JADES detections only in the exploratory sample, yielding 220 primary and 234
-exploratory objects. Membership and sensitivity tables are in
+JADES detections only in the exploratory sample, yielding 223 primary and 238
+expanded objects (called `exploratory` in the output tables). Membership and sensitivity tables are in
 [results/for_manuscript](../../results/for_manuscript/README.md).
 
 Holding the evidence policy fixed, the identity exclusions preserve the
-primary/exploratory 8/14 point, 6/10 p16, and 5/8 P>=0.95 threshold counts and
-top-five ordering. The primary median changes from 0.571 to 0.573.
+primary/expanded 11/17 central, 9/13 p16, and 8/11 P>=0.95 threshold counts and
+top-five ordering. The primary median changes from 0.574202 to 0.574252.
 `python -m src.internal.publication_selection` verifies exclusions and table
 reproduction. This does not resolve identities or replace the strict gate.

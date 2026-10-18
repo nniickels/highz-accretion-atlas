@@ -31,6 +31,16 @@ coordinates, and source matches, and reports the open identity groups.
 Adding `--require-resolved` to the second command fails until those groups are
 resolved. The manuscript samples exclude all affected records.
 
+## Extraction integrity
+
+`data/manual_extraction_audit.csv` inventories 39 extraction inputs with hashes,
+parsed row counts, source membership, and table locations. Run
+`.venv/bin/python -m src.internal.verify_manual_extractions` to check these
+records. It rejects changed bytes, row counts, duplicate measurement IDs, source
+membership drift, and changes to the Scholtz table parse. File integrity checks
+complement the independent value checks above; they do not establish that a
+transcription agrees with its publication.
+
 ## Source references and retained data
 
 All families use the shared provenance registry, publication/table locators, and

@@ -68,30 +68,19 @@ results, and the CSV tables and PNG/PDF figures in `results/for_manuscript/`:
 CI removes generated artifacts in a disposable workspace, runs all five notebooks,
 and compares the results against the original checkout. It also runs the regression
 suite, source checks, publication figure verification, and a package build/import check.
-Manuscript editing and compilation are separate from the analysis pipeline.
-Both draft editions use the current expanded catalogue. The journal-formatted
-source and PDF are tracked as `paper/apss/main.tex` and `paper/apss/main.pdf`.
-The general draft is tracked as `paper/early_giants_draft.pdf` and its synchronized
-`paper/early_giants_overleaf.zip`; their local source is `paper/main.tex`.
-Other files in `paper/apss/` are local and Git-ignored, including figure/table
-copies, upload archives, rebuild scripts, integrity records, and the cover letter.
-A fresh checkout can read the Ap&SS source and PDF but cannot compile that source
-without restoring its local dependencies. Scientific code, canonical data,
-calibration calculations, and generated scientific results remain tracked.
-The original local manuscript sources elsewhere under `paper/` remain ignored.
-For the general draft, Overleaf receives the packaged local sources;
-it is not a separate authoritative editing target. Run
-`python3 -m src.internal.package_overleaf` to build that edition's
-manuscript-only upload ZIP from its local sources after compiling and copying
-`paper/previews/main.pdf` to `paper/early_giants_draft.pdf`. This optional packaging
-command requires the local source. CI runs the read-only `--verify` command
-against the public ZIP and PDF without requiring local manuscript files or TeX.
-It checks source and PDF hashes, dependency membership, and that references precede
-appendices with both starting on new pages. The ZIP uses fixed entry timestamps
-and contains no Ap&SS files or private working materials. These release-integrity
-checks are separate from scientific artifact regeneration; the compiler-produced
-draft PDF is not required to regenerate byte-for-byte across platforms.
-The local `paper/README.md` documents compilation and packaging.
+Manuscript editing and compilation are separate from analysis regeneration.
+The [manuscript file guide](../../results/for_manuscript/README.md#manuscript-files)
+identifies both draft editions and the public source package. A fresh checkout
+can verify the general draft PDF and Overleaf ZIP without LaTeX:
+
+```bash
+.venv/bin/python -m src.internal.package_overleaf --verify
+```
+
+This checks source/PDF integrity, dependencies, and section order. It does not
+rebuild scientific outputs or require byte-identical PDF compilation across
+platforms. The Ap&SS source has additional unbundled compilation dependencies;
+its readable PDF is tracked.
 
 ## Scientific checks
 
@@ -199,7 +188,7 @@ Verification does not rewrite or silently repair the reviewed PDFs.
 
 ## Ap&SS calibration sensitivity
 
-`publication_selection` now also generates and verifies
+`publication_selection` generates and verifies
 `results/for_manuscript/tables/calibration_sensitivity.csv`. Notebook 01 calls this
 through `generate_science`; notebook 04 verifies it. The existing independent
 artifact comparison includes the new CSV, and CI already runs publication
@@ -225,12 +214,9 @@ standalone calculation also runs without importing the project:
 The Ap&SS manuscript cites repository commit
 `77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac`, which contains the calibration
 code, input and result tables, dependency versions, and reproduction commands.
-The submission uses this repository reference instead of duplicate supplementary
-files. When the local submission package is available, its optional integrity checker
-compares the current figures and analysis files against the expanded scientific
-revision below, while retaining the separate calibration citation. Scientific
-reproduction uses the tracked analysis pipeline and does not require these local
-presentation files.
+The manuscript also cites the expanded scientific revision listed below.
+These citations identify analysis versions; scientific reproduction uses the
+tracked pipeline and does not depend on local submission files.
 
 ## Current and historical presentation editions
 

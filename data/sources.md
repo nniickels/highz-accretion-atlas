@@ -327,7 +327,7 @@ decisions are documented in
 versions, DOIs, archive hashes, and review dates are machine-readable in
 `data/source_provenance_registry.csv`.
 
-## Final v3 completion reviewed 2026-09-03
+## NEXUS, COSMOS-3D, and Seven Wonders
 
 - **[source_key: zhuang25_nexus_wfss] Zhuang et al. (2025), NEXUS:** all 15
   Table 1 objects at `z>=4` are admitted from the JWST/NIRCam WFSS broad-line
@@ -344,10 +344,10 @@ versions, DOIs, archive hashes, and review dates are machine-readable in
   tentative-redshift status; GHZ7 retains its [NeV] and UV diagnostic evidence.
   GHZ9 is already represented by the later dedicated analysis.
 
-These source-level heterogeneous datasets are assigned only to v3. Together
-they add 29 physical objects and 25 growth-plottable objects, producing the
-338-record, 237-plottable-object catalogue after the September 7 identity corrections. Extraction and identity
-details are in `docs/source-notes/v3-completion-extraction-notes.md`.
+These source-level heterogeneous datasets are assigned only to v3. Their September admission
+added 29 physical objects and 25 growth-eligible objects. Source decisions are
+in the [extraction note](../docs/source-notes/nexus-cosmos3d-seven-wonders-extraction-notes.md);
+current catalogue totals are in the [version guide](../docs/guides/versioning.md).
 
 The [mass/error and publication-version audit](../docs/source-notes/mass-error-and-publication-revision-audit.md)
 records complete numerical-mass validation, the Killi correction, and the

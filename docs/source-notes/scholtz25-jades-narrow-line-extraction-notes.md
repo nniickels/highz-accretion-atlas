@@ -18,10 +18,11 @@ so host masses and bolometric luminosities are retained without deriving an
 Eddington mass; the v3 growth population stays frozen. JADES 8083 is manually
 linked to existing `HZA-GS-8083`: the coordinates agree to 0.013 arcsec and the
 paper labels it Type 1. The existing broad-line mass measurement remains the
-preferred object-level row despite the papers' differing redshift values. The
-catalogue's conservative worst-evidence object aggregate is nevertheless
-`candidate` for this multiply measured object, without changing its numeric
-mass or growth eligibility.
+preferred object-level row despite the papers' differing redshift values.
+The preferred broad-line measurement controls the object's canonical evidence
+status; the alternate `candidate` classification remains in the evidence-history
+columns. The separate identity audit excludes the unresolved GS-8083 group from
+manuscript inference without deleting either measurement.
 
 Provenance hashes:
 

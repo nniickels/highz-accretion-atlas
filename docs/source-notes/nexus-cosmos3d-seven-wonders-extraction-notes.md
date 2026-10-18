@@ -1,4 +1,4 @@
-# Final v3 completion extraction notes
+# NEXUS, COSMOS-3D, and Seven Wonders extraction notes
 
 Reviewed and extracted 2026-09-03. Each source is assigned only to v3 because
 its source-level object or phenotype mix is heterogeneous. All identifications
@@ -36,7 +36,7 @@ mass errors. Halpha and Hbeta calibrations remain distinct in `mbh_method`.
 The source warns that scattering could bias virial masses high by 1--2 dex;
 this directional caveat is recorded but is not converted into a symmetric
 statistical error. A 10-arcsec coordinate/redshift search found no match in the
-pre-completion catalogue.
+catalogue available before their admission.
 
 ## Seven Wonders
 

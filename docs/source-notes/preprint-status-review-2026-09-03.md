@@ -1,10 +1,10 @@
 # Preprint status review — 2026-09-03
 
-The six catalogue source records marked as preprints were rechecked against their
+The six records marked as preprints in the September catalogue edition were rechecked against their
 official arXiv records on 2026-09-03. This review used the fixed literature cutoff;
 it did not search for work first posted after that date.
 
-| Source record | Current version | Journal status reported by source | Catalogue action |
+| Source record | Version at review | Journal status reported by source | Catalogue action |
 |---|---:|---|---|
 | Davis et al. / THRILS | 2602.23310v1 | Submitted to ApJ | No value change |
 | Hutchison et al. coordinates | 2512.12509v1 | Submitted to ApJ | No value change |
@@ -13,5 +13,7 @@ it did not search for work first posted after that date.
 | Chávez Ortiz et al. / GHZ2 | 2511.03035v2 | Preprint | Pin v2; correct contextual `log_mbh` from 7.19 to 7.20 |
 | Mascia et al. | 2608.25021v1 | Submitted to A&A | No value change |
 
-The next review date is 2026-12-03. The machine-readable dates, exact archive
-URLs, and archive hashes are in `data/source_provenance_registry.csv`.
+These six records have a scheduled review date of 2026-12-03. This dated review
+does not include the later October admissions. The complete source list,
+record-specific review dates, exact URLs, and hashes are in
+[`source_provenance_registry.csv`](../../data/source_provenance_registry.csv).

@@ -35,7 +35,8 @@ poster checks, and a Python package build/import check. It also removes generate
 outputs from a separate checkout, executes notebooks 00–04, and compares results
 with the unchanged baseline before updating generated-file hashes.
 
-The original local manuscript sources, cover letter, and compilation files are
-excluded from Git. Tests allow the tracked draft PDF, Overleaf ZIP, and the Ap&SS
-`main.tex` and `main.pdf` snapshots. Other Ap&SS files stay local. Package-integrity checks and independent source checks serve
-different purposes: matching stored outputs does not validate every physical assumption.
+Manuscript tests use the public draft PDF, Overleaf ZIP, and Ap&SS source/PDF
+described in the [manuscript file guide](../results/for_manuscript/README.md#manuscript-files).
+They do not require private authoring or submission files. Package integrity and
+independent source checks serve different purposes: matching stored outputs does
+not validate every physical assumption.
