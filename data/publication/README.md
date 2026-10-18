@@ -9,9 +9,39 @@ external comparisons. They do not change catalogue membership.
 | `evidence_selection.json` | Places four tentative JADES detections in the expanded sample only. |
 | `review_inputs.json` | Records source caveats and external comparison measurements. Proposed observations are author suggestions. |
 
+## Sample selection
+
 The samples contain 223 primary and 238 expanded objects. Existing output fields
 call the expanded sample `exploratory`; it contains every primary object.
 Excluding uncertain identities does not resolve them.
+
+The canonical method-primary sample has 230 objects. The evidence policy moves
+GS-20057765, GS-20030333, GS-164055, and GN-4685 to the expanded sample only,
+leaving 226 primary candidates before identity exclusions. Three mass-bearing
+records in unresolved groups are then excluded, giving 223 primary objects.
+The expanded sample removes those same three from 241 growth-eligible objects,
+leaving 238. All six affected object records are excluded; three already lack
+eligible masses. The [identity audit](../../docs/source-notes/redshift-identity-audit.md)
+records their identities and the evidence needed to resolve them.
+
+The expanded sample adds fourteen candidates and GN-z11 to the primary sample.
+GN-z11 uses a UV virial estimator; the primary sample uses Balmer masses.
+MACS0416-Y1 is expanded-only. These manuscript rules do not modify the original
+catalogue flags or resolve physical identities.
+
+## Identity-exclusion sensitivity
+
+Holding the evidence policy fixed, the exclusions preserve primary/expanded
+threshold counts of 11/17 at central mass, 9/13 at p16, and 8/11 for reported-error
+P(f_Edd>1)>=0.95, together with scenario counts and top-five ordering. The primary
+median requirement changes from 0.574202 to 0.574252. These statements use the
+reference growth assumptions; they are not parameter-marginalized probabilities.
+
+The [membership and sensitivity tables](../../results/for_manuscript/README.md)
+record the full selection. In `identity_exclusion_sensitivity.csv`, the
+`catalogue` scope means manuscript evidence selection before identity exclusions;
+it is not the unfiltered method-primary sample. `publication` applies both
+policies. The strict full-catalogue identity gate remains open.
 
 ## Generate and verify
 

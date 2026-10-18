@@ -12,9 +12,7 @@
 
 - [Growth models](reference/model-menu.md)
 - [v4 primordial black-hole growth assumptions](reference/pbh-growth-v4.md)
-- [Object classes and evidence labels](reference/object-taxonomy.md)
-- [Mass comparability and analysis eligibility](reference/multiclass-eligibility-and-mass-comparability.md)
-- [Required fields for catalogue admission](reference/admission-schema.md)
+- [Catalogue schema, evidence labels, and eligibility](reference/catalogue-schema.md)
 - [Scientific claims and limitations](reference/science-policy.md)
 - [Literature scope and cutoff](reference/literature-scope.md)
 - [Survey selection and completeness](reference/selection-completeness.md)

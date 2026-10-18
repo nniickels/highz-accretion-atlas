@@ -141,10 +141,7 @@ the table/text discrepancies and dust interpretation remain documented caveats.
 Admitted 17 October 2026 at the unchanged 3 September 2026 cutoff.
 Final measurement `J1007AGN_schindler25_observed`, physical object `HZA-J1007-AGN`, host `HZS-J1007-AGN`.
 Membership: **v2 and v3; primary and expanded numerical samples**. Adopted semantics: observed GH05 total-Hbeta baseline; dust-corrected model retained as a correlated observable and sensitivity.
-Each family contributes one new physical object and one preferred measurement;
-model alternatives do not add measurements or objects. The source-level screen
-and exclusions above remain the scientific provenance for that decision.
-The three older unresolved catalogue identity groups remain excluded from
-manuscript inference. Canonical values are built by
-`src/internal/october2026_additions.py`, with independent source-native fixtures
-registered in the complete mass/error and redshift/coordinate checks.
+The [schema and eligibility guide](../reference/catalogue-schema.md) defines
+shared admission rules; the [publication guide](../../data/publication/README.md#sample-selection)
+defines manuscript exclusions. Source-specific values above are built by
+`src/internal/october2026_additions.py` and checked against independent fixtures.

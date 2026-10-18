@@ -33,25 +33,11 @@ the newly available NEXUS mass; UHZ1 uses the later full-dataset evidence
 assessment and remains outside numerical growth inference. The measurement--object
 link table records each choice and its reason.
 
-Before the conservative identity exclusions, there are 248 eligible measurements
-and 241 preferred objects: 240 Balmer-line and one UV single-epoch virial masses.
-The method-defined primary subset has 237 measurements and 230 objects.
-The six excluded records link to seven admitted measurements; the three with
-eligible masses are GDS_1210_9515, GS-8083 and GS-10013704. All three otherwise
-pass the primary cuts. The other three excluded records lack eligible masses.
-These records remain excluded until their identities can be resolved.
-The open groups are Baccus GDS_1210_9515 versus JADES GS-8083,
-GS-10013704 versus Scholtz 99671, and Scholtz 16745 versus 208643.
-The first requires target/spectral and preferred-mass reconciliation;
-the latter two require imaging and aperture checks.
-The manuscript evidence policy additionally places four tentative JADES detections
-in the exploratory sample only. The final samples contain 223 primary objects
-and 238 expanded objects: fourteen additional candidates and GN-z11. Output
-fields call the expanded sample `exploratory`. MACS0416-Y1 is one of the
-expanded-only candidates; the four tentative JADES detections remain outside
-the primary sample. Policies are
-recorded in `data/publication/evidence_selection.json` and `data/publication/identity_exclusions.json`.
-All original measurements and catalogue flags remain available.
+Canonical growth and method-primary flags are distinct from manuscript
+membership. The [publication selection guide](../../data/publication/README.md#sample-selection)
+records evidence cuts, identity exclusions and resulting sample sizes. The
+[identity audit](redshift-identity-audit.md) records the unresolved cases and the
+evidence required for a decision. Original measurements and flags remain available.
 
 ## Measurement revision and validation coverage
 

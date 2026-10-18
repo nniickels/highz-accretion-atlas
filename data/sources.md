@@ -151,7 +151,7 @@ Detailed extraction and caveat notes are in
   canonical v2 and v3 products; its eligible probable row participates in the
   shared science and figures. See
   `docs/source-notes/ren25-alpine-cristal-jwst-extraction-notes.md` and
-  `docs/reference/admission-schema.md`.
+  `docs/reference/catalogue-schema.md`.
 
 ## v2 canonical-mass additions reviewed 2026-09-03
 
@@ -239,7 +239,7 @@ therefore not added. See
 - The published `10^7--10^8 Msun` Eddington-assumed range is not converted to a
   canonical point mass. Both rows remain growth-ineligible. See
   `docs/source-notes/uhz1-xray-evidence-history-extraction-notes.md` and
-  `docs/reference/admission-schema.md`.
+  `docs/reference/catalogue-schema.md`.
 
 ## v3 source: Scholtz JADES narrow-line candidates
 
@@ -255,7 +255,7 @@ therefore not added. See
   numeric-mass measurement remains preferred. No new row has a numeric BH
   mass or enters growth ranking. See
   `docs/source-notes/scholtz25-jades-narrow-line-extraction-notes.md` and
-  `docs/reference/admission-schema.md`.
+  `docs/reference/catalogue-schema.md`.
 
 ## v3 Scholtz provenance correction
 
@@ -266,8 +266,9 @@ therefore not added. See
   physical IDs. One row, JADES 8083, is linked to an existing broad-line object,
   so the combined v3 object-class view contains 20 narrow-line candidate
   objects contributed by this family.
-- The current dataset counts and evidence aggregation are documented in
-  `docs/reference/admission-schema.md` and `docs/source-notes/heterogeneous-v3-expansion-extraction-notes.md`.
+- The [version guide](../docs/guides/versioning.md) records current dataset counts;
+  the [schema guide](../docs/reference/catalogue-schema.md#preferred-measurements-and-object-aggregation)
+  defines evidence aggregation.
 
 ## v3 heterogeneous evidence expansion reviewed 2026-09-03
 
@@ -308,7 +309,9 @@ assumed Eddington ratio remain contextual observables.
 - **[source_key: chavezortiz26_ghz2] Chavez Ortiz et al. (2025/2026):** GHZ2 is
   admitted as `probable` from joint spectral/photometric AGN modelling. Its BH
   estimate assumes an Eddington ratio of 0.5 and carries an approximately
-  one-dex systematic, so it remains contextual.
+  one-dex systematic, so it remains contextual. The 3 September 2026 review
+  pinned arXiv v2 and corrected the contextual log-mass value from 7.19 to 7.20;
+  this did not create a canonical growth mass.
 - **[source_key: mascia26_compact_blue_ble] Mascia et al. (2026):** eight new
   compact blue broad-line emitters remain `candidate` because the source allows
   AGN and stellar central-engine interpretations and publishes no object-level

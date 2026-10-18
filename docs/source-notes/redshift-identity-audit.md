@@ -129,19 +129,12 @@ of independently established astrophysical uniqueness.
 
 ## Publication selection
 
-All six object records linked to the three open groups are excluded from
-publication inference; their seven source measurements remain in the catalogue.
-The mass-bearing exclusions are GDS_1210_9515, GS-8083 and GS-10013704.
-The other three already lack eligible masses.
+The manuscript excludes the records in all three open groups. The mass-bearing
+exclusions are GDS_1210_9515, GS-8083 and GS-10013704; the other affected records
+already lack eligible masses. Their source measurements remain in the catalogue.
 
-[data/publication/identity_exclusions.json](../../data/publication/identity_exclusions.json)
-records these exclusions. The evidence policy additionally retains four tentative
-JADES detections only in the exploratory sample, yielding 223 primary and 238
-expanded objects (called `exploratory` in the output tables). Membership and sensitivity tables are in
-[results/for_manuscript](../../results/for_manuscript/README.md).
-
-Holding the evidence policy fixed, the identity exclusions preserve the
-primary/expanded 11/17 central, 9/13 p16, and 8/11 P>=0.95 threshold counts and
-top-five ordering. The primary median changes from 0.574202 to 0.574252.
-`python -m src.internal.publication_selection` verifies exclusions and table
-reproduction. This does not resolve identities or replace the strict gate.
+The [publication selection guide](../../data/publication/README.md#sample-selection)
+owns the evidence policy, sample counts and identity-exclusion sensitivity.
+`python -m src.internal.publication_selection` verifies the exclusions and
+reproduces their sensitivity table. This does not resolve the identities or
+replace the strict full-catalogue gate.

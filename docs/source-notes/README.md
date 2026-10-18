@@ -12,7 +12,6 @@ Dated source screens describe the catalogue used for that review, while the
 - [Catalogue admission and sample selection](catalogue-decisions.md)
 - [Redshift checks and unresolved identities](redshift-identity-audit.md)
 - [Mass errors and publication-version sensitivity](mass-error-and-publication-revision-audit.md)
-- [September 2026 preprint-status review](preprint-status-review-2026-09-03.md)
 
 ## Source-specific extraction
 
