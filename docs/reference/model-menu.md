@@ -13,7 +13,8 @@ Implemented comparisons include:
 
 - light, intermediate, heavy, and PBH-labelled seed-mass ranges;
 - fixed average accretion histories and required-`f_Edd` inversion;
-- thin/slim-disk effective efficiencies across three spin cases;
+- thin-disk efficiencies across three spin cases, with an illustrative
+  photon-trapping adjustment above the Eddington limit;
 - merger boosts of one and two in the catalogue figures;
 - two-state duty-cycle sensitivities with burst `f_Edd` of 1, 2, or 3;
 - source-reported mass uncertainty and separately stated method

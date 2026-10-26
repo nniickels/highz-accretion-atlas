@@ -81,7 +81,7 @@ z=8.6319±0.0005; Morishita's redshift remains associated with its re-reduction.
 and independent-anchor check, not a registration in the shared pipeline.
 The mapping records spectroscopic redshift, species Hbeta, class `broad_line_agn`,
 spectroscopic type `type1_broad_line`, phenotype `lrd;compact`, comparability
-`virial_balmer_single_epoch`, method `single-epoch-virial-hbeta`.
+`virial_balmer_single_epoch`, method `single-epoch-virial-hbeta-greeneho2005`.
 
 The preferred estimate is the published headline linear mass `1.0(+0.6,-0.4) x 10^8 Msun`.
 Central log mass is 8.0; endpoint conversion gives +0.204119982655925 and
