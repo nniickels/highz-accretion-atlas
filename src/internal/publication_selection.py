@@ -23,7 +23,8 @@ SCENARIOS = [('reference', 2, .1, 30), ('seed_1e3', 3, .1, 30),
              ('nonspinning', 2, 1-np.sqrt(8/9), 30)]
 
 
-def build_publication_outputs(root=ROOT, policy=None):
+def build_publication_membership(root=ROOT, policy=None, *, measurements=None, objects=None):
+    """Apply the reviewed sample rules without reading generated results."""
     policy = policy if policy is not None else json.loads((root/POLICY).read_text())
     if policy.get('disposition') != 'exclude_all_open_identity_groups_from_manuscript_inference':
         raise AssertionError('Unapproved publication exclusion disposition')
@@ -38,8 +39,10 @@ def build_publication_outputs(root=ROOT, policy=None):
     actual = {g['issue_group']: set(g['measurement_ids']) for g in groups}
     if actual != expected or any(not g.get('reason') for g in groups):
         raise AssertionError('Publication exclusions must cover every open group exactly')
-    measurements = pd.read_csv(root/'data/processed/v3/v3_accreting_measurements.csv')
-    objects = pd.read_csv(root/'data/processed/v3/v3_accreting_objects.csv')
+    if measurements is None:
+        measurements = pd.read_csv(root/'data/processed/v3/v3_accreting_measurements.csv')
+    if objects is None:
+        objects = pd.read_csv(root/'data/processed/v3/v3_accreting_objects.csv')
     group_by_object = {}
     for group, mids in actual.items():
         rows = measurements.loc[measurements.measurement_id.isin(mids)]
@@ -53,6 +56,10 @@ def build_publication_outputs(root=ROOT, policy=None):
                          'growth_ranking_eligible_flag', 'primary_growth_ranking_flag']].copy()
     selection['open_identity_group'] = selection.physical_object_id.map(group_by_object).fillna('')
     excluded = selection.open_identity_group.ne('')
+    if 'scientific_identity_status' in objects:
+        status = objects.set_index('physical_object_id').scientific_identity_status
+        if not selection.physical_object_id.map(status).eq('unresolved').eq(excluded).all():
+            raise AssertionError('Catalogue scientific identity status differs from reviewed exclusions')
     selection['excluded_identity_flag'] = excluded
     evidence_policy = json.loads((root/EVIDENCE_POLICY).read_text())
     if evidence_policy.get('disposition') != 'retain_tentative_individual_detections_in_exploratory_only':
@@ -70,6 +77,12 @@ def build_publication_outputs(root=ROOT, policy=None):
     selection['publication_primary_flag'] = selection.primary_growth_ranking_flag & ~excluded & ~tentative
     selection['publication_exploratory_flag'] = selection.growth_ranking_eligible_flag & ~excluded
     selection = selection.sort_values('physical_object_id').reset_index(drop=True)
+    return selection
+
+
+def build_publication_outputs(root=ROOT, policy=None):
+    selection = build_publication_membership(root, policy)
+    objects = pd.read_csv(root/'data/processed/v3/v3_accreting_objects.csv')
     point = pd.read_csv(root/'results/v3/tables/v3_object_point_ranking.csv')
     errors = pd.read_csv(root/'results/v3/tables/v3_object_uncertainty_ranking.csv')
     rows = []

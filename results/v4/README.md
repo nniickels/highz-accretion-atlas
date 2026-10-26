@@ -1,55 +1,47 @@
-# v4 growth analysis
+# v4 growth tests
 
-This analysis uses four targets from the existing v3 catalogue: the three
-highest-ranked primary objects under the reference growth model and GN-z11,
-whose mass is estimated from ultraviolet lines. It tests growth from assumed
-seeds, including primordial black holes (PBHs); it does not add measurements or
-model the abundance of PBHs. See the [methods and assumptions](../../docs/reference/pbh-growth-v4.md).
+v4 uses four v3 objects: CAPERS-LRD-z9, UNCOVER-20466, CANUCS-LRD-z8.6,
+and GN-z11. It calculates the seed masses and average accretion rates needed
+to reach their measured masses. It varies starting time, efficiency, and mass
+assumptions. See the [methods](../../docs/reference/pbh-growth-v4.md).
+
+For all 241 usable v3 masses, see the [catalogue-wide minimum-seed table](../v3/tables/v3_minimum_seed_mass.csv).
 
 ## Tables
 
 | File | Contents |
 | --- | --- |
-| `tables/v4_targets.csv` | Adopted measurements, uncertainties, source caveats, and selection reasons. |
-| `tables/v4_minimum_seed_mass.csv` | Minimum seeds for each starting time, rate cap, efficiency, and mass shift, with mass-error percentiles. |
-| `tables/v4_seed_onset_compatibility.csv` | Required average rates and fractions of mass-error draws reachable from each seed and starting time. |
-| `tables/v4_controls.csv` | Specified stellar-remnant, heavy astrophysical, and primordial seed scenarios. |
+| `tables/v4_targets.csv` | Measurements, errors, source notes, and selection reasons. |
+| `tables/v4_minimum_seed_mass.csv` | Minimum seeds for each starting time, rate limit, efficiency, and mass shift. |
+| `tables/v4_seed_onset_compatibility.csv` | Required rates and the fraction of sampled masses reached by each seed and starting time. |
+| `tables/v4_controls.csv` | Required rates for selected seed masses and starting times. |
 
-The baseline uses an average Eddington-ratio cap of 1, radiative efficiency 0.1,
-and no mass shift. A seed that already exceeds a sampled final mass is counted
-as overpredicting it, rather than as a successful growth history.
+The reference model uses an average Eddington ratio of at most 1, efficiency
+0.1, and no mass shift. Seeds larger than the sampled final mass are rejected.
+Reaching a measured mass does not establish the seed’s origin or abundance.
 
 ## Figures
 
-Each figure has PNG and PDF exports:
+Each figure has one PNG. See the
+[previews](../../docs/reference/figures.md#v4-four-target-growth-study).
 
-- `figures/v4_minimum_seed_mass.*`: dependence on starting time, rate cap, and
-  efficiency. Bands show the 16th–84th percentiles from mass-error draws.
-- `figures/v4_seed_onset_maps.*`: fractions of draws reachable under the baseline
-  growth cap, excluding seeds that overpredict the sampled mass.
-- `figures/v4_controls.*`: specified seed scenarios using the same cosmology.
-
-These fractions describe mass-error draws under fixed assumptions. They are
-not probabilities of seed formation. Starting accretion at matter–radiation
-equality is an optimistic benchmark; the calculation does not establish seed
-formation, sustained gas supply, or consistency with external PBH constraints.
+- `figures/v4_minimum_seed_mass.png`: minimum seeds versus starting time;
+  bands show the 16th–84th percentiles from mass errors.
+- `figures/v4_seed_onset_maps.png`: fraction of sampled masses reached under
+  the reference rate limit.
+- `figures/v4_controls.png`: required average rates for selected growth models.
 
 ## Generate and verify
 
-From the repository root, after [setup](../../README.md#getting-started):
+From the repository root after [setup](../../README.md#getting-started):
 
 ```bash
 .venv/bin/python -m src.internal.pbh_growth_v4 --write
 .venv/bin/python -m src.internal.pbh_growth_v4 --verify
 ```
 
-Notebook 05 runs the same analysis. `v4_manifest.json` records configuration,
-inputs, code, cosmology, row counts, and output hashes. Writing to this folder
-also updates `results/results_inventory.csv`; retain that inventory with the
-outputs. Verification is read-only. Follow the
-[reproduction guide](../../docs/guides/reproducibility.md) before changing reviewed inputs.
-
-The 17 October 2026 edition selects CAPERS-LRD-z9, UNCOVER-20466 and
-CANUCS-LRD-z8.6 as the three strongest primary cases, plus GN-z11. This
-replaces COSMOS3D-13852 and RUBIES-EGS-55604 under the unchanged selection
-rule; the assumptions, grid, 10,000 draws and stable object streams are unchanged.
+Notebook 05 runs the same calculation. `v4_manifest.json` records settings,
+inputs, code, row counts, and file hashes. Writing outputs also updates
+`results/results_inventory.csv`. Verification does not change files.
+Follow the [reproduction guide](../../docs/guides/reproducibility.md) when
+updating results.

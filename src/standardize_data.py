@@ -218,6 +218,29 @@ def validate_numeric_domains(canonical_df: pd.DataFrame) -> None:
         ids = _format_row_ids(canonical_df, invalid_edd_ratio)
         raise ValueError(f"edd_ratio_reported must be positive for rows: {ids}")
 
+def add_eddington_ratio_consistency(frame: pd.DataFrame) -> pd.DataFrame:
+    """Assess reported ratios wherever mass, luminosity and a positive ratio exist."""
+    result = frame.copy()
+    mass = pd.to_numeric(result['log_mbh_msun_std'], errors='coerce')
+    luminosity = pd.to_numeric(result['log_lbol_erg_s_std'], errors='coerce')
+    reported = pd.to_numeric(result['edd_ratio_std'], errors='coerce')
+    valid = np.isfinite(mass) & np.isfinite(luminosity) & np.isfinite(reported) & reported.gt(0)
+    result['edd_ratio_from_mbh_lbol'] = np.nan
+    result.loc[valid, 'edd_ratio_from_mbh_lbol'] = np.power(
+        10.0, luminosity[valid] - mass[valid] - LOG10_EDDINGTON_LUMINOSITY_PER_MSUN,
+    )
+    result['edd_ratio_log_residual_dex'] = np.nan
+    result.loc[valid, 'edd_ratio_log_residual_dex'] = np.log10(
+        reported[valid] / result.loc[valid, 'edd_ratio_from_mbh_lbol'],
+    )
+    result['edd_ratio_consistency_flag'] = 'not_evaluable'
+    result.loc[valid, 'edd_ratio_consistency_flag'] = np.where(
+        result.loc[valid, 'edd_ratio_log_residual_dex'].abs().le(EDD_RATIO_CONSISTENCY_TOLERANCE_DEX),
+        'consistent', 'inconsistent',
+    )
+    return result
+
+
 def standardize_dataframe(
     canonical_df: pd.DataFrame,
     *,
@@ -264,34 +287,7 @@ def standardize_dataframe(
     std["edd_ratio_std"] = std["edd_ratio_reported"]
     std["edd_ratio_err_std"] = std[["edd_ratio_err_plus", "edd_ratio_err_minus"]].mean(axis=1, skipna=True)
 
-    consistency_inputs_present = (
-        std["log_mbh_msun_std"].notna()
-        & std["log_lbol_erg_s_std"].notna()
-        & std["edd_ratio_std"].notna()
-    )
-    std["edd_ratio_from_mbh_lbol"] = np.nan
-    std.loc[consistency_inputs_present, "edd_ratio_from_mbh_lbol"] = np.power(
-        10.0,
-        std.loc[consistency_inputs_present, "log_lbol_erg_s_std"]
-        - std.loc[consistency_inputs_present, "log_mbh_msun_std"]
-        - LOG10_EDDINGTON_LUMINOSITY_PER_MSUN,
-    )
-    std["edd_ratio_log_residual_dex"] = np.nan
-    std.loc[consistency_inputs_present, "edd_ratio_log_residual_dex"] = np.log10(
-        std.loc[consistency_inputs_present, "edd_ratio_std"]
-        / std.loc[consistency_inputs_present, "edd_ratio_from_mbh_lbol"]
-    )
-    std["edd_ratio_consistency_flag"] = "not_evaluable"
-    std.loc[
-        consistency_inputs_present
-        & std["edd_ratio_log_residual_dex"].abs().le(EDD_RATIO_CONSISTENCY_TOLERANCE_DEX),
-        "edd_ratio_consistency_flag",
-    ] = "consistent"
-    std.loc[
-        consistency_inputs_present
-        & std["edd_ratio_log_residual_dex"].abs().gt(EDD_RATIO_CONSISTENCY_TOLERANCE_DEX),
-        "edd_ratio_consistency_flag",
-    ] = "inconsistent"
+    std = add_eddington_ratio_consistency(std)
 
     std["log_mbh_mstar_ratio"] = std["log_mbh_msun_std"] - std["log_mstar_msun_std"]
     mbh_sigma = std[["log_mbh_err_plus_std", "log_mbh_err_minus_std"]].mean(axis=1, skipna=True)

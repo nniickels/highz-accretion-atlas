@@ -1,4 +1,4 @@
-"""Generate the same complete science suite for v1, v2, and v3."""
+"""Generate v1--v3 science tables, including the extended v3 comparisons."""
 
 from __future__ import annotations
 

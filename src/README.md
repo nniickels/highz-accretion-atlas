@@ -8,9 +8,10 @@ Notebook drivers and file-generation tools are in `internal/`.
 | Module | Purpose |
 | --- | --- |
 | `datasets.py` | Catalogue membership, table generation, and version metadata. |
-| `science.py` | Growth rankings, uncertainties, duty cycles, and follow-up tables. |
+| `catalogue_quality.py` | Scientific identity status, complete ratio diagnostics, and verified JADES row provenance. |
+| `science.py` | Growth rankings, uncertainties, duty cycles, follow-up tables, and extended v3 results. |
 | `models.py` | Cosmology and black-hole growth equations. |
-| `pbh.py` | Minimum seed masses and growth tests for the v4 analysis. |
+| `pbh.py` | Radiation-inclusive minimum-seed calculations used by v3 and v4. |
 | `scoring.py` | Growth compatibility and ranking scores. |
 | `identity.py` | Stable identifiers and candidate source matches. |
 | `object_taxonomy.py` | Object classes, observed properties, evidence labels, and analysis eligibility. |
@@ -34,6 +35,10 @@ from the required-accretion-rate ranking; see the
   open identity groups to be resolved; the manuscript samples exclude them.
 - `internal/pbh_growth_v4.py` generates and verifies v4 outputs and updates the
   shared results inventory when writing to the standard results folder.
+- `internal/catalogue_products.py` builds the four additional
+  [v3 result tables](../docs/reference/catalogue-results.md) within the science workflow.
+- `internal/shared_results.py` shares unchanged plots across versions using their
+  rendering inputs. Map paths are listed in each version's visual-coverage table.
 - `internal/package_overleaf.py` packages the local manuscript source.
   Its `--verify` mode checks the public draft PDF and source ZIP without LaTeX
   or local manuscript files.

@@ -16,6 +16,7 @@ efficiencies.
 | --- | --- |
 | One adopted measurement per v3 object | [Object catalogue CSV](data/processed/v3/v3_accreting_objects.csv) |
 | All v3 measurements, including alternatives | [Measurement catalogue CSV](data/processed/v3/v3_accreting_measurements.csv) |
+| Compact object results, sample flags, and growth requirements | [v3 object results CSV](results/v3/tables/v3_object_results.csv) |
 | Required growth rates at adopted central masses | [v3 object ranking CSV](results/v3/tables/v3_object_point_ranking.csv) |
 | Growth requirements with reported mass errors | [v3 uncertainty ranking CSV](results/v3/tables/v3_object_uncertainty_ranking.csv) |
 | Highest-ranked primary-sample objects and mass-estimator caveats | [Target comparison CSV](results/for_manuscript/tables/target_robustness.csv) |

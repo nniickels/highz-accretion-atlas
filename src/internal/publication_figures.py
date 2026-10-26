@@ -31,7 +31,10 @@ def load_plot_inputs(root=ROOT):
     return selection, primary, selected('object_point_ranking'), selected('object_uncertainty_ranking'), compatibility, selected('alternate_measurement_sensitivity')
 
 
-def render_figures(root=ROOT, destination=None):
+def render_figures(root=ROOT, destination=None, *, growth_highlights=None,
+                   boundary_targets=None, formats=('png',)):
+    if not formats or set(formats) - {'png', 'pdf'}:
+        raise ValueError('Figure formats must be png and/or pdf')
     destination = Path(destination) if destination is not None else root/'results/for_manuscript/figures'
     destination.mkdir(parents=True, exist_ok=True)
     selection, primary, point, uncertainty, compatibility, sensitivity = load_plot_inputs(root)
@@ -39,9 +42,11 @@ def render_figures(root=ROOT, destination=None):
                          'legend.fontsize':14, 'grid.alpha':.15,
                          'axes.spines.top':False, 'axes.spines.right':False}):
         def save(fig, name):
-            fig.savefig(destination/f'{name}.png', dpi=300, facecolor='white')
-            fig.savefig(destination/f'{name}.pdf', facecolor='white',
-                        metadata={'CreationDate': None, 'ModDate': None})
+            if 'png' in formats:
+                fig.savefig(destination/f'{name}.png', dpi=300, facecolor='white')
+            if 'pdf' in formats:
+                fig.savefig(destination/f'{name}.pdf', facecolor='white',
+                            metadata={'CreationDate': None, 'ModDate': None})
             plt.close(fig)
         fig, counts = plt.subplots(figsize=(13,6.2))
         fig.subplots_adjust(left=.34,right=.98,bottom=.15,top=.78)
@@ -67,11 +72,10 @@ def render_figures(root=ROOT, destination=None):
         from src.internal.growth_track_options import render as render_growth_options
         import shutil
         with tempfile.TemporaryDirectory() as growth_tmp, plt.rc_context(plt.rcParamsDefault):
-            render_growth_options(root, growth_tmp)
-            shutil.copyfile(Path(growth_tmp)/'03_full_efficiency_panels.png',
-                            destination/'growth_tracks.png')
-            shutil.copyfile(Path(growth_tmp)/'03_full_efficiency_panels.pdf',
-                            destination/'growth_tracks.pdf')
+            render_growth_options(root, growth_tmp, highlight_offsets=growth_highlights)
+            for suffix in formats:
+                shutil.copyfile(Path(growth_tmp)/f'03_full_efficiency_panels.{suffix}',
+                                destination/f'growth_tracks.{suffix}')
         fig,ax=plt.subplots(figsize=(13,7.8))
         fig.subplots_adjust(left=.29,right=.98,bottom=.12,top=.79)
         fig.text(.075,.96,'Objects above the reference growth threshold',fontsize=16,weight='bold',va='top')
@@ -93,7 +97,9 @@ def render_figures(root=ROOT, destination=None):
         fig.subplots_adjust(left=.105,right=.98,bottom=.18,top=.70,wspace=.15)
         fig.text(.075,.97,'Seed mass and radiative-efficiency constraints',fontsize=16,weight='bold',va='top')
         seeds=np.linspace(1,6,250)
-        for name,color,ls in [('UNCOVER-20466',PRIMARY,'-'),('COSMOS3D-13852','#874194','-'),('RUBIES-EGS-55604','#49834c','-'),('GS-20057765','#555555',':'),('GN-z11',SECONDARY,'--')]:
+        if boundary_targets is None:
+            boundary_targets = [('UNCOVER-20466',PRIMARY,'-'),('COSMOS3D-13852','#874194','-'),('RUBIES-EGS-55604','#49834c','-'),('GS-20057765','#555555',':'),('GN-z11',SECONDARY,'--')]
+        for name,color,ls in boundary_targets:
             obj=point.loc[point.object_id.eq(name)].iloc[0]
             for ax,zseed in zip(axes,[30,20]):
                 # Solve f_req=1 at fixed seed, start time and B=1 for efficiency.
@@ -179,10 +185,9 @@ def verify_figures(root=ROOT):
     with tempfile.TemporaryDirectory(prefix='dayal-publication-figures-') as folder:
         render_figures(root,folder)
         for name in NAMES:
-            for suffix in ('.png', '.pdf'):
-                compare_artifact(root/f'results/for_manuscript/figures/{name}{suffix}',
-                                 Path(folder)/f'{name}{suffix}')
-    print(f'Verified {len(NAMES)} publication figures (PNG and PDF) against the conservative sample mask')
+            compare_artifact(root/f'results/for_manuscript/figures/{name}.png',
+                             Path(folder)/f'{name}.png')
+    print(f'Verified {len(NAMES)} publication PNG figures against the conservative sample mask')
 
 
 def main():

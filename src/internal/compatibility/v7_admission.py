@@ -253,6 +253,15 @@ def validate_v7_admission(catalogue: pd.DataFrame) -> None:
         "identity_resolution_status": IDENTITY_RESOLUTION_STATUSES,
     }
     for field, allowed in controlled.items():
+        required = catalogue
+        if field in {"lensing_status", "lensing_mass_correction_status"}:
+            # Mass-free context rows may have no reported lensing treatment.
+            required = catalogue.loc[
+                catalogue["log_mbh_msun_std"].map(_nonempty)
+                | catalogue["lensing_mu"].map(_nonempty)
+            ]
+        if not required[field].map(_nonempty).all():
+            raise ValueError(f"{field} cannot be missing or blank")
         invalid = set(catalogue[field].dropna()) - allowed
         if invalid:
             raise ValueError(f"Invalid {field} values: {sorted(invalid)}")

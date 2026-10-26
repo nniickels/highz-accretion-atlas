@@ -38,7 +38,7 @@ class SourceProvenanceTests(unittest.TestCase):
         self.assertEqual(row["source_doi"], "10.1093/mnras/stag086")
         self.assertEqual(row["source_archive_sha256"], "0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd")
         self.assertEqual(row["catalogue_extraction_date"], "not_recorded_in_frozen_v1_source_layer")
-        self.assertEqual(row["catalogue_value_policy"], "supplement_only_frozen_rows_unchanged")
+        self.assertEqual(row["catalogue_value_policy"], "frozen_catalogue_values_unchanged")
 
     def test_zs7_is_pinned_to_the_matching_source_archive(self) -> None:
         row = self.registry.set_index("provenance_id").loc["ubler24_primary"]

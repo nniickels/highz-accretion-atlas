@@ -7,6 +7,8 @@
 - [Reproduction and verification](guides/reproducibility.md)
 - [Dataset versions](guides/versioning.md)
 - [Catalogue browsing score](guides/catalogue-navigation-score.md)
+- [Result tables and assumptions](reference/catalogue-results.md)
+- [Figure previews](reference/figures.md)
 
 ## Methods and limits
 

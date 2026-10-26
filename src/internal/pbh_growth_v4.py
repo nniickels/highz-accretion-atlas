@@ -235,7 +235,7 @@ def build_tables(root=ROOT):
             "controls": pd.DataFrame(control_rows)}
 
 
-def _make_minimum_seed_figure(tables, destination):
+def _make_minimum_seed_figure(tables, destination, *, formats=('png',)):
     """Use the manuscript typography, palette and shared-label panel layout."""
     import matplotlib.pyplot as plt
 
@@ -285,11 +285,11 @@ def _make_minimum_seed_figure(tables, destination):
         fig.text(.075, .065, "Bands: 16th–84th percentiles of reported mass-error draws.\n"
                  r'Dotted lines: $z_{\rm acc}=30$ and $M_{\rm seed}=10^2,\ 10^5\,M_\odot$.',
                  fontsize=14, va="top")
-        _save_figure(fig, destination, "minimum_seed_mass", dpi=300)
+        _save_figure(fig, destination, "minimum_seed_mass", dpi=300, formats=formats)
         plt.close(fig)
 
 
-def make_figures(tables, destination):
+def make_figures(tables, destination, *, formats=('png',)):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -300,7 +300,7 @@ def make_figures(tables, destination):
     style.update({"font.size": 10, "font.family": "DejaVu Sans",
                   "axes.spines.top": False, "axes.spines.right": False})
     with plt.rc_context(style):
-        _make_minimum_seed_figure(tables, destination)
+        _make_minimum_seed_figure(tables, destination, formats=formats)
 
         fig, axes = plt.subplots(2, 2, figsize=(12, 9), sharex=True, sharey=True)
         for ax, oid in zip(axes.flat, ids):
@@ -323,7 +323,7 @@ def make_figures(tables, destination):
         fig.colorbar(mesh, cax=fig.add_axes([.88, .22, .02, .6]), label="Fraction of mass-error draws reachable")
         fig.text(.5, .045, "White curve: minimum seed at central mass. Seeds exceeding a draw's mass are excluded.",
                  ha="center", fontsize=9)
-        _save_figure(fig, destination, "seed_onset_maps")
+        _save_figure(fig, destination, "seed_onset_maps", formats=formats)
         plt.close(fig)
 
         controls = tables["controls"].query("mass_offset_dex == 0")
@@ -351,13 +351,15 @@ def make_figures(tables, destination):
         fig.text(.5, .025, "Symbols: Monte Carlo medians and 16–84% intervals; black ticks: central masses.",
                  ha="center", fontsize=9)
         fig.tight_layout(rect=(0, .1, 1, 1))
-        _save_figure(fig, destination, "controls")
+        _save_figure(fig, destination, "controls", formats=formats)
         plt.close(fig)
 
 
-def _save_figure(fig, destination, name, dpi=160):
-    fig.savefig(destination / f"v4_{name}.png", dpi=dpi, facecolor="white")
-    fig.savefig(destination / f"v4_{name}.pdf", metadata={"CreationDate": None, "ModDate": None})
+def _save_figure(fig, destination, name, dpi=160, *, formats=('png',)):
+    if 'png' in formats:
+        fig.savefig(destination / f"v4_{name}.png", dpi=dpi, facecolor="white")
+    if 'pdf' in formats:
+        fig.savefig(destination / f"v4_{name}.pdf", metadata={"CreationDate": None, "ModDate": None})
 
 
 def input_provenance(root=ROOT):
@@ -403,7 +405,7 @@ def write_outputs(root=ROOT, destination=None):
         table.to_csv(destination / "tables" / f"v4_{name}.csv", index=False)
     make_figures(tables, destination / "figures")
     artifact_names = [f"tables/v4_{name}.csv" for name in TABLE_NAMES]
-    artifact_names += [f"figures/v4_{name}.{ext}" for name in FIGURE_NAMES for ext in ("png", "pdf")]
+    artifact_names += [f"figures/v4_{name}.png" for name in FIGURE_NAMES]
     manifest = {
         "analysis_version": "v4", "catalogue_version": "v3",
         "claim_scope": "conditional_growth_compatibility_only",
@@ -436,7 +438,7 @@ def verify_outputs(root=ROOT, *, verify_figures=True):
     if manifest["config"] != load_config(root):
         raise AssertionError("v4 manifest configuration differs")
     expected = {f"tables/v4_{name}.csv" for name in TABLE_NAMES}
-    expected |= {f"figures/v4_{name}.{ext}" for name in FIGURE_NAMES for ext in ("png", "pdf")}
+    expected |= {f"figures/v4_{name}.png" for name in FIGURE_NAMES}
     if set(manifest["artifacts"]) != expected:
         raise AssertionError("v4 manifest artifact membership differs")
     for name, digest in manifest["artifacts"].items():
@@ -453,9 +455,8 @@ def verify_outputs(root=ROOT, *, verify_figures=True):
             temporary = Path(directory)
             make_figures(tables, temporary)
             for name in FIGURE_NAMES:
-                for ext in ("png", "pdf"):
-                    filename = f"v4_{name}.{ext}"
-                    compare_artifact(destination / "figures" / filename, temporary / filename)
+                filename = f"v4_{name}.png"
+                compare_artifact(destination / "figures" / filename, temporary / filename)
     return {"v4_verification": "pass", "targets": len(tables["targets"]),
             "claim_scope": "conditional_growth_compatibility_only"}
 

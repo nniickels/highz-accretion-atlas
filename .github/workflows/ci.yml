@@ -34,7 +34,7 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m unittest discover -s tests
-      - name: Verify publication PNG and PDF exports
+      - name: Verify publication PNG exports
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python -m src.internal.publication_figures --verify

@@ -10,7 +10,7 @@ from src.models import required_fedd_for_seed
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def render(destination=None):
+def render(destination=None, *, formats=('png',)):
     destination = Path(destination) if destination is not None else ROOT/'results/for_manuscript/figures'
     destination.mkdir(parents=True, exist_ok=True)
     objects = pd.read_csv(ROOT/'data/processed/v3/v3_accreting_objects.csv').set_index('object_id')
@@ -36,8 +36,10 @@ def render(destination=None):
         cax=fig.add_axes([.89,.16,.022,.65])
         cb=fig.colorbar(mesh,cax=cax,extend='max',ticks=[0,.3,1,2,3])
         cb.set_label(r'Required average $\overline{f}_{\mathrm{Edd,req}}$')
-        fig.savefig(destination/'seed_timing_comparison.pdf', metadata={'CreationDate':None,'ModDate':None},dpi=220)
-        fig.savefig(destination/'seed_timing_comparison.png',dpi=220)
+        if 'pdf' in formats:
+            fig.savefig(destination/'seed_timing_comparison.pdf', metadata={'CreationDate':None,'ModDate':None},dpi=220)
+        if 'png' in formats:
+            fig.savefig(destination/'seed_timing_comparison.png',dpi=220)
         plt.close(fig)
 
 

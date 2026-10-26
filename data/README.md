@@ -23,7 +23,8 @@ so the object count is provisional. See the [identity audit](../docs/source-note
 | [crossmatch/](#identity-links) | Links between measurements, objects, and hosts, with aliases and match reviews. |
 | [validation/](validation/README.md) | Independent expected values, source locators, and conversion checks. |
 | [publication/](publication/README.md) | Rules and comparison inputs for the manuscript samples. |
-| [manifests/](#file-manifests) | File lists and SHA-256 checksums for data and source records. |
+| [scenarios/](scenarios/) | Settings for the v3 growth comparisons and four-target v4 analysis. |
+| [manifests/](#file-manifests) | File lists and hashes for data, results, and source records. |
 
 ## Processed catalogues
 
@@ -57,7 +58,7 @@ estimators interchangeable or remove their source assumptions.
 | `ra_deg`, `dec_deg` | Adopted sky coordinates in degrees. Check source metadata for frame and coordinate role; a host centroid need not locate the nucleus. |
 | `published_ra`, `published_dec`, `coordinate_source_*` | Original coordinate representation and its separate source/version provenance. |
 | `redshift`, `redshift_err`, `redshift_kind` | Dimensionless adopted redshift, reported error, and spectroscopic/photometric type. `zphot` and `program_redshift` preserve source-specific alternatives. |
-| `cosmic_time_gyr` | Cosmic age in Gyr under the catalogue cosmology; v4 scenario ages include radiation separately. |
+| `cosmic_time_gyr` | Cosmic age in Gyr under the baseline catalogue cosmology. The v3 minimum-seed and v4 tables calculate radiation-inclusive ages separately. |
 | `log_mbh_msun_std`, `log_mstar_msun_std` | Base-10 logarithms of black-hole and host stellar masses in solar masses. |
 | `log_lbol_erg_s_std` | Base-10 logarithm of bolometric luminosity in erg/s. |
 | `log_mbh_mstar_ratio` | Base-10 logarithm of the black-hole/stellar-mass ratio. |
@@ -77,6 +78,7 @@ estimators interchangeable or remove their source assumptions.
 | `primary_mass_comparison_flag`, `primary_mass_comparison_reason`, `mass_comparability_group` | Method-comparability assessment; it does not alone establish primary evidence or publication membership. |
 | `primary_growth_ranking_flag`, `primary_growth_ranking_reason`, `conditional_mass_flag`, `conditional_mass_reason` | Primary growth eligibility and conditional-mass interpretation. Apply the separate publication mask for manuscript use. |
 | `preferred_measurement_flag`, `preferred_measurement_reason`, `match_method`, `match_reference`, `identity_resolution_status` | Assembly decisions and reasons. A resolved assembly label does not override unresolved cases in the independent identity audit. |
+| `scientific_identity_status`, `scientific_identity_issue_group` | Independent audit status: `unresolved` or `no_open_issue_recorded`, with the open group where applicable. The latter is not proof of uniqueness. |
 | `host_system_assignment_status`, `host_system_source_id`, `host_property_scope`, `host_fit_model`, `log_mstar_upper_limit_msun` | Host assignment, fit, scope and logarithmic mass limit. A shared host mass must not be counted once per nucleus. |
 | `n_measurements`, `available_measurement_ids`, `available_source_keys`, `all_measurement_evidence_statuses`, `all_measurement_evidence_status_bases`, `object_evidence_aggregation_policy` | Object-level measurement history and aggregation policy; list fields use semicolons. |
 | `source_key`, `source_table`, `source_paper_version`, `source_url`, `source_doi`, `source_archive_url`, `source_archive_sha256`, `extraction_date`, `extraction_date_status` | Source identifiers, locations, exact versions, payload hashes and date completeness. |
@@ -97,6 +99,12 @@ Blank numeric cells are missing, never zero. Boolean flags can be `True`/`False`
 such as `not_reported`, `not_applicable`, and `not_recorded_in_frozen_v1_source_layer`
 describe different provenance states. Missing mass errors imply no uncertainty
 probability, not a perfectly known mass.
+
+Ratio consistency is assessed wherever finite mass, luminosity, and a positive
+reported Eddington ratio exist, using a 0.3-dex tolerance. Other rows are marked
+`not_evaluable`. These diagnostics do not alter required growth rates.
+The original JADES rows use the registry's verified v2 archive link and hash;
+their original extraction date remains explicitly unknown.
 
 For a log mass L with lower/upper errors d−/d+, the linear interval is
 [10^(L−d−), 10^(L+d+)] solar masses. Error magnitudes in dex are not logarithms
@@ -150,7 +158,10 @@ catalogue versions. Open identity questions are documented in the identity audit
 
 `manifests/v1-dataset-manifest.json`, `v2-dataset-manifest.json`, and
 `v3-dataset-manifest.json` list the generated files and their SHA-256 checksums.
+Each includes shared plots referenced from earlier versions.
 `source-provenance-manifest.json` records source and validation files.
+The v3 manifest also checks code, settings, and sample-rule hashes for the
+[extended result tables](../docs/reference/catalogue-results.md).
 Checksums detect file changes; they do not establish scientific correctness.
 
 The [reproduction guide](../docs/guides/reproducibility.md) gives verification

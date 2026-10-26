@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import csv
 from pathlib import Path
 
 from src.datasets import DATASET_SPECS
@@ -12,6 +13,20 @@ from src.datasets import DATASET_SPECS
 ROOT = Path(__file__).resolve().parents[2]
 MANIFESTS = ROOT / "data/manifests"
 LITERATURE_CUTOFF = "2026-09-03"
+CATALOGUE_PRODUCT_INPUTS = (
+    "data/scenarios/catalogue_growth_comparisons.json",
+    "data/publication/identity_exclusions.json",
+    "data/publication/evidence_selection.json",
+    "data/validation/redshift_identity_checks.json",
+    "src/internal/catalogue_products.py",
+    "src/internal/publication_selection.py",
+    "src/internal/compatibility/v7_science_core.py",
+    "src/internal/uncertainty.py",
+    "src/internal/early_start_cosmology.py",
+    "src/models.py", "src/pbh.py", "src/science.py",
+    "src/catalogue_quality.py", "src/standardize_data.py", "src/datasets.py",
+    "data/source_provenance_registry.csv",
+)
 
 
 def canonical_artifacts(version: str) -> list[Path]:
@@ -32,7 +47,14 @@ def canonical_artifacts(version: str) -> list[Path]:
             if relative.parts[0] == "data" and not path.name.startswith(f"{version}_"):
                 continue
             paths.append(path)
-    return sorted(paths)
+    # Shared plots remain covered by every edition that references them.
+    coverage = ROOT / 'results' / version / 'tables' / f'{version}_all_object_visual_coverage.csv'
+    if coverage.exists():
+        with coverage.open() as stream:
+            paths.extend(ROOT / row['path'] for row in csv.DictReader(stream) if row['path'])
+    from src.internal.shared_results import sensitivity_figure_path
+    paths.append(sensitivity_figure_path(ROOT, version))
+    return sorted(set(paths))
 
 
 def build_manifest(version: str) -> dict[str, object]:
@@ -41,7 +63,7 @@ def build_manifest(version: str) -> dict[str, object]:
         path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
         for path in canonical_artifacts(version)
     }
-    return {
+    manifest = {
         "dataset_version": version,
         "catalogue_release": spec.catalogue_release,
         "literature_cutoff": LITERATURE_CUTOFF,
@@ -51,6 +73,12 @@ def build_manifest(version: str) -> dict[str, object]:
         "artifact_count": len(artifacts),
         "artifacts": artifacts,
     }
+    if version == "v3":
+        manifest["catalogue_product_inputs_sha256"] = {
+            name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+            for name in CATALOGUE_PRODUCT_INPUTS
+        }
+    return manifest
 
 
 def manifest_path(version: str) -> Path:
@@ -78,9 +106,15 @@ def verify_manifest(version: str) -> None:
             key for key in expected_paths & actual_paths
             if expected["artifacts"][key] != actual["artifacts"][key]
         )
+        expected_inputs = expected.get("catalogue_product_inputs_sha256", {})
+        actual_inputs = actual.get("catalogue_product_inputs_sha256", {})
+        changed_inputs = sorted(
+            key for key in expected_inputs.keys() | actual_inputs.keys()
+            if expected_inputs.get(key) != actual_inputs.get(key)
+        )
         raise AssertionError(
             f"{version} manifest mismatch; missing={missing[:3]}, "
-            f"unexpected={unexpected[:3]}, changed={changed[:3]}"
+            f"unexpected={unexpected[:3]}, changed={changed[:3]}, input_changes={changed_inputs[:3]}"
         )
 
 

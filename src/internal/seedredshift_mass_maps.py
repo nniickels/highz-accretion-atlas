@@ -81,12 +81,8 @@ def materialize(version: str, objects: pd.DataFrame, *, rebuild: bool) -> pd.Dat
     for _, obj in objects.sort_values(["object_class", "redshift", "physical_object_id"]).iterrows():
         eligible = atlas.boolish(obj["growth_ranking_eligible_flag"])
         output = panel_path(version, obj)
-        if rebuild or not output.exists():
-            if eligible:
-                plot_seedredshift_mass_map(version, obj, output)
-            else:
-                atlas.VERSION = version
-                atlas.status_panel(obj, "seedredshift_mass_map", output)
+        if eligible and (rebuild or not output.exists()):
+            plot_seedredshift_mass_map(version, obj, output)
         rows.append({
             "release": version,
             "physical_object_id": obj["physical_object_id"],
@@ -94,14 +90,14 @@ def materialize(version: str, objects: pd.DataFrame, *, rebuild: bool) -> pd.Dat
             "object_class": obj["object_class"],
             "growth_ranking_eligible_flag": eligible,
             "product_kind": "seedredshift_mass_map",
-            "product_status": "numerical_growth_product" if eligible else "no_inference_status_panel",
+            "product_status": "numerical_growth_product" if eligible else "no_numerical_mass",
             "status_reason": (
                 "eligible_canonical_numeric_mbh" if eligible
                 else obj["growth_ranking_eligibility_reason"]
             ),
-            "path": output.relative_to(ROOT).as_posix(),
+            "path": output.relative_to(ROOT).as_posix() if eligible else "",
         })
     result = pd.DataFrame(rows)
     if len(result) != len(objects) or result["physical_object_id"].nunique() != len(objects):
-        raise AssertionError("Seed-redshift/mass maps must contain one panel per object")
+        raise AssertionError("Seed-redshift/mass coverage must contain one record per object")
     return result

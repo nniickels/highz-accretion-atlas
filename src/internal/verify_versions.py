@@ -1,4 +1,4 @@
-"""Verify the three dataset contracts and their identical result coverage."""
+"""Verify the dataset contracts and independently rebuilt results."""
 
 from __future__ import annotations
 
@@ -10,6 +10,7 @@ from src.datasets import DATASET_SPECS
 from src.internal.dataset_manifests import verify_manifest
 from src.internal.build_results_inventory import collect_inventory
 from src.internal import atlas
+from src.internal.shared_results import fedd_map_paths, sensitivity_figure_path
 from src.internal.atlas import (
     MERGER_CASES,
     SEED_MODELS,
@@ -22,10 +23,8 @@ from src.science import DEFAULT_N_SAMPLES, DEFAULT_RANDOM_SEED, build_outputs
 ROOT = Path(__file__).resolve().parents[2]
 REQUIRED_FIGURES = (
     "catalogue_growth_landscape", "class_aware_growth_pressure",
-    "uncertainty_robustness", "measurement_sensitivity",
-    "all_object_growth_tracks", "all_object_fedd_mass_map_gallery",
-    "compatibility_summary", "all_object_compatibility_atlas",
-    "monte_carlo_summary", "all_object_monte_carlo_uncertainty",
+    "uncertainty_robustness", "all_object_growth_tracks",
+    "compatibility_summary", "monte_carlo_summary",
 )
 
 
@@ -55,7 +54,7 @@ def verify_version(version: str) -> None:
     duty = pd.read_csv(results / "tables" / f"{version}_object_accretion_history.csv")
     if len(duty) != 3 * eligible or not duty["n_samples"].eq(10_000).all():
         raise AssertionError(f"{version} duty-cycle coverage mismatch")
-    evaluation = pd.read_csv(results / "tables" / f"{version}_evaluation_table.csv")
+    evaluation = pd.read_csv(results / "tables" / f"{version}_object_point_ranking.csv")
     required_fedd = pd.read_csv(results / "tables" / f"{version}_required_fedd_by_seed_mass.csv")
     required_mseed = pd.read_csv(results / "tables" / f"{version}_required_mseed_by_growth_assumption.csv")
     if (len(evaluation), len(required_fedd), len(required_mseed)) != (
@@ -71,9 +70,18 @@ def verify_version(version: str) -> None:
         raise AssertionError(f"{version} per-object visual coverage mismatch")
     if coverage["path"].str.contains("/gallery/|/per_object/|/growth_tracks/", regex=True).any():
         raise AssertionError(f"{version} parameter maps contain an obsolete path")
-    expected_prefix = f"results/{version}/parameter_maps/"
-    if not coverage["path"].str.startswith(expected_prefix).all():
-        raise AssertionError(f"{version} parameter-map paths do not use {expected_prefix}")
+    numerical = coverage.loc[coverage.growth_ranking_eligible_flag]
+    unavailable = coverage.loc[~coverage.growth_ranking_eligible_flag]
+    if not unavailable.path.isna().all() or not unavailable.product_status.eq('no_numerical_mass').all():
+        raise AssertionError(f'{version} missing-mass records must not export placeholder images')
+    expected_fedd = {key: path.relative_to(ROOT).as_posix()
+                     for key, path in fedd_map_paths(ROOT, version, objects).items()}
+    fedd = numerical.loc[numerical.product_kind.eq('fedd_mass_map')]
+    if fedd.set_index('physical_object_id').path.to_dict() != expected_fedd:
+        raise AssertionError(f'{version} shared-map paths do not match their rendering inputs')
+    seed_maps = numerical.loc[numerical.product_kind.eq('seedredshift_mass_map')]
+    if not seed_maps.path.str.startswith(f'results/{version}/parameter_maps/seedredshift_mass_maps/').all():
+        raise AssertionError(f'{version} seed-redshift maps must retain their edition labels')
     parameter_map_dirs = {
         path.name for path in (results / "parameter_maps").iterdir() if path.is_dir()
     }
@@ -81,7 +89,7 @@ def verify_version(version: str) -> None:
         raise AssertionError(
             f"{version} parameter-map folders are not canonical: {sorted(parameter_map_dirs)}"
         )
-    if any(not (ROOT / path).is_file() for path in coverage["path"]):
+    if any(not (ROOT / path).is_file() for path in numerical["path"]):
         raise AssertionError(f"{version} has missing per-object panels")
     compatibility = pd.read_csv(results / "tables" / f"{version}_all_object_compatibility.csv")
     expected_rows = len(objects) * len(SEED_MODELS) * len(SPIN_CASES) * len(MERGER_CASES) * 3
@@ -105,21 +113,31 @@ def verify_version(version: str) -> None:
         raise AssertionError(f"{version} unexpectedly enables pooled demographic inference")
     if selection["catalogue_inverse_probability_weight"].notna().any():
         raise AssertionError(f"{version} unexpectedly assigns inverse-probability weights")
-    for stem in REQUIRED_FIGURES:
-        path = results / "figures" / f"{version}_{stem}.png"
+    figure_paths = [results / 'figures' / f'{version}_{stem}.png' for stem in REQUIRED_FIGURES]
+    figure_paths.append(sensitivity_figure_path(ROOT, version))
+    for path in figure_paths:
         with Image.open(path) as image:
             if image.format != "PNG" or image.width < 3000 or image.height < 1800:
                 raise AssertionError(f"{version} figure is not paper resolution: {path}")
     if version == "v3":
-        for filename in (
-            "v3_all_object_growth_tracks_full_assumptions.png",
-            "v3_all_object_growth_tracks_full_assumptions_zseed3400.png",
-            "v3_uncertainty_robustness_top5.png",
-        ):
-            path = results / "figures" / filename
-            with Image.open(path) as image:
-                if image.format != "PNG" or image.width < 3000 or image.height < 1800:
-                    raise AssertionError(f"v3 full-assumption figure is not paper resolution: {path}")
+        from src.internal.catalogue_products import load_config
+        config = load_config()
+        summary = pd.read_csv(results / "tables/v3_object_results.csv")
+        if (len(summary) != len(objects) or not summary.physical_object_id.is_unique
+                or set(summary.physical_object_id) != set(objects.physical_object_id)):
+            raise AssertionError("v3 compact results must cover all objects exactly once")
+        comparison = pd.read_csv(results / "tables/v3_growth_assumption_comparison.csv")
+        minimum = pd.read_csv(results / "tables/v3_minimum_seed_mass.csv")
+        settings = config["minimum_seed"]
+        minimum_cases = 1
+        for key in ("onset_redshifts", "epsilon_values", "average_fedd_caps", "mass_offsets_dex"):
+            minimum_cases *= len(settings[key])
+        if (len(comparison) != eligible * len(config["comparison_scenarios"])
+                or len(minimum) != eligible * minimum_cases):
+            raise AssertionError("v3 assumption/minimum-seed coverage differs from configuration")
+        availability = pd.read_csv(results / "tables/v3_field_availability.csv")
+        if set(availability.entity_level) != {"object", "measurement"}:
+            raise AssertionError("v3 field availability must cover both catalogue views")
 
 
 def verify_nested_membership() -> None:

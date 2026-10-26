@@ -40,6 +40,7 @@ class ManuscriptReleaseTests(unittest.TestCase):
             self.assertEqual(result['manuscript_verification'], 'pass')
             self.assertLess(result['references_page'], result['appendix_page'])
 
+
     def test_both_drafts_match_current_growth_scenarios(self):
         with (ROOT/'results/for_manuscript/tables/identity_exclusion_sensitivity.csv').open() as stream:
             scenarios = {row['scenario']: row for row in csv.DictReader(stream)
@@ -57,7 +58,60 @@ class ManuscriptReleaseTests(unittest.TestCase):
                 delayed = re.search(r'raises the primary count to (\d+)\.', prose)
                 self.assertIsNotNone(delayed)
                 self.assertEqual(int(delayed.group(1)), int(scenarios['seed_z20']['above_unity']))
-            verify_packaged_figures(archive, ROOT)
+            # Canonical results retain PNGs only. Rebuild the PDF dependencies
+            # temporarily to keep independently checking the packaged sources.
+            from src.internal.publication_figures import render_figures
+            from src.internal.plot_early_start import render as render_early_start
+            from src.internal.plot_seed_timing_comparison import render as render_seed_timing
+            from src.internal.pbh_growth_v4 import build_tables, make_figures
+            with tempfile.TemporaryDirectory() as directory:
+                generated = Path(directory)
+                figures = generated/'results/for_manuscript/figures'
+                render_figures(ROOT, figures, formats=('pdf',))
+                render_early_start(figures, formats=('pdf',))
+                render_seed_timing(figures, formats=('pdf',))
+                make_figures(build_tables(), generated/'results/v4/figures', formats=('pdf',))
+                verify_packaged_figures(archive, generated)
+
+    def test_general_draft_matches_onset_seed_masses_and_compatibility(self):
+        with (ROOT/'results/v4/tables/v4_minimum_seed_mass.csv').open() as stream:
+            seeds = [round(10 ** float(row['log10_minimum_seed_central']))
+                     for row in csv.DictReader(stream)
+                     if float(row['mass_offset_dex']) == 0
+                     and float(row['epsilon']) == .1
+                     and float(row['fedd_cap']) == 1
+                     and float(row['z_accretion']) == 3400]
+        self.assertEqual(len(seeds), 4)
+        with (ROOT/'results/for_manuscript/tables/publication_object_selection.csv').open() as stream:
+            selection = list(csv.DictReader(stream))
+        with (ROOT/'results/v3/tables/v3_all_object_compatibility.csv').open() as stream:
+            compatibility = [row for row in csv.DictReader(stream)
+                             if row['seed_model'] == 'heavy_seeds'
+                             and row['spin_case'] == 'spin_plus1_eps0p423'
+                             and float(row['f_edd_avg']) == 1]
+        percentages = []
+        for flag in ('publication_primary_flag', 'publication_exploratory_flag'):
+            ids = {row['physical_object_id'] for row in selection if row[flag] == 'True'}
+            for merger in ('no_merger_boost', 'merger_boost_x2'):
+                rows = [row for row in compatibility
+                        if row['physical_object_id'] in ids and row['merger_case'] == merger]
+                self.assertEqual(len(rows), len(ids))
+                percentages.append(round(100 * sum(row['compatible'] == 'True' for row in rows)
+                                         / len(rows)))
+        with ZipFile(ROOT/'paper'/ZIP_NAME) as archive:
+            texts = [archive.read('main.tex').decode()]
+        for text in texts:
+            prose = ' '.join(text.split())
+            masses = re.search(
+                r'equality-onset minimum seeds are approximately (\d+), (\d+), (\d+), '
+                r'and \$(\d+)\\,M_\\odot\$', prose)
+            self.assertIsNotNone(masses)
+            self.assertEqual(list(map(int, masses.groups())), seeds)
+            fractions = re.search(
+                r'raises compatibility from (\d+) to (\d+) per cent in the primary sample '
+                r'and from (\d+) to (\d+) per cent in the expanded sample', prose)
+            self.assertIsNotNone(fractions)
+            self.assertEqual(list(map(int, fractions.groups())), percentages)
 
     def test_packaged_figures_allow_recompression_but_reject_changed_geometry(self):
         with tempfile.TemporaryDirectory() as folder:

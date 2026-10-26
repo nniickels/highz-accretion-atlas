@@ -11,7 +11,7 @@
     "data/manual_extraction_audit.csv": "df2d115c397bf338ade350872008b619afc3095321a858c9b0875cbfaf3b5d21",
     "data/raw/baccus_published_table1.txt": "f8900548fcaea7bbf083d26e03abdc4af449f4681fb65142baac66dc7dfa1c24",
     "data/selection_function_registry.csv": "7da2fafc9d82159e749522c0547364ae55e827c1fe3ad17a2082945f5eb57d54",
-    "data/source_provenance_registry.csv": "2c946cde4332834bea2e8d9b2da63ef92317d4c2e72d424a462e015cc5eb8343",
+    "data/source_provenance_registry.csv": "fc20c3b24ea74eac29e11daff75cd2692c7f67200faac0f75427636cca0f381e",
     "data/validation/canucs_adapter_check.py": "51beb7ff1c7d46865d528dba429f11f805832b3861f9ff2735b65504c35c517a",
     "data/validation/canucs_expected_values.json": "013daf860f23641dd2066507d918c6250e244807c0f764393c05f4591bde9401",
     "data/validation/canucs_identity_screen.json": "d0372bc706c69e137c471af16c7b9a1e9d0fd65b38642bcd1314cd79ec69ae7b",

@@ -49,6 +49,11 @@ for manuscript analyses, rather than substituting a single catalogue flag.
 Global ranks are navigation aids. Scientific comparisons must respect compatible
 classes, methods, and source [selection functions](selection-completeness.md).
 
+`scientific_identity_status` records that independent audit separately from
+assembly status. It is `unresolved` for open groups and `no_open_issue_recorded`
+otherwise; the latter does not certify uniqueness. `scientific_identity_issue_group`
+identifies each open group and propagates to every linked measurement.
+
 Source-reported errors can already include calibration terms. These are retained
 once; additional method systematics remain separate unless a sensitivity test
 explicitly applies them. Missing errors do not imply exact masses.

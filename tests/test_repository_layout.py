@@ -22,6 +22,9 @@ WORKFLOW_NOTEBOOKS = [
 
 
 class RepositoryLayoutTests(unittest.TestCase):
+    def test_results_figures_have_only_png_exports(self) -> None:
+        self.assertEqual(list((ROOT / 'results').rglob('*.pdf')), [])
+
     def test_scripts_contains_no_python_modules(self) -> None:
         self.assertEqual(list(SCRIPTS.rglob("*.py")), [])
 
@@ -58,16 +61,16 @@ class RepositoryLayoutTests(unittest.TestCase):
         self.assertEqual(unexpected, [])
 
     def test_complete_axis_named_parameter_maps(self) -> None:
-        expected = {"v1": 23, "v2": 215, "v3": 343}
-        for version, count in expected.items():
+        expected = {"v1": (23, 23), "v2": (192, 215), "v3": (26, 241)}
+        for version, (fedd_count, seed_count) in expected.items():
             parameter_maps = ROOT / "results" / version / "parameter_maps"
             self.assertEqual(
                 {path.name for path in parameter_maps.iterdir() if path.is_dir()},
                 {"fedd_mass_maps", "seedredshift_mass_maps"},
                 version,
             )
-            self.assertEqual(len(list((parameter_maps / "fedd_mass_maps").glob("*.png"))), count, version)
-            self.assertEqual(len(list((parameter_maps / "seedredshift_mass_maps").glob("*.png"))), count, version)
+            self.assertEqual(len(list((parameter_maps / "fedd_mass_maps").glob("*.png"))), fedd_count, version)
+            self.assertEqual(len(list((parameter_maps / "seedredshift_mass_maps").glob("*.png"))), seed_count, version)
 
     def test_parameter_maps_are_flat_and_have_no_individual_growth_tracks(self) -> None:
         for version in ("v1", "v2", "v3"):

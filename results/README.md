@@ -1,8 +1,7 @@
 # Results
 
-This folder contains growth calculations and figures derived from the
-[catalogue](../data/README.md). Publication samples and the four-target v4
-analysis have separate output folders.
+The catalogue’s growth calculations, rankings, uncertainty estimates, and
+figures are stored here. Figures use PNG.
 
 ## Catalogue outputs
 
@@ -10,70 +9,62 @@ Each of `v1/`, `v2/`, and `v3/` has this structure:
 
 ```text
 results/<version>/
-├── figures/                    summary plots and combined object galleries
+├── figures/                    summary plots
 ├── tables/                     growth rates, uncertainties, rankings, and audits
 └── parameter_maps/
     ├── fedd_mass_maps/          Eddington ratio versus seed mass
     └── seedredshift_mass_maps/  starting redshift versus seed mass
 ```
 
-v1 and v2 have numerical growth products for all 23 and 215 objects,
-respectively. v3 has 241 objects with eligible numerical masses and 102 without.
-Its 686 parameter-map panels include one of each map type for every stored
-object. Panels without a usable mass state why no growth calculation is made.
-The three open identity groups make the v3 object count provisional; see the
-[identity audit](../docs/source-notes/redshift-identity-audit.md).
+v1 and v2 have growth calculations for 23 and 215 objects. v3 has 241 objects
+with usable masses and 102 without. The visual-coverage table links each usable
+mass to both maps and records why other objects have no calculation. Unchanged
+accretion/seed maps are stored once, in their earliest version. The v3 count remains
+provisional because of [unresolved identities](../docs/source-notes/redshift-identity-audit.md).
+
+| v3 table | Contents |
+| --- | --- |
+| [Object results](v3/tables/v3_object_results.csv) | Masses, errors, methods, sample flags, and growth requirements for all 343 objects. |
+| [Assumption comparisons](v3/tables/v3_growth_assumption_comparison.csv) | Required rates under ten sets of assumptions for 241 usable masses. |
+| [Field availability](v3/tables/v3_field_availability.csv) | Available and missing fields by source and object class. |
+| [Minimum seed masses](v3/tables/v3_minimum_seed_mass.csv) | Starting-time, efficiency, rate-limit, and mass-shift tests for all 241 usable masses. |
+
+See [settings and column definitions](../docs/reference/catalogue-results.md).
 
 ## v3 figures
 
-| Figure | Purpose |
-| --- | --- |
-| `v3_all_object_growth_tracks.png` | Selected growth tracks and adopted object masses. |
-| `v3_compatibility_summary.png` | Compatibility with the specified growth scenarios. |
-| `v3_monte_carlo_summary.png` | Mass-error sampling results. |
-| `v3_uncertainty_robustness_top5.png` | Uncertainty comparisons for five selected targets. |
-| `v3_all_object_fedd_mass_map_gallery.png` | Combined Eddington-ratio/seed-mass maps. |
-| `v3_all_object_compatibility_atlas.png` | Combined growth-compatibility panels. |
-| `v3_all_object_monte_carlo_uncertainty.png` | Combined mass-error results. |
+Files are in `v3/figures/`. See [all figure types and previews](../docs/reference/figures.md).
 
-These files are in `v3/figures/`. Numerical tables and individual maps are in
-the adjacent folders. The underlying object table is
-[`v3_accreting_objects.csv`](../data/processed/v3/v3_accreting_objects.csv);
-companion tables retain 355 measurements, 838 reported observables, and 342 hosts.
+| Figure | Purpose | Preview |
+| --- | --- | --- |
+| `v3_all_object_growth_tracks.png` | Selected growth tracks and measured masses. | <a href="v3/figures/v3_all_object_growth_tracks.png"><img src="v3/figures/v3_all_object_growth_tracks.png" height="90" alt="Selected growth tracks and measured masses."></a> |
+| `v3_compatibility_summary.png` | Compatibility with fixed growth models. | <a href="v3/figures/v3_compatibility_summary.png"><img src="v3/figures/v3_compatibility_summary.png" height="90" alt="Compatibility with fixed growth models."></a> |
+| `v3_monte_carlo_summary.png` | Effects of reported mass errors. | <a href="v3/figures/v3_monte_carlo_summary.png"><img src="v3/figures/v3_monte_carlo_summary.png" height="90" alt="Effects of reported mass errors."></a> |
+| `v3_uncertainty_robustness.png` | Required rates and error intervals for twenty ranked objects. | <a href="v3/figures/v3_uncertainty_robustness.png"><img src="v3/figures/v3_uncertainty_robustness.png" height="90" alt="Required rates and error intervals."></a> |
+| `v3_catalogue_growth_landscape.png` | Masses, redshifts, and mass availability. | <a href="v3/figures/v3_catalogue_growth_landscape.png"><img src="v3/figures/v3_catalogue_growth_landscape.png" height="90" alt="Catalogue overview."></a> |
+| `v3_class_aware_growth_pressure.png` | Growth requirements by object class. | <a href="v3/figures/v3_class_aware_growth_pressure.png"><img src="v3/figures/v3_class_aware_growth_pressure.png" height="90" alt="Growth requirements by class."></a> |
+| `v2_measurement_sensitivity.png` | Alternative mass estimates; unchanged in v3 and shared from v2. | <a href="v2/figures/v2_measurement_sensitivity.png"><img src="v2/figures/v2_measurement_sensitivity.png" height="90" alt="Alternative mass estimates."></a> |
 
-## Full-assumption growth figures
+## Growth assumptions
 
-`v3_all_object_growth_tracks_full_assumptions.png` retains all 72 parameter
-combinations and the original curve and object-colour conventions. Its
-`_zseed3400.png` companion changes only the starting redshift from 30 to 3400.
-Both use the same axes and the matter-plus-Lambda cosmic-age approximation,
-which neglects radiation. They illustrate available growth time, not a
-seed-formation model. Curves outside the plotted mass range are clipped.
-
-All combined growth-track figures show observed redshifts from 13 down to 3.
-Individual growth-track panels are omitted. Notebook 03 generates these figures;
-see the [notebook sequence](../scripts/README.md) and
-[reproduction guide](../docs/guides/reproducibility.md) for the complete procedure.
+All 72 compatibility checks per object remain in
+[the compatibility table](v3/tables/v3_all_object_compatibility.csv).
+The selected growth tracks above and [v4 figures](v4/README.md) show the comparisons
+without the crowded 72-track variants.
 
 ## Other analyses
 
-- [Manuscript results](for_manuscript/README.md): tables and figures for the
-  223-object primary and 238-object expanded samples.
-- [v4 outputs](v4/README.md): minimum seed masses, starting-time tests, and
-  specified growth scenarios for four selected targets.
+- [Manuscript results](for_manuscript/README.md): the 223-object primary and
+  238-object expanded samples.
+- [v4 growth tests](v4/README.md): minimum seed masses, starting-time tests,
+  and required accretion rates for four v3 objects. Cosmic ages include radiation.
 
-`results_inventory.csv` records generated files, sizes, and hashes. Follow the
-reproduction guide before updating it or changing reviewed outputs.
+`results_inventory.csv` lists file sizes and hashes. See the
+[reproduction guide](../docs/guides/reproducibility.md) for rebuild and verification commands.
 
 ## Scientific edition comparison
 
-[Before/after metrics](catalogue_edition_comparison.csv) compare the 17 October
-2026 bounded admission with `fc0c5501ad2271865b1c040307cad8dd8ca5721a`
-at identical growth assumptions. Rebuild with
-`python -m src.internal.compare_catalogue_editions --baseline-root PATH`, where
-PATH is an unchanged export of that old revision. This comparison is separate
-from independent reproduction of the new intended outputs.
-
-[Correlated source-model alternatives](v3/tables/v3_admission_source_model_sensitivity.csv)
-show CAPERS dust assumptions and J1007 observed versus dust-corrected masses.
-They are not independent objects or a probability-weighted model ensemble.
+[Edition comparison](catalogue_edition_comparison.csv) records the effect of
+the 17 October 2026 additions.
+[Alternative mass estimates](v3/tables/v3_admission_source_model_sensitivity.csv)
+compare CAPERS dust assumptions and J1007 masses with and without dust correction.

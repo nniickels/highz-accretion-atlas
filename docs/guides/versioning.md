@@ -9,9 +9,9 @@ census of the literature.
 ## v1 — original complete analysis
 
 The original 23-row Juodzbalis et al. JADES BLAGN catalogue. v1 contains the
-complete present-day analysis: standardized catalogue, baseline evaluation,
+shared analysis: standardized catalogue, baseline evaluation,
 rankings, uncertainty propagation, systematic sensitivity, duty-cycle
-diagnostics, all figure types, compatibility products, and per-object gallery.
+diagnostics, summary figures, compatibility products, and object maps.
 Accuracy fixes apply here unless they exist only for a later source/object type.
 
 ## v2 — expanded comparable BLAGN
@@ -38,16 +38,22 @@ samples plus the GHZ4/GHZ7 high-ionization candidates. v3 has 355 measurements,
 343 object records, and 342 hosts; 241 objects
 support numerical growth inference.
 
+The [extended v3 tables](../reference/catalogue-results.md) add compact object
+results, assumption comparisons, field availability, and minimum seeds across
+the catalogue. They use the existing measurements and sample rules.
+
 ## Invariants
 
-Every version uses the latest applicable corrections and the same analysis and
-figure definitions. Figures differ only because dataset membership, object
-classes, or supported measurements differ.
+Every version uses the latest applicable corrections and shared baseline
+analysis definitions. v3 also has the extended result tables. Unchanged
+accretion/seed maps and alternative-measurement figures are stored in their
+earliest version and shared by later versions. Coverage tables retain missing-mass
+reasons without placeholder images.
 
 ## v4 — focused PBH growth-analysis extension
 
 For v4, the version label identifies a new
-**analysis**, not another catalogue expansion. v4 reads the frozen v3 catalogue
+**analysis**, not another catalogue expansion. v4 reads the v3 measurements
 and conservative publication-membership policies. It does not introduce
 `data/processed/v4`, alter v1–v3 dataset contracts, or change the source cutoff.
 

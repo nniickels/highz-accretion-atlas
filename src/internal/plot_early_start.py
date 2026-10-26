@@ -1,4 +1,4 @@
-"""Pre-render the appendix comparison; manuscript builds only embed the PDF."""
+"""Render the appendix comparison as a PNG, with optional manuscript PDF export."""
 from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
@@ -11,7 +11,7 @@ SEEDS = ((2, '#176B87', '-'), (4, '#D55E00', '--'), (5, '#009E73', ':'))
 PDF_METADATA = {'CreationDate': None, 'ModDate': None}
 
 
-def render(destination=None):
+def render(destination=None, *, formats=('png',)):
     destination = Path(destination) if destination is not None else ROOT/'results/for_manuscript/figures'
     destination.mkdir(parents=True, exist_ok=True)
     z = np.linspace(12, 6, 121)
@@ -40,8 +40,10 @@ def render(destination=None):
                         label=rf'$M_{{\rm seed}}=10^{seed}M_\odot$') for seed,color,style in SEEDS]
         fig.legend(handles=handles,loc='upper center',bbox_to_anchor=(.5,.92),ncol=3,frameon=False)
         fig.text(.5,.035,f'Radiation included; earlier onset adds {shift:.3f} dex (a factor of {10**shift:.2f}).',ha='center')
-        fig.savefig(destination/'early_start_comparison.png',dpi=300,facecolor='white')
-        fig.savefig(destination/'early_start_comparison.pdf',facecolor='white',metadata=PDF_METADATA)
+        if 'png' in formats:
+            fig.savefig(destination/'early_start_comparison.png',dpi=300,facecolor='white')
+        if 'pdf' in formats:
+            fig.savefig(destination/'early_start_comparison.pdf',facecolor='white',metadata=PDF_METADATA)
         plt.close(fig)
 
 

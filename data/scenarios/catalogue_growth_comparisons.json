@@ -1,0 +1,31 @@
+{
+  "catalogue_version": "v3",
+  "reference": {
+    "log10_seed_mass": 2.0,
+    "epsilon": 0.1,
+    "z_seed": 30.0,
+    "mass_offset_dex": 0.0,
+    "merger_boost": 1.0
+  },
+  "comparison_cosmology": "flat_matter_lambda",
+  "comparison_scenarios": [
+    {"name": "reference"},
+    {"name": "seed_1e3", "log10_seed_mass": 3.0},
+    {"name": "seed_1e4", "log10_seed_mass": 4.0},
+    {"name": "seed_1e5", "log10_seed_mass": 5.0},
+    {"name": "seed_z20", "z_seed": 20.0},
+    {"name": "nonspinning", "epsilon": 0.057190958417936644},
+    {"name": "mass_minus_0p5", "mass_offset_dex": -0.5},
+    {"name": "mass_minus_0p3", "mass_offset_dex": -0.3},
+    {"name": "mass_plus_0p3", "mass_offset_dex": 0.3},
+    {"name": "mass_plus_0p5", "mass_offset_dex": 0.5}
+  ],
+  "minimum_seed": {
+    "cosmology": "flat_matter_radiation_lambda",
+    "onset_redshifts": [30.0, 100.0, 3400.0],
+    "epsilon_values": [0.1, 0.057190958417936644],
+    "average_fedd_caps": [0.3, 1.0, 2.0],
+    "mass_offsets_dex": [0.0, -0.5, 0.5],
+    "merger_boost": 1.0
+  }
+}

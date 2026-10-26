@@ -4,8 +4,8 @@ All v1/v2/v3 datasets use the same implemented growth equation:
 
 `M_BH(t_obs) = M_seed * exp[f_Edd * ((1 - epsilon) / epsilon) * Delta_t / t_Edd]`
 
-with `t_Edd ~= 0.45 Gyr`, `Delta_t = t(z_obs) - t(z_seed)`, and the shared
-Planck-style flat cosmology (`H0=67.3 km/s/Mpc`, `Omega_m=0.315`,
+with `t_Edd ~= 0.45 Gyr` and `Delta_t = t(z_obs) - t(z_seed)`. Baseline
+calculations use the flat cosmology (`H0=67.3 km/s/Mpc`, `Omega_m=0.315`,
 `Omega_Lambda=0.685`). Calculations use logarithmic solar masses and require
 `z_seed > z_obs` and `0 < epsilon < 1`.
 
@@ -19,6 +19,10 @@ Implemented comparisons include:
 - source-reported mass uncertainty and separately stated method
   systematics;
 - alternate-measurement sensitivity.
+
+The [extended v3 tables](catalogue-results.md) compare assumptions for every
+usable mass. Their minimum-seed calculations include radiation in cosmic ages;
+the reference rate comparisons retain the baseline cosmology.
 
 These are diagnostic scenarios, not claims that any object uniquely selects a
 seed or growth channel. Selection functions, time-resolved feedback, and

@@ -126,6 +126,11 @@ resolved cases or test failures to suppress. The ordinary `identity_resolution_s
 field records the existing assembly decision; this audit is the stricter check
 of independently established astrophysical uniqueness.
 
+Catalogue rows now expose this distinction through `scientific_identity_status`
+and `scientific_identity_issue_group`. Open groups are `unresolved`; other rows
+are `no_open_issue_recorded`, which does not certify uniqueness. These fields
+propagate across measurements, adopted objects, and measurement/object links.
+
 
 ## Publication selection
 

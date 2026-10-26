@@ -66,6 +66,7 @@ def build_followup_priority(
         "quality_flag", "evidence_status", "mass_comparability_group",
         "growth_ranking_eligible_flag", "primary_growth_ranking_flag",
         "growth_ranking_eligibility_reason", "source_caveat_tags",
+        "scientific_identity_status", "scientific_identity_issue_group",
     ]].copy()
     result = result.merge(point[point_fields], on="physical_object_id", how="left", validate="one_to_one")
     result = result.merge(
@@ -78,7 +79,9 @@ def build_followup_priority(
         if str(row["edd_ratio_consistency_flag"]) == "inconsistent":
             return "C_source_consistency"
         high = str(row["growth_pressure_tier"]) == "high"
-        robust = str(row["quality_flag"]).lower() == "robust"
+        # Admitted sources use both labels for secure detections. Preserve the
+        # source vocabulary while giving equivalent quality the same priority.
+        robust = str(row["quality_flag"]).strip().lower() in {"robust", "secure"}
         primary = _boolish(row["primary_growth_ranking_flag"])
         if high and robust and primary:
             return "A_robust_high_pressure"
@@ -280,7 +283,6 @@ def build_outputs(
         measurement_point = core.build_point_ranking(measurement_view)
         object_point = core.build_point_ranking(object_view)
         outputs = {
-            "evaluation_table": object_point.copy(),
             "measurement_point_ranking": measurement_point,
             "object_point_ranking": object_point,
             "measurement_uncertainty_ranking": core.build_uncertainty_ranking(
@@ -356,4 +358,10 @@ def build_outputs(
     observed = {name: len(outputs[name]) for name in expected}
     if observed != expected:
         raise ValueError(f"{version} science coverage changed: {observed} != {expected}")
+    if version == "v3":
+        from src.internal.catalogue_products import build_outputs as build_catalogue_products
+        outputs.update(build_catalogue_products(
+            measurements, objects, outputs["object_point_ranking"], outputs["object_uncertainty_ranking"],
+            n_samples=n_samples, random_seed=random_seed,
+        ))
     return outputs

@@ -2,6 +2,7 @@
 from pathlib import Path
 import tempfile
 import unittest
+from zipfile import ZipFile
 
 from pypdf import PdfReader, PdfWriter
 from pypdf.errors import PdfReadError
@@ -81,8 +82,11 @@ class PdfReproductionTests(unittest.TestCase):
                 compare_artifact(a, b)
 
     def test_real_manuscript_pdf_survives_stream_recompression(self):
-        source = Path(__file__).resolve().parents[1]/'results/for_manuscript/figures/compatibility.pdf'
+        root = Path(__file__).resolve().parents[1]
         with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory)/'original.pdf'
+            with ZipFile(root/'paper/early_giants_overleaf.zip') as archive:
+                source.write_bytes(archive.read('figures/compatibility.pdf'))
             rewritten = Path(directory)/'compatibility.pdf'
             writer = PdfWriter(clone_from=PdfReader(source))
             for page in writer.pages:

@@ -2,7 +2,7 @@
   "description": "Current CUPC poster edition following the 17 October 2026 five-family expansion. Scientific inputs are pinned to the reviewed expanded catalogue.",
   "sha256": {
     "results/for_manuscript/tables/publication_object_selection.csv": "a6e6e3940bfe45309e44d422c30adaeaa64bf6967521593d7cf9f3bdbf20522c",
-    "results/v3/tables/v3_object_point_ranking.csv": "0c92fa98ce512ba190a93a9f43e29ab192f3b5f8b79552a20e8564863982cc84",
+    "results/v3/tables/v3_object_point_ranking.csv": "52492c25cb6209c2fe0a3dc62e0457100dd777a3ed826581874b84a7bae278d1",
     "results/v3/tables/v3_object_uncertainty_ranking.csv": "a511176a065b27eafa8a82488c81208cac80bee259fb34494c6f5956f88ec4d2",
     "results/for_manuscript/tables/mass_offset_object_sensitivity.csv": "c22911d9e4e47511f774e3681df91067e0cc9c349b6ad8085b929821cb7d65f0",
     "results/v4/tables/v4_minimum_seed_mass.csv": "6748713a682996c5f2e9547d78262179e03c06913eca34140b8bdad2aadf1481",

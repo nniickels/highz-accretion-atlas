@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import pandas as pd
+from src.catalogue_quality import apply_catalogue_quality, IDENTITY_FIELDS
 
 from src.internal.compatibility.v7_catalogue import _aggregate_objects_with_preferred_evidence
 from src.internal.compatibility.v7_core_catalogue import _build_host_systems, _build_strata
@@ -63,7 +64,7 @@ def _scope(frame: pd.DataFrame, field: str, values: set[str]) -> pd.DataFrame:
 
 
 def materialize_version(complete: dict[str, pd.DataFrame], spec: DatasetSpec) -> dict[str, pd.DataFrame]:
-    measurements = complete["measurements"].copy()
+    measurements = apply_catalogue_quality(complete["measurements"])
     if spec.source_keys:
         measurements = measurements[measurements["source_key"].isin(spec.source_keys)].copy()
     measurements["catalogue_release"] = spec.catalogue_release
@@ -81,7 +82,7 @@ def materialize_version(complete: dict[str, pd.DataFrame], spec: DatasetSpec) ->
     validate_observables(observables, measurements["measurement_id"])
     aliases = _scope(complete["aliases"], "physical_object_id", pids)
     aliases["catalogue_release"] = spec.catalogue_release
-    links = measurements[["catalogue_release", "measurement_id", "physical_object_id", "host_system_id", "preferred_measurement_flag", "preferred_measurement_reason", "match_method", "match_reference", "identity_resolution_status"]].copy().sort_values("measurement_id").reset_index(drop=True)
+    links = measurements[["catalogue_release", "measurement_id", "physical_object_id", "host_system_id", "preferred_measurement_flag", "preferred_measurement_reason", "match_method", "match_reference", "identity_resolution_status", *IDENTITY_FIELDS]].copy().sort_values("measurement_id").reset_index(drop=True)
     object_host_links = objects[["catalogue_release", "physical_object_id", "host_system_id", "host_system_assignment_status", "host_property_scope"]].copy().sort_values("physical_object_id").reset_index(drop=True)
     strata = _build_strata(measurements, objects, catalogue_release=spec.catalogue_release)
     reviewed = _scope(complete["reviewed_match_candidates"], "measurement_id", mids)

@@ -7,17 +7,6 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.internal.atlas import (
-    FULL_TRACK_CURVE_COUNT,
-    FULL_TRACK_EPSILON_CASES,
-    FULL_TRACK_FEDD_STYLES,
-    FULL_TRACK_MERGER_CASES,
-    FULL_TRACK_SEEDS,
-    FULL_TRACK_STATUS_COLORS,
-    GROWTH_TRACK_AGE_TICKS,
-    GROWTH_TRACK_COLORS,
-    GROWTH_TRACK_REDSHIFT_LIMITS,
-)
 from src.datasets import V3_SOURCES
 
 from src.internal.compatibility.v7_scholtz import (
@@ -32,22 +21,6 @@ TABLES = ROOT / "results/v3/tables"
 
 
 class V3ScientificClaimTests(unittest.TestCase):
-    def test_full_growth_track_assumption_grid_matches_historical_v1(self) -> None:
-        self.assertEqual(len(FULL_TRACK_SEEDS), 3)
-        self.assertEqual([item[0] for item in FULL_TRACK_FEDD_STYLES], [0.3, 1.0, 2.0])
-        self.assertEqual([item[2] for item in FULL_TRACK_SEEDS], ["#2F6B9A", "#3A8B5C", "#B66A1E"])
-        self.assertEqual(
-            [item[1] for item in FULL_TRACK_FEDD_STYLES],
-            [(0, (5, 3)), "-", (0, (1, 1))],
-        )
-        self.assertEqual(len(FULL_TRACK_EPSILON_CASES), 4)
-        self.assertEqual([item[0] for item in FULL_TRACK_MERGER_CASES], [1.0, 2.0])
-        self.assertEqual(FULL_TRACK_CURVE_COUNT, 72)
-        self.assertEqual(GROWTH_TRACK_REDSHIFT_LIMITS, (13.0, 3.0))
-        self.assertEqual(GROWTH_TRACK_AGE_TICKS.tolist(), list(range(13, 2, -1)))
-        self.assertEqual(GROWTH_TRACK_COLORS["broad_line_agn"], "#7B2CBF")
-        self.assertEqual(FULL_TRACK_STATUS_COLORS["narrow_line_agn_candidate"], "#176B87")
-        self.assertEqual(FULL_TRACK_STATUS_COLORS["xray_agn_candidate"], "#777777")
 
     def test_v3_contains_only_declared_jwst_identified_sources(self) -> None:
         objects = pd.read_csv(ROOT / "data/processed/v3/v3_accreting_objects.csv")

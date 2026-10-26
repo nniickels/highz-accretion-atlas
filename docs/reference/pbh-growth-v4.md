@@ -129,6 +129,11 @@ stellar seeding generally, and does not establish that PBHs are required.
 
 ## Run and verify
 
+The [catalogue-wide v3 table](catalogue-results.md) uses the same minimum-seed
+equation and radiation-inclusive ages for all 241 usable masses. It has a
+smaller parameter grid and uses the catalogue’s mass-error draws; v4 retains
+its four targets and original random streams.
+
 ### Current central-mass results
 
 For `epsilon=0.1`, cap 1, and no mergers, the equality-onset minimum seeds are
@@ -157,7 +162,7 @@ v4 has its own verification and manifest. Its methods and results are incorporat
 into both [draft manuscripts](../../results/for_manuscript/README.md#manuscript-files).
 The analysis driver does not edit manuscripts or posters.
 Verification rebuilds tables independently, compares
-PNG pixels and decoded PDF contents in a temporary directory, and detects
+PNG pixels in a temporary directory, and detects
 changed inputs, implementation, or stored artifacts before accepting them.
 Canonical v4 exports also refresh `results/results_inventory.csv` after writing
 the manifest. Commit the inventory with the updated v4 outputs. Exports to an

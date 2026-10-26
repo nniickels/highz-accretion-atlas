@@ -204,8 +204,7 @@ class PBHWorkflowTests(unittest.TestCase):
             def export_figures(tables, destination):
                 destination.mkdir(parents=True, exist_ok=True)
                 for name in FIGURE_NAMES:
-                    for suffix in ('png', 'pdf'):
-                        (destination / f'v4_{name}.{suffix}').write_bytes(b'new export')
+                    (destination / f'v4_{name}.png').write_bytes(b'new export')
 
             with patch('src.internal.pbh_growth_v4.build_tables', return_value=self.tables), \
                  patch('src.internal.pbh_growth_v4.make_figures', side_effect=export_figures):

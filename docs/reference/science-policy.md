@@ -8,6 +8,9 @@ alternate-measurement sensitivity, a class-aware observational follow-up
 matrix, a source-family caveat summary, a source-level selection/completeness
 summary, and an executable science-policy table.
 
+v3 also includes [compact results, assumption comparisons, field availability,
+and minimum seeds](catalogue-results.md), with the same sample and exclusion rules.
+
 Supported interpretation scopes are:
 
 - within object class;
@@ -38,8 +41,8 @@ composite navigation score is separate from both scientific orders.
 Twelve NEXUS masses have no reported mass errors. Their repeated point
 values in the uncertainty CSVs have `mbh_uncertainty_mode` equal to
 `point_estimate_no_reported_mbh_error`. Probabilities and uncertainty ranks are
-unavailable; zero-width intervals are not statistical certainty. Summary plots put these objects in a
-separate "No error" row; the uncertainty figure for the full catalogue uses open diamonds. The
+unavailable; zero-width intervals are not statistical certainty. The Monte Carlo
+summary shows these objects as open diamonds in a separate "No error" row. The
 other 229 canonical objects (226 in the manuscript expanded sample) use
 equal-probability half-normal draws on each side of the
 central mass, scaled by the reported error. This approximates intervals, not
@@ -56,7 +59,9 @@ solution. Comparisons must preserve the distinction between these products.
 `results/v3/tables/v3_followup_priority.csv` contains all 343 object records. Its 241
 growth-eligible rows receive both within-class and navigation-only ranks; the
 102 objects without a method-comparable canonical mass remain explicitly
-unranked. `v3_source_caveat_summary.csv` contains one row for each of the 37
+unranked. Follow-up classification treats the source quality labels `robust`
+and `secure` equivalently; primary eligibility and source consistency remain
+separate checks. `v3_source_caveat_summary.csv` contains one row for each of the 37
 admitted source families.
 
 Reproduce with:
@@ -69,7 +74,7 @@ mkdir -p /tmp/highz-catalogue-notebooks
 
 ## Scientific limits and what would change them
 
-The frozen catalogue supports descriptive, within-class comparisons and conditional
+The catalogue supports descriptive, within-class comparisons and conditional
 growth calculations. These limits do not prevent manuscript development, but
 must accompany interpretation of the results:
 
@@ -83,8 +88,8 @@ must accompany interpretation of the results:
 
 The growth law also compresses time-dependent feedback and accretion into
 average parameters. The ideal-spin endpoints and photon-trapping coupling are
-illustrative assumptions, and the age expression is a flat matter-plus-Lambda
-approximation without radiation. Passing numerical integration tests validates
+illustrative assumptions. Baseline ages neglect radiation; the v3 minimum-seed
+table and v4 calculations include it. Passing numerical integration tests validates
 implementation of those equations, not their adequacy for every physical model.
 
 ## Sample and efficiency checks

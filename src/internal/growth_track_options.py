@@ -18,7 +18,7 @@ EPS = [.1, float(models.thin_disk_radiative_efficiency(-1)),
        float(models.thin_disk_radiative_efficiency(1))]
 
 
-def render(root=ROOT, destination=None):
+def render(root=ROOT, destination=None, *, highlight_offsets=None):
     from src.internal.publication_figures import load_plot_inputs
     OUT = Path(destination) if destination is not None else root / 'paper/figure_options'
     OUT.mkdir(parents=True, exist_ok=True)
@@ -89,7 +89,7 @@ def render(root=ROOT, destination=None):
         ax.set(xlim=(11.5,3), ylim=(5.2,9.6))
         ax.grid(alpha=.12)
     def highlight(ax, names=True, size=8):
-        offsets = {
+        offsets = highlight_offsets if highlight_offsets is not None else {
             'GN-z11': (12, -20),
             'CEERS-1019': (-16, -22),
             'GS-20057765': (-16, 13),
