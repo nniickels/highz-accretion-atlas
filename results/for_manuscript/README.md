@@ -72,15 +72,28 @@ not establish seed formation.
 
 ## Calibration test
 
-`calibration_sensitivity.csv` adds independent Gaussian scatter of 0.5 dex to
-RUBIES-EGS-55604 and J0910_2028_12910, and 0.43 dex to J1007_AGN, at mass
-offsets 0 and -0.5 dex. The symmetric cases use exact normal tails; J1007's
-asymmetric reported-error model is convolved by deterministic quadrature.
-This is a three-object sensitivity test, not a change to catalogue masses
-or a common error model for the sample. The older two-object probabilities
-are unchanged. The table is generated and verified with the other publication
-tables. Full assumptions and checks are in the
-[reproduction guide](../../docs/guides/reproducibility.md#apss-calibration-sensitivity).
+`calibration_sensitivity.csv` adds independent, zero-mean Gaussian scatter of
+0.5 dex to RUBIES-EGS-55604 and J0910_2028_12910, and 0.43 dex to J1007_AGN,
+at mass offsets 0 and -0.5 dex. These are sensitivity assumptions; the calculation
+does not change catalogue masses, reported errors, or the shared Monte Carlo draws.
+GN-38509 and ZS7 receive no added scatter because their reported errors already
+include it.
+
+The symmetric cases use exact normal tails. J1007's equal-side half-normal
+reported errors are convolved with the Gaussian using 96-node Gauss-Legendre
+integration over ten standard deviations. Its scalar `reported_sigma_dex` and
+`combined_sigma_dex` fields are blank; separate fields retain the asymmetric
+scales. Tests check doubled quadrature order, independent random draws, and
+safeguards against double counting.
+
+The table is generated and verified with the other publication tables.
+It can also be checked independently:
+
+```bash
+.venv/bin/python -m src.internal.calibration_sensitivity \
+  --input results/for_manuscript/tables/target_robustness.csv \
+  --verify results/for_manuscript/tables/calibration_sensitivity.csv
+```
 
 ## Manuscript files
 

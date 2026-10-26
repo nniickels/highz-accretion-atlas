@@ -59,14 +59,6 @@ A2744-QSO1 comparisons do not add catalogue measurements.
 
 ## Calibration uncertainty
 
-The separate calibration test adds the reported 0.5-dex scales for
-RUBIES-EGS-55604 and J0910_2028_12910, and 0.43 dex for J1007_AGN. The first two
-use exact normal tails; J1007's asymmetric errors use numerical convolution.
-Measurement IDs and calibration scales must match the reviewed inputs. See the
-[assumptions and checks](../../docs/guides/reproducibility.md#apss-calibration-sensitivity).
-
-Current posters and manuscript growth inference use the canonical results.
-`data/poster_inputs.json` pins the current poster inputs. Earlier poster figures
-and their scientific inputs are recoverable from Git revision
-`fc0c5501ad2271865b1c040307cad8dd8ca5721a`; duplicate historical tables are not
-kept in the current tree.
+The separate three-object test and its error assumptions are described with the
+[calibration results](../../results/for_manuscript/README.md#calibration-test).
+The test does not change sample membership or catalogue masses.

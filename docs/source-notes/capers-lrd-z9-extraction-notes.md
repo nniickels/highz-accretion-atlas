@@ -252,7 +252,3 @@ processed products, manifests, and publication outputs include the adopted sourc
 Admitted 17 October 2026 at the unchanged 3 September 2026 cutoff.
 Final measurement `CAPERSLRDz9_taylor25`, physical object `HZA-CAPERS-LRD-Z9`, host `HZS-CAPERS-LRD-Z9`.
 Membership: **v2 and v3; primary and expanded numerical samples**. Adopted semantics: 7.58 +/- 0.15 dex; no dust correction or scalar added systematic.
-The [schema and eligibility guide](../reference/catalogue-schema.md) defines
-shared admission rules; the [publication guide](../../data/publication/README.md#sample-selection)
-defines manuscript exclusions. Source-specific values above are built by
-`src/internal/october2026_additions.py` and checked against independent fixtures.

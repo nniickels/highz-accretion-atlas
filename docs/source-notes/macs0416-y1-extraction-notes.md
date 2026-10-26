@@ -182,7 +182,3 @@ Shared registries, canonical outputs, and manifests include the admitted candida
 Admitted 17 October 2026 at the unchanged 3 September 2026 cutoff.
 Final measurement `MACS0416Y1_takechi26`, physical object `HZA-MACS0416-Y1`, host `HZS-MACS0416-Y1`.
 Membership: **v2 and v3; expanded numerical sample only, candidate evidence**. Adopted semantics: source lens-corrected linear interval; confidence/calibration decomposition unspecified; no added scatter.
-The [schema and eligibility guide](../reference/catalogue-schema.md) defines
-shared admission rules; the [publication guide](../../data/publication/README.md#sample-selection)
-defines manuscript exclusions. Source-specific values above are built by
-`src/internal/october2026_additions.py` and checked against independent fixtures.

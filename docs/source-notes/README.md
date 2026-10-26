@@ -9,7 +9,6 @@ Dated source screens describe the catalogue used for that review, while the
 
 ## Catalogue-wide decisions
 
-- [Catalogue admission and sample selection](catalogue-decisions.md)
 - [Redshift checks and unresolved identities](redshift-identity-audit.md)
 - [Mass errors and publication-version sensitivity](mass-error-and-publication-revision-audit.md)
 

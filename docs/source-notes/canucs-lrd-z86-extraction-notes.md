@@ -196,10 +196,6 @@ source anchors and asymmetric mass endpoint conversion. It does not test unmodif
 Admitted 17 October 2026 at the unchanged 3 September 2026 cutoff.
 Final measurement `CANUCS5112687_tripodi25`, physical object `HZA-CANUCS-LRD-Z8-6`, host `HZS-CANUCS-LRD-Z8-6`.
 Membership: **v2 and v3; primary and expanded numerical samples**. Adopted semantics: published linear mass endpoints converted to dex; no second lens correction.
-The [schema and eligibility guide](../reference/catalogue-schema.md) defines
-shared admission rules; the [publication guide](../../data/publication/README.md#sample-selection)
-defines manuscript exclusions. Source-specific values above are built by
-`src/internal/october2026_additions.py` and checked against independent fixtures.
 Morishita v2 is registered as context under the CANUCS family; it contributes
 zero additional objects or mass measurements. The publisher article number is
 9830 (DOI landing page), correcting the earlier extraction metadata label.

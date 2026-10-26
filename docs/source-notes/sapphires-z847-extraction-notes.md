@@ -69,7 +69,3 @@ Anchors were transcribed from the TeX table/prose independently of the HTML-to-C
 Admitted 17 October 2026 at the unchanged 3 September 2026 cutoff.
 Final measurement `SAPPHIRES8760_fudamoto25`, physical object `HZA-SAPPHIRES-ID-8760`, host `HZS-SAPPHIRES-ID-8760`.
 Membership: **v3 context only; no numerical growth or numerical manuscript membership**. Adopted semantics: mass and both errors remain missing; foreground contaminant identity unresolved.
-The [schema and eligibility guide](../reference/catalogue-schema.md) defines
-shared admission rules; the [publication guide](../../data/publication/README.md#sample-selection)
-defines manuscript exclusions. Source-specific values above are built by
-`src/internal/october2026_additions.py` and checked against independent fixtures.

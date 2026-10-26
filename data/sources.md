@@ -1,159 +1,53 @@
-# Source Registry
+# Source bibliography
 
-## Machine-readable provenance supplement
+The [source registry](source_provenance_registry.csv) records exact publication
+versions, source roles, URLs, DOIs, archive hashes, extraction dates, and
+publication-status review dates. Publication status and evidence strength are
+separate fields. Paper and dataset DOIs are also recorded separately.
 
-`data/source_provenance_registry.csv` records one row per primary,
-reanalysis, coordinate, or context source used by the current catalogue. Its
-controlled `publication_status`, `evidence_status`, and `source_role` fields
-separate publication maturity, scientific evidence strength, and actual use;
-these concepts must not be inferred from one another. Paper DOIs and dataset
-DOIs are separate fields. Exact source-archive hashes, extraction dates, the
-2026-09-03 status-verification date, and scheduled preprint reviews are
-machine checked by `python -m src.internal.verify_source_provenance`.
+The [literature scope](../docs/reference/literature-scope.md) defines the cutoff
+and exclusions. The [source notes](../docs/source-notes/README.md) explain
+extraction, adopted values, identities, and source-specific caveats.
 
-The supplement backfills the current exact Juodžbalis record as MNRAS 546,
-stag086 / arXiv `2504.03551v2`, DOI `10.1093/mnras/stag086`, with source-archive
-SHA-256
-`0347b4942f1a3cb417d626bd5ba76ab0af25e59ab8013b3ed4ac0a61a04e0efd`.
-This is deliberately not represented as the unknown historical v1 extraction:
-the frozen rows retain `not_recorded_in_frozen_v1_source_layer`, and no frozen
-catalogue value is changed. The registry also records the Shen catalogue DOI
-`10.26093/cds/vizier.18730035` independently of the paper DOI.
+## Sources with extraction notes
 
-As verified on 2026-09-03, Davis `2602.23310v1`, Hutchison `2512.12509v1`,
-and Skyfire `2609.00112v1` remain preprints in their official arXiv records.
-Davis and Hutchison require another status review by 2026-11-27; Skyfire is
-due by 2026-12-03. Zou `2603.24893v2` is accepted by ApJ. The Davis objects'
-photometric-EELG parent selection remains context rather than evidence against
-the later broad-line detections; the UHZ1 reanalysis retains `disputed`
-evidence explicitly.
+| Source | Catalogue use | Details |
+| --- | --- | --- |
+| Taylor CEERS/RUBIES | Broad-line measurements; CEERS-2782 and RUBIES-EGS-50052 are one object. | [Source notes](../docs/source-notes/taylor24-ceers-rubies-extraction-notes.md) |
+| Matthee EIGER/FRESCO | Broad-Halpha measurements; GOODS-S-13971 matches JADES GS-204851. | [Source notes](../docs/source-notes/matthee23-eiger-fresco-extraction-notes.md) |
+| Lin ASPIRE | Compact broad-Halpha emitters. | [Source notes](../docs/source-notes/lin24-aspire-extraction-notes.md) |
+| Harikane NIRSpec | Broad-Halpha masses and separately recorded host-mass limits. | [Source notes](../docs/source-notes/harikane23-nirspec-extraction-notes.md) |
+| Davis THRILS | Broad-Halpha measurements; coordinates from Hutchison programme tables. | [Source notes](../docs/source-notes/davis26-thrils-extraction-notes.md) |
+| Ren ALPINE–CRISTAL–JWST | Seven candidate nuclei in six hosts, with distinct evidence tiers. | [Source notes](../docs/source-notes/ren25-alpine-cristal-jwst-extraction-notes.md) |
+| Baccus and Fei GLIMPSE | Broad-line masses; source-specific lensing exclusions and corrections. Baccus adopted values use arXiv v1, with published-v2 changes tested separately. | [Source notes](../docs/source-notes/baccus26-fei26-v2-expansion-extraction-notes.md) |
+| UHZ1: Bogdán, Goulding, and Zou | Original X-ray evidence and later disputed reanalysis; no canonical growth mass. | [Source notes](../docs/source-notes/uhz1-xray-evidence-history-extraction-notes.md) |
+| Scholtz JADES narrow-line candidates | All 21 source-table rows at z ≥ 4; one overlaps a broad-line object. The paper's prose reports 42 objects but its table has 41. | [Source notes](../docs/source-notes/scholtz25-jades-narrow-line-extraction-notes.md) |
+| Chisholm, Tang, Mazzolari, Leung/MEOW, Lyu/SMILES, Napolitano/GHZ9, Zhang, Chavez Ortiz/GHZ2, Mascia, Treiber, and Naidu | Eleven heterogeneous families; conditional estimates and upper limits remain contextual rather than canonical growth masses. | [Source notes](../docs/source-notes/heterogeneous-v3-expansion-extraction-notes.md) |
+| Zhuang NEXUS, Lin COSMOS-3D, and Napolitano Seven Wonders | Heterogeneous v3 samples, including masses without reported errors and mass-free candidates. | [Source notes](../docs/source-notes/nexus-cosmos3d-seven-wonders-extraction-notes.md) |
+| Taylor CAPERS-LRD-z9 | Broad-Hbeta virial mass with correlated dust alternatives. | [Source notes](../docs/source-notes/capers-lrd-z9-extraction-notes.md) |
+| Tripodi CANUCS-LRD-z8.6; Morishita context | Lens-corrected Balmer mass; Morishita v2 adds no separate object or mass. | [Source notes](../docs/source-notes/canucs-lrd-z86-extraction-notes.md) |
+| Schindler J1007_AGN | Observed Balmer baseline; dust-corrected interpretation retained separately. | [Source notes](../docs/source-notes/j1007-agn-extraction-notes.md) |
+| Takechi MACS0416-Y1 | Lens-corrected candidate mass, expanded sample only. | [Source notes](../docs/source-notes/macs0416-y1-extraction-notes.md) |
+| Fudamoto SAPPHIRES ID-8760 | Tentative candidate without a numerical black-hole mass. | [Source notes](../docs/source-notes/sapphires-z847-extraction-notes.md) |
 
-**1. [source_key: juodzbalis25_jades_blagn]**
+## Juodžbalis JADES broad-line sample
+
 - **Citation:** Juodžbalis et al. (2026), *JADES: comprehensive census of broad-line AGN from Reionization to Cosmic Noon revealed by JWST*, MNRAS 546, stag086, arXiv:2504.03551
 - **Published record:** DOI https://doi.org/10.1093/mnras/stag086; arXiv https://arxiv.org/abs/2504.03551
 - **Survey/Field:** JADES / GOODS-N + GOODS-S
 - **Object selection used here:** Type 1 (broad-line) AGN from JADES spectroscopy
 - **Values extracted:** z, MBH, Lbol, lambda_Edd, Mstar
 - **Extraction location:** Table 2 (AGN properties: coordinates, z, MBH, Lbol, lambda_Edd), Table 5 (host properties: Mstar)
-- **Method notes:** MBH from single-epoch virial estimators: Reines & Volonteri (2015) H-alpha for the main sample, with a source-stated 0.3 dex calibration uncertainty; Vestergaard & Peterson (2006) H-beta for the four high-redshift tentative candidates, for which this source does not state a numeric calibration systematic. Eddington ratios are source-derived from the same bolometric luminosities and virial masses. Host Mstar follows the paper's adopted spectral-decomposition choice: BEAGLE by default, with CIGALE used when BEAGLE is unavailable or the host is significantly extended. This restores the paper-adopted CIGALE values for GS-200679, GS-20030333, and GS-164055 in the active v1 sample. The reviewed method mapping is maintained separately in `data/mass_method_registry.csv` and does not alter frozen catalogue values.
+- **Method notes:** MBH from single-epoch virial estimators: Reines & Volonteri (2015) H-alpha for the main sample, with a source-stated 0.3 dex calibration uncertainty; Vestergaard & Peterson (2006) H-beta for the four high-redshift tentative candidates, for which this source does not state a numeric calibration systematic. Eddington ratios are source-derived from the same bolometric luminosities and virial masses. Host Mstar follows the paper's adopted spectral-decomposition choice: BEAGLE by default, with CIGALE used when BEAGLE is unavailable or the host is significantly extended. CIGALE is adopted for GS-200679, GS-20030333, and GS-164055. The reviewed method mapping is maintained separately in `data/mass_method_registry.csv` and does not alter frozen catalogue values.
 - **Detection evidence:** `GS-20057765`, `GS-20030333`, `GS-164055`, and `GN-4685` are the paper's tentative broad-H-beta emitters. Their individual broad-H-beta detections are not formally significant; the four-object stack supports the broad component. The catalogue records this as `stack_supported_tentative_hbeta` and does not treat these rows as individually confirmed detections.
 - **Source consistency warning:** For GN-11836, Table 2 reports `log_mbh=6.06`, `log_lbol=44.11`, and `lambda_Edd=0.11`. The mass and luminosity imply `lambda_Edd` approximately 0.89, a -0.91 dex residual for the tabulated ratio. The catalogue preserves all three published values verbatim, flags the inconsistency structurally, and requires source clarification before choosing which value to revise.
 - **Columns standardized beyond paper tables:** `redshift_kind=spec` (NIRSpec spectroscopy), method fields encode the paper methodology (`single-epoch-virial-halpha` or `single-epoch-virial-hbeta`, BEAGLE or CIGALE host decomposition, Balmer-line bolometric correction), `agn_contam_flag=1` for this Type-1 AGN sample, and `lensing_mu` left blank because no magnification correction is reported for these sources.
 - **Ingestion notes:** Numeric values copied directly; asymmetric uncertainties split into *_err_plus and *_err_minus
-- **Frozen-v1 provenance limitation:** the current catalogue retains
-  `extraction_date=not_recorded_in_frozen_v1_source_layer` and has no archived
-  source checksum for these 23 rows. The DOI and source URL are documented
-  here, but the missing historical extraction date/checksum must not be
-  represented as complete row-level provenance.
+- **Provenance limitation:** the original extraction date is unknown
+  (`not_recorded_in_frozen_v1_source_layer`). The current registry's verified
+  source version, archive URL, and hash are retained separately from that history.
 
-**2. [source_key: taylor24_ceers_rubies_blagn]**
-- **Citation:** Taylor et al. (2025), *Broad-Line AGNs at 3.5<z<6: The Black Hole Mass Function and a Connection with Little Red Dots*, The Astrophysical Journal 986, 165
-- **Primary version:** Published 2025-06-20; https://iopscience.iop.org/article/10.3847/1538-4357/add15b; DOI https://doi.org/10.3847/1538-4357/add15b. The corresponding latest arXiv source is v2, revised 2025-05-14: https://arxiv.org/abs/2409.06772v2.
-- **Survey/Field:** CEERS and RUBIES / EGS and UDS
-- **Object selection used here:** Source-selected broad-Halpha AGN; FWHM >700 km/s, broad-flux S/N >4, Delta BIC >6, secure multi-line spectroscopic redshift, and visual QA. Raw storage includes all Table 1 rows; processing applies `z >= 4`.
-- **Values extracted:** coordinates, spectroscopic redshift, total/narrow/broad Halpha fluxes and asymmetric errors, instrument-corrected broad FWHM and errors, virial MBH and formal errors, LRD marker, and Halpha absorption-fit marker
-- **Extraction location:** Table 1 and its notes in the v2 TeX source; sample selection and caveats from the surrounding manuscript text
-- **Mass method:** Reines et al. (2013) Halpha single-epoch virial calibration, tagged `single-epoch-virial-halpha-reines2013`. The approximate 0.5 dex virial-calibration systematic is separate from the formal posterior errors and is not applied to the nominal mass.
-- **Identity decision:** `CEERS-2782` and `RUBIES-EGS-50052` are linked to one physical object while retaining both measurements. The RUBIES measurement is preferred in the object view.
-- **Phenotype:** `lrd` is an independent source-adopted phenotype; all rows retain `object_class=broad-line-agn`.
-- **Missingness:** Mstar, Lbol, and Eddington ratio are not published in Table 1 and remain blank rather than being inferred.
-- **Verified anchors:** 63 measurements / 62 physical objects in Table 1; 37 / 36 at `z >= 4`; 21 LRD rows full / 17 filtered; 4 absorption-fit rows full / 3 filtered.
-- **Extraction archive:** https://arxiv.org/e-print/2409.06772v2; SHA-256 `50453a0a975b84f019ceba8da30663e40d83c285376cad119d83fa8e3b31aaa0`; extracted 2026-08-17
-- **Limitations:** The paper mentions 11 contaminated spectra without identifying the full set in Table 1, so no per-row contamination flags were inferred. See `docs/source-notes/taylor24-ceers-rubies-extraction-notes.md` for object caveats.
-
-## v2 sources: Matthee and Lin
-
-- **[source_key: matthee23_eiger_fresco_blagn] Matthee et al. (2024),
-  EIGER/FRESCO:** 20 broad-Halpha emitters at
-  `4.163 <= z <= 5.538`, extracted from Tables 1--3 of arXiv `2306.05448v3` /
-  ApJ 963:129. Raw values: `data/raw/matthee23_eiger_fresco_blagn_tables1_3.csv`.
-  Selection requires broad-Halpha S/N > 5, luminosity > 2e42 erg/s, and FWHM
-  > 1000 km/s, followed by visual rejection of spatial broadening.
-  The 0.5 dex Reines-calibration uncertainty is separate from formal errors.
-  The source archive SHA-256 is
-  `b3e6f5385e694d92a7456f81eb123a305468baf743cebc7aeea820befb9b1190`.
-  GOODS-S-13971 is crossmatched to the existing JADES GS-204851 object. The
-  LRD flag is a paper-level sample label, not a row marker in Tables 1--3.
-- **[source_key: lin24_aspire_blagn] Lin et al. (2024), ASPIRE:** 16 compact
-  broad-Halpha emitters at
-  `4.0639 <= z <= 5.0369`, extracted from Tables 1--3 of arXiv `2407.17570v1` /
-  ApJ 974:147. Raw values: `data/raw/lin24_aspire_blagn_tables1_3.csv`.
-  Selection uses compact-red preselection, then integrated line S/N > 5 and
-  broad FWHM > 1000 km/s. The source archive SHA-256 is
-  `fc1c4d96e4a568b09b3caefa0fdde1c7fabe8decad71fb6423ff37c912b024cd`.
-  All 16 are explicitly called LRDs in Table 1; LRD remains a phenotype, not
-  the object class.
-
-Detailed extraction and caveat notes are in
-`docs/source-notes/matthee23-eiger-fresco-extraction-notes.md` and
-`docs/source-notes/lin24-aspire-extraction-notes.md`.
-
-## v2 source: Harikane
-
-- **[source_key: harikane23_nirspec_blagn] Harikane et al. (2023), ApJ
-  959:39:** ten Type 1 broad-Halpha AGN at `z=4.015--6.936`, extracted from
-  Tables 1--3 of arXiv `2303.11946v3`; DOI
-  `10.3847/1538-4357/ad029e`. The source archive SHA-256 is
-  `02c2951b4594234f8cc015fc811f1ed438d35997249138af4d756d02d44ca4b4`.
-  Selection requires broad-Halpha FWHM greater than 1000 km/s and S/N greater
-  than 5, narrow forbidden lines, and rejection of outflow-only explanations;
-  all final rows have Delta AIC greater than 20. MBH uses the Greene & Ho
-  (2005) Halpha estimator and extinction-corrected broad-Halpha luminosity.
-  Eddington ratios are source values calculated as best-estimate bolometric
-  luminosity divided by the Eddington luminosity of that virial MBH.
-  The source gives no numeric virial systematic, so none is inferred. Six host
-  masses and four upper limits are preserved distinctly. The paper's typical
-  `0.2 dex` host-mass systematic from its fixed SED-fitting prior is recorded
-  separately and not applied. No row-level LRD marker is published;
-  red/compact descriptions remain separate phenotypes.
-  Five measurements crossmatch existing CEERS physical objects and five are
-  new. See `docs/source-notes/harikane23-nirspec-extraction-notes.md`.
-
-## v2 source: Davis/THRILS
-
-- **[source_key: davis26_thrils_blagn] Davis et al. (2026), submitted to
-  ApJ:** seven deep-G395M broad-Halpha measurements at `z=3.52--6.57`,
-  extracted from Appendix Table 5 of arXiv `2602.23310v1`. Six pass the project
-  `z >= 4` cut. Selection requires a broad component above 3 sigma and implied
-  FWHM above 1000 km/s. MBH uses the Reines & Volonteri (2015) Halpha
-  single-epoch calibration; the approximately `0.5 dex` recipe scatter is
-  stored separately from formal posterior errors. Table 5 does not publish
-  row-level LRD, Mstar, Lbol, or Eddington-ratio values, so none is inferred.
-  Coordinates are exact THRILS-ID joins from Hutchison et al. programme Table 3,
-  arXiv `2512.12509v1`, with independent provenance. The Davis and Hutchison
-  source-archive SHA-256 values are respectively
-  `13274268d718138119dbbb818d58e3f5255ce0a34f80f9d8a7a0d0013f16153b`
-  and `584a56f5867e816c6220ea52f55fc0411f2fc745544ecccfb6ea4ad42c445fdc`.
-  The only known Taylor repeat is below `z=4`; all six retained rows are new
-  v2 objects. See `docs/source-notes/davis26-thrils-extraction-notes.md`.
-
-## v2 source: Ren ALPINE--CRISTAL
-
-- **[source_key: ren25_alpine_cristal_jwst_blagn_candidates] Ren et al.
-  (2025), MNRAS 544, 211--233:** seven Type-1 AGN candidate nuclei in six
-  ALPINE--CRISTAL--JWST host systems, extracted from the published Tables 1--2.
-  The latest primary record used is the corrected/typeset MNRAS article, DOI
-  `10.1093/mnras/staf1709`, corresponding to arXiv `2509.02027v2`; the source
-  archive SHA-256 is
-  `c528c375fda9362433184cb35775a5f4ca107014f4b1c2f6536d7f15d4f85cca`.
-- Table 1 raw storage preserves all seven rows; all are already at `z>5`.
-  Table 2 raw storage preserves 70 line entries: 58 detections and twelve
-  3-sigma upper limits. No figure values or unreported per-row Delta-BIC values
-  are reconstructed.
-- MBH uses `single-epoch-virial-halpha-reines2013`; the paper's `0.4 dex`
-  systematic remains separate from formal Table 1 errors. `DC_536534` maps to
-  probable evidence and primary eligibility. The other six are candidate,
-  BLR-conditional masses retained only in the exploratory diagnostic tier.
-- `DC_848185_a` and `DC_848185_b` are separate candidate nuclei sharing one
-  host-system ID and one integrated host mass. No earlier-source coordinate/redshift match
-  is found. No LRD classification is published, so it remains missing.
-- The validated source-admission layer is attached non-destructively to the
-  canonical v2 and v3 products; its eligible probable row participates in the
-  shared science and figures. See
-  `docs/source-notes/ren25-alpine-cristal-jwst-extraction-notes.md` and
-  `docs/reference/catalogue-schema.md`.
-
-## v2 canonical-mass additions reviewed 2026-09-03
+## Other v2 broad-line sources
 
 - **[source_key: greene24_uncover_blagn] Greene et al. (2024), UNCOVER:** nine
   unique, JWST/NIRSpec-confirmed broad-Balmer AGN with published virial masses
@@ -180,39 +74,8 @@ Detailed extraction and caveat notes are in
   admitted with its published canonical virial mass.
 
 These additions contribute 40 unique physical objects to v2 and flow into v3.
-The Jones et al. compilation contributes no further unique object after this
-identity audit, so it is not duplicated as new catalogue membership; it remains
-a future alternate-measurement/reanalysis source.
-
-## v2 Baccus and Fei canonical-mass expansion reviewed 2026-09-03
-
-- **[source_key: baccus26_nirspec_blagn] Baccus et al. (2026):** 49 new,
-  non-cluster-field `z >= 4` JWST/NIRSpec broad-line AGN are admitted from
-  Table 1 with published single-epoch virial masses. The complete source screen
-  finds 111 qualifying rows representing 107 physical objects, of which 45 are
-  already represented. Thirteen additional GLIMPSE/MACS cluster-field objects
-  are excluded because this source does not publish or apply lensing
-  magnifications. The source-payload SHA-256 is
-  `f165cd073c7e03cffa487c1e209a6c8ed4d2f009119e84145eca6b43e579a22a`.
-
-- **[source_key: fei26_glimpse_blagn] Fei et al. (2026):** all ten GLIMPSE
-  JWST/NIRSpec broad-line objects are admitted with the source's explicit
-  magnification corrections and published virial masses. Eight are secure and
-  two are tentative candidates. The source-payload SHA-256 is
-  `c619ea23d3e29b15ceb78d6a75b276a55010ff0d31b47b0a377856c0e37acde1`.
-
-The frozen Baccus measurements and screen refer to arXiv v1 Table 1. The
-2026-09-04 independent audit checked coordinates, redshifts, masses, mass
-uncertainties, and bolometric luminosities for all 49 admitted rows. The final
-publication (v2) revises the table; its publication status must not be confused
-with the measurement version. Adopting revised values needs a documented
-reanalysis. This correction changes provenance, not catalogue numbers.
-
-Together these sources add 59 new physical objects to v2 and v3, all with
-numerical masses suitable for uncertainty-aware growth visualization. The Jin
-et al. J0226 dataset contributes zero new physical objects after Baccus and is
-therefore not added. See
-`docs/source-notes/baccus26-fei26-v2-expansion-extraction-notes.md`.
+The Jones et al. compilation contributes no further unique object after the
+identity audit and is not added as new catalogue membership.
 
 ## v3 source: GN-z11 high-ionization-line candidate
 
@@ -222,148 +85,6 @@ therefore not added. See
   as a numerical secondary stratum, not folded into the primary Balmer-virial
   comparison. This heterogeneous evidence type is v3-only.
 
-## v3 source: UHZ1 X-ray evidence history
-
-- **[source_key: uhz1_xray_evidence_history] UHZ1 / UNCOVER-26185:** two
-  measurement versions preserve the original Bogdán et al. (2024) X-ray AGN
-  interpretation and the Zou et al. (2026) full-data reanalysis as one physical
-  object. Their source-archive SHA-256 values are
-  `d1446d873c81c0ee83f7cc1c0648d85f8a93b0967eb5d14ef7b46d0564ab2e6c`
-  and `04397db6d5e88983e650542bc6032735738edeb63c1310df15a215dcc68ed9ab`.
-  The companion Goulding et al. (2023) spectroscopy paper (ApJL 955 L24, DOI
-  `10.3847/2041-8213/acf7c5`, arXiv `2308.02750v3`) archive hashes to
-  `73628a4c4632871e6b3888b61f2e6cedf28ead1d1af7f45a20cac20f8988b729`.
-- The original 4.2--4.4 sigma claim is `candidate`; the current 2.3--2.9 sigma,
-  nonpersistent reanalysis is preferred and `disputed`. The nine MIRI upper
-  limits and bolometric limit are censored observables.
-- The published `10^7--10^8 Msun` Eddington-assumed range is not converted to a
-  canonical point mass. Both rows remain growth-ineligible. See
-  `docs/source-notes/uhz1-xray-evidence-history-extraction-notes.md` and
-  `docs/reference/catalogue-schema.md`.
-
-## v3 source: Scholtz JADES narrow-line candidates
-
-- **[source_key: scholtz25_jades_narrow_line_agn] Scholtz et al. (2025),
-  A&A 697, A175:** all 21 entries at `z >= 4` from the paper's 41-row source
-  table. The prose reports 42 candidates; that unresolved discrepancy is
-  retained as provenance rather than filled by inference.
-- Three S2-VO87 rows retain the paper's tentative asterisk and seven detected
-  Ne IV, Ne V, or N V fluxes are stored as observables. JADES DR3 supplies
-  target coordinates. Host masses use BEAGLE fits to the full corrected PRISM
-  spectra, as documented by the source.
-- JADES 8083 is linked to the existing broad-line physical object; the earlier
-  numeric-mass measurement remains preferred. No new row has a numeric BH
-  mass or enters growth ranking. See
-  `docs/source-notes/scholtz25-jades-narrow-line-extraction-notes.md` and
-  `docs/reference/catalogue-schema.md`.
-
-## v3 Scholtz provenance correction
-
-- The complete 41-row source-native TeX table proves that 21, not 20, rows meet
-  `z >= 4`. v3 includes the previously omitted
-  `JADES-NS-GS00099671` measurement with no inferred black-hole mass.
-- The source family therefore has 21 admitted measurements and 21 source
-  physical IDs. One row, JADES 8083, is linked to an existing broad-line object,
-  so the combined v3 object-class view contains 20 narrow-line candidate
-  objects contributed by this family.
-- The [version guide](../docs/guides/versioning.md) records current dataset counts;
-  the [schema guide](../docs/reference/catalogue-schema.md#preferred-measurements-and-object-aggregation)
-  defines evidence aggregation.
-
-## v3 heterogeneous evidence expansion reviewed 2026-09-03
-
-The following eleven source families contribute 78 identity-audited objects to
-v3 only. None publishes an unconditional black-hole mass suitable for the
-current growth calculation; proxy ranges, upper limits, and masses based on an
-assumed Eddington ratio remain contextual observables.
-
-- **[source_key: chisholm24_gn42437_nev] Chisholm et al. (2024):** GN-42437
-  is admitted as `probable` from its seven-sigma [Ne V] detection and joint
-  stellar-plus-AGN photoionization interpretation. The Bagpipes host mass is
-  canonical, while the method-dependent `log(MBH/Msun) ~ 5--7` range is
-  contextual.
-- **[source_key: tang25_high_ionization] Tang et al. (2025):** three new N V,
-  [Ne IV], or [Ne V] candidates are retained with line-identification and
-  ionizing-source uncertainty. Known overlaps are excluded, and no BH mass is
-  inferred.
-- **[source_key: mazzolari24_ceers_nlagn] Mazzolari et al. (2024):** 25 new
-  `z >= 4` CEERS narrow-line candidates are admitted from Table 3 after removing
-  two known overlaps. Source SED masses and narrow-line bolometric estimates
-  are retained; diagnostic ambiguity with extreme star formation remains
-  explicit.
-- **[source_key: meow26_miri_agn] Leung et al. (2026), MEOW:** 12 newly
-  identified MIRI SED-selected AGN or composite candidates are admitted.
-  CIGALE/SKIRTOR accretion luminosities and AGN fractions are preserved without
-  converting them to BH masses.
-- **[source_key: lyu24_smiles_miri_agn] Lyu et al. (2024), SMILES:** 19
-  JWST-only high-redshift MIRI candidates are admitted from machine-readable
-  Table 2. Prospector host masses and MIRI AGN-component luminosities retain the
-  source's high-redshift SED-selection caveat.
-- **[source_key: napolitano25_ghz9] Napolitano et al. (2025):** GHZ9 is
-  admitted as `probable` from its JWST high-ionization spectrum and Chandra
-  association. The luminosity-based BH estimate assumes Eddington accretion and
-  is therefore contextual rather than canonical.
-- **[source_key: zhang25_narrow_line_lrds] Zhang et al. (2026):** five
-  narrow-line LRD candidates are admitted from Tables 1--2. Their BH constraints
-  are line-width-based upper limits, not measured point masses.
-- **[source_key: chavezortiz26_ghz2] Chavez Ortiz et al. (2025/2026):** GHZ2 is
-  admitted as `probable` from joint spectral/photometric AGN modelling. Its BH
-  estimate assumes an Eddington ratio of 0.5 and carries an approximately
-  one-dex systematic, so it remains contextual. The 3 September 2026 review
-  pinned arXiv v2 and corrected the contextual log-mass value from 7.19 to 7.20;
-  this did not create a canonical growth mass.
-- **[source_key: mascia26_compact_blue_ble] Mascia et al. (2026):** eight new
-  compact blue broad-line emitters remain `candidate` because the source allows
-  AGN and stellar central-engine interpretations and publishes no object-level
-  BH masses.
-- **[source_key: treiber25_uncover_uv_emitters] Treiber et al. (2025):**
-  two new UNCOVER components are admitted from JWST/NIRSpec high-ionization
-  evidence after catalogue crossmatching. Neither has a canonical BH mass.
-- **[source_key: naidu26_mom_bhstar1] Naidu et al. (2026):** MoM-BH*-1 is
-  admitted as a gas-enshrouded broad-Hbeta accretor candidate at `z=7.7569`.
-  Its model/scattering-dependent mass range remains contextual rather than a
-  canonical growth mass.
-
-Row selection, source-table locations, methods, alias exclusions, and evidence
-decisions are documented in
-`docs/source-notes/heterogeneous-v3-expansion-extraction-notes.md`. Exact source
-versions, DOIs, archive hashes, and review dates are machine-readable in
-`data/source_provenance_registry.csv`.
-
-## NEXUS, COSMOS-3D, and Seven Wonders
-
-- **[source_key: zhuang25_nexus_wfss] Zhuang et al. (2025), NEXUS:** all 15
-  Table 1 objects at `z>=4` are admitted from the JWST/NIRCam WFSS broad-line
-  sample. Twelve have published Halpha virial masses. NX10835 resolves to the
-  existing massless Mascia candidate, leaving 14 new objects and 11 new
-  plottable objects while making that existing object plottable.
-- **[source_key: lin25_cosmos3d_blagn] Lin et al. (2025), COSMOS-3D:** all 13
-  JWST/NIRCam grism broad-Halpha/Hbeta AGN are new and retain their published
-  virial masses and asymmetric statistical errors. The directional 1--2 dex
-  scattering-bias warning remains a caveat rather than a fabricated symmetric
-  uncertainty.
-- **[source_key: napolitano25_seven_wonders] Napolitano et al. (2025):** GHZ4
-  and GHZ7 enter as massless high-ionization candidates. GHZ4 retains its
-  tentative-redshift status; GHZ7 retains its [NeV] and UV diagnostic evidence.
-  GHZ9 is already represented by the later dedicated analysis.
-
-These source-level heterogeneous datasets are assigned only to v3. Their September admission
-added 29 physical objects and 25 growth-eligible objects. Source decisions are
-in the [extraction note](../docs/source-notes/nexus-cosmos3d-seven-wonders-extraction-notes.md);
-current catalogue totals are in the [version guide](../docs/guides/versioning.md).
-
-The [mass/error and publication-version audit](../docs/source-notes/mass-error-and-publication-revision-audit.md)
-records complete numerical-mass validation, the Killi correction, and the
-Baccus revision sensitivity results.
-
-## Bounded October 2026 admission
-
-- [capers-lrd-z9 source values, full screen and admission basis](../docs/source-notes/capers-lrd-z9-extraction-notes.md).
-- [canucs-lrd-z86 source values, full screen and admission basis](../docs/source-notes/canucs-lrd-z86-extraction-notes.md).
-- [j1007-agn source values, full screen and admission basis](../docs/source-notes/j1007-agn-extraction-notes.md).
-- [macs0416-y1 source values, full screen and admission basis](../docs/source-notes/macs0416-y1-extraction-notes.md).
-- [sapphires-z847 source values, full screen and admission basis](../docs/source-notes/sapphires-z847-extraction-notes.md).
-
-Four Balmer mass families enter v2 and v3; SAPPHIRES is v3-only without a mass.
-The cutoff remains 2026-09-03; retrieval/admission was 2026-10-17. Modeling
-alternatives are correlated source observables, not independent objects.
+The [mass and publication-version audit](../docs/source-notes/mass-error-and-publication-revision-audit.md)
+records the Killi correction, numerical-mass validation, and Baccus revision
+comparison. Coordinate and context sources are identified by role in the registry.

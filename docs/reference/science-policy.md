@@ -1,178 +1,76 @@
-# Class-aware science policy
+# Scientific assumptions and limits
 
-The shared science layer consumes the canonical measurement and physical-object
-tables for each of v1, v2, and v3. Canonical counts below describe the full v3
-catalogue; manuscript comparisons apply the separate publication mask. It produces
-separate point and 10,000-draw uncertainty rankings for both views, a class/method summary, a complete exclusion audit,
-alternate-measurement sensitivity, a class-aware observational follow-up
-matrix, a source-family caveat summary, a source-level selection/completeness
-summary, and an executable science-policy table.
+The catalogue supports growth calculations and comparisons within compatible
+object classes and mass methods. Its heterogeneous selection does not support
+population fractions, number densities, or seed-channel frequencies. See
+[selection and completeness](selection-completeness.md).
 
-v3 also includes [compact results, assumption comparisons, field availability,
-and minimum seeds](catalogue-results.md), with the same sample and exclusion rules.
+## Growth assumptions
 
-Supported interpretation scopes are:
+The [model guide](model-menu.md) defines the growth equation and implemented
+scenarios. Baseline rankings, duty cycles, and seed-redshift maps use efficiency
+0.1 and matter-plus-Lambda cosmic ages. The v3 minimum-seed table and v4 include
+radiation; each [result table](catalogue-results.md) records its assumptions.
 
-- within object class;
-- within mass-comparability group;
-- within object class and mass-comparability group (primary); and
-- a global navigation order with no cross-class scientific claim.
-
-Pooled demographic inference is forbidden. The machine-readable selection
-registry leaves inverse weights unset unless a valid inclusion-probability model
-exists; none currently does. Source-reported mass errors are sampled
-without adding separate method systematics. ZS7's published 0.4-dex error
-already includes calibration scatter and is retained once. Other reported
-errors are not assumed to have purely statistical components. The 209-row exclusion audit is
-the union of 107 ineligible measurement rows and 102 ineligible object rows; all
-remain in the catalogue.
-
-The required-Eddington-ratio order differs from the composite navigation score.
-The latter combines two normalized growth diagnostics and a redshift term (see
-`_pressure_score` in `src/internal/compatibility/v7_science_core.py` and the
-[catalogue browsing score](../guides/catalogue-navigation-score.md)). The manuscript target table includes the eleven reference
-requirements above unity, sorted by `required_fedd_seed1e2` within the
-publication-primary sample: CAPERS-LRD-z9
-is first, UNCOVER-20466 second, and CANUCS-LRD-z8.6 third. In the manuscript
-expanded-sample order, these remain the top three, followed by GN-z11 and
-GS-20057765. The
-composite navigation score is separate from both scientific orders.
-
-Twelve NEXUS masses have no reported mass errors. Their repeated point
-values in the uncertainty CSVs have `mbh_uncertainty_mode` equal to
-`point_estimate_no_reported_mbh_error`. Probabilities and uncertainty ranks are
-unavailable; zero-width intervals are not statistical certainty. The Monte Carlo
-summary shows these objects as open diamonds in a separate "No error" row. The
-other 229 canonical objects (226 in the manuscript expanded sample) use
-equal-probability half-normal draws on each side of the
-central mass, scaled by the reported error. This approximates intervals, not
-source posteriors.
-
-Baseline ranks, duty cycles, and seed-redshift maps use epsilon=0.1. Growth
-tracks retain their stated constant efficiencies. Spin-separated Eddington-ratio
-maps and compatibility matrices use ideal Kerr thin-disk efficiencies below
-unity and `epsilon_eff = epsilon_spin*f*exp(1-f)` above unity. This illustrative
+Spin-separated accretion maps and compatibility matrices use ideal Kerr
+thin-disk efficiencies below an Eddington ratio of one and
+`epsilon_eff = epsilon_spin*f*exp(1-f)` above it. This illustrative
 photon-trapping rule assumes `f=1+ln(mdot)`, with accretion rate normalized by
-`L_Edd/(epsilon_spin*c^2)`. It is not a relativistic slim-disk or spin-evolution
-solution. Comparisons must preserve the distinction between these products.
+`L_Edd/(epsilon_spin*c^2)`. It does not model spin evolution, feedback, or gas
+supply. Growth tracks retain their stated constant efficiencies.
 
-`results/v3/tables/v3_followup_priority.csv` contains all 343 object records. Its 241
-growth-eligible rows receive both within-class and navigation-only ranks; the
-102 objects without a method-comparable canonical mass remain explicitly
-unranked. Follow-up classification treats the source quality labels `robust`
-and `secure` equivalently; primary eligibility and source consistency remain
-separate checks. `v3_source_caveat_summary.csv` contains one row for each of the 37
-admitted source families.
+Requirements depend strongly on these choices. Holding the reference assumptions
+fixed, changing efficiency from 0.1 to `1-sqrt(8/9)=0.05719` multiplies required
+rates by 0.54594 and leaves no central-mass requirements above unity in the
+expanded sample. This is parameter sensitivity, not a spin measurement or proof
+that the required fuel was available. Average rates also do not rule out brief
+super-Eddington episodes.
 
-Reproduce with:
+Fixed-history compatibility requires the seed mass to fall within the scenario's
+inclusive interval. A seed below its lower edge overgrows the object under that
+history; it is not excluded at every possible duty cycle. PBH-labelled mass
+ranges do not establish primordial formation or abundance; see the
+[v4 methods and limits](pbh-growth-v4.md).
 
-```bash
-mkdir -p /tmp/highz-catalogue-notebooks
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-catalogue-notebooks scripts/01_generate_science.ipynb
-.venv/bin/jupyter nbconvert --to notebook --execute --output-dir=/tmp/highz-catalogue-notebooks scripts/04_verify.ipynb
-```
+## Uncertainties
 
-## Scientific limits and what would change them
+Reported mass errors use 10,000 equal-side half-normal draws in log mass,
+with separate scales above and below the central value. The metadata label is
+`equal_side_half_normal_in_log_mbh`. These approximate quoted intervals rather
+than reconstruct source posteriors. Redshifts and scenario parameters remain
+fixed; the sampled fractions are conditional on those choices.
 
-The catalogue supports descriptive, within-class comparisons and conditional
-growth calculations. These limits do not prevent manuscript development, but
-must accompany interpretation of the results:
+Additional method systematics remain separate unless explicitly applied in a
+sensitivity test. ZS7's reported 0.4-dex error already includes calibration
+scatter. Source-model alternatives, such as dust corrections, are correlated
+interpretations of one measurement, not independent objects or posterior draws.
 
-| Limit | Current interpretation | Requirement for an extension |
-| --- | --- | --- |
-| Fixed growth assumptions | Reported-error probabilities hold at the stated seed mass/redshift, efficiency, merger factor and cosmology; they are not model-marginalized probabilities or probabilities of a seed origin. | Define justified parameter distributions and correlations, then propagate them jointly. Existing scenario maps illustrate sensitivity; they do not marginalize it. |
-| Approximate mass-error distributions | Equal-side half-normal draws reproduce quoted scales approximately, not full source posteriors. Method envelopes remain separate; twelve objects lack reported errors. | Obtain posterior information or justify and test alternative error models, including shared calibration effects. Never turn absent errors into certainty. |
-| Heterogeneous selection | Counts and navigation ranks describe the admitted sample; population fractions, number densities and seed-channel frequencies are unsupported. | Validate source-specific inclusion probabilities and parent populations, account for survey overlap, and only then enable the demographic gate. Missing selection information cannot be repaired by assigning arbitrary weights. |
-| Partial auxiliary-field and identity audit | Central redshifts and available coordinates pass source checks; three identity groups, redshift uncertainties, and auxiliary fields are not fully resolved or audited. | Extend the fixtures under the criteria in `data/validation/README.md`, prioritizing the remaining identity groups, redshift uncertainties, and auxiliary observables. |
-| Frozen measurement membership | Known new measurements, including the A2744-QSO1 direct-mass result, are not silently substituted into v1/v2/v3. | Follow the next-version admission work in `literature-scope.md`; distinguish new measurements from corrections to existing extracted values. |
+Twelve NEXUS masses lack reported errors. Their point values are retained with
+`mbh_uncertainty_mode=point_estimate_no_reported_mbh_error`; probabilities and
+uncertainty ranks are unavailable. The Monte Carlo figure shows them as open
+diamonds in a separate “No error” row.
 
-The growth law also compresses time-dependent feedback and accretion into
-average parameters. The ideal-spin endpoints and photon-trapping coupling are
-illustrative assumptions. Baseline ages neglect radiation; the v3 minimum-seed
-table and v4 calculations include it. Passing numerical integration tests validates
-implementation of those equations, not their adequacy for every physical model.
+## Samples, identities, and ranks
 
-## Sample and efficiency checks
+[Catalogue eligibility](catalogue-schema.md) and
+[publication selection](../../data/publication/README.md#sample-selection) have
+different purposes. Candidate, disputed, conditional, and mass-free records remain
+available even when excluded from numerical comparisons.
 
-The [publication selection guide](../../data/publication/README.md#sample-selection)
-records the manuscript cuts and sample sizes. GN-z11 is outside the primary
-sample; its UV estimator is not interchangeable with Balmer masses.
+Three [identity groups](../source-notes/redshift-identity-audit.md) remain open,
+so stored object IDs are not a validated unique-object census. The publication
+samples exclude all six affected records. Central redshifts and available
+coordinates pass independent source checks; redshift uncertainties, full
+posteriors, and auxiliary observables have partial coverage. See
+[validation coverage](../../data/validation/README.md).
 
-The reference 17-object expanded point tail is conditional on epsilon=0.1. Keeping all
-other reference assumptions fixed and using the implemented ideal non-spinning
-efficiency 1-sqrt(8/9)=0.05719 multiplies requirements by 0.54594, lowers the
-largest to 0.829, and leaves zero point requirements above unity. This is a
-parameter sensitivity, not a spin measurement or a claim of unique histories.
-`tests/test_manuscript_methods.py` checks this via independent algebraic scaling.
+Required-rate rankings order a stated growth requirement. The
+[browsing score](../guides/catalogue-navigation-score.md) and follow-up priorities
+are heuristics, without probabilistic calibration or measured information gain.
+Comparisons across incompatible mass methods or object classes are not justified
+by a shared position in a ranking.
 
-Compatibility requires the exact fixed-history seed to lie within an inclusive
-scenario interval; falling below its lower edge means overgrowth for that
-history, not exclusion of the seed family at every possible duty cycle. PBH
-labels are mass-range scenarios, not a primordial-abundance calculation.
-
-## Current identity audit status
-
-The [redshift/identity audit](../source-notes/redshift-identity-audit.md) checks all
-admitted central redshifts and available coordinates but identifies one conflicting duplicate
-group and two unresolved close neighbours. The 343 stored object IDs are not yet
-a validated unique-object census. Resolve these cases before readmitting their
-records or claiming final unique-object counts. The strict full-catalogue
-identity gate remains open. All six affected records are excluded from the
-manuscript samples, so these open cases do not block the stated conservative
-analysis; its separate exclusion and reproduction check must pass.
-
-## Interpretation and scope
-
-The reference above-Eddington tail lies at z=6.6214--10.603. The catalogue's
-median redshift does not make every member an early-growth tension. Present
-object-level mass/time requirements, with the publication-primary sample as the
-main comparable analysis and the expanded sample as additional context.
-
-The efficiency scaling is an algebraic consequence of the adopted growth law,
-not new black-hole physics. The contribution is the provenance-aware application,
-uncertainty and scenario comparison, and identification of informative targets.
-Zero point estimates above unity at epsilon=0.05719 neither rules out earlier
-super-Eddington episodes nor establishes an easy supply of fuel or a measured
-spin. Long near-Eddington duty cycles can remain physically demanding. Follow-up
-scores are heuristics, not calibrated expected information gain.
-
-The source cutoff is 3 September 2026, with the bounded five-family membership
-extension admitted on 17 October 2026; this is not a complete census of every
-JWST object or of later publications. Central redshifts and available coordinates
-are checked; redshift uncertainties, missing coordinates, full source posteriors,
-and all auxiliary observables are not exhaustively validated. The supplementary
-z-seed 30 versus 3400 comparison includes radiation in both cosmic ages but
-does not validate primordial seed formation or sustained gas supply.
-The main catalogue retains the matter-plus-Lambda age approximation; the
-manuscript quantifies its effect on the near-threshold results.
-Resolving identities is required before
-final unique-object counts; broader demographic modelling is required only if
-population claims are added.
-
-Generated uncertainty metadata uses `equal_side_half_normal_in_log_mbh` to match
-the sampler: equal side probabilities with separately scaled half-normal draws.
-
-## Manuscript selection
-
-Use the [publication membership mask](../../data/publication/README.md#sample-selection)
-for manuscript comparisons. Its evidence and identity cuts are additional to the
-catalogue's method and growth flags. Exclusion preserves the original catalogue
-and does not certify a unique-object census. Reference threshold counts and
-identity-sensitivity results are documented with that mask rather than duplicated
-here.
-
-## October 2026 source-model caveats
-
-The four added numerical objects preserve each source's adopted estimator and
-reported error scales. CAPERS, CANUCS, and J1007 enter the primary sample; the
-weak broad-line MACS0416-Y1 candidate enters only the expanded sample. SAPPHIRES
-has no published numerical black-hole mass and remains outside growth tests.
-Morishita's CANUCS evidence concerns the same object and contributes no extra
-canonical mass or source family.
-
-CAPERS dust alternatives and J1007's dust-corrected interpretation are correlated
-source-model alternatives, not independent measurements or sampled posterior
-components. CAPERS's broad systematic envelope is not converted to Gaussian
-scatter. CANUCS and Y1 masses are already lens-corrected and receive no second
-correction. These choices and source-specific limitations are recorded in the
-five extraction notes and `v3_admission_source_model_sensitivity.csv`.
+The [literature scope](literature-scope.md) defines membership and source-version
+choices. Reproduction checks establish implementation consistency; they do not
+validate mass estimators, resolve identities, or establish that an assumed growth
+history is physically achievable.

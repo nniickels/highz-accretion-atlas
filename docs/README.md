@@ -23,7 +23,6 @@
 
 - [Source bibliography](../data/sources.md)
 - [Independent validation coverage](../data/validation/README.md)
-- [Catalogue admission and identity decisions](source-notes/catalogue-decisions.md)
 - [Mass and publication-version audit](source-notes/mass-error-and-publication-revision-audit.md)
 - [Redshift and identity audit](source-notes/redshift-identity-audit.md)
 - [Source extraction notes](source-notes/)

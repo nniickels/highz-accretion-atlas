@@ -73,3 +73,7 @@ are not corrected for dust.
 - The LRD definition is the source-adopted Kocevski et al. (2024) photometric
   selection. LRD status is not treated as an AGN class or as independent proof
   of accretion.
+
+RUBIES-EGS-50052 is preferred over CEERS-2782 because the source favours its
+higher-signal-to-noise spectrum over the slit-loss measurement. Both measurements
+remain linked to the same physical object.
