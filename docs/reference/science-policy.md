@@ -26,9 +26,11 @@ expanded sample. This is parameter sensitivity, not a spin measurement or proof
 that the required fuel was available. Average rates also do not rule out brief
 super-Eddington episodes.
 
-Fixed-history compatibility requires the seed mass to fall within the scenario's
-inclusive interval. A seed below its lower edge overgrows the object under that
-history; it is not excluded at every possible duty cycle. PBH-labelled mass
+Fixed-history compatibility requires the calculated starting mass to fall within
+the tested seed-mass range. If the required mass is below that range, even its
+smallest seed would overgrow the object under the fixed history. If it is above
+the range, even its largest seed would fall short. These exclusions apply to
+the stated history, not every possible accretion rate or duty cycle. PBH-labelled mass
 ranges do not establish primordial formation or abundance; see the
 [v4 methods and limits](pbh-growth-v4.md).
 

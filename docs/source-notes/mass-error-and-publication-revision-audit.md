@@ -1,10 +1,11 @@
 # Numerical mass and publication-version audit
 
-The September audit below was reviewed 2026-09-04 against the pre-expansion
-edition `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. All 244 numerical mass measurements then admitted were compared
-with source-table central masses and both error bounds: 732 fields. The other
-243 measurements agree with their recorded source versions. Killi required a
-conversion correction; this changes no membership or headline count.
+Independent checks cover all 248 numerical mass measurements and both error
+bounds: 744 fields. All 37 source families have anchors, with 2,079 comparisons
+in total; some checks overlap. See [validation coverage](../../data/validation/README.md).
+
+The September audit identified the Killi conversion correction below. The
+October additions are included in the current coverage and results reported here.
 
 ## Killi J0647-1045
 
@@ -27,14 +28,11 @@ scatter. `reported_mass_error_scope` explicitly identifies this case and
 leaves other published components undecomposed rather than asserting that
 all source posteriors have the same statistical interpretation.
 
-Regenerated science tables replace `reported_statistical_errors_sampled` with
-`reported_mass_errors_sampled`, `statistical_error_model` with
-`reported_mass_error_model`, and `systematic_combined_with_statistical_error`
-with `additional_systematic_scatter_added`. The historical admission field
-`mbh_statistical_uncertainty_kind` remains for source-schema compatibility;
-its values describe source-reported uncertainty semantics and do not imply
-that calibration effects have been removed. Additional method envelopes stay
-separate. This is a documented output-schema correction.
+Science tables use `reported_mass_errors_sampled`, `reported_mass_error_model`,
+and `additional_systematic_scatter_added` to distinguish reported errors from
+added scatter. The legacy field `mbh_statistical_uncertainty_kind` retains
+source-defined error semantics; its name does not imply calibration effects
+have been removed. Additional method envelopes remain separate.
 
 ## Baccus publication sensitivity
 
@@ -58,34 +56,20 @@ rebuilt by `verify_versions`:
 - `results/v3/tables/v3_baccus_revision_summary.csv`: the frozen baseline and
   both published-value scenarios.
 
-All three scenarios retain the same top five by required Eddington ratio and
-14 objects with point/median required f_Edd>1, 10 above unity at p16, 15 at p84,
-and 8 with P(f_Edd>1)>=0.95. The unmatched-omitted scenario has 232 numerical
-objects instead of 237. Individual lower-ranked values and ranks can change.
+All three scenarios have 17 central/median requirements above unity, 13 at p16,
+19 at p84, and 11 with P(f_Edd>1)>=0.95. The baseline and unmatched-retained
+scenarios contain 241 numerical objects; omitting unmatched rows leaves 236.
+Their top five are CAPERS-LRD-z9, UNCOVER-20466, CANUCS-LRD-z8.6, GN-z11,
+and GS-20057765. Individual lower-ranked values and ranks can change.
 
-The headline conclusions are robust to these tested substitutions. Retain the
-versioned frozen catalogue plus this sensitivity result for the current draft.
-A future full publication re-admission would also review newly listed objects,
-classification changes and selection; that is outside this explicitly bounded
-measurement-version test. These counts are not demographic estimates.
+The conservative publication baseline contains 223 primary and 238 expanded
+objects. Central/p16/probability threshold counts are 11/9/8 and 17/13/11,
+respectively. The
+[publication comparison](../../results/for_manuscript/tables/publication_baccus_revision_summary.csv)
+applies the evidence and identity exclusions to each substitution scenario.
 
-## October 2026 extension
-
-The bounded five-family admission adds four numerical mass measurements, bringing
-the independent mass/error coverage to 248 measurements and 744 fields. All
-37 families have source anchors, with 2,079 comparisons in total. The five new
-extraction notes document the adopted masses, correlated alternatives, lensing
-assumptions, and candidate or mass-free cases. The September Killi correction
-and Baccus source-matching results above remain unchanged.
-
-The regenerated v3 Baccus sensitivity scenarios contain 241 numerical objects
-when unmatched frozen rows are retained and 236 when those five rows are omitted.
-All three scenarios now give 17 central/median requirements above unity, 13 at
-p16, 19 at p84, and 11 with conditional probability at least 0.95. Their top five
-are CAPERS-LRD-z9, UNCOVER-20466, CANUCS-LRD-z8.6, GN-z11, and GS-20057765.
-The conservative publication samples remain 223 primary and 238 expanded; their
-central/p16/probability threshold counts are 11/9/8 and 17/13/11.
-
-These are conditional measurement-version comparisons, not population estimates.
-Current numerical results are in `results/v3/tables/v3_baccus_revision_summary.csv`
-and `results/for_manuscript/tables/publication_baccus_revision_summary.csv`.
+These results test measurement revisions at fixed classifications and selection;
+they do not admit newly listed objects or establish population fractions.
+The original preprint measurements remain canonical. The
+[current catalogue summary](../../results/v3/tables/v3_baccus_revision_summary.csv)
+records the scenario counts and settings.

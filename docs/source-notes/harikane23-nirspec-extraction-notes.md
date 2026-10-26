@@ -22,7 +22,7 @@ luminosity, broad/narrow ratio, broad FWHM, black-hole mass, bolometric
 luminosity, Eddington ratio, and host stellar mass information with asymmetric
 errors. Linear mass and luminosity values are retained alongside deterministic
 log transforms. Four host values are upper limits; they remain in
-`log_mstar_upper_limit_msun` and do not populate the canonical measured-Mstar
+`log_mstar_upper_limit_msun` and leave the canonical measured-Mstar
 field.
 
 The paper states that the stellar-mass systematic from the fixed SED-fitting

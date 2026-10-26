@@ -88,12 +88,11 @@ pre-expansion catalogue entry.
 line fluxes, limits, and equivalent widths for N V emitters CEERS-1025
 (z = 8.7166) and CEERS-7902 (z = 6.9827). Appendix A adds tentative GS-81034
 ([Ne V], z = 5.3904) and GS-20025526 ([Ne IV], z = 7.9507), and revisits
-GN-42437 and GN-z11. Preserve the unusual single-component N V identification
-and the tentative neon detections explicitly.
+GN-42437 and GN-z11. The unusual single-component N V identification and
+tentative neon detections remain explicit caveats.
 
 CEERS-7902 is identified in the paper as RUBIES-55604: the current catalogue
-already has RUBIES-EGS-55604. Treat this as new evidence for an existing
-object. GN-z11 is also already present. CEERS-1025 and the two tentative GS
+already has RUBIES-EGS-55604. This is new evidence for an existing object. GN-z11 is also already present. CEERS-1025 and the two tentative GS
 sources have no nearby match in the coordinate screen. The parent
 spectroscopic sample is not admitted as AGN candidates.
 
@@ -121,7 +120,7 @@ recovered from the source survey, with all asterisks and missing values retained
 **Admission role: obscured and composite systems after row-level discovery audit.** Table 3 lists 16 sources at
 z ~ 4.5–7.2, with coordinates, redshift provenance, luminosities, AGN fractions,
 and aliases. The analysis separates ten AGN-dominated from six composite
-systems. Keep the MIRI SED selection distinct from spectroscopic AGN evidence.
+systems. MIRI SED selection is recorded separately from spectroscopic AGN evidence.
 No BH mass column is supplied.
 
 Table 3 agrees with the abstract in listing 12 spectroscopic and four
@@ -143,9 +142,9 @@ machine-readable form and includes coordinates, redshift type, luminosity,
 stellar mass, and selection codes. These add SED-selected obscured candidates,
 not automatically narrow-line or spectroscopically confirmed AGN.
 
-Crossmatch against JADES/FRESCO and MEOW, preserve photo-z versus spec-z, and
-retain SED-model ambiguity. Do not derive canonical BH masses from luminosity
-by assuming an Eddington ratio. The SMILES general photometry/spectroscopy
+The extraction checks overlap with JADES/FRESCO and MEOW, distinguishes
+photometric from spectroscopic redshifts, and records SED-model ambiguity.
+No canonical black-hole mass is derived by assuming an Eddington ratio. The SMILES general photometry/spectroscopy
 release is useful supporting data, not itself a table of confirmed AGN.
 The paper reports that 19 of its 20 high-z candidates are identified only by
 the JWST/MIRI SED analysis and one was already selected by pre-JWST methods.
@@ -160,8 +159,8 @@ whose original identification does not satisfy the project boundary.
 
 **Admission role: combined X-ray and UV evidence at z = 10.145.** Table 1 supplies
 UV/optical line measurements and limits; the analysis also discusses Chandra
-association and lensing. [Ne IV] and [Ne V] are upper limits, so GHZ9 must not
-be labelled a neon-line detection. Its UV diagnostics admit mixed stellar
+association and lensing. [Ne IV] and [Ne V] are upper limits, not neon-line
+detections. Its UV diagnostics admit mixed stellar
 and AGN contributions.
 
 Published luminosity-based BH estimates assume an accretion rate relative to
@@ -178,7 +177,7 @@ spectral-model, and magnification uncertainties.
 five objects at z = 4.985–6.785, rather than requiring broad Balmer emission.
 They form a narrow-line LRD subset with explicit alternatives involving
 compact star formation. The revised mass discussion treats the BH estimates
-as conditional upper limits; these must not become measured point masses.
+as conditional upper limits rather than measured point masses.
 
 The extraction uses v2, whose revision specifically changes the mass-upper-limit analysis.
 Source-native measurements are in Tables 1–2, and the authors release data

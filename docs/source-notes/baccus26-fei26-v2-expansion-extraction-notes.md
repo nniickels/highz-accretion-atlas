@@ -42,8 +42,8 @@ DOI `10.3847/1538-4357/ae7de7`. The archived source payload has SHA-256
 The frozen Baccus measurements and screen refer to arXiv v1 Table 1. The
 2026-09-04 independent audit checked coordinates, redshifts, masses, mass
 uncertainties, and bolometric luminosities for all 49 admitted rows. The final
-publication (v2) revises the table; its publication status must not be confused
-with the measurement version. Adopting revised values needs a documented
+publication (v2) revises the table; publication status and adopted measurement
+version are recorded separately. Adopting revised values needs a documented
 reanalysis. This correction changes provenance, not catalogue numbers.
 
 ## Fei et al. (2026)

@@ -6,7 +6,7 @@ catalogue admission. The dated identity screen uses the pre-expansion catalogue.
 
 ## Source version and publisher correspondence
 
-Adopt [Taylor et al., arXiv:2505.04609v4](https://arxiv.org/html/2505.04609v4),
+The adopted source is [Taylor et al., arXiv:2505.04609v4](https://arxiv.org/html/2505.04609v4),
 dated 24 June 2025. The arXiv history identifies v4 as the accepted ApJL revision,
 adding referee changes and the flexible-dust appendix; there is no later arXiv
 revision in the retrieved record. All measurement fields here use v4 alone.
@@ -56,7 +56,7 @@ The original source target is **CAPERS-LRD-z9**, explicitly aliased in II.1 to
 **CAPERS-COSMOS-119334**. Three MSA configurations and 18 exposures are repeated
 observations of this one object. Table 1 gives RA=150.1362532 deg,
 Dec=2.3080298 deg; the paper does not explicitly name a coordinate frame/equinox.
-Preserve this missing frame statement rather than inventing ICRS provenance.
+The catalogue therefore leaves the source coordinate frame unspecified.
 
 Both v2 and v3 measurement and object tables and their alias tables were searched
 for the target IDs, and every measurement with coordinates was compared by a
@@ -76,8 +76,7 @@ measurement, zero matches to existing catalogue objects. The canonical IDs are
 `CAPERSLRDz9_taylor25`, `HZA-CAPERS-LRD-Z9`, and `HZS-CAPERS-LRD-Z9` for the
 measurement, physical object, and host, respectively. `capers_lrd_z9_identity_checks.json`
 records the exact inspected input hashes, nearest rows, and missing-coordinate
-records. It is a dated source assessment, not a requirement to keep future
-catalogue hashes unchanged after admission.
+records for the catalogue used in that assessment.
 
 ## Published mass, errors, and independent alternatives
 
@@ -95,10 +94,9 @@ no linear-to-log error conversion is needed. The source adopts this canonical,
 uncorrected-for-dust estimate for its later comparisons.
 
 The source separately discusses additional high-redshift systematics as large
-as **0.5–0.7 dex**. Preserve that range and its meaning. Do not substitute its
-midpoint as a measured Gaussian error, add it automatically to the quoted
-0.15 dex, or silently assign one scalar `log_mbh_systematic_dex`. A dedicated
-sensitivity calculation can adopt explicit assumptions later.
+as **0.5–0.7 dex**. This is an applicability range, not a measured Gaussian
+error. It remains separate from the quoted 0.15 dex; the scalar
+`log_mbh_systematic_dex` is missing.
 
 | Estimate in IV.2 | Reported value (log10 Msun) | Meaning and catalogue treatment |
 | --- | --- | --- |
@@ -117,19 +115,19 @@ virial mass. No bound or envelope is sampled by this extraction.
 
 ## Lines, dust, dense gas, and missingness
 
-Adopt the Table 1/III.2 intrinsic broad Hbeta FWHM **3521 +/- 502 km/s**, and
+The adopted Table 1/III.2 intrinsic broad Hbeta FWHM is **3521 +/- 502 km/s**, and
 observed broad Hbeta flux **140 +/- 14.6** in units of **10^-20 erg/s/cm^2**.
 The forward fit includes wavelength-dependent line-spread convolution, with the
 nominal spectral resolving power increased by a factor 1.7 for a point source.
-Do not correct the intrinsic FWHM for the instrument again. Hbeta is detected
+The fitted width already accounts for instrumental resolution. Hbeta is detected
 at approximately S/N=10; the [O III] doublet at combined S/N approximately 4.2
 anchors the adopted **spectroscopic z=9.288 +/- 0.003**. Hgamma is blended with
 [O III]4363, with its widths fixed from the Hbeta fit; broad Hgamma S/N is
 approximately 4.8. Broad Hgamma flux is 45.9 +/- 9.5 in the same units.
 
 The Table 1 limits on narrow Hgamma (<7.1), narrow Hbeta (<62.7), and absorption
-Hbeta flux (>-69.1) are **2-sigma limits**, per the table footnote. Preserve
-negative absorption-flux signs and inequality directions. Absorption and narrow
+Hbeta flux (>-69.1) are **2-sigma limits**, per the table footnote.
+Negative absorption-flux signs and inequality directions are retained. Absorption and narrow
 Hbeta are individually statistically insignificant and degenerate; their
 inclusion models covariance, not secure absorption evidence.
 
@@ -138,12 +136,11 @@ Two internal source discrepancies are retained explicitly:
 - Absorption Hbeta FWHM is **282 +/- 159 km/s in Table 1**, but **413 +/- 255**
   in III.2. This auxiliary field is not used in the mass or eligibility decision.
 - VI's first summary bullet gives broad Hbeta FWHM **3525 +/- 589 km/s**,
-  while Table 1 and III.2 agree on **3521 +/- 502**. Adopt the detailed table
-  and fitting passage, without averaging or replacing the published mass.
+  while Table 1 and III.2 agree on **3521 +/- 502**. The catalogue uses the
+  detailed table and fitting passage, retaining the published mass.
 
-The broad-line Hbeta/Hgamma decrement is reported as 3.5 +1.7/-0.9; do not
-replace it with the ratio of rounded central flux cells, since posterior ratios
-and central-value ratios need not agree. Case B (intrinsic ratio 2.14) plus
+The reported broad-line Hbeta/Hgamma decrement, 3.5 +1.7/-0.9, is retained.
+Posterior ratios can differ from the ratio of rounded central flux cells. Case B (intrinsic ratio 2.14) plus
 an SMC law implies AV,BLR=1.9 +1.3/-1.2, but Case B may fail in dense,
 collisionally excited gas. The source notes the dust estimates differ at about
 1.3 sigma. The canonical mass receives neither correction.
@@ -158,15 +155,14 @@ It improves the MIRI residual but requires an implausibly steep attenuation law;
 it does not create another object or adopted black-hole mass.
 
 The host stellar-mass value is **log(Mstar/Msun)<9.0**, with possible further
-AGN contamination of the UV. Store as an upper limit, leaving canonical
-stellar mass and its errors missing. Do not interpret it as a detection at 9.0.
+AGN contamination of the UV. It is stored as an upper limit; canonical
+stellar mass and its errors are missing.
 No canonical numeric Lbol, measured instantaneous Eddington ratio, or lensing
-magnification is supplied by Table 1. Leave these missing; the lower-mass-limit
+magnification is supplied by Table 1. These remain missing; the lower-mass-limit
 calculation's assumed fEdd=1 is not an observed Eddington ratio. No source
 magnification correction is described for this ordinary PRIMER-COSMOS field.
 The catalogue uses `lensing_status=not_reported`, blank mu, and
-`lensing_mass_correction_status=not_required`, with this field-context rationale;
-do not fabricate mu=1 or apply a demagnification.
+`lensing_mass_correction_status=not_required`, with this field-context rationale. No magnification value or correction is inferred.
 
 ## Canonical mapping and eligibility
 
@@ -199,9 +195,8 @@ Source caveat tags: `prism_resolution`, `virial_calibration_high_redshift`,
 `gas_enshrouded_lrd`, `dust_alternative_masses_correlated`,
 `assumed_eddington_bound_context_only`, `source_auxiliary_width_discrepancy`,
 `source_summary_width_discrepancy`, `host_mass_upper_limit`,
-`coordinate_frame_unreported`. Any controlled tag naming should follow the final
-registry. The alternate mass rows should enter source-local observables or a
-sensitivity input, not increase preferred measurement/object cardinalities.
+`coordinate_frame_unreported`. Alternative masses are source-local observables
+and sensitivity inputs for the same object.
 
 Source-family registry facts: JWST NIRCam LRD selection followed by
 CAPERS/NIRSpec-PRISM confirmation; source-native Hbeta virial mass; one new
@@ -246,9 +241,3 @@ this check does not re-inspect the external paper or its publication metadata.
 The explicitly unreported coordinate frame, auxiliary width conflicts, and
 high-z virial/dust/gas model limitations remain source caveats. Shared registries,
 processed products, manifests, and publication outputs include the adopted source.
-
-## Reviewed canonical admission
-
-Admitted 17 October 2026 at the unchanged 3 September 2026 cutoff.
-Final measurement `CAPERSLRDz9_taylor25`, physical object `HZA-CAPERS-LRD-Z9`, host `HZS-CAPERS-LRD-Z9`.
-Membership: **v2 and v3; primary and expanded numerical samples**. Adopted semantics: 7.58 +/- 0.15 dex; no dust correction or scalar added systematic.

@@ -14,8 +14,8 @@ The count remains provisional until the three cases below are resolved.
 
 | Group | Evidence and disposition |
 | --- | --- |
-| GS-30148179 / SMILES-MIRI-2743 | Source positions agree to 0.004 arcsec, z=5.922/5.920. Both measurements now share the JADES physical/host ID; retain the JADES mass-bearing preferred row and SMILES SED evidence as an alternate. |
-| RUBIES-EGS-927271 / DJA-8219 | Source positions agree to 0.026 arcsec, z=6.786/6.785. Both measurements share the RUBIES physical/host ID; retain its mass-bearing preferred row and the alternate narrow-line interpretation. |
+| GS-30148179 / SMILES-MIRI-2743 | Source positions agree to 0.004 arcsec, z=5.922/5.920. Both measurements now share the JADES physical/host ID; the JADES mass-bearing row is preferred and SMILES SED evidence remains an alternate. |
+| RUBIES-EGS-927271 / DJA-8219 | Source positions agree to 0.026 arcsec, z=6.786/6.785. Both measurements share the RUBIES physical/host ID; the mass-bearing row is preferred and the narrow-line interpretation remains an alternate. |
 
 The audit fixture records these decisions separately from the assembly registry;
 verification checks their consistency. Matching thresholds for other targets were
@@ -61,11 +61,11 @@ These supporting coordinate references do not replace admitted redshifts.
 
 ## Open scientific identity groups
 
-| Group | Evidence | Required disposition |
+| Group | Evidence | Unresolved question |
 | --- | --- | --- |
-| Baccus GDS_1210_9515 / JADES GS-8083 / Scholtz 00008083 | 0.014–0.024 arcsec; z=4.6477/4.753/4.665 | Likely duplicate group missed by the delta-z cut. Reconcile source target identifiers, spectra/redshift versions and preferred mass before merging. |
-| JADES GS-10013704 / Scholtz 00099671 | 1.332 arcsec; delta-z=0.017 | Inspect source imaging and aperture/target definitions; proximity alone cannot decide distinct galaxies versus components/images. |
-| Scholtz 00016745 / 00208643 | 0.612 arcsec; delta-z=0.008 | Inspect imaging and aperture definitions before treating distinct target IDs as distinct astrophysical objects. |
+| Baccus GDS_1210_9515 / JADES GS-8083 / Scholtz 00008083 | 0.014–0.024 arcsec; z=4.6477/4.753/4.665 | Likely duplicate missed by the delta-z cut; source target identifiers, spectra/redshift versions, and preferred mass are not reconciled. |
+| JADES GS-10013704 / Scholtz 00099671 | 1.332 arcsec; delta-z=0.017 | Imaging and aperture/target definitions have not established distinct galaxies versus components/images. |
+| Scholtz 00016745 / 00208643 | 0.612 arcsec; delta-z=0.008 | Imaging and aperture definitions have not established whether distinct target IDs represent distinct astrophysical objects. |
 
 The existing CEERS repeated measurements, GS-204851/GOODS-S-13971, NX10835/Mascia,
 and UHZ1 links are supported. Ren's DC_848185_a and _b remain explicitly distinct
@@ -75,8 +75,8 @@ legitimate historical measurements, not a transcription discrepancy.
 Each resolved pair includes a mass-free contextual row, so those reconciliations
 change object/class/coverage counts without adding a mass or changing the
 reference high-pressure tail. The Baccus group
-also involves competing masses and redshifts: regenerate and reassess after a
-preferred-measurement decision; do not assume all object-level summaries survive.
+also involves competing masses and redshifts; resolving its preferred
+measurement could change object-level results.
 
 ## Executable checks
 
@@ -94,11 +94,10 @@ exclusion check, described below. A green regression or reproduction run is
 not a claim that these groups have been resolved.
 
 `data/validation/redshift_identity_checks.json` is pinned in the source-provenance
-manifest. To extend it, retrieve the recorded URL, verify its archive/member hash,
-review the source row and coordinate convention, and independently record the
-expected value and evidence. Resolve each identity decision using the sources,
-then update the reviewed pair disposition and regenerate affected products.
-Do not silently increase match thresholds or derive expectations from outputs.
+manifest. It records independently read source values, coordinate conventions,
+archive/member hashes, and reviewed pair decisions. The
+[validation guide](../../data/validation/README.md#extend-the-checks) describes
+how source checks are extended.
 
 Primary references: [Mascia Table 2 and GS-3073 discussion](https://arxiv.org/html/2608.25021v1),
 [official JADES DR3 coordinate catalogue](https://archive.stsci.edu/hlsps/jades/dr3/goods-s/catalogs/hlsp_jades_jwst_nirspec_goods-s_prism-line-fluxes_v1.1_catalog.fits),
@@ -111,18 +110,18 @@ Individual pair evidence is linked through the fixture's measurement source reco
 - **Baccus/JADES 8083:** the retained Baccus v1 source table explicitly gives
   GDS_1210_9515 at z=4.6477 and log(MBH/Msun)=5.59; Scholtz explicitly identifies
   8083 as a previously known type-1 target, but these do not settle the conflicting
-  source redshifts or preferred mass. Obtain a program/target crosswalk and inspect
-  the associated spectra before merging. Do not average the masses or substitute
-  a different publication version silently.
+  source redshifts or preferred mass. A program/target crosswalk and the
+  associated spectra are needed to decide whether these are the same source
+  and which measurement is preferred.
 - **99671 / 10013704 and 16745 / 208643:** the source sample treats these as
   separate NIRSpec targets in programs 1210/3215. Target IDs, line diagnostics,
   angular proximity and similar redshifts alone do not settle distinct hosts
-  versus components or repeated apertures. Review NIRCam segmentation/cutouts
-  with the NIRSpec shutter footprints before assigning a shared identity.
+  versus components or repeated apertures. NIRCam segmentation/cutouts and
+  NIRSpec shutter footprints are needed to distinguish those possibilities.
 
 Available source-table and source-text checks did not supply that decisive
-imaging/spectral evidence. These remain actionable scientific review tasks, not
-resolved cases or test failures to suppress. The ordinary `identity_resolution_status`
+imaging/spectral evidence, so the cases remain unresolved. The ordinary
+`identity_resolution_status`
 field records the existing assembly decision; this audit is the stricter check
 of independently established astrophysical uniqueness.
 
