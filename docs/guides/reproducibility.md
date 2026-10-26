@@ -61,18 +61,16 @@ results, and the CSV tables and PNG figures in `results/for_manuscript/`:
   may differ by at most 3 out of 255, allowing measured cross-platform rendering
   roundoff. There is no averaging, resizing or alignment. Use `--exact-pixels`
   with `src.internal.verify_regenerated_artifacts` for identical renderers.
-- Canonical figures have PNG exports only. Manuscript PDF dependencies are
-  generated separately for `paper/`; their packaged versions are independently
-  compared by decoded contents, allowing compression and object numbering to differ.
+- Canonical figures have PNG exports only. Retained PDF verification fixtures
+  are compared by decoded contents, allowing compression and object numbering to differ.
 - Missing or unexpected artifacts fail verification.
 
 CI removes generated artifacts in a disposable workspace, runs all five notebooks,
 and compares the results against the original checkout. It also runs the regression
 suite, source checks, publication figure verification, and a package build/import check.
 Manuscript editing and compilation are separate from analysis regeneration.
-The [manuscript file guide](../../results/for_manuscript/README.md#manuscript-files)
-identifies both draft editions and the public source package. A fresh checkout
-can verify the general draft PDF and Overleaf ZIP without LaTeX:
+Draft manuscripts: Coming soon. Retained paper files support regression checks;
+they can be verified without LaTeX:
 
 ```bash
 .venv/bin/python -m src.internal.package_overleaf --verify
@@ -80,8 +78,7 @@ can verify the general draft PDF and Overleaf ZIP without LaTeX:
 
 This checks source/PDF integrity, dependencies, and section order. It does not
 rebuild scientific outputs or require byte-identical PDF compilation across
-platforms. The Ap&SS source has additional unbundled compilation dependencies;
-its readable PDF is tracked.
+platforms.
 
 ## Scientific checks
 
@@ -253,11 +250,9 @@ UNCOVER-20466, CANUCS-LRD-z8.6, and GN-z11.
 
 The preceding poster edition and its scientific inputs are recoverable from Git
 revision `fc0c5501ad2271865b1c040307cad8dd8ca5721a`. Current posters use only
-the canonical input paths pinned in `data/poster_inputs.json`. Both draft
-manuscripts use the expanded results:
-the general draft PDF/Overleaf ZIP and the journal-formatted Ap&SS source/PDF.
-Manuscript PDFs and upload ZIPs must be rebuilt separately from the science
-notebooks.
+the canonical input paths pinned in `data/poster_inputs.json`.
+Draft manuscripts: Coming soon. Manuscript editing and compilation remain
+separate from the science notebooks.
 
 The expanded catalogue and scientific products are recorded at
 `a1bef516db5c76a92b6848eb12bccabdeb5804b9`. The Ap&SS manuscript cites this

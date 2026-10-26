@@ -40,7 +40,7 @@ from the required-accretion-rate ranking; see the
 - `internal/shared_results.py` shares unchanged plots across versions using their
   rendering inputs. Map paths are listed in each version's visual-coverage table.
 - `internal/package_overleaf.py` packages the local manuscript source.
-  Its `--verify` mode checks the public draft PDF and source ZIP without LaTeX
+  Its `--verify` mode checks retained PDF and source-ZIP fixtures without LaTeX
   or local manuscript files.
 - `internal/poster_figures.py`, `poster_layout.py`, and
   `verify_poster_exports.py` rebuild poster figures, preserve reviewed layouts,

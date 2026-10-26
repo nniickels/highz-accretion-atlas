@@ -21,8 +21,8 @@ object summary, assumption comparisons, field availability, and minimum seeds.
 
 Publication samples use the [evidence and identity rules](../data/publication/README.md).
 Their figures remain separate from the full-catalogue figures. Manuscript editing,
-LaTeX compilation, and upload packaging are outside the notebook workflow; see
-[manuscript outputs](../results/for_manuscript/README.md#manuscript-files).
+LaTeX compilation, and upload packaging are outside the notebook workflow.
+Draft manuscripts: Coming soon.
 
 ## Optional v4 analysis
 
