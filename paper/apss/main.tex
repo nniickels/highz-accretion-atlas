@@ -1,154 +1,124 @@
-\documentclass[11pt]{article}
-\usepackage[margin=0.78in]{geometry}
-% Keep placement notes inside the printable margin, with space from the text.
-\setlength{\marginparwidth}{40pt}
-\setlength{\marginparsep}{6pt}
+\documentclass[pdflatex,sn-basic]{sn-jnl}
+% Official Springer Nature author template v3.1 (December 2024).
+% Single-column submission layout; production determines the published layout.
 \usepackage{amsmath,amssymb,booktabs,graphicx,microtype,xcolor}
-\usepackage[authoryear,round]{natbib}
-\bibpunct{(}{)}{;}{a}{}{,}
-% Match AAS's default short bibliography (article titles are kept in the .bib).
+\usepackage{capt-of,enumitem,longtable,array,placeins}
+\providecommand{\bibinfo}[2]{}
 \renewcommand{\bibinfo}[2]{}
-\setlength{\bibsep}{3pt}
-\renewcommand{\bibfont}{\interlinepenalty=10000\urlstyle{same}}
-\usepackage[hidelinks]{hyperref}
-\usepackage[font=small,labelfont=bf,hypcap=false]{caption}
-\usepackage{enumitem,longtable,array}
-\usepackage{placeins}
-% Keep float-only pages aligned with the text block.
+\hypersetup{hidelinks}
+% Keep journal placement notes in the right margin on both odd and even pages.
+% This changes note placement only; the publisher's page geometry is retained.
 \makeatletter
-\setlength{\@fptop}{0pt}
-% Use a fixed gap between floats rather than stretching it to fill the page.
-\setlength{\@fpsep}{24pt}
-\setlength{\@fpbot}{0pt plus 1fil}
+\@mparswitchfalse
 \makeatother
+\normalmarginpar
+\raggedbottom
 \widowpenalty=10000
 \clubpenalty=10000
 \setlength{\emergencystretch}{2em}
-\definecolor{atlasblue}{HTML}{176B87}
-\hypersetup{colorlinks=true,linkcolor=atlasblue,citecolor=atlasblue,urlcolor=atlasblue}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
-\renewcommand{\topfraction}{0.95}
-\renewcommand{\bottomfraction}{0.9}
-\renewcommand{\textfraction}{0.05}
-\renewcommand{\floatpagefraction}{0.75}
-\setlist[itemize]{leftmargin=1.3em,itemsep=2pt,topsep=3pt}
 \newcommand{\fedd}{f_{\mathrm{Edd}}}
 \newcommand{\mbh}{M_{\mathrm{BH}}}
 \newcommand{\mseed}{M_{\mathrm{seed}}}
+% Local table fragments are expanded into the single uploaded manuscript.
 \newcommand{\tableinput}[1]{\csname @@input\endcsname #1 }
 
-\title{\textbf{Early Giants: Black-Hole Growth Constraints from JWST}}
-\author{Nicole Jiang\\[3pt]
-\small Astronomy \& Physics, University of Toronto, Toronto, Canada\\
-\small Corresponding author: \href{mailto:nicolejitong.jiang@mail.utoronto.ca}{nicolejitong.jiang@mail.utoronto.ca}}
-\date{}
-
 \begin{document}
+\articletype{Research article}
+\title[High-redshift black-hole growth requirements]{Growth Requirements for High-Redshift Black Holes: A JWST-Era Catalogue}
+\author*{\fnm{Nicole} \sur{Jiang}}\email{nicolejitong.jiang@mail.utoronto.ca}
+\affil{\orgdiv{Astronomy \& Physics}, \orgname{University of Toronto},
+\orgaddress{\city{Toronto}, \state{Ontario}, \country{Canada}}\par
+ORCID: \href{https://orcid.org/0009-0002-3442-5237}{0009-0002-3442-5237}}
+
+% Reset math weight after the template has typeset the abstract heading.
+\abstract{\unboldmath
+Spectroscopy with the James Webb Space Telescope (JWST) extends black-hole
+mass measurements into the early Universe, when black holes had less time to
+grow. We test which combinations of seed mass, accretion rate, starting time,
+radiative efficiency, and merger contribution can reproduce these masses
+within the available time. We present a catalogue of 18,207,000 growth
+calculations for 238 black holes and candidates studied with JWST at
+$z\geq4$. The catalogue provides required accretion rates, seed masses,
+and duty cycles, with each result linked to its adopted published measurement.
+The primary sample contains 223 objects with broad Balmer-line mass estimates;
+the expanded sample includes tentative or conditional candidates and GN-z11.
+We propagate reported mass errors with Monte Carlo sampling and test systematic
+mass shifts and alternative measurements.
+For $100\,M_\odot$ seeds formed at $z=30$, radiative efficiency $\epsilon=0.1$,
+and no mergers, eleven primary objects require lifetime-average Eddington
+ratios above unity. Eight exceed unity in at least 95\% of mass draws;
+five retain this threshold after reducing masses by 0.5 dex. The reported mass
+errors differ in whether they include calibration uncertainty. Reducing only
+the efficiency to $\epsilon=0.05719$, corresponding to a non-spinning black hole,
+allows all 238 central mass estimates to be reached without
+lifetime-average accretion above the Eddington limit. The most demanding objects challenge
+standard assumptions about early black-hole growth and are priorities for
+independent mass measurements and tests of seed formation, gas supply, and
+accretion histories.}
+
+\keywords{Supermassive black holes, Accretion, Active galactic nuclei, High-redshift galaxies, Astronomical catalogs}
+
 \maketitle
-\noindent\textbf{Article type:} Research article\\
-\textbf{Running title:} Early black-hole growth constraints
-
-
-\begin{abstract}
-Massive black holes observed with the James Webb Space Telescope (JWST)
-constrain early growth models. We compile 355 published measurements at
-$z\geq4$ and analyse 223 objects with broad Balmer-line masses. An expanded
-sample adds 14 tentative or conditional Balmer-line candidates and GN-z11,
-whose mass is inferred from ultraviolet lines. We propagate reported mass
-uncertainties and test mass-scale shifts, alternative measurements, and growth
-assumptions. For $100\,M_\odot$ seeds formed at $z=30$, radiative efficiency
-$\epsilon=0.1$, and no mergers, eleven primary objects require lifetime-average
-Eddington ratios above unity. Eight exceed unity in at least 95\% of Monte Carlo
-draws. CAPERS-LRD-z9, CANUCS-LRD-z8.6, UNCOVER-20466,
-COSMOS3D-13852, and RUBIES-EGS-55604 retain this threshold
-after a $-0.5$ dex mass shift. Adding a separate 0.5-dex calibration
-scatter retains this result for RUBIES-EGS-55604 but lowers the unshifted
-probability for J0910\_2028\_12910 to 0.745. These probabilities are conditional on the
-reported-error model and growth assumptions, rather than uniformly calibrated
-confidence levels. Delaying seeding to $z=20$ gives GN-z11 the highest required
-average Eddington ratio. At $\epsilon=0.05719$, all 238 central mass estimates
-are reachable from $100\,M_\odot$ seeds at $z=30$ without lifetime-average
-accretion above the Eddington limit. For the three highest-ranked primary
-objects and GN-z11, an optimistic accretion onset at matter--radiation equality
-still requires seeds of approximately $270$--$1200\,M_\odot$ at
-$\epsilon=0.1$ and an average Eddington ratio capped at unity. The catalogue
-identifies targets whose growth requirements persist under mass-scale shifts,
-while demonstrating their sensitivity to radiative efficiency and onset time.
-\end{abstract}
-
-\noindent\textbf{Keywords:} Supermassive black holes; Accretion; Active galactic
-nuclei; High-redshift galaxies; Astronomical catalogs
-
 
 \section{Introduction}
 
-The masses and redshifts of early black holes constrain how much growth is
-possible from an assumed seed. JWST surveys supply broad-line mass estimates
+The masses and redshifts of early black holes constrain the growth needed
+from an assumed seed. JWST surveys supply broad-line mass estimates
 across different selection methods and observing fields
 \citep{harikane2023,matthee2024,baccus2026}. Growth studies of individual
 objects, including UNCOVER-20466 and GN-z11, compare light seeds, heavy seeds,
-and rapid accretion \citep{kokorev2023,maiolino2024}. Comparing these objects
-across studies requires consistent growth assumptions and explicit treatment
-of alternative measurements, uncertain identities, and mass-estimator errors.
+and rapid accretion \citep{kokorev2023,maiolino2024}.
 
-We compile published measurements with their source versions, mass methods,
-and uncertainties. We retain alternative measurements and define primary and
-expanded samples by evidence for broad-line emission and the interpretation
-of the mass estimator. This allows readers to trace each adopted mass to its
-source and repeat the growth comparison with different measurements or sample
-choices. The catalogue provides a documented cross-study comparison using established
-growth equations.
+These survey censuses provide measurements within their observing fields and
+selection criteria. Comparing growth histories across surveys requires
+tracking which measurements refer to the
+same object, which mass estimate is adopted, and which alternatives remain
+plausible. Tentative line detections and differences in calibration coverage
+also affect which objects can enter a common comparison.
+
+We link published measurements to accretion-rate, seed-mass, and duty-cycle
+requirements, uncertainty summaries, and parameter maps. Each result retains
+its adopted measurement, source version, and alternative estimates, allowing
+readers to trace and recalculate the growth requirement.
+The compilation contains 355 measurements for 343 provisional objects.
+Growth calculations use 238 objects with suitable masses and resolved identities,
+including a primary sample selected for broad Balmer-line mass estimates.
+Their maps contain 18,207,000 parameter combinations; Section~\ref{sec:products}
+gives the per-object coverage and the tabulated results.
 
 We use the exponential growth relation applied by \citet{dayal2024} to rank
-required lifetime-average Eddington ratios. We test reported mass errors,
-separate calibration scatter, fixed mass shifts, seed masses, growth onset,
-and radiative efficiency. For three primary objects and GN-z11, we also test
-how much earlier accretion onset can reduce the required seed mass. This
-last calculation isolates available growth time; it does not model seed
-formation or gas supply.
+required lifetime-average Eddington ratios. We propagate reported mass errors
+and test whether the required ratios remain above unity after fixed mass
+reductions. For three objects, we also add separately quantified calibration
+scatter. We then vary seed mass, growth onset, and radiative efficiency.
+A four-target extension tests earlier accretion onset
+(Appendix~\ref{sec:pbh-v4}).
 
-\section{Catalogue construction}
+\section{Measurement catalogue}
 \label{sec:catalogue}
+
+\subsection{Scope and source coverage}
 
 We compile 355 literature measurements from 37 source families (studies or
 related surveys) at $z\geq4$, with a literature cutoff of 3 September 2026.
-The catalogue is a curated collection of reproducibly extractable published
-measurements, not a statistically complete census of high-redshift black holes.
+The catalogue collects published measurements that can be reproducibly extracted.
+The contributing studies determine its coverage and selection.
 Its scope does not include a systematic compilation of legacy ground-selected
 quasar samples.
-The bounded membership revision admitted on 17 October 2026 preserves that
-cutoff and the preceding edition at repository commit
-\texttt{fc0c5501ad22}. It adds CAPERS-LRD-z9 \citep{taylor25expansion},
-CANUCS-LRD-z8.6 \citep{tripodi25expansion}, J1007\_AGN
-\citep{schindler25expansion}, MACS0416-Y1 \citep{takechi26expansion}, and
-SAPPHIRES-ID-8760 \citep{fudamoto25expansion}. The first four are Balmer
-source families in v2 and v3; the mass-free SAPPHIRES candidate is v3 only.
-Y1 remains candidate evidence in the expanded sample; its D2 component is
-one nucleus in one host. The source's mass is already lens-corrected, as is
-CANUCS's mass. SAPPHIRES has no published black-hole mass, so numerical
-growth inference is disabled; its weak Hbeta and unidentified foreground
-contaminant remain evidence caveats. Morishita's revised CANUCS analysis \citep{morishita2026context}
-provides same-object evidence and reuses Tripodi's mass.
+These records represent 343 provisional objects and 342 host systems.
+Table~\ref{tab:scale} summarizes the catalogue and analysis sample sizes.
+Figure~\ref{fig:landscape} shows the sample accounting;
+Table~\ref{tab:sources} lists the contributing source families.
 
-For J1007\_AGN we adopt the observed Hbeta mass
-$(1.152^{+1.011}_{-0.463})\times10^8 M_\odot$ as a conservative comparable
-baseline, while the authors favor a dust-attenuated interpretation. Their
-correlated dust-corrected alternative is
-$(4.514^{+5.218}_{-2.320})\times10^8 M_\odot$; it raises the reference
-requirement from 1.113 to 1.222 without adding another object.
-CAPERS uses its source-canonical $7.58\pm0.15$ dex mass. Its 6.65--8.50
-systematic envelope combines different assumptions, including an assumed
-Eddington luminosity bound, and is not sampled as a measured interval.
+\marginpar{\normalfont\small\raggedright Table~\ref{tab:scale}\\here.}
+\marginpar{\normalfont\small\raggedright Figure~\ref{fig:landscape}\\here.}
+\marginpar{\normalfont\small\raggedright Table~\ref{tab:sources}\\here.}
+
+\subsection{Adopted measurements and analysis samples}
 
 We adopt one measurement per object and retain alternatives, recording the
 source, method, uncertainty, publication version, and reason for each choice
 (Appendix~\ref{app:identities}).
-
-
-\marginpar{\normalfont\small\raggedright Table~\ref{tab:scale}\\here.}
-
-
 
 Growth analysis requires a numerical mass and redshift, an identified mass
 method, and a documented lensing correction where needed. Upper limits, indirect model ranges,
@@ -189,11 +159,51 @@ masses but not the uncertainty analysis.
 The mass estimates retained in each sample still use different calibrations,
 and the contributing studies have different target-selection criteria and
 detection limits.
-Appendix~\ref{app:sources} gives the source inventory,
-identity decisions, and sample accounting. Table~\ref{tab:scale} summarizes
-the catalogue and analysis sample sizes.
+Appendix~\ref{app:sources} gives source-version notes, individual
+membership decisions, and measurement-choice checks.
 
-\section{Growth-model comparison}
+\subsection{Released measurement tables}
+
+In \path{data/processed/v3/}, \path{v3_accreting_measurements.csv}
+contains the measurement records, and \path{v3_accreting_objects.csv}
+contains one adopted record per provisional object. Join them using
+\texttt{measurement\_id} and \texttt{physical\_object\_id};
+\texttt{host\_system\_id} links systems assigned to the same host.
+The measurement table records the adopted choice in
+\texttt{preferred\_measurement\_flag} and its reason.
+Standardized black-hole masses and their errors are in
+$\log_{10}(M_{\rm BH}/M_\odot)$ and dex; redshift is dimensionless and
+coordinates are in degrees. Empty numeric cells denote missing values, not
+zeros. Limits and conditional masses have separate flags.
+The file
+\path{results/for_manuscript/tables/publication_object_selection.csv}
+provides \path{publication_primary_flag} and
+\path{publication_exploratory_flag}; the latter selects the expanded sample,
+including the primary objects. Source versions and locators remain in the
+measurement table and \path{data/source_provenance_registry.csv}.
+Growth products are described in Section~\ref{sec:products}.
+
+\subsection{Validation}
+\label{sec:validation}
+
+Independent source records check the central masses and error fields of all
+248 numerical mass measurements, including missing errors for 12 measurements.
+Separate checks cover all 355 central redshifts and 328 available coordinate
+pairs. The records retain source versions, table locators, and conversion
+notes. These checks test transcription and unit conversion; they do not
+validate the mass estimators or resolve ambiguous identities. Other fields,
+including luminosities, magnifications, and evidence classifications, have
+partial independent coverage. The fixtures and verification commands are in
+\path{data/validation/}.
+
+\subsubsection{AI assistance}
+OpenAI models \texttt{gpt-5.6-sol}, \texttt{gpt-6-astra}, and
+\texttt{gpt-6.1-sol} assisted with scraping published papers for catalogue data
+and with code review, repository documentation, code development, and
+manuscript drafting and editing through Codex. The author is responsible for the analysis, interpretation,
+and final manuscript.
+
+\section{Derivation of growth constraints}
 
 \subsection{Theoretical framework}
 \label{sec:theory}
@@ -254,7 +264,8 @@ $\Omega_\Lambda=0.685$, neglecting radiation. The first two values follow
 \citet{dayal2024}. Appendix~\ref{app:derivations} gives the derivations,
 implementation, and inverse seed-mass relation.
 Equations~\ref{eq:growth}--\ref{eq:required-rate} assume constant radiative efficiency.
-The ideal thin-disc efficiencies used in Figure~\ref{fig:allgrowth} are
+The ideal thin-disc efficiencies used in the illustrative tracks
+(Appendix~\ref{app:tracks}) are
 0.03775, 0.05719, and 0.42265 for dimensionless spins $a=-1,0,+1$,
 respectively \citep{bardeen1972}. Negative and positive spins are counter-aligned
 and aligned with the disc, respectively. Each track holds efficiency constant;
@@ -262,12 +273,21 @@ spin evolution is unspecified.
 
 \subsection{Reference model}
 
-We calculate the required lifetime-average Eddington ratio using
-Eq.~\ref{eq:required-rate}, with $\mseed=10^2M_\odot$, $z_{\rm seed}=30$,
-$\epsilon=0.1$, and $B_{\rm merge}=1$ as the reference model.
-We adopt $z_{\rm seed}=30$ as an early starting point that allows more time
-for light-seed growth, and test how later onset changes the required accretion rates.
-We rank objects by this required ratio.
+We compare objects using Eq.~\ref{eq:required-rate} with
+$\mseed=100\,M_\odot$, $z_{\rm seed}=30$, $\epsilon=0.1$, and
+$B_{\rm merge}=1$. The seed mass represents a light remnant of a metal-free
+(Population III) star, as considered by \citet{dayal2024}.
+Starting growth at $z=30$ gives light seeds a long growth interval;
+later onset requires higher average accretion rates for the same final mass.
+The efficiency $\epsilon=0.1$ matches the analytic growth calculation in
+\citet{dayal2024}. Holding it constant allows us to infer the required
+average rate without specifying the black hole's spin history.
+Setting $B_{\rm merge}=1$ isolates the growth supplied by gas accretion.
+
+These choices define a common light-seed benchmark for ranking objects by
+their required lifetime-average Eddington ratios. Section~\ref{sec:growth-scenarios}
+tests larger seeds, later onset, and lower efficiency; the compatibility
+calculations also include merger contributions (Appendix~\ref{app:compatibility}).
 
 \subsection{Uncertainty and sensitivity}
 \label{sec:uncertainty}
@@ -303,21 +323,49 @@ so the combined standard deviation is
 $\sigma_{\rm tot}=\sqrt{\sigma_{\rm reported}^2+0.5^2}$ dex.
 We evaluate the resulting normal tail above the mass required for
 $\overline{f}_{\mathrm{Edd,req}}=1$ exactly, at offsets of 0 and $-0.5$ dex.
+For J1007\_AGN, we convolve the asymmetric reported-error model above with
+independent Gaussian scatter of 0.43 dex \citep{schindler25expansion}.
+We integrate the two half-normal contributions numerically; doubling the
+number of integration points changes the probabilities by less than $10^{-13}$.
 This assumption tests scatter, separately from a fixed mass bias. We add no
 scatter to GN-38509 or ZS7, whose reported errors already include it, and
 assign none to objects without a separately quantified scale. This is a
-two-object sensitivity test, not a common error model for the full sample.
+three-object sensitivity test, not a common error model for the full sample.
 
-\subsection{AI assistance}
-OpenAI models \texttt{gpt-5.6-sol}, \texttt{gpt-6-astra}, and
-\texttt{gpt-6.1-sol} assisted with scraping published papers for catalogue data
-and with code review, repository documentation help, and code development
-struggles through Codex. Appendix~\ref{app:validation} describes
-the source checks and their coverage. The author is responsible for the
-analysis, interpretation, and final manuscript.
+\subsection{Released growth constraints and parameter maps}
+\label{sec:products}
+
+Table~\ref{tab:products} summarizes the growth products for the 238-object
+expanded sample, including the 223 primary objects. The four core tables
+give required accretion rates, seed masses, duty cycles, and checks of
+whether specified growth conditions reproduce each adopted mass. They
+contain 80 entries per object, or 19,040 in total. The rate, seed-mass, and
+duty-cycle tables use $z_{\rm seed}=30$, $\epsilon=0.1$, and no mergers;
+the compatibility checks vary efficiency, merger contribution, and accretion
+rate across four seed-mass intervals. The reference calculations hold
+$\epsilon=0.1$ fixed. In the compatibility calculations, efficiency depends
+on spin and accretion rate but remains constant within each tested history
+(Appendix~\ref{app:efficiency}).
+
+\marginpar{\normalfont\small\raggedright Table~\ref{tab:products}\\here.}
+
+Two maps per object show how the growth requirement changes with seed mass
+and either accretion rate or starting redshift. The first varies spin-dependent
+efficiency and merger contribution at $z_{\rm seed}=30$; the second fixes
+$\epsilon=0.1$ and assumes no mergers. Together, the 476 maps contain
+18,207,000 grid evaluations using central mass estimates. The grid points
+sample combinations of growth parameters within the adopted framework.
+
+The 226 objects with reported mass errors each contribute 10,000 Monte Carlo
+mass draws, giving 2,260,000 draws. The remaining 12 objects contribute
+central-mass results. Mass-offset tests reuse the same draws.
+The totals exclude records without suitable masses or resolved identities.
+Appendix~\ref{app:product-files} gives file locations, parameter grids,
+selection flags, and additional table products. The four-target earlier-onset
+extension is reported separately in Appendix~\ref{sec:pbh-v4}.
 
 \FloatBarrier
-\section{Results}
+\section{Catalogue growth constraints}
 
 \subsection{Required accretion under the reference assumptions}
 
@@ -345,10 +393,8 @@ required-rate ranking despite its smaller mass.
 
 Of the eleven primary objects above unity at their central masses, nine
 remain above it at the 16th percentile and eight have $P\geq0.95$
-(Fig.~\ref{fig:uncertainty}). These results use the quoted mass errors, which
-include different combinations of measurement and calibration uncertainty
-(Table~\ref{tab:top}). Probability calculations use the 211 primary objects
-with reported errors. Appendix~\ref{app:measurement-checks} gives the expanded-sample
+(Fig.~\ref{fig:uncertainty}). The calculation uses the 211 primary objects with reported mass errors;
+Table~\ref{tab:top} records their calibration coverage. Appendix~\ref{app:measurement-checks} gives the expanded-sample
 percentile counts.
 
 
@@ -358,9 +404,8 @@ percentile counts.
 Downward mass shifts of 0.3 and 0.5 dex reduce the number of primary objects
 above unity at their central masses from eleven to nine and seven, respectively
 (Table~\ref{tab:massoffset}). CAPERS-LRD-z9, CANUCS-LRD-z8.6, UNCOVER-20466, COSMOS3D-13852, and
-\mbox{RUBIES-EGS-55604} retain $P\geq0.95$ at $-0.5$ dex. Biases specific to each
-source may exceed this offset (Section~\ref{sec:credibility}), and the required
-rates still depend on seed mass, formation time, and radiative efficiency.
+\mbox{RUBIES-EGS-55604} retain $P\geq0.95$ at $-0.5$ dex. Source-specific biases that may exceed this
+offset are discussed in Section~\ref{sec:credibility}.
 
 
 \marginpar{\normalfont\small\raggedright Table~\ref{tab:massoffset}\\here.}
@@ -369,9 +414,11 @@ rates still depend on seed mass, formation time, and radiative efficiency.
 The separate calibration test changes the interpretation of
 J0910\_2028\_12910: its unshifted probability falls from above 0.999 to 0.745
 (Table~\ref{tab:calibration}). RUBIES-EGS-55604 retains a probability of
-0.979 after both the added scatter and the $-0.5$ dex shift. These results
-assume independent Gaussian calibration errors; they do not constrain
-unquantified biases in the other targets.
+0.979 after both the added scatter and the $-0.5$ dex shift. For J1007\_AGN,
+adding its 0.43-dex calibration scale lowers the unshifted probability from
+0.997 to 0.901; after the mass shift it is 0.607. Two of the eight reported-error threshold classifications therefore change
+when separately quantified calibration scatter is included. The Gaussian-scatter assumption and its limited
+coverage are specified in Section~\ref{sec:uncertainty}.
 
 
 \marginpar{\normalfont\small\raggedright Table~\ref{tab:calibration}\\here.}
@@ -385,6 +432,7 @@ objects also leave them below the reference threshold
 
 
 \subsection{Seed mass, growth onset, and radiative efficiency}
+\label{sec:growth-scenarios}
 
 Increasing the seed mass to $10^3\,M_\odot$ reduces the number of primary objects
 with required ratios above unity at their central masses from 11 to 5; for $10^5\,M_\odot$ seeds, no objects in either sample exceed 1.
@@ -392,7 +440,6 @@ Delaying seeding to $z=20$ raises the primary count to 21. Adopting
 $\epsilon=0.05719$, the ideal thin-disc efficiency for a non-spinning black hole
 ($a=0$; \citealt{bardeen1972}), leaves no objects in either sample above unity at their central masses
 (Table~\ref{tab:scenarios}). Each test changes one reference parameter.
-
 
 
 \marginpar{\normalfont\small\raggedright Table~\ref{tab:scenarios}\\here.}
@@ -404,19 +451,12 @@ UNCOVER-20466's 1.733, reversing their order.
 Appendix~\ref{app:seed-timing} shows the dependence on seed mass and
 starting redshift for both objects.
 
-Figure~\ref{fig:allgrowth} shows illustrative tracks at four fixed efficiencies.
-Accretion rates are selected separately in each panel for proximity to the
-observed masses, so the panels do not isolate the effect of efficiency.
-Appendix~\ref{app:implementation} specifies the display selection.
-
-
-\marginpar{\normalfont\small\raggedright Figure~\ref{fig:allgrowth}\\here.}
-
-
 Figure~\ref{fig:boundaries} shows the maximum fixed efficiency allowing
-$\overline{f}_{\mathrm{Edd,req}}\leq1$ for 5 targets as a function of seed mass.
+$\overline{f}_{\mathrm{Edd,req}}\leq1$ as a function of seed mass for the five
+primary objects retaining $P\geq0.95$ after a $-0.5$ dex mass shift and GN-z11.
 The $z_{\rm seed}=20$ and 30 curves show GN-z11's greater sensitivity to the starting time.
 These boundaries use central mass estimates and assume no merger boost.
+Illustrative growth tracks are given in Appendix~\ref{app:tracks}.
 
 
 \marginpar{\normalfont\small\raggedright Figure~\ref{fig:boundaries}\\here.}
@@ -433,198 +473,126 @@ For A2744-QSO1, we compare the virial mass adopted in the catalogue
 $\log_{10}(\mbh/M_\odot)=7.3\pm0.2$ \citep{greene2024} with the independent MOKA3D dynamical mass estimate $7.7\pm0.3$ \citep{juodzbalis_direct2025}, using $z=7.04$
 and the reference model. The dynamical estimate depends on lens reconstruction and inclination.
 Using symmetric normal approximations to the quoted log-mass errors, the
-required average Eddington ratio rises from 0.929 to 1.000, with
+required average Eddington ratio rises from 0.929 to 0.9996, with
 16th--84th percentile intervals of 0.895--0.964 and 0.947--1.052,
 respectively. For the dynamical mass, $P(\overline{f}_{\mathrm{Edd,req}}>1)=0.497$;
-the unrounded central ratio is just below unity in the reference cosmology
+the central ratio is just below unity in the reference cosmology
 (see Appendix~\ref{app:cosmology} for sensitivity to the cosmic-age approximation).
 Calibrating the virial sample would require independent measurements for more objects.
 
-\subsection{Accretion-onset sensitivity}
-\label{sec:pbh-v4}
-
-We compare earlier accretion onset for CAPERS-LRD-z9, UNCOVER-20466, and
-CANUCS-LRD-z8.6, the three highest-ranked primary objects under the
-reference growth model, together with GN-z11 as an expanded-sample UV-mass
-comparison object.
-We use the growth component of Eq.~(1) and Section~2 of \citet{dayal2024},
-with an optimistic accretion onset at matter--radiation equality
-($z_{\rm acc}=3400$), and separately test delayed onset. The seed mass denotes
-the mass at the start of accretion.
-For every onset, including the $z_{\rm acc}=30$ controls, we use the
-radiation-inclusive cosmic ages in Eq.~\ref{eq:cosmictime-radiation}.
-
-With no mergers and constant radiative efficiency, the minimum onset seed
-that reaches an adopted mass for $0\leq\overline{f}_{\mathrm{Edd}}\leq f_{\rm cap}$ is
-\begin{equation}
-\log_{10}\!\left(\frac{M_{\rm seed,min}}{M_\odot}\right)
-=\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)
--f_{\rm cap}\frac{1-\epsilon}{\epsilon}
-\frac{t(z_{\rm obs})-t(z_{\rm acc})}{t_{\rm Edd}\ln 10}.
-\label{eq:pbh-minimum-seed}
-\end{equation}
-Here $f_{\rm cap}$ is a cap on the lifetime-average luminosity-based Eddington
-ratio. We evaluate 47 onset redshifts between
-20 and 3400, caps of 0.3, 1, and 2, and efficiencies of 0.1 and
-$1-\sqrt{8/9}=0.05719$. Efficiency remains fixed at every cap.
-Reported asymmetric log-mass
-errors are propagated with 10,000 equal-side half-normal Monte Carlo draws
-per object, using stable object-specific streams with seed 20261001.
-Redshifts remain fixed; a $-0.5$-dex mass shift is tested separately on the
-same draws. The onset grid is recorded in the analysis configuration
-listed under Data and code availability.
-
-
-\marginpar{\normalfont\small\raggedright Table~\ref{tab:pbh-seeds}\\here.}
-
-
-
-\marginpar{\normalfont\small\raggedright Figure~\ref{fig:pbh-minimum}\\here.}
-
-
-At $\epsilon=0.1$ and $f_{\rm cap}=1$, equality-onset minimum seeds are
-approximately 1184, 535, 495, and $267\,M_\odot$, respectively
-(Table~\ref{tab:pbh-seeds}). Thus an earlier start alone does not allow a
-$100\,M_\odot$ seed to reach any of these four central masses under these
-assumptions. Relative to $z_{\rm acc}=30$, equality onset adds 98.73 Myr
-and reduces each minimum seed by a factor of 7.20. Moving onset from
-$z_{\rm acc}=100$ to 3400 adds only about 16.35 Myr and reduces it by a
-further factor of 1.39. Lower efficiency or larger allowed average rates
-reduce the required seeds further. The lower-efficiency control permits
-$100\,M_\odot$ seeds starting at $z=30$ to reach all four central masses.
-\FloatBarrier
-
 \section{Discussion}
 
-The sensitivity to radiative efficiency prevents these constraints from
-uniquely identifying a seed-formation history. A required average below
-unity permits accretion below the Eddington limit throughout the growth
-interval; it does not exclude super-Eddington episodes in the actual history.
+\subsection{Implications for black-hole growth}
+\label{sec:individual-growth}
 
-\subsection{Mass-estimator limitations}
+Most primary objects have required average Eddington ratios below unity
+under the reference assumptions, permitting growth from $100\,M_\odot$ seeds
+without super-Eddington accretion. The required average includes inactive
+periods, so longer interruptions demand higher rates during active phases.
+For the eleven objects above unity, reaching the adopted mass requires
+super-Eddington phases or a change in seed mass, starting time, efficiency,
+merger contribution, or mass estimate.
+
+Lower radiative efficiency allows more mass to be retained for the same
+radiated luminosity. At $\epsilon=0.05719$, all adopted central masses can
+be reached from light seeds with average Eddington ratios below unity.
+The feasibility of these histories depends on whether gas can sustain the
+required accretion over the available time.
+For UNCOVER-20466 and GS-20057765, the required averages are 0.793 and
+0.740 for $100\,M_\odot$ seeds formed at $z=30$ without mergers. If accretion
+occurs at the Eddington limit during active phases and ceases between them,
+the objects must remain active for about 79\% and 74\% of that interval.
+GS-20057765's mass depends on its tentative broad-H$\beta$ component
+tracing a broad-line region.
+
+The seed-mass dependence complements the light- and heavy-seed comparisons
+for UNCOVER-20466 by \citet{kokorev2023} and the rapid-growth histories
+considered for GN-z11 by \citet{maiolino2024}. UNCOVER-20466 and
+GS-20057765 require average ratios above unity for $10^3M_\odot$ seeds,
+but below unity for $10^5M_\odot$ seeds, with the other reference assumptions
+unchanged.
+
+The ranking combines mass with available growth time. GN-z11's high rank
+despite its smaller mass, and its greater sensitivity to later onset, show
+why early observation can make an object particularly demanding.
+Changing the seed mass or starting time can change the follow-up priorities;
+the released maps provide the corresponding comparisons.
+
+\subsection{Mass measurements and follow-up priorities}
 \label{sec:credibility}
 
+The five primary objects retaining $P\geq0.95$ after a $-0.5$ dex mass shift
+are priorities for independent mass measurements. Table~\ref{tab:top}
+gives the mass reductions needed to bring their central required ratios
+to unity; Table~\ref{tab:actions} identifies the relevant measurement limitations.
+These comparisons show where a plausible mass revision could change the
+growth interpretation.
 
 \marginpar{\normalfont\small\raggedright Table~\ref{tab:actions}\\here.}
 
-\FloatBarrier
-
-Some mass-estimator biases may exceed the 0.5 dex reduction tested above
-(Table~\ref{tab:actions}).
 \citet{lin2025} discuss possible 1--2 dex virial-mass overestimates from
 electron scattering. Applying these shifts to COSMOS3D-13852 lowers its
-required average Eddington ratio to 1.115 and 0.916, respectively, under the
-reference assumptions. These are sensitivity tests, not measured corrections
-for this object.
+required average ratio to 1.115 and 0.916, respectively, under the reference
+assumptions. Its reduction to the threshold is 1.576 dex, within that range.
+These shifts test a possible bias whose magnitude remains unmeasured for
+this object. UNCOVER-20466 requires a reduction of 1.921 dex; independent
+checks of its lensing and broad-line interpretation would test that mass.
 
-Table~\ref{tab:top} gives the reduction in each adopted log mass needed to
-bring its required average Eddington ratio to 1 under the reference assumptions.
-For J0910\_2028\_12910, a reduction of 0.330 dex is sufficient. This is
-smaller than its separately reported 0.5-dex calibration scale \citep{baccus2026},
-although its 0.01-dex quoted error gives $P>0.999$ in the reported-error calculation.
-Treating the separate calibration scale as independent Gaussian scatter
-lowers that probability to 0.745 (Table~\ref{tab:calibration}).
-COSMOS3D-13852 requires a reduction of 1.576 dex, within the 1--2 dex range
-of possible scattering bias. UNCOVER-20466 requires 1.921 dex; its lensing
-and broad-line assumptions still require independent tests.
+J0910\_2028\_12910 reaches the reference threshold after a reduction of
+0.330 dex, smaller than its separately reported 0.5-dex calibration scale
+\citep{baccus2026}. Its 0.01-dex quoted error therefore gives a misleading
+impression of precision if considered alone. The separate-scatter test in
+Table~\ref{tab:calibration} quantifies the effect of the calibration scale.
+Independent estimates should also be checked for shared calibration errors.
 
-Confirming the weak
-broad H$\beta$ component in CEERS-1019 would strengthen the basis of its virial
-mass \citep{larson2023}, although calibration uncertainty would remain.
-An independent mass estimate for J0910\_2028\_12910 could test whether it
-still requires an average Eddington ratio above 1 under the reference assumptions. Shared calibration errors would limit how strongly
-agreement between estimators supports the inferred mass.
-
-A mass estimate based on the Balmer lines would test whether GN-z11's
-growth requirement depends on its UV mass estimator.
-
-\subsection{Growth constraints for individual objects}
-
-\citet{kokorev2023} compared light and heavy seeds for UNCOVER-20466,
-while \citet{maiolino2024} discussed heavy seeds and super-Eddington growth
-from lighter seeds for GN-z11. The reference calculation recovers these
-growth tensions and quantifies their sensitivity across the catalogue to
-reported mass errors, systematic mass shifts, and alternative growth assumptions.
-
-UNCOVER-20466 and GS-20057765 require average Eddington ratios above 1
-for $10^3M_\odot$ seeds, but below 1 for $10^5M_\odot$ seeds, with the other
-reference assumptions unchanged. At radiative efficiency $\epsilon=0.05719$,
-$100\,M_\odot$ seeds formed at $z=30$ without merger growth require average
-Eddington ratios of 0.793 and 0.740, respectively. If accretion occurs at the
-Eddington limit during active phases and ceases between them, these values
-require activity for about 79\% and 74\% of the available time.
-The constraints for GS-20057765 depend on its tentative broad-H$\beta$
-component tracing a broad-line region.
-
-\subsection{Interpreting primordial-seed growth limits}
-
-Equal masses at accretion onset and equal growth parameters give identical
-growth regardless of seed origin. The $z=30$ starting time and equality-onset
-accretion are assumed benchmarks. A primordial black hole (PBH) interpretation
-requires a seed present before equality; its formation, pre-onset growth,
-survival, gas supply, abundance, and external observational constraints remain
-outside this calculation. Section~3 of \citet{dayal2024} additionally models
-halo assembly, gas, star formation, and feedback for UHZ1 and GHZ9.
-\citet{dayal2026} compares astrophysical and primordial seeding using models
-that include gas supply, star formation, feedback, and population predictions.
-The four-target analysis here isolates the effects of seed mass, accretion
-onset, and radiative efficiency on the required growth.
+For CEERS-1019, confirming the weak broad H$\beta$ component would strengthen
+the basis of its virial mass \citep{larson2023}. For GN-z11, a Balmer-line
+mass estimate would test the result obtained from ultraviolet lines.
 
 \subsection{Limitations}
 \label{sec:limits}
 
 The contributing studies have different selection criteria and detection
-limits, so these sample counts cannot be interpreted as population fractions
-without completeness corrections. Virial calibration and geometry errors
-are incompletely reported.
+limits. Inferring population fractions from these sample counts requires
+completeness corrections. Unresolved object matches also affect catalogue
+counts; the selection and measurement checks are given in
+Appendix~\ref{app:measurement-checks}.
 
-Unresolved object matches limit the accuracy of catalogue counts, but excluding
-them leaves the threshold results unchanged (Appendix~\ref{app:measurement-checks}).
+The reported mass errors have uneven calibration coverage, and geometry,
+lensing, and line-broadening biases remain incompletely quantified.
+The probabilities describe the adopted mass-error model at fixed growth
+parameters. Accounting for uncertainty in those parameters requires justified
+distributions and correlations.
 
-Including radiation raises the reference required ratios by 0.14--0.26\%
-without changing the adopted central-mass threshold counts. CEERS-00717's
-16th-percentile ratio and the ratio from A2744-QSO1's external dynamical-mass
-estimate cross unity; both shifts are much smaller than their mass-error
-intervals (Appendix~\ref{app:cosmology}).
-
-Equation~\ref{eq:growth} describes growth through an average accretion rate,
-a fixed merger multiplier, and constant radiative efficiency. Feedback and
-individual accretion histories remain unspecified. The probabilities hold
-these assumptions fixed. Averaging over them would require justified
-parameter distributions and correlations; identifying seed origins would
-also require formation models and population information.
+Equation~\ref{eq:growth} uses constant radiative efficiency and a fixed
+merger multiplier. Gas supply, feedback, spin evolution, and individual
+accretion histories require additional modelling. Distinguishing seed origins
+further requires formation models and population information.
+The cosmological approximation is tested in Appendix~\ref{app:cosmology}.
 
 
 \section{Conclusions}
 
-For the adopted masses and growth assumptions, we find:
+We release growth requirements and parameter maps linked to published
+measurements for 238 high-redshift black holes and candidates. The maps
+contain 18,207,000 grid evaluations. The main findings are:
 \begin{itemize}
-\item For $100\,M_\odot$ seeds formed at $z=30$, $\epsilon=0.1$, and no
-merger contribution, 11 of the 223 objects in the primary sample require an
-average Eddington ratio above 1. Eight do so in at least 95\% of Monte Carlo
-draws from the adopted mass-error model. Adding the separately reported
-0.5-dex calibration scale lowers the probability for J0910\_2028\_12910
-to 0.745. Other probabilities retain the source-reported errors, whose
-calibration coverage varies.
-\item At least 95\% of draws still require an average Eddington ratio above 1
-after reducing the masses by 0.5 dex for five objects: CAPERS-LRD-z9,
-CANUCS-LRD-z8.6, UNCOVER-20466, COSMOS3D-13852, and RUBIES-EGS-55604. RUBIES-EGS-55604 retains a probability of
-0.979 when its separate calibration scale is also included. Unquantified
-lensing and line-broadening biases remain outside these probabilities.
-\item Delaying seeding to $z=20$ makes GN-z11 the highest-ranked object.
-At constant efficiency $\epsilon=0.05719$, every central mass in the
-238-object expanded sample is reachable from a $100\,M_\odot$ seed at $z=30$
-with an average Eddington ratio below 1.
-\item For the four selected targets, accretion beginning at matter--radiation equality
-requires approximately $270$--$1200\,M_\odot$ seeds at $\epsilon=0.1$ and
-an average Eddington ratio capped at 1. At $\epsilon=0.05719$,
-$100\,M_\odot$ seeds starting at $z=30$ reach all four central masses
-with an average Eddington ratio below 1.
-\item For A2744-QSO1, replacing the adopted virial mass with the independent
-dynamical estimate raises the required average Eddington ratio from 0.929 to
-approximately 1. Its mass uncertainty allows average rates both below and
-above the Eddington limit.
+\item Under the reference assumptions of $100\,M_\odot$ seeds formed at
+$z=30$, $\epsilon=0.1$, and no mergers, eleven of the 223 primary objects
+require average Eddington ratios above unity. Eight exceed unity in at
+least 95\% of mass-error draws, and five retain this threshold after a
+0.5-dex downward mass shift. These probabilities depend on the adopted
+errors and their calibration coverage.
+\item Reducing only the efficiency to $\epsilon=0.05719$ permits every
+expanded-sample central mass to be reached with an average Eddington ratio
+below unity. Larger seeds also reduce the required rates; later onset
+increases them and can change the object rankings.
 \end{itemize}
+
+Growth models must explain how gas supply and accretion histories could
+sustain the required rates. Independent mass measurements of the
+highest-ranked objects would establish which requirements survive revisions
+to the observational inputs.
 
 
 \par\penalty0
@@ -632,80 +600,59 @@ above the Eddington limit.
 
 Code and data are available at
 \url{https://github.com/nniickels/highz-accretion-atlas}.
-The unchanged two-object calibration calculation is preserved at
-\href{https://github.com/nniickels/highz-accretion-atlas/tree/77908cdaadb5898e5f2e1d2d353cf99d2a3a26ac}{commit \texttt{77908cdaadb5}}.
-That revision predates the expanded catalogue. The expanded catalogue and
-scientific results correspond to
+The three-object calibration sensitivity calculation is preserved at
+\href{https://github.com/nniickels/highz-accretion-atlas/tree/f437e6bfec4b0f356006e153c5dabd9b96e3423b}{commit \texttt{f437e6bfec4b}}.
+The measurement compilation and four core growth tables correspond to
 \href{https://github.com/nniickels/highz-accretion-atlas/tree/a1bef516db5c76a92b6848eb12bccabdeb5804b9}{commit \texttt{a1bef516db5c}}.
-Catalogue source records are in \path{data/}, manuscript results in
-\path{results/for_manuscript/}, and analysis code/notebooks in \path{src/}
-and \path{scripts/}. The unchanged calibration implementation is
-\path{src/internal/calibration_sensitivity.py}; its input and result are
-\path{target_robustness.csv} and \path{calibration_sensitivity.csv} in the
-manuscript-results tables. Earlier-onset inputs and products are in
+The four additional tables described in Appendix~\ref{app:product-files} are
+generated by \path{src/internal/catalogue_products.py}, with settings in
+\path{data/scenarios/catalogue_growth_comparisons.json} and input and output
+hashes in \path{data/manifests/v3-dataset-manifest.json}.
+\path{src/internal/apss_figures.py} reproduces the revised target selections
+for the illustrative growth tracks and efficiency boundaries using the same
+scientific inputs.
+Earlier-onset inputs and products are in
 \path{data/scenarios/v4_pbh_growth.json} and \path{results/v4/}.
 Pinned dependencies and reproduction commands are in
 \path{requirements/core.txt} and \path{docs/guides/reproducibility.md}.
 \par
 
-\clearpage
 \appendix
 % Prefix appendix headings while keeping references A, B, C and A.1 intact.
 \makeatletter
 \def\sectionprefix{Appendix~}
 \renewcommand{\@seccntformat}[1]{\ifcsname #1prefix\endcsname\csname #1prefix\endcsname\fi\csname the#1\endcsname\quad}
 \makeatother
-\section{Catalogue sources, selection, and validation}
+\section{Source records and selection checks}
 \label{app:sources}
 
-Figure~\ref{fig:landscape} summarizes the sample accounting;
-Table~\ref{tab:sources} lists the contributing source families.
+\subsection{Source versions and measurement alternatives}
 
+The catalogue includes CAPERS-LRD-z9 \citep{taylor25expansion},
+CANUCS-LRD-z8.6 \citep{tripodi25expansion}, J1007\_AGN
+\citep{schindler25expansion}, MACS0416-Y1 \citep{takechi26expansion}, and
+SAPPHIRES-ID-8760 \citep{fudamoto25expansion}. The first four have Balmer-line
+mass estimates. MACS0416-Y1 enters the expanded sample because its broad-line
+detection is tentative; the D2 component is treated as one nucleus in one
+host. Its adopted mass and that of CANUCS-LRD-z8.6 are already corrected for
+lensing. SAPPHIRES-ID-8760 has no published black-hole mass and is excluded
+from numerical growth calculations; weak H$\beta$ emission and an unidentified
+foreground contaminant limit its AGN interpretation. The revised CANUCS
+analysis by \citet{morishita2026context} provides further evidence for the
+same object and reuses Tripodi's mass.
 
-\marginpar{\normalfont\small\raggedright Figure~\ref{fig:landscape}\\here.}
-
-
-\subsection{Source validation}
-\label{app:validation}
-
-Independent source records check the central masses and error fields of all
-248 numerical mass measurements, including missing errors for 12 measurements.
-Separate checks cover all 355 central redshifts and 328 available coordinate
-pairs. The records retain source versions, table locators, and conversion
-notes. These checks test transcription and unit conversion; they do not
-validate the mass estimators or resolve ambiguous identities. Other fields,
-including luminosities, magnifications, and evidence classifications, have
-partial independent coverage. The fixtures and verification commands are in
-\path{data/validation/}.
-
-\subsection{Released tables}
-
-In \path{data/processed/v3/}, \path{v3_accreting_measurements.csv}
-contains the measurement records, and \path{v3_accreting_objects.csv}
-contains one adopted record per provisional object. Join them using
-\texttt{measurement\_id} and \texttt{physical\_object\_id};
-\texttt{host\_system\_id} links systems assigned to the same host.
-The measurement table records the adopted choice in
-\texttt{preferred\_measurement\_flag} and its reason.
-Standardized black-hole masses and their errors are in
-$\log_{10}(M_{\rm BH}/M_\odot)$ and dex; redshift is dimensionless and
-coordinates are in degrees. Empty numeric cells denote missing values, not
-zeros. Limits and conditional masses have separate flags.
-The file
-\path{results/for_manuscript/tables/publication_object_selection.csv}
-provides \path{publication_primary_flag} and
-\path{publication_exploratory_flag}; the latter selects the expanded sample,
-including the primary objects. Source versions and locators remain in the
-measurement table and \path{data/source_provenance_registry.csv}.
+For J1007\_AGN we adopt the observed H$\beta$ mass
+$(1.152^{+1.011}_{-0.463})\times10^8 M_\odot$ while the authors favor a dust-attenuated interpretation. Their
+correlated dust-corrected alternative is
+$(4.514^{+5.218}_{-2.320})\times10^8 M_\odot$; it raises the reference
+requirement from 1.113 to 1.222 without adding another object.
+For CAPERS we adopt the published log mass $7.58\pm0.15$ dex. Its 6.65--8.50
+systematic envelope combines different assumptions, including an assumed
+Eddington luminosity bound, and is not sampled as a measured interval.
 
 Auxiliary coordinates are attributed in the registry to THRILS
 \citep{hutchison2025}, UHZ1 spectroscopy \citep{goulding2023}, and the versioned
 JADES DR3 GOODS-S prism catalogue.
-
-
-\marginpar{\normalfont\small\raggedright Table~\ref{tab:sources}\\here.}
-
-
 
 \subsection{Expanded-sample membership}
 \label{app:expanded-membership}
@@ -725,6 +672,8 @@ is supported by the stacked spectrum \citep{juodzbalis2026}.
 
 GLIMPSE-38548 and GLIMPSE-7404 also enter the expanded sample only;
 the catalogue classifies them as tentative broad-H$\alpha$ AGN \citep{fei2026}.
+MACS0416-Y1 supplies the seventh tentative detection: its weak broad
+H$\beta$ component may include outflow emission \citep{takechi26expansion}.
 
 
 \subsection{Adopted measurements and uncertain object matches}
@@ -741,22 +690,20 @@ preferred by the source study; for NX10835, we adopt the newly available
 NEXUS mass estimate.
 
 
-
 \subsection{Sensitivity to measurement choice and sample membership}
 \label{app:measurement-checks}
 
-In the expanded sample, 17 objects exceed unity at their central masses,
-13 exceed unity at the 16th percentile, and eleven have
-$P\geq0.95$; 19 exceed unity at the 84th percentile. These statistics use
-226 objects with reported errors.
+Across the 238 expanded-sample objects, 17 exceed unity at their central
+masses. Among the 226 objects with reported errors, 13 exceed unity at the
+16th percentile, eleven have $P\geq0.95$, and 19 exceed unity at the
+84th percentile.
 
-The baseline catalogue retains the Baccus \& Xu measurements from
-\texttt{arXiv:2512.03281v1} to preserve the frozen catalogue's membership and
-adopted measurements. The bibliography cites the published article; the
-measurement records identify the preprint version supplying the baseline
-values. Replacing those values is tested separately below. A full update
-would also require reviewing the published sample's membership and
-classifications.
+The adopted Baccus \& Xu measurements come from \texttt{arXiv:2512.03281v1}.
+The bibliography cites the published article; the measurement records
+identify the preprint version supplying the adopted values. We test the
+published measurements below, keeping the object selection fixed to isolate
+the effect of the measurement changes. Incorporating the published sample
+in full would also require reviewing its membership and classifications.
 We matched 44 catalogue objects to the published sample using identifiers
 and sky positions. For this sensitivity test, we replaced their preprint values with
 the redshifts, black-hole masses, and mass uncertainties reported in Table~1
@@ -787,8 +734,56 @@ unity in every pair. Testing the objects above the threshold requires
 additional independent mass estimates.
 
 
-
 \marginpar{\normalfont\small\raggedright Figure~\ref{fig:sensitivity}\\here.}
+
+
+\subsection{Growth-product files and parameter grids}
+\label{app:product-files}
+
+The following details specify the core products summarized in
+Table~\ref{tab:products}.
+
+Each admitted object has three required-rate entries, for seed masses of
+$10^2$, $10^4$, and $10^5\,M_\odot$; two required-seed entries, for average
+Eddington ratios of 0.3 and 1; and three duty-cycle entries, for active rates
+of 1, 2, and 3 with no accretion between active phases. These use
+$z_{\rm seed}=30$, $\epsilon=0.1$, and no merger boost.
+The compatibility table compares 18 settings (three spin-dependent efficiency
+prescriptions, two merger multipliers, and three average rates) with four
+seed-mass intervals, producing 72 checks per object
+(Appendix~\ref{app:compatibility}). Together, these four table products contain
+80 scenario entries per object, or 19,040 across the expanded sample.
+The entries share adopted masses and assumptions.
+
+Four additional tables in \path{results/v3/tables/} provide an object summary
+(\path{v3_object_results.csv}; 343 records), grouped field-availability counts
+(\path{v3_field_availability.csv}; 688 rows), ten growth-assumption comparisons
+per eligible object (\path{v3_growth_assumption_comparison.csv}; 2,410 rows),
+and 54 minimum-seed combinations per eligible object
+(\path{v3_minimum_seed_mass.csv}; 13,014 rows). Applying the expanded-sample
+flags gives 2,380 comparison rows and 12,852 minimum-seed rows. These tables
+overlap the core products and are counted separately. Both growth tables reuse
+the reference mass-error draws. The minimum-seed table includes radiation and uses the
+settings in \path{data/scenarios/catalogue_growth_comparisons.json}; its
+central values agree with matching v4 cases, but the random streams differ.
+
+The seed-mass--accretion-rate map evaluates 100 seed masses and 90 average
+rates for each of three spin cases and two merger multipliers: 54,000 grid
+points per object. It assumes $z_{\rm seed}=30$ and the efficiency prescription
+in Appendix~\ref{app:efficiency}; a contour marks combinations reproducing the
+adopted mass. The seed-mass--starting-redshift map evaluates 150 masses and
+150 starting redshifts at fixed $\epsilon=0.1$ and no merger boost, giving
+22,500 points per object. The two map types therefore contain 76,500 grid
+evaluations per admitted object, or 18,207,000 in total. Grid density specifies the numerical sampling of this framework. These maps use central mass estimates.
+
+The object-level products are in \path{results/v3/}; the conservative samples
+and their sensitivity tables are selected in \path{results/for_manuscript/}.
+Publication-selection flags must be applied to obtain the admissible counts
+above from the broader archival release. Appendix~\ref{sec:pbh-v4} gives the
+four-target earlier-onset extension: 564 minimum-seed results, 3,102
+seed--onset map entries, and 72 control entries per target, with 10,000
+mass-error draws per target. This extension is reported separately from the
+full-sample grid totals.
 
 
 \FloatBarrier
@@ -911,7 +906,7 @@ $f_{\rm burst}>f_{\rm quiet}\geq0$. The expression applies when
 $\overline{f}_{\mathrm{Edd,req}}\geq f_{\rm quiet}$. Values $D_{\rm req}>1$
 identify histories that cannot reach the observed mass at the assumed rates.
 
-\subsection{Mass uncertainties and growth-track plotting}
+\subsection{Mass-uncertainty implementation}
 \label{app:implementation}
 
 Sampling uses random seed 20260808 and a stable random stream for each object
@@ -926,7 +921,20 @@ The final published Killi mass
 $8^{+0.5}_{-0.4}\times10^8M_\odot$ is converted by transforming both linear
 bounds, giving $\log_{10}(\mbh/M_\odot)=8.90309^{+0.02633}_{-0.02228}$.
 
-For Figure~\ref{fig:allgrowth}, we test average Eddington ratios from 0.1 to
+\subsection{Illustrative growth tracks}
+\label{app:tracks}
+
+Figure~\ref{fig:allgrowth} shows tracks at four fixed efficiencies,
+highlighting the five primary objects retaining $P\geq0.95$ after a
+$-0.5$ dex mass shift and GN-z11 as an ultraviolet-mass comparison. Accretion rates
+are selected separately in each panel for proximity to the observed masses;
+the panels illustrate possible histories rather than isolating the effect
+of efficiency. The efficiency boundaries in Figure~\ref{fig:boundaries}
+provide the corresponding comparison at a common required-rate threshold.
+
+\marginpar{\normalfont\small\raggedright Figure~\ref{fig:allgrowth}\\here.}
+
+For these tracks, we test average Eddington ratios from 0.1 to
 2.0 in steps of 0.1. At each seed mass and fixed radiative efficiency, we plot
 the 2 rates with the most primary objects within 0.5 dex of either merger
 prediction ($B_{\rm merge}=1$ or 2), requiring at least 5 objects.
@@ -1001,10 +1009,9 @@ require the contributing studies' selection and detection probabilities.
 
 The two samples show similar patterns (Fig.~\ref{fig:compatibility}). For
 heavy seeds at $a=+1$ and $\fedd=1$, changing $B_{\rm merge}$ from 1 to 2
-raises compatibility from 58 to 71 per cent in the primary sample and from
-59 to 71 per cent in the expanded sample. Higher accretion rates can
+raises compatibility from 57 to 70 per cent in the primary sample and from
+58 to 70 per cent in the expanded sample. Higher accretion rates can
 reduce compatibility when even the smallest seed grows beyond the observed mass.
-
 
 
 \FloatBarrier
@@ -1021,6 +1028,73 @@ under \texttt{results/v3/parameter\_maps/seedredshift\_mass\_maps/}.
 \marginpar{\normalfont\small\raggedright Figure~\ref{fig:seed-timing}\\here.}
 
 
+\section{Earlier accretion onset for four targets}
+\label{sec:pbh-v4}
+
+We compare earlier accretion onset for CAPERS-LRD-z9, UNCOVER-20466, and
+CANUCS-LRD-z8.6, the three highest-ranked primary objects under the
+reference growth model, together with GN-z11 as an expanded-sample UV-mass
+comparison object.
+We use the growth component of Eq.~(1) and Section~2 of \citet{dayal2024},
+with an optimistic accretion onset at matter--radiation equality
+($z_{\rm acc}=3400$), and separately test delayed onset. The seed mass denotes
+the mass at the start of accretion.
+For every onset, including the $z_{\rm acc}=30$ controls, we use the
+radiation-inclusive cosmic ages in Eq.~\ref{eq:cosmictime-radiation}.
+
+With no mergers and constant radiative efficiency, the minimum onset seed
+that reaches an adopted mass for $0\leq\overline{f}_{\mathrm{Edd}}\leq f_{\rm cap}$ is
+\begin{equation}
+\log_{10}\!\left(\frac{M_{\rm seed,min}}{M_\odot}\right)
+=\log_{10}\!\left(\frac{\mbh}{M_\odot}\right)
+-f_{\rm cap}\frac{1-\epsilon}{\epsilon}
+\frac{t(z_{\rm obs})-t(z_{\rm acc})}{t_{\rm Edd}\ln 10}.
+\label{eq:pbh-minimum-seed}
+\end{equation}
+Here $f_{\rm cap}$ is a cap on the lifetime-average luminosity-based Eddington
+ratio. We evaluate 47 onset redshifts between
+20 and 3400, caps of 0.3, 1, and 2, and efficiencies of 0.1 and
+$1-\sqrt{8/9}=0.05719$. Efficiency remains fixed at every cap.
+Reported asymmetric log-mass
+errors are propagated with 10,000 equal-side half-normal Monte Carlo draws
+per object, using stable object-specific streams with seed 20261001.
+Redshifts remain fixed; a $-0.5$-dex mass shift is tested separately on the
+same draws. The onset grid is recorded in the analysis configuration
+listed under Data and code availability.
+
+
+\marginpar{\normalfont\small\raggedright Table~\ref{tab:pbh-seeds}\\here.}
+
+
+\marginpar{\normalfont\small\raggedright Figure~\ref{fig:pbh-minimum}\\here.}
+
+
+At $\epsilon=0.1$ and $f_{\rm cap}=1$, equality-onset minimum seeds are
+approximately 1144, 1184, 1018, and $267\,M_\odot$, respectively
+(Table~\ref{tab:pbh-seeds}). Thus an earlier start alone does not allow a
+$100\,M_\odot$ seed to reach any of these four central masses under these
+assumptions. Relative to $z_{\rm acc}=30$, equality onset adds 98.73 Myr
+and reduces each minimum seed by a factor of 7.20. Moving onset from
+$z_{\rm acc}=100$ to 3400 adds only about 16.35 Myr and reduces it by a
+further factor of 1.39. Lower efficiency or larger allowed average rates
+reduce the required seeds further. The lower-efficiency control permits
+$100\,M_\odot$ seeds starting at $z=30$ to reach all four central masses.
+\FloatBarrier
+
+\subsection{Interpreting primordial-seed growth limits}
+
+Equal masses at accretion onset and equal growth parameters give identical
+growth regardless of seed origin. The $z=30$ starting time and equality-onset
+accretion are assumed benchmarks. A primordial black hole (PBH) interpretation
+requires a seed present before equality; its formation, pre-onset growth,
+survival, gas supply, abundance, and external observational constraints remain
+outside this calculation. Section~3 of \citet{dayal2024} additionally models
+halo assembly, gas, star formation, and feedback for UHZ1 and GHZ9.
+\citet{dayal2026} compares astrophysical and primordial seeding using models
+that include gas supply, star formation, feedback, and population predictions.
+The four-target analysis here isolates the effects of seed mass, accretion
+onset, and radiative efficiency on the required growth.
+
 \clearpage
 
 \begin{thebibliography}{}
@@ -1031,332 +1105,315 @@ under \texttt{results/v3/parameter\_maps/seedredshift\_mass\_maps/}.
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
 % type= article
-\bibitem[{C.~J. Baccus {\&} X. Xu(2026)Baccus \& Xu}]{baccus2026}
+\bibitem[{Baccus \& Xu(2026)Baccus \& Xu}]{baccus2026}
 Baccus, C.~J., \& Xu, X. 2026, \bibinfo{title}{A Comprehensive JWST/NIRSpec
   Census of Broad-line Active Galactic Nuclei: Faint, Low-mass Accretors and a
   Population of Little Red Dots,} ApJ, 1006, 165,
   \dodoi{10.3847/1538-4357/ae7de7}
 
 % type= article
-\bibitem[{J.~M. Bardeen {et~al.}(1972)Bardeen, Press, \&
-  Teukolsky}]{bardeen1972}
+\bibitem[{Bardeen {et~al.}(1972)Bardeen, Press, \& Teukolsky}]{bardeen1972}
 Bardeen, J.~M., Press, W.~H., \& Teukolsky, S.~A. 1972,
   \bibinfo{title}{Rotating Black Holes: Locally Nonrotating Frames, Energy
   Extraction, and Scalar Synchrotron Radiation,} ApJ, 178, 347,
   \dodoi{10.1086/151796}
 
 % type= article
-\bibitem[{{\'{A}}. Bogd{\'{a}}n {et~al.}(2024)Bogd{\'{a}}n, Goulding,
-  Natarajan, {et~al.}}]{bogdan2024}
+\bibitem[{Bogd{\'{a}}n {et~al.}(2024)Bogd{\'{a}}n, Goulding, Natarajan, {et~al.}}]{bogdan2024}
 Bogd{\'{a}}n, {\'{A}}., Goulding, A.~D., Natarajan, P., {et~al.} 2024,
   \bibinfo{title}{Evidence for heavy-seed origin of early supermassive black
-  holes from a z ≈ 10 X-ray quasar,} Nature Astronomy, 8, 126,
+  holes from a z \ensuremath{\approx} 10 X-ray quasar,} Nature Astronomy, 8, 126,
   \dodoi{10.1038/s41550-023-02111-9}
 
 % type= article
-\bibitem[{{\'{O}}.~A. Ch{\'{a}}vez~Ortiz {et~al.}(2026)Ch{\'{a}}vez~Ortiz,
-  Finkelstein, Plat, {et~al.}}]{chavezortiz2026}
+\bibitem[{Ch{\'{a}}vez~Ortiz {et~al.}(2026)Ch{\'{a}}vez~Ortiz, Finkelstein, Plat, {et~al.}}]{chavezortiz2026}
 Ch{\'{a}}vez~Ortiz, {\'{O}}.~A., Finkelstein, S.~L., Plat, A., {et~al.} 2026,
   \bibinfo{title}{Significant Evidence of an Active Galactic Nucleus
   Contribution in GHZ2 at z = 12.34,} ApJ, 1008, 227,
   \dodoi{10.3847/1538-4357/ae96a4}
 
 % type= article
-\bibitem[{J. Chisholm {et~al.}(2024)Chisholm, Berg, Endsley,
-  {et~al.}}]{chisholm2024}
+\bibitem[{Chisholm {et~al.}(2024)Chisholm, Berg, Endsley, {et~al.}}]{chisholm2024}
 Chisholm, J., Berg, D.~A., Endsley, R., {et~al.} 2024, \bibinfo{title}{[Ne v]
   emission from a faint epoch of reionization-era galaxy: evidence for a
   narrow-line intermediate-mass black hole,} MNRAS, 534, 2633,
   \dodoi{10.1093/mnras/stae2199}
 
 % type= article
-\bibitem[{K. Davis {et~al.}(2026)Davis, Brooks, Trump, {et~al.}}]{davis2026}
+\bibitem[{Davis {et~al.}(2026)Davis, Brooks, Trump, {et~al.}}]{davis2026}
 Davis, K., Brooks, M., Trump, J.~R., {et~al.} 2026, \bibinfo{title}{Extreme
   Emission Line Galaxies in CEERS Are Powered by Star Formation, not AGN,} ApJ,
   submitted.
 \newblock \doarXiv{2602.23310v1}
 
 % type= article
-\bibitem[{P. Dayal(2024)Dayal}]{dayal2024}
+\bibitem[{Dayal(2024)Dayal}]{dayal2024}
 Dayal, P. 2024, \bibinfo{title}{Exploring a primordial solution for early black
   holes detected with JWST,} A\&A, 690, A182,
   \dodoi{10.1051/0004-6361/202451481}
 
 % type= article
-\bibitem[{P. Dayal(2026)Dayal}]{dayal2026}
+\bibitem[{Dayal(2026)Dayal}]{dayal2026}
 Dayal, P. 2026, \bibinfo{title}{Light, heavy, primordial: exploring the diversity
   of black hole seeding and growth mechanisms in the JWST era,} OJA, submitted.
 \newblock \doarXiv{2604.20966v1}
 
 % type= article
-\bibitem[{Q. Fei {et~al.}(2026)Fei, Fujimoto, Naidu, {et~al.}}]{fei2026}
+\bibitem[{Fei {et~al.}(2026)Fei, Fujimoto, Naidu, {et~al.}}]{fei2026}
 Fei, Q., Fujimoto, S., Naidu, R.~P., {et~al.} 2026, \bibinfo{title}{A GLIMPSE
   of Intermediate Mass Black Holes in the Epoch of Reionization: Witnessing the
   Descendants of Direct Collapse?} ApJ, 1003, 244,
   \dodoi{10.3847/1538-4357/ae6248}
 
 % type= article
-\bibitem[{A.~D. Goulding {et~al.}(2023)Goulding, Greene, Setton,
-  {et~al.}}]{goulding2023}
+\bibitem[{Fudamoto {et~al.}(2025)Fudamoto, {et~al.}}]{fudamoto25expansion}
+Fudamoto, Y., {et~al.} 2025, \bibinfo{title}{SAPPHIRES: A Galaxy Over-Density
+in the Heart of Cosmic Reionization at z=8.47,} preprint.
+\newblock \doarXiv{2503.15597v1}
+
+\bibitem[{Goulding {et~al.}(2023)Goulding, Greene, Setton, {et~al.}}]{goulding2023}
 Goulding, A.~D., Greene, J.~E., Setton, D.~J., {et~al.} 2023,
   \bibinfo{title}{UNCOVER: The Growth of the First Massive Black Holes from
   JWST/NIRSpec---Spectroscopic Redshift Confirmation of an X-Ray Luminous AGN
   at z = 10.1,} ApJL, 955, L24, \dodoi{10.3847/2041-8213/acf7c5}
 
 % type= article
-\bibitem[{J.~E. Greene {et~al.}(2024)Greene, Labbe, Goulding,
-  {et~al.}}]{greene2024}
+\bibitem[{Greene {et~al.}(2024)Greene, Labbe, Goulding, {et~al.}}]{greene2024}
 Greene, J.~E., Labbe, I., Goulding, A.~D., {et~al.} 2024,
   \bibinfo{title}{UNCOVER Spectroscopy Confirms the Surprising Ubiquity of
   Active Galactic Nuclei in Red Sources at z > 5,} ApJ, 964, 39,
   \dodoi{10.3847/1538-4357/ad1e5f}
 
 % type= article
-\bibitem[{Y. Harikane {et~al.}(2023)Harikane, Zhang, Nakajima,
-  {et~al.}}]{harikane2023}
+\bibitem[{Harikane {et~al.}(2023)Harikane, Zhang, Nakajima, {et~al.}}]{harikane2023}
 Harikane, Y., Zhang, Y., Nakajima, K., {et~al.} 2023, \bibinfo{title}{A
   JWST/NIRSpec First Census of Broad-line AGNs at z = 4--7: Detection of 10
-  Faint AGNs with M BH ∼ 106--108 M ⊙ and Their Host Galaxy Properties,}
+  Faint AGNs with M BH \ensuremath{\sim} 106--108 M \ensuremath{\odot} and Their Host Galaxy Properties,}
   ApJ, 959, 39, \dodoi{10.3847/1538-4357/ad029e}
 
 % type= article
-\bibitem[{T.~A. Hutchison {et~al.}(2025)Hutchison, Larson, Arrabal~Haro,
-  {et~al.}}]{hutchison2025}
+\bibitem[{Hutchison {et~al.}(2025)Hutchison, Larson, Arrabal~Haro, {et~al.}}]{hutchison2025}
 Hutchison, T.~A., Larson, R.~L., Arrabal~Haro, P., {et~al.} 2025,
   \bibinfo{title}{THRILS -- The High-(Redshift+Ionization) Line Search: Program
   Description \& Redshift Catalog,} arXiv e-prints.
 \newblock \doarXiv{2512.12509v1}
 
 % type= article
-\bibitem[{I. Juod{\v{z}}balis {et~al.}(2026{\natexlab{a}})Juod{\v{z}}balis,
-  Maiolino, Baker, {et~al.}}]{juodzbalis2026}
+\bibitem[{Juod{\v{z}}balis {et~al.}(2026{\natexlab{a}})Juod{\v{z}}balis, Maiolino, Baker, {et~al.}}]{juodzbalis2026}
 Juod{\v{z}}balis, I., Maiolino, R., Baker, W.~M., {et~al.} 2026{\natexlab{a}},
   \bibinfo{title}{JADES: comprehensive census of broad-line AGN from
   reionization to cosmic noon revealed by JWST,} MNRAS, 546, stag086,
   \dodoi{10.1093/mnras/stag086}
 
 % type= article
-\bibitem[{I. Juod{\v{z}}balis {et~al.}(2026{\natexlab{b}})Juod{\v{z}}balis,
-  Marconcini, D'Eugenio, {et~al.}}]{juodzbalis_direct2025}
+\bibitem[{Juod{\v{z}}balis {et~al.}(2026{\natexlab{b}})Juod{\v{z}}balis, Marconcini, D'Eugenio, {et~al.}}]{juodzbalis_direct2025}
 Juod{\v{z}}balis, I., Marconcini, C., D'Eugenio, F., {et~al.}
   2026{\natexlab{b}}, \bibinfo{title}{A direct black-hole mass measurement in a
   little red dot at high redshift,} Nature, 653, 1017,
   \dodoi{10.1038/s41586-026-10579-4}
 
 % type= article
-\bibitem[{M. Killi {et~al.}(2024)Killi, Watson, Brammer, {et~al.}}]{killi2024}
+\bibitem[{Killi {et~al.}(2024)Killi, Watson, Brammer, {et~al.}}]{killi2024}
 Killi, M., Watson, D., Brammer, G., {et~al.} 2024, \bibinfo{title}{Deciphering
-  the JWST spectrum of a ‘little red dot' at z ∼ 4.53: An obscured AGN and
+  the JWST spectrum of a `little red dot' at z \ensuremath{\sim} 4.53: An obscured AGN and
   its star-forming host,} A\&A, 691, A52, \dodoi{10.1051/0004-6361/202348857}
 
 % type= article
-\bibitem[{D.~D. Kocevski {et~al.}(2025)Kocevski, Finkelstein, Barro,
-  {et~al.}}]{kocevski2025}
+\bibitem[{Kocevski {et~al.}(2025)Kocevski, Finkelstein, Barro, {et~al.}}]{kocevski2025}
 Kocevski, D.~D., Finkelstein, S.~L., Barro, G., {et~al.} 2025,
   \bibinfo{title}{The Rise of Faint, Red Active Galactic Nuclei at z > 4: A
   Sample of Little Red Dots in the JWST Extragalactic Legacy Fields,} ApJ, 986,
   126, \dodoi{10.3847/1538-4357/adbc7d}
 
 % type= article
-\bibitem[{D.~D. Kocevski {et~al.}(2026)Kocevski, Taylor, Onoue,
-  {et~al.}}]{skyfire2026}
+\bibitem[{Kocevski {et~al.}(2026)Kocevski, Taylor, Onoue, {et~al.}}]{skyfire2026}
 Kocevski, D.~D., Taylor, A.~J., Onoue, M., {et~al.} 2026,
   \bibinfo{title}{Skyfire: A Spectroscopic Census of Little Red Dots and
   Broad-Line AGN in the CEERS Field,} ApJ, submitted.
 \newblock \doarXiv{2609.00112v1}
 
 % type= article
-\bibitem[{V. Kokorev {et~al.}(2023)Kokorev, Fujimoto, Labb\'e,
-  {et~al.}}]{kokorev2023}
+\bibitem[{Kokorev {et~al.}(2023)Kokorev, Fujimoto, Labb\'e, {et~al.}}]{kokorev2023}
 Kokorev, V., Fujimoto, S., Labb\'e, I., {et~al.} 2023,
   \bibinfo{title}{UNCOVER: A NIRSpec Identification of a Broad-line AGN at
   $z=8.50$,} ApJL, 957, L7, \dodoi{10.3847/2041-8213/ad037a}
 
 % type= article
-\bibitem[{R.~L. Larson {et~al.}(2023)Larson, Finkelstein, Kocevski,
-  {et~al.}}]{larson2023}
+\bibitem[{Larson {et~al.}(2023)Larson, Finkelstein, Kocevski, {et~al.}}]{larson2023}
 Larson, R.~L., Finkelstein, S.~L., Kocevski, D.~D., {et~al.} 2023,
   \bibinfo{title}{A CEERS Discovery of an Accreting Supermassive Black Hole 570
   Myr after the Big Bang: Identifying a Progenitor of Massive z > 6 Quasars,}
   ApJL, 953, L29, \dodoi{10.3847/2041-8213/ace619}
 
 % type= article
-\bibitem[{G.~C.~K. Leung {et~al.}(2026)Leung, Eilers, Endsley,
-  {et~al.}}]{leung2026}
+\bibitem[{Leung {et~al.}(2026)Leung, Eilers, Endsley, {et~al.}}]{leung2026}
 Leung, G. C.~K., Eilers, A.-C., Endsley, R., {et~al.} 2026, \bibinfo{title}{The
   MIRI Early Obscured-AGN Wide Survey (MEOW): A Population of Hidden AGN at $z
   \gtrsim 5$ Revealed by JWST/MIRI Imaging,} ApJ, submitted.
 \newblock \doarXiv{2607.02666v1}
 
 % type= article
-\bibitem[{X. Lin {et~al.}(2026)Lin, Fan, Wang, {et~al.}}]{lin2025}
+\bibitem[{Lin {et~al.}(2026)Lin, Fan, Wang, {et~al.}}]{lin2025}
 Lin, X., Fan, X., Wang, F., {et~al.} 2026, \bibinfo{title}{Bridging Quasars and
   Little Red Dots: Insights into Broad-line Active Galactic Nuclei at z = 5--8
   from the First JWST COSMOS-3D Dataset,} ApJ, 996, 93,
   \dodoi{10.3847/1538-4357/ae1b9b}
 
 % type= article
-\bibitem[{X. Lin {et~al.}(2024)Lin, Wang, Fan, {et~al.}}]{lin2024}
+\bibitem[{Lin {et~al.}(2024)Lin, Wang, Fan, {et~al.}}]{lin2024}
 Lin, X., Wang, F., Fan, X., {et~al.} 2024, \bibinfo{title}{A SPectroscopic
   Survey of Biased Halos In the Reionization Era (ASPIRE): Broad-line AGN at z
-  = 4−5 Revealed by JWST/NIRCam WFSS,} ApJ, 974, 147,
+  = 4-5 Revealed by JWST/NIRCam WFSS,} ApJ, 974, 147,
   \dodoi{10.3847/1538-4357/ad6565}
 
 % type= article
-\bibitem[{J. Lyu {et~al.}(2024)Lyu, Alberts, Rieke, {et~al.}}]{lyu2024}
+\bibitem[{Lyu {et~al.}(2024)Lyu, Alberts, Rieke, {et~al.}}]{lyu2024}
 Lyu, J., Alberts, S., Rieke, G.~H., {et~al.} 2024, \bibinfo{title}{Active
   Galactic Nuclei Selection and Demographics: A New Age with JWST/MIRI,} ApJ,
   966, 229, \dodoi{10.3847/1538-4357/ad3643}
 
 % type= article
-\bibitem[{R. Maiolino {et~al.}(2024)Maiolino, Scholtz, Witstok,
-  {et~al.}}]{maiolino2024}
+\bibitem[{Maiolino {et~al.}(2024)Maiolino, Scholtz, Witstok, {et~al.}}]{maiolino2024}
 Maiolino, R., Scholtz, J., Witstok, J., {et~al.} 2024, \bibinfo{title}{A small
   and vigorous black hole in the early Universe,} Nature, 627, 59,
   \dodoi{10.1038/s41586-024-07052-5}
 
 % type= article
-\bibitem[{S. Mascia {et~al.}(2026)Mascia, Matthee, Torralba,
-  {et~al.}}]{mascia2026}
+\bibitem[{Mascia {et~al.}(2026)Mascia, Matthee, Torralba, {et~al.}}]{mascia2026}
 Mascia, S., Matthee, J., Torralba, A., {et~al.} 2026, \bibinfo{title}{The
   ionizing properties of JWST's compact broad-line emitters,} A\&A, submitted.
 \newblock \doarXiv{2608.25021v1}
 
 % type= article
-\bibitem[{J. Matthee {et~al.}(2024)Matthee, Naidu, Brammer,
-  {et~al.}}]{matthee2024}
+\bibitem[{Matthee {et~al.}(2024)Matthee, Naidu, Brammer, {et~al.}}]{matthee2024}
 Matthee, J., Naidu, R.~P., Brammer, G., {et~al.} 2024, \bibinfo{title}{Little
-  Red Dots: An Abundant Population of Faint Active Galactic Nuclei at z ∼ 5
+  Red Dots: An Abundant Population of Faint Active Galactic Nuclei at z \ensuremath{\sim} 5
   Revealed by the EIGER and FRESCO JWST Surveys,} ApJ, 963, 129,
   \dodoi{10.3847/1538-4357/ad2345}
 
 % type= article
-\bibitem[{G. Mazzolari {et~al.}(2025)Mazzolari, Scholtz, Maiolino,
-  {et~al.}}]{mazzolari2024}
+\bibitem[{Mazzolari {et~al.}(2025)Mazzolari, Scholtz, Maiolino, {et~al.}}]{mazzolari2024}
 Mazzolari, G., Scholtz, J., Maiolino, R., {et~al.} 2025,
   \bibinfo{title}{Narrow-line AGN selection in CEERS: Spectroscopic selection,
   physical properties, and X-ray and radio analysis,} A\&A, 700, A12,
   \dodoi{10.1051/0004-6361/202451860}
 
 % type= article
-\bibitem[{R.~P. Naidu {et~al.}(2026)Naidu, Matthee, Katz, {et~al.}}]{naidu2026}
+\bibitem[{Morishita {et~al.}(2026)Morishita, {et~al.}}]{morishita2026context}
+Morishita, T., {et~al.} 2026, \bibinfo{title}{A Nitrogen-rich AGN Powering
+a Large Ionizing Bubble at $z=8.63$,} ApJ, accepted.
+\newblock \doarXiv{2508.01372v2}
+
+\bibitem[{Naidu {et~al.}(2026)Naidu, Matthee, Katz, {et~al.}}]{naidu2026}
 Naidu, R.~P., Matthee, J., Katz, H., {et~al.} 2026, \bibinfo{title}{A
   gas-enshrouded and gas-reddened black hole at cosmic dawn,} Nature, 656, 329,
   \dodoi{10.1038/s41586-026-10846-4}
 
 % type= article
-\bibitem[{L. Napolitano {et~al.}(2025{\natexlab{a}})Napolitano, Castellano,
-  Pentericci, {et~al.}}]{napolitano2025}
+\bibitem[{Napolitano {et~al.}(2025{\natexlab{a}})Napolitano, Castellano, Pentericci, {et~al.}}]{napolitano2025}
 Napolitano, L., Castellano, M., Pentericci, L., {et~al.} 2025{\natexlab{a}},
   \bibinfo{title}{The Dual Nature of GHZ9: Coexisting Active Galactic Nuclei
   and Star Formation Activity in a Remote X-Ray Source at z = 10.145,} ApJ,
   989, 75, \dodoi{10.3847/1538-4357/ade706}
 
 % type= article
-\bibitem[{L. Napolitano {et~al.}(2025{\natexlab{b}})Napolitano, Castellano,
-  Pentericci, {et~al.}}]{napolitano2024}
+\bibitem[{Napolitano {et~al.}(2025{\natexlab{b}})Napolitano, Castellano, Pentericci, {et~al.}}]{napolitano2024}
 Napolitano, L., Castellano, M., Pentericci, L., {et~al.} 2025{\natexlab{b}},
   \bibinfo{title}{Seven wonders of Cosmic Dawn: JWST confirms a high abundance
-  of galaxies and AGN at z ≃ 9--11 in the GLASS field,} A\&A, 693, A50,
+  of galaxies and AGN at z \ensuremath{\simeq} 9--11 in the GLASS field,} A\&A, 693, A50,
   \dodoi{10.1051/0004-6361/202452090}
 
 % type= article
-\bibitem[{J. Poutanen {et~al.}(2007)Poutanen, Lipunova, Fabrika, Butkevich, \&
-  Abolmasov}]{poutanen2007}
+\bibitem[{Poutanen {et~al.}(2007)Poutanen, Lipunova, Fabrika, Butkevich, \& Abolmasov}]{poutanen2007}
 Poutanen, J., Lipunova, G., Fabrika, S., Butkevich, A.~G., \& Abolmasov, P.
   2007, \bibinfo{title}{Supercritically accreting stellar mass black holes as
   ultraluminous X-ray sources,} MNRAS, 377, 1187,
   \dodoi{10.1111/j.1365-2966.2007.11668.x}
 
 % type= article
-\bibitem[{W. Ren {et~al.}(2025)Ren, Silverman, Faisst, {et~al.}}]{ren2025}
+\bibitem[{Ren {et~al.}(2025)Ren, Silverman, Faisst, {et~al.}}]{ren2025}
 Ren, W., Silverman, J.~D., Faisst, A.~L., {et~al.} 2025, \bibinfo{title}{The
   ALPINE--CRISTAL-- JWST survey: revealing less massive black holes in
   high-redshift galaxies,} MNRAS, 544, 211, \dodoi{10.1093/mnras/staf1709}
 
 % type= article
-\bibitem[{J. Scholtz {et~al.}(2025)Scholtz, Maiolino, D'Eugenio,
-  {et~al.}}]{scholtz2025}
+\bibitem[{Schindler {et~al.}(2025)Schindler, {et~al.}}]{schindler25expansion}
+Schindler, J.-T., {et~al.} 2025, \bibinfo{title}{A little red dot at z=7.3
+within a large galaxy overdensity,} Nature Astronomy, 9, 1732--1744,
+\dodoi{10.1038/s41550-025-02660-1}
+
+\bibitem[{Scholtz {et~al.}(2025)Scholtz, Maiolino, D'Eugenio, {et~al.}}]{scholtz2025}
 Scholtz, J., Maiolino, R., D'Eugenio, F., {et~al.} 2025, \bibinfo{title}{JADES:
   A large population of obscured, narrow-line active galactic nuclei at high
   redshift,} A\&A, 697, A175, \dodoi{10.1051/0004-6361/202348804}
 
 % type= article
-\bibitem[{Y. Shen(2013)Shen}]{shen2013}
+\bibitem[{Shen(2013)Shen}]{shen2013}
 Shen, Y. 2013, \bibinfo{title}{The Mass of Quasars,} Bulletin of the
   Astronomical Society of India, 41, 61.
 \newblock \doarXiv{1302.2643v1}
 
 % type= article
-\bibitem[{M. Tang {et~al.}(2025)Tang, Stark, Plat, {et~al.}}]{tang2025}
+\bibitem[{Takechi {et~al.}(2026)Takechi, {et~al.}}]{takechi26expansion}
+Takechi, K., {et~al.} 2026, \bibinfo{title}{DREAMS. JWST Spectroscopy of a
+z=8.3 Galaxy with an ALMA Dust Continuum Detection,} preprint.
+\newblock \doarXiv{2605.14922v1}
+
+\bibitem[{Tang {et~al.}(2025)Tang, Stark, Plat, {et~al.}}]{tang2025}
 Tang, M., Stark, D.~P., Plat, A., {et~al.} 2025, \bibinfo{title}{JWST/NIRSpec
   Observations of High-ionization Emission Lines in Galaxies at High Redshift,}
   ApJ, 991, 217, \dodoi{10.3847/1538-4357/adfd57}
 
 % type= article
-\bibitem[{A.~J. Taylor {et~al.}(2025)Taylor, Finkelstein, Kocevski,
-  {et~al.}}]{taylor2025}
-Taylor, A.~J., Finkelstein, S.~L., Kocevski, D.~D., {et~al.} 2025,
+\bibitem[{Taylor {et~al.}(2025a)Taylor, Finkelstein, Kocevski, {et~al.}}]{taylor2025}
+Taylor, A.~J., Finkelstein, S.~L., Kocevski, D.~D., {et~al.} 2025a,
   \bibinfo{title}{Broad-line AGNs at 3.5 < z < 6: The Black Hole Mass Function
   and a Connection with Little Red Dots,} ApJ, 986, 165,
   \dodoi{10.3847/1538-4357/add15b}
 
 % type= article
-\bibitem[{H. Treiber {et~al.}(2025)Treiber, Greene, Weaver,
-  {et~al.}}]{treiber2025}
+\bibitem[{Taylor {et~al.}(2025b)Taylor, {et~al.}}]{taylor25expansion}
+Taylor, A.~J., {et~al.} 2025b, \bibinfo{title}{CAPERS-LRD-z9: A Gas Enshrouded
+Little Red Dot Hosting a Broad-line AGN at z=9.288,} ApJL, 989, L7,
+\dodoi{10.3847/2041-8213/ade789}
+
+\bibitem[{Treiber {et~al.}(2025)Treiber, Greene, Weaver, {et~al.}}]{treiber2025}
 Treiber, H., Greene, J.~E., Weaver, J.~R., {et~al.} 2025,
   \bibinfo{title}{UNCOVERing the High-redshift AGN Population among Extreme UV
   Line Emitters,} ApJ, 984, 93, \dodoi{10.3847/1538-4357/adc38f}
 
 % type= article
-\bibitem[{H. {\"{U}}bler {et~al.}(2024){\"{U}}bler, Maiolino,
-  P{\'{e}}rez-Gonz{\'{a}}lez, {et~al.}}]{ubler2024}
+\bibitem[{Tripodi {et~al.}(2025)Tripodi, {et~al.}}]{tripodi25expansion}
+Tripodi, R., {et~al.} 2025, \bibinfo{title}{Extreme properties of a compact and
+massive accreting black hole host in the first 500 Myr,} Nature Communications,
+16, 9830, \dodoi{10.1038/s41467-025-65070-x}
+
+\bibitem[{{\"{U}}bler {et~al.}(2024){\"{U}}bler, Maiolino, P{\'{e}}rez-Gonz{\'{a}}lez, {et~al.}}]{ubler2024}
 {\"{U}}bler, H., Maiolino, R., P{\'{e}}rez-Gonz{\'{a}}lez, P.~G., {et~al.}
   2024, \bibinfo{title}{GA-NIFS: JWST discovers an offset AGN 740 million years
   after the big bang,} MNRAS, 531, 355, \dodoi{10.1093/mnras/stae943}
 
 % type= article
-\bibitem[{Z. Zhang {et~al.}(2026)Zhang, Jiang, Liu, Ho, \&
-  Inayoshi}]{zhang2026}
+\bibitem[{Zhang {et~al.}(2026)Zhang, Jiang, Liu, Ho, \& Inayoshi}]{zhang2026}
 Zhang, Z., Jiang, L., Liu, W., Ho, L.~C., \& Inayoshi, K. 2026,
   \bibinfo{title}{JWST Insights into Narrow-line Little Red Dots,} ApJ, 998,
   170, \dodoi{10.3847/1538-4357/ae33c4}
 
 % type= article
-\bibitem[{M.-Y. Zhuang {et~al.}(2026)Zhuang, Li, Shen, {et~al.}}]{zhuang2025}
+\bibitem[{Zhuang {et~al.}(2026)Zhuang, Li, Shen, {et~al.}}]{zhuang2025}
 Zhuang, M.-Y., Li, J., Shen, Y., {et~al.} 2026, \bibinfo{title}{NEXUS: A
-  Spectroscopic Census of Broad-line AGNs and Little Red Dots at 3 ≲ z ≲
+  Spectroscopic Census of Broad-line AGNs and Little Red Dots at 3 \ensuremath{\lesssim} z \ensuremath{\lesssim}
   6,} ApJ, 999, 31, \dodoi{10.3847/1538-4357/ae3612}
 
 % type= article
-\bibitem[{F. Zou {et~al.}(2026)Zou, Gallo, Zuo, {et~al.}}]{zou2026}
+\bibitem[{Zou {et~al.}(2026)Zou, Gallo, Zuo, {et~al.}}]{zou2026}
 Zou, F., Gallo, E., Zuo, Z., {et~al.} 2026, \bibinfo{title}{Revisiting the
   Claim for a Direct-Collapse Black Hole in UHZ1 at $z=10.05$,} ApJ, in press.
 \newblock \doarXiv{2603.24893v2}
 
-\bibitem[Taylor et al.(2025)]{taylor25expansion} Taylor, A. J., et al. (2025),
-CAPERS-LRD-z9: A Gas Enshrouded Little Red Dot Hosting a Broad-line AGN at z=9.288,
-ApJL, 989, L7, \dodoi{10.3847/2041-8213/ade789}.
-\bibitem[Tripodi et al.(2025)]{tripodi25expansion} Tripodi, R., et al. (2025),
-Extreme properties of a compact and massive accreting black hole host in the first 500 Myr,
-Nature Communications, 16, 9830, \dodoi{10.1038/s41467-025-65070-x}.
-\bibitem[Schindler et al.(2025)]{schindler25expansion} Schindler, J.-T., et al. (2025),
-A little red dot at z=7.3 within a large galaxy overdensity,
-Nature Astronomy, 9, 1732--1744, \dodoi{10.1038/s41550-025-02660-1}.
-\bibitem[Takechi et al.(2026)]{takechi26expansion} Takechi, K., et al. (2026),
-DREAMS. JWST Spectroscopy of a z=8.3 Galaxy with an ALMA Dust Continuum Detection,
-arXiv:2605.14922v1.
-\bibitem[Fudamoto et al.(2025)]{fudamoto25expansion} Fudamoto, Y., et al. (2025),
-SAPPHIRES: A Galaxy Over-Density in the Heart of Cosmic Reionization at z=8.47,
-arXiv:2503.15597v1.
-
-\bibitem[Morishita et al.(2026)]{morishita2026context}
-Morishita, T., et al. 2026, A Nitrogen-rich AGN Powering a Large Ionizing
-Bubble at $z=8.63$, ApJ, accepted.
-\newblock \doarXiv{2508.01372v2}
-
 \end{thebibliography}
 
+\clearpage
 \section*{Statements and declarations}
 \subsection*{Funding}
 The author received no funding for this work.
@@ -1364,67 +1421,10 @@ The author received no funding for this work.
 The author declares no competing interests.
 \subsection*{Author contributions}
 Nicole Jiang is the sole author and is responsible for the research and manuscript.
-\subsection*{Data availability}
-The catalogue, analysis code, and version references are provided in the
-Data and code availability section above.
 
 
 \clearpage
 \section*{Figures and legends}
-\noindent\begin{minipage}{\textwidth}
-\centering
-\includegraphics[width=0.99\textwidth]{figures/growth_tracks.pdf}
-\captionof{figure}{Growth tracks with 223 primary and 15 additional objects.
-Panels show 4 constant radiative efficiencies at $z_{\rm seed}=30$;
-colours distinguish seeds of $10^2$, $10^4$, and $10^5M_\odot$, and legends
-list the average Eddington ratios, selected separately in each panel to lie
-near the sample. Shaded bands span merger boosts
-$B_{\rm merge}=1$--2, with thick and thin edges respectively.
-Six targets are labelled in the first panel and highlighted in every panel.
-Objects with unresolved identities or without eligible masses are omitted.}
-\label{fig:allgrowth}
-\end{minipage}
-
-\par\bigskip
-\noindent\begin{minipage}{\textwidth}
-\centering
-\includegraphics[width=0.92\textwidth]{figures/uncertainty.pdf}
-\captionof{figure}{The eleven primary objects with $f_0>1$ under the reference model.
-Circles and bars show medians and 16th--84th percentile intervals of the
-required lifetime-average Eddington ratio over each object's mass-error draws;
-diamonds show $f_0$ after a $-0.5$ dex mass shift. The vertical
-line is the reference threshold. The selected objects all have reported errors;
-these intervals do not include additional estimator systematics.}
-\label{fig:uncertainty}
-\end{minipage}
-
-\par\bigskip
-\noindent\begin{minipage}{\textwidth}
-\centering
-\includegraphics[width=0.92\textwidth]{figures/growth_boundaries.pdf}
-\captionof{figure}{Seed-mass--efficiency boundaries for Eddington-limited average growth
-at 2 starting redshifts. Each curve uses an adopted central mass and no merger
-boost. Below a curve the required average is at most unity. Horizontal guides
-mark $\epsilon=0.1$ (solid grey) and $0.05719$ (dotted grey).
-GN-z11 (dashed) and GS-20057765 (dotted) belong only to the expanded sample; the other objects
-are primary.
-Each point assumes a radiative efficiency that remains constant throughout growth.}
-\label{fig:boundaries}
-\end{minipage}
-
-\par\bigskip
-\noindent\begin{minipage}{\textwidth}
-\centering
-\includegraphics[width=0.99\textwidth]{figures/v4_minimum_seed_mass.pdf}
-\captionof{figure}{Minimum onset seed mass versus accretion-onset redshift for the four
-targets. Solid curves vary the average Eddington-ratio cap at fixed
-$\epsilon=0.1$; shaded bands propagate the 16th--84th percentiles of reported
-mass errors. Dashed curves show the lower-efficiency sensitivity. Earlier
-onset reduces the required mass, with diminishing gains in available time.}
-\label{fig:pbh-minimum}
-\end{minipage}
-
-\par\bigskip
 \noindent\begin{minipage}{\textwidth}
 \centering
 \includegraphics[width=0.92\textwidth]{figures/landscape.pdf}
@@ -1440,12 +1440,58 @@ these are included in the primary count. The expanded sample contains
 \par\bigskip
 \noindent\begin{minipage}{\textwidth}
 \centering
+\includegraphics[width=0.92\textwidth]{figures/uncertainty.pdf}
+\captionof{figure}{The eleven primary objects with $f_0>1$, where $f_0$ is the
+required lifetime-average Eddington ratio at the adopted central mass under
+the reference model. Circles and bars show medians and 16th--84th percentile intervals of the
+required lifetime-average Eddington ratio over each object's mass-error draws;
+diamonds show $f_0$ after a $-0.5$ dex mass shift. The vertical
+line is the reference threshold. The selected objects all have reported errors;
+these intervals do not include additional estimator systematics.}
+\label{fig:uncertainty}
+\end{minipage}
+
+\par\bigskip
+\noindent\begin{minipage}{\textwidth}
+\centering
+\includegraphics[width=0.92\textwidth]{figures/growth_boundaries.pdf}
+\captionof{figure}{Seed-mass--efficiency boundaries for Eddington-limited average growth
+at 2 starting redshifts. Each curve uses an adopted central mass and no merger
+boost. Below a curve the required average is at most unity. Horizontal guides
+mark $\epsilon=0.1$ (solid grey) and $0.05719$ (dotted grey).
+The targets are the five primary objects retaining $P\geq0.95$ after a
+$-0.5$ dex mass shift under the reported-error model, and GN-z11 from the
+expanded sample.
+Each point assumes a radiative efficiency that remains constant throughout growth.}
+\label{fig:boundaries}
+\end{minipage}
+
+\par\bigskip
+\noindent\begin{minipage}{\textwidth}
+\centering
 \includegraphics[width=0.99\textwidth]{figures/measurement_sensitivity.pdf}
 \captionof{figure}{Preferred (circles) and alternative (diamonds) required ratios at the central masses for
 7 measurement pairs across 6 primary objects. Pair numbers follow the
 released alternative-measurement table, which supplies stable measurement IDs;
 RUBIES-EGS-50052 (CEERS-2782) has 2 alternatives. All pairs remain below the reference threshold.}
 \label{fig:sensitivity}
+\end{minipage}
+
+\par\bigskip
+\noindent\begin{minipage}{\textwidth}
+\centering
+\includegraphics[width=0.99\textwidth]{figures/growth_tracks.pdf}
+\captionof{figure}{Growth tracks with 223 primary and 15 additional objects.
+Panels show 4 constant radiative efficiencies at $z_{\rm seed}=30$;
+colours distinguish seeds of $10^2$, $10^4$, and $10^5M_\odot$, and legends
+list the average Eddington ratios, selected separately in each panel to lie
+near the sample. Shaded bands span merger boosts
+$B_{\rm merge}=1$--2, with thick and thin edges respectively.
+The five primary objects retaining $P\geq0.95$ after a $-0.5$ dex mass shift
+under the reported-error model, together with GN-z11, are labelled in the
+first panel and highlighted in every panel.
+Objects with unresolved identities or without eligible masses are omitted.}
+\label{fig:allgrowth}
 \end{minipage}
 
 \par\bigskip
@@ -1471,6 +1517,18 @@ ratios of 0.3, 1, and 2; dotted guides mark a $100\,M_\odot$ seed and
 $z_{\rm seed}=20$. Colours saturate above a required ratio of 3.
 Mass uncertainties are not propagated in these maps.}
 \label{fig:seed-timing}
+\end{minipage}
+
+\par\bigskip
+\noindent\begin{minipage}{\textwidth}
+\centering
+\includegraphics[width=0.99\textwidth]{figures/v4_minimum_seed_mass.pdf}
+\captionof{figure}{Minimum onset seed mass versus accretion-onset redshift for the four
+targets. Solid curves vary the average Eddington-ratio cap at fixed
+$\epsilon=0.1$; shaded bands propagate the 16th--84th percentiles of reported
+mass errors. Dashed curves show the lower-efficiency sensitivity. Earlier
+onset reduces the required mass, with diminishing gains in available time.}
+\label{fig:pbh-minimum}
 \end{minipage}
 
 \clearpage
@@ -1507,6 +1565,74 @@ under identity exclusions, leaving 99 in its bar for objects without eligible ma
 \end{minipage}
 
 \par\bigskip
+\begingroup\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}rp{0.10\textwidth}>{\raggedright\arraybackslash}p{0.43\textwidth}@{}}
+\caption{Source-family inventory. Counts are catalogue measurements / growth-eligible
+measurements / primary-sample objects (M/E/P).
+The columns sum to 355/248/223; E includes alternatives, whereas P counts each
+selected object once. ``Balmer'' denotes single-epoch virial masses.
+``Context'' denotes mass estimates retained for discussion but excluded from
+growth calculations because of their method or interpretation.
+``Upper limit'' denotes an upper bound rather than a measured central mass;
+these bounds are also excluded from growth calculations.
+EELG: extreme emission-line galaxy; SED: spectral energy distribution;
+BLR: broad-line region; LRD: little red dot;
+WFSS: wide-field slitless spectroscopy.}
+\label{tab:sources}\\
+\toprule Source & M/E/P & Mass & Selection channel; principal caveat \\\midrule
+\endfirsthead
+\multicolumn{4}{l}{Table~\ref{tab:sources} continued}\\
+\toprule Source & M/E/P & Mass & Selection channel; principal caveat \\\midrule
+\endhead
+\bottomrule\endfoot
+\tableinput{tables/source_rows.tex}
+\end{longtable}
+\endgroup
+
+\par\bigskip
+\noindent\begin{minipage}{\textwidth}
+\centering
+\captionof{table}{Core growth-testing coverage for the admissible expanded sample.
+Counts exclude objects without eligible masses, unresolved-identity exclusions,
+and status-only records. Per-object counts refer to the same adopted mass
+under different assumptions; grid points are numerical evaluations, not
+independent physical models.}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.48\textwidth}rr@{}}
+\toprule
+Product & Per object & Sample total \\
+\midrule
+Required accretion rates & 3 & 714 \\
+Required seed masses & 2 & 476 \\
+Duty-cycle requirements & 3 & 714 \\
+Growth compatibility checks & 72 & 17,136 \\
+Four core tabulated products & 80 & 19,040 \\
+Numerical parameter maps & 2 & 476 \\
+Seed--accretion grid evaluations & 54,000 & 12,852,000 \\
+Seed--onset grid evaluations & 22,500 & 5,355,000 \\
+Combined grid evaluations & 76,500 & 18,207,000 \\
+Monte Carlo mass draws$^{\rm a}$ & 10,000 & 2,260,000 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\parbox{\textwidth}{\footnotesize
+The expanded sample has 238 objects, including 223 primary objects.
+The additional summary, availability, comparison, and minimum-seed tables
+in Section~\ref{sec:products} are counted separately.
+$^{\rm a}$ Only the 226 expanded-sample objects with reported mass errors are
+sampled; the other 12 enter central-mass calculations only. The primary
+sample alone contributes 17,059,500 map-grid evaluations and 2,110,000 mass
+draws for its 211 objects with errors. The archival release additionally
+retains numerical entries for 3 identity-excluded objects and status records
+for 102 objects without eligible masses; none contributes to the counts here.
+The four-target earlier-onset extension has 2,256 minimum-seed results,
+12,408 seed--onset map entries, and 288 control entries, reported separately
+(Appendix~\ref{sec:pbh-v4}).}
+\label{tab:products}
+\end{minipage}
+
+
+\par\bigskip
 \noindent\begin{minipage}{\textwidth}
 \centering
 \captionof{table}{The eleven primary objects above the reference threshold, ordered by $f_0$.
@@ -1535,7 +1661,7 @@ $^{\rm a}$ A separate 0.5-dex calibration scale is reported for
 quoted errors and probabilities shown here. $^{\rm b}$ GN-38509's quoted
 mass errors already include 0.3-dex calibration scatter. $^{\rm c}$ ZS7's quoted 0.4-dex error
 already includes calibration scatter. $^{\rm d}$ J1007\_AGN has a separate
-0.43-dex calibration scale, retained outside the quoted posterior errors.
+0.43-dex calibration scale, omitted here and tested in Table~\ref{tab:calibration}.
 Unmarked rows have no separate scalar
 numerical calibration scale recorded; their quoted errors may omit other
 mass-estimator uncertainties.}
@@ -1569,10 +1695,12 @@ $+0.5$ & 18 / 15 / 14 & 25 / 21 / 18 \\
 \noindent\begin{minipage}{\textwidth}
 \centering
 \captionof{table}{Conditional probabilities of exceeding the reference required
-average Eddington ratio of 1. The reported-error columns use exact normal
-tails for these two symmetric-error measurements; the calibration columns
-add independent 0.5-dex Gaussian scatter. The existing Monte Carlo results
-and sample membership are unchanged.}
+average Eddington ratio of 1. Reported-error probabilities use the adopted
+error models without Monte Carlo sampling. The calibration columns add
+independent Gaussian scatter: 0.5 dex for RUBIES-EGS-55604 and
+J0910\_2028\_12910, and 0.43 dex for J1007\_AGN. The symmetric cases use
+exact normal tails; J1007's asymmetric errors use numerical convolution.
+The baseline Monte Carlo results and sample membership are unchanged.}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
 & \multicolumn{2}{c}{No mass shift} & \multicolumn{2}{c}{$-0.5$ dex shift} \\
@@ -1607,23 +1735,6 @@ $\epsilon=0.05719$ & 0 & 0 \\
 
 \par\bigskip
 \noindent\begin{minipage}{\textwidth}
-\centering
-\captionof{table}{Minimum onset seed masses ($M_\odot$) for the four targets at
-their adopted central masses, $\epsilon=0.1$, $f_{\rm cap}=1$, and no mergers.
-All columns use radiation-inclusive cosmic ages. Values are rounded;
-Figure~\ref{fig:pbh-minimum} shows the reported-error sensitivity.}
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Object & $z_{\rm acc}=30$ & $z_{\rm acc}=100$ & $z_{\rm acc}=3400$ \\
-\midrule
-\tableinput{tables/v4_seed_requirements.tex}
-\bottomrule
-\end{tabular}
-\label{tab:pbh-seeds}
-\end{minipage}
-
-\par\bigskip
-\noindent\begin{minipage}{\textwidth}
 \centering\small
 \captionof{table}{Mass-estimator limitations for the 11 primary objects requiring
 $\overline{f}_{\mathrm{Edd,req}}>1$ under the reference assumptions.
@@ -1634,7 +1745,7 @@ Object & Mass-estimator caveat \\
 \midrule
 CAPERS-LRD-z9 & H$\beta$; dense-gas/BLR geometry, correlated dust alternatives; the 0.15 dex error includes calibration coefficients but not the full high-redshift systematic. \\[3pt]
 CANUCS-LRD-z8.6 & H$\beta$; mass already lens-corrected; alternate lens model and calibration-scatter decomposition remain caveats. \\[3pt]
-J1007\_AGN & Observed total-H$\beta$ luminosity estimator; correlated dust correction raises the mass; separate 0.43 dex calibration scale is not added. \\[3pt]
+J1007\_AGN & Observed total-H$\beta$ luminosity estimator; correlated dust correction raises the mass; separate 0.43 dex calibration scale tested in Table~\ref{tab:calibration}. \\[3pt]
 UNCOVER-20466 & H$\beta$; mass depends on lens model and broad-line-region interpretation. \\[3pt]
 COSMOS3D-13852 & H$\beta$; possible scattering bias; 1--2 dex shifts tested here. \\[3pt]
 \mbox{RUBIES-EGS-55604} & H$\beta$; dust-corrected mass; separate 0.5 dex calibration scale. \\[3pt]
@@ -1647,33 +1758,6 @@ ZS7 & H$\beta$; quoted 0.4 dex already includes calibration scatter. \\[3pt]
 \end{tabular}
 \label{tab:actions}
 \end{minipage}
-
-\par\bigskip
-\par\bigskip
-\begingroup\small
-\setlength{\tabcolsep}{4pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}rp{0.10\textwidth}>{\raggedright\arraybackslash}p{0.43\textwidth}@{}}
-\caption{Source-family inventory. Counts are catalogue measurements / growth-eligible
-measurements / primary-sample objects (M/E/P).
-The columns sum to 355/248/223; E includes alternatives, whereas P counts each
-selected object once. ``Balmer'' denotes single-epoch virial masses.
-``Context'' denotes mass estimates retained for discussion but excluded from
-growth calculations because of their method or interpretation.
-``Upper limit'' denotes an upper bound rather than a measured central mass;
-these bounds are also excluded from growth calculations.
-EELG: extreme emission-line galaxy; SED: spectral energy distribution;
-BLR: broad-line region; LRD: little red dot;
-WFSS: wide-field slitless spectroscopy.}
-\label{tab:sources}\\
-\toprule Source & M/E/P & Mass & Selection channel; principal caveat \\\midrule
-\endfirsthead
-\multicolumn{4}{l}{Table~\ref{tab:sources} continued}\\
-\toprule Source & M/E/P & Mass & Selection channel; principal caveat \\\midrule
-\endhead
-\bottomrule\endfoot
-\tableinput{tables/source_rows.tex}
-\end{longtable}
-\endgroup
 
 \par\bigskip
 \noindent\begin{minipage}{\textwidth}
@@ -1695,6 +1779,23 @@ Expanded & Published; omit unmatched & 234 & 17/13/11 \\
 \bottomrule
 \end{tabular}
 \label{tab:baccusjoint}
+\end{minipage}
+
+\par\bigskip
+\noindent\begin{minipage}{\textwidth}
+\centering
+\captionof{table}{Minimum onset seed masses ($M_\odot$) for the four targets at
+their adopted central masses, $\epsilon=0.1$, $f_{\rm cap}=1$, and no mergers.
+All columns use radiation-inclusive cosmic ages. Values are rounded;
+Figure~\ref{fig:pbh-minimum} shows the reported-error sensitivity.}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Object & $z_{\rm acc}=30$ & $z_{\rm acc}=100$ & $z_{\rm acc}=3400$ \\
+\midrule
+\tableinput{tables/v4_seed_requirements.tex}
+\bottomrule
+\end{tabular}
+\label{tab:pbh-seeds}
 \end{minipage}
 
 \end{document}
