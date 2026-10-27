@@ -142,4 +142,4 @@ Poster checks cover file integrity, page size, text-character coverage, fonts,
 and regenerated scientific plots. They do not replace visual inspection of
 layout. PDF exports are made separately from the analysis notebooks.
 The manuscript command checks retained PDF/source-ZIP integrity and section
-order without LaTeX or private source files. Draft manuscripts: Coming soon.
+order without LaTeX or private source files.

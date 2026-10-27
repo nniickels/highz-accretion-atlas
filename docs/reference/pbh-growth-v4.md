@@ -158,7 +158,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests -p 'tes
 
 Alternatively use the optional `scripts/05_pbh_growth_v4.ipynb`. The existing
 00–04 workflows and v1/v2/v3 dataset interfaces retain their original scope.
-v4 has its own verification and manifest. Draft manuscripts: Coming soon.
+v4 has its own verification and manifest.
 The analysis driver does not edit manuscripts or posters.
 Verification rebuilds tables independently, compares
 PNG pixels in a temporary directory, and detects

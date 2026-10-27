@@ -94,7 +94,3 @@ It can also be checked independently:
   --input results/for_manuscript/tables/target_robustness.csv \
   --verify results/for_manuscript/tables/calibration_sensitivity.csv
 ```
-
-## Manuscript files
-
-Coming soon. The catalogue tables and figures above are available independently.
