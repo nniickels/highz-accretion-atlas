@@ -41,7 +41,7 @@ def canonical_artifacts(version: str) -> list[Path]:
         if not base.is_dir():
             raise FileNotFoundError(f"Missing canonical artifact directory: {base}")
         for path in base.rglob("*"):
-            if not path.is_file() or path.name == ".DS_Store":
+            if not path.is_file() or path.name in {".DS_Store", "README.md"}:
                 continue
             relative = path.relative_to(ROOT)
             if relative.parts[0] == "data" and not path.name.startswith(f"{version}_"):

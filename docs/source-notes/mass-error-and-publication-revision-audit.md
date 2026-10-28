@@ -65,7 +65,7 @@ and GS-20057765. Individual lower-ranked values and ranks can change.
 The conservative publication baseline contains 223 primary and 238 expanded
 objects. Central/p16/probability threshold counts are 11/9/8 and 17/13/11,
 respectively. The
-[publication comparison](../../results/for_manuscript/tables/publication_baccus_revision_summary.csv)
+[publication comparison](../../results/v3/selected_samples/tables/publication_baccus_revision_summary.csv)
 applies the evidence and identity exclusions to each substitution scenario.
 
 These results test measurement revisions at fixed classifications and selection;

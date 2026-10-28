@@ -23,7 +23,7 @@ class PublicationReproductionTests(unittest.TestCase):
     def test_standalone_export_refreshes_inventory(self):
         with tempfile.TemporaryDirectory() as directory:
             results = Path(directory)/'results'
-            destination = results/'for_manuscript/figures'
+            destination = results/'v3/selected_samples/figures'
             inventory = results/'results_inventory.csv'
             with patch.object(build_results_inventory, 'RESULTS', results), \
                  patch.object(build_results_inventory, 'OUTPUT', inventory):
@@ -41,7 +41,7 @@ class PublicationReproductionTests(unittest.TestCase):
     def test_verifier_rejects_stale_png_and_accepts_regenerated_png(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            write_exports(root/'results/for_manuscript/figures', 'white')
+            write_exports(root/'results/v3/selected_samples/figures', 'white')
 
             def render(root, destination):
                 write_exports(Path(destination), 'black')
@@ -50,5 +50,5 @@ class PublicationReproductionTests(unittest.TestCase):
                  patch('src.internal.publication_figures.render_figures', render):
                 with self.assertRaisesRegex(AssertionError, 'rendered pixels differ'):
                     verify_figures(root)
-                write_exports(root/'results/for_manuscript/figures', 'black')
+                write_exports(root/'results/v3/selected_samples/figures', 'black')
                 verify_figures(root)

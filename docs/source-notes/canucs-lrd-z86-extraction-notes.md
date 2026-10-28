@@ -172,7 +172,7 @@ set manuscript eligibility.
 
 The preferred measurement is the only admitted numerical record for this object;
 5100 and Hgamma model alternatives remain observables/sensitivities. Current numerical results are in `results/v2/`, `results/v3/`, and
-`results/for_manuscript/`; the shared builder and manifests include this source.
+`results/v3/selected_samples/`; the shared builder and manifests include this source.
 
 ## Source files and checks
 

@@ -19,11 +19,11 @@ efficiencies.
 | Compact object results, sample flags, and growth requirements | [v3 object results CSV](results/v3/tables/v3_object_results.csv) |
 | Required growth rates at adopted central masses | [v3 object ranking CSV](results/v3/tables/v3_object_point_ranking.csv) |
 | Growth requirements with reported mass errors | [v3 uncertainty ranking CSV](results/v3/tables/v3_object_uncertainty_ranking.csv) |
-| Highest-ranked primary-sample objects and mass-estimator caveats | [Target comparison CSV](results/for_manuscript/tables/target_robustness.csv) |
-| Figures used in the manuscript | [Scientific figures](results/for_manuscript/figures/) |
+| Highest-ranked primary-sample objects and mass-estimator caveats | [Target comparison CSV](results/v3/selected_samples/tables/target_robustness.csv) |
+| Primary and expanded sample figures | [Scientific figures](results/v3/selected_samples/figures/) |
 
 See [data guidance](data/README.md) for identifiers, units, and catalogue limits,
-and [manuscript results](results/for_manuscript/README.md) for sample definitions
+and [sample results](results/v3/selected_samples/README.md) for sample definitions
 and sensitivity tests.
 
 ## Repository guide
@@ -77,8 +77,8 @@ changes before reproducing a revision: `git archive HEAD` excludes uncommitted f
 ## Sources and limits
 
 The [source bibliography](data/sources.md) records publications and extraction
-limits. [Publication inputs](data/publication/README.md) select the manuscript
-samples; [manuscript results](results/for_manuscript/README.md) contain their
+limits. [Sample rules](data/publication/README.md) select the primary and expanded
+samples; [sample results](results/v3/selected_samples/README.md) contain their
 tables and figures. The catalogue workflow does not require LaTeX or local
 manuscript sources.
 

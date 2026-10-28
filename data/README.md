@@ -22,7 +22,7 @@ so the object count is provisional. See the [identity audit](../docs/source-note
 | [assembly/](#assembly-inputs) | Inputs used to combine source records and apply reviewed identity decisions. |
 | [crossmatch/](#identity-links) | Links between measurements, objects, and hosts, with aliases and match reviews. |
 | [validation/](validation/README.md) | Independent expected values, source locators, and conversion checks. |
-| [publication/](publication/README.md) | Rules and comparison inputs for the manuscript samples. |
+| [publication/](publication/README.md) | Rules and comparison inputs for the primary and expanded samples. |
 | [scenarios/](scenarios/) | Settings for the v3 growth comparisons and four-target v4 analysis. |
 | [manifests/](#file-manifests) | File lists and hashes for data, results, and source records. |
 
@@ -124,7 +124,7 @@ From the repository root, using the pinned environment:
 import pandas as pd
 
 objects = pd.read_csv("data/processed/v3/v3_accreting_objects.csv")
-selection = pd.read_csv("results/for_manuscript/tables/publication_object_selection.csv")
+selection = pd.read_csv("results/v3/selected_samples/tables/publication_object_selection.csv")
 joined = objects.merge(selection[["physical_object_id", "publication_primary_flag"]],
                        on="physical_object_id", validate="one_to_one")
 primary = joined.loc[joined["publication_primary_flag"].eq(True)]

@@ -5,8 +5,8 @@ Run these notebooks in numerical order after [setup](../README.md#getting-starte
 | Notebook | Purpose |
 | --- | --- |
 | `00_process_catalogues.ipynb` | Build the v1–v3 catalogues and identity tables. |
-| `01_generate_science.ipynb` | Calculate growth requirements, uncertainties, publication tables, and the four extended v3 tables. |
-| `02_generate_figures.ipynb` | Generate catalogue and manuscript figures. |
+| `01_generate_science.ipynb` | Calculate growth requirements, uncertainties, sample tables, and the four extended v3 tables. |
+| `02_generate_figures.ipynb` | Generate catalogue and sample figures. |
 | `03_generate_atlas.ipynb` | Generate object maps and compare outputs with the independent baseline. |
 | `04_verify.ipynb` | Verify data, sample membership, numerical results, and figures. |
 
@@ -19,7 +19,7 @@ baseline.
 The [v3 result guide](../docs/reference/catalogue-results.md) lists the compact
 object summary, assumption comparisons, field availability, and minimum seeds.
 
-Publication samples use the [evidence and identity rules](../data/publication/README.md).
+Primary and expanded samples use the [evidence and identity rules](../data/publication/README.md).
 Their figures remain separate from the full-catalogue figures. Manuscript editing,
 LaTeX compilation, and upload packaging are outside the notebook workflow.
 

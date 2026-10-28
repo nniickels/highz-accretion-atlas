@@ -60,8 +60,8 @@ class PdfReproductionTests(unittest.TestCase):
             with self.subTest(changes=changes), tempfile.TemporaryDirectory() as directory:
                 baseline, generated = Path(directory)/'baseline', Path(directory)/'generated'
                 for root in (baseline, generated):
-                    (root/'results/for_manuscript/figures').mkdir(parents=True)
-                a, b = [root/'results/for_manuscript/figures/early_start_comparison.pdf'
+                    (root/'results/v3/selected_samples/figures').mkdir(parents=True)
+                a, b = [root/'results/v3/selected_samples/figures/early_start_comparison.pdf'
                         for root in (baseline, generated)]
                 write_figure(a)
                 write_figure(b, compress=True, **changes)

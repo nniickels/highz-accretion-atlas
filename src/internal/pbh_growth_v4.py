@@ -25,7 +25,7 @@ CONFIG_PATH = Path("data/scenarios/v4_pbh_growth.json")
 INPUT_PATHS = (
     CONFIG_PATH,
     Path("data/processed/v3/v3_accreting_objects.csv"),
-    Path("results/for_manuscript/tables/publication_object_selection.csv"),
+    Path("results/v3/selected_samples/tables/publication_object_selection.csv"),
     Path("data/publication/identity_exclusions.json"),
     Path("data/publication/evidence_selection.json"),
 )

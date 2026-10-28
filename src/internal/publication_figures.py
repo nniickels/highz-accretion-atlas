@@ -1,4 +1,4 @@
-"""Render manuscript figures from the explicit conservative publication mask."""
+"""Render primary and expanded sample figures from the publication mask."""
 from __future__ import annotations
 import argparse
 from pathlib import Path
@@ -35,7 +35,7 @@ def render_figures(root=ROOT, destination=None, *, growth_highlights=None,
                    boundary_targets=None, formats=('png',)):
     if not formats or set(formats) - {'png', 'pdf'}:
         raise ValueError('Figure formats must be png and/or pdf')
-    destination = Path(destination) if destination is not None else root/'results/for_manuscript/figures'
+    destination = Path(destination) if destination is not None else root/'results/v3/selected_samples/figures'
     destination.mkdir(parents=True, exist_ok=True)
     selection, primary, point, uncertainty, compatibility, sensitivity = load_plot_inputs(root)
     with plt.rc_context({**plt.rcParamsDefault, 'font.family':'STIXGeneral', 'mathtext.fontset':'stix', 'font.size':16, 'axes.labelsize':17, 'axes.titlesize':17,
@@ -185,7 +185,7 @@ def verify_figures(root=ROOT):
     with tempfile.TemporaryDirectory(prefix='dayal-publication-figures-') as folder:
         render_figures(root,folder)
         for name in NAMES:
-            compare_artifact(root/f'results/for_manuscript/figures/{name}.png',
+            compare_artifact(root/f'results/v3/selected_samples/figures/{name}.png',
                              Path(folder)/f'{name}.png')
     print(f'Verified {len(NAMES)} publication PNG figures against the conservative sample mask')
 

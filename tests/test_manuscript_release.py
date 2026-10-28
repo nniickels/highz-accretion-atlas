@@ -18,7 +18,7 @@ from src.internal.package_overleaf import ROOT, PDF_NAME, ZIP_NAME, verify_publi
 def verify_packaged_figures(archive, root):
     for name in archive.namelist():
         if name.startswith('figures/') and name.endswith('.pdf'):
-            folder = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/for_manuscript'
+            folder = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/v3/selected_samples'
             # Regeneration may change compression across platforms. Keep exact
             # decoded content/resource checks, as in the notebook verifier.
             compare_pdf(BytesIO(archive.read(name)), root/folder/name)
@@ -42,7 +42,7 @@ class ManuscriptReleaseTests(unittest.TestCase):
 
 
     def test_both_drafts_match_current_growth_scenarios(self):
-        with (ROOT/'results/for_manuscript/tables/identity_exclusion_sensitivity.csv').open() as stream:
+        with (ROOT/'results/v3/selected_samples/tables/identity_exclusion_sensitivity.csv').open() as stream:
             scenarios = {row['scenario']: row for row in csv.DictReader(stream)
                          if row['scope'] == 'publication' and row['sample'] == 'primary'}
         with ZipFile(ROOT/'paper'/ZIP_NAME) as archive:
@@ -66,7 +66,7 @@ class ManuscriptReleaseTests(unittest.TestCase):
             from src.internal.pbh_growth_v4 import build_tables, make_figures
             with tempfile.TemporaryDirectory() as directory:
                 generated = Path(directory)
-                figures = generated/'results/for_manuscript/figures'
+                figures = generated/'results/v3/selected_samples/figures'
                 render_figures(ROOT, figures, formats=('pdf',))
                 render_early_start(figures, formats=('pdf',))
                 render_seed_timing(figures, formats=('pdf',))
@@ -82,7 +82,7 @@ class ManuscriptReleaseTests(unittest.TestCase):
                      and float(row['fedd_cap']) == 1
                      and float(row['z_accretion']) == 3400]
         self.assertEqual(len(seeds), 4)
-        with (ROOT/'results/for_manuscript/tables/publication_object_selection.csv').open() as stream:
+        with (ROOT/'results/v3/selected_samples/tables/publication_object_selection.csv').open() as stream:
             selection = list(csv.DictReader(stream))
         with (ROOT/'results/v3/tables/v3_all_object_compatibility.csv').open() as stream:
             compatibility = [row for row in csv.DictReader(stream)
@@ -116,14 +116,14 @@ class ManuscriptReleaseTests(unittest.TestCase):
     def test_packaged_figures_allow_recompression_but_reject_changed_geometry(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
-            path = root/'results/for_manuscript/figures/compatibility.pdf'
+            path = root/'results/v3/selected_samples/figures/compatibility.pdf'
             path.parent.mkdir(parents=True)
             with ZipFile(ROOT/'paper'/ZIP_NAME) as archive:
                 original = archive.read('figures/compatibility.pdf')
                 # Keep the other packaged figures unchanged to test the complete gate.
                 for name in archive.namelist():
                     if name.startswith('figures/') and name.endswith('.pdf'):
-                        base = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/for_manuscript'
+                        base = 'results/v4' if Path(name).stem.startswith('v4_') else 'results/v3/selected_samples'
                         target = root/base/name
                         target.parent.mkdir(parents=True, exist_ok=True)
                         target.write_bytes(archive.read(name))

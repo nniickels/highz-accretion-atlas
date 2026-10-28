@@ -27,8 +27,6 @@ ROOT = Path(__file__).resolve().parents[2]
 PNG_CHANNEL_ATOL = 3
 VERSIONS = ('v1', 'v2', 'v3')
 ARTIFACT_ROOTS = [f'{base}/{v}' for v in VERSIONS for base in ('data/processed', 'data/crossmatch', 'results')]
-PUBLICATION_ROOTS = {'results/for_manuscript/tables': {'.csv'}, 'results/for_manuscript/figures': {'.png', '.pdf'}}
-ARTIFACT_ROOTS += list(PUBLICATION_ROOTS)
 
 
 def artifact_paths(root: Path) -> set[str]:
@@ -37,8 +35,7 @@ def artifact_paths(root: Path) -> set[str]:
         path.relative_to(root).as_posix()
         for part in ARTIFACT_ROOTS
         for path in (root / part).rglob('*')
-        if path.is_file() and path.name != '.DS_Store'
-        and (part not in PUBLICATION_ROOTS or path.suffix in PUBLICATION_ROOTS[part])
+        if path.is_file() and path.name not in {'.DS_Store', 'README.md'}
     }
 
 

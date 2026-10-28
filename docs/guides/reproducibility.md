@@ -51,7 +51,7 @@ must match the pinned input hashes; regenerated CSV values are then compared
 numerically. Code and non-CSV inputs remain byte-exact.
 
 The comparison covers canonical v1/v2/v3 catalogues, identity products, science
-results, and the CSV tables and PNG figures in `results/for_manuscript/`:
+results, and the CSV tables and PNG figures in `results/v3/selected_samples/`:
 
 - CSV values use the shared numerical tolerance.
 - PNG dimensions and alpha must match exactly. Every RGB channel of every pixel
@@ -95,7 +95,7 @@ fails; the publication samples exclude the affected records.
 ## Intentional updates
 
 Generation commands are listed with the [v3 result tables](../reference/catalogue-results.md),
-[publication results](../../results/for_manuscript/README.md#generate-and-verify),
+[publication results](../../results/v3/selected_samples/README.md#generate-and-verify),
 and [v4 outputs](../../results/v4/README.md#generate-and-verify).
 Rebuild v1, v2, and v3 in order because later versions can reference earlier plots.
 

@@ -1,6 +1,6 @@
 # Publication analysis inputs
 
-These files select the manuscript samples from the catalogue and define the
+These files select the primary and expanded samples from v3 and define the
 external comparisons. They do not change catalogue membership.
 
 | File | Purpose |
@@ -37,7 +37,7 @@ P(f_Edd>1)>=0.95, together with scenario counts and top-five ordering. The prima
 median requirement changes from 0.574202 to 0.574252. These statements use the
 reference growth assumptions; they are not parameter-marginalized probabilities.
 
-The [membership and sensitivity tables](../../results/for_manuscript/README.md)
+The [membership and sensitivity tables](../../results/v3/selected_samples/README.md)
 record the full selection. In `identity_exclusion_sensitivity.csv`, the
 `catalogue` scope means manuscript evidence selection before identity exclusions;
 it is not the unfiltered method-primary sample. `publication` applies both
@@ -52,7 +52,7 @@ From the repository root, after [setup](../../README.md#getting-started):
 .venv/bin/python -m src.internal.publication_selection
 ```
 
-The first command writes the [publication tables](../../results/for_manuscript/README.md);
+The first command writes the [publication tables](../../results/v3/selected_samples/README.md);
 the second verifies them. Notebooks 01 and 04 perform these steps. Source
 locations and assumptions remain in the inputs and output tables. The Dayal and
 A2744-QSO1 comparisons do not add catalogue measurements.
@@ -60,5 +60,5 @@ A2744-QSO1 comparisons do not add catalogue measurements.
 ## Calibration uncertainty
 
 The separate three-object test and its error assumptions are described with the
-[calibration results](../../results/for_manuscript/README.md#calibration-test).
+[calibration results](../../results/v3/selected_samples/README.md#calibration-test).
 The test does not change sample membership or catalogue masses.

@@ -25,6 +25,27 @@ class RepositoryLayoutTests(unittest.TestCase):
     def test_results_figures_have_only_png_exports(self) -> None:
         self.assertEqual(list((ROOT / 'results').rglob('*.pdf')), [])
 
+    def test_selected_samples_are_v3_outputs(self) -> None:
+        from src.internal.dataset_manifests import canonical_artifacts
+        from src.internal.verify_regenerated_artifacts import artifact_paths
+        from src.internal.build_results_inventory import collect_inventory
+
+        folder = ROOT / 'results/v3/selected_samples'
+        outputs = {p for part in ('tables', 'figures')
+                   for p in (folder / part).iterdir() if p.suffix in {'.csv', '.png'}}
+        self.assertEqual(len(outputs), 19)
+        self.assertFalse((ROOT / 'results/for_manuscript').exists())
+        self.assertTrue(outputs <= set(canonical_artifacts('v3')))
+        generated = artifact_paths(ROOT)
+        self.assertTrue({p.relative_to(ROOT).as_posix() for p in outputs} <= generated)
+        self.assertNotIn('results/v3/selected_samples/README.md', generated)
+        self.assertNotIn(folder / 'README.md', canonical_artifacts('v3'))
+        inventory = collect_inventory()
+        selected = inventory[inventory.path.str.startswith('results/v3/selected_samples/')]
+        self.assertEqual(len(selected), len(outputs))
+        self.assertEqual(set(selected.release), {'v3'})
+        self.assertEqual(set(selected.path_policy), {'selected_sample_product'})
+
     def test_scripts_contains_no_python_modules(self) -> None:
         self.assertEqual(list(SCRIPTS.rglob("*.py")), [])
 

@@ -26,5 +26,5 @@
 - [Mass and publication-version audit](source-notes/mass-error-and-publication-revision-audit.md)
 - [Redshift and identity audit](source-notes/redshift-identity-audit.md)
 - [Source extraction notes](source-notes/)
-- [Publication sample inputs](../data/publication/README.md)
-- [Manuscript tables and figures](../results/for_manuscript/README.md)
+- [Sample selection rules](../data/publication/README.md)
+- [Sample tables and figures](../results/v3/selected_samples/README.md)

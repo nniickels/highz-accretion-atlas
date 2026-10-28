@@ -1,6 +1,6 @@
-# Manuscript results
+# Primary and expanded samples
 
-These tables and figures support the manuscript's 223-object primary and
+These tables and figures use the v3 223-object primary and
 238-object expanded samples. The expanded sample contains every primary object;
 existing table fields call it `exploratory`.
 
@@ -27,7 +27,7 @@ replace the catalogue value, and the four Dayal matches are not a full crossmatc
 
 ## Generate and verify
 
-From the repository root, after [setup](../../README.md#getting-started):
+From the repository root, after [setup](../../../README.md#getting-started):
 
 ```bash
 .venv/bin/python -m src.internal.publication_selection --write
@@ -37,11 +37,11 @@ From the repository root, after [setup](../../README.md#getting-started):
 ```
 
 The first pair writes and checks tables; the second exports and checks the six
-principal PNG figures. The [publication inputs](../../data/publication/README.md)
+principal PNG figures. The [sample rules](../../../data/publication/README.md)
 record sample rules and source locations. Notebooks 01 and 02 generate tables
 and figures; notebooks 03 and 04 compare and verify outputs. The two additional
 PNG figures use `src.internal.plot_seed_timing_comparison` and
-`src.internal.plot_early_start`. See the [reproduction guide](../../docs/guides/reproducibility.md)
+`src.internal.plot_early_start`. See the [reproduction guide](../../../docs/guides/reproducibility.md)
 for the independent baseline and comparison tolerances.
 
 Results use one PNG per figure.
@@ -86,11 +86,11 @@ integration over ten standard deviations. Its scalar `reported_sigma_dex` and
 scales. Tests check doubled quadrature order, independent random draws, and
 safeguards against double counting.
 
-The table is generated and verified with the other publication tables.
+The table is generated and verified with the other sample tables.
 It can also be checked independently:
 
 ```bash
 .venv/bin/python -m src.internal.calibration_sensitivity \
-  --input results/for_manuscript/tables/target_robustness.csv \
-  --verify results/for_manuscript/tables/calibration_sensitivity.csv
+  --input results/v3/selected_samples/tables/target_robustness.csv \
+  --verify results/v3/selected_samples/tables/calibration_sensitivity.csv
 ```

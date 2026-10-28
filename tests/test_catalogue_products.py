@@ -75,7 +75,7 @@ class CatalogueProductTests(unittest.TestCase):
                                       errors.loc[valid, 'prob_required_fedd_seed1e2_gt_1'])
 
     def test_scenario_counts_reproduce_the_existing_publication_comparison(self):
-        expected = pd.read_csv(ROOT / 'results/for_manuscript/tables/identity_exclusion_sensitivity.csv')
+        expected = pd.read_csv(ROOT / 'results/v3/selected_samples/tables/identity_exclusion_sensitivity.csv')
         comparison = self.outputs['growth_assumption_comparison']
         for row in expected.loc[expected.scope.eq('publication')].itertuples(index=False):
             flag = 'publication_primary_flag' if row.sample == 'primary' else 'publication_exploratory_flag'
@@ -85,7 +85,7 @@ class CatalogueProductTests(unittest.TestCase):
                 self.assertEqual(int(subset.required_fedd.gt(1).sum()), row.above_unity)
 
     def test_mass_shifts_reproduce_existing_object_probabilities(self):
-        existing = pd.read_csv(ROOT / 'results/for_manuscript/tables/mass_offset_object_sensitivity.csv')
+        existing = pd.read_csv(ROOT / 'results/v3/selected_samples/tables/mass_offset_object_sensitivity.csv')
         comparison = self.outputs['growth_assumption_comparison']
         names = {0.: 'reference', -.5: 'mass_minus_0p5', -.3: 'mass_minus_0p3',
                  .3: 'mass_plus_0p3', .5: 'mass_plus_0p5'}

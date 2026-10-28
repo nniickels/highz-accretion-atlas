@@ -35,7 +35,7 @@ def edition_metrics(root):
         )
         values[f"{version}.source_families"] = int(objects.source_key.nunique())
     summary = pd.read_csv(
-        root / "results/for_manuscript/tables/identity_exclusion_sensitivity.csv"
+        root / "results/v3/selected_samples/tables/identity_exclusion_sensitivity.csv"
     )
     for row in summary.query(
         'scope == "publication" and scenario == "reference"'
@@ -52,7 +52,7 @@ def edition_metrics(root):
         ):
             values[row["sample"] + "." + field] = row[field]
     offsets = pd.read_csv(
-        root / "results/for_manuscript/tables/mass_offset_sensitivity.csv"
+        root / "results/v3/selected_samples/tables/mass_offset_sensitivity.csv"
     )
     for r in offsets.itertuples():
         if r.mass_offset_dex in (-0.3, -0.5):
@@ -62,7 +62,7 @@ def edition_metrics(root):
                 )
     point = pd.read_csv(root / "results/v3/tables/v3_object_point_ranking.csv")
     selection = pd.read_csv(
-        root / "results/for_manuscript/tables/publication_object_selection.csv"
+        root / "results/v3/selected_samples/tables/publication_object_selection.csv"
     )
     ids = set(
         selection.loc[selection.publication_exploratory_flag, "physical_object_id"]

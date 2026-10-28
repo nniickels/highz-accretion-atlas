@@ -12,12 +12,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS = ROOT / "results"
 OUTPUT = RESULTS / "results_inventory.csv"
-EXCLUDED = {OUTPUT.name}
+EXCLUDED = {OUTPUT.name, ".DS_Store"}
 
 
 def release_label(path: Path) -> str:
-    if path.parts[0] == "for_manuscript":
-        return "manuscript"
     match = re.match(r"v(\d+(?:_\d+)?)", path.name)
     if not match:
         match = re.match(r"v(\d+(?:_\d+)?)", path.parts[0])
@@ -43,7 +41,7 @@ def collect_inventory(*, results_root: Path | None = None) -> pd.DataFrame:
     rows = []
     for path in sorted(item for item in results_root.rglob("*") if item.is_file()):
         relative = path.relative_to(results_root)
-        if relative.name == "README.md" or relative.as_posix() in EXCLUDED:
+        if relative.name == "README.md" or relative.name in EXCLUDED:
             continue
         artifact_kind, collection = category(relative)
         rows.append({
@@ -53,7 +51,7 @@ def collect_inventory(*, results_root: Path | None = None) -> pd.DataFrame:
             "path": (Path("results") / relative).as_posix(),
             "size_bytes": path.stat().st_size,
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-            "path_policy": ("manuscript_analysis_product" if relative.parts[0] == "for_manuscript"
+            "path_policy": ("selected_sample_product" if relative.parts[:2] == ("v3", "selected_samples")
                             else "v4_analysis_extension" if relative.parts[0] == "v4"
                             else "canonical_dataset_product"),
         })

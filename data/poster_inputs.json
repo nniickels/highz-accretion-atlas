@@ -1,14 +1,14 @@
 {
   "description": "Current CUPC poster edition following the 17 October 2026 five-family expansion. Scientific inputs are pinned to the reviewed expanded catalogue.",
   "sha256": {
-    "results/for_manuscript/tables/publication_object_selection.csv": "a6e6e3940bfe45309e44d422c30adaeaa64bf6967521593d7cf9f3bdbf20522c",
+    "results/v3/selected_samples/tables/publication_object_selection.csv": "a6e6e3940bfe45309e44d422c30adaeaa64bf6967521593d7cf9f3bdbf20522c",
     "results/v3/tables/v3_object_point_ranking.csv": "52492c25cb6209c2fe0a3dc62e0457100dd777a3ed826581874b84a7bae278d1",
     "results/v3/tables/v3_object_uncertainty_ranking.csv": "a511176a065b27eafa8a82488c81208cac80bee259fb34494c6f5956f88ec4d2",
-    "results/for_manuscript/tables/mass_offset_object_sensitivity.csv": "c22911d9e4e47511f774e3681df91067e0cc9c349b6ad8085b929821cb7d65f0",
+    "results/v3/selected_samples/tables/mass_offset_object_sensitivity.csv": "c22911d9e4e47511f774e3681df91067e0cc9c349b6ad8085b929821cb7d65f0",
     "results/v4/tables/v4_minimum_seed_mass.csv": "6748713a682996c5f2e9547d78262179e03c06913eca34140b8bdad2aadf1481",
-    "results/for_manuscript/tables/external_direct_mass_comparison.csv": "92160d9b51cb2405d108b1cb95c54c8dc471978826851341193d8fcef447a6cd",
+    "results/v3/selected_samples/tables/external_direct_mass_comparison.csv": "92160d9b51cb2405d108b1cb95c54c8dc471978826851341193d8fcef447a6cd",
     "src/models.py": "f1e5039396bc656323652a65010977816a08efcb358bc7c640b6e55ec9c81e06",
-    "src/internal/poster_figures.py": "b695b0db9013e4485fac5f6b098a78012e1636ee6ba06d6a3b6b8fdc0cd66e49"
+    "src/internal/poster_figures.py": "7f6f50cfe2c06eebe43bca53ddc1534da79442cdd8f106b272cda74849fbc9c0"
   },
   "edition_revision": "a1bef516db5c76a92b6848eb12bccabdeb5804b9",
   "edition_measurements": 355,

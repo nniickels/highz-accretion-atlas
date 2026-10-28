@@ -5,7 +5,7 @@ figures are stored here. Figures use PNG.
 
 ## Catalogue outputs
 
-Each of `v1/`, `v2/`, and `v3/` has this structure:
+The full-catalogue outputs in `v1/`, `v2/`, and `v3/` share this structure:
 
 ```text
 results/<version>/
@@ -52,9 +52,9 @@ All 72 compatibility checks per object remain in
 The selected growth tracks above and [v4 figures](v4/README.md) show the comparisons
 without the crowded 72-track variants.
 
-## Other analyses
+## Selected samples and v4
 
-- [Manuscript results](for_manuscript/README.md): the 223-object primary and
+- [Primary and expanded samples](v3/selected_samples/README.md): the 223-object primary and
   238-object expanded samples.
 - [v4 growth tests](v4/README.md): minimum seed masses, starting-time tests,
   and required accretion rates for four v3 objects. Cosmic ages include radiation.

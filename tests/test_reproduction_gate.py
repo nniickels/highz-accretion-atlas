@@ -61,7 +61,7 @@ class ReproductionGateTests(unittest.TestCase):
         # Both workspaces can be internally consistent while disagreeing with
         # the reviewed baseline. The independent gate must still reject drift.
         for relative, original, changed in [
-            ('results/for_manuscript/tables/target_robustness.csv', 'object_id,required_fedd\na,1.2\n',
+            ('results/v3/selected_samples/tables/target_robustness.csv', 'object_id,required_fedd\na,1.2\n',
              'object_id,required_fedd\na,1.3\n'),
         ]:
             with self.subTest(relative=relative), tempfile.TemporaryDirectory() as d:
@@ -78,14 +78,14 @@ class ReproductionGateTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             a,b=Path(d)/'baseline',Path(d)/'generated'
             for root in (a,b):
-                (root/'results/for_manuscript/figures').mkdir(parents=True)
-                Image.new('RGB',(12,12),'white').save(root/'results/for_manuscript/figures/uncertainty.png')
-                (root/'results/for_manuscript/figures/README.md').write_text(str(root))
+                (root/'results/v3/selected_samples/figures').mkdir(parents=True)
+                Image.new('RGB',(12,12),'white').save(root/'results/v3/selected_samples/figures/uncertainty.png')
+                (root/'results/v3/selected_samples/figures/README.md').write_text(str(root))
             self.assertEqual(verify_against(a,b), 1)  # Source docs are not outputs.
             im=Image.new('RGB',(12,12),'white');im.putpixel((3,3),(0,0,0))
-            im.save(b/'results/for_manuscript/figures/uncertainty.png')
+            im.save(b/'results/v3/selected_samples/figures/uncertainty.png')
             with self.assertRaises(AssertionError):verify_against(a,b)
-            (b/'results/for_manuscript/figures/uncertainty.png').unlink()
+            (b/'results/v3/selected_samples/figures/uncertainty.png').unlink()
             with self.assertRaisesRegex(AssertionError,'membership'):verify_against(a,b)
 
     def test_self_comparison_is_rejected_even_through_symlink(self):

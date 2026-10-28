@@ -81,7 +81,7 @@ class PosterRebuildTests(unittest.TestCase):
     def test_overview_diagram_counts_match_catalogue_selection(self):
         import pandas as pd
         from src.internal.poster_figures import poster_input_path
-        selection = pd.read_csv(poster_input_path('results/for_manuscript/tables/publication_object_selection.csv'))
+        selection = pd.read_csv(poster_input_path('results/v3/selected_samples/tables/publication_object_selection.csv'))
         edition = json.loads((ROOT/'data/poster_inputs.json').read_text())
         self.assertEqual(edition['edition_revision'],'a1bef516db5c76a92b6848eb12bccabdeb5804b9')
         measurement_count=edition['edition_measurements']
@@ -118,7 +118,7 @@ class PosterRebuildTests(unittest.TestCase):
 
     def test_poster_claims_match_current_scenario_results(self):
         import pandas as pd
-        scenarios = pd.read_csv(ROOT/'results/for_manuscript/tables/identity_exclusion_sensitivity.csv')
+        scenarios = pd.read_csv(ROOT/'results/v3/selected_samples/tables/identity_exclusion_sensitivity.csv')
         primary = scenarios[(scenarios.scope == 'publication') & (scenarios['sample'] == 'primary')].set_index('scenario')
         expanded = scenarios[(scenarios.scope == 'publication') & (scenarios['sample'] == 'exploratory')].set_index('scenario')
         count = int(primary.loc['reference', 'n_objects'])

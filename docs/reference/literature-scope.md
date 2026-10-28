@@ -70,7 +70,7 @@ extraction decisions in [`../source-notes/`](../source-notes/).
 ## External A2744-QSO1 comparison
 
 The direct estimate is evaluated as an external, fixed-assumption comparison in
-[`external_direct_mass_comparison.csv`](../../results/for_manuscript/tables/external_direct_mass_comparison.csv).
+[`external_direct_mass_comparison.csv`](../../results/v3/selected_samples/tables/external_direct_mass_comparison.csv).
 It neither adds an object nor replaces the canonical virial measurement. Its
 interval crosses the reference growth threshold, so frozen membership does not
 prevent evaluating the measurement's scientific implication. Adopting it as a
