@@ -61,13 +61,15 @@ class ManuscriptReleaseTests(unittest.TestCase):
             # Canonical results retain PNGs only. Rebuild the PDF dependencies
             # temporarily to keep independently checking the packaged sources.
             from src.internal.publication_figures import render_figures
+            from src.internal.apss_figures import HIGHLIGHT_OFFSETS, BOUNDARY_TARGETS
             from src.internal.plot_early_start import render as render_early_start
             from src.internal.plot_seed_timing_comparison import render as render_seed_timing
             from src.internal.pbh_growth_v4 import build_tables, make_figures
             with tempfile.TemporaryDirectory() as directory:
                 generated = Path(directory)
                 figures = generated/'results/v3/selected_samples/figures'
-                render_figures(ROOT, figures, formats=('pdf',))
+                render_figures(ROOT, figures, growth_highlights=HIGHLIGHT_OFFSETS,
+                               boundary_targets=BOUNDARY_TARGETS, formats=('pdf',))
                 render_early_start(figures, formats=('pdf',))
                 render_seed_timing(figures, formats=('pdf',))
                 make_figures(build_tables(), generated/'results/v4/figures', formats=('pdf',))

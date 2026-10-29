@@ -1,8 +1,9 @@
-"""Render or independently verify the two Ap&SS figure variants.
+"""Render or independently verify the shared manuscript figure variants.
 
 The scientific inputs and track-selection algorithm are unchanged. Only the
 outlined targets and efficiency-boundary target selection differ from the
-general manuscript exports. Local submission dependencies remain Git-ignored.
+canonical selected-sample exports. Both manuscript editions use these variants;
+local manuscript dependencies remain Git-ignored.
 """
 from __future__ import annotations
 
@@ -49,7 +50,7 @@ def render_apss_figures(root=ROOT, destination=None, *, verify=False):
             destination.mkdir(parents=True, exist_ok=True)
             for name in FIGURES:
                 shutil.copyfile(generated/f'{name}.pdf', destination/f'{name}.pdf')
-    print(('Verified' if verify else 'Rendered') + ' two Ap&SS figure variants; canonical exports unchanged.')
+    print(('Verified' if verify else 'Rendered') + ' two manuscript figure variants; canonical exports unchanged.')
 
 
 def main():
