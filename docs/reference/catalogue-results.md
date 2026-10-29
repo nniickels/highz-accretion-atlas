@@ -58,5 +58,4 @@ Notebook 01 generates these tables with the other science results. After
 
 The verifier rebuilds the tables from catalogue inputs and settings. The v3
 manifest records their hashes and the relevant code, settings, and sample-rule
-hashes. Follow the [reproduction guide](../guides/reproducibility.md) before
-updating manifests or the results inventory.
+hashes.

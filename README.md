@@ -44,19 +44,19 @@ remain available in the full tables.
 
 An active galactic nucleus (AGN) is identified by evidence of black-hole
 accretion. The broad-line samples use masses estimated from broad emission lines.
-v1–v3 are nested catalogue versions; v4 is a separate analysis of four v3 targets.
+v1–v3 are nested catalogue versions.
 
 | Version | Scope | Measurements | Object records | Host systems |
 | --- | --- | ---: | ---: | ---: |
 | v1 | Original Juodzbalis et al. JADES broad-line AGN sample | 23 | 23 | 23 |
 | v2 | v1 plus comparable JWST broad-line AGN measurements | 222 | 215 | 214 |
 | v3 | v2 plus systems with other evidence or mass methods | 355 | 343 | 342 |
-| v4 | Earlier-onset growth tests using the unchanged v3 catalogue | 355 | 343 | 342 |
 
 The v3 object count is provisional: three identity groups remain unresolved.
-The [v4 analysis](docs/reference/pbh-growth-v4.md) tests growth from assumed
-seeds, including primordial black-hole scenarios. It does not model seed
-formation or population abundance.
+
+The [v4 analysis](docs/reference/pbh-growth-v4.md) uses four v3 objects to test
+growth from assumed seeds, including primordial black holes. It adds no catalogue
+records and does not model seed formation or population abundance.
 
 ## Getting started
 
