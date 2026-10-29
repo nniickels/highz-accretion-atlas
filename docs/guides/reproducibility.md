@@ -120,6 +120,11 @@ For other intentional result changes, run:
 The inventory records file sizes and hashes. Verification does not refresh it;
 matching hashes does not replace independent reproduction.
 
+Catalogue metadata edits can also change the input hashes pinned by v4 and
+`data/poster_inputs.json`. Review the affected scientific values before updating
+those hashes, then rerun the v4 and poster checks below. A metadata correction
+does not by itself require new poster exports when the plotted values are unchanged.
+
 To reproduce the package build used by CI after installing the notebook lock:
 
 ```bash
@@ -141,13 +146,17 @@ fingerprints are in `data/poster_exports.json`.
 Poster checks cover file integrity, page size, text-character coverage, fonts,
 and regenerated scientific plots. They do not replace visual inspection of
 layout. PDF exports are made separately from the analysis notebooks.
-The manuscript command checks retained PDF/source-ZIP integrity and section
-order without LaTeX or private source files.
+The manuscript command checks the general draft PDF/source-ZIP integrity and
+section order without LaTeX or local authoring sources. It does not compile or
+verify the Ap&SS manuscript.
 
 The Ap&SS submission uses different highlighted targets in its growth tracks
 and efficiency boundaries. Regenerate these two figure variants with
 `.venv/bin/python -m src.internal.apss_figures`, or compare them with the local
 submission PDFs using `.venv/bin/python -m src.internal.apss_figures --verify`.
-The remaining figures use the canonical publication outputs. The Ap&SS figure,
-table, and class dependencies in `paper/apss/` are local submission files;
-include them when transferring or compiling the manuscript source.
+The remaining figures use the canonical publication outputs. The Ap&SS source,
+compiled PDF, and source-inventory rows (`paper/apss/tables/source_rows.tex`)
+are tracked. The remaining figure, table, and class dependencies are local
+submission files; include them when transferring or compiling the source.
+Both drafts' source-inventory caveats must agree; the general draft's rows are
+included in `paper/early_giants_overleaf.zip`.

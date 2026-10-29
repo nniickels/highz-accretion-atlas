@@ -73,8 +73,8 @@ Comparisons across incompatible mass methods or object classes are not justified
 by a shared position in a ranking.
 
 Follow-up category `A_high_central_growth_requirement` identifies high central
-requirements in primary objects with secure source evidence; it does not imply
-robustness to calibration uncertainty. Unresolved identities receive
+requirements in objects passing the catalogue primary criteria with secure
+source evidence; it does not imply robustness to calibration uncertainty. Unresolved identities receive
 `identity_review_required` and no numerical follow-up score or rank.
 
 The [literature scope](literature-scope.md) defines membership and source-version

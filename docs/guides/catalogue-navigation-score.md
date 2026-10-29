@@ -1,7 +1,8 @@
 # Catalogue browsing score
 
-This score is used in the catalogue interface. Scientific comparisons rank objects by their required average Eddington ratios.
-
+This score is stored as `growth_pressure_score_0_100` in the point-ranking
+tables. Their navigation ranks use this score; the manuscript ranks objects
+directly by required average Eddington ratio.
 
 The point navigation score is
 $$
@@ -14,3 +15,7 @@ $f_{\mathrm{Edd}}$ for a $10^2\,M_\odot$ seed, and $s_{0.3}$ is the required
 $\log_{10}(M_{\rm seed}/M_\odot)$ at $f_{\mathrm{Edd}}=0.3$. This score combines two growth diagnostics and a redshift term to help
 browse the catalogue. It has no probabilistic calibration. Ties use
 decreasing $f_2$, decreasing redshift, then stable identifier. The manuscript's required-$f_{\mathrm{Edd}}$ table is ordered directly by $f_2$.
+
+Follow-up tables use a separate heuristic score and categories described in
+the [scientific policy](../reference/science-policy.md#samples-identities-and-ranks).
+Neither score is a probability or a measured observing value.

@@ -1,9 +1,13 @@
 # Source code
 
-Public modules provide catalogue access (`datasets.py`), growth equations
+Public modules provide catalogue version materialization (`datasets.py`), growth equations
 (`models.py`, `pbh.py`), and analysis (`science.py`, `scoring.py`). Supporting
 modules handle identities, classifications, mass systematics, source provenance,
 and standardization.
+
+Read the released CSVs directly; the [data guide](../data/README.md#example-select-the-manuscript-sample)
+shows how to select the reviewed sample. `catalogue_quality.py` normalizes
+boolean flags, updates adoption explanations, and attaches identity/provenance diagnostics.
 
 Notebook drivers and generation/verification commands are in `internal/`.
 Historical `v7_*` filenames under `internal/compatibility/` support reconstruction;

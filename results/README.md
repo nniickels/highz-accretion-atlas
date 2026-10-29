@@ -28,8 +28,12 @@ provisional because of [unresolved identities](../docs/source-notes/redshift-ide
 | [Assumption comparisons](v3/tables/v3_growth_assumption_comparison.csv) | Required rates under ten sets of assumptions for 241 usable masses. |
 | [Field availability](v3/tables/v3_field_availability.csv) | Available and missing fields by source and object class. |
 | [Minimum seed masses](v3/tables/v3_minimum_seed_mass.csv) | Starting-time, efficiency, rate-limit, and mass-shift tests for all 241 usable masses. |
+| [Follow-up priorities](v3/tables/v3_followup_priority.csv) | Heuristic recommendations and ranks; unresolved identities require review and have no numerical follow-up score or rank. |
 
 See [settings and column definitions](../docs/reference/catalogue-results.md).
+`A_high_central_growth_requirement` describes central estimates and source
+evidence, not robustness to calibration uncertainty. See the
+[ranking policy](../docs/reference/science-policy.md#samples-identities-and-ranks).
 
 ## v3 figures
 
