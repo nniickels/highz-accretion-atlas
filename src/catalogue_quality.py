@@ -17,6 +17,37 @@ JADES_PROVENANCE_FIELDS = (
 )
 
 
+def normalize_boolean_flags(frame):
+    """Export boolean flags consistently, preserving unknown values as missing."""
+    result = frame.copy()
+    tokens = {"true": True, "false": False, "1": True, "0": False,
+              "1.0": True, "0.0": False}
+    for field in result:
+        if not field.endswith("_flag") or field in {"quality_flag", "edd_ratio_consistency_flag"}:
+            continue
+        def parse(value):
+            if pd.isna(value):
+                return pd.NA
+            token = str(value).strip().lower()
+            if token not in tokens:
+                raise ValueError(f"Invalid boolean flag {field}: {value!r}")
+            return tokens[token]
+        result[field] = result[field].map(parse).astype("boolean")
+    return result
+
+
+def update_preferred_measurement_reasons(measurements):
+    """Remove singleton claims when a version now retains alternatives."""
+    result = measurements.copy()
+    multiple = result.groupby("physical_object_id").measurement_id.transform("size").gt(1)
+    stale = (multiple & result.preferred_measurement_flag
+             & result.preferred_measurement_reason.str.startswith("only ", na=False))
+    result.loc[stale, "preferred_measurement_reason"] = (
+        "prior-adopted measurement retained for continuity; alternative measurements remain available"
+    )
+    return result
+
+
 def annotate_scientific_identity(measurements, pair_reviews):
     """Mark all measurements of an object implicated by an open reviewed pair."""
     groups = {}

@@ -94,11 +94,16 @@ estimators interchangeable or remove their source assumptions.
 | `agn_contam_flag`, `red_agn_flag`, `compact_source_flag`, `dual_agn_candidate_flag`, `robust_candidate_flag`, `oiii_outflow_detected_flag`, `halpha_three_component_fit_flag` | Source-specific interpretation/fit flags; absent values do not establish a negative result. |
 | `missing_mstar_flag`, `missing_lbol_flag`, `missing_edd_ratio_flag`, `missing_lensing_flag`, `missing_optional_fields` | Explicit missingness metadata; consult the corresponding value and source. |
 
-Blank numeric cells are missing, never zero. Boolean flags can be `True`/`False`, legacy
-0/1 values, or missing; do not use `astype(bool)` on string columns. Text tokens
+Blank numeric cells are missing, never zero. Processed boolean flags use
+`True`/`False` or a blank for unknown; `quality_flag` and
+`edd_ratio_consistency_flag` are categorical labels. Raw inputs retain legacy
+0/1 representations. Do not use `astype(bool)` on string columns. Text tokens
 such as `not_reported`, `not_applicable`, and `not_recorded_in_frozen_v1_source_layer`
 describe different provenance states. Missing mass errors imply no uncertainty
 probability, not a perfectly known mass.
+
+Preferred-measurement reasons are updated within each version when alternatives
+are retained; source extraction inputs keep their original admission wording.
 
 Ratio consistency is assessed wherever finite mass, luminosity, and a positive
 reported Eddington ratio exist, using a 0.3-dex tolerance. Other rows are marked

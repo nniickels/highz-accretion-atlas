@@ -5,7 +5,8 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from src.catalogue_quality import annotate_scientific_identity, JADES_PROVENANCE_FIELDS
+from src.catalogue_quality import (annotate_scientific_identity, JADES_PROVENANCE_FIELDS,
+                                   normalize_boolean_flags)
 from src.internal.process_catalogues import build_versions
 from src.internal.publication_selection import build_publication_membership
 from src.standardize_data import add_eddington_ratio_consistency
@@ -32,6 +33,40 @@ class CatalogueQualityTests(unittest.TestCase):
         self.assertEqual(result.edd_ratio_consistency_flag.tolist(),
                          ['consistent', 'inconsistent'] + ['not_evaluable'] * 4)
         self.assertTrue(result.loc[2:, 'edd_ratio_log_residual_dex'].isna().all())
+
+    def test_boolean_normalization_preserves_false_unknown_and_categorical_labels(self):
+        frame = pd.DataFrame({'lrd_flag': ['1.0', '0.0', 'True', 'False', None],
+                              'quality_flag': ['secure'] * 5,
+                              'edd_ratio_consistency_flag': ['not_evaluable'] * 5})
+        result = normalize_boolean_flags(frame)
+        self.assertEqual(result.lrd_flag.iloc[:4].tolist(), [True, False, True, False])
+        self.assertTrue(pd.isna(result.lrd_flag.iloc[4]))
+        pd.testing.assert_frame_equal(result[frame.columns[1:]], frame[frame.columns[1:]])
+        with self.assertRaisesRegex(ValueError, 'Invalid boolean flag'):
+            normalize_boolean_flags(pd.DataFrame({'lrd_flag': ['unrecognised']}))
+
+    def test_current_preference_reasons_do_not_claim_singletons_with_alternatives(self):
+        for products in self.versions.values():
+            measurements = products['measurements']
+            multiple = measurements.groupby('physical_object_id').measurement_id.transform('size').gt(1)
+            preferred = measurements.loc[multiple & measurements.preferred_measurement_flag]
+            self.assertFalse(preferred.preferred_measurement_reason.str.startswith('only ').any())
+
+    def test_lrd_aggregation_respects_false_and_missing_flags(self):
+        for products in self.versions.values():
+            measurements = products['measurements']
+            objects = products['objects'].set_index('physical_object_id')
+            for oid, group in measurements.groupby('physical_object_id'):
+                known = group.lrd_flag.dropna()
+                actual = objects.loc[oid, 'lrd_flag']
+                if known.empty:
+                    self.assertTrue(pd.isna(actual))
+                else:
+                    self.assertEqual(actual, bool(known.any()))
+            for frame in (measurements, objects):
+                for field in frame:
+                    if field.endswith('_flag') and field not in {'quality_flag', 'edd_ratio_consistency_flag'}:
+                        self.assertTrue(str(frame[field].dtype) in {'bool', 'boolean'}, field)
 
     def test_all_evaluable_measurements_and_objects_are_assessed(self):
         for name, count in [('measurements', 102), ('objects', 97)]:

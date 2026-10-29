@@ -72,6 +72,11 @@ are heuristics, without probabilistic calibration or measured information gain.
 Comparisons across incompatible mass methods or object classes are not justified
 by a shared position in a ranking.
 
+Follow-up category `A_high_central_growth_requirement` identifies high central
+requirements in primary objects with secure source evidence; it does not imply
+robustness to calibration uncertainty. Unresolved identities receive
+`identity_review_required` and no numerical follow-up score or rank.
+
 The [literature scope](literature-scope.md) defines membership and source-version
 choices. Reproduction checks establish implementation consistency; they do not
 validate mass estimators, resolve identities, or establish that an assumed growth

@@ -32,8 +32,8 @@ v2-dataset-catalogue,measurement,field,MACS0416,1,1,0
 v2-dataset-catalogue,measurement,field,MACS1149,1,1,1
 v2-dataset-catalogue,measurement,field,UDS,18,18,18
 v2-dataset-catalogue,measurement,field,multi-field,49,49,49
-v2-dataset-catalogue,measurement,lrd_phenotype,lrd,92,92,91
-v2-dataset-catalogue,measurement,lrd_phenotype,not_lrd,1,1,0
+v2-dataset-catalogue,measurement,lrd_phenotype,lrd,72,72,71
+v2-dataset-catalogue,measurement,lrd_phenotype,not_lrd,21,21,20
 v2-dataset-catalogue,measurement,lrd_phenotype,not_reported,129,129,121
 v2-dataset-catalogue,measurement,object_class,broad_line_agn,222,222,212
 v2-dataset-catalogue,measurement,source_key,baccus26_nirspec_blagn,49,49,49
@@ -107,8 +107,8 @@ v2-dataset-catalogue,physical_object,field,MACS0416,1,1,0
 v2-dataset-catalogue,physical_object,field,MACS1149,1,1,1
 v2-dataset-catalogue,physical_object,field,UDS,18,18,18
 v2-dataset-catalogue,physical_object,field,multi-field,49,49,49
-v2-dataset-catalogue,physical_object,lrd_phenotype,lrd,91,91,90
-v2-dataset-catalogue,physical_object,lrd_phenotype,not_lrd,1,1,0
+v2-dataset-catalogue,physical_object,lrd_phenotype,lrd,72,72,71
+v2-dataset-catalogue,physical_object,lrd_phenotype,not_lrd,20,20,19
 v2-dataset-catalogue,physical_object,lrd_phenotype,not_reported,123,123,115
 v2-dataset-catalogue,physical_object,object_class,broad_line_agn,215,215,205
 v2-dataset-catalogue,physical_object,source_key,baccus26_nirspec_blagn,49,49,49

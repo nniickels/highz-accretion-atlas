@@ -74,6 +74,8 @@ def build_followup_priority(
     )
 
     def classify(row: pd.Series) -> str:
+        if row["scientific_identity_status"] == "unresolved":
+            return "identity_review_required"
         if not _boolish(row["growth_ranking_eligible_flag"]):
             return "not_ranked_no_canonical_mass"
         if str(row["edd_ratio_consistency_flag"]) == "inconsistent":
@@ -84,7 +86,7 @@ def build_followup_priority(
         robust = str(row["quality_flag"]).strip().lower() in {"robust", "secure"}
         primary = _boolish(row["primary_growth_ranking_flag"])
         if high and robust and primary:
-            return "A_robust_high_pressure"
+            return "A_high_central_growth_requirement"
         if high:
             return "B_caveated_high_pressure"
         if str(row["uncertainty_pressure_tier"]) == "possible_high_pressure":
@@ -95,9 +97,11 @@ def build_followup_priority(
 
     def recommendation(row: pd.Series) -> str:
         category = row["followup_priority_category"]
+        if category == "identity_review_required":
+            return "resolve object identity before growth inference or mass-precision follow-up"
         if category == "not_ranked_no_canonical_mass":
             return "obtain a method-comparable canonical black-hole mass before growth inference"
-        if category == "A_robust_high_pressure":
+        if category == "A_high_central_growth_requirement":
             return "independent black-hole mass and accretion-history constraints"
         if category == "B_caveated_high_pressure":
             return "resolve measurement or comparability caveats, then re-evaluate growth pressure"
@@ -112,14 +116,15 @@ def build_followup_priority(
     result["followup_priority_category"] = result.apply(classify, axis=1)
     result["most_needed_followup"] = result.apply(recommendation, axis=1)
     category_base = {
-        "A_robust_high_pressure": 90.0,
+        "A_high_central_growth_requirement": 90.0,
         "B_caveated_high_pressure": 80.0,
         "C_source_consistency": 70.0,
         "D_uncertainty_leverage": 60.0,
         "E_comparison_anchor": 50.0,
         "F_context": 30.0,
     }
-    eligible = result["growth_ranking_eligible_flag"].map(_boolish)
+    eligible = (result["growth_ranking_eligible_flag"].map(_boolish)
+                & result["scientific_identity_status"].ne("unresolved"))
     pressure = pd.to_numeric(result["growth_pressure_score_0_100"], errors="coerce").fillna(0.0)
     probability = pd.to_numeric(
         result["prob_required_fedd_seed1e2_gt_1"], errors="coerce",

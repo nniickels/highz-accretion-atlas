@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import pandas as pd
-from src.catalogue_quality import apply_catalogue_quality, IDENTITY_FIELDS
+from src.catalogue_quality import (apply_catalogue_quality, IDENTITY_FIELDS,
+                                   normalize_boolean_flags, update_preferred_measurement_reasons)
 
 from src.internal.compatibility.v7_catalogue import _aggregate_objects_with_preferred_evidence
 from src.internal.compatibility.v7_core_catalogue import _build_host_systems, _build_strata
@@ -67,11 +68,12 @@ def materialize_version(complete: dict[str, pd.DataFrame], spec: DatasetSpec) ->
     measurements = apply_catalogue_quality(complete["measurements"])
     if spec.source_keys:
         measurements = measurements[measurements["source_key"].isin(spec.source_keys)].copy()
+    measurements = update_preferred_measurement_reasons(normalize_boolean_flags(measurements))
     measurements["catalogue_release"] = spec.catalogue_release
     measurements["project_version"] = spec.version
     measurements = measurements.sort_values(["source_key", "redshift", "measurement_id"], ascending=[True, False, True]).reset_index(drop=True)
     validate_admission(measurements)
-    objects = _aggregate_objects_with_preferred_evidence(measurements)
+    objects = normalize_boolean_flags(_aggregate_objects_with_preferred_evidence(measurements))
     objects["catalogue_release"] = spec.catalogue_release
     objects["project_version"] = spec.version
     objects = objects.sort_values(["source_key", "redshift", "physical_object_id"], ascending=[True, False, True]).reset_index(drop=True)

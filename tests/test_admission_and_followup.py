@@ -77,14 +77,29 @@ class FollowupQualityTests(unittest.TestCase):
             self.build(normalized).drop(columns="quality_flag"),
         )
 
-    def test_secure_primary_targets_receive_robust_high_pressure_priority(self):
+    def test_secure_primary_targets_are_labelled_by_central_requirement(self):
         result = self.build().set_index("object_id")
         for name in ("CAPERS-LRD-z9", "CANUCS-LRD-z8.6", "J1007_AGN"):
             with self.subTest(object_id=name):
                 self.assertEqual(
-                    result.loc[name, "followup_priority_category"], "A_robust_high_pressure",
+                    result.loc[name, "followup_priority_category"], "A_high_central_growth_requirement",
                 )
         self.assertEqual(result.loc["CAPERS-LRD-z9", "rank_followup_global_navigation"], 1)
+
+    def test_unresolved_identity_overrides_other_followup_categories(self):
+        objects = self.objects.copy()
+        # A secure high-pressure target must await identity review even with a mass.
+        objects.loc[objects.object_id.eq("CAPERS-LRD-z9"), "scientific_identity_status"] = "unresolved"
+        result = self.build(objects)
+        unresolved = result.scientific_identity_status.eq("unresolved")
+        self.assertEqual(int(unresolved.sum()), 7)
+        self.assertTrue(result.loc[unresolved, "followup_priority_category"].eq("identity_review_required").all())
+        self.assertTrue(result.loc[unresolved, "most_needed_followup"].str.startswith("resolve object identity").all())
+        self.assertTrue(result.loc[unresolved, ["followup_value_score_0_100",
+                                              "rank_followup_global_navigation",
+                                              "rank_followup_within_object_class"]].isna().all().all())
+        ranked = result.rank_followup_global_navigation.dropna().astype(int)
+        self.assertEqual(sorted(ranked), list(range(1, len(ranked) + 1)))
 
     def test_secure_medium_pressure_target_is_a_comparison_anchor(self):
         point = self.point.copy()

@@ -98,8 +98,14 @@ def verify_version(version: str) -> None:
     followup = pd.read_csv(results / "tables" / f"{version}_followup_priority.csv")
     if len(followup) != len(objects) or followup["physical_object_id"].nunique() != len(objects):
         raise AssertionError(f"{version} follow-up matrix coverage mismatch")
-    ranked = followup[followup["growth_ranking_eligible_flag"].astype(bool)]
-    if sorted(ranked["rank_followup_global_navigation"].astype(int)) != list(range(1, eligible + 1)):
+    unresolved = followup.scientific_identity_status.eq("unresolved")
+    if (not followup.loc[unresolved, 'followup_priority_category'].eq('identity_review_required').all()
+            or followup.loc[unresolved, ['followup_value_score_0_100',
+                                       'rank_followup_global_navigation',
+                                       'rank_followup_within_object_class']].notna().any().any()):
+        raise AssertionError(f"{version} unresolved identities must await review, without numerical follow-up ranks")
+    ranked = followup[followup["growth_ranking_eligible_flag"].astype(bool) & ~unresolved]
+    if sorted(ranked["rank_followup_global_navigation"].astype(int)) != list(range(1, len(ranked) + 1)):
         raise AssertionError(f"{version} follow-up navigation ranks are not contiguous")
     caveats = pd.read_csv(results / "tables" / f"{version}_source_caveat_summary.csv")
     if set(caveats["source_key"]) != set(measurements["source_key"]):

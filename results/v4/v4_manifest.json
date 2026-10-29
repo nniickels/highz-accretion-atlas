@@ -68,7 +68,7 @@
   },
   "input_and_code_sha256": {
     "data/scenarios/v4_pbh_growth.json": "48edb9cce35cb1bd826fffc9c38314a96516bf0319b961a179b1009853a3c851",
-    "data/processed/v3/v3_accreting_objects.csv": "d604a826dbdced4720d331044d5f7e04c59bacd21b3d0cb57726379ec7e35ed6",
+    "data/processed/v3/v3_accreting_objects.csv": "c889860d7897b5b313cd3465a822859d9f90cd342bed39436ba9b4fb2ff4b8dd",
     "results/v3/selected_samples/tables/publication_object_selection.csv": "a6e6e3940bfe45309e44d422c30adaeaa64bf6967521593d7cf9f3bdbf20522c",
     "data/publication/identity_exclusions.json": "0f5e03fd99250e25db0b0d59dca691af45b26162b79950f4880219ba6011688f",
     "data/publication/evidence_selection.json": "496c03305935586aed84be09031030efb3e950d8aeb5f0daffbc2fd935cf4007",

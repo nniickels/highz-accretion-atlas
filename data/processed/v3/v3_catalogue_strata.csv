@@ -35,8 +35,8 @@ v3-dataset-catalogue,measurement,field,MACS1149,1,1,1
 v3-dataset-catalogue,measurement,field,North Ecliptic Pole,15,12,12
 v3-dataset-catalogue,measurement,field,UDS,22,18,18
 v3-dataset-catalogue,measurement,field,multi-field,57,49,49
-v3-dataset-catalogue,measurement,lrd_phenotype,lrd,121,117,116
-v3-dataset-catalogue,measurement,lrd_phenotype,not_lrd,1,1,0
+v3-dataset-catalogue,measurement,lrd_phenotype,lrd,94,90,89
+v3-dataset-catalogue,measurement,lrd_phenotype,not_lrd,28,28,27
 v3-dataset-catalogue,measurement,lrd_phenotype,not_reported,233,130,121
 v3-dataset-catalogue,measurement,object_class,broad_line_agn,261,247,237
 v3-dataset-catalogue,measurement,object_class,high_ionization_line_candidate,10,1,0
@@ -150,8 +150,8 @@ v3-dataset-catalogue,physical_object,field,MACS1149,1,1,1
 v3-dataset-catalogue,physical_object,field,North Ecliptic Pole,15,12,12
 v3-dataset-catalogue,physical_object,field,UDS,22,18,18
 v3-dataset-catalogue,physical_object,field,multi-field,56,49,49
-v3-dataset-catalogue,physical_object,lrd_phenotype,lrd,120,116,115
-v3-dataset-catalogue,physical_object,lrd_phenotype,not_lrd,1,1,0
+v3-dataset-catalogue,physical_object,lrd_phenotype,lrd,94,90,89
+v3-dataset-catalogue,physical_object,lrd_phenotype,not_lrd,27,27,26
 v3-dataset-catalogue,physical_object,lrd_phenotype,not_reported,222,124,115
 v3-dataset-catalogue,physical_object,object_class,broad_line_agn,252,240,230
 v3-dataset-catalogue,physical_object,object_class,high_ionization_line_candidate,10,1,0
