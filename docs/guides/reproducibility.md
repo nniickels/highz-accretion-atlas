@@ -143,3 +143,11 @@ and regenerated scientific plots. They do not replace visual inspection of
 layout. PDF exports are made separately from the analysis notebooks.
 The manuscript command checks retained PDF/source-ZIP integrity and section
 order without LaTeX or private source files.
+
+The Ap&SS submission uses different highlighted targets in its growth tracks
+and efficiency boundaries. Regenerate these two figure variants with
+`.venv/bin/python -m src.internal.apss_figures`, or compare them with the local
+submission PDFs using `.venv/bin/python -m src.internal.apss_figures --verify`.
+The remaining figures use the canonical publication outputs. The Ap&SS figure,
+table, and class dependencies in `paper/apss/` are local submission files;
+include them when transferring or compiling the manuscript source.
