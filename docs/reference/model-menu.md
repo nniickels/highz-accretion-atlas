@@ -25,10 +25,10 @@ The [extended v3 tables](catalogue-results.md) compare assumptions for every
 usable mass. Their minimum-seed calculations include radiation in cosmic ages;
 the reference rate comparisons retain the baseline cosmology.
 
-These are diagnostic scenarios, not claims that any object uniquely selects a
-seed or growth channel. Selection functions, time-resolved feedback, and
-population-level non-standard cosmologies are outside the implemented inference
-contract.
+These scenarios compare growth requirements under specified assumptions.
+Identifying a seed-formation channel requires additional evidence. The analysis
+omits selection functions, time-resolved feedback, and population models with
+non-standard cosmologies.
 
 The separate [v4 PBH growth extension](pbh-growth-v4.md) distinguishes
 formation from accretion onset, uses radiation-inclusive ages, and excludes

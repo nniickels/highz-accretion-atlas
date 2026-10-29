@@ -8,8 +8,7 @@ line fluxes. Host stellar masses come from BEAGLE fits to the full
 slit-loss-corrected PRISM spectra. JADES DR3 v3.1.3 supplies target coordinates.
 
 The paper repeatedly reports 42 candidates, but its released `Table_sample.tex`
-contains 41 rows. The catalogue does not manufacture the missing record: 21 of the
-41 tabulated rows meet `z >= 4`, and all 21 are admitted. This discrepancy is
+contains 41 rows. All 21 tabulated rows at `z >= 4` are admitted. This discrepancy is
 retained in every new row's caveat tags. Three admitted S2-VO87 rows carry the
 paper's asterisk, meaning they lie within 0.1 dex of the diagnostic boundary.
 

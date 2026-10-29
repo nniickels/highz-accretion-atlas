@@ -31,9 +31,9 @@ provisional because of [unresolved identities](../docs/source-notes/redshift-ide
 | [Follow-up priorities](v3/tables/v3_followup_priority.csv) | Heuristic recommendations and ranks; unresolved identities require review and have no numerical follow-up score or rank. |
 
 See [settings and column definitions](../docs/reference/catalogue-results.md).
-`A_high_central_growth_requirement` describes central estimates and source
-evidence, not robustness to calibration uncertainty. See the
-[ranking policy](../docs/reference/science-policy.md#samples-identities-and-ranks).
+The [ranking policy](../docs/reference/science-policy.md#samples-identities-and-ranks)
+defines the follow-up categories. Calibration sensitivity is reported in the
+[three-object test](v3/selected_samples/tables/calibration_sensitivity.csv).
 
 ## v3 figures
 

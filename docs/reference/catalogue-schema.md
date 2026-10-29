@@ -4,7 +4,7 @@ The measurement schema is shared across v1, v2, and v3. The
 [data field guide](../../data/README.md#columns-units-and-missing-values) explains
 column names and units. Counts belong to the [version guide](../guides/versioning.md).
 
-## Independent classification axes
+## Classification fields
 
 AGN, broad-line AGN, quasars, and little red dots (LRDs) are not interchangeable.
 Canonical rows separately record:
@@ -72,6 +72,6 @@ and source-local observables. Validation checks:
 6. source caveats and exclusions in generated results.
 
 [Assembly inputs](../../data/README.md#assembly-inputs) supply the shared builder.
-`src.internal.verify_versions` checks these contracts. Historical admission
+`src.internal.verify_versions` checks these requirements. Historical admission
 implementations under `src/internal/compatibility/` support reconstruction;
 their filenames do not define additional public catalogue versions.

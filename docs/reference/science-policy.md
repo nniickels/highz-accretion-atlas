@@ -66,16 +66,15 @@ coordinates pass independent source checks; redshift uncertainties, full
 posteriors, and auxiliary observables have partial coverage. See
 [validation coverage](../../data/validation/README.md).
 
-Required-rate rankings order a stated growth requirement. The
-[browsing score](../guides/catalogue-navigation-score.md) and follow-up priorities
-are heuristics, without probabilistic calibration or measured information gain.
-Comparisons across incompatible mass methods or object classes are not justified
-by a shared position in a ranking.
+Required-rate rankings order objects by their calculated growth requirement.
+The [browsing score](../guides/catalogue-navigation-score.md) and follow-up
+scores use chosen weights. Comparisons require compatible mass methods and
+object classes.
 
-Follow-up category `A_high_central_growth_requirement` identifies high central
-requirements in objects passing the catalogue primary criteria with secure
-source evidence; it does not imply robustness to calibration uncertainty. Unresolved identities receive
-`identity_review_required` and no numerical follow-up score or rank.
+`A_high_central_growth_requirement` requires `growth_pressure_tier=high`,
+`primary_growth_ranking_flag=True`, and `quality_flag` set to `secure` or
+`robust`. Calibration scatter is assessed separately. Unresolved identities
+receive `identity_review_required`; their follow-up scores and ranks are blank.
 
 The [literature scope](literature-scope.md) defines membership and source-version
 choices. Reproduction checks establish implementation consistency; they do not

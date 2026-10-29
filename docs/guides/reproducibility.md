@@ -120,10 +120,10 @@ For other intentional result changes, run:
 The inventory records file sizes and hashes. Verification does not refresh it;
 matching hashes does not replace independent reproduction.
 
-Catalogue metadata edits can also change the input hashes pinned by v4 and
-`data/poster_inputs.json`. Review the affected scientific values before updating
-those hashes, then rerun the v4 and poster checks below. A metadata correction
-does not by itself require new poster exports when the plotted values are unchanged.
+Catalogue metadata edits can change the input hashes recorded by v4 and
+`data/poster_inputs.json`. Check the affected scientific values before updating
+those hashes, then rerun the v4 and poster checks below. Existing poster exports
+can be retained when the plotted values are unchanged.
 
 To reproduce the package build used by CI after installing the notebook lock:
 

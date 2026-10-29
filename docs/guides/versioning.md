@@ -22,13 +22,13 @@ v3 also has the [extended result tables](../reference/catalogue-results.md).
 Unchanged plots are shared across versions; each visual-coverage table records
 the retained paths and missing-mass reasons.
 
-The 29 October 2026 metadata correction standardizes nullable boolean flags
-before object and stratum aggregation. Literal false values no longer inflate
-little-red-dot counts. Adoption explanations also reflect retained alternatives.
-These corrections change neither catalogue membership nor adopted masses,
-redshifts, or manuscript growth results. The updated
-[follow-up policy](../reference/science-policy.md#samples-identities-and-ranks)
-withholds numerical follow-up ranks for unresolved identities.
+The 29 October 2026 correction converts boolean flags to `True`, `False`, or
+missing before grouping measurements. This fixes little-red-dot counts that
+treated false text values as true. Measurement-choice explanations now account
+for retained alternatives. Membership, masses, redshifts, and manuscript growth
+results are unchanged. Under the updated
+[follow-up policy](../reference/science-policy.md#samples-identities-and-ranks),
+unresolved identities have blank follow-up scores and ranks.
 
 v4 has separate settings, outputs, and verification under `results/v4/`.
 It does not introduce `data/processed/v4`. See the

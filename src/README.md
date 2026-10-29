@@ -1,13 +1,14 @@
 # Source code
 
-Public modules provide catalogue version materialization (`datasets.py`), growth equations
-(`models.py`, `pbh.py`), and analysis (`science.py`, `scoring.py`). Supporting
-modules handle identities, classifications, mass systematics, source provenance,
-and standardization.
+`datasets.py` builds the catalogue versions. `models.py` and `pbh.py` implement
+the growth equations; `science.py` and `scoring.py` produce analysis tables and
+scores. Other modules handle object identities, classifications, mass
+systematics, source records, and unit conversions.
 
 Read the released CSVs directly; the [data guide](../data/README.md#example-select-the-manuscript-sample)
-shows how to select the reviewed sample. `catalogue_quality.py` normalizes
-boolean flags, updates adoption explanations, and attaches identity/provenance diagnostics.
+shows how to select the manuscript sample. `catalogue_quality.py` standardizes
+boolean flags, updates measurement-choice explanations, and adds source and
+identity checks.
 
 Notebook drivers and generation/verification commands are in `internal/`.
 Historical `v7_*` filenames under `internal/compatibility/` support reconstruction;

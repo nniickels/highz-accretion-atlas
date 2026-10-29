@@ -1,4 +1,4 @@
-# Selection and completeness contract
+# Selection and completeness
 
 `data/selection_function_registry.csv` records what each admitted source
 publishes about its parent sample, area, thresholds, and completeness. The
@@ -10,8 +10,8 @@ across the union of surveys, instruments, targeting programs, evidence types,
 and mass methods. Consequently every catalogue inverse-probability weight is
 missing and `pooled_demographic_inference_allowed` is false. Published fractions
 or luminosity functions may be discussed only within the source-local scope
-named in the registry. This is an executable analysis gate, not an estimate of
-unknown completeness.
+named in the registry. Validation rejects pooled weights until a suitable
+inclusion model is supplied.
 
 The strongest current source-local constraints are:
 
