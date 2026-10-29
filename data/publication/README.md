@@ -41,7 +41,7 @@ The [membership and sensitivity tables](../../results/v3/selected_samples/README
 record the full selection. In `identity_exclusion_sensitivity.csv`, the
 `catalogue` scope means manuscript evidence selection before identity exclusions;
 it is not the unfiltered method-primary sample. `publication` applies both
-policies. The strict full-catalogue identity gate remains open.
+policies. Three catalogue identity groups remain unresolved.
 
 ## Generate and verify
 

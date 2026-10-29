@@ -35,7 +35,7 @@ probabilities, stellar lifetimes, or a gas supply model.
 The three highest reference-growth-pressure **publication-primary** objects
 are selected by recalculating their required ratio with the unchanged v3
 matter+Lambda reference cosmology. GN-z11 is added as an expanded-sample
-high-redshift comparator. After the 17 October 2026 admission, current targets are CAPERS-LRD-z9,
+high-redshift comparator. The targets are CAPERS-LRD-z9,
 UNCOVER-20466, CANUCS-LRD-z8.6, and GN-z11. GN-z11's UV virial mass is distinct
 from the primary Balmer masses; results are not pooled into a population fraction.
 
@@ -156,26 +156,16 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m src.internal.pbh_growth_v4 --verif
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests -p 'test_pbh_v4.py'
 ```
 
-Alternatively use the optional `scripts/05_pbh_growth_v4.ipynb`. The existing
-00–04 workflows and v1/v2/v3 dataset interfaces retain their original scope.
-v4 has its own verification and manifest.
-The analysis driver does not edit manuscripts or posters.
-Verification rebuilds tables independently, compares
-PNG pixels in a temporary directory, and detects
-changed inputs, implementation, or stored artifacts before accepting them.
-Canonical v4 exports also refresh `results/results_inventory.csv` after writing
-the manifest. Commit the inventory with the updated v4 outputs. Exports to an
-external destination leave the repository inventory unchanged; verification
-does not refresh hashes or inventory entries.
+Alternatively, run `scripts/05_pbh_growth_v4.ipynb` after notebooks 00–04.
+Verification rebuilds tables and figures in a temporary directory and compares
+them with the stored outputs. It checks input and code hashes against the v4
+manifest.
 
 Minimum log-seed columns allow an absolute regeneration difference of
 `1e-13` dex to accommodate macOS/Linux cancellation roundoff near zero.
 Other numerical columns retain the shared strict tolerances; stored artifact
 hashes, input hashes, and figure comparisons remain unchanged.
 
-During the disposable CI notebook workflow, regenerated v3 input CSV bytes may
-differ across platforms. If `HIGHZ_BASELINE_ROOT` identifies an independent
-checkout whose input bytes match the pinned v4 hashes, verification compares
-the regenerated CSV contents against that baseline using the shared numerical
-tolerances. Changed measurements still fail. Code and non-CSV inputs always
-require exact hashes; verification never refreshes the manifest implicitly.
+For comparisons across platforms, use the independent baseline procedure in
+the [reproduction guide](../guides/reproducibility.md). CSV contents are compared
+numerically; code and non-CSV inputs require exact hashes.

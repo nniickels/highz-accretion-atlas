@@ -1,13 +1,12 @@
 # Raw source data
 
 This folder contains original source tables and manual extractions. Filenames
-identify their sources. Preserve reported values; apply corrections and
-interpretation choices in the processing code rather than editing source values
-in place. Corrections apply to every affected catalogue version.
+identify their sources. These inputs preserve reported values; processing applies
+corrections and interpretation choices to the affected catalogue versions.
 
 [Sources](../sources.md) and the [source registry](../source_provenance_registry.csv)
 record publication versions, source locations, archive hashes, and extraction
-limits. The [versioning guide](../../docs/guides/versioning.md) defines admission rules.
+limits. The [versioning guide](../../docs/guides/versioning.md) defines dataset membership.
 
 ## Main extraction groups
 
@@ -30,14 +29,14 @@ limits. The [versioning guide](../../docs/guides/versioning.md) defines admissio
 calculation; the frozen catalogue retains the original preprint values. This
 machine-readable table is pinned by the provenance manifest.
 
-## Bounded October 2026 admission
+## Individual high-redshift sources
 
-- [capers-lrd-z9 source values, full screen and admission basis](../../docs/source-notes/capers-lrd-z9-extraction-notes.md).
-- [canucs-lrd-z86 source values, full screen and admission basis](../../docs/source-notes/canucs-lrd-z86-extraction-notes.md).
-- [j1007-agn source values, full screen and admission basis](../../docs/source-notes/j1007-agn-extraction-notes.md).
-- [macs0416-y1 source values, full screen and admission basis](../../docs/source-notes/macs0416-y1-extraction-notes.md).
-- [sapphires-z847 source values, full screen and admission basis](../../docs/source-notes/sapphires-z847-extraction-notes.md).
+- [capers-lrd-z9 measurements and identity checks](../../docs/source-notes/capers-lrd-z9-extraction-notes.md).
+- [canucs-lrd-z86 measurements and identity checks](../../docs/source-notes/canucs-lrd-z86-extraction-notes.md).
+- [j1007-agn measurements and identity checks](../../docs/source-notes/j1007-agn-extraction-notes.md).
+- [macs0416-y1 measurements and identity checks](../../docs/source-notes/macs0416-y1-extraction-notes.md).
+- [sapphires-z847 measurements and identity checks](../../docs/source-notes/sapphires-z847-extraction-notes.md).
 
 Four Balmer mass families enter v2 and v3; SAPPHIRES is v3-only without a mass.
-The cutoff remains 2026-09-03; retrieval/admission was 2026-10-17. Modeling
-alternatives are correlated source observables, not independent objects.
+The literature cutoff is 2026-09-03. Alternative models of the same source
+remain correlated measurements of one object.

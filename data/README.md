@@ -102,8 +102,8 @@ such as `not_reported`, `not_applicable`, and `not_recorded_in_frozen_v1_source_
 describe different provenance states. Missing mass errors imply no uncertainty
 probability, not a perfectly known mass.
 
-Preferred-measurement reasons are updated within each version when alternatives
-are retained; source extraction inputs keep their original admission wording.
+Preferred-measurement reasons describe the alternatives retained in each version.
+Source extraction inputs preserve the original selection reasons.
 
 Ratio consistency is assessed wherever finite mass, luminosity, and a positive
 reported Eddington ratio exist, using a 0.3-dex tolerance. Other rows are marked
@@ -170,7 +170,7 @@ The v3 manifest also checks code, settings, and sample-rule hashes for the
 Checksums detect file changes; they do not establish scientific correctness.
 
 The [reproduction guide](../docs/guides/reproducibility.md) gives verification
-commands and explains when a reviewed change requires new checksums.
+commands for checking files and reproducing results.
 Publication results are compared separately against an independent baseline.
 
 ## Registries and review records
@@ -188,13 +188,8 @@ Publication results are compared separately against an independent baseline.
 
 See [setup](../README.md#getting-started) before running the workflows.
 
-## Corrections and contributions
+## Reporting data errors
 
-Report a suspected data error with the source DOI/version, table or passage,
-object/measurement ID, affected field, and the published value. Provide expected
-values read independently of generated outputs, keeping errors, limits and
-missingness distinct. Source additions also need the [admission checks](../docs/reference/catalogue-schema.md#admission-checks)
-and explicit membership scope. Use the [validation workflow](validation/README.md#extend-the-checks)
-and [reproduction procedure](../docs/guides/reproducibility.md) before refreshing
-manifests. Keep downloaded reference material and temporary working files outside
-the repo; retain scientific inputs required to reproduce the proposed change.
+Report a suspected error with the object or measurement ID, affected field,
+source DOI and version, table or passage, and published value. Distinguish
+measurements, limits, and missing values.

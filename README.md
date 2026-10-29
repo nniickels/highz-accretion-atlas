@@ -38,7 +38,7 @@ remain available in the full tables.
 - [Documentation](docs/README.md): methods, assumptions, and source audits.
 - [Source code](src/README.md): model and processing modules.
 - [Notebooks](scripts/README.md): ordered analysis workflows.
-- [Tests](tests/README.md): regression checks and continuous integration (CI).
+- [Tests](tests/README.md): checks of catalogue data and calculations.
 
 ## Dataset versions
 
@@ -76,8 +76,8 @@ cells do not need to be retained between runs.
 
 Follow [Reproducing results](docs/guides/reproducibility.md) for the complete
 procedure, including separate baseline and execution copies, verification
-commands, poster checks, and the optional v4 analysis. Review and commit intended
-changes before reproducing a revision: `git archive HEAD` excludes uncommitted files.
+commands, poster checks, and the optional v4 analysis. The procedure uses
+`git archive HEAD`, which excludes uncommitted files.
 
 ## Sources and limits
 

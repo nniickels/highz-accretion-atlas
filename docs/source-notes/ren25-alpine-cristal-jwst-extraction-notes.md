@@ -82,7 +82,7 @@ base-10 transformation.
 Table 1 host masses are the integrated pre-JWST Faisst et al. (2020) SED
 results. The paper discusses spatially resolved alternatives that are about
 0.6 dex lower for the candidate sample, but does not provide an authoritative
-per-object replacement table here. No alternate masses are invented.
+per-object replacement table here. The catalogue retains the tabulated masses.
 
 `DC_848185_a` and `DC_848185_b` are two candidate nuclei in one complex merger
 system. They retain separate measurement and physical-object IDs, share
@@ -98,7 +98,6 @@ mass correction is required. All candidates carry merger evidence from the
 source discussion; the two `DC_848185` nuclei also carry the independent
 `dual_nucleus` phenotype.
 
-The source files and internal Ren adapter pass the canonical admission gate in
-memory. The seven measurements are included in v2 and v3, with their candidate
-evidence, shared-host scope, and conditional-mass semantics retained in the
-class-aware science products. See `docs/reference/catalogue-schema.md`.
+The seven measurements are included in v2 and v3. Analysis tables retain their
+candidate evidence, shared-host scope, and conditional-mass interpretation. See
+the [schema](../reference/catalogue-schema.md).

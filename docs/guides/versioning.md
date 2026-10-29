@@ -3,8 +3,8 @@
 v1–v3 are nested catalogue versions. They describe source additions, not code
 milestones or package releases. Counts are in the
 [main README](../../README.md#dataset-versions); the
-[literature scope](../reference/literature-scope.md) defines the cutoff,
-exclusions, and membership history.
+[literature scope](../reference/literature-scope.md) defines the cutoff
+and exclusions.
 
 | Version | Membership |
 | --- | --- |
@@ -22,11 +22,9 @@ v3 also has the [extended result tables](../reference/catalogue-results.md).
 Unchanged plots are shared across versions; each visual-coverage table records
 the retained paths and missing-mass reasons.
 
-The 29 October 2026 correction converts boolean flags to `True`, `False`, or
-missing before grouping measurements. This fixes little-red-dot counts that
-treated false text values as true. Measurement-choice explanations now account
-for retained alternatives. Membership, masses, redshifts, and manuscript growth
-results are unchanged. Under the updated
+Processed boolean flags use `True`, `False`, or missing. This corrects earlier
+little-red-dot counts that treated false text values as true; membership,
+masses, redshifts, and manuscript growth results are unchanged. Under the
 [follow-up policy](../reference/science-policy.md#samples-identities-and-ranks),
 unresolved identities have blank follow-up scores and ranks.
 

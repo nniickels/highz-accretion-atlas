@@ -15,7 +15,7 @@ values as their own reference.
 Together these files cover all 37 source families and provide 2,079 comparisons.
 Some comparisons overlap; this is not a count of distinct catalogue cells.
 The mass checks include missing errors for the twelve NEXUS measurements.
-Each numerical mass must have one independent record with its central value,
+Each numerical mass has an independent record with its central value,
 lower error, upper error, source version, and table or text location.
 
 From the repository root, after [setup](../../README.md#getting-started):
@@ -46,7 +46,7 @@ transcription agrees with its publication.
 All families use the shared provenance registry, publication/table locators, and
 independently recorded expected values. The repository does not bundle reference-only copies of
 paper pages, HTML, TeX, publisher metadata, or review excerpts. Machine-readable
-inputs used by extraction or calculations belong in `data/raw/`. Retrieve the
+inputs used by extraction or calculations are in `data/raw/`. Retrieve the
 recorded source version to inspect the original evidence. Historical review-extract
 identifiers and hashes document what was inspected; they do not identify bundled
 files or provide an offline source archive.
@@ -55,19 +55,6 @@ files or provide an offline source archive.
 revision sensitivity calculation. Its bytes
 are pinned by the provenance manifest. The frozen catalogue continues to use the
 original preprint measurements.
-
-## Extend the checks
-
-Retrieve the recorded source version, verify its archive hash, and inspect the
-specified table or passage. Record reported values and conversions, then check
-both the extraction and the processed table. Keep limits, conditional estimates,
-and missing values distinct from measurements. Never copy expected values from
-the processing pipeline.
-
-To update the four-source HTML checks, save the linked records as `cosmos.html`,
-`nexus.html`, `jades.html`, and `seven.html` outside the repository, then run
-`.venv/bin/python -m src.internal.refresh_primary_source_checks /path/to/html`.
-Review the changes against those sources before updating the provenance hashes.
 
 ## Limits
 

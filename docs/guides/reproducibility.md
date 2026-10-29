@@ -10,8 +10,8 @@ and the package build tools.
 Run the following from the repository root. It creates an unchanged baseline
 and a separate execution copy of the same committed revision, then removes
 generated outputs from the execution copy before running notebooks 00–04.
-The original virtual environment supplies Python. Uncommitted files are excluded;
-review and commit intended changes before using this procedure.
+The original virtual environment supplies Python. This procedure reproduces
+`HEAD`; it excludes uncommitted files.
 
 ```bash
 analysis_python="$PWD/.venv/bin/python"
@@ -62,10 +62,6 @@ results, and the CSV tables and PNG figures in `results/v3/selected_samples/`:
   are compared by decoded contents, allowing compression and object numbering to differ.
 - Missing or unexpected artifacts fail verification.
 
-CI removes generated artifacts in a disposable workspace, runs all five notebooks,
-and compares the results against the original checkout. It also runs the regression
-suite, source checks, publication figure verification, and a package build/import check.
-
 ## Scientific checks
 
 Run these checks from the original repository root:
@@ -92,46 +88,7 @@ The [identity verifier](../source-notes/redshift-identity-audit.md#executable-ch
 reports three unresolved groups. Its optional `--require-resolved` check currently
 fails; the publication samples exclude the affected records.
 
-## Intentional updates
-
-Generation commands are listed with the [v3 result tables](../reference/catalogue-results.md),
-[publication results](../../results/v3/selected_samples/README.md#generate-and-verify),
-and [v4 outputs](../../results/v4/README.md#generate-and-verify).
-Rebuild v1, v2, and v3 in order because later versions can reference earlier plots.
-
-Inspect and explain changes against the reviewed baseline before refreshing hashes:
-
-```bash
-.venv/bin/python -m src.internal.dataset_manifests
-.venv/bin/python -m src.internal.verify_source_provenance --write
-```
-
-A hash refresh records the current files; it does not demonstrate reproduction.
-An intentional change needs a reviewed baseline containing that change before
-the comparison can pass.
-
-Canonical publication-figure and v4 exports refresh `results/results_inventory.csv`.
-For other intentional result changes, run:
-
-```bash
-.venv/bin/python -m src.internal.build_results_inventory
-```
-
-The inventory records file sizes and hashes. Verification does not refresh it;
-matching hashes does not replace independent reproduction.
-
-Catalogue metadata edits can change the input hashes recorded by v4 and
-`data/poster_inputs.json`. Check the affected scientific values before updating
-those hashes, then rerun the v4 and poster checks below. Existing poster exports
-can be retained when the plotted values are unchanged.
-
-To reproduce the package build used by CI after installing the notebook lock:
-
-```bash
-SOURCE_DATE_EPOCH=1788393600 .venv/bin/python -m pip wheel . --no-deps --no-build-isolation --wheel-dir=/tmp/highz-wheels
-```
-
-## Posters and retained manuscript files
+## Poster and manuscript checks
 
 Current portrait and landscape PPTX/PDF pairs are in `posters/`. Scientific
 inputs are pinned in `data/poster_inputs.json`; export hashes and slide/asset
@@ -150,13 +107,9 @@ The manuscript command checks the general draft PDF/source-ZIP integrity and
 section order without LaTeX or local authoring sources. It does not compile or
 verify the Ap&SS manuscript.
 
-The Ap&SS submission uses different highlighted targets in its growth tracks
-and efficiency boundaries. Regenerate these two figure variants with
-`.venv/bin/python -m src.internal.apss_figures`, or compare them with the local
-submission PDFs using `.venv/bin/python -m src.internal.apss_figures --verify`.
-The remaining figures use the canonical publication outputs. The Ap&SS source,
-compiled PDF, and source-inventory rows (`paper/apss/tables/source_rows.tex`)
-are tracked. The remaining figure, table, and class dependencies are local
-submission files; include them when transferring or compiling the source.
-Both drafts' source-inventory caveats must agree; the general draft's rows are
-included in `paper/early_giants_overleaf.zip`.
+The Ap&SS draft highlights different targets in its growth tracks and efficiency
+boundaries. Generate those figure variants with
+`.venv/bin/python -m src.internal.apss_figures`. The remaining figures use the
+canonical publication outputs. The tracked Ap&SS source is incomplete: figure,
+table, and class dependencies are local submission files. The general draft's
+source bundle is `paper/early_giants_overleaf.zip`.

@@ -135,9 +135,10 @@ Numerical-growth eligibility is true, `mass_comparability_group=
 virial_balmer_single_epoch`, primary-growth flag false; manuscript primary
 false and expanded true under the standard catalogue and publication rules.
 The supported source-reported virial mass, systemic redshift, one-host identity
-and explicit lens correction meet the numerical gate. The published asymmetric
-interval may be used under the repository's approximate sampling contract,
-with its unspecified confidence/scatter semantics exposed. Current growth
+and explicit lens correction satisfy numerical-growth eligibility. Growth
+calculations use the published asymmetric interval with the catalogue's
+approximate mass-error sampling; its confidence convention and calibration-scatter
+coverage remain unspecified. Current growth
 results are in `results/`. This is the sole preferred measurement
 for this object; alternative calibrations and integrated/spaxel data are not
 additional independent measurements.

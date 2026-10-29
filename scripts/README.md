@@ -20,13 +20,12 @@ The [v3 result guide](../docs/reference/catalogue-results.md) lists the compact
 object summary, assumption comparisons, field availability, and minimum seeds.
 
 Primary and expanded samples use the [evidence and identity rules](../data/publication/README.md).
-Their figures remain separate from the full-catalogue figures. Manuscript editing,
-LaTeX compilation, and upload packaging are outside the notebook workflow.
+Their figures remain separate from the full-catalogue figures.
 
 ## Optional v4 analysis
 
 `05_pbh_growth_v4.ipynb` runs the four-target primordial black-hole growth
 comparison after its v3 inputs are available. It writes `results/v4/`, updates
 the results inventory, and verifies the generated tables and figures.
-It is separate from the 00–04 loop and does not rebuild manuscripts or posters.
+Run it separately from notebooks 00–04.
 See [v4 outputs and commands](../results/v4/README.md).

@@ -41,7 +41,6 @@ From the repository root after [setup](../../README.md#getting-started):
 ```
 
 Notebook 05 runs the same calculation. `v4_manifest.json` records settings,
-inputs, code, row counts, and file hashes. Writing outputs also updates
-`results/results_inventory.csv`. Verification does not change files.
-Follow the [reproduction guide](../../docs/guides/reproducibility.md) when
-updating results.
+inputs, code, row counts, and file hashes. Verification does not change files.
+Use the [reproduction guide](../../docs/guides/reproducibility.md) to compare
+regenerated outputs with an independent baseline.

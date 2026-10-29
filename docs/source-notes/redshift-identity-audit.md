@@ -96,8 +96,8 @@ not a claim that these groups have been resolved.
 `data/validation/redshift_identity_checks.json` is pinned in the source-provenance
 manifest. It records independently read source values, coordinate conventions,
 archive/member hashes, and reviewed pair decisions. The
-[validation guide](../../data/validation/README.md#extend-the-checks) describes
-how source checks are extended.
+[validation guide](../../data/validation/README.md) describes source-check
+coverage and limitations.
 
 Primary references: [Mascia Table 2 and GS-3073 discussion](https://arxiv.org/html/2608.25021v1),
 [official JADES DR3 coordinate catalogue](https://archive.stsci.edu/hlsps/jades/dr3/goods-s/catalogs/hlsp_jades_jwst_nirspec_goods-s_prism-line-fluxes_v1.1_catalog.fits),

@@ -58,11 +58,11 @@ Source-reported errors can already include calibration terms. These are retained
 once; additional method systematics remain separate unless a sensitivity test
 explicitly applies them. Missing errors do not imply exact masses.
 
-## Admission checks
+## Catalogue checks
 
-Every admitted source requires source/version provenance, explicit missingness
+Included sources have source/version provenance, explicit missingness
 and uncertainty semantics, reviewed cross-source identities and host assignments,
-and source-local observables. Validation checks:
+and source-specific observables. Validation checks:
 
 1. unique measurement IDs and exactly one preferred measurement per object;
 2. controlled class, evidence, lensing, and mass-comparability values;
@@ -71,7 +71,5 @@ and source-local observables. Validation checks:
 5. measurement/object/host links, nested v1 < v2 < v3 membership, and cardinalities;
 6. source caveats and exclusions in generated results.
 
-[Assembly inputs](../../data/README.md#assembly-inputs) supply the shared builder.
-`src.internal.verify_versions` checks these requirements. Historical admission
-implementations under `src/internal/compatibility/` support reconstruction;
-their filenames do not define additional public catalogue versions.
+Run `.venv/bin/python -m src.internal.verify_versions` from the repository root
+to check these requirements after [setup](../../README.md#getting-started).

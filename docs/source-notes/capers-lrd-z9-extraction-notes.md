@@ -166,8 +166,8 @@ The catalogue uses `lensing_status=not_reported`, blank mu, and
 
 ## Canonical mapping and eligibility
 
-The source is a single-target broad-Balmer virial study, satisfying the comparable
-Balmer-family contract. Membership is **v2 and therefore v3**, with v1 unchanged.
+The source is a single-target broad-Balmer virial study with a numerical mass,
+so it belongs to **v2 and v3**. It is absent from v1.
 This preserves the source calibration;
 it does not recalibrate every family to a common recipe.
 

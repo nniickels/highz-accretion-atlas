@@ -11,8 +11,6 @@ boolean flags, updates measurement-choice explanations, and adds source and
 identity checks.
 
 Notebook drivers and generation/verification commands are in `internal/`.
-Historical `v7_*` filenames under `internal/compatibility/` support reconstruction;
-they do not identify additional catalogue versions.
 
 Use the [notebooks](../scripts/README.md) for the complete workflow and the
 [reproduction guide](../docs/guides/reproducibility.md) for verification commands.
